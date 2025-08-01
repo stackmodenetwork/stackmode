@@ -42,6 +42,7 @@ const Index = () => {
             <Icon3D type="candlesticks" size={80} className="hover:scale-110 transition-transform duration-500" />
             <Icon3D type="video" size={80} className="hover:scale-110 transition-transform duration-500" />
             <Icon3D type="book" size={80} className="hover:scale-110 transition-transform duration-500" />
+            <Icon3D type="globe" size={80} className="hover:scale-110 transition-transform duration-500" />
           </div>
         </AnimatedBlock>
 
