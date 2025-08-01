@@ -1,0 +1,57 @@
+import { Book, Video, MessageCircle } from 'lucide-react';
+
+interface Icon3DProps {
+  type: 'book' | 'video' | 'discord';
+  size?: number;
+  className?: string;
+}
+
+export const Icon3D = ({ type, size = 64, className = "" }: Icon3DProps) => {
+  const iconComponents = {
+    book: Book,
+    video: Video,
+    discord: MessageCircle
+  };
+
+  const colors = {
+    book: 'text-secondary',
+    video: 'text-accent', 
+    discord: 'text-neon-blue'
+  };
+
+  const IconComponent = iconComponents[type];
+  const colorClass = colors[type];
+
+  return (
+    <div className={`icon-3d group perspective-1000 ${className}`}>
+      <div className="relative preserve-3d transition-all duration-500 group-hover:rotate-3d-hover">
+        {/* Main Icon */}
+        <IconComponent 
+          size={size} 
+          className={`${colorClass} neon-glow transition-all duration-500 animate-pulse-neon`}
+        />
+        
+        {/* 3D Shadow/Depth Effect */}
+        <div className="absolute top-2 left-2 -z-10 opacity-30">
+          <IconComponent 
+            size={size} 
+            className="text-muted"
+          />
+        </div>
+        
+        {/* Floating Animation Container */}
+        <div className="absolute inset-0 animate-float">
+          <div className="w-full h-full bg-gradient-retro opacity-10 blur-xl rounded-full scale-150" />
+        </div>
+        
+        {/* Interactive Glow */}
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className={`w-full h-full ${colorClass} blur-2xl opacity-50 scale-150 animate-pulse-neon`} />
+        </div>
+      </div>
+      
+      {/* Base Platform */}
+      <div className="mt-4 w-16 h-2 bg-muted rounded-full opacity-50 mx-auto transform group-hover:scale-110 transition-transform duration-500" />
+    </div>
+  );
+};
