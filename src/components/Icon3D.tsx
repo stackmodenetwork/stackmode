@@ -1,7 +1,7 @@
-import { Book, Video, CandlestickChart, Globe } from 'lucide-react';
+import { Book, Video, CandlestickChart, Globe, ShoppingBag, Database, Brain, Shield } from 'lucide-react';
 
 interface Icon3DProps {
-  type: 'book' | 'video' | 'candlesticks' | 'globe';
+  type: 'book' | 'video' | 'candlesticks' | 'globe' | 'shoppingBag' | 'database' | 'brain' | 'shield';
   size?: number;
   className?: string;
 }
@@ -11,14 +11,22 @@ export const Icon3D = ({ type, size = 64, className = "" }: Icon3DProps) => {
     book: Book,
     video: Video,
     candlesticks: CandlestickChart,
-    globe: Globe
+    globe: Globe,
+    shoppingBag: ShoppingBag,
+    database: Database,
+    brain: Brain,
+    shield: Shield
   };
 
   const colors = {
     book: 'text-secondary',
     video: 'text-accent', 
     candlesticks: 'text-primary',
-    globe: 'text-cyan-400'
+    globe: 'text-cyan-400',
+    shoppingBag: 'text-emerald-400',
+    database: 'text-blue-400',
+    brain: 'text-purple-400',
+    shield: 'text-orange-400'
   };
 
   const IconComponent = iconComponents[type];

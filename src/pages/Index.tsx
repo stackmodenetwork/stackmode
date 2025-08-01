@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { AnimatedBlock } from '@/components/AnimatedBlock';
 import { Icon3D } from '@/components/Icon3D';
 import { PressStartButton } from '@/components/PressStartButton';
-import { Gamepad2, Zap, Code } from 'lucide-react';
+import { ShoppingBag, Zap, Code, Database, Brain, Shield } from 'lucide-react';
 const Index = () => {
   const navigate = useNavigate();
   const handlePressStart = () => {
@@ -49,8 +49,8 @@ const Index = () => {
         {/* Stacking Blocks */}
         <div className="mb-16 space-y-6">
           <AnimatedBlock delay={0.5} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
-            <Gamepad2 size={24} className="text-primary mr-3 neon-glow" />
-            <span className="text-foreground font-bold tracking-wider">GAME SYSTEMS</span>
+            <ShoppingBag size={24} className="text-emerald-400 mr-3 neon-glow" />
+            <span className="text-foreground font-bold tracking-wider">SHOP</span>
           </AnimatedBlock>
           
           <AnimatedBlock delay={0.6} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
@@ -62,15 +62,30 @@ const Index = () => {
             <Code size={24} className="text-accent mr-3 neon-glow" />
             <span className="text-foreground font-bold tracking-wider">MATRIX CODE</span>
           </AnimatedBlock>
+
+          <AnimatedBlock delay={0.8} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
+            <Database size={24} className="text-blue-400 mr-3 neon-glow" />
+            <span className="text-foreground font-bold tracking-wider">DATA STREAM</span>
+          </AnimatedBlock>
+
+          <AnimatedBlock delay={0.9} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
+            <Brain size={24} className="text-purple-400 mr-3 neon-glow" />
+            <span className="text-foreground font-bold tracking-wider">NEURAL NET</span>
+          </AnimatedBlock>
+
+          <AnimatedBlock delay={1.0} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
+            <Shield size={24} className="text-orange-400 mr-3 neon-glow" />
+            <span className="text-foreground font-bold tracking-wider">CRYPTO VAULT</span>
+          </AnimatedBlock>
         </div>
 
         {/* Press Start Button */}
-        <AnimatedBlock delay={0.9}>
+        <AnimatedBlock delay={1.1}>
           <PressStartButton onClick={handlePressStart} className="mb-8" />
         </AnimatedBlock>
 
         {/* Footer Text */}
-        <AnimatedBlock delay={1.0} className="text-center">
+        <AnimatedBlock delay={1.2} className="text-center">
           <p className="text-muted-foreground font-mono text-sm tracking-wider animate-pulse-neon">
             SYSTEM INITIALIZED • READY FOR LAUNCH
           </p>
