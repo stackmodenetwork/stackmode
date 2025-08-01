@@ -47,36 +47,42 @@ const Index = () => {
         </AnimatedBlock>
 
         {/* Stacking Blocks */}
-        <div className="mb-16 space-y-6">
-          <AnimatedBlock delay={0.5} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
-            <ShoppingBag size={24} className="text-emerald-400 mr-3 neon-glow" />
-            <span className="text-foreground font-bold tracking-wider">SHOP</span>
-          </AnimatedBlock>
-          
-          <AnimatedBlock delay={0.6} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
-            <Zap size={24} className="text-secondary mr-3 neon-glow" />
-            <span className="text-foreground font-bold tracking-wider">POWER CORE</span>
-          </AnimatedBlock>
-          
-          <AnimatedBlock delay={0.7} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
-            <Code size={24} className="text-accent mr-3 neon-glow" />
-            <span className="text-foreground font-bold tracking-wider">MATRIX CODE</span>
-          </AnimatedBlock>
+        <div className="mb-16 space-y-8">
+          {/* First Row */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+            <AnimatedBlock delay={0.5} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
+              <ShoppingBag size={24} className="text-emerald-400 mr-3 neon-glow" />
+              <span className="text-foreground font-bold tracking-wider">SHOP</span>
+            </AnimatedBlock>
+            
+            <AnimatedBlock delay={0.6} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
+              <Zap size={24} className="text-secondary mr-3 neon-glow" />
+              <span className="text-foreground font-bold tracking-wider">POWER CORE</span>
+            </AnimatedBlock>
+            
+            <AnimatedBlock delay={0.7} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
+              <Code size={24} className="text-accent mr-3 neon-glow" />
+              <span className="text-foreground font-bold tracking-wider">MATRIX CODE</span>
+            </AnimatedBlock>
+          </div>
 
-          <AnimatedBlock delay={0.8} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
-            <Database size={24} className="text-blue-400 mr-3 neon-glow" />
-            <span className="text-foreground font-bold tracking-wider">DATA STREAM</span>
-          </AnimatedBlock>
+          {/* Second Row */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+            <AnimatedBlock delay={0.8} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
+              <Database size={24} className="text-blue-400 mr-3 neon-glow" />
+              <span className="text-foreground font-bold tracking-wider">DATA STREAM</span>
+            </AnimatedBlock>
 
-          <AnimatedBlock delay={0.9} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
-            <Brain size={24} className="text-purple-400 mr-3 neon-glow" />
-            <span className="text-foreground font-bold tracking-wider">NEURAL NET</span>
-          </AnimatedBlock>
+            <AnimatedBlock delay={0.9} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
+              <Brain size={24} className="text-purple-400 mr-3 neon-glow" />
+              <span className="text-foreground font-bold tracking-wider">NEURAL NET</span>
+            </AnimatedBlock>
 
-          <AnimatedBlock delay={1.0} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
-            <Shield size={24} className="text-orange-400 mr-3 neon-glow" />
-            <span className="text-foreground font-bold tracking-wider">CRYPTO VAULT</span>
-          </AnimatedBlock>
+            <AnimatedBlock delay={1.0} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
+              <Shield size={24} className="text-orange-400 mr-3 neon-glow" />
+              <span className="text-foreground font-bold tracking-wider">CRYPTO VAULT</span>
+            </AnimatedBlock>
+          </div>
         </div>
 
         {/* Press Start Button */}
