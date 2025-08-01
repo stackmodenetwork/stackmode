@@ -1,7 +1,7 @@
-import { Book, Video, MessageCircle } from 'lucide-react';
+import { Book, Video, CandlestickChart } from 'lucide-react';
 
 interface Icon3DProps {
-  type: 'book' | 'video' | 'discord';
+  type: 'book' | 'video' | 'candlesticks';
   size?: number;
   className?: string;
 }
@@ -10,13 +10,13 @@ export const Icon3D = ({ type, size = 64, className = "" }: Icon3DProps) => {
   const iconComponents = {
     book: Book,
     video: Video,
-    discord: MessageCircle
+    candlesticks: CandlestickChart
   };
 
   const colors = {
     book: 'text-secondary',
     video: 'text-accent', 
-    discord: 'text-neon-blue'
+    candlesticks: 'text-primary'
   };
 
   const IconComponent = iconComponents[type];
