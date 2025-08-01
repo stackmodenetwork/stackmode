@@ -3,29 +3,21 @@ import { AnimatedBlock } from '@/components/AnimatedBlock';
 import { Icon3D } from '@/components/Icon3D';
 import { PressStartButton } from '@/components/PressStartButton';
 import { Gamepad2, Zap, Code } from 'lucide-react';
-
 const Index = () => {
   const navigate = useNavigate();
-
   const handlePressStart = () => {
     navigate('/game');
   };
-
-  return (
-    <div className="min-h-screen bg-background relative overflow-hidden">
+  return <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Animated Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="grid grid-cols-8 grid-rows-8 h-full gap-4 p-8 animate-pulse-neon">
-          {Array.from({ length: 64 }).map((_, i) => (
-            <div 
-              key={i} 
-              className="bg-primary rounded"
-              style={{ 
-                animationDelay: `${i * 0.05}s`,
-                animationDuration: '3s'
-              }}
-            />
-          ))}
+          {Array.from({
+          length: 64
+        }).map((_, i) => <div key={i} className="bg-primary rounded" style={{
+          animationDelay: `${i * 0.05}s`,
+          animationDuration: '3s'
+        }} />)}
         </div>
       </div>
 
@@ -35,12 +27,8 @@ const Index = () => {
         {/* Title Block */}
         <AnimatedBlock delay={0.1} className="text-center mb-16">
           <div className="relative">
-            <h1 className="text-6xl md:text-8xl font-bold text-primary neon-glow mb-4 animate-pulse-neon">
-              RETRO
-            </h1>
-            <h2 className="text-4xl md:text-6xl font-bold text-secondary neon-glow animate-glitch">
-              GAMING
-            </h2>
+            <h1 className="text-6xl md:text-8xl font-bold text-primary neon-glow mb-4 animate-pulse-neon">STACKMODE.NET</h1>
+            <h2 className="text-4xl md:text-6xl font-bold text-secondary neon-glow animate-glitch">CREATE YOUR FUTURE INSHALLAH</h2>
             
             {/* Decorative Elements */}
             <div className="absolute -top-4 -left-4 w-8 h-8 border-2 border-accent animate-rotate-3d" />
@@ -77,10 +65,7 @@ const Index = () => {
 
         {/* Press Start Button */}
         <AnimatedBlock delay={0.9}>
-          <PressStartButton 
-            onClick={handlePressStart}
-            className="mb-8"
-          />
+          <PressStartButton onClick={handlePressStart} className="mb-8" />
         </AnimatedBlock>
 
         {/* Footer Text */}
@@ -107,11 +92,10 @@ const Index = () => {
 
       {/* Scanlines Effect */}
       <div className="absolute inset-0 pointer-events-none opacity-10">
-        <div className="h-full bg-gradient-to-b from-transparent via-primary/20 to-transparent animate-pulse-neon" 
-             style={{ backgroundSize: '100% 4px' }} />
+        <div className="h-full bg-gradient-to-b from-transparent via-primary/20 to-transparent animate-pulse-neon" style={{
+        backgroundSize: '100% 4px'
+      }} />
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
