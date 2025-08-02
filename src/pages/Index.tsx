@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { AnimatedBlock } from '@/components/AnimatedBlock';
 import { Icon3D } from '@/components/Icon3D';
 import { PressStartButton } from '@/components/PressStartButton';
-import { ShoppingCart, Briefcase, Play, Database, Brain, Shield } from 'lucide-react';
+import { ShoppingCart, Briefcase, Play, BookOpen, Brain, Shield } from 'lucide-react';
 const Index = () => {
   const navigate = useNavigate();
   const handlePressStart = () => {
@@ -69,7 +69,7 @@ const Index = () => {
           {/* Second Row */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
             <AnimatedBlock delay={0.8} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
-              <Database size={24} className="text-blue-400 mr-3 neon-glow" />
+              <BookOpen size={24} className="text-blue-400 mr-3 neon-glow" />
               <span className="text-foreground font-bold tracking-wider">FREE TRADING EBOOK</span>
             </AnimatedBlock>
 
