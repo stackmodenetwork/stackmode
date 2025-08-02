@@ -47,18 +47,11 @@ const Index = () => {
       {/* Main Content */}
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4">
         
-        {/* Title and Logo Block */}
+        {/* Title Block */}
         <AnimatedBlock delay={0.1} className="text-center mb-8 mt-8">
-          <div className="relative flex flex-col md:flex-row items-center justify-center gap-6">
-            <div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary neon-glow mb-4 animate-pulse-neon">STACKMODE.NET</h1>
-              <h2 className="text-2xl font-bold text-secondary neon-glow animate-glitch md:text-3xl">CREATE YOUR FUTURE INSHALLAH</h2>
-            </div>
-            <img 
-              src="/lovable-uploads/a7f33c6f-a4f7-43b7-a338-1d28936d1ac0.png" 
-              alt="StackMode Logo" 
-              className="w-20 h-20 rounded-lg shadow-[0_0_30px_rgba(34,197,94,0.6)] hover:shadow-[0_0_50px_rgba(34,197,94,0.8)] transition-all duration-500 animate-float bg-transparent"
-            />
+          <div className="relative">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary neon-glow mb-4 animate-pulse-neon">STACKMODE.NET</h1>
+            <h2 className="text-2xl font-bold text-secondary neon-glow animate-glitch md:text-3xl">CREATE YOUR FUTURE INSHALLAH</h2>
             
             {/* Decorative Elements */}
             <div className="absolute top-8 -left-12 w-8 h-8 border-2 border-accent animate-rotate-3d" />
