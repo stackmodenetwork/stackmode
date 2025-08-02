@@ -111,7 +111,7 @@ const Index = () => {
 
         {/* Trading Results Gallery */}
         <AnimatedBlock delay={1.15} className="mb-16">
-          <div className="flex flex-row items-center justify-center gap-2 sm:gap-4 md:gap-6 overflow-x-auto scrollbar-hide">
+          <div className="flex flex-row items-center justify-center gap-2 sm:gap-4 md:gap-6">
             {/* Review 1 */}
             <div className="relative group">
               <div className="absolute -top-2 -left-2 text-accent text-xl animate-pulse-neon">★</div>
