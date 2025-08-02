@@ -124,8 +124,8 @@ const Index = () => {
               <div className="absolute -bottom-3 -right-2 text-accent text-xl animate-float">★</div>
               
               <img 
-                src="/lovable-uploads/20cc4d6a-b4f6-41e8-b9cf-a3da587cdc83.png"
-                alt="Trading Success - Client Results" 
+                src="/lovable-uploads/206329e8-5e7d-4326-b922-690e9f4a17c6.png"
+                alt="Trading Success - Client Results"
                 className="w-72 h-auto neon-border rounded-lg hover:soft-glow transition-all duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
