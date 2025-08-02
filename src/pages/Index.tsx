@@ -1,14 +1,37 @@
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
 import { AnimatedBlock } from '@/components/AnimatedBlock';
 import { Icon3D } from '@/components/Icon3D';
 import { PressStartButton } from '@/components/PressStartButton';
 import { ShoppingCart, Briefcase, Play, BookOpen, CandlestickChart, Users, Check } from 'lucide-react';
 const Index = () => {
   const navigate = useNavigate();
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = 0.2;
+    }
+  }, []);
+
   const handlePressStart = () => {
     navigate('/game');
   };
+  
   return <div className="min-h-screen bg-background relative overflow-hidden">
+      {/* Background Music */}
+      <audio 
+        ref={audioRef}
+        autoPlay 
+        loop 
+        muted={false}
+        className="hidden"
+      >
+        <source src="/ambient-cyber-music.mp3" type="audio/mpeg" />
+        <source src="/ambient-cyber-music.ogg" type="audio/ogg" />
+        Your browser does not support the audio element.
+      </audio>
+
       {/* Animated Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="grid grid-cols-8 grid-rows-8 h-full gap-4 p-8 animate-pulse-neon">
