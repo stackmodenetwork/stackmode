@@ -152,8 +152,8 @@ const Index = () => {
               <div className="absolute -bottom-2 -left-1 text-secondary text-xl animate-float">★</div>
               <div className="absolute -bottom-3 -right-2 text-accent text-sm animate-pulse-neon">★</div>
               
-              <img src="/lovable-uploads/2cddecc7-da9f-49e7-bc98-d47d395f175c.png" alt="Multiple Trading Wins - Consistent Profits" className="w-72 h-auto neon-border rounded-lg hover:soft-glow transition-all duration-500 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <img src="/lovable-uploads/2cddecc7-da9f-49e7-bc98-d47d395f175c.png" alt="Multiple Trading Wins - Consistent Profits" className="w-72 h-auto neon-border rounded-2xl hover:soft-glow transition-all duration-500 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
           </div>
         </AnimatedBlock>
