@@ -56,21 +56,21 @@ const Index = () => {
             </AnimatedBlock>
             
             <AnimatedBlock delay={0.6} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
-              <Play size={24} className="text-accent mr-3 neon-glow" />
-              <span className="text-foreground font-bold tracking-wider">FREE TRADING COURSE</span>
+              <Users size={24} className="text-orange-400 mr-3 neon-glow" />
+              <span className="text-foreground font-bold tracking-wider">SIGNALS DISCORD</span>
             </AnimatedBlock>
             
             <AnimatedBlock delay={0.7} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
-              <BookOpen size={24} className="text-blue-400 mr-3 neon-glow" />
-              <span className="text-foreground font-bold tracking-wider">FREE TRADING EBOOK</span>
+              <Play size={24} className="text-accent mr-3 neon-glow" />
+              <span className="text-foreground font-bold tracking-wider">FREE TRADING COURSE</span>
             </AnimatedBlock>
           </div>
 
           {/* Second Row */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
             <AnimatedBlock delay={0.8} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
-              <Users size={24} className="text-orange-400 mr-3 neon-glow" />
-              <span className="text-foreground font-bold tracking-wider">SIGNALS DISCORD</span>
+              <BookOpen size={24} className="text-blue-400 mr-3 neon-glow" />
+              <span className="text-foreground font-bold tracking-wider">FREE TRADING EBOOK</span>
             </AnimatedBlock>
 
             <AnimatedBlock delay={0.9} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
