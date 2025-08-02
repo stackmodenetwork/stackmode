@@ -53,7 +53,7 @@ const Index = () => {
             <AnimatedBlock delay={0.5} className="w-80 h-16">
               <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
                 <Brain size={24} className="text-purple-400 mr-3 neon-glow" />
-                <span className="text-foreground font-bold tracking-wider">TRADING MENTORSHIP</span>
+                <span className="text-foreground font-bold tracking-wider">LEARN HOW TO TRADE</span>
               </a>
             </AnimatedBlock>
             
