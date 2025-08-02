@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { AnimatedBlock } from '@/components/AnimatedBlock';
 import { Icon3D } from '@/components/Icon3D';
 import { PressStartButton } from '@/components/PressStartButton';
-import { ShoppingCart, Briefcase, Play, BookOpen, Brain, Users, Check } from 'lucide-react';
+import { ShoppingCart, Briefcase, Play, BookOpen, CandlestickChart, Users, Check } from 'lucide-react';
 const Index = () => {
   const navigate = useNavigate();
   const handlePressStart = () => {
@@ -52,7 +52,7 @@ const Index = () => {
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
             <AnimatedBlock delay={0.5} className="w-80 h-16">
               <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
-                <Brain size={24} className="text-purple-400 mr-3 neon-glow" />
+                <CandlestickChart size={24} className="text-purple-400 mr-3 neon-glow" />
                 <span className="text-foreground font-bold tracking-wider">LEARN HOW TO TRADE</span>
               </a>
             </AnimatedBlock>
