@@ -51,47 +51,42 @@ const Index = () => {
           {/* First Row */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
             <AnimatedBlock delay={0.5} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
-              <ShoppingCart size={24} className="text-emerald-400 mr-3 neon-glow" />
-              <span className="text-foreground font-bold tracking-wider">SHOP</span>
+              <Brain size={24} className="text-purple-400 mr-3 neon-glow" />
+              <span className="text-foreground font-bold tracking-wider">TRADING MENTORSHIP</span>
             </AnimatedBlock>
             
             <AnimatedBlock delay={0.6} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
-              <Briefcase size={24} className="text-emerald-400 mr-3 neon-glow" />
-              <span className="text-foreground font-bold tracking-wider">START/GROW YOUR BUSINESS</span>
+              <Play size={24} className="text-accent mr-3 neon-glow" />
+              <span className="text-foreground font-bold tracking-wider">FREE TRADING COURSE</span>
             </AnimatedBlock>
             
             <AnimatedBlock delay={0.7} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
-              <Play size={24} className="text-accent mr-3 neon-glow" />
-              <span className="text-foreground font-bold tracking-wider">FREE TRADING COURSE</span>
+              <BookOpen size={24} className="text-blue-400 mr-3 neon-glow" />
+              <span className="text-foreground font-bold tracking-wider">FREE TRADING EBOOK</span>
             </AnimatedBlock>
           </div>
 
           {/* Second Row */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
             <AnimatedBlock delay={0.8} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
-              <BookOpen size={24} className="text-blue-400 mr-3 neon-glow" />
-              <span className="text-foreground font-bold tracking-wider">FREE TRADING EBOOK</span>
+              <Users size={24} className="text-orange-400 mr-3 neon-glow" />
+              <span className="text-foreground font-bold tracking-wider">SIGNALS DISCORD</span>
             </AnimatedBlock>
 
             <AnimatedBlock delay={0.9} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
-              <Brain size={24} className="text-purple-400 mr-3 neon-glow" />
-              <span className="text-foreground font-bold tracking-wider">TRADING MENTORSHIP</span>
+              <Briefcase size={24} className="text-emerald-400 mr-3 neon-glow" />
+              <span className="text-foreground font-bold tracking-wider">START/GROW YOUR BUSINESS</span>
             </AnimatedBlock>
 
             <AnimatedBlock delay={1.0} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
-              <Users size={24} className="text-orange-400 mr-3 neon-glow" />
-              <span className="text-foreground font-bold tracking-wider">SIGNALS DISCORD</span>
+              <ShoppingCart size={24} className="text-emerald-400 mr-3 neon-glow" />
+              <span className="text-foreground font-bold tracking-wider">SHOP</span>
             </AnimatedBlock>
           </div>
         </div>
 
-        {/* Press Start Button */}
-        <AnimatedBlock delay={1.1}>
-          <PressStartButton onClick={handlePressStart} className="mb-8" />
-        </AnimatedBlock>
-
         {/* Footer Text */}
-        <AnimatedBlock delay={1.2} className="text-center">
+        <AnimatedBlock delay={1.1} className="text-center">
           <p className="text-muted-foreground font-mono text-sm tracking-wider animate-pulse-neon">
             SYSTEM INITIALIZED • READY FOR LAUNCH
           </p>
@@ -109,7 +104,7 @@ const Index = () => {
         LOADING...
       </div>
       <div className="absolute bottom-4 right-4 text-muted-foreground font-mono text-sm">
-        © 2024 RETRO
+        STACKMODECHRIS
       </div>
 
       {/* Scanlines Effect */}
