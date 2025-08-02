@@ -119,7 +119,7 @@ const Index = () => {
         </div>
 
         {/* SUCCESS TESTIMONIALS SECTION */}
-        <AnimatedBlock delay={1.1} className="mb-16 text-center">
+        <AnimatedBlock delay={1.1} className="mb-8 text-center">
           <div className="relative">
             <h3 className="text-4xl md:text-5xl font-bold text-accent neon-glow mb-2 animate-pulse-neon">REAL RESULTS ALHAMDULILLAH</h3>
             <p className="text-xl text-secondary font-bold tracking-wider flex items-center justify-center gap-2">FROM REAL STUDENTS <Check size={20} className="text-green-400 neon-glow" /></p>
