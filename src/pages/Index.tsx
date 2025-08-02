@@ -27,8 +27,8 @@ const Index = () => {
         {/* Title Block */}
         <AnimatedBlock delay={0.1} className="text-center mb-16">
           <div className="relative">
-            <h1 className="text-6xl md:text-8xl font-bold text-primary neon-glow mb-4 animate-pulse-neon">STACKMODE.NET</h1>
-            <h2 className="text-4xl md:text-6xl font-bold text-secondary neon-glow animate-glitch">CREATE YOUR FUTURE INSHALLAH</h2>
+            <h1 className="text-6xl font-bold text-primary neon-glow mb-4 animate-pulse-neon md:text-5xl">STACKMODE.NET</h1>
+            <h2 className="text-4xl font-bold text-secondary neon-glow animate-glitch md:text-3xl">CREATE YOUR FUTURE INSHALLAH</h2>
             
             {/* Decorative Elements */}
             <div className="absolute -top-4 -left-4 w-8 h-8 border-2 border-accent animate-rotate-3d" />
@@ -51,36 +51,21 @@ const Index = () => {
           {/* First Row */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
             <AnimatedBlock delay={0.5} className="w-80 h-16">
-              <a 
-                href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer"
-              >
+              <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
                 <Brain size={24} className="text-purple-400 mr-3 neon-glow" />
                 <span className="text-foreground font-bold tracking-wider">TRADING MENTORSHIP</span>
               </a>
             </AnimatedBlock>
             
             <AnimatedBlock delay={0.6} className="w-80 h-16">
-              <a 
-                href="https://discord.gg/5zYWSWGMYm" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer"
-              >
+              <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
                 <Users size={24} className="text-orange-400 mr-3 neon-glow" />
                 <span className="text-foreground font-bold tracking-wider">SIGNALS DISCORD</span>
               </a>
             </AnimatedBlock>
             
             <AnimatedBlock delay={0.7} className="w-80 h-16">
-              <a 
-                href="https://whop.com/checkout/plan_8e0Cvc6tfhobz/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer"
-              >
+              <a href="https://whop.com/checkout/plan_8e0Cvc6tfhobz/" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
                 <Play size={24} className="text-accent mr-3 neon-glow" />
                 <span className="text-foreground font-bold tracking-wider">FREE TRADING COURSE</span>
               </a>
@@ -90,24 +75,14 @@ const Index = () => {
           {/* Second Row */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
             <AnimatedBlock delay={0.8} className="w-80 h-16">
-              <a 
-                href="https://stackmodechris.systeme.io/62d59ef4-fb122a73" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer"
-              >
+              <a href="https://stackmodechris.systeme.io/62d59ef4-fb122a73" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
                 <BookOpen size={24} className="text-blue-400 mr-3 neon-glow" />
                 <span className="text-foreground font-bold tracking-wider">FREE TRADING EBOOK</span>
               </a>
             </AnimatedBlock>
 
             <AnimatedBlock delay={0.9} className="w-80 h-16">
-              <a 
-                href="https://calendly.com/stackmodechris/stackmode-business-mentorship" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer"
-              >
+              <a href="https://calendly.com/stackmodechris/stackmode-business-mentorship" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
                 <Briefcase size={24} className="text-emerald-400 mr-3 neon-glow" />
                 <span className="text-foreground font-bold tracking-wider">START/GROW YOUR BUSINESS</span>
               </a>
@@ -144,11 +119,7 @@ const Index = () => {
               <div className="absolute -bottom-2 -left-1 text-secondary text-sm animate-pulse-neon">★</div>
               <div className="absolute -bottom-3 -right-2 text-accent text-xl animate-float">★</div>
               
-              <img 
-                src="/lovable-uploads/206329e8-5e7d-4326-b922-690e9f4a17c6.png"
-                alt="Trading Success - Client Results"
-                className="w-72 h-auto neon-border rounded-lg hover:soft-glow transition-all duration-500 group-hover:scale-105"
-              />
+              <img src="/lovable-uploads/206329e8-5e7d-4326-b922-690e9f4a17c6.png" alt="Trading Success - Client Results" className="w-72 h-auto neon-border rounded-lg hover:soft-glow transition-all duration-500 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
 
@@ -159,11 +130,7 @@ const Index = () => {
               <div className="absolute -bottom-2 -left-1 text-accent text-lg animate-float">★</div>
               <div className="absolute -bottom-3 -right-2 text-secondary text-sm animate-pulse-neon">★</div>
               
-              <img 
-                src="/lovable-uploads/a28ad2f5-ba42-468f-b48a-866d99c2ded8.png"
-                alt="Daily Profits - $563.94 Realized" 
-                className="w-72 h-auto neon-border rounded-lg hover:soft-glow transition-all duration-500 group-hover:scale-105"
-              />
+              <img src="/lovable-uploads/a28ad2f5-ba42-468f-b48a-866d99c2ded8.png" alt="Daily Profits - $563.94 Realized" className="w-72 h-auto neon-border rounded-lg hover:soft-glow transition-all duration-500 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
 
@@ -174,11 +141,7 @@ const Index = () => {
               <div className="absolute -bottom-2 -left-1 text-primary text-lg animate-pulse-neon">★</div>
               <div className="absolute -bottom-3 -right-2 text-accent text-xl animate-float">★</div>
               
-              <img 
-                src="/lovable-uploads/2cddecc7-da9f-49e7-bc98-d47d395f175c.png"
-                alt="Multiple Trading Wins - Consistent Profits" 
-                className="w-72 h-auto neon-border rounded-lg hover:soft-glow transition-all duration-500 group-hover:scale-105"
-              />
+              <img src="/lovable-uploads/2cddecc7-da9f-49e7-bc98-d47d395f175c.png" alt="Multiple Trading Wins - Consistent Profits" className="w-72 h-auto neon-border rounded-lg hover:soft-glow transition-all duration-500 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
           </div>
