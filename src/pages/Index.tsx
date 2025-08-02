@@ -55,7 +55,7 @@ const Index = () => {
                 href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 transition-colors cursor-pointer"
+                className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer"
               >
                 <Brain size={24} className="text-purple-400 mr-3 neon-glow" />
                 <span className="text-foreground font-bold tracking-wider">TRADING MENTORSHIP</span>
@@ -74,7 +74,7 @@ const Index = () => {
               </a>
             </AnimatedBlock>
             
-            <AnimatedBlock delay={0.7} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
+            <AnimatedBlock delay={0.7} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center hover:soft-glow transition-all cursor-pointer">
               <Play size={24} className="text-accent mr-3 neon-glow" />
               <span className="text-foreground font-bold tracking-wider">FREE TRADING COURSE</span>
             </AnimatedBlock>
@@ -82,17 +82,17 @@ const Index = () => {
 
           {/* Second Row */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-            <AnimatedBlock delay={0.8} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
+            <AnimatedBlock delay={0.8} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center hover:soft-glow transition-all cursor-pointer">
               <BookOpen size={24} className="text-blue-400 mr-3 neon-glow" />
               <span className="text-foreground font-bold tracking-wider">FREE TRADING EBOOK</span>
             </AnimatedBlock>
 
-            <AnimatedBlock delay={0.9} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
+            <AnimatedBlock delay={0.9} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center hover:soft-glow transition-all cursor-pointer">
               <Briefcase size={24} className="text-emerald-400 mr-3 neon-glow" />
               <span className="text-foreground font-bold tracking-wider">START/GROW YOUR BUSINESS</span>
             </AnimatedBlock>
 
-            <AnimatedBlock delay={1.0} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
+            <AnimatedBlock delay={1.0} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center hover:soft-glow transition-all cursor-pointer">
               <ShoppingCart size={24} className="text-emerald-400 mr-3 neon-glow" />
               <span className="text-foreground font-bold tracking-wider">SHOP</span>
             </AnimatedBlock>
