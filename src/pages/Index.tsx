@@ -172,7 +172,7 @@ const Index = () => {
             </div>
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-primary neon-glow">100%</div>
-              <div className="text-sm font-mono text-muted-foreground tracking-wider">WINNING STREAK</div>
+              <div className="text-sm font-mono text-muted-foreground tracking-wider">REAL PROFITS</div>
             </div>
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-secondary neon-glow">24/7</div>
