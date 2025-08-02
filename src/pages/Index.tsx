@@ -39,7 +39,7 @@ const Index = () => {
         {/* Icon Row */}
         <AnimatedBlock delay={0.3} className="mb-16">
           <div className="flex items-center justify-center gap-12 md:gap-20">
-            <Icon3D type="candlesticks" size={80} className="hover:scale-110 transition-transform duration-500" />
+            <Icon3D type="wallet" size={80} className="hover:scale-110 transition-transform duration-500" />
             <Icon3D type="video" size={80} className="hover:scale-110 transition-transform duration-500" />
             <Icon3D type="book" size={80} className="hover:scale-110 transition-transform duration-500" />
             <Icon3D type="globe" size={80} className="hover:scale-110 transition-transform duration-500" />
