@@ -111,7 +111,7 @@ const Index = () => {
 
         {/* Trading Results Gallery */}
         <AnimatedBlock delay={1.15} className="mb-16">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 flex-wrap">
             {/* Review 1 */}
             <div className="relative group">
               <div className="absolute -top-2 -left-2 text-accent text-xl animate-pulse-neon">★</div>
@@ -143,6 +143,17 @@ const Index = () => {
               
               <img src="/lovable-uploads/2cddecc7-da9f-49e7-bc98-d47d395f175c.png" alt="Multiple Trading Wins - Consistent Profits" className="w-72 h-auto neon-border rounded-lg hover:soft-glow transition-all duration-500 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </div>
+
+            {/* Review 4 - Volume Chart */}
+            <div className="relative group">
+              <div className="absolute -top-2 -left-2 text-accent text-lg animate-float">★</div>
+              <div className="absolute -top-3 -right-1 text-primary text-xl animate-pulse-neon">★</div>
+              <div className="absolute -bottom-2 -left-1 text-secondary text-xl animate-float">★</div>
+              <div className="absolute -bottom-3 -right-2 text-accent text-sm animate-pulse-neon">★</div>
+              
+              <img src="/lovable-uploads/d73c4368-8499-406f-8576-206f4c571130.png" alt="Trading Volume Growth - $1,195 Gross Volume" className="w-72 h-auto neon-border rounded-lg hover:soft-glow transition-all duration-500 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
           </div>
         </AnimatedBlock>
