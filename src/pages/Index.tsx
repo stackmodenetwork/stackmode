@@ -87,9 +87,7 @@ const Index = () => {
 
         {/* Footer Text */}
         <AnimatedBlock delay={1.1} className="text-center">
-          <p className="text-muted-foreground font-mono text-sm tracking-wider animate-pulse-neon">
-            SYSTEM INITIALIZED • READY FOR LAUNCH
-          </p>
+          <p className="text-muted-foreground font-mono text-sm tracking-wider animate-pulse-neon">SYSTEM INITIALIZED • READY FOR LAUNCH ALHAMDULILLAH</p>
         </AnimatedBlock>
       </div>
 
