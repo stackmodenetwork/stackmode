@@ -181,7 +181,7 @@ const Index = () => {
         LOADING...
       </div>
       <div className="absolute bottom-4 right-4 text-muted-foreground font-mono text-sm">
-        STACKMODECHRIS
+        @STACKMODECHRIS
       </div>
 
       {/* Scanlines Effect */}
