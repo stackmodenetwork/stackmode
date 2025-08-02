@@ -131,6 +131,11 @@
     @apply bg-background text-foreground overflow-x-hidden;
     font-family: 'Courier New', monospace;
   }
+
+  /* Hide Lovable badge */
+  #lovable-badge {
+    display: none !important;
+  }
 }
 
 @layer components {
