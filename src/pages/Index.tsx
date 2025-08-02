@@ -74,9 +74,16 @@ const Index = () => {
               </a>
             </AnimatedBlock>
             
-            <AnimatedBlock delay={0.7} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center hover:soft-glow transition-all cursor-pointer">
-              <Play size={24} className="text-accent mr-3 neon-glow" />
-              <span className="text-foreground font-bold tracking-wider">FREE TRADING COURSE</span>
+            <AnimatedBlock delay={0.7} className="w-80 h-16">
+              <a 
+                href="https://whop.com/checkout/plan_8e0Cvc6tfhobz/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer"
+              >
+                <Play size={24} className="text-accent mr-3 neon-glow" />
+                <span className="text-foreground font-bold tracking-wider">FREE TRADING COURSE</span>
+              </a>
             </AnimatedBlock>
           </div>
 
