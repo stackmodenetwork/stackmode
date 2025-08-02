@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { AnimatedBlock } from '@/components/AnimatedBlock';
 import { Icon3D } from '@/components/Icon3D';
 import { PressStartButton } from '@/components/PressStartButton';
-import { ShoppingCart, Briefcase, Play, BookOpen, Brain, Shield } from 'lucide-react';
+import { ShoppingCart, Briefcase, Play, BookOpen, Brain, Users } from 'lucide-react';
 const Index = () => {
   const navigate = useNavigate();
   const handlePressStart = () => {
@@ -79,7 +79,7 @@ const Index = () => {
             </AnimatedBlock>
 
             <AnimatedBlock delay={1.0} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center">
-              <Shield size={24} className="text-orange-400 mr-3 neon-glow" />
+              <Users size={24} className="text-orange-400 mr-3 neon-glow" />
               <span className="text-foreground font-bold tracking-wider">SIGNALS DISCORD</span>
             </AnimatedBlock>
           </div>
