@@ -46,88 +46,6 @@ const Index = () => {
           </div>
         </AnimatedBlock>
 
-        {/* SUCCESS TESTIMONIALS SECTION */}
-        <AnimatedBlock delay={0.4} className="mb-16 text-center">
-          <div className="relative">
-            <h3 className="text-4xl md:text-5xl font-bold text-accent neon-glow mb-2 animate-pulse-neon">REAL RESULTS</h3>
-            <p className="text-xl text-secondary font-bold tracking-wider">FROM REAL STUDENTS • ALHAMDULILLAH</p>
-            
-            {/* Decorative Stars */}
-            <div className="absolute -top-2 -left-8 text-accent text-2xl animate-pulse-neon">★</div>
-            <div className="absolute -top-4 -right-6 text-primary text-xl animate-float">★</div>
-            <div className="absolute -bottom-2 left-4 text-secondary text-lg animate-pulse-neon">★</div>
-            <div className="absolute -bottom-4 right-8 text-accent text-2xl animate-float">★</div>
-          </div>
-        </AnimatedBlock>
-
-        {/* Trading Results Gallery */}
-        <AnimatedBlock delay={0.45} className="mb-16">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-8">
-            {/* Review 1 */}
-            <div className="relative group">
-              <div className="absolute -top-2 -left-2 text-accent text-xl animate-pulse-neon">★</div>
-              <div className="absolute -top-3 -right-1 text-primary text-lg animate-float">★</div>
-              <div className="absolute -bottom-2 -left-1 text-secondary text-sm animate-pulse-neon">★</div>
-              <div className="absolute -bottom-3 -right-2 text-accent text-xl animate-float">★</div>
-              
-              <img 
-                src="/lovable-uploads/20cc4d6a-b4f6-41e8-b9cf-a3da587cdc83.png"
-                alt="Trading Success - Client Results" 
-                className="w-72 h-auto neon-border rounded-lg hover:soft-glow transition-all duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </div>
-
-            {/* Review 2 */}
-            <div className="relative group">
-              <div className="absolute -top-2 -left-2 text-primary text-lg animate-float">★</div>
-              <div className="absolute -top-3 -right-1 text-accent text-xl animate-pulse-neon">★</div>
-              <div className="absolute -bottom-2 -left-1 text-accent text-lg animate-float">★</div>
-              <div className="absolute -bottom-3 -right-2 text-secondary text-sm animate-pulse-neon">★</div>
-              
-              <img 
-                src="/lovable-uploads/a28ad2f5-ba42-468f-b48a-866d99c2ded8.png"
-                alt="Daily Profits - $563.94 Realized" 
-                className="w-72 h-auto neon-border rounded-lg hover:soft-glow transition-all duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </div>
-
-            {/* Review 3 */}
-            <div className="relative group">
-              <div className="absolute -top-2 -left-2 text-secondary text-xl animate-pulse-neon">★</div>
-              <div className="absolute -top-3 -right-1 text-accent text-lg animate-float">★</div>
-              <div className="absolute -bottom-2 -left-1 text-primary text-lg animate-pulse-neon">★</div>
-              <div className="absolute -bottom-3 -right-2 text-accent text-xl animate-float">★</div>
-              
-              <img 
-                src="/lovable-uploads/2cddecc7-da9f-49e7-bc98-d47d395f175c.png"
-                alt="Multiple Trading Wins - Consistent Profits" 
-                className="w-72 h-auto neon-border rounded-lg hover:soft-glow transition-all duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </div>
-          </div>
-        </AnimatedBlock>
-
-        {/* Results Stats */}
-        <AnimatedBlock delay={0.47} className="mb-16 text-center">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-accent neon-glow">$2000+</div>
-              <div className="text-sm font-mono text-muted-foreground tracking-wider">PROFITS GENERATED</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-primary neon-glow">100%</div>
-              <div className="text-sm font-mono text-muted-foreground tracking-wider">WINNING STREAK</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-secondary neon-glow">24/7</div>
-              <div className="text-sm font-mono text-muted-foreground tracking-wider">SUPPORT & SIGNALS</div>
-            </div>
-          </div>
-        </AnimatedBlock>
-
         {/* Stacking Blocks */}
         <div className="mb-16 space-y-8">
           {/* First Row */}
@@ -181,8 +99,89 @@ const Index = () => {
           </div>
         </div>
 
+        {/* SUCCESS TESTIMONIALS SECTION */}
+        <AnimatedBlock delay={1.1} className="mb-16 text-center">
+          <div className="relative">
+            <h3 className="text-4xl md:text-5xl font-bold text-accent neon-glow mb-2 animate-pulse-neon">REAL RESULTS</h3>
+            <p className="text-xl text-secondary font-bold tracking-wider">FROM REAL STUDENTS • ALHAMDULILLAH</p>
+            
+            {/* Decorative Stars */}
+            <div className="absolute -top-2 -left-8 text-accent text-2xl animate-pulse-neon">★</div>
+            <div className="absolute -top-4 -right-6 text-primary text-xl animate-float">★</div>
+            <div className="absolute -bottom-2 left-4 text-secondary text-lg animate-pulse-neon">★</div>
+            <div className="absolute -bottom-4 right-8 text-accent text-2xl animate-float">★</div>
+          </div>
+        </AnimatedBlock>
+
+        {/* Trading Results Gallery */}
+        <AnimatedBlock delay={1.15} className="mb-16">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+            {/* Review 1 */}
+            <div className="relative group">
+              <div className="absolute -top-2 -left-2 text-accent text-xl animate-pulse-neon">★</div>
+              <div className="absolute -top-3 -right-1 text-primary text-lg animate-float">★</div>
+              <div className="absolute -bottom-2 -left-1 text-secondary text-sm animate-pulse-neon">★</div>
+              <div className="absolute -bottom-3 -right-2 text-accent text-xl animate-float">★</div>
+              
+              <img 
+                src="/lovable-uploads/20cc4d6a-b4f6-41e8-b9cf-a3da587cdc83.png"
+                alt="Trading Success - Client Results" 
+                className="w-72 h-auto neon-border rounded-lg hover:soft-glow transition-all duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </div>
+
+            {/* Review 2 */}
+            <div className="relative group">
+              <div className="absolute -top-2 -left-2 text-primary text-lg animate-float">★</div>
+              <div className="absolute -top-3 -right-1 text-accent text-xl animate-pulse-neon">★</div>
+              <div className="absolute -bottom-2 -left-1 text-accent text-lg animate-float">★</div>
+              <div className="absolute -bottom-3 -right-2 text-secondary text-sm animate-pulse-neon">★</div>
+              
+              <img 
+                src="/lovable-uploads/a28ad2f5-ba42-468f-b48a-866d99c2ded8.png"
+                alt="Daily Profits - $563.94 Realized" 
+                className="w-72 h-auto neon-border rounded-lg hover:soft-glow transition-all duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </div>
+
+            {/* Review 3 */}
+            <div className="relative group">
+              <div className="absolute -top-2 -left-2 text-secondary text-xl animate-pulse-neon">★</div>
+              <div className="absolute -top-3 -right-1 text-accent text-lg animate-float">★</div>
+              <div className="absolute -bottom-2 -left-1 text-primary text-lg animate-pulse-neon">★</div>
+              <div className="absolute -bottom-3 -right-2 text-accent text-xl animate-float">★</div>
+              
+              <img 
+                src="/lovable-uploads/2cddecc7-da9f-49e7-bc98-d47d395f175c.png"
+                alt="Multiple Trading Wins - Consistent Profits" 
+                className="w-72 h-auto neon-border rounded-lg hover:soft-glow transition-all duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </div>
+          </div>
+        </AnimatedBlock>
+
+        {/* Results Stats */}
+        <AnimatedBlock delay={1.17} className="mb-16 text-center">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-accent neon-glow">$2000+</div>
+              <div className="text-sm font-mono text-muted-foreground tracking-wider">PROFITS GENERATED</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-primary neon-glow">100%</div>
+              <div className="text-sm font-mono text-muted-foreground tracking-wider">WINNING STREAK</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-secondary neon-glow">24/7</div>
+              <div className="text-sm font-mono text-muted-foreground tracking-wider">SUPPORT & SIGNALS</div>
+            </div>
+          </div>
+        </AnimatedBlock>
         {/* Footer Text */}
-        <AnimatedBlock delay={1.1} className="text-center">
+        <AnimatedBlock delay={1.2} className="text-center">
           <p className="text-muted-foreground font-mono text-sm tracking-wider animate-pulse-neon">SYSTEM INITIALIZED • READY FOR LAUNCH ALHAMDULILLAH</p>
         </AnimatedBlock>
       </div>
