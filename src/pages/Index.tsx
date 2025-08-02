@@ -165,7 +165,7 @@ const Index = () => {
           </div>
         </AnimatedBlock>
         {/* Footer Text */}
-        <AnimatedBlock delay={1.2} className="text-center">
+        <AnimatedBlock delay={1.2} className="text-center mb-12">
           <p className="text-muted-foreground font-mono text-sm tracking-wider animate-pulse-neon">SYSTEM INITIALIZED • READY FOR LAUNCH ALHAMDULILLAH</p>
         </AnimatedBlock>
       </div>
