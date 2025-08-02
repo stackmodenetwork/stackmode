@@ -32,7 +32,7 @@ const Index = () => {
             
             {/* Decorative Elements */}
             <div className="absolute -top-4 -left-4 w-8 h-8 border-2 border-accent animate-rotate-3d" />
-            <div className="absolute -bottom-4 -right-8 w-6 h-6 bg-accent animate-float" />
+            <div className="absolute -bottom-4 -right-12 w-6 h-6 bg-accent animate-float" />
           </div>
         </AnimatedBlock>
 
