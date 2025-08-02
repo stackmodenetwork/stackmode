@@ -31,7 +31,7 @@ const Index = () => {
             <h2 className="text-2xl font-bold text-secondary neon-glow animate-glitch md:text-3xl">CREATE YOUR FUTURE INSHALLAH</h2>
             
             {/* Decorative Elements */}
-            <div className="absolute top-8 -left-8 w-8 h-8 border-2 border-accent animate-rotate-3d" />
+            <div className="absolute top-8 -left-12 w-8 h-8 border-2 border-accent animate-rotate-3d" />
             <div className="absolute -bottom-4 -right-12 w-6 h-6 bg-accent animate-float" />
           </div>
         </AnimatedBlock>
