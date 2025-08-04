@@ -7,26 +7,17 @@ import { ShoppingCart, Briefcase, Play, BookOpen, CandlestickChart, Siren, Check
 const Index = () => {
   const navigate = useNavigate();
   const audioRef = useRef<HTMLAudioElement>(null);
-
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = 0.2;
     }
   }, []);
-
   const handlePressStart = () => {
     navigate('/game');
   };
-  
   return <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Background Music */}
-      <audio 
-        ref={audioRef}
-        autoPlay 
-        loop 
-        muted={false}
-        className="hidden"
-      >
+      <audio ref={audioRef} autoPlay loop muted={false} className="hidden">
         <source src="/ambient-cyber-music.mp3" type="audio/mpeg" />
         <source src="/ambient-cyber-music.ogg" type="audio/ogg" />
         Your browser does not support the audio element.
@@ -76,7 +67,7 @@ const Index = () => {
             <AnimatedBlock delay={0.5} className="w-80 h-16">
               <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
                 <CandlestickChart size={24} className="text-purple-400 mr-3 neon-glow" />
-                <span className="text-foreground font-bold tracking-wider">LEARN HOW TO TRADE</span>
+                <span className="text-foreground font-bold tracking-wider">TRADING MENTORSHIP</span>
               </a>
             </AnimatedBlock>
             
@@ -94,7 +85,7 @@ const Index = () => {
             <AnimatedBlock delay={0.7} className="w-80 h-16">
               <a href="https://whop.com/checkout/plan_8e0Cvc6tfhobz/" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
                 <Play size={24} className="text-accent mr-3 neon-glow" />
-                <span className="text-foreground font-bold tracking-wider">FREE TRADING COURSE</span>
+                <span className="text-foreground font-bold tracking-wider">FREE TRADING COURSE/EBOOK</span>
               </a>
             </AnimatedBlock>
           </div>
@@ -104,7 +95,7 @@ const Index = () => {
             <AnimatedBlock delay={0.8} className="w-80 h-16">
               <a href="https://stackmodechris.systeme.io/62d59ef4-fb122a73" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
                 <BookOpen size={24} className="text-blue-400 mr-3 neon-glow" />
-                <span className="text-foreground font-bold tracking-wider">FREE TRADING EBOOK</span>
+                <span className="text-foreground font-bold tracking-wider">PODCAST</span>
               </a>
             </AnimatedBlock>
 
