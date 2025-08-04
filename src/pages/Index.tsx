@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 import { AnimatedBlock } from '@/components/AnimatedBlock';
 import { Icon3D } from '@/components/Icon3D';
 import { PressStartButton } from '@/components/PressStartButton';
-import { ShoppingCart, Briefcase, Play, BookOpen, CandlestickChart, Siren, Check, DollarSign } from 'lucide-react';
+import { ShoppingCart, Briefcase, Play, BookOpen, CandlestickChart, Siren, Check, DollarSign, Mic } from 'lucide-react';
 const Index = () => {
   const navigate = useNavigate();
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -84,7 +84,7 @@ const Index = () => {
             
             <AnimatedBlock delay={0.7} className="w-80 h-16">
               <a href="https://whop.com/checkout/plan_8e0Cvc6tfhobz/" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
-                <Play size={24} className="text-accent mr-3 neon-glow" />
+                <BookOpen size={24} className="text-blue-400 mr-3 neon-glow" />
                 <span className="text-foreground font-bold tracking-wider">FREE TRADING EDUCATION</span>
               </a>
             </AnimatedBlock>
@@ -101,7 +101,7 @@ const Index = () => {
 
             <AnimatedBlock delay={0.9} className="w-80 h-16">
               <a href="https://stackmodechris.systeme.io/62d59ef4-fb122a73" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
-                <BookOpen size={24} className="text-blue-400 mr-3 neon-glow" />
+                <Mic size={24} className="text-blue-400 mr-3 neon-glow" />
                 <span className="text-foreground font-bold tracking-wider">PODCAST</span>
               </a>
             </AnimatedBlock>
