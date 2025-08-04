@@ -93,16 +93,16 @@ const Index = () => {
           {/* Second Row */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
             <AnimatedBlock delay={0.8} className="w-80 h-16">
-              <a href="https://stackmodechris.systeme.io/62d59ef4-fb122a73" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
-                <BookOpen size={24} className="text-blue-400 mr-3 neon-glow" />
-                <span className="text-foreground font-bold tracking-wider">PODCAST</span>
+              <a href="https://calendly.com/stackmodechris/stackmode-business-mentorship" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
+                <Briefcase size={24} className="text-yellow-400 mr-3 neon-glow" />
+                <span className="text-foreground font-bold tracking-wider">START/GROW YOUR BUSINESS</span>
               </a>
             </AnimatedBlock>
 
             <AnimatedBlock delay={0.9} className="w-80 h-16">
-              <a href="https://calendly.com/stackmodechris/stackmode-business-mentorship" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
-                <Briefcase size={24} className="text-yellow-400 mr-3 neon-glow" />
-                <span className="text-foreground font-bold tracking-wider">START/GROW YOUR BUSINESS</span>
+              <a href="https://stackmodechris.systeme.io/62d59ef4-fb122a73" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
+                <BookOpen size={24} className="text-blue-400 mr-3 neon-glow" />
+                <span className="text-foreground font-bold tracking-wider">PODCAST</span>
               </a>
             </AnimatedBlock>
 
