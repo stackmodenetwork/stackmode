@@ -83,7 +83,7 @@ const Index = () => {
             </AnimatedBlock>
             
             <AnimatedBlock delay={0.7} className="w-80 h-16">
-              <a href="https://whop.com/checkout/plan_8e0Cvc6tfhobz/" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
+              <a href="https://stackmodechris.systeme.io/trading" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
                 <BookOpen size={24} className="text-blue-400 mr-3 neon-glow" />
                 <span className="text-foreground font-bold tracking-wider">FREE TRADING EDUCATION</span>
               </a>
