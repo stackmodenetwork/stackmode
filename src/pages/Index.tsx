@@ -194,11 +194,6 @@ const Index = () => {
             </div>
           </div>
         </AnimatedBlock>
-        
-        {/* System Status */}
-        <AnimatedBlock delay={1.19} className="text-center mb-16 hidden sm:block">
-          <p className="text-muted-foreground font-mono text-sm tracking-wider animate-pulse-neon">SYSTEM INITIALIZED • READY FOR LAUNCH SUBHANALLAH</p>
-        </AnimatedBlock>
       </div>
 
       {/* Corner UI Elements */}
