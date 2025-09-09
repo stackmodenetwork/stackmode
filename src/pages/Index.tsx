@@ -50,10 +50,6 @@ const Index = () => {
           </div>
         </AnimatedBlock>
 
-        {/* System Status */}
-        <AnimatedBlock delay={0.2} className="text-center mb-8">
-          <p className="text-muted-foreground font-mono text-sm tracking-wider animate-pulse-neon">SYSTEM INITIALIZED • READY FOR LAUNCH SUBHANALLAH</p>
-        </AnimatedBlock>
 
         {/* Icon Row */}
         <AnimatedBlock delay={0.3} className="mb-8">
@@ -197,6 +193,11 @@ const Index = () => {
               <div className="text-sm font-mono text-muted-foreground tracking-wider">SUPPORT & SIGNALS</div>
             </div>
           </div>
+        </AnimatedBlock>
+        
+        {/* System Status */}
+        <AnimatedBlock delay={1.19} className="text-center mb-16">
+          <p className="text-muted-foreground font-mono text-sm tracking-wider animate-pulse-neon">SYSTEM INITIALIZED • READY FOR LAUNCH SUBHANALLAH</p>
         </AnimatedBlock>
       </div>
 
