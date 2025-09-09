@@ -176,6 +176,29 @@ const Index = () => {
             </div>
           </div>
         </AnimatedBlock>
+
+        {/* Results Stats */}
+        <AnimatedBlock delay={1.17} className="mb-16 text-center">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-accent neon-glow">$5000+</div>
+              <div className="text-sm font-mono text-muted-foreground tracking-wider">PROFITS GENERATED</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-primary neon-glow">100%</div>
+              <div className="text-sm font-mono text-muted-foreground tracking-wider">REAL PROFITS</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-secondary neon-glow">24/7</div>
+              <div className="text-sm font-mono text-muted-foreground tracking-wider">SUPPORT & SIGNALS</div>
+            </div>
+          </div>
+        </AnimatedBlock>
+        
+        {/* System Status */}
+        <AnimatedBlock delay={1.19} className="text-center mb-40 sm:mb-24">
+          <p className="text-muted-foreground font-mono text-sm tracking-wider animate-pulse-neon">SYSTEM INITIALIZED • READY FOR LAUNCH SUBHANALLAH</p>
+        </AnimatedBlock>
       </div>
 
       {/* Corner UI Elements */}
