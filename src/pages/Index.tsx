@@ -213,6 +213,19 @@ const Index = () => {
         @STACKMODECHRIS
       </div>
 
+      {/* Terms and Conditions */}
+      <div className="absolute bottom-0 left-0 right-0 bg-background/90 backdrop-blur-sm border-t border-border p-4">
+        <div className="text-center text-xs text-muted-foreground font-mono">
+          <p className="mb-2">
+            By using this website, you agree to our terms and conditions. Trading involves substantial risk and is not suitable for all investors. 
+            Past performance does not guarantee future results. Please trade responsibly.
+          </p>
+          <p>
+            © 2024 Stackmode.net - All rights reserved. Educational content only, not financial advice.
+          </p>
+        </div>
+      </div>
+
       {/* Scanlines Effect */}
       <div className="absolute inset-0 pointer-events-none opacity-10">
         <div className="h-full bg-gradient-to-b from-transparent via-primary/20 to-transparent animate-pulse-neon" style={{
