@@ -219,11 +219,10 @@ const Index = () => {
       <div className="absolute bottom-0 left-0 right-0 bg-background/90 backdrop-blur-sm border-t border-border p-4">
         <div className="text-center text-xs text-muted-foreground font-mono">
           <p className="mb-2">
-            By using this website, you agree to our terms and conditions. Trading involves substantial risk and is not suitable for all investors. 
-            Past performance does not guarantee future results. Please trade responsibly.
+            I am not a licensed financial advisor, broker, or investment professional. All content, trade alerts, strategies, signals, and mentorship provided by Stackmode are for educational and informational purposes only. Nothing shared should be taken as financial, investment, or legal advice.
           </p>
           <p>
-            © 2025 Stackmode.net - All rights reserved. Educational content only, not financial advice.
+            @2025 Stackmodechris
           </p>
         </div>
       </div>
