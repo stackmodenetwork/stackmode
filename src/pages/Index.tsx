@@ -177,6 +177,11 @@ const Index = () => {
           </div>
         </AnimatedBlock>
 
+        {/* System Status */}
+        <AnimatedBlock delay={1.16} className="text-center mb-8">
+          <p className="text-muted-foreground font-mono text-sm tracking-wider animate-pulse-neon">SYSTEM INITIALIZED • READY FOR LAUNCH SUBHANALLAH</p>
+        </AnimatedBlock>
+
         {/* Results Stats */}
         <AnimatedBlock delay={1.17} className="mb-16 text-center">
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
@@ -195,10 +200,6 @@ const Index = () => {
           </div>
         </AnimatedBlock>
         
-        {/* System Status */}
-        <AnimatedBlock delay={1.19} className="text-center mb-40 sm:mb-24">
-          <p className="text-muted-foreground font-mono text-sm tracking-wider animate-pulse-neon">SYSTEM INITIALIZED • READY FOR LAUNCH SUBHANALLAH</p>
-        </AnimatedBlock>
       </div>
 
       {/* Corner UI Elements */}
