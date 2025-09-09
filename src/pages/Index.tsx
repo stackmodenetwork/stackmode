@@ -196,7 +196,7 @@ const Index = () => {
         </AnimatedBlock>
         
         {/* System Status */}
-        <AnimatedBlock delay={1.19} className="text-center mb-24">
+        <AnimatedBlock delay={1.19} className="text-center mb-32 sm:mb-24">
           <p className="text-muted-foreground font-mono text-sm tracking-wider animate-pulse-neon">SYSTEM INITIALIZED • READY FOR LAUNCH SUBHANALLAH</p>
         </AnimatedBlock>
       </div>
