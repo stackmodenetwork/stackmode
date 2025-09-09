@@ -225,6 +225,9 @@ const Index = () => {
           <p className="mb-2">
             I am not a licensed financial advisor, broker, or investment professional. All content, trade alerts, strategies, signals, and mentorship provided by Stackmodechris are for educational and informational purposes only.
           </p>
+          <p className="mb-2">
+            Terms and Conditions apply
+          </p>
           <p>
             @2025 Stackmodechris
           </p>
