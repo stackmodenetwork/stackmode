@@ -200,6 +200,9 @@ const Index = () => {
           </div>
         </AnimatedBlock>
         
+        {/* Bottom Spacer */}
+        <div className="mb-32"></div>
+        
       </div>
 
       {/* Corner UI Elements */}
