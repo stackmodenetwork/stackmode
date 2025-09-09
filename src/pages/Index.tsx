@@ -223,7 +223,7 @@ const Index = () => {
             Past performance does not guarantee future results. Please trade responsibly.
           </p>
           <p>
-            © 2024 Stackmode.net - All rights reserved. Educational content only, not financial advice.
+            © 2025 Stackmode.net - All rights reserved. Educational content only, not financial advice.
           </p>
         </div>
       </div>
