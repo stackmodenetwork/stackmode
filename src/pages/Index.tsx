@@ -227,7 +227,7 @@ const Index = () => {
           </p>
           <p className="mb-2">
             <a href="https://stackmodechris.systeme.io/termsandconditions" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-accent transition-colors underline">
-              Click Here For Terms and Conditions
+              Click Here For Terms and Conditions/Refund Policy
             </a>
           </p>
           <p className="mb-2">
