@@ -223,9 +223,6 @@ const Index = () => {
       <div className="absolute bottom-0 left-0 right-0 bg-background/90 backdrop-blur-sm border-t border-border p-4 z-50">
         <div className="text-center text-xs text-muted-foreground font-mono">
           <p className="mb-2">
-            I am not a licensed financial advisor, broker, or investment professional. All content, trade alerts, strategies, signals, and mentorship provided by Stackmodechris are for educational and informational purposes only.
-          </p>
-          <p className="mb-2">
             <a href="https://stackmodechris.systeme.io/termsandconditions" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-accent transition-colors underline">
               Click Here For Terms and Conditions/Refund Policy
             </a>
