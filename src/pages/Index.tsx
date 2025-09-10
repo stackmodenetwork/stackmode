@@ -61,6 +61,12 @@ const Index = () => {
           </div>
         </AnimatedBlock>
 
+        {/* Calendly Widget */}
+        <AnimatedBlock delay={0.4} className="mb-8">
+          <div className="calendly-inline-widget" data-url="https://calendly.com/stackmodechris/tradingmastermindcoaching?hide_gdpr_banner=1&background_color=151515&text_color=f7f7f7&primary_color=ff00fb" style={{minWidth: '320px', height: '700px'}}></div>
+          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        </AnimatedBlock>
+
         {/* Stacking Blocks */}
         <div className="mb-16 space-y-8">
           {/* First Row */}
