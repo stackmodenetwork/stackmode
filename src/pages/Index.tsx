@@ -79,7 +79,7 @@ const Index = () => {
         <AnimatedBlock delay={0.4} className="mb-8 w-full max-w-4xl">
           <div 
             className="calendly-inline-widget" 
-            data-url="https://calendly.com/stackmodechris/tradingmastermindcoaching?hide_gdpr_banner=1&background_color=151515&text_color=f7f7f7&primary_color=ff00fb" 
+            data-url="https://calendly.com/stackmodechris/tradingmastermindcoaching?hide_gdpr_banner=1&background_color=0b0b0b&text_color=d1eaca&primary_color=bf00ff" 
             style={{ minWidth: '320px', height: '700px', width: '100%' }}
           />
         </AnimatedBlock>
