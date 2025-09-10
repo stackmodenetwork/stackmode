@@ -11,6 +11,20 @@ const Index = () => {
     if (audioRef.current) {
       audioRef.current.volume = 0.2;
     }
+    
+    // Load Calendly script
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.head.appendChild(script);
+    
+    return () => {
+      // Cleanup script on unmount
+      const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
+      if (existingScript) {
+        document.head.removeChild(existingScript);
+      }
+    };
   }, []);
   const handlePressStart = () => {
     navigate('/game');
@@ -62,9 +76,12 @@ const Index = () => {
         </AnimatedBlock>
 
         {/* Calendly Widget */}
-        <AnimatedBlock delay={0.4} className="mb-8">
-          <div className="calendly-inline-widget" data-url="https://calendly.com/stackmodechris/tradingmastermindcoaching?hide_gdpr_banner=1&background_color=151515&text_color=f7f7f7&primary_color=ff00fb" style={{minWidth: '320px', height: '700px'}}></div>
-          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        <AnimatedBlock delay={0.4} className="mb-8 w-full max-w-4xl">
+          <div 
+            className="calendly-inline-widget" 
+            data-url="https://calendly.com/stackmodechris/tradingmastermindcoaching?hide_gdpr_banner=1&background_color=151515&text_color=f7f7f7&primary_color=ff00fb" 
+            style={{ minWidth: '320px', height: '700px', width: '100%' }}
+          />
         </AnimatedBlock>
 
         {/* Stacking Blocks */}
