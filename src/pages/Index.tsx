@@ -228,7 +228,7 @@ const Index = () => {
             </a>
           </p>
           <p className="mb-2">
-            <a href="https://stackmodechris.systeme.io/privacy" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-accent transition-colors underline">
+            <a href="https://stackmodechris.systeme.io/privacypolicy" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-accent transition-colors underline">
               Privacy Policy
             </a>
           </p>
