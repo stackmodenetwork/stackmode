@@ -170,20 +170,21 @@
   .block-stack:nth-child(4) { animation-delay: 0.4s; }
   .block-stack:nth-child(5) { animation-delay: 0.5s; }
 
-  /* Optimized Glow Effects */
+  /* Neon Glow Effects */
   .neon-glow {
-    filter: drop-shadow(0 0 5px currentColor);
+    filter: drop-shadow(0 0 10px currentColor) drop-shadow(0 0 20px currentColor);
   }
 
   .soft-glow {
-    filter: drop-shadow(0 0 3px currentColor);
-    transition: filter 0.2s ease;
+    filter: drop-shadow(0 0 5px currentColor) drop-shadow(0 0 8px currentColor);
+    transition: filter 0.3s ease;
   }
 
   .neon-border {
     box-shadow: 
-      0 0 10px rgba(0, 255, 0, 0.2),
-      0 0 15px rgba(0, 255, 0, 0.1);
+      inset 0 0 20px rgba(0, 255, 0, 0.2),
+      0 0 20px rgba(0, 255, 0, 0.3),
+      0 0 40px rgba(0, 255, 0, 0.1);
   }
 }
 
@@ -227,10 +228,10 @@
 
   @keyframes pulse-neon {
     0%, 100% {
-      filter: drop-shadow(0 0 3px currentColor);
+      filter: drop-shadow(0 0 5px currentColor);
     }
     50% {
-      filter: drop-shadow(0 0 8px currentColor);
+      filter: drop-shadow(0 0 20px currentColor) drop-shadow(0 0 30px currentColor);
     }
   }
 
@@ -254,7 +255,7 @@
   }
 
   .animate-pulse-neon {
-    animation: pulse-neon 3s ease-in-out infinite;
+    animation: pulse-neon 2s ease-in-out infinite;
   }
 
   .animate-glitch {
