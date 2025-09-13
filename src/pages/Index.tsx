@@ -43,12 +43,15 @@ const Index = () => {
         Your browser does not support the audio element.
       </audio>
 
-      {/* Simplified Background Pattern for slow internet */}
-      <div className="absolute inset-0 opacity-3">
-        <div className="grid grid-cols-4 grid-rows-4 h-full gap-8 p-8">
+      {/* Animated Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="grid grid-cols-8 grid-rows-8 h-full gap-4 p-8 animate-pulse-neon">
           {Array.from({
-          length: 16
-        }).map((_, i) => <div key={i} className="bg-primary/50 rounded" />)}
+          length: 64
+        }).map((_, i) => <div key={i} className="bg-primary rounded" style={{
+          animationDelay: `${i * 0.05}s`,
+          animationDuration: '3s'
+        }} />)}
         </div>
       </div>
 
