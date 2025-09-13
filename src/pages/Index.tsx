@@ -12,20 +12,21 @@ const Index = () => {
       audioRef.current.volume = 0.2;
     }
     
-    // Delay Calendly script loading for better perceived performance
+    // Load Calendly script immediately
     const loadCalendly = () => {
+      // Check if script already exists
+      const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
+      if (existingScript) return;
+      
       const script = document.createElement('script');
       script.src = 'https://assets.calendly.com/assets/external/widget.js';
       script.async = true;
-      script.defer = true;
       document.head.appendChild(script);
     };
 
-    // Load after a short delay to prioritize initial page render
-    const timer = setTimeout(loadCalendly, 800);
+    loadCalendly();
     
     return () => {
-      clearTimeout(timer);
       // Cleanup script on unmount
       const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
       if (existingScript) {
@@ -86,8 +87,7 @@ const Index = () => {
         <AnimatedBlock delay={0.4} className="mb-8 w-full max-w-4xl">
           <div 
             className="calendly-inline-widget" 
-            data-url="https://calendly.com/stackmodechris/tradingmastermindcoaching?hide_gdpr_banner=1&hide_landing_page_details=1&hide_event_type_details=1&background_color=0b0b0b&text_color=d1eaca&primary_color=bf00ff" 
-            data-processed="false"
+            data-url="https://calendly.com/stackmodechris/tradingmastermindcoaching?hide_gdpr_banner=1&background_color=0b0b0b&text_color=d1eaca&primary_color=bf00ff" 
             style={{ minWidth: '320px', height: '700px', width: '100%' }}
           />
         </AnimatedBlock>
