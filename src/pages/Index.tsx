@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { AnimatedBlock } from '@/components/AnimatedBlock';
 import { Icon3D } from '@/components/Icon3D';
 import { PressStartButton } from '@/components/PressStartButton';
@@ -7,52 +7,25 @@ import { ShoppingCart, Briefcase, Play, BookOpen, CandlestickChart, Siren, Check
 const Index = () => {
   const navigate = useNavigate();
   const audioRef = useRef<HTMLAudioElement>(null);
-  const [calendlyLoaded, setCalendlyLoaded] = useState(false);
-  const calendlyRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = 0.2;
     }
     
-    // Intersection Observer for lazy loading Calendly
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !calendlyLoaded) {
-            // Preload Calendly script
-            const linkPreload = document.createElement('link');
-            linkPreload.rel = 'preload';
-            linkPreload.href = 'https://assets.calendly.com/assets/external/widget.js';
-            linkPreload.as = 'script';
-            document.head.appendChild(linkPreload);
-            
-            // Load Calendly script
-            const script = document.createElement('script');
-            script.src = 'https://assets.calendly.com/assets/external/widget.js';
-            script.async = true;
-            script.onload = () => setCalendlyLoaded(true);
-            document.head.appendChild(script);
-            
-            observer.disconnect();
-          }
-        });
-      },
-      { rootMargin: '100px' }
-    );
-
-    if (calendlyRef.current) {
-      observer.observe(calendlyRef.current);
-    }
-
+    // Load Calendly script immediately
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.head.appendChild(script);
+    
     return () => {
-      observer.disconnect();
       // Cleanup script on unmount
       const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
       if (existingScript) {
         document.head.removeChild(existingScript);
       }
     };
-  }, [calendlyLoaded]);
+  }, []);
   const handlePressStart = () => {
     navigate('/game');
   };
@@ -103,21 +76,12 @@ const Index = () => {
         </AnimatedBlock>
 
         {/* Calendly Widget */}
-        <AnimatedBlock delay={0.4} className="mb-8 w-full max-w-4xl" ref={calendlyRef}>
-          {!calendlyLoaded ? (
-            <div className="w-full h-[700px] bg-card/50 border border-primary/20 rounded-lg flex items-center justify-center">
-              <div className="text-center">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
-                <p className="text-muted-foreground">Loading calendar...</p>
-              </div>
-            </div>
-          ) : (
-            <div 
-              className="calendly-inline-widget" 
-              data-url="https://calendly.com/stackmodechris/tradingmastermindcoaching?hide_gdpr_banner=1&background_color=0b0b0b&text_color=d1eaca&primary_color=bf00ff" 
-              style={{ minWidth: '320px', height: '700px', width: '100%' }}
-            />
-          )}
+        <AnimatedBlock delay={0.4} className="mb-8 w-full max-w-4xl">
+          <div 
+            className="calendly-inline-widget" 
+            data-url="https://calendly.com/stackmodechris/tradingmastermindcoaching?hide_gdpr_banner=1&background_color=0b0b0b&text_color=d1eaca&primary_color=bf00ff" 
+            style={{ minWidth: '320px', height: '700px', width: '100%' }}
+          />
         </AnimatedBlock>
 
         {/* Stacking Blocks */}
