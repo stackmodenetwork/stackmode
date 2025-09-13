@@ -12,14 +12,20 @@ const Index = () => {
       audioRef.current.volume = 0.2;
     }
     
-    // Load Calendly script immediately
-    const script = document.createElement('script');
-    script.src = 'https://assets.calendly.com/assets/external/widget.js';
-    script.async = true;
-    document.head.appendChild(script);
+    // Lazy load Calendly script after a delay for slow internet
+    const loadCalendly = () => {
+      const script = document.createElement('script');
+      script.src = 'https://assets.calendly.com/assets/external/widget.js';
+      script.async = true;
+      script.defer = true;
+      document.head.appendChild(script);
+    };
+    
+    // Load after 1 second to prioritize initial page content
+    const timer = setTimeout(loadCalendly, 1000);
     
     return () => {
-      // Cleanup script on unmount
+      clearTimeout(timer);
       const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
       if (existingScript) {
         document.head.removeChild(existingScript);
@@ -37,15 +43,12 @@ const Index = () => {
         Your browser does not support the audio element.
       </audio>
 
-      {/* Animated Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="grid grid-cols-8 grid-rows-8 h-full gap-4 p-8 animate-pulse-neon">
+      {/* Simplified Background Pattern for slow internet */}
+      <div className="absolute inset-0 opacity-3">
+        <div className="grid grid-cols-4 grid-rows-4 h-full gap-8 p-8">
           {Array.from({
-          length: 64
-        }).map((_, i) => <div key={i} className="bg-primary rounded" style={{
-          animationDelay: `${i * 0.05}s`,
-          animationDuration: '3s'
-        }} />)}
+          length: 16
+        }).map((_, i) => <div key={i} className="bg-primary/50 rounded" />)}
         </div>
       </div>
 
@@ -75,11 +78,11 @@ const Index = () => {
           </div>
         </AnimatedBlock>
 
-        {/* Calendly Widget */}
+        {/* Optimized Calendly Widget */}
         <AnimatedBlock delay={0.4} className="mb-8 w-full max-w-4xl">
           <div 
             className="calendly-inline-widget" 
-            data-url="https://calendly.com/stackmodechris/tradingmastermindcoaching?hide_gdpr_banner=1&background_color=0b0b0b&text_color=d1eaca&primary_color=bf00ff" 
+            data-url="https://calendly.com/stackmodechris/tradingmastermindcoaching?hide_gdpr_banner=1&background_color=0b0b0b&text_color=d1eaca&primary_color=bf00ff&hide_landing_page_details=1&hide_event_type_details=1" 
             style={{ minWidth: '320px', height: '700px', width: '100%' }}
           />
         </AnimatedBlock>
