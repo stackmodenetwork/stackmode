@@ -63,7 +63,7 @@ const Index = () => {
         {/* Title Block */}
         <AnimatedBlock delay={0.1} className="text-center mb-8 mt-8">
           <div className="relative">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary neon-glow mb-4">STACKMODE.NET</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary neon-glow mb-4 animate-pulse-neon">STACKMODE.NET</h1>
             <h2 className="text-2xl font-bold text-secondary neon-glow animate-glitch md:text-3xl">CREATE YOUR FUTURE INSHALLAH</h2>
             
             {/* Decorative Elements */}
