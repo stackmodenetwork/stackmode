@@ -12,15 +12,18 @@ const Index = () => {
       audioRef.current.volume = 0.2;
     }
     
-    // Load Calendly script immediately
+    // Load YCB script
     const script = document.createElement('script');
-    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.src = 'https://embed.ycb.me';
     script.async = true;
+    script.setAttribute('data-domain', 'stackmodetrading');
+    script.setAttribute('data-content', 'all');
+    script.setAttribute('data-displaymode', 'dark');
     document.head.appendChild(script);
     
     return () => {
       // Cleanup script on unmount
-      const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
+      const existingScript = document.querySelector('script[src="https://embed.ycb.me"]');
       if (existingScript) {
         document.head.removeChild(existingScript);
       }
@@ -75,13 +78,17 @@ const Index = () => {
           </div>
         </AnimatedBlock>
 
-        {/* Calendly Widget */}
+        {/* YCB Calendar Widget */}
         <AnimatedBlock delay={0.4} className="mb-8 w-full max-w-4xl">
           <div 
-            className="calendly-inline-widget" 
-            data-url="https://calendly.com/stackmodechris/tradingmastermindcoaching?hide_gdpr_banner=1&background_color=0b0b0b&text_color=d1eaca&primary_color=bf00ff" 
-            style={{ minWidth: '320px', height: '700px', width: '100%' }}
-          />
+            className="w-full min-h-[700px] bg-card/50 border border-primary/20 rounded-lg flex items-center justify-center"
+            id="ycb-calendar-container"
+          >
+            <div className="text-center">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+              <p className="text-muted-foreground">Loading calendar...</p>
+            </div>
+          </div>
         </AnimatedBlock>
 
         {/* Stacking Blocks */}
