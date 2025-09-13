@@ -64,7 +64,7 @@ const Index = () => {
         <AnimatedBlock delay={0.1} className="text-center mb-8 mt-8">
           <div className="relative">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary neon-glow mb-4 animate-pulse-neon">STACKMODE.NET</h1>
-            <h2 className="text-2xl font-bold text-secondary neon-glow animate-glitch md:text-3xl">CREATE YOUR FUTURE INSHALLAH</h2>
+            <h2 className="text-2xl font-bold text-secondary neon-glow animate-glitch animate-pulse-neon md:text-3xl">CREATE YOUR FUTURE INSHALLAH</h2>
             
             {/* Decorative Elements */}
             <div className="absolute top-8 -left-12 w-8 h-8 border-2 border-accent animate-rotate-3d" />
@@ -148,7 +148,7 @@ const Index = () => {
         {/* SUCCESS TESTIMONIALS SECTION - Optimized */}
         <AnimatedBlock delay={1.1} className="mb-8 text-center">
           <div className="relative">
-            <h3 className="text-4xl md:text-5xl font-bold text-accent neon-glow mb-2">REAL RESULTS ALHAMDULILLAH</h3>
+            <h3 className="text-4xl md:text-5xl font-bold text-accent neon-glow mb-2 animate-pulse-neon">REAL RESULTS ALHAMDULILLAH</h3>
             <p className="text-xl text-secondary font-bold tracking-wider flex items-center justify-center gap-2">FROM REAL STUDENTS <Check size={20} className="text-green-400 neon-glow" /></p>
             
             {/* Reduced Decorative Stars */}
