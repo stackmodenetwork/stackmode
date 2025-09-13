@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, forwardRef } from 'react';
 
 interface AnimatedBlockProps {
   children: ReactNode;
@@ -6,13 +6,18 @@ interface AnimatedBlockProps {
   className?: string;
 }
 
-export const AnimatedBlock = ({ children, delay = 0, className = "" }: AnimatedBlockProps) => {
-  return (
-    <div 
-      className={`block-stack ${className}`}
-      style={{ animationDelay: `${delay}s` }}
-    >
-      {children}
-    </div>
-  );
-};
+export const AnimatedBlock = forwardRef<HTMLDivElement, AnimatedBlockProps>(
+  ({ children, delay = 0, className = "" }, ref) => {
+    return (
+      <div 
+        ref={ref}
+        className={`block-stack ${className}`}
+        style={{ animationDelay: `${delay}s` }}
+      >
+        {children}
+      </div>
+    );
+  }
+);
+
+AnimatedBlock.displayName = 'AnimatedBlock';
