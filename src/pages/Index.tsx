@@ -12,15 +12,15 @@ const Index = () => {
       audioRef.current.volume = 0.2;
     }
     
-    // Load Acuity script
+    // Load Calendly script immediately
     const script = document.createElement('script');
-    script.src = 'https://embed.acuityscheduling.com/js/embed.js';
-    script.type = 'text/javascript';
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
     document.head.appendChild(script);
     
     return () => {
       // Cleanup script on unmount
-      const existingScript = document.querySelector('script[src="https://embed.acuityscheduling.com/js/embed.js"]');
+      const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
       if (existingScript) {
         document.head.removeChild(existingScript);
       }
@@ -75,19 +75,13 @@ const Index = () => {
           </div>
         </AnimatedBlock>
 
-        {/* Acuity Scheduling Calendar */}
+        {/* Calendly Widget */}
         <AnimatedBlock delay={0.4} className="mb-8 w-full max-w-4xl">
-          <div className="w-full bg-card/50 border border-primary/20 rounded-lg overflow-hidden">
-            <iframe 
-              src="https://app.acuityscheduling.com/schedule.php?owner=36925660&ref=embedded_csp" 
-              title="Schedule Appointment" 
-              width="100%" 
-              height="800" 
-              frameBorder="0" 
-              allow="payment"
-              className="w-full"
-            />
-          </div>
+          <div 
+            className="calendly-inline-widget" 
+            data-url="https://calendly.com/stackmodechris/tradingmastermindcoaching?hide_gdpr_banner=1&background_color=0b0b0b&text_color=d1eaca&primary_color=bf00ff" 
+            style={{ minWidth: '320px', height: '700px', width: '100%' }}
+          />
         </AnimatedBlock>
 
         {/* Stacking Blocks */}
