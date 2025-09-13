@@ -12,18 +12,15 @@ const Index = () => {
       audioRef.current.volume = 0.2;
     }
     
-    // Load YCB script
+    // Load Acuity script
     const script = document.createElement('script');
-    script.src = 'https://embed.ycb.me';
-    script.async = true;
-    script.setAttribute('data-domain', 'stackmodetrading');
-    script.setAttribute('data-content', 'all');
-    script.setAttribute('data-displaymode', 'dark');
+    script.src = 'https://embed.acuityscheduling.com/js/embed.js';
+    script.type = 'text/javascript';
     document.head.appendChild(script);
     
     return () => {
       // Cleanup script on unmount
-      const existingScript = document.querySelector('script[src="https://embed.ycb.me"]');
+      const existingScript = document.querySelector('script[src="https://embed.acuityscheduling.com/js/embed.js"]');
       if (existingScript) {
         document.head.removeChild(existingScript);
       }
@@ -78,16 +75,18 @@ const Index = () => {
           </div>
         </AnimatedBlock>
 
-        {/* YCB Calendar Widget */}
+        {/* Acuity Scheduling Calendar */}
         <AnimatedBlock delay={0.4} className="mb-8 w-full max-w-4xl">
-          <div 
-            className="w-full min-h-[700px] bg-card/50 border border-primary/20 rounded-lg flex items-center justify-center"
-            id="ycb-calendar-container"
-          >
-            <div className="text-center">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
-              <p className="text-muted-foreground">Loading calendar...</p>
-            </div>
+          <div className="w-full bg-card/50 border border-primary/20 rounded-lg overflow-hidden">
+            <iframe 
+              src="https://app.acuityscheduling.com/schedule.php?owner=36925660&ref=embedded_csp" 
+              title="Schedule Appointment" 
+              width="100%" 
+              height="800" 
+              frameBorder="0" 
+              allow="payment"
+              className="w-full"
+            />
           </div>
         </AnimatedBlock>
 
