@@ -172,12 +172,12 @@
 
   /* Neon Glow Effects */
   .neon-glow {
-    filter: drop-shadow(0 0 10px currentColor) drop-shadow(0 0 20px currentColor);
+    filter: drop-shadow(0 0 4px currentColor);
   }
 
   .soft-glow {
-    filter: drop-shadow(0 0 5px currentColor) drop-shadow(0 0 8px currentColor);
-    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 3px currentColor);
+    transition: filter 0.2s ease;
   }
 
   .neon-border {
@@ -228,10 +228,10 @@
 
   @keyframes pulse-neon {
     0%, 100% {
-      filter: drop-shadow(0 0 5px currentColor);
+      filter: drop-shadow(0 0 2px currentColor);
     }
     50% {
-      filter: drop-shadow(0 0 20px currentColor) drop-shadow(0 0 30px currentColor);
+      filter: drop-shadow(0 0 6px currentColor);
     }
   }
 

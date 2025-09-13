@@ -63,7 +63,7 @@ const Index = () => {
         {/* Title Block */}
         <AnimatedBlock delay={0.1} className="text-center mb-8 mt-8">
           <div className="relative">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary neon-glow mb-4 animate-pulse-neon">STACKMODE.NET</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary neon-glow mb-4">STACKMODE.NET</h1>
             <h2 className="text-2xl font-bold text-secondary neon-glow animate-glitch md:text-3xl">CREATE YOUR FUTURE INSHALLAH</h2>
             
             {/* Decorative Elements */}
@@ -148,7 +148,7 @@ const Index = () => {
         {/* SUCCESS TESTIMONIALS SECTION - Optimized */}
         <AnimatedBlock delay={1.1} className="mb-8 text-center">
           <div className="relative">
-            <h3 className="text-4xl md:text-5xl font-bold text-accent neon-glow mb-2 animate-pulse-neon">REAL RESULTS ALHAMDULILLAH</h3>
+            <h3 className="text-4xl md:text-5xl font-bold text-accent neon-glow mb-2">REAL RESULTS ALHAMDULILLAH</h3>
             <p className="text-xl text-secondary font-bold tracking-wider flex items-center justify-center gap-2">FROM REAL STUDENTS <Check size={20} className="text-green-400 neon-glow" /></p>
             
             {/* Reduced Decorative Stars */}
@@ -207,15 +207,15 @@ const Index = () => {
         <AnimatedBlock delay={1.17} className="mb-[500px] md:mb-96 text-center">
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-accent neon-glow">$5000+</div>
+              <div className="text-3xl md:text-4xl font-bold text-accent">$5000+</div>
               <div className="text-sm font-mono text-muted-foreground tracking-wider">PROFITS GENERATED</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-primary neon-glow">100%</div>
+              <div className="text-3xl md:text-4xl font-bold text-primary">100%</div>
               <div className="text-sm font-mono text-muted-foreground tracking-wider">REAL PROFITS</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-secondary neon-glow">24/7</div>
+              <div className="text-3xl md:text-4xl font-bold text-secondary">24/7</div>
               <div className="text-sm font-mono text-muted-foreground tracking-wider">SUPPORT & SIGNALS</div>
             </div>
           </div>
@@ -227,13 +227,13 @@ const Index = () => {
       </div>
 
       {/* Corner UI Elements */}
-      <div className="absolute top-4 left-4 text-primary neon-glow font-mono text-sm animate-pulse-neon">
+      <div className="absolute top-4 left-4 text-primary font-mono text-sm">
         v2.0.0
       </div>
-      <div className="absolute top-4 right-4 text-secondary neon-glow font-mono text-sm animate-pulse-neon">
+      <div className="absolute top-4 right-4 text-secondary font-mono text-sm">
         ONLINE
       </div>
-      <div className="absolute bottom-4 left-4 text-accent neon-glow font-mono text-sm animate-pulse-neon">
+      <div className="absolute bottom-4 left-4 text-accent font-mono text-sm">
         LOADING...
       </div>
       <div className="absolute bottom-4 right-4 text-muted-foreground font-mono text-sm">
