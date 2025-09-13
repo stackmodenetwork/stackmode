@@ -40,12 +40,15 @@ const Index = () => {
         Your browser does not support the audio element.
       </audio>
 
-      {/* Simplified Background Pattern */}
-      <div className="absolute inset-0 opacity-3">
-        <div className="grid grid-cols-8 grid-rows-8 h-full gap-4 p-8">
-          {Array.from({ length: 16 }).map((_, i) => (
-            <div key={i} className="bg-primary/20 rounded" />
-          ))}
+      {/* Animated Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="grid grid-cols-8 grid-rows-8 h-full gap-4 p-8 animate-pulse-neon">
+          {Array.from({
+          length: 64
+        }).map((_, i) => <div key={i} className="bg-primary rounded" style={{
+          animationDelay: `${i * 0.05}s`,
+          animationDuration: '3s'
+        }} />)}
         </div>
       </div>
 
@@ -76,12 +79,17 @@ const Index = () => {
         </AnimatedBlock>
 
         {/* YCB Calendar Widget */}
-        <div className="mb-8 w-full max-w-4xl">
+        <AnimatedBlock delay={0.4} className="mb-8 w-full max-w-4xl">
           <div 
-            className="w-full min-h-[600px] bg-card/30 border border-primary/10 rounded-lg"
+            className="w-full min-h-[700px] bg-card/50 border border-primary/20 rounded-lg flex items-center justify-center"
             id="ycb-calendar-container"
-          ></div>
-        </div>
+          >
+            <div className="text-center">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+              <p className="text-muted-foreground">Loading calendar...</p>
+            </div>
+          </div>
+        </AnimatedBlock>
 
         {/* Stacking Blocks */}
         <div className="mb-16 space-y-8">
