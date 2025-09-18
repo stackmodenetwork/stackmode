@@ -4,6 +4,15 @@ import { AnimatedBlock } from '@/components/AnimatedBlock';
 import { Icon3D } from '@/components/Icon3D';
 import { PressStartButton } from '@/components/PressStartButton';
 import { ShoppingCart, Briefcase, Play, BookOpen, CandlestickChart, Siren, Check, DollarSign, Mic } from 'lucide-react';
+
+// Declare Calendly type
+declare global {
+  interface Window {
+    Calendly?: {
+      initBadgeWidget: (options: any) => void;
+    };
+  }
+}
 const Index = () => {
   const navigate = useNavigate();
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -11,6 +20,38 @@ const Index = () => {
     if (audioRef.current) {
       audioRef.current.volume = 0.2;
     }
+
+    // Add Calendly CSS
+    const calendlyCSS = document.createElement('link');
+    calendlyCSS.href = 'https://assets.calendly.com/assets/external/widget.css';
+    calendlyCSS.rel = 'stylesheet';
+    document.head.appendChild(calendlyCSS);
+
+    // Add Calendly script
+    const calendlyScript = document.createElement('script');
+    calendlyScript.src = 'https://assets.calendly.com/assets/external/widget.js';
+    calendlyScript.type = 'text/javascript';
+    calendlyScript.async = true;
+    document.head.appendChild(calendlyScript);
+
+    // Initialize Calendly badge widget
+    calendlyScript.onload = () => {
+      if (window.Calendly) {
+        window.Calendly.initBadgeWidget({ 
+          url: 'https://calendly.com/stackmodechris/tradingmastermindcoaching?background_color=111111&text_color=edffec&primary_color=ff0ddd', 
+          text: 'BOOK A FREE CALL', 
+          color: '#111111', 
+          textColor: '#18ff00', 
+          branding: true 
+        });
+      }
+    };
+
+    return () => {
+      // Cleanup
+      document.head.removeChild(calendlyCSS);
+      document.head.removeChild(calendlyScript);
+    };
   }, []);
   const handlePressStart = () => {
     navigate('/game');
