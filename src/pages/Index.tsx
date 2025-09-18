@@ -115,7 +115,7 @@ const Index = () => {
             </AnimatedBlock>
             
             <AnimatedBlock delay={0.6} className="w-80 h-16">
-              <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
+              <a href="https://whop.com/stackmode-network-llc/stackmode-trades/" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
                 <div className="flex items-center mr-3">
                   <DollarSign size={20} className="text-green-300 neon-glow" />
                   <DollarSign size={20} className="text-green-300 neon-glow -ml-1" />
