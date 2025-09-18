@@ -109,7 +109,7 @@ const Index = () => {
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
             <AnimatedBlock delay={0.5} className="w-80 h-16">
               <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
-                <CandlestickChart size={24} className="text-purple-400 mr-3 neon-glow" />
+                <CandlestickChart size={24} className="text-fuchsia-500 mr-3 neon-glow" />
                 <span className="text-foreground font-bold tracking-wider">TRADING MENTORSHIP</span>
               </a>
             </AnimatedBlock>
@@ -151,7 +151,7 @@ const Index = () => {
 
             <AnimatedBlock delay={1.0} className="w-80 h-16">
               <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
-                <Users size={24} className="text-fuchsia-500 mr-3 neon-glow" />
+                <Users size={24} className="text-purple-400 mr-3 neon-glow" />
                 <span className="text-foreground font-bold tracking-wider">DISCORD</span>
               </a>
             </AnimatedBlock>
