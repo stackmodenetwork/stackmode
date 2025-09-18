@@ -27,50 +27,56 @@ const Index = () => {
     calendlyCSS.rel = 'stylesheet';
     document.head.appendChild(calendlyCSS);
 
-    // Add Calendly script
-    const calendlyScript = document.createElement('script');
-    calendlyScript.src = 'https://assets.calendly.com/assets/external/widget.js';
-    calendlyScript.type = 'text/javascript';
-    calendlyScript.async = true;
-    document.head.appendChild(calendlyScript);
+    // Initialize Calendly badge widget with delay to improve initial load
+    const initCalendly = () => {
+      setTimeout(() => {
+        const calendlyScript = document.createElement('script');
+        calendlyScript.src = 'https://assets.calendly.com/assets/external/widget.js';
+        calendlyScript.type = 'text/javascript';
+        calendlyScript.async = true;
+        document.head.appendChild(calendlyScript);
 
-    // Initialize Calendly badge widget
-    calendlyScript.onload = () => {
-      if (window.Calendly) {
-        window.Calendly.initBadgeWidget({ 
-          url: 'https://calendly.com/stackmodechris/tradingmastermindcoaching?background_color=111111&text_color=edffec&primary_color=ff0ddd', 
-          text: 'BOOK A FREE CALL', 
-          color: '#111111', 
-          textColor: '#18ff00', 
-          branding: true 
-        });
-      }
+        calendlyScript.onload = () => {
+          if (window.Calendly) {
+            window.Calendly.initBadgeWidget({ 
+              url: 'https://calendly.com/stackmodechris/tradingmastermindcoaching?background_color=111111&text_color=edffec&primary_color=ff0ddd', 
+              text: 'BOOK A FREE CALL', 
+              color: '#111111', 
+              textColor: '#18ff00', 
+              branding: true 
+            });
+          }
+        };
+      }, 1000);
     };
 
+    initCalendly();
+
     return () => {
-      // Cleanup
-      document.head.removeChild(calendlyCSS);
-      document.head.removeChild(calendlyScript);
+      // Cleanup - only remove CSS as script is loaded with delay
+      if (document.head.contains(calendlyCSS)) {
+        document.head.removeChild(calendlyCSS);
+      }
     };
   }, []);
   const handlePressStart = () => {
     navigate('/game');
   };
   return <div className="min-h-screen bg-background relative overflow-hidden">
-      {/* Background Music */}
-      <audio ref={audioRef} autoPlay loop muted={false} className="hidden">
+      {/* Background Music - Deferred Loading */}
+      <audio ref={audioRef} loop muted className="hidden" preload="none">
         <source src="/ambient-cyber-music.mp3" type="audio/mpeg" />
         <source src="/ambient-cyber-music.ogg" type="audio/ogg" />
         Your browser does not support the audio element.
       </audio>
 
-      {/* Animated Background Pattern - Optimized */}
+      {/* Optimized Animated Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="grid grid-cols-6 grid-rows-6 h-full gap-6 p-8 animate-pulse-neon">
+        <div className="grid grid-cols-4 grid-rows-4 h-full gap-8 p-8 animate-pulse-neon">
           {Array.from({
-          length: 36
+          length: 16
         }).map((_, i) => <div key={i} className="bg-primary rounded" style={{
-          animationDelay: `${i * 0.08}s`,
+          animationDelay: `${i * 0.1}s`,
           animationDuration: '4s'
         }} />)}
         </div>
@@ -178,7 +184,7 @@ const Index = () => {
               <div className="absolute -top-2 -left-2 text-accent text-xl animate-pulse-neon">★</div>
               <div className="absolute -bottom-3 -right-2 text-accent text-xl animate-float">★</div>
               
-              <img src="/lovable-uploads/206329e8-5e7d-4326-b922-690e9f4a17c6.png" alt="Trading Success - Client Results" className="w-72 h-auto neon-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/206329e8-5e7d-4326-b922-690e9f4a17c6.png" alt="Trading Success - Client Results" loading="lazy" className="w-72 h-auto neon-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </div>
 
@@ -187,7 +193,7 @@ const Index = () => {
               <div className="absolute -top-2 -left-2 text-primary text-lg animate-float">★</div>
               <div className="absolute -bottom-3 -right-2 text-secondary text-sm animate-pulse-neon">★</div>
               
-              <img src="/lovable-uploads/d73c4368-8499-406f-8576-206f4c571130.png" alt="Trading Volume Growth - $1,195 Gross Volume" className="w-72 h-auto neon-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/d73c4368-8499-406f-8576-206f4c571130.png" alt="Trading Volume Growth - $1,195 Gross Volume" loading="lazy" className="w-72 h-auto neon-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
               <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </div>
 
@@ -196,7 +202,7 @@ const Index = () => {
               <div className="absolute -top-2 -left-2 text-secondary text-xl animate-pulse-neon">★</div>
               <div className="absolute -bottom-3 -right-2 text-accent text-xl animate-float">★</div>
               
-              <img src="/lovable-uploads/a28ad2f5-ba42-468f-b48a-866d99c2ded8.png" alt="Daily Profits - $563.94 Realized" className="w-72 h-auto neon-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/a28ad2f5-ba42-468f-b48a-866d99c2ded8.png" alt="Daily Profits - $563.94 Realized" loading="lazy" className="w-72 h-auto neon-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
               <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </div>
 
@@ -205,7 +211,7 @@ const Index = () => {
               <div className="absolute -top-2 -left-2 text-accent text-lg animate-float">★</div>
               <div className="absolute -bottom-3 -right-2 text-accent text-sm animate-pulse-neon">★</div>
               
-              <img src="/lovable-uploads/2cddecc7-da9f-49e7-bc98-d47d395f175c.png" alt="Multiple Trading Wins - Consistent Profits" className="w-72 h-auto neon-border rounded-2xl hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/2cddecc7-da9f-49e7-bc98-d47d395f175c.png" alt="Multiple Trading Wins - Consistent Profits" loading="lazy" className="w-72 h-auto neon-border rounded-2xl hover:soft-glow transition-all duration-300 group-hover:scale-102" />
               <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </div>
           </div>
