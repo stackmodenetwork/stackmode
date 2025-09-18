@@ -149,9 +149,11 @@ const Index = () => {
               </a>
             </AnimatedBlock>
 
-            <AnimatedBlock delay={1.0} className="w-80 h-16 bg-card neon-border rounded flex items-center justify-center hover:soft-glow transition-all cursor-pointer">
-              <ShoppingCart size={24} className="text-emerald-400 mr-3 neon-glow" />
-              <span className="text-foreground font-bold tracking-wider">SHOP</span>
+            <AnimatedBlock delay={1.0} className="w-80 h-16">
+              <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
+                <Play size={24} className="text-emerald-400 mr-3 neon-glow" />
+                <span className="text-foreground font-bold tracking-wider">DISCORD</span>
+              </a>
             </AnimatedBlock>
           </div>
         </div>
