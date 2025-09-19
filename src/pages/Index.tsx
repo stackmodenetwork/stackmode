@@ -62,7 +62,7 @@ const Index = () => {
   const handlePressStart = () => {
     navigate('/game');
   };
-  return <div className="min-h-screen bg-background relative overflow-hidden">
+  return <div className="min-h-screen bg-background relative overflow-x-hidden">{/* Changed from overflow-hidden to overflow-x-hidden for better responsive behavior */}
       {/* Background Music - Deferred Loading */}
       <audio ref={audioRef} loop muted className="hidden" preload="none">
         <source src="/ambient-cyber-music.mp3" type="audio/mpeg" />
