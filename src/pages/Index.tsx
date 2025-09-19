@@ -70,15 +70,12 @@ const Index = () => {
         Your browser does not support the audio element.
       </audio>
 
-      {/* Optimized Animated Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="grid grid-cols-4 grid-rows-4 h-full gap-8 p-8 animate-pulse-neon">
+      {/* Optimized Static Background Pattern */}
+      <div className="absolute inset-0 opacity-3">
+        <div className="grid grid-cols-3 grid-rows-3 h-full gap-12 p-12">
           {Array.from({
-          length: 16
-        }).map((_, i) => <div key={i} className="bg-primary rounded" style={{
-          animationDelay: `${i * 0.1}s`,
-          animationDuration: '4s'
-        }} />)}
+          length: 9
+        }).map((_, i) => <div key={i} className="bg-primary/20 rounded" />)}
         </div>
       </div>
 
@@ -88,12 +85,12 @@ const Index = () => {
         {/* Title Block */}
         <AnimatedBlock delay={0.1} className="text-center mb-8 mt-8">
           <div className="relative">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary neon-glow mb-4 animate-pulse-neon">STACKMODE.NET</h1>
-            <h2 className="text-2xl font-bold text-secondary neon-glow animate-glitch animate-pulse-neon md:text-3xl">CREATE YOUR FUTURE INSHALLAH</h2>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary neon-glow mb-4">STACKMODE.NET</h1>
+            <h2 className="text-2xl font-bold text-secondary neon-glow md:text-3xl">CREATE YOUR FUTURE INSHALLAH</h2>
             
-            {/* Decorative Elements */}
-            <div className="absolute top-8 -left-12 w-8 h-8 border-2 border-accent animate-rotate-3d" />
-            <div className="absolute -bottom-4 -right-12 w-6 h-6 bg-accent animate-float" />
+            {/* Decorative Elements - Static */}
+            <div className="absolute top-8 -left-12 w-8 h-8 border-2 border-accent" />
+            <div className="absolute -bottom-4 -right-12 w-6 h-6 bg-accent" />
           </div>
         </AnimatedBlock>
 
@@ -167,12 +164,8 @@ const Index = () => {
         {/* SUCCESS TESTIMONIALS SECTION - Optimized */}
         <AnimatedBlock delay={1.1} className="mb-8 text-center">
           <div className="relative">
-            <h3 className="text-4xl md:text-5xl font-bold text-accent neon-glow mb-2 animate-pulse-neon">REAL RESULTS ALHAMDULILLAH</h3>
+            <h3 className="text-4xl md:text-5xl font-bold text-accent neon-glow mb-2">REAL RESULTS ALHAMDULILLAH</h3>
             <p className="text-xl text-secondary font-bold tracking-wider flex items-center justify-center gap-2">FROM REAL STUDENTS <Check size={20} className="text-green-400 neon-glow" /></p>
-            
-            {/* Reduced Decorative Stars */}
-            <div className="absolute -top-2 -left-8 text-accent text-2xl animate-pulse-neon">★</div>
-            <div className="absolute -bottom-4 right-8 text-accent text-2xl animate-float">★</div>
           </div>
         </AnimatedBlock>
 
@@ -181,37 +174,37 @@ const Index = () => {
           <div className="flex flex-col md:flex-row items-center justify-center gap-2 sm:gap-4 md:gap-6">
             {/* Review 1 */}
             <div className="relative group">
-              <div className="absolute -top-2 -left-2 text-accent text-xl animate-pulse-neon">★</div>
-              <div className="absolute -bottom-3 -right-2 text-accent text-xl animate-float">★</div>
+              <div className="absolute -top-2 -left-2 text-accent text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
+              <div className="absolute -bottom-3 -right-2 text-accent text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               
-              <img src="/lovable-uploads/206329e8-5e7d-4326-b922-690e9f4a17c6.png" alt="Trading Success - Client Results" loading="lazy" className="w-72 h-auto neon-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/206329e8-5e7d-4326-b922-690e9f4a17c6.png" alt="Trading Success - Client Results" loading="lazy" decoding="async" className="w-72 h-auto neon-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </div>
 
             {/* Review 2 */}
             <div className="relative group">
-              <div className="absolute -top-2 -left-2 text-primary text-lg animate-float">★</div>
-              <div className="absolute -bottom-3 -right-2 text-secondary text-sm animate-pulse-neon">★</div>
+              <div className="absolute -top-2 -left-2 text-primary text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
+              <div className="absolute -bottom-3 -right-2 text-secondary text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               
-              <img src="/lovable-uploads/d73c4368-8499-406f-8576-206f4c571130.png" alt="Trading Volume Growth - $1,195 Gross Volume" loading="lazy" className="w-72 h-auto neon-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/d73c4368-8499-406f-8576-206f4c571130.png" alt="Trading Volume Growth - $1,195 Gross Volume" loading="lazy" decoding="async" className="w-72 h-auto neon-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
               <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </div>
 
             {/* Review 3 */}
             <div className="relative group">
-              <div className="absolute -top-2 -left-2 text-secondary text-xl animate-pulse-neon">★</div>
-              <div className="absolute -bottom-3 -right-2 text-accent text-xl animate-float">★</div>
+              <div className="absolute -top-2 -left-2 text-secondary text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
+              <div className="absolute -bottom-3 -right-2 text-accent text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               
-              <img src="/lovable-uploads/a28ad2f5-ba42-468f-b48a-866d99c2ded8.png" alt="Daily Profits - $563.94 Realized" loading="lazy" className="w-72 h-auto neon-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/a28ad2f5-ba42-468f-b48a-866d99c2ded8.png" alt="Daily Profits - $563.94 Realized" loading="lazy" decoding="async" className="w-72 h-auto neon-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
               <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </div>
 
             {/* Review 4 - Volume Chart */}
             <div className="relative group">
-              <div className="absolute -top-2 -left-2 text-accent text-lg animate-float">★</div>
-              <div className="absolute -bottom-3 -right-2 text-accent text-sm animate-pulse-neon">★</div>
+              <div className="absolute -top-2 -left-2 text-accent text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
+              <div className="absolute -bottom-3 -right-2 text-accent text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               
-              <img src="/lovable-uploads/2cddecc7-da9f-49e7-bc98-d47d395f175c.png" alt="Multiple Trading Wins - Consistent Profits" loading="lazy" className="w-72 h-auto neon-border rounded-2xl hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/2cddecc7-da9f-49e7-bc98-d47d395f175c.png" alt="Multiple Trading Wins - Consistent Profits" loading="lazy" decoding="async" className="w-72 h-auto neon-border rounded-2xl hover:soft-glow transition-all duration-300 group-hover:scale-102" />
               <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </div>
           </div>
@@ -219,7 +212,7 @@ const Index = () => {
 
         {/* System Status */}
         <AnimatedBlock delay={1.16} className="text-center mb-8">
-          <p className="text-muted-foreground font-mono text-sm tracking-wider animate-pulse-neon">SYSTEM INITIALIZED • READY FOR LAUNCH SUBHANALLAH</p>
+          <p className="text-muted-foreground font-mono text-sm tracking-wider">SYSTEM INITIALIZED • READY FOR LAUNCH SUBHANALLAH</p>
         </AnimatedBlock>
 
         {/* Results Stats */}
@@ -284,9 +277,9 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Scanlines Effect */}
-      <div className="absolute inset-0 pointer-events-none opacity-10">
-        <div className="h-full bg-gradient-to-b from-transparent via-primary/20 to-transparent animate-pulse-neon" style={{
+      {/* Scanlines Effect - Static */}
+      <div className="absolute inset-0 pointer-events-none opacity-5">
+        <div className="h-full bg-gradient-to-b from-transparent via-primary/10 to-transparent" style={{
         backgroundSize: '100% 4px'
       }} />
       </div>
