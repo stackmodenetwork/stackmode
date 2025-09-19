@@ -6,16 +6,16 @@
 
 @layer base {
   :root {
-    /* Retro Gaming Background Colors */
-    --background: 240 10% 8%;
-    --foreground: 120 100% 85%;
+    /* Dark Grey Background Colors */
+    --background: 240 8% 8%;
+    --foreground: 240 20% 85%;
 
     /* Gaming UI Elements */
     --card: 240 15% 12%;
-    --card-foreground: 120 100% 90%;
+    --card-foreground: 240 20% 85%;
 
     --popover: 240 15% 12%;
-    --popover-foreground: 120 100% 90%;
+    --popover-foreground: 240 20% 85%;
 
     /* Neon Primary Colors */
     --primary: 120 100% 50%;
@@ -29,7 +29,7 @@
 
     /* Gaming Accent Colors */
     --muted: 240 20% 20%;
-    --muted-foreground: 120 50% 70%;
+    --muted-foreground: 240 30% 60%;
 
     --accent: 300 100% 60%;
     --accent-foreground: 240 10% 8%;
@@ -42,7 +42,7 @@
     /* UI Elements */
     --border: 240 20% 25%;
     --input: 240 20% 15%;
-    --ring: 120 100% 50%;
+    --ring: 270 70% 60%;
 
     /* Design System Variables */
     --radius: 0.25rem;
@@ -130,6 +130,7 @@
   body {
     @apply bg-background text-foreground overflow-x-hidden;
     font-family: 'Courier New', monospace;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="%23a855f7" stroke-width="2" opacity="0.6"/><circle cx="10" cy="10" r="2" fill="%23a855f7" opacity="0.8"/></svg>'), auto;
   }
 
   /* Hide Lovable badge */
@@ -182,9 +183,9 @@
 
   .neon-border {
     box-shadow: 
-      inset 0 0 20px rgba(0, 255, 0, 0.2),
-      0 0 20px rgba(0, 255, 0, 0.3),
-      0 0 40px rgba(0, 255, 0, 0.1);
+      inset 0 0 20px rgba(168, 85, 247, 0.2),
+      0 0 20px rgba(168, 85, 247, 0.3),
+      0 0 40px rgba(168, 85, 247, 0.1);
   }
 }
 
