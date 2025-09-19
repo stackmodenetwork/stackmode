@@ -130,7 +130,7 @@
   body {
     @apply bg-background text-foreground overflow-x-hidden;
     font-family: 'Courier New', monospace;
-    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="%23a855f7" stroke-width="2" opacity="0.6"/><circle cx="10" cy="10" r="2" fill="%23a855f7" opacity="0.8"/></svg>'), auto;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="%23a855f7" stroke-width="3" opacity="0.9"><animate attributeName="r" values="6;12;6" dur="1.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite"/></circle><circle cx="12" cy="12" r="3" fill="%23c084fc" opacity="0.8"><animate attributeName="r" values="2;4;2" dur="1s" repeatCount="indefinite"/></circle></svg>'), auto;
   }
 
   /* Hide Lovable badge */

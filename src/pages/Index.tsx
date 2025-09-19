@@ -70,14 +70,7 @@ const Index = () => {
         Your browser does not support the audio element.
       </audio>
 
-      {/* Optimized Static Background Pattern */}
-      <div className="absolute inset-0 opacity-3">
-        <div className="grid grid-cols-3 grid-rows-3 h-full gap-12 p-12">
-          {Array.from({
-          length: 9
-        }).map((_, i) => <div key={i} className="bg-primary/20 rounded" />)}
-        </div>
-      </div>
+      {/* Background removed */}
 
       {/* Main Content */}
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4">
