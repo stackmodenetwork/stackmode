@@ -6,8 +6,8 @@
 
 @layer base {
   :root {
-    /* Dark Grey Background Colors */
-    --background: 240 8% 8%;
+    /* Light Background Colors */
+    --background: 0 0% 98%;
     --foreground: 240 10% 95%;
 
     /* Gaming UI Elements */
