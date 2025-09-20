@@ -162,8 +162,8 @@ const Index = () => {
           </div>
         </AnimatedBlock>
 
-        {/* Trading Results Gallery */}
-        <AnimatedBlock delay={1.15} className="mb-16">
+        {/* Trading Results Gallery - Row 1 */}
+        <AnimatedBlock delay={1.15} className="mb-8">
           <div className="flex flex-col md:flex-row items-center justify-center gap-2 sm:gap-4 md:gap-6">
             {/* Review 1 */}
             <div className="relative group">
@@ -197,19 +197,97 @@ const Index = () => {
               <div className="absolute -top-2 -left-2 text-accent text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               <div className="absolute -bottom-3 -right-2 text-accent text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               
-              <img src="/lovable-uploads/2cddecc7-da9f-49e7-bc98-d47d395f175c.png" alt="Multiple Trading Wins - Consistent Profits" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-2xl hover:soft-glow transition-all duration-300 group-hover:scale-102" />
-              <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+              <img src="/lovable-uploads/2cddecc7-da9f-49e7-bc98-d47d395f175c.png" alt="Multiple Trading Wins - Consistent Profits" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </div>
           </div>
         </AnimatedBlock>
 
+        {/* Trading Results Gallery - Row 2 */}
+        <AnimatedBlock delay={1.16} className="mb-16">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-2 sm:gap-4 md:gap-6">
+            {/* New Review 1 */}
+            <div className="relative group">
+              <div className="absolute -top-2 -left-2 text-primary text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
+              <div className="absolute -bottom-3 -right-2 text-accent text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
+              
+              <img src="/lovable-uploads/review-1.png" alt="Student Trading Success - Real Results" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+            </div>
+
+            {/* New Review 2 */}
+            <div className="relative group">
+              <div className="absolute -top-2 -left-2 text-secondary text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
+              <div className="absolute -bottom-3 -right-2 text-primary text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
+              
+              <img src="/lovable-uploads/review-2.png" alt="Trading Profits - Student Achievement" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+            </div>
+
+            {/* New Review 3 */}
+            <div className="relative group">
+              <div className="absolute -top-2 -left-2 text-accent text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
+              <div className="absolute -bottom-3 -right-2 text-secondary text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
+              
+              <img src="/lovable-uploads/review-3.png" alt="Consistent Trading Wins - Mentorship Results" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+            </div>
+
+            {/* New Review 4 */}
+            <div className="relative group">
+              <div className="absolute -top-2 -left-2 text-primary text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
+              <div className="absolute -bottom-3 -right-2 text-accent text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
+              
+              <img src="/lovable-uploads/review-4.png" alt="Profitable Trading Strategy - Real Student Success" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+            </div>
+          </div>
+        </AnimatedBlock>
+
+        {/* Trading Results Gallery - Row 3 */}
+        <AnimatedBlock delay={1.17} className="mb-16">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-2 sm:gap-4 md:gap-6">
+            {/* New Review 5 */}
+            <div className="relative group">
+              <div className="absolute -top-2 -left-2 text-accent text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
+              <div className="absolute -bottom-3 -right-2 text-primary text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
+              
+              <img src="/lovable-uploads/review-5.png" alt="Trading Account Growth - Funded Trader Success" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+            </div>
+
+            {/* New Review 6 */}
+            <div className="relative group">
+              <div className="absolute -top-2 -left-2 text-secondary text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
+              <div className="absolute -bottom-3 -right-2 text-accent text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
+              
+              <img src="/lovable-uploads/review-6.png" alt="Trading Excellence - Coaching Success Story" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+            </div>
+
+            {/* Additional showcase slot for future reviews */}
+            <div className="relative group opacity-50">
+              <div className="w-72 h-48 purple-border rounded-lg bg-card/30 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="text-accent text-2xl mb-2">★★★★★</div>
+                  <div className="text-muted-foreground font-mono text-sm">MORE SUCCESS</div>
+                  <div className="text-muted-foreground font-mono text-sm">STORIES COMING</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Placeholder for balance */}
+            <div className="w-72 h-48 opacity-0 md:block hidden"></div>
+          </div>
+        </AnimatedBlock>
+
         {/* System Status */}
-        <AnimatedBlock delay={1.16} className="text-center mb-8">
+        <AnimatedBlock delay={1.18} className="text-center mb-8">
           <p className="text-muted-foreground font-mono text-sm tracking-wider">SYSTEM INITIALIZED • READY FOR LAUNCH SUBHANALLAH</p>
         </AnimatedBlock>
 
         {/* Results Stats */}
-        <AnimatedBlock delay={1.17} className="mb-[500px] md:mb-96 text-center">
+        <AnimatedBlock delay={1.19} className="mb-[500px] md:mb-96 text-center">
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-accent neon-glow">$5000+</div>
