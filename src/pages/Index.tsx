@@ -448,8 +448,8 @@ const Index = () => {
         </AnimatedBlock>
 
         {/* Call to Action Button */}
-        <AnimatedBlock delay={1.21} className="text-center mb-8">
-          <Button asChild className="bg-accent hover:bg-accent/80 text-background font-bold text-lg px-8 py-6 rounded-lg neon-glow">
+        <AnimatedBlock delay={1.21} className="text-center mb-8 px-4">
+          <Button asChild className="bg-accent hover:bg-accent/80 text-background font-bold text-sm md:text-lg px-4 md:px-8 py-4 md:py-6 rounded-lg neon-glow w-full max-w-md">
             <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer">
               DON'T WAIT ANYMORE BOOK A FREE CALL HERE
             </a>
