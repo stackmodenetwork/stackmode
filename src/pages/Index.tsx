@@ -4,6 +4,7 @@ import { AnimatedBlock } from '@/components/AnimatedBlock';
 import { Icon3D } from '@/components/Icon3D';
 import { PressStartButton } from '@/components/PressStartButton';
 import { ShoppingCart, Briefcase, Play, BookOpen, CandlestickChart, Siren, Check, DollarSign, Mic, Users } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 // Declare Calendly type
 declare global {
@@ -444,6 +445,15 @@ const Index = () => {
             {/* Placeholder for visual balance */}
             <div className="w-72 h-48 opacity-0 md:block hidden"></div>
           </div>
+        </AnimatedBlock>
+
+        {/* Call to Action Button */}
+        <AnimatedBlock delay={1.21} className="text-center mb-8">
+          <Button asChild className="bg-accent hover:bg-accent/80 text-background font-bold text-lg px-8 py-6 rounded-lg neon-glow">
+            <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer">
+              DON'T WAIT ANYMORE BOOK A FREE CALL HERE
+            </a>
+          </Button>
         </AnimatedBlock>
 
         {/* System Status */}
