@@ -107,7 +107,7 @@ const Index = () => {
             <AnimatedBlock delay={0.5} className="w-80 h-16">
               <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
                 <CandlestickChart size={24} className="text-fuchsia-500 mr-3 neon-glow" />
-                <span className="text-primary font-bold tracking-wider neon-glow">TRADING MENTORSHIP</span>
+                <span className="text-fuchsia-500 font-bold tracking-wider neon-glow">TRADING MENTORSHIP</span>
               </a>
             </AnimatedBlock>
             
@@ -118,14 +118,14 @@ const Index = () => {
                   <DollarSign size={20} className="text-green-300 neon-glow -ml-1" />
                   <DollarSign size={20} className="text-green-300 neon-glow -ml-1" />
                 </div>
-                <span className="text-primary font-bold tracking-wider neon-glow">CATCH MY TRADES</span>
+                <span className="text-green-300 font-bold tracking-wider neon-glow">CATCH MY TRADES</span>
               </a>
             </AnimatedBlock>
             
             <AnimatedBlock delay={0.7} className="w-80 h-16">
               <a href="https://stackmodechris.systeme.io/trading" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
                 <BookOpen size={24} className="text-blue-400 mr-3 neon-glow" />
-                <span className="text-primary font-bold tracking-wider neon-glow">FREE TRADING EDUCATION</span>
+                <span className="text-blue-400 font-bold tracking-wider neon-glow">FREE TRADING EDUCATION</span>
               </a>
             </AnimatedBlock>
           </div>
@@ -135,21 +135,21 @@ const Index = () => {
             <AnimatedBlock delay={0.8} className="w-80 h-16">
               <a href="https://calendly.com/stackmodechris/stackmode-business-mentorship" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
                 <Briefcase size={24} className="text-yellow-400 mr-3 neon-glow" />
-                <span className="text-primary font-bold tracking-wider neon-glow">START/GROW YOUR BUSINESS</span>
+                <span className="text-yellow-400 font-bold tracking-wider neon-glow">START/GROW YOUR BUSINESS</span>
               </a>
             </AnimatedBlock>
 
             <AnimatedBlock delay={0.9} className="w-80 h-16">
               <a href="https://open.spotify.com/show/0vEjR8jK1E1iVZd4csQniK?si=bbe874533166484f" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
                 <Mic size={24} className="text-cyan-400 mr-3 neon-glow" />
-                <span className="text-primary font-bold tracking-wider neon-glow">STACKMODE NETWORK PODCAST</span>
+                <span className="text-cyan-400 font-bold tracking-wider neon-glow">STACKMODE NETWORK PODCAST</span>
               </a>
             </AnimatedBlock>
 
             <AnimatedBlock delay={1.0} className="w-80 h-16">
               <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
                 <Users size={24} className="text-purple-400 mr-3 neon-glow" />
-                <span className="text-primary font-bold tracking-wider neon-glow">DISCORD</span>
+                <span className="text-purple-400 font-bold tracking-wider neon-glow">DISCORD</span>
               </a>
             </AnimatedBlock>
           </div>
