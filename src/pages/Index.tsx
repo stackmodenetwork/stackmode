@@ -578,7 +578,7 @@ const Index = () => {
         <AnimatedBlock delay={1.23} className="mb-[500px] md:mb-96 text-center">
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-accent neon-glow">+$10,000</div>
+              <div className="text-3xl md:text-4xl font-bold text-accent neon-glow">$10,000+</div>
               <div className="text-sm font-mono text-muted-foreground tracking-wider">PROFITS GENERATED</div>
             </div>
             <div className="text-center">
