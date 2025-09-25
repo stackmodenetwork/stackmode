@@ -121,8 +121,8 @@ const Index = () => {
             
             <AnimatedBlock delay={0.7} className="w-80 h-16">
               <a href="https://stackmodechris.systeme.io/trading" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
-                <BookOpen size={24} className="text-blue-400 mr-3 neon-glow" />
-                <span className="text-blue-400 font-bold tracking-wider neon-glow">FREE TRADING EDUCATION</span>
+                <BookOpen size={24} className="text-cyan-400 mr-3 neon-glow" />
+                <span className="text-cyan-400 font-bold tracking-wider neon-glow">FREE TRADING EDUCATION</span>
               </a>
             </AnimatedBlock>
           </div>
@@ -138,8 +138,8 @@ const Index = () => {
 
             <AnimatedBlock delay={0.9} className="w-80 h-16">
               <a href="https://open.spotify.com/show/0vEjR8jK1E1iVZd4csQniK?si=bbe874533166484f" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
-                <Mic size={24} className="text-cyan-400 mr-3 neon-glow" />
-                <span className="text-cyan-400 font-bold tracking-wider neon-glow">STACKMODE NETWORK PODCAST</span>
+                <Mic size={24} className="text-blue-400 mr-3 neon-glow" />
+                <span className="text-blue-400 font-bold tracking-wider neon-glow">STACKMODE NETWORK PODCAST</span>
               </a>
             </AnimatedBlock>
 
