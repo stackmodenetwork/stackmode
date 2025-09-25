@@ -36,23 +36,20 @@ const Index = () => {
         calendlyScript.type = 'text/javascript';
         calendlyScript.async = true;
         document.head.appendChild(calendlyScript);
-
         calendlyScript.onload = () => {
           if (window.Calendly) {
-            window.Calendly.initBadgeWidget({ 
-              url: 'https://calendly.com/stackmodechris/tradingmastermindcoaching?background_color=111111&text_color=edffec&primary_color=ff0ddd', 
-              text: 'BOOK A FREE CALL', 
-              color: '#111111', 
-              textColor: '#18ff00', 
-              branding: true 
+            window.Calendly.initBadgeWidget({
+              url: 'https://calendly.com/stackmodechris/tradingmastermindcoaching?background_color=111111&text_color=edffec&primary_color=ff0ddd',
+              text: 'BOOK A FREE CALL',
+              color: '#111111',
+              textColor: '#18ff00',
+              branding: true
             });
           }
         };
       }, 1000);
     };
-
     initCalendly();
-
     return () => {
       // Cleanup - only remove CSS as script is loaded with delay
       if (document.head.contains(calendlyCSS)) {
@@ -542,7 +539,7 @@ const Index = () => {
                   <div className="text-accent text-3xl mb-2">★★★★★</div>
                   <div className="text-muted-foreground font-mono text-sm">CONTINUOUS</div>
                   <div className="text-muted-foreground font-mono text-sm">SUCCESS STORIES</div>
-                  <div className="text-muted-foreground font-mono text-xs mt-2">ALHAMDULILLAH</div>
+                  <div className="text-muted-foreground font-mono text-xs mt-2">ALLAHU AKBAR</div>
                 </div>
               </div>
             </div>
