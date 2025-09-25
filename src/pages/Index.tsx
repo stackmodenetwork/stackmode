@@ -327,7 +327,7 @@ const Index = () => {
         {/* Middle Call to Action Button */}
         <AnimatedBlock delay={1.175} className="text-center mb-8 px-4">
           <Button asChild className="bg-cyan-400 hover:bg-cyan-400/80 text-background font-bold text-sm md:text-lg px-4 md:px-8 py-4 md:py-6 rounded-lg neon-glow w-full max-w-md">
-            <a href="https://stackmodechris.systeme.io/trading" target="_blank" rel="noopener noreferrer">
+            <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer">
               LEARN HOW TO TRADE HERE
             </a>
           </Button>
