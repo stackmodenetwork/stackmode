@@ -324,6 +324,15 @@ const Index = () => {
           </div>
         </AnimatedBlock>
 
+        {/* Middle Call to Action Button */}
+        <AnimatedBlock delay={1.175} className="text-center mb-8 px-4">
+          <Button asChild className="bg-cyan-400 hover:bg-cyan-400/80 text-background font-bold text-sm md:text-lg px-4 md:px-8 py-4 md:py-6 rounded-lg neon-glow w-full max-w-md">
+            <a href="https://stackmodechris.systeme.io/trading" target="_blank" rel="noopener noreferrer">
+              LEARN HOW TO TRADE HERE
+            </a>
+          </Button>
+        </AnimatedBlock>
+
         {/* Trading Results Gallery - Row 5 */}
         <AnimatedBlock delay={1.19} className="mb-8">
           <div className="flex flex-col md:flex-row items-center justify-center gap-2 sm:gap-4 md:gap-6">
