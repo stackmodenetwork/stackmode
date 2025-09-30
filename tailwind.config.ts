@@ -75,6 +75,7 @@ export default {
 				'gradient-gaming': 'var(--gradient-gaming)'
 			},
 			fontFamily: {
+				'inter': ['Inter', 'sans-serif'],
 				'mono': ['Courier New', 'monospace'],
 				'pixel': ['monospace']
 			},
