@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 import { AnimatedBlock } from '@/components/AnimatedBlock';
 import { Icon3D } from '@/components/Icon3D';
 import { PressStartButton } from '@/components/PressStartButton';
-import { ShoppingCart, Briefcase, Play, BookOpen, CandlestickChart, Siren, Check, DollarSign, Mic, Users } from 'lucide-react';
+import { ShoppingCart, Briefcase, Play, BookOpen, CandlestickChart, Siren, Check, DollarSign, Mic, Users, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 // Declare Calendly type
@@ -154,7 +154,10 @@ const Index = () => {
 
         {/* Promo Video Section */}
         <AnimatedBlock delay={1.03} className="mb-6 text-center">
-          <h3 className="text-4xl md:text-5xl font-bold text-primary neon-glow">TRADING MADE SIMPLE</h3>
+          <h3 className="text-4xl md:text-5xl font-bold text-accent neon-glow flex items-center justify-center gap-3">
+            <TrendingUp size={40} className="text-accent neon-glow" />
+            How I Turned $30 Into $2000+
+          </h3>
         </AnimatedBlock>
 
         <AnimatedBlock delay={1.05} className="mb-16">
