@@ -152,7 +152,11 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Promo Video */}
+        {/* Promo Video Section */}
+        <AnimatedBlock delay={1.03} className="mb-6 text-center">
+          <h3 className="text-4xl md:text-5xl font-bold text-primary neon-glow">TRADING MADE SIMPLE</h3>
+        </AnimatedBlock>
+
         <AnimatedBlock delay={1.05} className="mb-16">
           <div className="w-full max-w-4xl mx-auto">
             <video 
