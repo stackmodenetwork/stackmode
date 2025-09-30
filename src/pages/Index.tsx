@@ -155,8 +155,8 @@ const Index = () => {
         {/* Promo Video Section */}
         <AnimatedBlock delay={1.03} className="mb-6 text-center">
           <h3 className="text-4xl md:text-5xl font-bold text-accent neon-glow flex items-center justify-center gap-3">
-            <TrendingUp size={40} className="text-accent neon-glow" />
             How I Turned $30 Into $2000+
+            <TrendingUp size={40} className="text-primary neon-glow" />
           </h3>
         </AnimatedBlock>
 
