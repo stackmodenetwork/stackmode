@@ -164,7 +164,7 @@ const Index = () => {
           <div className="w-full max-w-4xl mx-auto">
             <video 
               controls 
-              className="w-full rounded-lg neon-border shadow-lg"
+              className="w-full rounded-lg purple-border shadow-lg"
               preload="metadata"
             >
               <source src="/lovable-uploads/promo-video.mp4" type="video/mp4" />
