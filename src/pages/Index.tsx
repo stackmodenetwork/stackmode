@@ -152,6 +152,20 @@ const Index = () => {
           </div>
         </div>
 
+        {/* Promo Video */}
+        <AnimatedBlock delay={1.05} className="mb-16">
+          <div className="w-full max-w-4xl mx-auto">
+            <video 
+              controls 
+              className="w-full rounded-lg neon-border shadow-lg"
+              preload="metadata"
+            >
+              <source src="/lovable-uploads/promo-video.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </AnimatedBlock>
+
         {/* SUCCESS TESTIMONIALS SECTION - Optimized */}
         <AnimatedBlock delay={1.1} className="mb-8 text-center">
           <div className="relative">
