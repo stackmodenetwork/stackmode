@@ -176,8 +176,7 @@ const Index = () => {
         <AnimatedBlock delay={1.07} className="mb-16">
           <div className="w-full max-w-4xl mx-auto">
             <iframe 
-              className="w-full rounded-lg purple-border shadow-lg"
-              style={{ height: '450px' }}
+              className="w-full aspect-video rounded-lg purple-border shadow-lg"
               src="https://www.youtube.com/embed/Ay6AYak6sXE?si=EC3EyPiAsUF5ubZ5"
               title="YouTube video player"
               frameBorder="0"
