@@ -162,11 +162,7 @@ const Index = () => {
 
         <AnimatedBlock delay={1.05} className="mb-16">
           <div className="w-full max-w-4xl mx-auto">
-            <video 
-              controls 
-              className="w-full rounded-lg purple-border shadow-lg"
-              preload="metadata"
-            >
+            <video controls className="w-full rounded-lg purple-border shadow-lg" preload="metadata">
               <source src="/lovable-uploads/promo-video.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
@@ -175,21 +171,12 @@ const Index = () => {
 
         {/* YouTube Video Section */}
         <AnimatedBlock delay={1.06} className="mb-6 text-center">
-          <h3 className="text-4xl md:text-5xl font-bold text-accent neon-glow">
-            How I Made $100 In 15 Minutes!
-          </h3>
+          <h3 className="text-4xl md:text-5xl font-bold text-accent neon-glow">How I Made $100 In 15 Minutes!</h3>
         </AnimatedBlock>
 
         <AnimatedBlock delay={1.07} className="mb-16">
           <div className="w-full max-w-6xl mx-auto px-4">
-            <iframe 
-              className="w-full aspect-video rounded-lg purple-border shadow-lg"
-              src="https://www.youtube.com/embed/Ay6AYak6sXE?si=RBGsl6vnISYyUvOP&rel=0&modestbranding=1&hd=1"
-              title="How I Made $100 In 15 Minutes!"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            />
+            <iframe className="w-full aspect-video rounded-lg purple-border shadow-lg" src="https://www.youtube.com/embed/Ay6AYak6sXE?si=RBGsl6vnISYyUvOP&rel=0&modestbranding=1&hd=1" title="How I Made $100 In 15 Minutes!" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
           </div>
         </AnimatedBlock>
 
