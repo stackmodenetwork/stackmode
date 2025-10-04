@@ -181,10 +181,10 @@ const Index = () => {
         </AnimatedBlock>
 
         <AnimatedBlock delay={1.07} className="mb-16">
-          <div className="w-full max-w-4xl mx-auto">
+          <div className="w-full max-w-6xl mx-auto px-4">
             <iframe 
               className="w-full aspect-video rounded-lg purple-border shadow-lg"
-              src="https://www.youtube.com/embed/Ay6AYak6sXE?si=RBGsl6vnISYyUvOP"
+              src="https://www.youtube.com/embed/Ay6AYak6sXE?si=RBGsl6vnISYyUvOP&rel=0&modestbranding=1&hd=1"
               title="How I Made $100 In 15 Minutes!"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
