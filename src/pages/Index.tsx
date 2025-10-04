@@ -160,7 +160,7 @@ const Index = () => {
           </h3>
         </AnimatedBlock>
 
-        <AnimatedBlock delay={1.05} className="mb-16">
+        <AnimatedBlock delay={1.05} className="mb-8">
           <div className="w-full max-w-4xl mx-auto">
             <video 
               controls 
@@ -170,6 +170,18 @@ const Index = () => {
               <source src="/lovable-uploads/promo-video.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
+          </div>
+        </AnimatedBlock>
+
+        <AnimatedBlock delay={1.07} className="mb-16">
+          <div className="w-full max-w-4xl mx-auto">
+            <iframe 
+              className="w-full aspect-video rounded-lg purple-border shadow-lg"
+              src="https://www.youtube.com/embed/Ay6AYak6sXE"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
           </div>
         </AnimatedBlock>
 
