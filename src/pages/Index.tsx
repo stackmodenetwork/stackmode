@@ -175,13 +175,15 @@ const Index = () => {
 
         <AnimatedBlock delay={1.07} className="mb-16">
           <div className="w-full max-w-4xl mx-auto">
-            <iframe 
-              className="w-full aspect-video rounded-lg purple-border shadow-lg"
-              src="https://www.youtube.com/embed/Ay6AYak6sXE"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+              <iframe 
+                className="absolute top-0 left-0 w-full h-full rounded-lg purple-border shadow-lg"
+                src="https://www.youtube.com/embed/Ay6AYak6sXE"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
           </div>
         </AnimatedBlock>
 
