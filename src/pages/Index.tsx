@@ -173,6 +173,26 @@ const Index = () => {
           </div>
         </AnimatedBlock>
 
+        {/* YouTube Video Section */}
+        <AnimatedBlock delay={1.06} className="mb-6 text-center">
+          <h3 className="text-4xl md:text-5xl font-bold text-accent neon-glow">
+            How I Made $100 In 15 Minutes!
+          </h3>
+        </AnimatedBlock>
+
+        <AnimatedBlock delay={1.07} className="mb-16">
+          <div className="w-full max-w-4xl mx-auto">
+            <iframe 
+              className="w-full aspect-video rounded-lg purple-border shadow-lg"
+              src="https://www.youtube.com/embed/Ay6AYak6sXE?si=RBGsl6vnISYyUvOP"
+              title="How I Made $100 In 15 Minutes!"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          </div>
+        </AnimatedBlock>
+
         {/* SUCCESS TESTIMONIALS SECTION - Optimized */}
         <AnimatedBlock delay={1.1} className="mb-8 text-center">
           <div className="relative">
