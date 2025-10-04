@@ -175,7 +175,7 @@ const Index = () => {
 
         {/* YouTube Video Section */}
         <AnimatedBlock delay={1.06} className="mb-6 text-center">
-          <h3 className="text-4xl md:text-5xl font-bold text-accent neon-glow">
+          <h3 className="text-4xl md:text-5xl font-bold text-green-400 neon-glow">
             How I Made $100 In 15 Minutes!
           </h3>
         </AnimatedBlock>
