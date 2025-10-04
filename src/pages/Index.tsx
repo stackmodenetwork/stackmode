@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 import { AnimatedBlock } from '@/components/AnimatedBlock';
 import { Icon3D } from '@/components/Icon3D';
 import { PressStartButton } from '@/components/PressStartButton';
-import { ShoppingCart, Briefcase, Play, BookOpen, CandlestickChart, Siren, Check, DollarSign, Mic, Users, TrendingUp } from 'lucide-react';
+import { ShoppingCart, Briefcase, Play, BookOpen, CandlestickChart, Siren, Check, DollarSign, Mic, Users, TrendingUp, Rocket } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 // Declare Calendly type
@@ -171,7 +171,10 @@ const Index = () => {
 
         {/* YouTube Video Section */}
         <AnimatedBlock delay={1.06} className="mb-6 text-center">
-          <h3 className="text-4xl md:text-5xl font-bold text-accent neon-glow">How I Made $100 In 15 Minutes!</h3>
+          <h3 className="text-4xl md:text-5xl font-bold text-accent neon-glow flex items-center justify-center gap-3">
+            How I Made $100 In 15 Minutes!
+            <Rocket size={40} className="text-green-400 neon-glow" />
+          </h3>
         </AnimatedBlock>
 
         <AnimatedBlock delay={1.07} className="mb-16">
