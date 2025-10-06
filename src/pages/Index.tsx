@@ -569,8 +569,35 @@ const Index = () => {
           </div>
         </AnimatedBlock>
 
-        {/* Success Showcase Footer */}
+        {/* Trading Results Gallery - Row 10 */}
         <AnimatedBlock delay={1.24} className="mb-16">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-2 sm:gap-4 md:gap-6">
+            {/* New Review 33 */}
+            <div className="relative group">
+              <div className="absolute -top-2 -left-2 text-primary text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
+              <div className="absolute -bottom-3 -right-2 text-accent text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
+              
+              <img src="/lovable-uploads/review-33.png" alt="Trading Mentorship Success - Alhamdulillah" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+            </div>
+
+            {/* New Review 34 */}
+            <div className="relative group">
+              <div className="absolute -top-2 -left-2 text-secondary text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
+              <div className="absolute -bottom-3 -right-2 text-primary text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
+              
+              <img src="/lovable-uploads/review-34.png" alt="Trading Gap Up Success - Nice Play" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+            </div>
+
+            {/* Placeholder for visual balance */}
+            <div className="w-72 h-48 opacity-0 md:block hidden"></div>
+            <div className="w-72 h-48 opacity-0 md:block hidden"></div>
+          </div>
+        </AnimatedBlock>
+
+        {/* Success Showcase Footer */}
+        <AnimatedBlock delay={1.25} className="mb-16">
           <div className="flex flex-col md:flex-row items-center justify-center gap-2 sm:gap-4 md:gap-6">
             {/* Success Showcase - Future Reviews */}
             <div className="relative group opacity-60">
