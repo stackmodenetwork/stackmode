@@ -590,16 +590,7 @@ const Index = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </div>
 
-            {/* Placeholder for visual balance */}
-            <div className="w-72 h-48 opacity-0 md:block hidden"></div>
-            <div className="w-72 h-48 opacity-0 md:block hidden"></div>
-          </div>
-        </AnimatedBlock>
-
-        {/* Success Showcase Footer */}
-        <AnimatedBlock delay={1.25} className="mb-16">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-2 sm:gap-4 md:gap-6">
-            {/* Success Showcase - Future Reviews */}
+            {/* Success Showcase */}
             <div className="relative group opacity-60">
               <div className="w-72 h-48 purple-border rounded-lg bg-card/30 flex items-center justify-center">
                 <div className="text-center">
@@ -612,8 +603,6 @@ const Index = () => {
             </div>
 
             {/* Placeholder for visual balance */}
-            <div className="w-72 h-48 opacity-0 md:block hidden"></div>
-            <div className="w-72 h-48 opacity-0 md:block hidden"></div>
             <div className="w-72 h-48 opacity-0 md:block hidden"></div>
           </div>
         </AnimatedBlock>
