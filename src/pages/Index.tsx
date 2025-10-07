@@ -137,7 +137,7 @@ const Index = () => {
             </AnimatedBlock>
 
             <AnimatedBlock delay={0.9} className="w-80 h-16">
-              <a href="https://open.spotify.com/show/0vEjR8jK1E1iVZd4csQniK?si=bbe874533166484f" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
+              <a href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
                 <Mic size={24} className="text-orange-500 mr-3 neon-glow" />
                 <span className="text-orange-500 font-bold tracking-wider neon-glow">STACKMODE PODCAST</span>
               </a>
