@@ -198,10 +198,6 @@ const Index = () => {
                   <div className="text-xs text-muted-foreground">Win Rate</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-accent neon-glow">Daily</div>
-                  <div className="text-xs text-muted-foreground">Signals</div>
-                </div>
-                <div className="text-center">
                   <div className="text-2xl font-bold text-secondary neon-glow">24/7</div>
                   <div className="text-xs text-muted-foreground">Access</div>
                 </div>
