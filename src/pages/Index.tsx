@@ -628,6 +628,15 @@ const Index = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </div>
 
+            {/* Chat Screenshot */}
+            <div className="relative group">
+              <div className="absolute -top-2 -left-2 text-accent text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
+              <div className="absolute -bottom-3 -right-2 text-secondary text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
+              
+              <img src="/lovable-uploads/chat-screenshot-2.jpg" alt="Client Booking Success - Ready to Grind" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+            </div>
+
             {/* Success Showcase */}
             <div className="relative group opacity-60">
               <div className="w-72 h-48 purple-border rounded-lg bg-card/30 flex items-center justify-center">
