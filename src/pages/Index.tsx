@@ -207,7 +207,7 @@ const Index = () => {
             </div>
 
             <div className="inline-block bg-accent/20 border-2 border-accent rounded-lg px-6 py-3">
-              <p className="text-accent font-bold text-lg neon-glow">🚀 START COPYING MY TRADES TODAY</p>
+              <p className="text-accent font-bold text-lg neon-glow">📈 START COPYING MY TRADES TODAY</p>
             </div>
           </a>
         </div>
