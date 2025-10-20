@@ -102,8 +102,10 @@ const Index = () => {
               <div className="bg-card/50 border-2 border-accent rounded-xl p-8 hover:bg-accent/10 hover:border-accent hover:shadow-[0_0_30px_rgba(var(--accent-rgb),0.3)] transition-all duration-300 cursor-pointer group">
                 <h3 className="text-2xl md:text-3xl font-bold text-accent neon-glow mb-4 text-center group-hover:scale-105 transition-transform">TRADING MENTORSHIP</h3>
                 <p className="text-foreground mb-6 text-center">Book a free strategy call and get personalized guidance</p>
-                <div className="bg-accent hover:bg-accent/90 text-background font-bold text-lg px-8 py-6 rounded-lg neon-glow w-full transform group-hover:scale-105 transition-all shadow-2xl text-center">
-                  📅 BOOK A FREE CALL
+                <div className="relative overflow-hidden bg-gradient-to-r from-accent via-accent to-accent/80 text-background font-bold text-lg px-8 py-6 rounded-lg w-full transform group-hover:scale-105 transition-all shadow-2xl text-center group-hover:shadow-[0_0_40px_rgba(var(--accent-rgb),0.6)] before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:translate-x-[-200%] group-hover:before:translate-x-[200%] before:transition-transform before:duration-700">
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    📅 BOOK A FREE CALL
+                  </span>
                 </div>
                 <p className="text-sm text-muted-foreground mt-4 text-center font-mono">✅ No Credit Card Required</p>
               </div>
@@ -114,8 +116,10 @@ const Index = () => {
               <div className="bg-card/50 border-2 border-cyan-400 rounded-xl p-8 hover:bg-cyan-400/10 hover:border-cyan-400 hover:shadow-[0_0_30px_rgba(34,211,238,0.3)] transition-all duration-300 cursor-pointer group">
                 <h3 className="text-2xl md:text-3xl font-bold text-cyan-400 neon-glow mb-4 text-center group-hover:scale-105 transition-transform">CATCH MY TRADES</h3>
                 <p className="text-foreground mb-6 text-center">Copy my exact trading strategy and key levels</p>
-                <div className="bg-cyan-400 hover:bg-cyan-400/90 text-background font-bold text-lg px-8 py-6 rounded-lg neon-glow w-full transform group-hover:scale-105 transition-all shadow-2xl text-center">
-                  📈 START COPYING
+                <div className="relative overflow-hidden bg-gradient-to-r from-cyan-400 via-cyan-400 to-cyan-500 text-background font-bold text-lg px-8 py-6 rounded-lg w-full transform group-hover:scale-105 transition-all shadow-2xl text-center group-hover:shadow-[0_0_40px_rgba(34,211,238,0.6)] before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:translate-x-[-200%] group-hover:before:translate-x-[200%] before:transition-transform before:duration-700">
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    📈 START COPYING
+                  </span>
                 </div>
                 <p className="text-sm text-muted-foreground mt-4 text-center font-mono">✅ Real-Time Alerts</p>
               </div>
