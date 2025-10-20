@@ -105,115 +105,33 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Primary CTA - Book Call */}
-        <div className="text-center mb-16 max-w-2xl mx-auto">
-          <Button asChild className="bg-accent hover:bg-accent/90 text-background font-bold text-sm sm:text-base md:text-xl px-6 py-4 sm:px-8 sm:py-5 md:px-12 md:py-8 rounded-lg neon-glow w-full transform hover:scale-105 transition-all shadow-2xl animate-[pulse_3s_ease-in-out_infinite]">
-            <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer">
-              🚀 BOOK A FREE CALL BEFORE IT'S TOO LATE
-            </a>
-          </Button>
-          <p className="text-sm text-muted-foreground mt-4 font-mono">✅ No Credit Card Required • 100% Free Strategy Session</p>
-        </div>
+        {/* Main CTAs - Side by Side */}
+        <div className="max-w-6xl mx-auto mb-16">
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Free Mentorship Button */}
+            <div className="bg-card/50 border-2 border-accent rounded-xl p-8 hover:soft-glow transition-all">
+              <h3 className="text-2xl md:text-3xl font-bold text-accent neon-glow mb-4 text-center">FREE MENTORSHIP</h3>
+              <p className="text-foreground mb-6 text-center">Book a free strategy call and get personalized guidance</p>
+              <Button asChild className="bg-accent hover:bg-accent/90 text-background font-bold text-lg px-8 py-6 rounded-lg neon-glow w-full transform hover:scale-105 transition-all shadow-2xl">
+                <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer">
+                  🚀 BOOK FREE CALL
+                </a>
+              </Button>
+              <p className="text-sm text-muted-foreground mt-4 text-center font-mono">✅ No Credit Card Required</p>
+            </div>
 
-        {/* Urgency Section */}
-        <div className="text-center mb-16 max-w-3xl mx-auto">
-          <div className="bg-card/50 border-2 border-accent rounded-lg p-8">
-            <h3 className="text-3xl md:text-4xl font-bold text-accent neon-glow mb-4">
-              ⚠️ Time Is Running Out
-            </h3>
-            <p className="text-lg text-foreground mb-6">
-              I can only take on a limited number of students each month to ensure everyone gets the attention they deserve. Spots are filling fast.
-            </p>
-            <div className="flex justify-center gap-8">
-              <div>
-                <div className="text-3xl font-bold text-primary neon-glow">$10,000+</div>
-                <div className="text-sm text-muted-foreground">Student Profits</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-accent neon-glow">100%</div>
-                <div className="text-sm text-muted-foreground">Real Results</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-secondary neon-glow">24/7</div>
-                <div className="text-sm text-muted-foreground">Support</div>
-              </div>
+            {/* Catch My Trades Button */}
+            <div className="bg-card/50 border-2 border-primary rounded-xl p-8 hover:soft-glow transition-all">
+              <h3 className="text-2xl md:text-3xl font-bold text-primary neon-glow mb-4 text-center">CATCH MY TRADES</h3>
+              <p className="text-foreground mb-6 text-center">Copy my exact trading strategy and grow your portfolio</p>
+              <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg px-8 py-6 rounded-lg neon-glow w-full transform hover:scale-105 transition-all shadow-2xl">
+                <a href="https://whop.com/stackmode-network-llc/stackmode-trades/" target="_blank" rel="noopener noreferrer">
+                  📈 START COPYING
+                </a>
+              </Button>
+              <p className="text-sm text-muted-foreground mt-4 text-center font-mono">✅ Real-Time Alerts</p>
             </div>
           </div>
-        </div>
-
-        {/* CTA - Copy My Trades - Enhanced */}
-        <div className="text-center mb-16 max-w-4xl mx-auto">
-          <a href="https://whop.com/stackmode-network-llc/stackmode-trades/" target="_blank" rel="noopener noreferrer" className="block bg-gradient-to-br from-card via-card/95 to-card/90 neon-border rounded-xl p-8 md:p-12 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer hover-scale shadow-2xl">
-            <div className="flex justify-center mb-6 animate-[pulse_2s_ease-in-out_infinite]">
-              <DollarSign size={56} className="text-primary neon-glow" />
-              <DollarSign size={56} className="text-accent neon-glow -ml-4" />
-              <DollarSign size={56} className="text-secondary neon-glow -ml-4" />
-            </div>
-            <h3 className="text-primary font-bold text-3xl md:text-4xl neon-glow mb-4">CATCH MY TRADES</h3>
-            <p className="text-lg md:text-xl text-foreground/90 mb-8 font-semibold">Copy My Exact Trading Strategy & Watch Your Portfolio Grow Inshallah</p>
-            
-            <div className="grid md:grid-cols-2 gap-6 text-left mb-6">
-              <div className="flex items-start gap-3">
-                <Check className="text-accent neon-glow mt-1 flex-shrink-0" size={24} />
-                <div>
-                  <p className="font-bold text-accent">Real-Time Trade Alerts</p>
-                  <p className="text-sm text-muted-foreground">Get notified instantly when I enter or exit positions</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-3">
-                <Check className="text-primary neon-glow mt-1 flex-shrink-0" size={24} />
-                <div>
-                  <p className="font-bold text-primary">Complete Entry & Exit Points</p>
-                  <p className="text-sm text-muted-foreground">Know exactly when to buy and sell for maximum profits</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-3">
-                <Check className="text-secondary neon-glow mt-1 flex-shrink-0" size={24} />
-                <div>
-                  <p className="font-bold text-secondary">Detailed Trade Analysis</p>
-                  <p className="text-sm text-muted-foreground">Understand the why behind every trade decision</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-3">
-                <Check className="text-accent neon-glow mt-1 flex-shrink-0" size={24} />
-                <div>
-                  <p className="font-bold text-accent">Risk Management Strategies</p>
-                  <p className="text-sm text-muted-foreground">Learn how to protect your capital on every trade</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-background/50 rounded-lg p-4 mb-6">
-              <div className="flex justify-around items-center">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary neon-glow">85%+</div>
-                  <div className="text-xs text-muted-foreground">Win Rate</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-base font-bold text-muted-foreground">I Make Trading Simple</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-secondary neon-glow">24/7</div>
-                  <div className="text-xs text-muted-foreground">Access</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="inline-block bg-accent/20 border-2 border-accent rounded-lg px-6 py-3">
-              <p className="text-accent font-bold text-lg neon-glow">📈 START COPYING MY TRADES TODAY</p>
-            </div>
-          </a>
-        </div>
-
-        {/* Secondary Video - Proof */}
-        <div className="mb-12 max-w-4xl mx-auto">
-          <h3 className="text-3xl md:text-4xl font-bold text-accent neon-glow mb-6 text-center flex items-center justify-center gap-3">
-            How I Made $100 In Just 15 Minutes Alhamdulillah! <Rocket size={36} className="text-green-400 neon-glow" />
-          </h3>
-          <iframe className="w-full aspect-video rounded-lg purple-border shadow-lg" src="https://www.youtube.com/embed/Ay6AYak6sXE?si=RBGsl6vnISYyUvOP&rel=0&modestbranding=1&hd=1" title="How I Made $100 In 15 Minutes!" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
         </div>
 
         {/* SOCIAL PROOF - Real Results */}
