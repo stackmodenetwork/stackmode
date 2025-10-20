@@ -84,14 +84,7 @@ const Index = () => {
         {/* HERO VSL - Primary Video */}
         <div className="mb-12 max-w-5xl mx-auto">
           <div className="relative">
-            <video 
-              controls 
-              autoPlay 
-              muted 
-              playsInline
-              className="w-full rounded-lg purple-border shadow-2xl" 
-              preload="auto"
-            >
+            <video controls autoPlay muted playsInline className="w-full rounded-lg purple-border shadow-2xl" preload="auto">
               <source src="/lovable-uploads/promo-video.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
@@ -168,7 +161,7 @@ const Index = () => {
               <DollarSign size={48} className="text-primary neon-glow -ml-3" />
               <DollarSign size={48} className="text-primary neon-glow -ml-3" />
             </div>
-            <span className="text-primary font-bold text-2xl neon-glow block mb-3">COPY MY TRADES</span>
+            <span className="text-primary font-bold text-2xl neon-glow block mb-3">CATCH MY TRADES</span>
             <p className="text-base text-muted-foreground">Get real-time trade alerts and follow my exact strategies</p>
           </a>
         </div>
@@ -553,14 +546,7 @@ const Index = () => {
           <h3 className="text-3xl md:text-4xl font-bold text-accent neon-glow mb-6 text-center flex items-center justify-center gap-3">
             $100 In Just 15 Minutes <Rocket size={36} className="text-green-400 neon-glow" />
           </h3>
-          <iframe 
-            className="w-full aspect-video rounded-lg purple-border shadow-lg" 
-            src="https://www.youtube.com/embed/Ay6AYak6sXE?si=RBGsl6vnISYyUvOP&rel=0&modestbranding=1&hd=1" 
-            title="How I Made $100 In 15 Minutes!" 
-            frameBorder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            allowFullScreen 
-          />
+          <iframe className="w-full aspect-video rounded-lg purple-border shadow-lg" src="https://www.youtube.com/embed/Ay6AYak6sXE?si=RBGsl6vnISYyUvOP&rel=0&modestbranding=1&hd=1" title="How I Made $100 In 15 Minutes!" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
         </div>
 
         {/* Final CTA - Urgency */}
