@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AnimatedBlock } from '@/components/AnimatedBlock';
 import { Icon3D } from '@/components/Icon3D';
 import { PressStartButton } from '@/components/PressStartButton';
@@ -17,6 +17,7 @@ declare global {
 const Index = () => {
   const navigate = useNavigate();
   const audioRef = useRef<HTMLAudioElement>(null);
+  const [showBadge, setShowBadge] = useState(true);
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = 0.2;
@@ -50,6 +51,25 @@ const Index = () => {
       }, 1000);
     };
     initCalendly();
+
+    // YouTube IFrame API
+    const tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
+
+    (window as any).onYouTubeIframeAPIReady = () => {
+      new (window as any).YT.Player('hero-video', {
+        events: {
+          onStateChange: (event: any) => {
+            if (event.data === (window as any).YT.PlayerState.PLAYING) {
+              setShowBadge(false);
+            }
+          }
+        }
+      });
+    };
+
     return () => {
       // Cleanup - only remove CSS as script is loaded with delay
       if (document.head.contains(calendlyCSS)) {
@@ -80,10 +100,12 @@ const Index = () => {
         {/* HERO VSL - Primary Video */}
         <div className="mb-12 max-w-5xl mx-auto">
           <div className="relative">
-            <iframe className="w-full aspect-video rounded-lg purple-border shadow-2xl" src="https://www.youtube.com/embed/DcNWSoWGBhs?si=cK9Pyy7Iili2_nUz&rel=0&modestbranding=1&hd=1" title="Training Video" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
-            <div className="absolute -top-2 -right-2 md:-top-4 md:-right-4 bg-accent text-background px-3 py-1 md:px-6 md:py-3 rounded-lg font-bold text-xs md:text-lg neon-glow animate-pulse">
-              🔥 WATCH NOW
-            </div>
+            <iframe id="hero-video" className="w-full aspect-video rounded-lg purple-border shadow-2xl" src="https://www.youtube.com/embed/DcNWSoWGBhs?si=cK9Pyy7Iili2_nUz&rel=0&modestbranding=1&hd=1&enablejsapi=1" title="Training Video" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+            {showBadge && (
+              <div className="absolute -top-2 -right-2 md:-top-4 md:-right-4 bg-accent text-background px-3 py-1 md:px-6 md:py-3 rounded-lg font-bold text-xs md:text-lg neon-glow animate-pulse">
+                🔥 WATCH NOW
+              </div>
+            )}
           </div>
         </div>
 
