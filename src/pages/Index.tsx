@@ -685,7 +685,7 @@ const Index = () => {
 
           {/* Social Media Icons */}
           <div className="mt-12">
-            <h4 className="text-xl font-bold text-center text-muted-foreground mb-6">Follow Me On Social Media</h4>
+            <h4 className="text-xl font-bold text-center text-muted-foreground mb-6">Follow Me On Social Media, May God Bless You And Your Loved Ones!</h4>
             <div className="flex justify-center items-center gap-6">
               <a href="https://www.instagram.com/stackmodechris" target="_blank" rel="noopener noreferrer" className="group">
                 <div className="bg-card neon-border rounded-full p-4 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer hover-scale">
