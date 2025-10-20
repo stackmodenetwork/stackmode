@@ -57,7 +57,6 @@ const Index = () => {
     tag.src = 'https://www.youtube.com/iframe_api';
     const firstScriptTag = document.getElementsByTagName('script')[0];
     firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
-
     (window as any).onYouTubeIframeAPIReady = () => {
       new (window as any).YT.Player('hero-video', {
         events: {
@@ -69,7 +68,6 @@ const Index = () => {
         }
       });
     };
-
     return () => {
       // Cleanup - only remove CSS as script is loaded with delay
       if (document.head.contains(calendlyCSS)) {
@@ -93,19 +91,17 @@ const Index = () => {
         
         {/* Headline - Above the Fold */}
         <div className="text-center mb-8 max-w-5xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary neon-glow mb-4">How I Turn My Clients Into Profitable Traders!</h1>
-          <h2 className="text-xl sm:text-2xl md:text-3xl text-secondary neon-glow">Watch This Free Training Video Before It's Too Late</h2>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary neon-glow mb-4">STACKMODE.NET</h1>
+          <h2 className="text-xl sm:text-2xl md:text-3xl text-secondary neon-glow">Click The Video To See How I Turn My Clients Into Profitable Traders!</h2>
         </div>
 
         {/* HERO VSL - Primary Video */}
         <div className="mb-12 max-w-5xl mx-auto">
           <div className="relative">
             <iframe id="hero-video" className="w-full aspect-video rounded-lg purple-border shadow-2xl" src="https://www.youtube.com/embed/DcNWSoWGBhs?si=cK9Pyy7Iili2_nUz&rel=0&modestbranding=1&hd=1&enablejsapi=1" title="Training Video" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
-            {showBadge && (
-              <div className="absolute -top-2 -right-2 md:-top-4 md:-right-4 bg-accent text-background px-3 py-1 md:px-6 md:py-3 rounded-lg font-bold text-xs md:text-lg neon-glow animate-[pulse_3s_ease-in-out_infinite]">
+            {showBadge && <div className="absolute -top-2 -right-2 md:-top-4 md:-right-4 bg-accent text-background px-3 py-1 md:px-6 md:py-3 rounded-lg font-bold text-xs md:text-lg neon-glow animate-[pulse_3s_ease-in-out_infinite]">
                 🔥 WATCH NOW
-              </div>
-            )}
+              </div>}
           </div>
         </div>
 
@@ -705,7 +701,7 @@ const Index = () => {
               <a href="https://www.tiktok.com/@stackmodechris_" target="_blank" rel="noopener noreferrer" className="group">
                 <div className="bg-card neon-border rounded-full p-4 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer hover-scale">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 text-cyan-400 neon-glow group-hover:scale-110 transition-transform">
-                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
                   </svg>
                 </div>
               </a>
@@ -719,7 +715,7 @@ const Index = () => {
               <a href="https://twitter.com/stackmodechris" target="_blank" rel="noopener noreferrer" className="group">
                 <div className="bg-card neon-border rounded-full p-4 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer hover-scale">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 text-foreground neon-glow group-hover:scale-110 transition-transform">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                   </svg>
                 </div>
               </a>
