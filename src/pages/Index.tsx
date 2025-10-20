@@ -572,9 +572,9 @@ const Index = () => {
             </div>
           </div>
           
-          <Button asChild className="bg-accent hover:bg-accent/90 text-background font-bold text-2xl px-12 py-8 rounded-lg neon-glow w-full transform hover:scale-105 transition-all shadow-2xl animate-pulse">
+          <Button asChild className="bg-accent hover:bg-accent/90 text-background font-bold text-base md:text-xl px-6 py-6 md:px-12 md:py-8 rounded-lg neon-glow w-full transform hover:scale-105 transition-all shadow-2xl">
             <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer">
-              🚀 CLAIM YOUR FREE CALL BEFORE IT'S TOO LATE
+              🎯 BOOK YOUR FREE STRATEGY CALL NOW
             </a>
           </Button>
           <p className="text-muted-foreground mt-4 text-sm">✅ No Credit Card Required • 100% Free Strategy Session</p>
