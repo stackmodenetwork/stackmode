@@ -687,7 +687,7 @@ const Index = () => {
           <div className="mt-12">
             <h4 className="text-xl font-bold text-center text-muted-foreground mb-6">Social Media Links, May God Bless You And Your Loved Ones!</h4>
             <div className="flex justify-center items-center gap-6">
-              <a href="https://www.instagram.com/stackmodechris" target="_blank" rel="noopener noreferrer" className="group">
+              <a href="https://www.instagram.com/stackmodechris_" target="_blank" rel="noopener noreferrer" className="group">
                 <div className="bg-card neon-border rounded-full p-4 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer hover-scale">
                   <Instagram size={32} className="text-pink-500 neon-glow group-hover:scale-110 transition-transform" />
                 </div>
