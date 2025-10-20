@@ -100,7 +100,7 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-6">
             {/* Free Mentorship Button */}
             <div className="bg-card/50 border-2 border-accent rounded-xl p-8 hover:soft-glow transition-all">
-              <h3 className="text-2xl md:text-3xl font-bold text-accent neon-glow mb-4 text-center">FREE MENTORSHIP</h3>
+              <h3 className="text-2xl md:text-3xl font-bold text-accent neon-glow mb-4 text-center">TRADING MENTORSHIP</h3>
               <p className="text-foreground mb-6 text-center">Book a free strategy call and get personalized guidance</p>
               <Button asChild className="bg-accent hover:bg-accent/90 text-background font-bold text-lg px-8 py-6 rounded-lg neon-glow w-full transform hover:scale-105 transition-all shadow-2xl">
                 <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer">
