@@ -154,7 +154,7 @@ const Index = () => {
               <DollarSign size={56} className="text-secondary neon-glow -ml-4" />
             </div>
             <h3 className="text-primary font-bold text-3xl md:text-4xl neon-glow mb-4">CATCH MY TRADES</h3>
-            <p className="text-lg md:text-xl text-foreground/90 mb-8 font-semibold">Copy My Exact Trading Strategy & Watch Your Portfolio Grow</p>
+            <p className="text-lg md:text-xl text-foreground/90 mb-8 font-semibold">Copy My Exact Trading Strategy & Watch Your Portfolio Grow Inshallah</p>
             
             <div className="grid md:grid-cols-2 gap-6 text-left mb-6">
               <div className="flex items-start gap-3">
