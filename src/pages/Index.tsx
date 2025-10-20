@@ -673,7 +673,7 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <a href="https://stackmodechris.systeme.io/trading" target="_blank" rel="noopener noreferrer" className="bg-card neon-border rounded-lg p-6 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer text-center">
               <BookOpen size={32} className="text-cyan-400 neon-glow mx-auto mb-3" />
-              <span className="text-cyan-400 font-bold text-lg neon-glow block">FREE EDUCATION</span>
+              <span className="text-cyan-400 font-bold text-lg neon-glow block">FREE TRADING EDUCATION</span>
               <p className="text-sm text-muted-foreground mt-2">Start learning today</p>
             </a>
             
