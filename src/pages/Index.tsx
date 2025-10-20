@@ -693,7 +693,7 @@ const Index = () => {
           {/* Social Media Icons */}
           <div className="mt-12">
             <h4 className="text-3xl md:text-4xl font-bold text-accent neon-glow mb-6 text-center">
-              Social Media Links Here
+              Social Media Links
             </h4>
             <div className="flex justify-center items-center gap-6">
               <a href="https://www.instagram.com/stackmodechris_" target="_blank" rel="noopener noreferrer" className="group">
