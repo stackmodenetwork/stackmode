@@ -110,16 +110,16 @@ const Index = () => {
             </a>
 
             {/* Catch My Trades Button */}
-            <div className="bg-card/50 border-2 border-cyan-400 rounded-xl p-8 hover:soft-glow transition-all">
-              <h3 className="text-2xl md:text-3xl font-bold text-cyan-400 neon-glow mb-4 text-center">CATCH MY TRADES</h3>
-              <p className="text-foreground mb-6 text-center">Copy my exact trading strategy and key levels</p>
-              <Button asChild className="bg-cyan-400 hover:bg-cyan-400/90 text-background font-bold text-lg px-8 py-6 rounded-lg neon-glow w-full transform hover:scale-105 transition-all shadow-2xl">
-                <a href="https://whop.com/stackmode-network-llc/stackmode-trades/" target="_blank" rel="noopener noreferrer">
+            <a href="https://whop.com/stackmode-network-llc/stackmode-trades/" target="_blank" rel="noopener noreferrer" className="block">
+              <div className="bg-card/50 border-2 border-cyan-400 rounded-xl p-8 hover:bg-cyan-400/10 hover:border-cyan-400 hover:shadow-[0_0_30px_rgba(34,211,238,0.3)] transition-all duration-300 cursor-pointer group">
+                <h3 className="text-2xl md:text-3xl font-bold text-cyan-400 neon-glow mb-4 text-center group-hover:scale-105 transition-transform">CATCH MY TRADES</h3>
+                <p className="text-foreground mb-6 text-center">Copy my exact trading strategy and key levels</p>
+                <div className="bg-cyan-400 hover:bg-cyan-400/90 text-background font-bold text-lg px-8 py-6 rounded-lg neon-glow w-full transform group-hover:scale-105 transition-all shadow-2xl text-center">
                   📈 START COPYING
-                </a>
-              </Button>
-              <p className="text-sm text-muted-foreground mt-4 text-center font-mono">✅ Real-Time Alerts</p>
-            </div>
+                </div>
+                <p className="text-sm text-muted-foreground mt-4 text-center font-mono">✅ Real-Time Alerts</p>
+              </div>
+            </a>
         </div>
         </div>
 
