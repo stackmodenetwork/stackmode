@@ -123,19 +123,19 @@ const Index = () => {
         </div>
         </div>
 
+        {/* Subheading - Above Video */}
+        <div className="text-center mb-6 max-w-5xl mx-auto">
+          <h2 className="text-xl sm:text-2xl text-secondary neon-glow md:text-base font-normal">Learn Real Trading With Stackmodechris — Book A FREE Mentorship Call, Catch My Trades Live, And Master Proven Strategies To Stack Wins Inshallah.</h2>
+        </div>
+
         {/* HERO VSL - Primary Video */}
-        <div className="mb-6 max-w-5xl mx-auto">
+        <div className="mb-12 max-w-5xl mx-auto">
           <div className="relative">
             <iframe id="hero-video" className="w-full aspect-video rounded-lg purple-border shadow-2xl" src="https://www.youtube.com/embed/DcNWSoWGBhs?si=cK9Pyy7Iili2_nUz&rel=0&modestbranding=1&hd=1&enablejsapi=1" title="Training Video" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
             {showBadge && <div className="absolute -top-2 -right-2 md:-top-4 md:-right-4 bg-accent text-background px-3 py-1 md:px-6 md:py-3 rounded-lg font-bold text-xs md:text-lg neon-glow animate-[pulse_3s_ease-in-out_infinite]">
                 🔥 WATCH NOW
               </div>}
           </div>
-        </div>
-
-        {/* Subheading - Below Video */}
-        <div className="text-center mb-12 max-w-5xl mx-auto">
-          <h2 className="text-xl sm:text-2xl text-secondary neon-glow md:text-base font-normal">Learn Real Trading With Stackmodechris — Book A FREE Mentorship Call, Catch My Trades Live, And Master Proven Strategies To Stack Wins Inshallah.</h2>
         </div>
 
         {/* More Ways To Learn & Grow - Moved Here */}
