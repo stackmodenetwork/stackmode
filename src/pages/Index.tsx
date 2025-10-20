@@ -60,7 +60,7 @@ const Index = () => {
   const handlePressStart = () => {
     navigate('/game');
   };
-  return <div className="min-h-screen bg-background relative overflow-x-hidden">{/* Changed from overflow-hidden to overflow-x-hidden for better responsive behavior */}
+  return <div className="min-h-screen bg-background relative overflow-x-hidden">
       {/* Background Music - Deferred Loading */}
       <audio ref={audioRef} loop muted className="hidden" preload="none">
         <source src="/ambient-cyber-music.mp3" type="audio/mpeg" />
@@ -68,128 +68,56 @@ const Index = () => {
         Your browser does not support the audio element.
       </audio>
 
-      {/* Background removed */}
-
-      {/* Main Content */}
-      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4">
+      {/* Main Content - VSL Funnel Structure */}
+      <div className="relative z-10 min-h-screen px-4 py-8">
         
-        {/* Title Block */}
-        <AnimatedBlock delay={0.1} className="text-center mb-8 mt-8">
-          <div className="relative">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary neon-glow mb-4">STACKMODE.NET</h1>
-            <h2 className="text-2xl font-bold text-secondary neon-glow md:text-3xl">CREATE YOUR FUTURE INSHALLAH</h2>
-            
-            {/* Decorative Elements - Static */}
-            <div className="absolute top-8 -left-12 w-8 h-8 border-2 border-accent" />
-            <div className="absolute -bottom-4 -right-12 w-6 h-6 bg-accent" />
-          </div>
-        </AnimatedBlock>
-
-
-        {/* Icon Row - Optimized Hover */}
-        <AnimatedBlock delay={0.3} className="mb-8">
-          <div className="flex items-center justify-center gap-6 md:gap-12">
-            <Icon3D type="wallet" size={48} className="hover:scale-105 transition-transform duration-300 md:w-16 md:h-16" />
-            <Icon3D type="video" size={48} className="hover:scale-105 transition-transform duration-300 md:w-16 md:h-16" />
-            <Icon3D type="book" size={48} className="hover:scale-105 transition-transform duration-300 md:w-16 md:h-16" />
-            <Icon3D type="globe" size={48} className="hover:scale-105 transition-transform duration-300 md:w-16 md:h-16" />
-          </div>
-        </AnimatedBlock>
-
-
-        {/* Stacking Blocks */}
-        <div className="mb-16 space-y-8">
-          {/* First Row */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-            <AnimatedBlock delay={0.5} className="w-80 h-16">
-              <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
-                <CandlestickChart size={24} className="text-yellow-400 mr-3 neon-glow" />
-                <span className="text-yellow-400 font-bold tracking-wider neon-glow">TRADING MENTORSHIP</span>
-              </a>
-            </AnimatedBlock>
-            
-            <AnimatedBlock delay={0.6} className="w-80 h-16">
-              <a href="https://whop.com/stackmode-network-llc/stackmode-trades/" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
-                <div className="flex items-center mr-3">
-                  <DollarSign size={20} className="text-primary neon-glow" />
-                  <DollarSign size={20} className="text-primary neon-glow -ml-1" />
-                  <DollarSign size={20} className="text-primary neon-glow -ml-1" />
-                </div>
-                <span className="text-primary font-bold tracking-wider neon-glow">CATCH MY TRADES</span>
-              </a>
-            </AnimatedBlock>
-            
-            <AnimatedBlock delay={0.7} className="w-80 h-16">
-              <a href="https://stackmodechris.systeme.io/trading" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
-                <BookOpen size={24} className="text-cyan-400 mr-3 neon-glow" />
-                <span className="text-cyan-400 font-bold tracking-wider neon-glow">FREE TRADING EDUCATION</span>
-              </a>
-            </AnimatedBlock>
-          </div>
-
-          {/* Second Row */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-            <AnimatedBlock delay={0.8} className="w-80 h-16">
-              <a href="https://calendly.com/stackmodechris/stackmode-business-mentorship" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
-                <Briefcase size={24} className="text-fuchsia-500 mr-3 neon-glow" />
-                <span className="text-fuchsia-500 font-bold tracking-wider neon-glow">START/GROW YOUR BUSINESS</span>
-              </a>
-            </AnimatedBlock>
-
-            <AnimatedBlock delay={0.9} className="w-80 h-16">
-              <a href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
-                <Mic size={24} className="text-orange-500 mr-3 neon-glow" />
-                <span className="text-orange-500 font-bold tracking-wider neon-glow">STACKMODE PODCAST</span>
-              </a>
-            </AnimatedBlock>
-
-            <AnimatedBlock delay={1.0} className="w-80 h-16">
-              <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" className="w-full h-full bg-card neon-border rounded flex items-center justify-center hover:bg-card/80 hover:soft-glow transition-all cursor-pointer">
-                <Users size={24} className="text-purple-400 mr-3 neon-glow" />
-                <span className="text-purple-400 font-bold tracking-wider neon-glow">DISCORD</span>
-              </a>
-            </AnimatedBlock>
-          </div>
+        {/* Headline - Above the Fold */}
+        <div className="text-center mb-8 max-w-5xl mx-auto">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary neon-glow mb-4">
+            How I Turned $30 Into $2000+ Trading
+          </h1>
+          <h2 className="text-xl sm:text-2xl md:text-3xl text-secondary neon-glow">
+            Watch This Free Training Before It's Too Late
+          </h2>
         </div>
 
-        {/* Promo Video Section */}
-        <AnimatedBlock delay={1.03} className="mb-6 text-center">
-          <h3 className="text-4xl md:text-5xl font-bold text-accent neon-glow flex items-center justify-center gap-3">
-            How I Turned $30 Into $2000+
-            <TrendingUp size={40} className="text-primary neon-glow" />
-          </h3>
-        </AnimatedBlock>
-
-        <AnimatedBlock delay={1.05} className="mb-16">
-          <div className="w-full max-w-4xl mx-auto">
-            <video controls className="w-full rounded-lg purple-border shadow-lg" preload="metadata">
+        {/* HERO VSL - Primary Video */}
+        <div className="mb-12 max-w-5xl mx-auto">
+          <div className="relative">
+            <video 
+              controls 
+              autoPlay 
+              muted 
+              playsInline
+              className="w-full rounded-lg purple-border shadow-2xl" 
+              preload="auto"
+            >
               <source src="/lovable-uploads/promo-video.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
+            <div className="absolute -top-4 -right-4 bg-accent text-background px-6 py-3 rounded-lg font-bold text-lg neon-glow animate-pulse">
+              🔥 WATCH NOW
+            </div>
           </div>
-        </AnimatedBlock>
+        </div>
 
-        {/* YouTube Video Section */}
-        <AnimatedBlock delay={1.06} className="mb-6 text-center">
-          <h3 className="text-4xl md:text-5xl font-bold text-accent neon-glow flex items-center justify-center gap-3">
-            How I Made $100 In 15 Minutes!
-            <Rocket size={40} className="text-green-400 neon-glow" />
+        {/* Primary CTA - Book Call */}
+        <div className="text-center mb-16 max-w-2xl mx-auto">
+          <Button asChild className="bg-accent hover:bg-accent/90 text-background font-bold text-xl px-12 py-8 rounded-lg neon-glow w-full transform hover:scale-105 transition-all shadow-2xl">
+            <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer">
+              🎯 BOOK YOUR FREE STRATEGY CALL NOW
+            </a>
+          </Button>
+          <p className="text-sm text-muted-foreground mt-4 font-mono">⚡ Limited Slots Available - Don't Miss Out</p>
+        </div>
+
+        {/* SOCIAL PROOF - Real Results */}
+        <div className="mb-12 text-center max-w-5xl mx-auto">
+          <h3 className="text-3xl md:text-5xl font-bold text-primary neon-glow mb-3">
+            Real Students, Real Profits 💰
           </h3>
-        </AnimatedBlock>
-
-        <AnimatedBlock delay={1.07} className="mb-16">
-          <div className="w-full max-w-6xl mx-auto px-4">
-            <iframe className="w-full aspect-video rounded-lg purple-border shadow-lg" src="https://www.youtube.com/embed/Ay6AYak6sXE?si=RBGsl6vnISYyUvOP&rel=0&modestbranding=1&hd=1" title="How I Made $100 In 15 Minutes!" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
-          </div>
-        </AnimatedBlock>
-
-        {/* SUCCESS TESTIMONIALS SECTION - Optimized */}
-        <AnimatedBlock delay={1.1} className="mb-8 text-center">
-          <div className="relative">
-            <h3 className="text-4xl md:text-5xl font-bold text-primary neon-glow mb-2">REAL RESULTS ALHAMDULILLAH</h3>
-            <p className="text-xl text-secondary font-bold tracking-wider flex items-center justify-center gap-2">FROM REAL STUDENTS <Check size={20} className="text-green-400 neon-glow" /></p>
-          </div>
-        </AnimatedBlock>
+          <p className="text-xl text-secondary mb-8">See What Our Community Is Achieving Daily</p>
+        </div>
 
         {/* Trading Results Gallery - Row 1 */}
         <AnimatedBlock delay={1.15} className="mb-8">
@@ -607,40 +535,85 @@ const Index = () => {
           </div>
         </AnimatedBlock>
 
-        {/* Call to Action Button */}
-        <AnimatedBlock delay={1.21} className="text-center mb-8 px-4">
-          <Button asChild className="bg-accent hover:bg-accent/80 text-background font-bold text-sm md:text-lg px-4 md:px-8 py-4 md:py-6 rounded-lg neon-glow w-full max-w-md">
-            <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer">
-              DON'T WAIT ANYMORE BOOK A FREE CALL HERE
-            </a>
-          </Button>
-        </AnimatedBlock>
+        {/* Secondary Video - Proof */}
+        <div className="mb-12 max-w-4xl mx-auto">
+          <h3 className="text-3xl md:text-4xl font-bold text-accent neon-glow mb-6 text-center flex items-center justify-center gap-3">
+            $100 In Just 15 Minutes <Rocket size={36} className="text-green-400 neon-glow" />
+          </h3>
+          <iframe 
+            className="w-full aspect-video rounded-lg purple-border shadow-lg" 
+            src="https://www.youtube.com/embed/Ay6AYak6sXE?si=RBGsl6vnISYyUvOP&rel=0&modestbranding=1&hd=1" 
+            title="How I Made $100 In 15 Minutes!" 
+            frameBorder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowFullScreen 
+          />
+        </div>
 
-        {/* System Status */}
-        <AnimatedBlock delay={1.22} className="text-center mb-8">
-          <p className="text-muted-foreground font-mono text-sm tracking-wider">SYSTEM INITIALIZED • READY FOR LAUNCH SUBHANALLAH</p>
-        </AnimatedBlock>
-
-        {/* Results Stats */}
-        <AnimatedBlock delay={1.23} className="mb-[600px] md:mb-96 text-center">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-16">
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-accent neon-glow">$10,000+</div>
-              <div className="text-sm font-mono text-muted-foreground tracking-wider">PROFITS GENERATED</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-primary neon-glow">100%</div>
-              <div className="text-sm font-mono text-muted-foreground tracking-wider">REAL PROFITS</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-secondary neon-glow">24/7</div>
-              <div className="text-sm font-mono text-muted-foreground tracking-wider">SUPPORT & SIGNALS</div>
+        {/* Final CTA - Urgency */}
+        <div className="text-center mb-16 max-w-3xl mx-auto">
+          <div className="bg-card/50 border-2 border-accent rounded-lg p-8 mb-8">
+            <h3 className="text-3xl md:text-4xl font-bold text-accent neon-glow mb-4">
+              ⚠️ Time Is Running Out
+            </h3>
+            <p className="text-lg text-foreground mb-6">
+              I can only take on a limited number of students each month to ensure everyone gets the attention they deserve. Spots are filling fast.
+            </p>
+            <div className="flex justify-center gap-8 mb-6">
+              <div>
+                <div className="text-3xl font-bold text-primary neon-glow">$10,000+</div>
+                <div className="text-sm text-muted-foreground">Student Profits</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-accent neon-glow">100%</div>
+                <div className="text-sm text-muted-foreground">Real Results</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-secondary neon-glow">24/7</div>
+                <div className="text-sm text-muted-foreground">Support</div>
+              </div>
             </div>
           </div>
-        </AnimatedBlock>
-        
-        {/* Bottom Spacer */}
-        <div className="mb-32"></div>
+          
+          <Button asChild className="bg-accent hover:bg-accent/90 text-background font-bold text-2xl px-12 py-8 rounded-lg neon-glow w-full transform hover:scale-105 transition-all shadow-2xl animate-pulse">
+            <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer">
+              🚀 CLAIM YOUR FREE CALL BEFORE IT'S TOO LATE
+            </a>
+          </Button>
+          <p className="text-muted-foreground mt-4 text-sm">✅ No Credit Card Required • 100% Free Strategy Session</p>
+        </div>
+
+        {/* Additional Resources - After Main CTA */}
+        <div className="mb-16 max-w-6xl mx-auto">
+          <h3 className="text-2xl md:text-3xl font-bold text-center text-primary neon-glow mb-8">
+            More Ways To Learn & Grow
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <a href="https://whop.com/stackmode-network-llc/stackmode-trades/" target="_blank" rel="noopener noreferrer" className="bg-card neon-border rounded-lg p-6 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer text-center">
+              <div className="flex justify-center mb-3">
+                <DollarSign size={32} className="text-primary neon-glow" />
+                <DollarSign size={32} className="text-primary neon-glow -ml-2" />
+              </div>
+              <span className="text-primary font-bold text-lg neon-glow block">COPY MY TRADES</span>
+              <p className="text-sm text-muted-foreground mt-2">Get real-time trade alerts</p>
+            </a>
+            
+            <a href="https://stackmodechris.systeme.io/trading" target="_blank" rel="noopener noreferrer" className="bg-card neon-border rounded-lg p-6 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer text-center">
+              <BookOpen size={32} className="text-cyan-400 neon-glow mx-auto mb-3" />
+              <span className="text-cyan-400 font-bold text-lg neon-glow block">FREE EDUCATION</span>
+              <p className="text-sm text-muted-foreground mt-2">Start learning today</p>
+            </a>
+            
+            <a href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet" target="_blank" rel="noopener noreferrer" className="bg-card neon-border rounded-lg p-6 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer text-center">
+              <Mic size={32} className="text-orange-500 neon-glow mx-auto mb-3" />
+              <span className="text-orange-500 font-bold text-lg neon-glow block">PODCAST</span>
+              <p className="text-sm text-muted-foreground mt-2">Listen & learn</p>
+            </a>
+          </div>
+        </div>
+
+        {/* Bottom Spacer for Footer */}
+        <div className="mb-96"></div>
         
       </div>
 
