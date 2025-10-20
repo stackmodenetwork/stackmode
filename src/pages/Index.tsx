@@ -73,16 +73,17 @@ const Index = () => {
         
         {/* Headline - Above the Fold */}
         <div className="text-center mb-8 max-w-5xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary neon-glow mb-4">
-            How I Turned $30 Into $2000+ Trading
-          </h1>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary neon-glow mb-4">How I Turn My Clients Into Profitable Traders!</h1>
           <h2 className="text-xl sm:text-2xl md:text-3xl text-secondary neon-glow">Watch This Free Training Video Before It's Too Late</h2>
         </div>
 
         {/* HERO VSL - Primary Video */}
         <div className="mb-12 max-w-5xl mx-auto">
           <div className="relative">
-            <iframe className="w-full aspect-video rounded-lg purple-border shadow-2xl" src="https://www.youtube.com/embed/DcNWSoWGBhs?si=cK9Pyy7Iili2_nUz&rel=0&modestbranding=1&hd=1" title="Trading Video Training" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+            <video controls autoPlay muted playsInline className="w-full rounded-lg purple-border shadow-2xl" preload="auto">
+              <source src="/lovable-uploads/promo-video.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
             <div className="absolute -top-4 -right-4 bg-accent text-background px-6 py-3 rounded-lg font-bold text-lg neon-glow animate-pulse">
               🔥 WATCH NOW
             </div>
