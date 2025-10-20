@@ -112,7 +112,7 @@ const Index = () => {
             {/* Catch My Trades Button */}
             <div className="bg-card/50 border-2 border-cyan-400 rounded-xl p-8 hover:soft-glow transition-all">
               <h3 className="text-2xl md:text-3xl font-bold text-cyan-400 neon-glow mb-4 text-center">CATCH MY TRADES</h3>
-              <p className="text-foreground mb-6 text-center">Copy my exact trading strategy and grow your portfolio</p>
+              <p className="text-foreground mb-6 text-center">Copy my exact trading strategy and key levels</p>
               <Button asChild className="bg-cyan-400 hover:bg-cyan-400/90 text-background font-bold text-lg px-8 py-6 rounded-lg neon-glow w-full transform hover:scale-105 transition-all shadow-2xl">
                 <a href="https://whop.com/stackmode-network-llc/stackmode-trades/" target="_blank" rel="noopener noreferrer">
                   📈 START COPYING
