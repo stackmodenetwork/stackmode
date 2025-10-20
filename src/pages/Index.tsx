@@ -201,6 +201,19 @@ const Index = () => {
           </div>
         </AnimatedBlock>
 
+        {/* CTA - Copy My Trades */}
+        <div className="text-center mb-16 max-w-md mx-auto">
+          <a href="https://whop.com/stackmode-network-llc/stackmode-trades/" target="_blank" rel="noopener noreferrer" className="block bg-card neon-border rounded-lg p-8 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer hover-scale">
+            <div className="flex justify-center mb-4">
+              <DollarSign size={48} className="text-primary neon-glow" />
+              <DollarSign size={48} className="text-primary neon-glow -ml-3" />
+              <DollarSign size={48} className="text-primary neon-glow -ml-3" />
+            </div>
+            <span className="text-primary font-bold text-2xl neon-glow block mb-3">COPY MY TRADES</span>
+            <p className="text-base text-muted-foreground">Get real-time trade alerts and follow my exact strategies</p>
+          </a>
+        </div>
+
         {/* Trading Results Gallery - Row 3 */}
         <AnimatedBlock delay={1.17} className="mb-8">
           <div className="flex flex-col md:flex-row items-center justify-center gap-2 sm:gap-4 md:gap-6">
@@ -588,16 +601,7 @@ const Index = () => {
           <h3 className="text-2xl md:text-3xl font-bold text-center text-primary neon-glow mb-8">
             More Ways To Learn & Grow
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <a href="https://whop.com/stackmode-network-llc/stackmode-trades/" target="_blank" rel="noopener noreferrer" className="bg-card neon-border rounded-lg p-6 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer text-center">
-              <div className="flex justify-center mb-3">
-                <DollarSign size={32} className="text-primary neon-glow" />
-                <DollarSign size={32} className="text-primary neon-glow -ml-2" />
-              </div>
-              <span className="text-primary font-bold text-lg neon-glow block">COPY MY TRADES</span>
-              <p className="text-sm text-muted-foreground mt-2">Get real-time trade alerts</p>
-            </a>
-            
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <a href="https://stackmodechris.systeme.io/trading" target="_blank" rel="noopener noreferrer" className="bg-card neon-border rounded-lg p-6 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer text-center">
               <BookOpen size={32} className="text-cyan-400 neon-glow mx-auto mb-3" />
               <span className="text-cyan-400 font-bold text-lg neon-glow block">FREE EDUCATION</span>
