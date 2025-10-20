@@ -580,7 +580,7 @@ const Index = () => {
               🎯 BOOK YOUR FREE STRATEGY CALL NOW
             </a>
           </Button>
-          <p className="text-muted-foreground mt-4 text-sm">✅ No Credit Card Required • 100% Free Strategy Session</p>
+          <p className="text-sm text-muted-foreground mt-4 font-mono">⚡ Limited Slots Available - Don't Miss Out</p>
         </div>
 
         {/* Additional Resources - After Main CTA */}
