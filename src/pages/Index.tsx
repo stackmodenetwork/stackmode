@@ -594,7 +594,7 @@ const Index = () => {
               <p className="text-sm text-muted-foreground mt-2">Start learning today</p>
             </a>
             
-            <a href="https://discord.gg/your-discord-link" target="_blank" rel="noopener noreferrer" className="bg-card neon-border rounded-lg p-6 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer text-center">
+            <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" className="bg-card neon-border rounded-lg p-6 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer text-center">
               <MessageSquare size={32} className="text-primary neon-glow mx-auto mb-3" />
               <span className="text-primary font-bold text-lg neon-glow block">DISCORD</span>
               <p className="text-sm text-muted-foreground mt-2">Join the community</p>
