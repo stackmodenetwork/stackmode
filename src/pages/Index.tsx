@@ -91,7 +91,7 @@ const Index = () => {
         
         {/* Headline - Above the Fold */}
         <div className="text-center mb-8 max-w-5xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary neon-glow mb-4">STACKMODE.NET</h1>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-primary neon-glow mb-4 lg:text-6xl">STACKMODE.NET</h1>
           <h2 className="text-xl sm:text-2xl text-secondary neon-glow md:text-lg">Learn real trading with Stackmodechris — Book A FREE Mentorship Call, Catch My Trades Live, And Master Proven Strategies To Stack Wins Inshallah.</h2>
         </div>
 
