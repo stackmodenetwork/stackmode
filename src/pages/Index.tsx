@@ -104,7 +104,7 @@ const Index = () => {
               <p className="text-foreground mb-6 text-center">Book a free strategy call and get personalized guidance</p>
               <Button asChild className="bg-accent hover:bg-accent/90 text-background font-bold text-lg px-8 py-6 rounded-lg neon-glow w-full transform hover:scale-105 transition-all shadow-2xl">
                 <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer">
-                  🚀 BOOK A FREE CALL
+                  📅 BOOK A FREE CALL
                 </a>
               </Button>
               <p className="text-sm text-muted-foreground mt-4 text-center font-mono">✅ No Credit Card Required</p>
