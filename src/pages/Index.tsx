@@ -145,16 +145,72 @@ const Index = () => {
           </div>
         </div>
 
-        {/* CTA - Copy My Trades */}
-        <div className="text-center mb-16 max-w-md mx-auto">
-          <a href="https://whop.com/stackmode-network-llc/stackmode-trades/" target="_blank" rel="noopener noreferrer" className="block bg-card neon-border rounded-lg p-8 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer hover-scale">
-            <div className="flex justify-center mb-4">
-              <DollarSign size={48} className="text-primary neon-glow" />
-              <DollarSign size={48} className="text-primary neon-glow -ml-3" />
-              <DollarSign size={48} className="text-primary neon-glow -ml-3" />
+        {/* CTA - Copy My Trades - Enhanced */}
+        <div className="text-center mb-16 max-w-4xl mx-auto">
+          <a href="https://whop.com/stackmode-network-llc/stackmode-trades/" target="_blank" rel="noopener noreferrer" className="block bg-gradient-to-br from-card via-card/95 to-card/90 neon-border rounded-xl p-8 md:p-12 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer hover-scale shadow-2xl">
+            <div className="flex justify-center mb-6 animate-[pulse_2s_ease-in-out_infinite]">
+              <DollarSign size={56} className="text-primary neon-glow" />
+              <DollarSign size={56} className="text-accent neon-glow -ml-4" />
+              <DollarSign size={56} className="text-secondary neon-glow -ml-4" />
             </div>
-            <span className="text-primary font-bold text-2xl neon-glow block mb-3">CATCH MY TRADES</span>
-            <p className="text-base text-muted-foreground">Get real-time trade alerts and follow my exact strategies</p>
+            <h3 className="text-primary font-bold text-3xl md:text-4xl neon-glow mb-4">CATCH MY TRADES</h3>
+            <p className="text-lg md:text-xl text-foreground/90 mb-8 font-semibold">Copy My Exact Trading Strategy & Watch Your Portfolio Grow</p>
+            
+            <div className="grid md:grid-cols-2 gap-6 text-left mb-6">
+              <div className="flex items-start gap-3">
+                <Check className="text-accent neon-glow mt-1 flex-shrink-0" size={24} />
+                <div>
+                  <p className="font-bold text-accent">Real-Time Trade Alerts</p>
+                  <p className="text-sm text-muted-foreground">Get notified instantly when I enter or exit positions</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-3">
+                <Check className="text-primary neon-glow mt-1 flex-shrink-0" size={24} />
+                <div>
+                  <p className="font-bold text-primary">Complete Entry & Exit Points</p>
+                  <p className="text-sm text-muted-foreground">Know exactly when to buy and sell for maximum profits</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-3">
+                <Check className="text-secondary neon-glow mt-1 flex-shrink-0" size={24} />
+                <div>
+                  <p className="font-bold text-secondary">Detailed Trade Analysis</p>
+                  <p className="text-sm text-muted-foreground">Understand the why behind every trade decision</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-3">
+                <Check className="text-accent neon-glow mt-1 flex-shrink-0" size={24} />
+                <div>
+                  <p className="font-bold text-accent">Risk Management Strategies</p>
+                  <p className="text-sm text-muted-foreground">Learn how to protect your capital on every trade</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-background/50 rounded-lg p-4 mb-6">
+              <p className="text-sm text-muted-foreground mb-2">📊 Recent Performance Highlights:</p>
+              <div className="flex justify-around items-center">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-primary neon-glow">85%+</div>
+                  <div className="text-xs text-muted-foreground">Win Rate</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-accent neon-glow">Daily</div>
+                  <div className="text-xs text-muted-foreground">Signals</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-secondary neon-glow">24/7</div>
+                  <div className="text-xs text-muted-foreground">Access</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="inline-block bg-accent/20 border-2 border-accent rounded-lg px-6 py-3">
+              <p className="text-accent font-bold text-lg neon-glow">🚀 START COPYING MY TRADES TODAY</p>
+            </div>
           </a>
         </div>
 
