@@ -145,6 +145,27 @@ const Index = () => {
           </div>
         </div>
 
+        {/* CTA - Copy My Trades */}
+        <div className="text-center mb-16 max-w-md mx-auto">
+          <a href="https://whop.com/stackmode-network-llc/stackmode-trades/" target="_blank" rel="noopener noreferrer" className="block bg-card neon-border rounded-lg p-8 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer hover-scale">
+            <div className="flex justify-center mb-4">
+              <DollarSign size={48} className="text-primary neon-glow" />
+              <DollarSign size={48} className="text-primary neon-glow -ml-3" />
+              <DollarSign size={48} className="text-primary neon-glow -ml-3" />
+            </div>
+            <span className="text-primary font-bold text-2xl neon-glow block mb-3">CATCH MY TRADES</span>
+            <p className="text-base text-muted-foreground">Get real-time trade alerts and follow my exact strategies</p>
+          </a>
+        </div>
+
+        {/* Secondary Video - Proof */}
+        <div className="mb-12 max-w-4xl mx-auto">
+          <h3 className="text-3xl md:text-4xl font-bold text-accent neon-glow mb-6 text-center flex items-center justify-center gap-3">
+            How I Made $100 In Just 15 Minutes <Rocket size={36} className="text-green-400 neon-glow" />
+          </h3>
+          <iframe className="w-full aspect-video rounded-lg purple-border shadow-lg" src="https://www.youtube.com/embed/Ay6AYak6sXE?si=RBGsl6vnISYyUvOP&rel=0&modestbranding=1&hd=1" title="How I Made $100 In 15 Minutes!" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+        </div>
+
         {/* SOCIAL PROOF - Real Results */}
         <div className="mb-12 text-center max-w-5xl mx-auto">
           <h3 className="text-3xl md:text-5xl font-bold text-primary neon-glow mb-3">
@@ -194,18 +215,6 @@ const Index = () => {
           </div>
         </AnimatedBlock>
 
-        {/* CTA - Copy My Trades */}
-        <div className="text-center mb-16 max-w-md mx-auto">
-          <a href="https://whop.com/stackmode-network-llc/stackmode-trades/" target="_blank" rel="noopener noreferrer" className="block bg-card neon-border rounded-lg p-8 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer hover-scale">
-            <div className="flex justify-center mb-4">
-              <DollarSign size={48} className="text-primary neon-glow" />
-              <DollarSign size={48} className="text-primary neon-glow -ml-3" />
-              <DollarSign size={48} className="text-primary neon-glow -ml-3" />
-            </div>
-            <span className="text-primary font-bold text-2xl neon-glow block mb-3">CATCH MY TRADES</span>
-            <p className="text-base text-muted-foreground">Get real-time trade alerts and follow my exact strategies</p>
-          </a>
-        </div>
 
         {/* Trading Results Gallery - Row 2 */}
         <AnimatedBlock delay={1.16} className="mb-16">
@@ -582,13 +591,6 @@ const Index = () => {
           </div>
         </AnimatedBlock>
 
-        {/* Secondary Video - Proof */}
-        <div className="mb-12 max-w-4xl mx-auto">
-          <h3 className="text-3xl md:text-4xl font-bold text-accent neon-glow mb-6 text-center flex items-center justify-center gap-3">
-            How I Made $100 In Just 15 Minutes <Rocket size={36} className="text-green-400 neon-glow" />
-          </h3>
-          <iframe className="w-full aspect-video rounded-lg purple-border shadow-lg" src="https://www.youtube.com/embed/Ay6AYak6sXE?si=RBGsl6vnISYyUvOP&rel=0&modestbranding=1&hd=1" title="How I Made $100 In 15 Minutes!" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
-        </div>
 
         {/* Final CTA - Urgency */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
