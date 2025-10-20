@@ -98,30 +98,104 @@ const Index = () => {
         <div className="max-w-6xl mx-auto mb-12">
           <div className="grid md:grid-cols-2 gap-6">
             {/* Free Mentorship Button */}
-            <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="block">
-              <div className="bg-card/50 border-2 border-accent rounded-xl p-8 hover:bg-accent/10 hover:border-accent hover:shadow-[0_0_30px_rgba(var(--accent-rgb),0.3)] transition-all duration-300 cursor-pointer group">
-                <h3 className="text-2xl md:text-3xl font-bold text-accent neon-glow mb-4 text-center group-hover:scale-105 transition-transform">TRADING MENTORSHIP</h3>
-                <p className="text-foreground mb-6 text-center">Book a free strategy call and get personalized guidance</p>
-                <div className="relative overflow-hidden bg-gradient-to-r from-accent via-accent to-accent/80 text-background font-bold text-lg px-8 py-6 rounded-lg w-full transform group-hover:scale-105 transition-all shadow-2xl text-center group-hover:shadow-[0_0_40px_rgba(var(--accent-rgb),0.6)] before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:translate-x-[-200%] group-hover:before:translate-x-[200%] before:transition-transform before:duration-700">
-                  <span className="relative z-10 flex items-center justify-center gap-2">
-                    📅 BOOK A FREE CALL
-                  </span>
+            <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="block group">
+              <div className="relative bg-gradient-to-br from-card/80 via-card/60 to-card/80 border-2 border-accent/50 rounded-2xl p-8 overflow-hidden transition-all duration-500 hover:border-accent hover:shadow-[0_0_60px_rgba(var(--accent-rgb),0.4)] group-hover:scale-[1.02]">
+                {/* Animated background pattern */}
+                <div className="absolute inset-0 opacity-10">
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(var(--accent-rgb),0.8),transparent_50%)] animate-pulse"></div>
                 </div>
-                <p className="text-sm text-muted-foreground mt-4 text-center font-mono">✅ No Credit Card Required</p>
+                
+                {/* Animated corner accents */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-accent/20 rounded-full blur-3xl animate-pulse"></div>
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-accent/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-center justify-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                      <span className="text-2xl">📅</span>
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-accent neon-glow group-hover:scale-105 transition-transform">TRADING MENTORSHIP</h3>
+                  </div>
+                  
+                  <p className="text-foreground/90 mb-6 text-center text-sm md:text-base">Book a free strategy call and get personalized guidance</p>
+                  
+                  <div className="relative">
+                    {/* Pulsing ring effect */}
+                    <div className="absolute inset-0 rounded-xl bg-accent/30 blur-xl animate-pulse group-hover:bg-accent/50 transition-colors"></div>
+                    
+                    {/* Main button */}
+                    <div className="relative bg-gradient-to-r from-accent via-accent to-accent/80 text-background font-black text-lg md:text-xl px-8 py-5 rounded-xl shadow-2xl overflow-hidden">
+                      {/* Shimmer effect */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                      
+                      {/* Grid pattern overlay */}
+                      <div className="absolute inset-0 opacity-10 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,.2)_25%,rgba(255,255,255,.2)_75%,transparent_75%,transparent),linear-gradient(45deg,transparent_25%,rgba(255,255,255,.2)_25%,rgba(255,255,255,.2)_75%,transparent_75%,transparent)] bg-[length:20px_20px]"></div>
+                      
+                      <span className="relative z-10 flex items-center justify-center gap-2 tracking-wide">
+                        BOOK A FREE CALL
+                        <span className="inline-block group-hover:translate-x-1 transition-transform">→</span>
+                      </span>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-5 flex items-center justify-center gap-2">
+                    <div className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center animate-pulse">
+                      <Check size={14} className="text-background" />
+                    </div>
+                    <p className="text-sm text-muted-foreground font-mono font-semibold">No Credit Card Required</p>
+                  </div>
+                </div>
               </div>
             </a>
 
             {/* Catch My Trades Button */}
-            <a href="https://whop.com/stackmode-network-llc/stackmode-trades/" target="_blank" rel="noopener noreferrer" className="block">
-              <div className="bg-card/50 border-2 border-cyan-400 rounded-xl p-8 hover:bg-cyan-400/10 hover:border-cyan-400 hover:shadow-[0_0_30px_rgba(34,211,238,0.3)] transition-all duration-300 cursor-pointer group">
-                <h3 className="text-2xl md:text-3xl font-bold text-cyan-400 neon-glow mb-4 text-center group-hover:scale-105 transition-transform">CATCH MY TRADES</h3>
-                <p className="text-foreground mb-6 text-center">Copy my exact trading strategy and key levels</p>
-                <div className="relative overflow-hidden bg-gradient-to-r from-cyan-400 via-cyan-400 to-cyan-500 text-background font-bold text-lg px-8 py-6 rounded-lg w-full transform group-hover:scale-105 transition-all shadow-2xl text-center group-hover:shadow-[0_0_40px_rgba(34,211,238,0.6)] before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:translate-x-[-200%] group-hover:before:translate-x-[200%] before:transition-transform before:duration-700">
-                  <span className="relative z-10 flex items-center justify-center gap-2">
-                    📈 START COPYING
-                  </span>
+            <a href="https://whop.com/stackmode-network-llc/stackmode-trades/" target="_blank" rel="noopener noreferrer" className="block group">
+              <div className="relative bg-gradient-to-br from-card/80 via-card/60 to-card/80 border-2 border-cyan-400/50 rounded-2xl p-8 overflow-hidden transition-all duration-500 hover:border-cyan-400 hover:shadow-[0_0_60px_rgba(34,211,238,0.4)] group-hover:scale-[1.02]">
+                {/* Animated background pattern */}
+                <div className="absolute inset-0 opacity-10">
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(34,211,238,0.8),transparent_50%)] animate-pulse"></div>
                 </div>
-                <p className="text-sm text-muted-foreground mt-4 text-center font-mono">✅ Real-Time Alerts</p>
+                
+                {/* Animated corner accents */}
+                <div className="absolute top-0 left-0 w-32 h-32 bg-cyan-400/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '0.5s'}}></div>
+                <div className="absolute bottom-0 right-0 w-32 h-32 bg-cyan-400/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1.5s'}}></div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-center justify-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-cyan-400/20 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                      <span className="text-2xl">📈</span>
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-cyan-400 neon-glow group-hover:scale-105 transition-transform">CATCH MY TRADES</h3>
+                  </div>
+                  
+                  <p className="text-foreground/90 mb-6 text-center text-sm md:text-base">Copy my exact trading strategy and key levels</p>
+                  
+                  <div className="relative">
+                    {/* Pulsing ring effect */}
+                    <div className="absolute inset-0 rounded-xl bg-cyan-400/30 blur-xl animate-pulse group-hover:bg-cyan-400/50 transition-colors"></div>
+                    
+                    {/* Main button */}
+                    <div className="relative bg-gradient-to-r from-cyan-400 via-cyan-400 to-cyan-500 text-background font-black text-lg md:text-xl px-8 py-5 rounded-xl shadow-2xl overflow-hidden">
+                      {/* Shimmer effect */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                      
+                      {/* Grid pattern overlay */}
+                      <div className="absolute inset-0 opacity-10 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,.2)_25%,rgba(255,255,255,.2)_75%,transparent_75%,transparent),linear-gradient(45deg,transparent_25%,rgba(255,255,255,.2)_25%,rgba(255,255,255,.2)_75%,transparent_75%,transparent)] bg-[length:20px_20px]"></div>
+                      
+                      <span className="relative z-10 flex items-center justify-center gap-2 tracking-wide">
+                        START COPYING
+                        <span className="inline-block group-hover:translate-x-1 transition-transform">→</span>
+                      </span>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-5 flex items-center justify-center gap-2">
+                    <div className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center animate-pulse">
+                      <Check size={14} className="text-background" />
+                    </div>
+                    <p className="text-sm text-muted-foreground font-mono font-semibold">Real-Time Alerts</p>
+                  </div>
+                </div>
               </div>
             </a>
         </div>
