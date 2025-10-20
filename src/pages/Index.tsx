@@ -125,12 +125,38 @@ const Index = () => {
         </div>
 
         {/* HERO VSL - Primary Video */}
-        <div className="mb-16 max-w-5xl mx-auto">
+        <div className="mb-12 max-w-5xl mx-auto">
           <div className="relative">
             <iframe id="hero-video" className="w-full aspect-video rounded-lg purple-border shadow-2xl" src="https://www.youtube.com/embed/DcNWSoWGBhs?si=cK9Pyy7Iili2_nUz&rel=0&modestbranding=1&hd=1&enablejsapi=1" title="Training Video" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
             {showBadge && <div className="absolute -top-2 -right-2 md:-top-4 md:-right-4 bg-accent text-background px-3 py-1 md:px-6 md:py-3 rounded-lg font-bold text-xs md:text-lg neon-glow animate-[pulse_3s_ease-in-out_infinite]">
                 🔥 WATCH NOW
               </div>}
+          </div>
+        </div>
+
+        {/* More Ways To Learn & Grow - Moved Here */}
+        <div className="mb-16 max-w-6xl mx-auto">
+          <h3 className="text-2xl md:text-3xl font-bold text-center text-primary neon-glow mb-8">
+            More Ways To Learn & Grow
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <a href="https://stackmodechris.systeme.io/trading" target="_blank" rel="noopener noreferrer" className="bg-card neon-border rounded-lg p-6 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer text-center">
+              <BookOpen size={32} className="text-cyan-400 neon-glow mx-auto mb-3" />
+              <span className="text-cyan-400 font-bold text-lg neon-glow block">FREE TRADING EDUCATION</span>
+              <p className="text-sm text-muted-foreground mt-2">Start learning today</p>
+            </a>
+            
+            <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" className="bg-card neon-border rounded-lg p-6 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer text-center">
+              <MessageSquare size={32} className="text-primary neon-glow mx-auto mb-3" />
+              <span className="text-primary font-bold text-lg neon-glow block">DISCORD</span>
+              <p className="text-sm text-muted-foreground mt-2">Join the community</p>
+            </a>
+            
+            <a href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet" target="_blank" rel="noopener noreferrer" className="bg-card neon-border rounded-lg p-6 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer text-center">
+              <Mic size={32} className="text-orange-500 neon-glow mx-auto mb-3" />
+              <span className="text-orange-500 font-bold text-lg neon-glow block">PODCAST</span>
+              <p className="text-sm text-muted-foreground mt-2">Listen & learn</p>
+            </a>
           </div>
         </div>
 
@@ -579,69 +605,43 @@ const Index = () => {
           <p className="text-sm text-muted-foreground mt-4 font-mono">⚡ Limited Slots Available - Don't Miss Out</p>
         </div>
 
-        {/* Additional Resources - After Main CTA */}
-        <div className="mb-16 max-w-6xl mx-auto">
-          <h3 className="text-2xl md:text-3xl font-bold text-center text-primary neon-glow mb-8">
-            More Ways To Learn & Grow
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <a href="https://stackmodechris.systeme.io/trading" target="_blank" rel="noopener noreferrer" className="bg-card neon-border rounded-lg p-6 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer text-center">
-              <BookOpen size={32} className="text-cyan-400 neon-glow mx-auto mb-3" />
-              <span className="text-cyan-400 font-bold text-lg neon-glow block">FREE TRADING EDUCATION</span>
-              <p className="text-sm text-muted-foreground mt-2">Start learning today</p>
+        {/* Social Media Icons */}
+        <div className="mt-12 max-w-6xl mx-auto mb-16">
+          <h4 className="text-3xl md:text-4xl font-bold text-accent neon-glow mb-6 text-center">
+            Social Media Links
+          </h4>
+          <div className="flex justify-center items-center gap-6">
+            <a href="https://www.instagram.com/stackmodechris_" target="_blank" rel="noopener noreferrer" className="group">
+              <div className="bg-card neon-border rounded-full p-4 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer hover-scale">
+                <Instagram size={32} className="text-pink-500 neon-glow group-hover:scale-110 transition-transform" />
+              </div>
             </a>
             
-            <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" className="bg-card neon-border rounded-lg p-6 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer text-center">
-              <MessageSquare size={32} className="text-primary neon-glow mx-auto mb-3" />
-              <span className="text-primary font-bold text-lg neon-glow block">DISCORD</span>
-              <p className="text-sm text-muted-foreground mt-2">Join the community</p>
+            <a href="https://www.tiktok.com/@stackmodechris_" target="_blank" rel="noopener noreferrer" className="group">
+              <div className="bg-card neon-border rounded-full p-4 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer hover-scale">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 text-cyan-400 neon-glow group-hover:scale-110 transition-transform">
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                </svg>
+              </div>
             </a>
             
-            <a href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet" target="_blank" rel="noopener noreferrer" className="bg-card neon-border rounded-lg p-6 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer text-center">
-              <Mic size={32} className="text-orange-500 neon-glow mx-auto mb-3" />
-              <span className="text-orange-500 font-bold text-lg neon-glow block">PODCAST</span>
-              <p className="text-sm text-muted-foreground mt-2">Listen & learn</p>
+            <a href="https://www.youtube.com/@stackmodechris" target="_blank" rel="noopener noreferrer" className="group">
+              <div className="bg-card neon-border rounded-full p-4 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer hover-scale">
+                <Youtube size={32} className="text-red-500 neon-glow group-hover:scale-110 transition-transform" />
+              </div>
+            </a>
+            
+            <a href="https://twitter.com/stackmodechris" target="_blank" rel="noopener noreferrer" className="group">
+              <div className="bg-card neon-border rounded-full p-4 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer hover-scale">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 text-foreground neon-glow group-hover:scale-110 transition-transform">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+              </div>
             </a>
           </div>
-
-          {/* Social Media Icons */}
-          <div className="mt-12">
-            <h4 className="text-3xl md:text-4xl font-bold text-accent neon-glow mb-6 text-center">
-              Social Media Links
-            </h4>
-            <div className="flex justify-center items-center gap-6">
-              <a href="https://www.instagram.com/stackmodechris_" target="_blank" rel="noopener noreferrer" className="group">
-                <div className="bg-card neon-border rounded-full p-4 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer hover-scale">
-                  <Instagram size={32} className="text-pink-500 neon-glow group-hover:scale-110 transition-transform" />
-                </div>
-              </a>
-              
-              <a href="https://www.tiktok.com/@stackmodechris_" target="_blank" rel="noopener noreferrer" className="group">
-                <div className="bg-card neon-border rounded-full p-4 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer hover-scale">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 text-cyan-400 neon-glow group-hover:scale-110 transition-transform">
-                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
-                  </svg>
-                </div>
-              </a>
-              
-              <a href="https://www.youtube.com/@stackmodechris" target="_blank" rel="noopener noreferrer" className="group">
-                <div className="bg-card neon-border rounded-full p-4 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer hover-scale">
-                  <Youtube size={32} className="text-red-500 neon-glow group-hover:scale-110 transition-transform" />
-                </div>
-              </a>
-              
-              <a href="https://twitter.com/stackmodechris" target="_blank" rel="noopener noreferrer" className="group">
-                <div className="bg-card neon-border rounded-full p-4 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer hover-scale">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 text-foreground neon-glow group-hover:scale-110 transition-transform">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                  </svg>
-                </div>
-              </a>
-            </div>
-            <p className="text-3xl md:text-4xl font-bold text-accent neon-glow text-center mt-6">
-              May God Bless You And Your Loved Ones!
-            </p>
-          </div>
+          <p className="text-3xl md:text-4xl font-bold text-accent neon-glow text-center mt-6">
+            May God Bless You And Your Loved Ones!
+          </p>
         </div>
 
         {/* Bottom Spacer for Footer - Adjusted for mobile */}
