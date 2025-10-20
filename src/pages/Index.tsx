@@ -94,9 +94,9 @@ const Index = () => {
 
         {/* Primary CTA - Book Call */}
         <div className="text-center mb-16 max-w-2xl mx-auto">
-          <Button asChild className="bg-accent hover:bg-accent/90 text-background font-bold text-base md:text-xl px-6 py-6 md:px-12 md:py-8 rounded-lg neon-glow w-full transform hover:scale-105 transition-all shadow-2xl">
+          <Button asChild className="bg-accent hover:bg-accent/90 text-background font-bold text-2xl px-12 py-8 rounded-lg neon-glow w-full transform hover:scale-105 transition-all shadow-2xl animate-pulse">
             <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer">
-              🎯 BOOK YOUR FREE STRATEGY CALL NOW
+              🚀 CLAIM YOUR FREE CALL BEFORE IT'S TOO LATE
             </a>
           </Button>
           <p className="text-sm text-muted-foreground mt-4 font-mono">✅ No Credit Card Required • 100% Free Strategy Session</p>
