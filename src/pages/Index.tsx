@@ -92,7 +92,6 @@ const Index = () => {
         {/* Headline - Above the Fold */}
         <div className="text-center mb-8 max-w-5xl mx-auto">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-primary neon-glow mb-4 lg:text-6xl">STACKMODE.NET</h1>
-          <h2 className="text-xl sm:text-2xl text-secondary neon-glow md:text-base font-normal">Learn Real Trading With Stackmodechris — Book A FREE Mentorship Call, Catch My Trades Live, And Master Proven Strategies To Stack Wins Inshallah.</h2>
         </div>
 
         {/* Main CTAs - Side by Side */}
@@ -121,7 +120,12 @@ const Index = () => {
               </Button>
               <p className="text-sm text-muted-foreground mt-4 text-center font-mono">✅ Real-Time Alerts</p>
             </div>
-          </div>
+        </div>
+
+        {/* Subheading - Above Video */}
+        <div className="text-center mb-6 max-w-5xl mx-auto">
+          <h2 className="text-xl sm:text-2xl text-secondary neon-glow md:text-base font-normal">Learn Real Trading With Stackmodechris — Book A FREE Mentorship Call, Catch My Trades Live, And Master Proven Strategies To Stack Wins Inshallah.</h2>
+        </div>
         </div>
 
         {/* HERO VSL - Primary Video */}
