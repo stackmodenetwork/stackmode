@@ -160,6 +160,19 @@ const Index = () => {
           </div>
         </AnimatedBlock>
 
+        {/* CTA - Copy My Trades */}
+        <div className="text-center mb-16 max-w-md mx-auto">
+          <a href="https://whop.com/stackmode-network-llc/stackmode-trades/" target="_blank" rel="noopener noreferrer" className="block bg-card neon-border rounded-lg p-8 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer hover-scale">
+            <div className="flex justify-center mb-4">
+              <DollarSign size={48} className="text-primary neon-glow" />
+              <DollarSign size={48} className="text-primary neon-glow -ml-3" />
+              <DollarSign size={48} className="text-primary neon-glow -ml-3" />
+            </div>
+            <span className="text-primary font-bold text-2xl neon-glow block mb-3">COPY MY TRADES</span>
+            <p className="text-base text-muted-foreground">Get real-time trade alerts and follow my exact strategies</p>
+          </a>
+        </div>
+
         {/* Trading Results Gallery - Row 2 */}
         <AnimatedBlock delay={1.16} className="mb-16">
           <div className="flex flex-col md:flex-row items-center justify-center gap-2 sm:gap-4 md:gap-6">
@@ -200,19 +213,6 @@ const Index = () => {
             </div>
           </div>
         </AnimatedBlock>
-
-        {/* CTA - Copy My Trades */}
-        <div className="text-center mb-16 max-w-md mx-auto">
-          <a href="https://whop.com/stackmode-network-llc/stackmode-trades/" target="_blank" rel="noopener noreferrer" className="block bg-card neon-border rounded-lg p-8 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer hover-scale">
-            <div className="flex justify-center mb-4">
-              <DollarSign size={48} className="text-primary neon-glow" />
-              <DollarSign size={48} className="text-primary neon-glow -ml-3" />
-              <DollarSign size={48} className="text-primary neon-glow -ml-3" />
-            </div>
-            <span className="text-primary font-bold text-2xl neon-glow block mb-3">COPY MY TRADES</span>
-            <p className="text-base text-muted-foreground">Get real-time trade alerts and follow my exact strategies</p>
-          </a>
-        </div>
 
         {/* Trading Results Gallery - Row 3 */}
         <AnimatedBlock delay={1.17} className="mb-8">
