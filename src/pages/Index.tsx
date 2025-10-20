@@ -111,10 +111,10 @@ const Index = () => {
             </div>
 
             {/* Catch My Trades Button */}
-            <div className="bg-card/50 border-2 border-primary rounded-xl p-8 hover:soft-glow transition-all">
-              <h3 className="text-2xl md:text-3xl font-bold text-primary neon-glow mb-4 text-center">CATCH MY TRADES</h3>
+            <div className="bg-card/50 border-2 border-cyan-400 rounded-xl p-8 hover:soft-glow transition-all">
+              <h3 className="text-2xl md:text-3xl font-bold text-cyan-400 neon-glow mb-4 text-center">CATCH MY TRADES</h3>
               <p className="text-foreground mb-6 text-center">Copy my exact trading strategy and grow your portfolio</p>
-              <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg px-8 py-6 rounded-lg neon-glow w-full transform hover:scale-105 transition-all shadow-2xl">
+              <Button asChild className="bg-cyan-400 hover:bg-cyan-400/90 text-background font-bold text-lg px-8 py-6 rounded-lg neon-glow w-full transform hover:scale-105 transition-all shadow-2xl">
                 <a href="https://whop.com/stackmode-network-llc/stackmode-trades/" target="_blank" rel="noopener noreferrer">
                   📈 START COPYING
                 </a>
@@ -141,8 +141,8 @@ const Index = () => {
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <a href="https://stackmodechris.systeme.io/trading" target="_blank" rel="noopener noreferrer" className="bg-card neon-border rounded-lg p-6 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer text-center">
-              <BookOpen size={32} className="text-cyan-400 neon-glow mx-auto mb-3" />
-              <span className="text-cyan-400 font-bold text-lg neon-glow block">FREE TRADING EDUCATION</span>
+              <BookOpen size={32} className="text-yellow-400 neon-glow mx-auto mb-3" />
+              <span className="text-yellow-400 font-bold text-lg neon-glow block">FREE TRADING EDUCATION</span>
               <p className="text-sm text-muted-foreground mt-2">Start learning today</p>
             </a>
             
