@@ -191,7 +191,7 @@ const Index = () => {
             </div>
 
             <div className="bg-background/50 rounded-lg p-4 mb-6">
-              <p className="text-sm text-muted-foreground mb-2">📊 Recent Performance Highlights:</p>
+              <p className="text-sm text-muted-foreground mb-2">I Make Trading Simple</p>
               <div className="flex justify-around items-center">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-primary neon-glow">85%+</div>
