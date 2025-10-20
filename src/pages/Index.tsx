@@ -726,7 +726,7 @@ const Index = () => {
         </div>
 
         {/* Bottom Spacer for Footer - Adjusted for mobile */}
-        <div className="h-[500px] md:h-96"></div>
+        <div className="h-[600px] md:h-96"></div>
         
       </div>
 
