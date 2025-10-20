@@ -102,6 +102,32 @@ const Index = () => {
           <p className="text-sm text-muted-foreground mt-4 font-mono">⚡ Limited Slots Available - Don't Miss Out</p>
         </div>
 
+        {/* Urgency Section */}
+        <div className="text-center mb-16 max-w-3xl mx-auto">
+          <div className="bg-card/50 border-2 border-accent rounded-lg p-8">
+            <h3 className="text-3xl md:text-4xl font-bold text-accent neon-glow mb-4">
+              ⚠️ Time Is Running Out
+            </h3>
+            <p className="text-lg text-foreground mb-6">
+              I can only take on a limited number of students each month to ensure everyone gets the attention they deserve. Spots are filling fast.
+            </p>
+            <div className="flex justify-center gap-8">
+              <div>
+                <div className="text-3xl font-bold text-primary neon-glow">$10,000+</div>
+                <div className="text-sm text-muted-foreground">Student Profits</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-accent neon-glow">100%</div>
+                <div className="text-sm text-muted-foreground">Real Results</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-secondary neon-glow">24/7</div>
+                <div className="text-sm text-muted-foreground">Support</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* SOCIAL PROOF - Real Results */}
         <div className="mb-12 text-center max-w-5xl mx-auto">
           <h3 className="text-3xl md:text-5xl font-bold text-primary neon-glow mb-3">
@@ -549,29 +575,6 @@ const Index = () => {
 
         {/* Final CTA - Urgency */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
-          <div className="bg-card/50 border-2 border-accent rounded-lg p-8 mb-8">
-            <h3 className="text-3xl md:text-4xl font-bold text-accent neon-glow mb-4">
-              ⚠️ Time Is Running Out
-            </h3>
-            <p className="text-lg text-foreground mb-6">
-              I can only take on a limited number of students each month to ensure everyone gets the attention they deserve. Spots are filling fast.
-            </p>
-            <div className="flex justify-center gap-8 mb-6">
-              <div>
-                <div className="text-3xl font-bold text-primary neon-glow">$10,000+</div>
-                <div className="text-sm text-muted-foreground">Student Profits</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-accent neon-glow">100%</div>
-                <div className="text-sm text-muted-foreground">Real Results</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-secondary neon-glow">24/7</div>
-                <div className="text-sm text-muted-foreground">Support</div>
-              </div>
-            </div>
-          </div>
-          
           <Button asChild className="bg-accent hover:bg-accent/90 text-background font-bold text-base md:text-xl px-6 py-6 md:px-12 md:py-8 rounded-lg neon-glow w-full transform hover:scale-105 transition-all shadow-2xl">
             <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer">
               🎯 BOOK YOUR FREE STRATEGY CALL NOW
