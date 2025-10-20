@@ -568,7 +568,7 @@ const Index = () => {
         {/* Secondary Video - Proof */}
         <div className="mb-12 max-w-4xl mx-auto">
           <h3 className="text-3xl md:text-4xl font-bold text-accent neon-glow mb-6 text-center flex items-center justify-center gap-3">
-            $100 In Just 15 Minutes <Rocket size={36} className="text-green-400 neon-glow" />
+            How I Made $100 In Just 15 Minutes <Rocket size={36} className="text-green-400 neon-glow" />
           </h3>
           <iframe className="w-full aspect-video rounded-lg purple-border shadow-lg" src="https://www.youtube.com/embed/Ay6AYak6sXE?si=RBGsl6vnISYyUvOP&rel=0&modestbranding=1&hd=1" title="How I Made $100 In 15 Minutes!" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
         </div>
