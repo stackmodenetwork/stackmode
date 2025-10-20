@@ -76,9 +76,7 @@ const Index = () => {
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary neon-glow mb-4">
             How I Turned $30 Into $2000+ Trading
           </h1>
-          <h2 className="text-xl sm:text-2xl md:text-3xl text-secondary neon-glow">
-            Watch This Free Training Before It's Too Late
-          </h2>
+          <h2 className="text-xl sm:text-2xl md:text-3xl text-secondary neon-glow">Watch This Free Training Video Before It's Too Late</h2>
         </div>
 
         {/* HERO VSL - Primary Video */}
