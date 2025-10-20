@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 import { AnimatedBlock } from '@/components/AnimatedBlock';
 import { Icon3D } from '@/components/Icon3D';
 import { PressStartButton } from '@/components/PressStartButton';
-import { ShoppingCart, Briefcase, Play, BookOpen, CandlestickChart, Siren, Check, DollarSign, Mic, Users, TrendingUp, Rocket } from 'lucide-react';
+import { ShoppingCart, Briefcase, Play, BookOpen, CandlestickChart, Siren, Check, DollarSign, Mic, Users, TrendingUp, Rocket, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 // Declare Calendly type
@@ -587,11 +587,17 @@ const Index = () => {
           <h3 className="text-2xl md:text-3xl font-bold text-center text-primary neon-glow mb-8">
             More Ways To Learn & Grow
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <a href="https://stackmodechris.systeme.io/trading" target="_blank" rel="noopener noreferrer" className="bg-card neon-border rounded-lg p-6 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer text-center">
               <BookOpen size={32} className="text-cyan-400 neon-glow mx-auto mb-3" />
               <span className="text-cyan-400 font-bold text-lg neon-glow block">FREE EDUCATION</span>
               <p className="text-sm text-muted-foreground mt-2">Start learning today</p>
+            </a>
+            
+            <a href="https://discord.gg/your-discord-link" target="_blank" rel="noopener noreferrer" className="bg-card neon-border rounded-lg p-6 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer text-center">
+              <MessageSquare size={32} className="text-primary neon-glow mx-auto mb-3" />
+              <span className="text-primary font-bold text-lg neon-glow block">DISCORD</span>
+              <p className="text-sm text-muted-foreground mt-2">Join the community</p>
             </a>
             
             <a href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet" target="_blank" rel="noopener noreferrer" className="bg-card neon-border rounded-lg p-6 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer text-center">
