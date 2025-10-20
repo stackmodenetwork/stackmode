@@ -80,10 +80,7 @@ const Index = () => {
         {/* HERO VSL - Primary Video */}
         <div className="mb-12 max-w-5xl mx-auto">
           <div className="relative">
-            <video controls autoPlay muted playsInline className="w-full rounded-lg purple-border shadow-2xl" preload="auto">
-              <source src="/lovable-uploads/promo-video.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            <iframe className="w-full aspect-video rounded-lg purple-border shadow-2xl" src="https://www.youtube.com/embed/DcNWSoWGBhs?si=cK9Pyy7Iili2_nUz&rel=0&modestbranding=1&hd=1" title="Training Video" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
             <div className="absolute -top-4 -right-4 bg-accent text-background px-6 py-3 rounded-lg font-bold text-lg neon-glow animate-pulse">
               🔥 WATCH NOW
             </div>
