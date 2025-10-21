@@ -218,7 +218,7 @@ const Index = () => {
                     </svg>
                   </div>
                   <h3 className="text-lg font-bold text-foreground mb-1">FREE TRADING EDUCATION</h3>
-                  <p className="text-sm text-muted-foreground">Start learning today</p>
+                  <p className="text-sm text-muted-foreground">Get My FREE Course & eBook</p>
                 </div>
               </div>
             </a>
