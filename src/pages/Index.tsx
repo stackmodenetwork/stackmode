@@ -23,35 +23,6 @@ const Index = () => {
       audioRef.current.volume = 0.2;
     }
 
-    // Add Calendly CSS
-    const calendlyCSS = document.createElement('link');
-    calendlyCSS.href = 'https://assets.calendly.com/assets/external/widget.css';
-    calendlyCSS.rel = 'stylesheet';
-    document.head.appendChild(calendlyCSS);
-
-    // Initialize Calendly badge widget with delay to improve initial load
-    const initCalendly = () => {
-      setTimeout(() => {
-        const calendlyScript = document.createElement('script');
-        calendlyScript.src = 'https://assets.calendly.com/assets/external/widget.js';
-        calendlyScript.type = 'text/javascript';
-        calendlyScript.async = true;
-        document.head.appendChild(calendlyScript);
-        calendlyScript.onload = () => {
-          if (window.Calendly) {
-            window.Calendly.initBadgeWidget({
-              url: 'https://calendly.com/stackmodechris/tradingmastermindcoaching?background_color=111111&text_color=edffec&primary_color=ff0ddd',
-              text: 'BOOK A FREE CALL',
-              color: '#111111',
-              textColor: '#18ff00',
-              branding: true
-            });
-          }
-        };
-      }, 1000);
-    };
-    initCalendly();
-
     // YouTube IFrame API
     const tag = document.createElement('script');
     tag.src = 'https://www.youtube.com/iframe_api';
@@ -67,12 +38,6 @@ const Index = () => {
           }
         }
       });
-    };
-    return () => {
-      // Cleanup - only remove CSS as script is loaded with delay
-      if (document.head.contains(calendlyCSS)) {
-        document.head.removeChild(calendlyCSS);
-      }
     };
   }, []);
   const handlePressStart = () => {
