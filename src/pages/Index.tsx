@@ -504,13 +504,6 @@ const Index = () => {
           </div>
         </AnimatedBlock>
 
-        <AnimatedBlock delay={1.25} className="mb-16">
-          <div className="text-center max-w-4xl mx-auto">
-            <p className="text-2xl md:text-3xl font-bold text-foreground leading-relaxed">
-              Learn Real Trading With Stackmodechris — Book A FREE Mentorship Call, Catch My Trades Live, And Master Proven Strategies To Stack Wins Inshallah.
-            </p>
-          </div>
-        </AnimatedBlock>
 
         {/* Video 1 - How I Made $100 in 15 Minutes */}
         <AnimatedBlock delay={1.3} className="mb-12">
@@ -545,6 +538,14 @@ const Index = () => {
                 allowFullScreen
               />
             </div>
+          </div>
+        </AnimatedBlock>
+
+        <AnimatedBlock delay={1.4} className="mb-16">
+          <div className="text-center max-w-4xl mx-auto">
+            <p className="text-2xl md:text-3xl font-bold text-foreground leading-relaxed">
+              Learn Real Trading With Stackmodechris — Book A FREE Mentorship Call, Catch My Trades Live, And Master Proven Strategies To Stack Wins Inshallah.
+            </p>
           </div>
         </AnimatedBlock>
 
