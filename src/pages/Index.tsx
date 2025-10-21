@@ -527,7 +527,7 @@ const Index = () => {
         <AnimatedBlock delay={1.35} className="mb-16">
           <div className="max-w-4xl mx-auto">
             <h3 className="text-2xl md:text-3xl font-bold text-primary neon-glow mb-6 text-center">
-              How I Mentor My Clients
+              How I Mentor My Clients To Become Profitable Traders
             </h3>
             <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
               <iframe
