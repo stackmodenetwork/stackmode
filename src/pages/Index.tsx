@@ -206,7 +206,7 @@ const Index = () => {
           <h3 className="text-3xl md:text-5xl font-bold text-primary neon-glow mb-3">
             Real Students, Real Profits 💰
           </h3>
-          <p className="text-xl text-secondary mb-8">See What Our Community Is Achieving Daily</p>
+          <p className="text-xl text-secondary mb-8">See What Our Community Is Achieving Alhamdulillah</p>
         </div>
 
         {/* Trading Results Gallery - Row 1 */}
