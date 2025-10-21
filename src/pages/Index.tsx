@@ -84,7 +84,7 @@ const Index = () => {
                     <h3 className="text-2xl md:text-3xl font-bold text-accent neon-glow group-hover:scale-105 transition-transform">TRADING MENTORSHIP</h3>
                   </div>
                   
-                  <p className="text-foreground/90 mb-6 text-center text-sm md:text-base">Schedule a free first-time strategy call for personalized trading guidance.</p>
+                  <p className="text-foreground/90 mb-6 text-center text-sm md:text-base">Let's build your trading strategy together</p>
                   
                   <div className="relative">
                     {/* Pulsing ring effect */}
