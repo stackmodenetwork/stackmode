@@ -85,7 +85,7 @@ const Index = () => {
                   </div>
                   
                   <p className="text-foreground/90 mb-2 text-center text-sm md:text-base">Get your personalized market game plan</p>
-                  <p className="text-foreground/80 mb-6 text-center text-xs md:text-sm italic">Flexible with budgets for pricing</p>
+                  <p className="text-foreground/80 mb-6 text-center text-xs md:text-sm italic">One-on-one guidance tailored to your trading goals — zero commitment</p>
                   
                   <div className="relative">
                     {/* Pulsing ring effect */}
