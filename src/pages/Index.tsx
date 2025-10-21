@@ -110,7 +110,7 @@ const Index = () => {
                     <div className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center animate-pulse">
                       <Check size={14} className="text-background" />
                     </div>
-                    <p className="text-sm text-muted-foreground font-mono font-semibold">100% Free - Limited Spots Available</p>
+                    <p className="text-sm text-muted-foreground font-mono font-semibold">24/7 Support</p>
                   </div>
                 </div>
               </div>
