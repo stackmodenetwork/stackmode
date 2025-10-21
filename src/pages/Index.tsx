@@ -270,7 +270,7 @@ const Index = () => {
               <div className="absolute -top-2 -left-2 text-accent text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               <div className="absolute -bottom-3 -right-2 text-accent text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               
-              <img src="/lovable-uploads/206329e8-5e7d-4326-b922-690e9f4a17c6.png" alt="Trading Success - Client Results" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/206329e8-5e7d-4326-b922-690e9f4a17c6.png" alt="Trading Success - Client Results" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </div>
 
@@ -279,7 +279,7 @@ const Index = () => {
               <div className="absolute -top-2 -left-2 text-primary text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               <div className="absolute -bottom-3 -right-2 text-secondary text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               
-              <img src="/lovable-uploads/d73c4368-8499-406f-8576-206f4c571130.png" alt="Trading Volume Growth - $1,195 Gross Volume" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/d73c4368-8499-406f-8576-206f4c571130.png" alt="Trading Volume Growth - $1,195 Gross Volume" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
               <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </div>
 
@@ -288,7 +288,7 @@ const Index = () => {
               <div className="absolute -top-2 -left-2 text-secondary text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               <div className="absolute -bottom-3 -right-2 text-accent text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               
-              <img src="/lovable-uploads/a28ad2f5-ba42-468f-b48a-866d99c2ded8.png" alt="Daily Profits - $563.94 Realized" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/a28ad2f5-ba42-468f-b48a-866d99c2ded8.png" alt="Daily Profits - $563.94 Realized" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
               <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </div>
 
@@ -297,7 +297,7 @@ const Index = () => {
               <div className="absolute -top-2 -left-2 text-accent text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               <div className="absolute -bottom-3 -right-2 text-accent text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               
-              <img src="/lovable-uploads/2cddecc7-da9f-49e7-bc98-d47d395f175c.png" alt="Multiple Trading Wins - Consistent Profits" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/2cddecc7-da9f-49e7-bc98-d47d395f175c.png" alt="Multiple Trading Wins - Consistent Profits" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
               <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </div>
           </div>
@@ -310,7 +310,7 @@ const Index = () => {
               <div className="absolute -top-2 -left-2 text-primary text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               <div className="absolute -bottom-3 -right-2 text-accent text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               
-              <img src="/lovable-uploads/review-1.png" alt="Student Trading Success - Real Results" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-1.png" alt="Student Trading Success - Real Results" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </div>
 
@@ -318,7 +318,7 @@ const Index = () => {
               <div className="absolute -top-2 -left-2 text-secondary text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               <div className="absolute -bottom-3 -right-2 text-primary text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               
-              <img src="/lovable-uploads/review-2.png" alt="Trading Profits - Student Achievement" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-2.png" alt="Trading Profits - Student Achievement" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
               <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </div>
 
@@ -326,7 +326,7 @@ const Index = () => {
               <div className="absolute -top-2 -left-2 text-accent text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               <div className="absolute -bottom-3 -right-2 text-secondary text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               
-              <img src="/lovable-uploads/review-3.png" alt="Consistent Trading Wins - Mentorship Results" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-3.png" alt="Consistent Trading Wins - Mentorship Results" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
               <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </div>
 
@@ -334,7 +334,7 @@ const Index = () => {
               <div className="absolute -top-2 -left-2 text-primary text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               <div className="absolute -bottom-3 -right-2 text-accent text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               
-              <img src="/lovable-uploads/review-4.png" alt="Profitable Trading Strategy - Real Student Success" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-4.png" alt="Profitable Trading Strategy - Real Student Success" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </div>
           </div>
@@ -347,7 +347,7 @@ const Index = () => {
               <div className="absolute -top-2 -left-2 text-accent text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               <div className="absolute -bottom-3 -right-2 text-primary text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               
-              <img src="/lovable-uploads/review-5.png" alt="Trading Account Growth - Funded Trader Success" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-5.png" alt="Trading Account Growth - Funded Trader Success" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
               <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </div>
 
@@ -355,7 +355,7 @@ const Index = () => {
               <div className="absolute -top-2 -left-2 text-secondary text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               <div className="absolute -bottom-3 -right-2 text-accent text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               
-              <img src="/lovable-uploads/review-6.png" alt="Trading Excellence - Coaching Success Story" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-6.png" alt="Trading Excellence - Coaching Success Story" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
               <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </div>
 
@@ -363,7 +363,7 @@ const Index = () => {
               <div className="absolute -top-2 -left-2 text-primary text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               <div className="absolute -bottom-3 -right-2 text-accent text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               
-              <img src="/lovable-uploads/review-7.png" alt="Student Progress - Trading Mastery" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-7.png" alt="Student Progress - Trading Mastery" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </div>
 
@@ -371,7 +371,7 @@ const Index = () => {
               <div className="absolute -top-2 -left-2 text-secondary text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               <div className="absolute -bottom-3 -right-2 text-primary text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               
-              <img src="/lovable-uploads/review-8.png" alt="Profitable Trading Capture - Success Story" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-8.png" alt="Profitable Trading Capture - Success Story" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
               <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </div>
           </div>
@@ -384,7 +384,7 @@ const Index = () => {
               <div className="absolute -top-2 -left-2 text-accent text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               <div className="absolute -bottom-3 -right-2 text-secondary text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               
-              <img src="/lovable-uploads/review-9.png" alt="Trading Growth Image - Mentorship Results" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-9.png" alt="Trading Growth Image - Mentorship Results" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
               <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </div>
 
@@ -392,7 +392,7 @@ const Index = () => {
               <div className="absolute -top-2 -left-2 text-primary text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               <div className="absolute -bottom-3 -right-2 text-accent text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               
-              <img src="/lovable-uploads/review-10.png" alt="Student Achievement - Trading Win" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-10.png" alt="Student Achievement - Trading Win" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </div>
 
@@ -400,7 +400,7 @@ const Index = () => {
               <div className="absolute -top-2 -left-2 text-secondary text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               <div className="absolute -bottom-3 -right-2 text-primary text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               
-              <img src="/lovable-uploads/review-11.png" alt="Trading Success Screenshot - Real Results" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-11.png" alt="Trading Success Screenshot - Real Results" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
               <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </div>
 
@@ -408,7 +408,7 @@ const Index = () => {
               <div className="absolute -top-2 -left-2 text-accent text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               <div className="absolute -bottom-3 -right-2 text-secondary text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
               
-              <img src="/lovable-uploads/review-12.png" alt="Profitable Trade Display - Student Success" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-12.png" alt="Profitable Trade Display - Student Success" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
               <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </div>
           </div>
@@ -427,16 +427,16 @@ const Index = () => {
         <AnimatedBlock delay={1.19} className="mb-8">
           <div className="flex flex-col md:flex-row items-center justify-center gap-2 sm:gap-4 md:gap-6">
             <div className="relative group">
-              <img src="/lovable-uploads/review-13.png" alt="Mobile Trading Success" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-13.png" alt="Mobile Trading Success" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
             </div>
             <div className="relative group">
-              <img src="/lovable-uploads/review-14.png" alt="Trading Platform Success" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-14.png" alt="Trading Platform Success" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
             </div>
             <div className="relative group">
-              <img src="/lovable-uploads/review-15.png" alt="Profit Growth" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-15.png" alt="Profit Growth" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
             </div>
             <div className="relative group">
-              <img src="/lovable-uploads/review-16.png" alt="Trading Achievement" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-16.png" alt="Trading Achievement" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
             </div>
           </div>
         </AnimatedBlock>
@@ -444,16 +444,16 @@ const Index = () => {
         <AnimatedBlock delay={1.20} className="mb-16">
           <div className="flex flex-col md:flex-row items-center justify-center gap-2 sm:gap-4 md:gap-6">
             <div className="relative group">
-              <img src="/lovable-uploads/review-17.png" alt="Trading Performance" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-17.png" alt="Trading Performance" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
             </div>
             <div className="relative group">
-              <img src="/lovable-uploads/review-18.png" alt="Mobile Trading Win" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-18.png" alt="Mobile Trading Win" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
             </div>
             <div className="relative group">
-              <img src="/lovable-uploads/review-19.png" alt="Trading App Success" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-19.png" alt="Trading App Success" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
             </div>
             <div className="relative group">
-              <img src="/lovable-uploads/review-20.png" alt="Profitable Trading" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-20.png" alt="Profitable Trading" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
             </div>
           </div>
         </AnimatedBlock>
@@ -461,16 +461,16 @@ const Index = () => {
         <AnimatedBlock delay={1.21} className="mb-16">
           <div className="flex flex-col md:flex-row items-center justify-center gap-2 sm:gap-4 md:gap-6">
             <div className="relative group">
-              <img src="/lovable-uploads/review-21.png" alt="Trading Success Platform" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-21.png" alt="Trading Success Platform" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
             </div>
             <div className="relative group">
-              <img src="/lovable-uploads/review-22.png" alt="Final Trading Achievement" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-22.png" alt="Final Trading Achievement" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
             </div>
             <div className="relative group">
-              <img src="/lovable-uploads/review-23.png" alt="Student Research Guide" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-23.png" alt="Student Research Guide" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
             </div>
             <div className="relative group">
-              <img src="/lovable-uploads/review-24.png" alt="Trading Mentorship Success" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-24.png" alt="Trading Mentorship Success" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
             </div>
           </div>
         </AnimatedBlock>
@@ -478,16 +478,16 @@ const Index = () => {
         <AnimatedBlock delay={1.22} className="mb-16">
           <div className="flex flex-col md:flex-row items-center justify-center gap-2 sm:gap-4 md:gap-6">
             <div className="relative group">
-              <img src="/lovable-uploads/review-25.png" alt="Trading Strategy Development" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-25.png" alt="Trading Strategy Development" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
             </div>
             <div className="relative group">
-              <img src="/lovable-uploads/review-26.png" alt="Discord Trading Community" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-26.png" alt="Discord Trading Community" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
             </div>
             <div className="relative group">
-              <img src="/lovable-uploads/review-27.png" alt="Trading Account Growth - SPX" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-27.png" alt="Trading Account Growth - SPX" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
             </div>
             <div className="relative group">
-              <img src="/lovable-uploads/review-28.png" alt="Trading Chart Analysis" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-28.png" alt="Trading Chart Analysis" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
             </div>
           </div>
         </AnimatedBlock>
@@ -495,16 +495,16 @@ const Index = () => {
         <AnimatedBlock delay={1.23} className="mb-16">
           <div className="flex flex-col md:flex-row items-center justify-center gap-2 sm:gap-4 md:gap-6">
             <div className="relative group">
-              <img src="/lovable-uploads/review-29.png" alt="Options Trading Portfolio" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-29.png" alt="Options Trading Portfolio" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
             </div>
             <div className="relative group">
-              <img src="/lovable-uploads/review-30.png" alt="CF Stock Options Success" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-30.png" alt="CF Stock Options Success" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
             </div>
             <div className="relative group">
-              <img src="/lovable-uploads/review-31.png" alt="Trading Confidence Growth" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-31.png" alt="Trading Confidence Growth" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
             </div>
             <div className="relative group">
-              <img src="/lovable-uploads/review-32.png" alt="IWM Signal Trading" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-32.png" alt="IWM Signal Trading" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
             </div>
           </div>
         </AnimatedBlock>
@@ -512,16 +512,16 @@ const Index = () => {
         <AnimatedBlock delay={1.24} className="mb-16">
           <div className="flex flex-col md:flex-row items-center justify-center gap-2 sm:gap-4 md:gap-6">
             <div className="relative group">
-              <img src="/lovable-uploads/review-33.png" alt="Trading Mentorship Success - Alhamdulillah" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-33.png" alt="Trading Mentorship Success - Alhamdulillah" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
             </div>
             <div className="relative group">
-              <img src="/lovable-uploads/review-34.png" alt="Trading Gap Up Success" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/review-34.png" alt="Trading Gap Up Success" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
             </div>
             <div className="relative group">
-              <img src="/lovable-uploads/chat-screenshot-2.jpg" alt="Client Booking Success" loading="lazy" decoding="async" className="w-72 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/chat-screenshot-2.jpg" alt="Client Booking Success" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
             </div>
             <div className="relative group opacity-60">
-              <div className="w-72 h-48 purple-border rounded-lg bg-card/30 flex items-center justify-center">
+              <div className="w-80 h-48 purple-border rounded-lg bg-card/30 flex items-center justify-center">
                 <div className="text-center">
                   <div className="text-accent text-3xl mb-2">★★★★★</div>
                   <div className="text-muted-foreground font-mono text-sm">CONTINUOUS</div>
