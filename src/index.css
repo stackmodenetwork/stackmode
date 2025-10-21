@@ -142,6 +142,13 @@
   #lovable-badge {
     display: none !important;
   }
+
+  /* Hide Calendly badge on mobile */
+  @media (max-width: 768px) {
+    .calendly-badge-widget {
+      display: none !important;
+    }
+  }
 }
 
 @layer components {
