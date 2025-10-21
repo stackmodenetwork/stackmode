@@ -504,6 +504,13 @@ const Index = () => {
           </div>
         </AnimatedBlock>
 
+        <AnimatedBlock delay={1.25} className="mb-16">
+          <div className="text-center max-w-4xl mx-auto">
+            <p className="text-2xl md:text-3xl font-bold text-foreground leading-relaxed">
+              Learn Real Trading With Stackmodechris — Book A FREE Mentorship Call, Catch My Trades Live, And Master Proven Strategies To Stack Wins Inshallah.
+            </p>
+          </div>
+        </AnimatedBlock>
 
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <Button asChild className="bg-accent hover:bg-accent/90 text-background font-bold text-base md:text-xl px-6 py-6 md:px-12 md:py-8 rounded-lg neon-glow w-full transform hover:scale-105 transition-all shadow-2xl">
