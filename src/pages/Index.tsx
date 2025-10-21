@@ -99,7 +99,7 @@ const Index = () => {
                       <div className="absolute inset-0 opacity-10 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,.2)_25%,rgba(255,255,255,.2)_75%,transparent_75%,transparent),linear-gradient(45deg,transparent_25%,rgba(255,255,255,.2)_25%,rgba(255,255,255,.2)_75%,transparent_75%,transparent)] bg-[length:20px_20px]"></div>
                       
                       <span className="relative z-10 flex items-center justify-center gap-2 tracking-wide">
-                        BOOK A FREE CALL
+                        SCHEDULE YOUR FREE SESSION
                         <span className="inline-block group-hover:translate-x-1 transition-transform">→</span>
                       </span>
                     </div>
