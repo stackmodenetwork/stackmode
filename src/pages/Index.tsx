@@ -139,7 +139,12 @@ const Index = () => {
                     <h3 className="text-2xl md:text-3xl font-bold text-cyan-400 neon-glow group-hover:scale-105 transition-transform">CATCH MY TRADES</h3>
                   </div>
                   
-                  <p className="text-foreground/90 mb-6 text-center text-sm md:text-base">Copy my exact trading strategy and key levels</p>
+                  <p className="text-foreground/90 mb-3 text-center text-sm md:text-base">Copy my exact trading strategy and key levels</p>
+                  
+                  <div className="flex items-center justify-center gap-3 mb-6">
+                    <span className="text-muted-foreground line-through text-lg">$50/month</span>
+                    <span className="text-cyan-400 font-bold text-2xl md:text-3xl">$20/month</span>
+                  </div>
                   
                   <div className="relative">
                     {/* Pulsing ring effect */}
