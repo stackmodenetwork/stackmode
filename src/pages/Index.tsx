@@ -512,6 +512,42 @@ const Index = () => {
           </div>
         </AnimatedBlock>
 
+        {/* Video 1 - How I Made $100 in 15 Minutes */}
+        <AnimatedBlock delay={1.3} className="mb-12">
+          <div className="max-w-4xl mx-auto">
+            <h3 className="text-2xl md:text-3xl font-bold text-primary neon-glow mb-6 text-center">
+              How I Made $100 in 15 Minutes
+            </h3>
+            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+              <iframe
+                className="absolute top-0 left-0 w-full h-full rounded-lg border-2 border-accent/50"
+                src="https://www.youtube.com/embed/Ay6AYak6sXE"
+                title="How I Made $100 in 15 Minutes"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </AnimatedBlock>
+
+        {/* Video 2 - How I Mentor My Clients */}
+        <AnimatedBlock delay={1.35} className="mb-16">
+          <div className="max-w-4xl mx-auto">
+            <h3 className="text-2xl md:text-3xl font-bold text-primary neon-glow mb-6 text-center">
+              How I Mentor My Clients
+            </h3>
+            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+              <iframe
+                className="absolute top-0 left-0 w-full h-full rounded-lg border-2 border-accent/50"
+                src="https://www.youtube.com/embed/DcNWSoWGBhs"
+                title="How I Mentor My Clients"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </AnimatedBlock>
+
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <Button asChild className="bg-accent hover:bg-accent/90 text-background font-bold text-base md:text-xl px-6 py-6 md:px-12 md:py-8 rounded-lg neon-glow w-full transform hover:scale-105 transition-all shadow-2xl">
             <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer">
