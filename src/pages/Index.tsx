@@ -43,7 +43,7 @@ const Index = () => {
   const handlePressStart = () => {
     navigate('/game');
   };
-  return <div className="min-h-screen bg-background relative overflow-x-hidden">
+  return <main className="min-h-screen bg-background relative overflow-x-hidden">
       {/* Background Music - Deferred Loading */}
       <audio ref={audioRef} loop muted className="hidden" preload="none">
         <source src="/ambient-cyber-music.mp3" type="audio/mpeg" />
@@ -52,19 +52,19 @@ const Index = () => {
       </audio>
 
       {/* Main Content - VSL Funnel Structure */}
-      <div className="relative z-10 min-h-screen px-4 py-8">
+      <section className="relative z-10 min-h-screen px-4 py-6 sm:py-8">
         
         {/* Headline - Above the Fold */}
-        <div className="text-center mb-8 max-w-5xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-primary neon-glow mb-4 lg:text-6xl">STACKMODE.NET</h1>
-        </div>
+        <header className="text-center mb-6 sm:mb-8 max-w-5xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary neon-glow mb-4">STACKMODE.NET</h1>
+        </header>
 
         {/* Main CTAs - Side by Side */}
-        <div className="max-w-6xl mx-auto mb-12">
-          <div className="grid md:grid-cols-2 gap-6">
+        <section className="max-w-6xl mx-auto mb-8 sm:mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {/* Free Mentorship Button */}
-            <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="block group h-full">
-              <div className="relative h-full bg-gradient-to-br from-card/80 via-card/60 to-card/80 border-2 border-accent/50 rounded-2xl p-8 overflow-hidden transition-all duration-500 hover:border-accent hover:shadow-[0_0_60px_rgba(var(--accent-rgb),0.4)] group-hover:scale-[1.02]">
+            <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" aria-label="Book Free Trading Mentorship Session" className="block group h-full">
+              <article className="relative h-full bg-gradient-to-br from-card/80 via-card/60 to-card/80 border-2 border-accent/50 rounded-2xl p-4 sm:p-6 md:p-8 overflow-hidden transition-all duration-500 hover:border-accent hover:shadow-[0_0_60px_rgba(var(--accent-rgb),0.4)] group-hover:scale-[1.02]">
                 {/* Animated background pattern */}
                 <div className="absolute inset-0 opacity-10">
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(var(--accent-rgb),0.8),transparent_50%)] animate-pulse"></div>
@@ -77,22 +77,22 @@ const Index = () => {
               }}></div>
                 
                 <div className="relative z-10">
-                  <div className="flex items-center justify-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
-                      <span className="text-2xl">📅</span>
+                  <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4 flex-wrap">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-accent/20 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                      <span className="text-xl sm:text-2xl" aria-hidden="true">📅</span>
                     </div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-accent neon-glow group-hover:scale-105 transition-transform">TRADING MENTORSHIP</h3>
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-accent neon-glow group-hover:scale-105 transition-transform">TRADING MENTORSHIP</h2>
                   </div>
                   
-                  <p className="text-foreground/90 mb-2 text-center text-sm md:text-base">Get your personalized market game plan</p>
-                  <p className="text-foreground/80 mb-6 text-center text-xs md:text-sm italic">One-on-one guidance tailored to your trading goals — limited spots available!</p>
+                  <p className="text-foreground/90 mb-2 text-center text-sm sm:text-base">Get your personalized market game plan</p>
+                  <p className="text-foreground/80 mb-4 sm:mb-6 text-center text-xs sm:text-sm italic">One-on-one guidance tailored to your trading goals — limited spots available!</p>
                   
                   <div className="relative">
                     {/* Pulsing ring effect */}
                     <div className="absolute inset-0 rounded-xl bg-accent/30 blur-xl animate-pulse group-hover:bg-accent/50 transition-colors"></div>
                     
                     {/* Main button */}
-                    <div className="relative bg-gradient-to-r from-accent via-accent to-accent/80 text-background font-black text-lg md:text-xl px-8 py-5 rounded-xl shadow-2xl overflow-hidden">
+                    <div className="relative bg-gradient-to-r from-accent via-accent to-accent/80 text-background font-black text-base sm:text-lg md:text-xl px-4 sm:px-6 md:px-8 py-4 sm:py-5 rounded-xl shadow-2xl overflow-hidden">
                       {/* Shimmer effect */}
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                       
@@ -101,24 +101,24 @@ const Index = () => {
                       
                       <span className="relative z-10 flex items-center justify-center gap-2 tracking-wide">
                         TRADING BLUEPRINT REVIEW
-                        <span className="inline-block group-hover:translate-x-1 transition-transform">→</span>
+                        <span className="inline-block group-hover:translate-x-1 transition-transform" aria-hidden="true">→</span>
                       </span>
                     </div>
                   </div>
                   
-                  <div className="mt-5 flex items-center justify-center gap-2">
-                    <div className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center animate-pulse">
+                  <div className="mt-4 sm:mt-5 flex items-center justify-center gap-2">
+                    <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-green-500 flex items-center justify-center animate-pulse">
                       <Check size={14} className="text-background" />
                     </div>
-                    <p className="text-sm text-muted-foreground font-mono font-semibold">24/7 Support</p>
+                    <p className="text-xs sm:text-sm text-muted-foreground font-mono font-semibold">24/7 Support</p>
                   </div>
                 </div>
-              </div>
+              </article>
             </a>
 
             {/* Catch My Trades Button */}
-            <a href="https://whop.com/stackmode-network-llc/stackmode-trades/" target="_blank" rel="noopener noreferrer" className="block group h-full">
-              <div className="relative h-full bg-gradient-to-br from-card/80 via-card/60 to-card/80 border-2 border-cyan-400/50 rounded-2xl p-8 overflow-hidden transition-all duration-500 hover:border-cyan-400 hover:shadow-[0_0_60px_rgba(34,211,238,0.4)] group-hover:scale-[1.02]">
+            <a href="https://whop.com/stackmode-network-llc/stackmode-trades/" target="_blank" rel="noopener noreferrer" aria-label="Subscribe to Live Trading Signals" className="block group h-full">
+              <article className="relative h-full bg-gradient-to-br from-card/80 via-card/60 to-card/80 border-2 border-cyan-400/50 rounded-2xl p-4 sm:p-6 md:p-8 overflow-hidden transition-all duration-500 hover:border-cyan-400 hover:shadow-[0_0_60px_rgba(34,211,238,0.4)] group-hover:scale-[1.02]">
                 {/* Animated background pattern */}
                 <div className="absolute inset-0 opacity-10">
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(34,211,238,0.8),transparent_50%)] animate-pulse"></div>
@@ -133,18 +133,18 @@ const Index = () => {
               }}></div>
                 
                 <div className="relative z-10">
-                  <div className="flex items-center justify-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-cyan-400/20 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
-                      <span className="text-2xl">📈</span>
+                  <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4 flex-wrap">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-cyan-400/20 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                      <span className="text-xl sm:text-2xl" aria-hidden="true">📈</span>
                     </div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-cyan-400 neon-glow group-hover:scale-105 transition-transform">CATCH MY TRADES</h3>
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-cyan-400 neon-glow group-hover:scale-105 transition-transform">CATCH MY TRADES</h2>
                   </div>
                   
-                  <p className="text-foreground/90 mb-3 text-center text-sm md:text-base">Copy my exact trading strategy and key levels</p>
+                  <p className="text-foreground/90 mb-3 text-center text-sm sm:text-base">Copy my exact trading strategy and key levels</p>
                   
-                  <div className="flex items-center justify-center gap-3 mb-6">
-                    <span className="text-muted-foreground line-through text-lg">$50/month</span>
-                    <span className="text-cyan-400 font-bold text-2xl md:text-3xl">$20/month</span>
+                  <div className="flex items-center justify-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+                    <span className="text-muted-foreground line-through text-base sm:text-lg">$50/month</span>
+                    <span className="text-cyan-400 font-bold text-xl sm:text-2xl md:text-3xl">$20/month</span>
                   </div>
                   
                   <div className="relative">
@@ -152,7 +152,7 @@ const Index = () => {
                     <div className="absolute inset-0 rounded-xl bg-cyan-400/30 blur-xl animate-pulse group-hover:bg-cyan-400/50 transition-colors"></div>
                     
                     {/* Main button */}
-                    <div className="relative bg-gradient-to-r from-cyan-400 via-cyan-400 to-cyan-500 text-background font-black text-lg md:text-xl px-8 py-5 rounded-xl shadow-2xl overflow-hidden">
+                    <div className="relative bg-gradient-to-r from-cyan-400 via-cyan-400 to-cyan-500 text-background font-black text-base sm:text-lg md:text-xl px-4 sm:px-6 md:px-8 py-4 sm:py-5 rounded-xl shadow-2xl overflow-hidden">
                       {/* Shimmer effect */}
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                       
@@ -161,22 +161,22 @@ const Index = () => {
                       
                       <span className="relative z-10 flex items-center justify-center gap-2 tracking-wide">
                         START COPYING
-                        <span className="inline-block group-hover:translate-x-1 transition-transform">→</span>
+                        <span className="inline-block group-hover:translate-x-1 transition-transform" aria-hidden="true">→</span>
                       </span>
                     </div>
                   </div>
                   
-                  <div className="mt-5 flex items-center justify-center gap-2">
-                    <div className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center animate-pulse">
+                  <div className="mt-4 sm:mt-5 flex items-center justify-center gap-2">
+                    <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-green-500 flex items-center justify-center animate-pulse">
                       <Check size={14} className="text-background" />
                     </div>
-                    <p className="text-sm text-muted-foreground font-mono font-semibold">Real-Time Alerts</p>
+                    <p className="text-xs sm:text-sm text-muted-foreground font-mono font-semibold">Real-Time Alerts</p>
                   </div>
                 </div>
-              </div>
+              </article>
             </a>
         </div>
-        </div>
+        </section>
 
         {/* Three Action Buttons */}
         <AnimatedBlock delay={1.175} className="mb-16">
@@ -232,22 +232,22 @@ const Index = () => {
         </AnimatedBlock>
 
         {/* SOCIAL PROOF - Real Results */}
-        <div className="mb-12 text-center max-w-5xl mx-auto">
-          <h3 className="text-3xl md:text-5xl font-bold text-primary neon-glow mb-3">
+        <section className="mb-8 sm:mb-12 text-center max-w-5xl mx-auto px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary neon-glow mb-3">
             Real Students, Real Profits 💰
-          </h3>
-          <p className="text-xl text-secondary mb-8">See What Our Community Is Achieving Alhamdulillah</p>
-        </div>
+          </h2>
+          <p className="text-lg sm:text-xl text-secondary mb-6 sm:mb-8">See What Our Community Is Achieving Alhamdulillah</p>
+        </section>
 
         {/* Trading Results Gallery - Row 1 */}
-        <AnimatedBlock delay={1.15} className="mb-8">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-2 sm:gap-4 md:gap-6">
+        <AnimatedBlock delay={1.15} className="mb-6 sm:mb-8">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-3 sm:gap-4 md:gap-6 px-2">
             {/* Review 1 */}
             <div className="relative group">
-              <div className="absolute -top-2 -left-2 text-accent text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
-              <div className="absolute -bottom-3 -right-2 text-accent text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">★</div>
+              <div className="absolute -top-2 -left-2 text-accent text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true">★</div>
+              <div className="absolute -bottom-3 -right-2 text-accent text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true">★</div>
               
-              <img src="/lovable-uploads/206329e8-5e7d-4326-b922-690e9f4a17c6.png" alt="Trading Success - Client Results" loading="lazy" decoding="async" className="w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
+              <img src="/lovable-uploads/206329e8-5e7d-4326-b922-690e9f4a17c6.png" alt="Trading Success - Client Results" loading="lazy" decoding="async" className="w-full max-w-xs sm:max-w-sm md:w-80 h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-102" />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </div>
 
@@ -606,7 +606,7 @@ const Index = () => {
         {/* Bottom Spacer for Footer - Adjusted for mobile */}
         <div className="h-[600px] md:h-96"></div>
         
-      </div>
+      </section>
 
       {/* Corner UI Elements */}
       <div className="hidden md:block absolute top-4 left-4 text-primary font-mono text-sm">
@@ -653,6 +653,6 @@ const Index = () => {
         backgroundSize: '100% 4px'
       }} />
       </div>
-    </div>;
+    </main>;
 };
 export default Index;
