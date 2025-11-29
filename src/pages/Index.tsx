@@ -57,7 +57,7 @@ const Index = () => {
         {/* Headline - Above the Fold */}
         <header className="text-center mb-6 sm:mb-8 max-w-5xl mx-auto">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary neon-glow mb-4">STACKMODE.NET</h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground">Here To Help You Become A Profitable Trader</p>
+          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground">Here To Help You Become A Profitable Trader Inshallah</p>
         </header>
 
         {/* Main CTAs - Side by Side */}
@@ -518,14 +518,10 @@ const Index = () => {
             <h3 className="text-2xl md:text-3xl font-bold text-primary neon-glow mb-6 text-center">
               How I Made $100 in 15 Minutes Alhamdulillah!
             </h3>
-            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-              <iframe
-                className="absolute top-0 left-0 w-full h-full rounded-lg border-2 border-accent/50"
-                src="https://www.youtube.com/embed/Ay6AYak6sXE"
-                title="How I Made $100 in 15 Minutes"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+            <div className="relative w-full" style={{
+            paddingBottom: '56.25%'
+          }}>
+              <iframe className="absolute top-0 left-0 w-full h-full rounded-lg border-2 border-accent/50" src="https://www.youtube.com/embed/Ay6AYak6sXE" title="How I Made $100 in 15 Minutes" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
             </div>
           </div>
         </AnimatedBlock>
@@ -536,14 +532,10 @@ const Index = () => {
             <h3 className="text-2xl md:text-3xl font-bold text-primary neon-glow mb-6 text-center">
               How I Mentor My Clients To Become Profitable Traders
             </h3>
-            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-              <iframe
-                className="absolute top-0 left-0 w-full h-full rounded-lg border-2 border-accent/50"
-                src="https://www.youtube.com/embed/DcNWSoWGBhs"
-                title="How I Mentor My Clients"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+            <div className="relative w-full" style={{
+            paddingBottom: '56.25%'
+          }}>
+              <iframe className="absolute top-0 left-0 w-full h-full rounded-lg border-2 border-accent/50" src="https://www.youtube.com/embed/DcNWSoWGBhs" title="How I Mentor My Clients" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
             </div>
           </div>
         </AnimatedBlock>
