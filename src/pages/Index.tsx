@@ -215,7 +215,7 @@ const Index = () => {
             </a>
 
             {/* Free Education Button */}
-            <a href="https://stackmodechris.systeme.io/freetradereducation" target="_blank" rel="noopener noreferrer" className="group relative">
+            <a href="https://stackmodechris.systeme.io/trading" target="_blank" rel="noopener noreferrer" className="group relative">
               <div className="relative overflow-hidden bg-card/50 backdrop-blur-sm border border-secondary/30 rounded-xl p-6 hover:border-secondary transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-secondary/20">
                 <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative z-10 text-center">
