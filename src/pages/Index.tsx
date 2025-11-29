@@ -57,6 +57,7 @@ const Index = () => {
         {/* Headline - Above the Fold */}
         <header className="text-center mb-6 sm:mb-8 max-w-5xl mx-auto">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary neon-glow mb-4">STACKMODE.NET</h1>
+          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground">Here To Help You Become A Profitable Trader</p>
         </header>
 
         {/* Main CTAs - Side by Side */}
