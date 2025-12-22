@@ -116,15 +116,15 @@ const Index = () => {
               <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-accent z-10" />
               <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-accent z-10" />
               
-              <video 
-                className="w-full aspect-video object-cover"
-                controls
-                playsInline
-                poster=""
-              >
-                <source src="/lovable-uploads/promo-video.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                <iframe 
+                  className="absolute top-0 left-0 w-full h-full" 
+                  src="https://www.youtube.com/embed/DcNWSoWGBhs" 
+                  title="How I Mentor My Clients" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowFullScreen 
+                />
+              </div>
             </div>
           </div>
           
