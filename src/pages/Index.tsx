@@ -101,7 +101,33 @@ const Index = () => {
             <span className="text-primary text-sm font-mono font-bold">20+ Students Trained</span>
           </div>
           
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary neon-glow mb-3">STACKMODE.NET</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary neon-glow mb-4">STACKMODE.NET</h1>
+          
+          {/* Promo Video */}
+          <div className="relative max-w-2xl mx-auto mb-6 group">
+            {/* Glowing border effect */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-primary via-accent to-primary rounded-2xl blur-md opacity-50 group-hover:opacity-80 transition-opacity duration-500 animate-shimmer bg-[length:200%_100%]" />
+            
+            {/* Video container */}
+            <div className="relative bg-background rounded-xl overflow-hidden border border-primary/30">
+              {/* Corner decorations */}
+              <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-accent z-10" />
+              <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-accent z-10" />
+              <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-accent z-10" />
+              <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-accent z-10" />
+              
+              <video 
+                className="w-full aspect-video object-cover"
+                controls
+                playsInline
+                poster=""
+              >
+                <source src="/lovable-uploads/promo-video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          
           <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-4">Here To Help You Become A Profitable Trader Inshallah</p>
           
           {/* Value Props */}
