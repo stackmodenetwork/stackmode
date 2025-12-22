@@ -51,7 +51,15 @@ const Index = () => {
   const handlePressStart = () => {
     navigate('/game');
   };
-  return <main className="min-h-screen bg-background relative overflow-x-hidden">
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    e.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  return <main className="min-h-screen bg-background relative overflow-x-hidden scroll-smooth">
       {/* Sticky Mobile Header CTA */}
       <div className={`fixed top-0 left-0 right-0 z-50 md:hidden transition-all duration-500 ${showStickyHeader ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
         <div className="relative overflow-hidden">
