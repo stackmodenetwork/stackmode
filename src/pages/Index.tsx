@@ -138,7 +138,7 @@ const Index = () => {
                     </div>
                     {/* Urgency */}
                     <div className="bg-destructive/20 border border-destructive/50 rounded-lg px-3 py-1.5 mt-2">
-                      <p className="text-xs text-destructive font-bold animate-pulse">🔥 Only 3 Spots Left This Week!</p>
+                      <p className="text-xs text-destructive font-bold animate-pulse">🔥 Spots Are Filling Quick!</p>
                     </div>
                   </div>
                 </div>
