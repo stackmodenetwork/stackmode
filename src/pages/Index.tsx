@@ -56,8 +56,30 @@ const Index = () => {
         
         {/* Headline - Above the Fold */}
         <header className="text-center mb-6 sm:mb-8 max-w-5xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary neon-glow mb-4">STACKMODE.NET</h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground">Here To Help You Become A Profitable Trader Inshallah</p>
+          {/* Trust Badge */}
+          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-2 mb-4 animate-pulse">
+            <div className="w-2 h-2 bg-primary rounded-full animate-ping"></div>
+            <span className="text-primary text-sm font-mono font-bold">500+ Students Trained</span>
+          </div>
+          
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary neon-glow mb-3">STACKMODE.NET</h1>
+          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-4">Here To Help You Become A Profitable Trader Inshallah</p>
+          
+          {/* Value Props */}
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-6 text-sm sm:text-base">
+            <div className="flex items-center gap-2 text-accent">
+              <Check size={18} className="text-primary" />
+              <span>1-on-1 Mentorship</span>
+            </div>
+            <div className="flex items-center gap-2 text-accent">
+              <Check size={18} className="text-primary" />
+              <span>Live Trade Signals</span>
+            </div>
+            <div className="flex items-center gap-2 text-accent">
+              <Check size={18} className="text-primary" />
+              <span>Proven Strategy</span>
+            </div>
+          </div>
         </header>
 
         {/* Main CTAs - Side by Side */}
@@ -107,11 +129,17 @@ const Index = () => {
                     </div>
                   </div>
                   
-                  <div className="mt-4 sm:mt-5 flex items-center justify-center gap-2">
-                    <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-green-500 flex items-center justify-center animate-pulse">
-                      <Check size={14} className="text-background" />
+                  <div className="mt-4 sm:mt-5 flex flex-col items-center gap-2">
+                    <div className="flex items-center gap-2">
+                      <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-green-500 flex items-center justify-center animate-pulse">
+                        <Check size={14} className="text-background" />
+                      </div>
+                      <p className="text-xs sm:text-sm text-muted-foreground font-mono font-semibold">24/7 Support</p>
                     </div>
-                    <p className="text-xs sm:text-sm text-muted-foreground font-mono font-semibold">24/7 Support</p>
+                    {/* Urgency */}
+                    <div className="bg-destructive/20 border border-destructive/50 rounded-lg px-3 py-1.5 mt-2">
+                      <p className="text-xs text-destructive font-bold animate-pulse">🔥 Only 3 Spots Left This Week!</p>
+                    </div>
                   </div>
                 </div>
               </article>
@@ -234,6 +262,22 @@ const Index = () => {
 
         {/* SOCIAL PROOF - Real Results */}
         <section className="mb-8 sm:mb-12 text-center max-w-5xl mx-auto px-4">
+          {/* Stats Bar */}
+          <div className="grid grid-cols-3 gap-4 mb-8 max-w-2xl mx-auto">
+            <div className="bg-card/50 border border-primary/30 rounded-xl p-4">
+              <div className="text-2xl sm:text-3xl font-bold text-primary">500+</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">Students Trained</div>
+            </div>
+            <div className="bg-card/50 border border-accent/30 rounded-xl p-4">
+              <div className="text-2xl sm:text-3xl font-bold text-accent">85%</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">Success Rate</div>
+            </div>
+            <div className="bg-card/50 border border-secondary/30 rounded-xl p-4">
+              <div className="text-2xl sm:text-3xl font-bold text-secondary">5★</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">Avg Rating</div>
+            </div>
+          </div>
+          
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary neon-glow mb-3">
             Real Students, Real Profits 💰
           </h2>
@@ -540,6 +584,32 @@ const Index = () => {
           </div>
         </AnimatedBlock>
 
+        {/* Featured Testimonial */}
+        <AnimatedBlock delay={1.38} className="mb-12">
+          <div className="max-w-3xl mx-auto bg-gradient-to-br from-card via-card/80 to-card border-2 border-accent/30 rounded-2xl p-6 sm:p-8 relative overflow-hidden">
+            <div className="absolute top-4 left-4 text-6xl text-accent/20">"</div>
+            <div className="relative z-10">
+              <p className="text-lg sm:text-xl text-foreground/90 italic mb-4 leading-relaxed">
+                "Chris changed my entire perspective on trading. Within 3 months, I went from losing money to consistently profitable. His mentorship is worth every penny!"
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
+                  <Users size={24} className="text-primary" />
+                </div>
+                <div>
+                  <p className="text-foreground font-bold">Verified Student</p>
+                  <p className="text-muted-foreground text-sm">Stackmode Member</p>
+                </div>
+                <div className="ml-auto flex gap-1">
+                  {[1,2,3,4,5].map(i => (
+                    <span key={i} className="text-secondary">★</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </AnimatedBlock>
+
         <AnimatedBlock delay={1.4} className="mb-16">
           <div className="text-center max-w-4xl mx-auto">
             <p className="text-2xl md:text-3xl font-bold text-foreground leading-relaxed">
@@ -548,13 +618,44 @@ const Index = () => {
           </div>
         </AnimatedBlock>
 
-        <div className="text-center mb-16 max-w-3xl mx-auto">
+        <div className="text-center mb-16 max-w-3xl mx-auto px-4">
+          {/* What You Get */}
+          <div className="bg-card/50 border border-primary/30 rounded-2xl p-6 mb-6">
+            <h3 className="text-xl font-bold text-primary mb-4">What You Get On Your FREE Call:</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left mb-4">
+              <div className="flex items-start gap-2">
+                <Check size={18} className="text-primary mt-1 flex-shrink-0" />
+                <span className="text-foreground/90 text-sm">Personalized Trading Assessment</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <Check size={18} className="text-primary mt-1 flex-shrink-0" />
+                <span className="text-foreground/90 text-sm">Custom Strategy Recommendations</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <Check size={18} className="text-primary mt-1 flex-shrink-0" />
+                <span className="text-foreground/90 text-sm">Risk Management Review</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <Check size={18} className="text-primary mt-1 flex-shrink-0" />
+                <span className="text-foreground/90 text-sm">Clear Action Plan to Profit</span>
+              </div>
+            </div>
+          </div>
+          
           <Button asChild className="bg-accent hover:bg-accent/90 text-background font-bold text-base md:text-xl px-6 py-6 md:px-12 md:py-8 rounded-lg neon-glow w-full transform hover:scale-105 transition-all shadow-2xl">
             <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer">
               🎯 BOOK YOUR FREE STRATEGY CALL NOW
             </a>
           </Button>
           <p className="text-sm text-muted-foreground mt-4 font-mono">⚡ Limited Slots Available - Don't Miss Out</p>
+          
+          {/* Risk Reversal */}
+          <div className="mt-6 flex items-center justify-center gap-2 text-muted-foreground">
+            <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+            <span className="text-sm">100% Free • No Obligation • No Card Required</span>
+          </div>
         </div>
 
         {/* Social Media Icons */}
@@ -645,6 +746,18 @@ const Index = () => {
         <div className="h-full bg-gradient-to-b from-transparent via-primary/10 to-transparent" style={{
         backgroundSize: '100% 4px'
       }} />
+      </div>
+
+      {/* Floating Mobile CTA */}
+      <div className="fixed bottom-20 left-0 right-0 z-40 px-4 md:hidden">
+        <a 
+          href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="block w-full bg-gradient-to-r from-accent via-accent to-accent/80 text-background font-black text-base py-4 rounded-xl shadow-2xl text-center animate-pulse"
+        >
+          📅 BOOK FREE CALL NOW
+        </a>
       </div>
     </main>;
 };
