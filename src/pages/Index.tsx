@@ -121,19 +121,16 @@ const Index = () => {
               <div className="relative w-full" style={{
               paddingBottom: '56.25%'
             }}>
-                <iframe className="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/DcNWSoWGBhs" title="How I Mentor My Clients" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+                <iframe 
+                  className="absolute top-0 left-0 w-full h-full" 
+                  src="https://www.youtube.com/embed/DcNWSoWGBhs" 
+                  title="How I Mentor My Clients" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowFullScreen
+                  loading="lazy"
+                />
               </div>
             </div>
-          </div>
-
-          {/* Calendly Inline Widget - Right Below Video */}
-          <div className="relative w-full max-w-xl mx-auto mt-6 mb-8 px-4 sm:px-0">
-            <div className="absolute -inset-1 bg-gradient-to-r from-accent/20 via-primary/10 to-accent/20 rounded-xl blur-md opacity-60" />
-            <div 
-              className="calendly-inline-widget relative rounded-xl overflow-hidden border border-border/30 bg-background/50 backdrop-blur-sm" 
-              data-url="https://calendly.com/stackmodechris/tradingmastermindcoaching?background_color=0a0b0d&text_color=ffffff&primary_color=d200ff"
-              style={{ minWidth: '320px', height: '650px' }}
-            />
           </div>
           
           {/* Value Props */}
@@ -364,8 +361,28 @@ const Index = () => {
         </AnimatedBlock>
 
         {/* Reviews Gallery */}
-        <AnimatedBlock delay={1.15} className="mb-16">
+        <AnimatedBlock delay={1.15} className="mb-12">
           <ReviewsGallery />
+        </AnimatedBlock>
+
+        {/* Calendly Inline Widget - After Reviews */}
+        <AnimatedBlock delay={1.16} className="mb-16 px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-6">
+              <h2 className="text-2xl sm:text-3xl font-bold text-primary neon-glow mb-2">
+                Ready to Start Your Journey?
+              </h2>
+              <p className="text-muted-foreground">Book your free strategy call below</p>
+            </div>
+            <div className="relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-accent/15 via-primary/10 to-accent/15 rounded-xl blur-lg opacity-50" />
+              <div 
+                className="calendly-inline-widget relative rounded-xl overflow-hidden border border-border/20 bg-background/30 backdrop-blur-sm" 
+                data-url="https://calendly.com/stackmodechris/tradingmastermindcoaching?background_color=0a0b0d&text_color=ffffff&primary_color=d200ff"
+                style={{ minWidth: '320px', height: '650px' }}
+              />
+            </div>
+          </div>
         </AnimatedBlock>
 
         {/* Middle Call to Action Button */}
@@ -387,7 +404,14 @@ const Index = () => {
             <div className="relative w-full" style={{
             paddingBottom: '56.25%'
           }}>
-              <iframe className="absolute top-0 left-0 w-full h-full rounded-lg border-2 border-accent/50" src="https://www.youtube.com/embed/Ay6AYak6sXE" title="How I Made $100 in 15 Minutes" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+              <iframe 
+                className="absolute top-0 left-0 w-full h-full rounded-lg border-2 border-accent/50" 
+                src="https://www.youtube.com/embed/Ay6AYak6sXE" 
+                title="How I Made $100 in 15 Minutes" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowFullScreen
+                loading="lazy"
+              />
             </div>
           </div>
         </AnimatedBlock>
