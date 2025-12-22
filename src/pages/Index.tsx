@@ -101,23 +101,23 @@ const Index = () => {
             <span className="text-primary text-sm font-mono font-bold">20+ Students Trained</span>
           </div>
           
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary neon-glow mb-4">STACKMODE.NET</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary neon-glow mb-4 animate-fade-in">STACKMODE.NET</h1>
           
           {/* Promo Video */}
-          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-accent mb-4 text-center drop-shadow-[0_0_10px_hsl(var(--accent))]">
+          <h3 className="text-sm sm:text-base md:text-lg font-semibold text-accent mb-3 text-center drop-shadow-[0_0_8px_hsl(var(--accent))] animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
             How I Mentor My Clients To Become Profitable Traders
           </h3>
-          <div className="relative max-w-2xl mx-auto mb-6 group">
-            {/* Simple static glow effect */}
-            <div className="absolute -inset-1 bg-accent/40 rounded-2xl blur-md opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+          <div className="relative w-full max-w-xl mx-auto mb-6 group px-4 sm:px-0">
+            {/* Green glow effect */}
+            <div className="absolute -inset-1 bg-primary/40 rounded-2xl blur-md opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
             
-            {/* Video container */}
-            <div className="relative bg-background rounded-xl overflow-hidden border border-primary/30">
-              {/* Corner decorations */}
-              <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-accent z-10" />
-              <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-accent z-10" />
-              <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-accent z-10" />
-              <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-accent z-10" />
+            {/* Video container with purple border */}
+            <div className="relative bg-background rounded-xl overflow-hidden border-2 border-accent/50">
+              {/* Corner decorations in purple */}
+              <div className="absolute top-0 left-0 w-6 h-6 sm:w-8 sm:h-8 border-t-2 border-l-2 border-primary z-10" />
+              <div className="absolute top-0 right-0 w-6 h-6 sm:w-8 sm:h-8 border-t-2 border-r-2 border-primary z-10" />
+              <div className="absolute bottom-0 left-0 w-6 h-6 sm:w-8 sm:h-8 border-b-2 border-l-2 border-primary z-10" />
+              <div className="absolute bottom-0 right-0 w-6 h-6 sm:w-8 sm:h-8 border-b-2 border-r-2 border-primary z-10" />
               
               <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
                 <iframe 
