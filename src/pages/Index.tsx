@@ -652,7 +652,7 @@ const Index = () => {
 
               <AccordionItem value="item-4" className="bg-card/50 border border-primary/20 rounded-xl px-4 overflow-hidden">
                 <AccordionTrigger className="text-left text-foreground hover:text-primary hover:no-underline py-4">
-                  What markets do you trade?
+                  What markets do you teach?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-4">
                   I primarily focus on Forex and indices (like NAS100, US30). These markets offer great volatility and opportunities for consistent profits. I will teach you how to read price action and find high-probability setups.
