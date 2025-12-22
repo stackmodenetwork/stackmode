@@ -115,18 +115,17 @@ const Index = () => {
         }} className="text-sm sm:text-base font-semibold text-orange-400 mb-3 text-center drop-shadow-[0_0_12px_rgba(251,146,60,0.8)] animate-fade-in md:text-xl">Hello, Here Is How I Mentor My Clients To Become Profitable Traders Watch This Video and Book A Free Call To Get Started Inshallah </h3>
           <div className="relative w-full max-w-xl mx-auto mb-6 px-4 sm:px-0">
             {/* Subtle glow effect */}
-            <div className="absolute -inset-2 bg-accent/15 rounded-2xl blur-lg" />
+            <div className="absolute -inset-3 bg-gradient-to-r from-primary/20 via-accent/15 to-primary/20 rounded-2xl blur-xl opacity-60" />
             
-            {/* Video container */}
-            <div className="relative bg-background rounded-xl overflow-hidden border border-accent/30">
+            {/* Video container with clean border */}
+            <div className="relative bg-background rounded-xl overflow-hidden border-2 border-primary/40 shadow-lg shadow-primary/10">
               <video 
                 className="w-full h-auto"
                 controls
                 playsInline
                 preload="metadata"
-                poster="/lovable-uploads/206329e8-5e7d-4326-b922-690e9f4a17c6.png"
               >
-                <source src="/lovable-uploads/promo-video.mp4" type="video/mp4" />
+                <source src="/videos/mentor-intro.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
