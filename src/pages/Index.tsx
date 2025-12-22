@@ -97,7 +97,23 @@ const Index = () => {
       <section id="home" className="relative z-10 min-h-screen px-4 py-6 sm:py-8">
         
         {/* Headline - Above the Fold */}
-        <header id="intro" className="text-center mb-6 sm:mb-8 max-w-5xl mx-auto">
+        <header id="intro" className="relative text-center mb-6 sm:mb-8 max-w-5xl mx-auto overflow-hidden rounded-3xl p-6 sm:p-8">
+          {/* Animated glowing background */}
+          <div className="absolute inset-0 -z-10">
+            {/* Base gradient */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-accent/10" />
+            
+            {/* Animated glow orbs */}
+            <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary/30 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-accent/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-orange-500/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '0.5s' }} />
+            
+            {/* Subtle grid overlay */}
+            <div className="absolute inset-0 opacity-5 bg-[linear-gradient(rgba(255,255,255,.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.1)_1px,transparent_1px)] bg-[size:50px_50px]" />
+            
+            {/* Border glow */}
+            <div className="absolute inset-0 rounded-3xl border border-primary/20 shadow-[inset_0_0_60px_rgba(34,197,94,0.1)]" />
+          </div>
           {/* Trust Badge */}
           <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-2 mb-4 animate-pulse">
             <div className="w-2 h-2 bg-primary rounded-full animate-ping"></div>
