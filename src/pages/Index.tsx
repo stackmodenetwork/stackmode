@@ -113,12 +113,11 @@ const Index = () => {
           animationFillMode: 'both'
         }} className="text-sm sm:text-base font-semibold text-orange-400 mb-3 text-center drop-shadow-[0_0_12px_rgba(251,146,60,0.8)] animate-fade-in md:text-xl">Hello, Here Is How I Mentor My Clients To Become Profitable Traders Watch This Video and Book A Free Call To Get Started Inshallah </h3>
           <div className="relative w-full max-w-xl mx-auto mb-6 px-4 sm:px-0">
-            {/* Purple/cyan gradient glow effect */}
-            <div className="absolute -inset-3 bg-gradient-to-r from-accent/30 via-primary/40 to-accent/30 rounded-2xl blur-xl opacity-70" />
-            <div className="absolute -inset-1 bg-gradient-to-br from-primary/20 to-accent/20 rounded-xl blur-md" />
+            {/* Subtle glow effect */}
+            <div className="absolute -inset-2 bg-accent/15 rounded-2xl blur-lg" />
             
-            {/* Video container with purple border */}
-            <div className="relative bg-background rounded-xl overflow-hidden border-2 border-accent/50 shadow-[0_0_30px_rgba(139,92,246,0.3)]">
+            {/* Video container */}
+            <div className="relative bg-background rounded-xl overflow-hidden border border-accent/30">
               <div className="relative w-full" style={{
               paddingBottom: '56.25%'
             }}>
