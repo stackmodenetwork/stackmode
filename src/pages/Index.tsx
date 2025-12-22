@@ -125,8 +125,16 @@ const Index = () => {
               </div>
             </div>
           </div>
-          
-          
+
+          {/* Calendly Inline Widget - Right Below Video */}
+          <div className="relative w-full max-w-xl mx-auto mt-6 mb-8 px-4 sm:px-0">
+            <div className="absolute -inset-1 bg-gradient-to-r from-accent/20 via-primary/10 to-accent/20 rounded-xl blur-md opacity-60" />
+            <div 
+              className="calendly-inline-widget relative rounded-xl overflow-hidden border border-border/30 bg-background/50 backdrop-blur-sm" 
+              data-url="https://calendly.com/stackmodechris/tradingmastermindcoaching?background_color=0a0b0d&text_color=ffffff&primary_color=d200ff"
+              style={{ minWidth: '320px', height: '650px' }}
+            />
+          </div>
           
           {/* Value Props */}
           <div className="flex flex-wrap justify-center gap-3 sm:gap-6 text-sm sm:text-base">
@@ -269,17 +277,6 @@ const Index = () => {
             </a>
         </div>
 
-        {/* Calendly Inline Widget */}
-        <AnimatedBlock delay={0.9} className="mt-12 max-w-4xl mx-auto px-4">
-          <div className="relative">
-            <div className="absolute inset-0 bg-accent/10 rounded-2xl blur-2xl -z-10" />
-            <div 
-              className="calendly-inline-widget rounded-2xl overflow-hidden border border-border/50" 
-              data-url="https://calendly.com/stackmodechris/tradingmastermindcoaching?background_color=0a0b0d&text_color=ffffff&primary_color=d200ff"
-              style={{ minWidth: '320px', height: '700px' }}
-            />
-          </div>
-        </AnimatedBlock>
         </section>
 
         {/* Three Action Buttons */}
