@@ -268,6 +268,18 @@ const Index = () => {
               </article>
             </a>
         </div>
+
+        {/* Calendly Inline Widget */}
+        <AnimatedBlock delay={0.9} className="mt-12 max-w-4xl mx-auto px-4">
+          <div className="relative">
+            <div className="absolute inset-0 bg-accent/10 rounded-2xl blur-2xl -z-10" />
+            <div 
+              className="calendly-inline-widget rounded-2xl overflow-hidden border border-border/50" 
+              data-url="https://calendly.com/stackmodechris/tradingmastermindcoaching?background_color=0a0b0d&text_color=ffffff&primary_color=d200ff"
+              style={{ minWidth: '320px', height: '700px' }}
+            />
+          </div>
+        </AnimatedBlock>
         </section>
 
         {/* Three Action Buttons */}
