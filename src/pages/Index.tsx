@@ -104,6 +104,9 @@ const Index = () => {
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary neon-glow mb-4">STACKMODE.NET</h1>
           
           {/* Promo Video */}
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-accent mb-4 text-center drop-shadow-[0_0_10px_hsl(var(--accent))] animate-pulse">
+            How I Mentor My Clients To Become Profitable Traders
+          </h3>
           <div className="relative max-w-2xl mx-auto mb-6 group">
             {/* Glowing border effect */}
             <div className="absolute -inset-1 bg-gradient-to-r from-primary via-accent to-primary rounded-2xl blur-md opacity-50 group-hover:opacity-80 transition-opacity duration-500 animate-shimmer bg-[length:200%_100%]" />
