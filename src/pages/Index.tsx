@@ -18,6 +18,16 @@ const Index = () => {
   const navigate = useNavigate();
   const audioRef = useRef<HTMLAudioElement>(null);
   const [showBadge, setShowBadge] = useState(true);
+  const [showStickyHeader, setShowStickyHeader] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowStickyHeader(window.scrollY > 400);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = 0.2;
@@ -44,6 +54,21 @@ const Index = () => {
     navigate('/game');
   };
   return <main className="min-h-screen bg-background relative overflow-x-hidden">
+      {/* Sticky Mobile Header CTA */}
+      <div className={`fixed top-0 left-0 right-0 z-50 md:hidden transition-all duration-300 ${showStickyHeader ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
+        <div className="bg-background/95 backdrop-blur-md border-b border-primary/20 px-4 py-3 flex items-center justify-between">
+          <span className="text-sm font-bold text-primary">🚀 Ready to Trade?</span>
+          <a 
+            href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="bg-accent text-background font-bold text-xs px-4 py-2 rounded-lg shadow-lg"
+          >
+            BOOK FREE CALL
+          </a>
+        </div>
+      </div>
+
       {/* Background Music - Deferred Loading */}
       <audio ref={audioRef} loop muted className="hidden" preload="none">
         <source src="/ambient-cyber-music.mp3" type="audio/mpeg" />
