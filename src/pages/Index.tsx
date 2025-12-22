@@ -840,7 +840,7 @@ const Index = () => {
 
       {/* Floating Mobile CTA */}
       <div className="fixed bottom-20 left-0 right-0 z-40 px-4 md:hidden">
-        <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="block w-full bg-gradient-to-r from-accent via-accent to-accent/80 text-background font-black text-base py-4 rounded-xl shadow-2xl text-center animate-pulse">
+        <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="block w-full bg-gradient-to-r from-accent via-accent to-accent/80 text-background font-black text-base py-4 rounded-xl shadow-2xl text-center">
           📅 BOOK FREE CALL NOW
         </a>
       </div>
