@@ -660,19 +660,6 @@ const Index = () => {
           </div>
         </AnimatedBlock>
 
-        {/* Video 2 - How I Mentor My Clients */}
-        <AnimatedBlock delay={1.35} className="mb-16">
-          <div className="max-w-4xl mx-auto">
-            <h3 className="text-2xl md:text-3xl font-bold text-primary neon-glow mb-6 text-center">
-              How I Mentor My Clients To Become Profitable Traders
-            </h3>
-            <div className="relative w-full" style={{
-            paddingBottom: '56.25%'
-          }}>
-              <iframe className="absolute top-0 left-0 w-full h-full rounded-lg border-2 border-accent/50" src="https://www.youtube.com/embed/DcNWSoWGBhs" title="How I Mentor My Clients" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
-            </div>
-          </div>
-        </AnimatedBlock>
 
         {/* FAQ Section */}
         <AnimatedBlock delay={1.39} className="mb-16">
