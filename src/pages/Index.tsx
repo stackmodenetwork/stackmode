@@ -119,18 +119,16 @@ const Index = () => {
             
             {/* Video container */}
             <div className="relative bg-background rounded-xl overflow-hidden border border-accent/30">
-              <div className="relative w-full" style={{
-              paddingBottom: '56.25%'
-            }}>
-                <iframe 
-                  className="absolute top-0 left-0 w-full h-full" 
-                  src="https://www.youtube.com/embed/DcNWSoWGBhs" 
-                  title="How I Mentor My Clients" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
-                  loading="lazy"
-                />
-              </div>
+              <video 
+                className="w-full h-auto"
+                controls
+                playsInline
+                preload="metadata"
+                poster="/lovable-uploads/206329e8-5e7d-4326-b922-690e9f4a17c6.png"
+              >
+                <source src="/lovable-uploads/promo-video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
           
