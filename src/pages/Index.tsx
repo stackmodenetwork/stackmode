@@ -5,12 +5,7 @@ import { Icon3D } from '@/components/Icon3D';
 import { PressStartButton } from '@/components/PressStartButton';
 import { ShoppingCart, Briefcase, Play, BookOpen, CandlestickChart, Siren, Check, DollarSign, Mic, Users, TrendingUp, Rocket, MessageSquare, Instagram, Youtube, HelpCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 // Declare Calendly type
 declare global {
   interface Window {
@@ -128,7 +123,7 @@ const Index = () => {
                       <div className="absolute inset-0 opacity-10 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,.2)_25%,rgba(255,255,255,.2)_75%,transparent_75%,transparent),linear-gradient(45deg,transparent_25%,rgba(255,255,255,.2)_25%,rgba(255,255,255,.2)_75%,transparent_75%,transparent)] bg-[length:20px_20px]"></div>
                       
                       <span className="relative z-10 flex items-center justify-center gap-2 tracking-wide">
-                        TRADING BLUEPRINT REVIEW
+                        BOOK A FREE CALL TODAY    
                         <span className="inline-block group-hover:translate-x-1 transition-transform" aria-hidden="true">→</span>
                       </span>
                     </div>
@@ -606,9 +601,7 @@ const Index = () => {
                   <p className="text-muted-foreground text-sm">Stackmode Member</p>
                 </div>
                 <div className="ml-auto flex gap-1">
-                  {[1,2,3,4,5].map(i => (
-                    <span key={i} className="text-secondary">★</span>
-                  ))}
+                  {[1, 2, 3, 4, 5].map(i => <span key={i} className="text-secondary">★</span>)}
                 </div>
               </div>
             </div>
@@ -671,7 +664,7 @@ const Index = () => {
                   What is the difference between mentorship and the trade signals?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-4">
-                  <strong className="text-foreground">Trade Signals ($20/month):</strong> You receive my exact trade entries, stop losses, and take profits in real-time. Great for copying my trades while you learn.<br/><br/>
+                  <strong className="text-foreground">Trade Signals ($20/month):</strong> You receive my exact trade entries, stop losses, and take profits in real-time. Great for copying my trades while you learn.<br /><br />
                   <strong className="text-foreground">Mentorship:</strong> Deep 1-on-1 coaching where I teach you the WHY behind every trade. You will learn to find your own setups and become an independent, profitable trader.
                 </AccordionContent>
               </AccordionItem>
@@ -847,12 +840,7 @@ const Index = () => {
 
       {/* Floating Mobile CTA */}
       <div className="fixed bottom-20 left-0 right-0 z-40 px-4 md:hidden">
-        <a 
-          href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="block w-full bg-gradient-to-r from-accent via-accent to-accent/80 text-background font-black text-base py-4 rounded-xl shadow-2xl text-center animate-pulse"
-        >
+        <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="block w-full bg-gradient-to-r from-accent via-accent to-accent/80 text-background font-black text-base py-4 rounded-xl shadow-2xl text-center animate-pulse">
           📅 BOOK FREE CALL NOW
         </a>
       </div>
