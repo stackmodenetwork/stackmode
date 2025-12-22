@@ -19,7 +19,6 @@ const Index = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [showBadge, setShowBadge] = useState(true);
   const [showStickyHeader, setShowStickyHeader] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => {
       setShowStickyHeader(window.scrollY > 400);
@@ -27,7 +26,6 @@ const Index = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = 0.2;
@@ -67,12 +65,7 @@ const Index = () => {
               <TrendingUp size={18} className="text-accent animate-bounce" />
               <span className="text-sm font-bold text-foreground">Ready to Trade?</span>
             </div>
-            <a 
-              href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="group relative overflow-hidden bg-gradient-to-r from-accent to-accent/80 text-background font-bold text-xs px-4 py-2 rounded-lg shadow-lg shadow-accent/30 transition-transform hover:scale-105"
-            >
+            <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="group relative overflow-hidden bg-gradient-to-r from-accent to-accent/80 text-background font-bold text-xs px-4 py-2 rounded-lg shadow-lg shadow-accent/30 transition-transform hover:scale-105">
               <span className="relative z-10 flex items-center gap-1">
                 <Rocket size={14} className="group-hover:animate-pulse" />
                 BOOK FREE CALL
@@ -104,8 +97,11 @@ const Index = () => {
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary neon-glow mb-4 animate-fade-in">STACKMODE.NET</h1>
           
           {/* Promo Video */}
-          <h3 className="text-sm sm:text-base md:text-lg font-semibold text-accent mb-3 text-center drop-shadow-[0_0_8px_hsl(var(--accent))] animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
-            How I Mentor My Clients To Become Profitable Traders
+          <h3 className="text-sm sm:text-base md:text-lg font-semibold text-accent mb-3 text-center drop-shadow-[0_0_8px_hsl(var(--accent))] animate-fade-in" style={{
+          animationDelay: '0.2s',
+          animationFillMode: 'both'
+        }}>
+            Hello, Here Is How I Mentor My Clients To Become Profitable Traders
           </h3>
           <div className="relative w-full max-w-xl mx-auto mb-6 group px-4 sm:px-0">
             {/* Green glow effect */}
@@ -119,19 +115,15 @@ const Index = () => {
               <div className="absolute bottom-0 left-0 w-6 h-6 sm:w-8 sm:h-8 border-b-2 border-l-2 border-primary z-10" />
               <div className="absolute bottom-0 right-0 w-6 h-6 sm:w-8 sm:h-8 border-b-2 border-r-2 border-primary z-10" />
               
-              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-                <iframe 
-                  className="absolute top-0 left-0 w-full h-full" 
-                  src="https://www.youtube.com/embed/DcNWSoWGBhs" 
-                  title="How I Mentor My Clients" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen 
-                />
+              <div className="relative w-full" style={{
+              paddingBottom: '56.25%'
+            }}>
+                <iframe className="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/DcNWSoWGBhs" title="How I Mentor My Clients" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
               </div>
             </div>
           </div>
           
-          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-4">Here To Help You Become A Profitable Trader Inshallah</p>
+          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-4">​</p>
           
           {/* Value Props */}
           <div className="flex flex-wrap justify-center gap-3 sm:gap-6 text-sm sm:text-base">
