@@ -75,9 +75,9 @@ export default {
 				'gradient-gaming': 'var(--gradient-gaming)'
 			},
 			fontFamily: {
-				'inter': ['Inter', 'sans-serif'],
-				'mono': ['Courier New', 'monospace'],
-				'pixel': ['monospace']
+				'heading': ['Sora', 'sans-serif'],
+				'body': ['DM Sans', 'sans-serif'],
+				'mono': ['JetBrains Mono', 'monospace']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
