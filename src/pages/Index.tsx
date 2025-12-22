@@ -3,9 +3,14 @@ import { useEffect, useRef, useState } from 'react';
 import { AnimatedBlock } from '@/components/AnimatedBlock';
 import { Icon3D } from '@/components/Icon3D';
 import { PressStartButton } from '@/components/PressStartButton';
-import { ShoppingCart, Briefcase, Play, BookOpen, CandlestickChart, Siren, Check, DollarSign, Mic, Users, TrendingUp, Rocket, MessageSquare, Instagram, Youtube } from 'lucide-react';
+import { ShoppingCart, Briefcase, Play, BookOpen, CandlestickChart, Siren, Check, DollarSign, Mic, Users, TrendingUp, Rocket, MessageSquare, Instagram, Youtube, HelpCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 // Declare Calendly type
 declare global {
   interface Window {
@@ -606,6 +611,98 @@ const Index = () => {
                   ))}
                 </div>
               </div>
+            </div>
+          </div>
+        </AnimatedBlock>
+
+        {/* FAQ Section */}
+        <AnimatedBlock delay={1.39} className="mb-16">
+          <div className="max-w-3xl mx-auto px-4">
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-2 mb-4">
+                <HelpCircle size={18} className="text-accent" />
+                <span className="text-accent text-sm font-bold">FAQ</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary neon-glow mb-2">
+                Common Questions
+              </h2>
+              <p className="text-muted-foreground">Everything you need to know before booking</p>
+            </div>
+
+            <Accordion type="single" collapsible className="space-y-3">
+              <AccordionItem value="item-1" className="bg-card/50 border border-primary/20 rounded-xl px-4 overflow-hidden">
+                <AccordionTrigger className="text-left text-foreground hover:text-primary hover:no-underline py-4">
+                  What happens on the free strategy call?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-4">
+                  On your free call, we will review your current trading situation, identify what is holding you back, and create a personalized roadmap to help you become profitable. No pressure, no sales pitch — just real value and guidance tailored to your goals.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-2" className="bg-card/50 border border-primary/20 rounded-xl px-4 overflow-hidden">
+                <AccordionTrigger className="text-left text-foreground hover:text-primary hover:no-underline py-4">
+                  Do I need trading experience to join?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-4">
+                  Not at all! I work with complete beginners to advanced traders. The mentorship is tailored to YOUR level. Whether you have never placed a trade or you have been trading for years, I will meet you where you are and help you level up.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-3" className="bg-card/50 border border-primary/20 rounded-xl px-4 overflow-hidden">
+                <AccordionTrigger className="text-left text-foreground hover:text-primary hover:no-underline py-4">
+                  How much capital do I need to start trading?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-4">
+                  You can start with as little as $100-500. I will teach you proper risk management so you can grow your account safely. Many of my students also use prop firms to trade with larger capital without risking their own money.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-4" className="bg-card/50 border border-primary/20 rounded-xl px-4 overflow-hidden">
+                <AccordionTrigger className="text-left text-foreground hover:text-primary hover:no-underline py-4">
+                  What markets do you trade?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-4">
+                  I primarily focus on Forex and indices (like NAS100, US30). These markets offer great volatility and opportunities for consistent profits. I will teach you how to read price action and find high-probability setups.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-5" className="bg-card/50 border border-primary/20 rounded-xl px-4 overflow-hidden">
+                <AccordionTrigger className="text-left text-foreground hover:text-primary hover:no-underline py-4">
+                  What is the difference between mentorship and the trade signals?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-4">
+                  <strong className="text-foreground">Trade Signals ($20/month):</strong> You receive my exact trade entries, stop losses, and take profits in real-time. Great for copying my trades while you learn.<br/><br/>
+                  <strong className="text-foreground">Mentorship:</strong> Deep 1-on-1 coaching where I teach you the WHY behind every trade. You will learn to find your own setups and become an independent, profitable trader.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-6" className="bg-card/50 border border-primary/20 rounded-xl px-4 overflow-hidden">
+                <AccordionTrigger className="text-left text-foreground hover:text-primary hover:no-underline py-4">
+                  How long until I see results?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-4">
+                  Results vary based on your dedication and time invested. Most students start seeing improvements within 4-8 weeks of consistent practice. Some have become consistently profitable within 2-3 months. The key is following the process and staying disciplined.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-7" className="bg-card/50 border border-primary/20 rounded-xl px-4 overflow-hidden">
+                <AccordionTrigger className="text-left text-foreground hover:text-primary hover:no-underline py-4">
+                  Is there a refund policy?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-4">
+                  Yes! I stand behind my mentorship. Check the Terms and Conditions at the bottom of this page for full details on our refund policy. I want you to succeed, and I only work with people who are serious about transforming their trading.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+
+            {/* CTA after FAQ */}
+            <div className="text-center mt-8">
+              <p className="text-muted-foreground mb-4">Still have questions? Let us chat on your free call!</p>
+              <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-8 py-4">
+                <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer">
+                  Book Your Free Call →
+                </a>
+              </Button>
             </div>
           </div>
         </AnimatedBlock>
