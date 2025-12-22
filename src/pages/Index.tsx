@@ -273,8 +273,8 @@ const Index = () => {
               <div className="text-xs sm:text-sm text-muted-foreground">Success Rate</div>
             </div>
             <div className="bg-card/50 border border-secondary/30 rounded-xl p-4">
-              <div className="text-2xl sm:text-3xl font-bold text-secondary">5★</div>
-              <div className="text-xs sm:text-sm text-muted-foreground">Avg Rating</div>
+              <div className="text-2xl sm:text-3xl font-bold text-secondary">​$10K+</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">I Help Students Make Real Money</div>
             </div>
           </div>
           
@@ -287,11 +287,9 @@ const Index = () => {
         {/* Featured Testimonial */}
         <AnimatedBlock delay={1.14} className="mb-12">
           <div className="max-w-3xl mx-auto bg-gradient-to-br from-card via-card/80 to-card border-2 border-accent/30 rounded-2xl p-6 sm:p-8 relative overflow-hidden">
-            <div className="absolute top-4 left-4 text-6xl text-accent/20">"</div>
+            <div className="absolute top-4 left-4 text-6xl text-accent/20 mx-0 mr-[100px]">!</div>
             <div className="relative z-10">
-              <p className="text-lg sm:text-xl text-foreground/90 italic mb-4 leading-relaxed">
-                "Brother without your mentorship id still be blowing accounts rn"
-              </p>
+              <p className="text-lg sm:text-xl text-foreground/90 italic mb-4 leading-relaxed">  "Brother without your mentorship id still be blowing accounts rn"</p>
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
                   <Users size={24} className="text-primary" />
@@ -840,7 +838,7 @@ const Index = () => {
 
       {/* Floating Mobile CTA */}
       <div className="fixed bottom-20 left-0 right-0 z-40 px-4 md:hidden">
-        <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="block w-full bg-gradient-to-r from-accent via-accent to-accent/80 text-background font-black text-base py-4 rounded-xl shadow-2xl text-center">
+        <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="block w-full bg-gradient-to-r from-accent via-accent to-accent/80 text-background font-black text-base py-4 rounded-xl shadow-2xl text-center animate-pulse">
           📅 BOOK FREE CALL NOW
         </a>
       </div>
