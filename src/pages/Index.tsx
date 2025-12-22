@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import { AnimatedBlock } from '@/components/AnimatedBlock';
-
+import { ReviewsGallery } from '@/components/ReviewsGallery';
 import { Icon3D } from '@/components/Icon3D';
 import { PressStartButton } from '@/components/PressStartButton';
 import { ShoppingCart, Briefcase, Play, BookOpen, CandlestickChart, Siren, Check, DollarSign, Mic, Users, TrendingUp, Rocket, MessageSquare, Instagram, Youtube, HelpCircle } from 'lucide-react';
@@ -355,37 +355,8 @@ const Index = () => {
         </AnimatedBlock>
 
         {/* Reviews Gallery */}
-        <AnimatedBlock delay={1.15} className="mb-12">
-          <div className="max-w-6xl mx-auto px-4 relative">
-            {/* Purple Glow */}
-            <div className="absolute inset-0 bg-primary/20 rounded-3xl blur-3xl -z-10" />
-            
-            {/* Static Image Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-              {[
-                "review-1.png", "review-2.png", "review-3.png", "review-4.png", "review-5.png",
-                "review-6.png", "review-7.png", "review-8.png", "review-9.png", "review-10.png",
-                "review-11.png", "review-12.png", "review-13.png", "review-14.png", "review-15.png",
-                "review-16.png", "review-17.png", "review-18.png", "review-19.png", "review-20.png",
-                "review-21.png", "review-22.png", "review-23.png", "review-24.png", "review-25.png",
-                "review-26.png", "review-27.png", "review-28.png", "review-29.png", "review-30.png",
-                "review-31.png", "review-32.png", "review-33.png", "review-34.png"
-              ].map((img, index) => (
-                <div 
-                  key={img} 
-                  className="group relative overflow-hidden rounded-xl border border-primary/30 hover:border-primary/60 transition-all duration-300 hover:scale-105 shadow-lg shadow-primary/10"
-                >
-                  <img
-                    src={`/lovable-uploads/${img}`}
-                    alt={`Student success ${index + 1}`}
-                    loading="lazy"
-                    className="w-full h-auto"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-              ))}
-            </div>
-          </div>
+        <AnimatedBlock delay={1.15} className="mb-16">
+          <ReviewsGallery />
         </AnimatedBlock>
 
         {/* Middle Call to Action Button */}
