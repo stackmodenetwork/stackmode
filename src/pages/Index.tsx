@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import { AnimatedBlock } from '@/components/AnimatedBlock';
-import { TestimonialCarousel } from '@/components/TestimonialCarousel';
+
 import { Icon3D } from '@/components/Icon3D';
 import { PressStartButton } from '@/components/PressStartButton';
 import { ShoppingCart, Briefcase, Play, BookOpen, CandlestickChart, Siren, Check, DollarSign, Mic, Users, TrendingUp, Rocket, MessageSquare, Instagram, Youtube, HelpCircle } from 'lucide-react';
@@ -354,9 +354,47 @@ const Index = () => {
           </div>
         </AnimatedBlock>
 
-        {/* Testimonial Carousel */}
+        {/* Reviews Gallery */}
         <AnimatedBlock delay={1.15} className="mb-12">
-          <TestimonialCarousel />
+          <div className="max-w-6xl mx-auto px-4">
+            {/* Story Link */}
+            <a 
+              href="https://www.instagram.com/stories/stackmodechris" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group flex items-center justify-center gap-2 mb-6 text-accent hover:text-primary transition-colors"
+            >
+              <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 p-0.5 group-hover:scale-110 transition-transform">
+                <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
+                  <Instagram size={18} className="text-accent" />
+                </div>
+              </div>
+              <span className="font-semibold">View Our Story</span>
+            </a>
+            
+            {/* Static Image Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
+              {[
+                "review-1.png", "review-2.png", "review-3.png", "review-4.png", "review-5.png",
+                "review-6.png", "review-7.png", "review-8.png", "review-9.png", "review-10.png",
+                "review-11.png", "review-12.png", "review-13.png", "review-14.png", "review-15.png",
+                "review-16.png", "review-17.png", "review-18.png", "review-19.png", "review-20.png"
+              ].map((img, index) => (
+                <div 
+                  key={img} 
+                  className="group relative overflow-hidden rounded-lg border border-primary/20 hover:border-primary/50 transition-all duration-300 hover:scale-105"
+                >
+                  <img
+                    src={`/lovable-uploads/${img}`}
+                    alt={`Student success ${index + 1}`}
+                    loading="lazy"
+                    className="w-full h-auto"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+              ))}
+            </div>
+          </div>
         </AnimatedBlock>
 
         {/* Middle Call to Action Button */}
