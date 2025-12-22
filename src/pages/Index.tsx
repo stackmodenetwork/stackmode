@@ -136,16 +136,16 @@ const Index = () => {
           {/* Value Props */}
           <div className="flex flex-wrap justify-center gap-3 sm:gap-6 text-sm sm:text-base">
             <div className="flex items-center gap-2 text-accent">
-              <Check size={18} className="text-primary drop-shadow-[0_0_8px_rgba(34,197,94,0.8)]" />
-              <span className="drop-shadow-[0_0_10px_rgba(34,197,94,0.6)]">1-on-1 Mentorship</span>
+              <Check size={18} className="text-primary" />
+              <span>1-on-1 Mentorship</span>
             </div>
             <div className="flex items-center gap-2 text-accent">
-              <Check size={18} className="text-primary drop-shadow-[0_0_8px_rgba(34,197,94,0.8)]" />
-              <span className="drop-shadow-[0_0_10px_rgba(34,197,94,0.6)]">Live Trade Signals</span>
+              <Check size={18} className="text-primary" />
+              <span>Live Trade Signals</span>
             </div>
             <div className="flex items-center gap-2 text-accent">
-              <Check size={18} className="text-primary drop-shadow-[0_0_8px_rgba(34,197,94,0.8)]" />
-              <span className="drop-shadow-[0_0_10px_rgba(34,197,94,0.6)]">Proven Strategy</span>
+              <Check size={18} className="text-primary" />
+              <span>Proven Strategy</span>
             </div>
           </div>
         </header>
