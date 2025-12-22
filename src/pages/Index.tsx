@@ -112,18 +112,9 @@ const Index = () => {
           animationDelay: '0.2s',
           animationFillMode: 'both'
         }} className="text-sm sm:text-base font-semibold text-orange-400 mb-3 text-center drop-shadow-[0_0_12px_rgba(251,146,60,0.8)] animate-fade-in md:text-xl">Hello, Here Is How I Mentor My Clients To Become Profitable Traders Watch This Video and Book A Free Call To Get Started Inshallah </h3>
-          <div className="relative w-full max-w-xl mx-auto mb-6 group px-4 sm:px-0">
-            {/* Green glow effect */}
-            <div className="absolute -inset-1 bg-primary/40 rounded-2xl blur-md opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-            
+          <div className="relative w-full max-w-xl mx-auto mb-6 px-4 sm:px-0">
             {/* Video container with purple border */}
             <div className="relative bg-background rounded-xl overflow-hidden border-2 border-accent/50">
-              {/* Corner decorations in purple */}
-              <div className="absolute top-0 left-0 w-6 h-6 sm:w-8 sm:h-8 border-t-2 border-l-2 border-primary z-10" />
-              <div className="absolute top-0 right-0 w-6 h-6 sm:w-8 sm:h-8 border-t-2 border-r-2 border-primary z-10" />
-              <div className="absolute bottom-0 left-0 w-6 h-6 sm:w-8 sm:h-8 border-b-2 border-l-2 border-primary z-10" />
-              <div className="absolute bottom-0 right-0 w-6 h-6 sm:w-8 sm:h-8 border-b-2 border-r-2 border-primary z-10" />
-              
               <div className="relative w-full" style={{
               paddingBottom: '56.25%'
             }}>
