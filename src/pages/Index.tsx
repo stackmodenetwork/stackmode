@@ -55,17 +55,31 @@ const Index = () => {
   };
   return <main className="min-h-screen bg-background relative overflow-x-hidden">
       {/* Sticky Mobile Header CTA */}
-      <div className={`fixed top-0 left-0 right-0 z-50 md:hidden transition-all duration-300 ${showStickyHeader ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
-        <div className="bg-background/95 backdrop-blur-md border-b border-primary/20 px-4 py-3 flex items-center justify-between">
-          <span className="text-sm font-bold text-primary">🚀 Ready to Trade?</span>
-          <a 
-            href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="bg-accent text-background font-bold text-xs px-4 py-2 rounded-lg shadow-lg"
-          >
-            BOOK FREE CALL
-          </a>
+      <div className={`fixed top-0 left-0 right-0 z-50 md:hidden transition-all duration-500 ${showStickyHeader ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
+        <div className="relative overflow-hidden">
+          {/* Animated gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] animate-[shimmer_3s_ease-in-out_infinite]" />
+          <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+          
+          {/* Content */}
+          <div className="relative px-4 py-3 flex items-center justify-between border-b border-primary/30">
+            <div className="flex items-center gap-2">
+              <TrendingUp size={18} className="text-accent animate-bounce" />
+              <span className="text-sm font-bold text-foreground">Ready to Trade?</span>
+            </div>
+            <a 
+              href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="group relative overflow-hidden bg-gradient-to-r from-accent to-accent/80 text-background font-bold text-xs px-4 py-2 rounded-lg shadow-lg shadow-accent/30 transition-transform hover:scale-105"
+            >
+              <span className="relative z-10 flex items-center gap-1">
+                <Rocket size={14} className="group-hover:animate-pulse" />
+                BOOK FREE CALL
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+            </a>
+          </div>
         </div>
       </div>
 
