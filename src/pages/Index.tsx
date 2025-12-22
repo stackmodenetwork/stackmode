@@ -94,10 +94,10 @@ const Index = () => {
       </audio>
 
       {/* Main Content - VSL Funnel Structure */}
-      <section className="relative z-10 min-h-screen px-4 py-6 sm:py-8">
+      <section id="home" className="relative z-10 min-h-screen px-4 py-6 sm:py-8">
         
         {/* Headline - Above the Fold */}
-        <header className="text-center mb-6 sm:mb-8 max-w-5xl mx-auto">
+        <header id="intro" className="text-center mb-6 sm:mb-8 max-w-5xl mx-auto">
           {/* Trust Badge */}
           <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-2 mb-4 animate-pulse">
             <div className="w-2 h-2 bg-primary rounded-full animate-ping"></div>
@@ -152,7 +152,7 @@ Watch This Video and Book a free cALL tO gET Started</h3>
         </header>
 
         {/* Main CTAs - Side by Side */}
-        <section className="max-w-6xl mx-auto mb-8 sm:mb-12">
+        <section id="mentorship" className="max-w-6xl mx-auto mb-8 sm:mb-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {/* Free Mentorship Button */}
             <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" aria-label="Book Free Trading Mentorship Session" className="block group h-full">
@@ -330,7 +330,7 @@ Watch This Video and Book a free cALL tO gET Started</h3>
         </AnimatedBlock>
 
         {/* SOCIAL PROOF - Real Results */}
-        <section className="mb-8 sm:mb-12 text-center max-w-5xl mx-auto px-4">
+        <section id="results" className="mb-8 sm:mb-12 text-center max-w-5xl mx-auto px-4">
           {/* Stats Bar */}
           <div className="grid grid-cols-3 gap-4 mb-8 max-w-2xl mx-auto">
             <div className="bg-card/50 border border-primary/30 rounded-xl p-4">
@@ -664,7 +664,7 @@ Watch This Video and Book a free cALL tO gET Started</h3>
 
         {/* FAQ Section */}
         <AnimatedBlock delay={1.39} className="mb-16">
-          <div className="max-w-3xl mx-auto px-4">
+          <div id="faq" className="max-w-3xl mx-auto px-4">
             <div className="text-center mb-8">
               <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-2 mb-4">
                 <HelpCircle size={18} className="text-accent" />
@@ -803,7 +803,7 @@ Watch This Video and Book a free cALL tO gET Started</h3>
         </div>
 
         {/* Social Media Icons */}
-        <div className="mt-12 max-w-6xl mx-auto mb-16">
+        <div id="socials" className="mt-12 max-w-6xl mx-auto mb-16">
           <h4 className="text-3xl md:text-4xl font-bold text-accent neon-glow mb-6 text-center">
             Social Media Links
           </h4>
