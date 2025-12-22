@@ -590,7 +590,7 @@ const Index = () => {
             <div className="absolute top-4 left-4 text-6xl text-accent/20">"</div>
             <div className="relative z-10">
               <p className="text-lg sm:text-xl text-foreground/90 italic mb-4 leading-relaxed">
-                "Chris changed my entire perspective on trading. Within 3 months, I went from losing money to consistently profitable. His mentorship is worth every penny!"
+                "Brother without your mentorship id still be blowing accounts rn"
               </p>
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
