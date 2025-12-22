@@ -55,10 +55,12 @@ const Index = () => {
     e.preventDefault();
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
     }
   };
-
   return <main className="min-h-screen bg-background relative overflow-x-hidden scroll-smooth">
       {/* Sticky Mobile Header CTA */}
       <div className={`fixed top-0 left-0 right-0 z-50 md:hidden transition-all duration-500 ${showStickyHeader ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
@@ -99,18 +101,17 @@ const Index = () => {
           {/* Trust Badge */}
           <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-2 mb-4 animate-pulse">
             <div className="w-2 h-2 bg-primary rounded-full animate-ping"></div>
-            <span className="text-primary text-sm font-mono font-bold">20+ Students Trained</span>
+            <span className="text-primary text-sm font-mono font-bold">Students Currently In Training</span>
           </div>
           
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary neon-glow mb-4 animate-fade-in">STACKMODE.NET</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary neon-glow mb-4 animate-fade-in">WELCOME TO STACKMODE.NET</h1>
           
           {/* Promo Video */}
           <h3 className="text-sm sm:text-base md:text-lg font-semibold text-accent mb-3 text-center drop-shadow-[0_0_8px_hsl(var(--accent))] animate-fade-in" style={{
           animationDelay: '0.2s',
           animationFillMode: 'both'
-        }}>
-            Hello, Here Is How I Mentor My Clients To Become Profitable Traders
-          </h3>
+        }}>Hello, Here Is How I Mentor My Clients To Become Profitable Traders 
+Watch This Video and Book a free cALL tO gET Started</h3>
           <div className="relative w-full max-w-xl mx-auto mb-6 group px-4 sm:px-0">
             {/* Green glow effect */}
             <div className="absolute -inset-1 bg-primary/40 rounded-2xl blur-md opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
@@ -131,7 +132,7 @@ const Index = () => {
             </div>
           </div>
           
-          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-4">​</p>
+          
           
           {/* Value Props */}
           <div className="flex flex-wrap justify-center gap-3 sm:gap-6 text-sm sm:text-base">
