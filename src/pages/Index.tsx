@@ -107,10 +107,10 @@ const Index = () => {
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary neon-glow mb-4 animate-fade-in">WELCOME TO STACKMODE.NET</h1>
           
           {/* Promo Video */}
-          <h3 className="text-sm sm:text-base md:text-lg font-semibold text-accent mb-3 text-center drop-shadow-[0_0_8px_hsl(var(--accent))] animate-fade-in" style={{
+          <h3 className="text-sm sm:text-base md:text-lg font-semibold text-orange-400 mb-3 text-center drop-shadow-[0_0_12px_rgba(251,146,60,0.8)] animate-fade-in" style={{
           animationDelay: '0.2s',
           animationFillMode: 'both'
-        }}>Hello, Here Is How I Mentor My Clients To Become Profitable Traders 
+        }}>Hello, Here Is How I Mentor My Clients To Become Profitable Traders 
 Watch This Video and Book a free cALL tO gET Started</h3>
           <div className="relative w-full max-w-xl mx-auto mb-6 group px-4 sm:px-0">
             {/* Green glow effect */}
