@@ -655,7 +655,7 @@ const Index = () => {
                   What markets do you teach?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-4">
-                  I primarily focus on Forex and indices (like NAS100, US30). These markets offer great volatility and opportunities for consistent profits. I will teach you how to read price action and find high-probability setups.
+                  I teach Stocks, Stock Options, Futures, Forex, and Crypto. Each market offers unique opportunities—stocks for long-term growth, options for leveraged strategies, futures for indices like NAS100 and US30, forex for 24/5 currency trading, and crypto for high-volatility plays. You'll learn to read price action and find high-probability setups across all of them.
                 </AccordionContent>
               </AccordionItem>
 
