@@ -4,6 +4,7 @@ import { AnimatedBlock } from '@/components/AnimatedBlock';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
 import { Icon3D } from '@/components/Icon3D';
 import { PressStartButton } from '@/components/PressStartButton';
+import { LazyCalendly } from '@/components/LazyCalendly';
 import { ShoppingCart, Briefcase, Play, BookOpen, CandlestickChart, Siren, Check, DollarSign, Mic, Users, TrendingUp, Rocket, MessageSquare, Instagram, Youtube, HelpCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -376,10 +377,9 @@ const Index = () => {
             </div>
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-accent/15 via-primary/10 to-accent/15 rounded-xl blur-lg opacity-50" />
-              <div 
-                className="calendly-inline-widget relative rounded-xl overflow-hidden border border-border/20 bg-background/30 backdrop-blur-sm" 
-                data-url="https://calendly.com/stackmodechris/tradingmastermindcoaching?background_color=0a0b0d&text_color=ffffff&primary_color=d200ff"
-                style={{ minWidth: '320px', height: '650px' }}
+              <LazyCalendly 
+                url="https://calendly.com/stackmodechris/tradingmastermindcoaching?background_color=0a0b0d&text_color=ffffff&primary_color=d200ff"
+                height={650}
               />
             </div>
           </div>
