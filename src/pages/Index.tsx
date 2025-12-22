@@ -284,6 +284,30 @@ const Index = () => {
           <p className="text-lg sm:text-xl text-secondary mb-6 sm:mb-8">See What Our Community Is Achieving Alhamdulillah</p>
         </section>
 
+        {/* Featured Testimonial */}
+        <AnimatedBlock delay={1.14} className="mb-12">
+          <div className="max-w-3xl mx-auto bg-gradient-to-br from-card via-card/80 to-card border-2 border-accent/30 rounded-2xl p-6 sm:p-8 relative overflow-hidden">
+            <div className="absolute top-4 left-4 text-6xl text-accent/20">"</div>
+            <div className="relative z-10">
+              <p className="text-lg sm:text-xl text-foreground/90 italic mb-4 leading-relaxed">
+                "Brother without your mentorship id still be blowing accounts rn"
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
+                  <Users size={24} className="text-primary" />
+                </div>
+                <div>
+                  <p className="text-foreground font-bold">Verified Student</p>
+                  <p className="text-muted-foreground text-sm">Stackmode Member</p>
+                </div>
+                <div className="ml-auto flex gap-1">
+                  {[1, 2, 3, 4, 5].map(i => <span key={i} className="text-secondary">★</span>)}
+                </div>
+              </div>
+            </div>
+          </div>
+        </AnimatedBlock>
+
         {/* Trading Results Gallery - Row 1 */}
         <AnimatedBlock delay={1.15} className="mb-6 sm:mb-8">
           <div className="flex flex-col md:flex-row items-center justify-center gap-3 sm:gap-4 md:gap-6 px-2">
@@ -580,30 +604,6 @@ const Index = () => {
             paddingBottom: '56.25%'
           }}>
               <iframe className="absolute top-0 left-0 w-full h-full rounded-lg border-2 border-accent/50" src="https://www.youtube.com/embed/DcNWSoWGBhs" title="How I Mentor My Clients" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
-            </div>
-          </div>
-        </AnimatedBlock>
-
-        {/* Featured Testimonial */}
-        <AnimatedBlock delay={1.38} className="mb-12">
-          <div className="max-w-3xl mx-auto bg-gradient-to-br from-card via-card/80 to-card border-2 border-accent/30 rounded-2xl p-6 sm:p-8 relative overflow-hidden">
-            <div className="absolute top-4 left-4 text-6xl text-accent/20">"</div>
-            <div className="relative z-10">
-              <p className="text-lg sm:text-xl text-foreground/90 italic mb-4 leading-relaxed">
-                "Brother without your mentorship id still be blowing accounts rn"
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
-                  <Users size={24} className="text-primary" />
-                </div>
-                <div>
-                  <p className="text-foreground font-bold">Verified Student</p>
-                  <p className="text-muted-foreground text-sm">Stackmode Member</p>
-                </div>
-                <div className="ml-auto flex gap-1">
-                  {[1, 2, 3, 4, 5].map(i => <span key={i} className="text-secondary">★</span>)}
-                </div>
-              </div>
             </div>
           </div>
         </AnimatedBlock>
