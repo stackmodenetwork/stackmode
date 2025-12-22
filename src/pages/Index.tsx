@@ -330,21 +330,6 @@ const Index = () => {
 
         {/* SOCIAL PROOF - Real Results */}
         <section id="results" className="mb-8 sm:mb-12 text-center max-w-5xl mx-auto px-4">
-          {/* Stats Bar */}
-          <div className="grid grid-cols-3 gap-4 mb-8 max-w-2xl mx-auto">
-            <div className="bg-card/50 border border-primary/30 rounded-xl p-4">
-              <div className="text-2xl sm:text-3xl font-bold text-primary">20+</div>
-              <div className="text-xs sm:text-sm text-muted-foreground">Students Trained</div>
-            </div>
-            <div className="bg-card/50 border border-accent/30 rounded-xl p-4">
-              <div className="text-2xl sm:text-3xl font-bold text-accent">85%</div>
-              <div className="text-xs sm:text-sm text-muted-foreground">Success Rate</div>
-            </div>
-            <div className="bg-card/50 border border-secondary/30 rounded-xl p-4">
-              <div className="text-2xl sm:text-3xl font-bold text-secondary">​$10K+</div>
-              <div className="text-xs sm:text-sm text-muted-foreground">I Help Students Make Real Money</div>
-            </div>
-          </div>
           
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary neon-glow mb-3">
             Real Students, Real Profits 💰
