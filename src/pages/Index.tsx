@@ -374,7 +374,6 @@ const Index = () => {
               <p className="text-muted-foreground">Book your free strategy call below</p>
             </div>
             <div className="relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-accent/15 via-primary/10 to-accent/15 rounded-xl blur-lg opacity-50" />
               <LazyCalendly 
                 url="https://calendly.com/stackmodechris/tradingmastermindcoaching?background_color=0a0b0d&text_color=ffffff&primary_color=d200ff"
                 height={650}
