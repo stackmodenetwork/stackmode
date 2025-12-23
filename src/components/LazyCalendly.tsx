@@ -7,14 +7,20 @@ interface LazyCalendlyProps {
   height?: number;
 }
 
+declare global {
+  interface Window {
+    Calendly?: {
+      initInlineWidget: (options: { url: string; parentElement: Element }) => void;
+    };
+  }
+}
+
 export const LazyCalendly = ({ url, height = 650 }: LazyCalendlyProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-
-  // Extract the base Calendly URL for the fallback link
-  const fallbackUrl = url.split('?')[0].replace('https://calendly.com/', 'https://calendly.com/');
+  const widgetRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -35,28 +41,61 @@ export const LazyCalendly = ({ url, height = 650 }: LazyCalendlyProps) => {
   }, []);
 
   useEffect(() => {
-    if (isVisible && !isLoaded) {
-      // Check if Calendly loaded after a timeout
-      const loadTimer = setTimeout(() => setIsLoaded(true), 800);
-      const errorTimer = setTimeout(() => {
-        // If widget hasn't initialized after 10s, show fallback
-        const widget = containerRef.current?.querySelector('.calendly-inline-widget iframe');
-        if (!widget) {
-          setHasError(true);
+    if (!isVisible) return;
+
+    const loadCalendly = () => {
+      // Check if script already exists
+      if (document.querySelector('script[src*="calendly.com/assets/external/widget.js"]')) {
+        initWidget();
+        return;
+      }
+
+      // Load CSS
+      const link = document.createElement('link');
+      link.href = 'https://assets.calendly.com/assets/external/widget.css';
+      link.rel = 'stylesheet';
+      document.head.appendChild(link);
+
+      // Load JS
+      const script = document.createElement('script');
+      script.src = 'https://assets.calendly.com/assets/external/widget.js';
+      script.async = true;
+      script.onload = () => initWidget();
+      script.onerror = () => setHasError(true);
+      document.head.appendChild(script);
+    };
+
+    const initWidget = () => {
+      const checkAndInit = () => {
+        if (window.Calendly && widgetRef.current) {
+          window.Calendly.initInlineWidget({
+            url,
+            parentElement: widgetRef.current,
+          });
+          setIsLoaded(true);
+        } else {
+          setTimeout(checkAndInit, 100);
         }
-      }, 10000);
-      
-      return () => {
-        clearTimeout(loadTimer);
-        clearTimeout(errorTimer);
       };
-    }
-  }, [isVisible, isLoaded]);
+      checkAndInit();
+    };
+
+    loadCalendly();
+
+    // Error fallback after 15 seconds
+    const errorTimer = setTimeout(() => {
+      if (!isLoaded) {
+        setHasError(true);
+      }
+    }, 15000);
+
+    return () => clearTimeout(errorTimer);
+  }, [isVisible, url]);
 
   return (
     <div ref={containerRef} className="relative" style={{ minHeight: height }}>
       {/* Loading skeleton */}
-      {!isLoaded && !hasError && (
+      {isVisible && !isLoaded && !hasError && (
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-card/50 rounded-xl border border-border/20">
           <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-4 animate-pulse">
             <Calendar className="w-8 h-8 text-primary" />
@@ -89,11 +128,11 @@ export const LazyCalendly = ({ url, height = 650 }: LazyCalendlyProps) => {
         </div>
       )}
       
-      {/* Calendly widget - only render when visible */}
+      {/* Calendly widget container */}
       {isVisible && !hasError && (
         <div 
-          className={`calendly-inline-widget rounded-xl overflow-hidden border border-border/20 bg-background/30 backdrop-blur-sm transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-          data-url={url}
+          ref={widgetRef}
+          className={`rounded-xl overflow-hidden border border-border/20 bg-background/30 backdrop-blur-sm transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
           style={{ minWidth: '320px', height }}
         />
       )}
