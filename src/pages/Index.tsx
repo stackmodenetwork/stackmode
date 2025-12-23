@@ -124,7 +124,7 @@ const Index = () => {
                 controls
                 playsInline
                 preload="metadata"
-                poster="/lovable-uploads/206329e8-5e7d-4326-b922-690e9f4a17c6.png"
+                poster="/images/video-thumbnail.png"
               >
                 <source src="/videos/mentor-intro.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
