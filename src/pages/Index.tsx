@@ -8,14 +8,6 @@ import { LazyCalendly } from '@/components/LazyCalendly';
 import { ShoppingCart, Briefcase, Play, BookOpen, CandlestickChart, Siren, Check, DollarSign, Mic, Users, TrendingUp, Rocket, MessageSquare, Instagram, Youtube, HelpCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-// Declare Calendly type
-declare global {
-  interface Window {
-    Calendly?: {
-      initBadgeWidget: (options: any) => void;
-    };
-  }
-}
 const Index = () => {
   const navigate = useNavigate();
   const audioRef = useRef<HTMLAudioElement>(null);
