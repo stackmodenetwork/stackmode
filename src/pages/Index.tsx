@@ -287,7 +287,7 @@ const Index = () => {
             </a>
 
             {/* Podcast Button */}
-            <a href="https://podcasters.spotify.com/pod/show/stackmodechris" target="_blank" rel="noopener noreferrer" className="group relative">
+            <a href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true" target="_blank" rel="noopener noreferrer" className="group relative">
               <div className="relative overflow-hidden bg-card/50 backdrop-blur-sm border border-accent/30 rounded-xl p-6 hover:border-accent transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-accent/20">
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative z-10 text-center">
