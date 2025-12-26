@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Calendar, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -13,19 +13,8 @@ export const LazyCalendly = ({ url, height = 650 }: LazyCalendlyProps) => {
   const [hasError, setHasError] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const fallbackUrl = useMemo(() => url.split('?')[0], [url]);
-
-  const embedUrl = useMemo(() => {
-    try {
-      if (typeof window === 'undefined') return url;
-      const u = new URL(url);
-      u.searchParams.set('embed_domain', window.location.hostname);
-      u.searchParams.set('embed_type', 'Inline');
-      return u.toString();
-    } catch {
-      return url;
-    }
-  }, [url]);
+  // Extract base URL for fallback link
+  const fallbackUrl = url.split('?')[0];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -35,7 +24,7 @@ export const LazyCalendly = ({ url, height = 650 }: LazyCalendlyProps) => {
           observer.disconnect();
         }
       },
-      { rootMargin: '800px' }
+      { rootMargin: '400px' }
     );
 
     if (containerRef.current) observer.observe(containerRef.current);
@@ -46,9 +35,78 @@ export const LazyCalendly = ({ url, height = 650 }: LazyCalendlyProps) => {
   useEffect(() => {
     if (!isVisible) return;
 
+    // Load Calendly widget script
+    const existingScript = document.querySelector('script[src*="calendly.com/assets/external/widget.js"]');
+    
+    if (existingScript) {
+      // Script already exists, try to initialize
+      initCalendly();
+      return;
+    }
+
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    script.onload = () => initCalendly();
+    script.onerror = () => setHasError(true);
+    document.head.appendChild(script);
+
+    // Also load the CSS
+    const existingCSS = document.querySelector('link[href*="calendly.com/assets/external/widget.css"]');
+    if (!existingCSS) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://assets.calendly.com/assets/external/widget.css';
+      document.head.appendChild(link);
+    }
+
+    return () => {
+      // Cleanup if needed
+    };
+  }, [isVisible]);
+
+  const initCalendly = () => {
+    const checkAndInit = () => {
+      if (window.Calendly && containerRef.current) {
+        const widgetContainer = containerRef.current.querySelector('.calendly-inline-widget');
+        if (widgetContainer) {
+          window.Calendly.initInlineWidget({
+            url: url,
+            parentElement: widgetContainer,
+            prefill: {},
+            utm: {}
+          });
+          setIsLoaded(true);
+        }
+      }
+    };
+
+    // Try immediately
+    checkAndInit();
+    
+    // Retry a few times if not ready
+    let attempts = 0;
+    const interval = setInterval(() => {
+      attempts++;
+      if (isLoaded || attempts > 10) {
+        clearInterval(interval);
+        if (!isLoaded && attempts > 10) {
+          setHasError(true);
+        }
+        return;
+      }
+      checkAndInit();
+    }, 500);
+
+    return () => clearInterval(interval);
+  };
+
+  useEffect(() => {
+    if (!isVisible) return;
+
     const errorTimer = window.setTimeout(() => {
       if (!isLoaded) setHasError(true);
-    }, 20000);
+    }, 15000);
 
     return () => window.clearTimeout(errorTimer);
   }, [isVisible, isLoaded]);
@@ -89,21 +147,13 @@ export const LazyCalendly = ({ url, height = 650 }: LazyCalendlyProps) => {
         </div>
       )}
 
-      {/* Calendly iframe embed */}
+      {/* Calendly widget container */}
       {isVisible && !hasError && (
         <div
-          className={`rounded-xl overflow-hidden border border-border/20 bg-card transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+          className={`calendly-inline-widget rounded-xl overflow-hidden border border-border/20 bg-card transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+          data-url={url}
           style={{ minWidth: '320px', height }}
-        >
-          <iframe
-            title="Book a free trading strategy call"
-            src={embedUrl}
-            className="w-full h-full"
-            frameBorder={0}
-            loading="lazy"
-            onLoad={() => setIsLoaded(true)}
-          />
-        </div>
+        />
       )}
 
       {/* Always show fallback link at bottom */}
@@ -124,3 +174,17 @@ export const LazyCalendly = ({ url, height = 650 }: LazyCalendlyProps) => {
   );
 };
 
+// Add Calendly types
+declare global {
+  interface Window {
+    Calendly?: {
+      initInlineWidget: (options: {
+        url: string;
+        parentElement: Element;
+        prefill?: Record<string, unknown>;
+        utm?: Record<string, unknown>;
+      }) => void;
+      initBadgeWidget?: (options: unknown) => void;
+    };
+  }
+}
