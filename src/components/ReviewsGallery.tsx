@@ -10,7 +10,7 @@ const allReviews = [
   "review-16.png", "review-17.png", "review-18.png", "review-19.png", "review-20.png",
   "review-21.png", "review-22.png", "review-23.png", "review-24.png", "review-25.png",
   "review-26.png", "review-27.png", "review-28.png", "review-29.png", "review-30.png",
-  "review-31.png", "review-32.png", "review-33.png", "review-34.png"
+  "review-31.png", "review-32.png", "review-33.png", "review-34.png", "review-35.png"
 ];
 
 export function ReviewsGallery() {
