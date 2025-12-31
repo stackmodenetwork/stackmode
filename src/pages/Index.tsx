@@ -5,6 +5,7 @@ import { ReviewsGallery } from '@/components/ReviewsGallery';
 import { Icon3D } from '@/components/Icon3D';
 import { PressStartButton } from '@/components/PressStartButton';
 import { LazyCalendly } from '@/components/LazyCalendly';
+import { OptimizedVideo } from '@/components/OptimizedVideo';
 import { ShoppingCart, Briefcase, Play, BookOpen, CandlestickChart, Siren, Check, DollarSign, Mic, Users, TrendingUp, Rocket, MessageSquare, Instagram, Youtube, HelpCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -111,16 +112,12 @@ const Index = () => {
             
             {/* Video container with clean border */}
             <div className="relative bg-background rounded-xl overflow-hidden border-2 border-primary/40 shadow-lg shadow-primary/10">
-              <video 
-                className="w-full h-auto"
-                controls
-                playsInline
-                preload="metadata"
+              <OptimizedVideo
+                mobileSrc="/videos/mentor-intro-mobile.mp4"
+                desktopSrc="/videos/mentor-intro.mp4"
                 poster="/images/video-thumbnail.png"
-              >
-                <source src="/videos/mentor-intro.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+                className="w-full h-auto"
+              />
             </div>
           </div>
           
