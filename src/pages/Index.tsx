@@ -268,7 +268,7 @@ const Index = () => {
         <AnimatedBlock delay={1.175} className="mb-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
             {/* Discord Button */}
-            <a href="https://discord.gg/stackmodechris" target="_blank" rel="noopener noreferrer" className="group relative">
+            <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" className="group relative">
               <div className="relative overflow-hidden bg-card/50 backdrop-blur-sm border border-primary/30 rounded-xl p-6 hover:border-primary transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/20">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative z-10 text-center">
