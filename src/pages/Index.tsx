@@ -56,7 +56,7 @@ const Index = () => {
       });
     }
   };
-  return <main className="min-h-screen bg-background relative overflow-x-hidden scroll-smooth">
+  return <main className="min-h-screen bg-background relative overflow-x-hidden scroll-smooth animate-fade-in">
       {/* Sticky Mobile Header CTA */}
       <div className={`fixed top-0 left-0 right-0 z-50 md:hidden transition-all duration-500 ${showStickyHeader ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
         <div className="relative overflow-hidden">
