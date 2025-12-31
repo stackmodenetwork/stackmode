@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
-import { Calendar, ExternalLink } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { useEffect, useMemo, useRef, useState } from "react";
+import { Calendar, ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface LazyCalendlyProps {
   url: string;
@@ -11,12 +11,14 @@ export const LazyCalendly = ({ url, height = 650 }: LazyCalendlyProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
 
-  // Extract base URL for fallback link
-  const fallbackUrl = url.split('?')[0];
+  const containerRef = useRef<HTMLDivElement>(null);
+  const fallbackUrl = useMemo(() => url.split("?")[0], [url]);
 
   useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -24,91 +26,19 @@ export const LazyCalendly = ({ url, height = 650 }: LazyCalendlyProps) => {
           observer.disconnect();
         }
       },
-      { rootMargin: '400px' }
+      { rootMargin: "800px" }
     );
 
-    if (containerRef.current) observer.observe(containerRef.current);
-
+    observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
     if (!isVisible) return;
-
-    // Load Calendly widget script
-    const existingScript = document.querySelector('script[src*="calendly.com/assets/external/widget.js"]');
-    
-    if (existingScript) {
-      // Script already exists, try to initialize
-      initCalendly();
-      return;
-    }
-
-    const script = document.createElement('script');
-    script.src = 'https://assets.calendly.com/assets/external/widget.js';
-    script.async = true;
-    script.onload = () => initCalendly();
-    script.onerror = () => setHasError(true);
-    document.head.appendChild(script);
-
-    // Also load the CSS
-    const existingCSS = document.querySelector('link[href*="calendly.com/assets/external/widget.css"]');
-    if (!existingCSS) {
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = 'https://assets.calendly.com/assets/external/widget.css';
-      document.head.appendChild(link);
-    }
-
-    return () => {
-      // Cleanup if needed
-    };
-  }, [isVisible]);
-
-  const initCalendly = () => {
-    const checkAndInit = () => {
-      if (window.Calendly && containerRef.current) {
-        const widgetContainer = containerRef.current.querySelector('.calendly-inline-widget');
-        if (widgetContainer) {
-          window.Calendly.initInlineWidget({
-            url: url,
-            parentElement: widgetContainer,
-            prefill: {},
-            utm: {}
-          });
-          setIsLoaded(true);
-        }
-      }
-    };
-
-    // Try immediately
-    checkAndInit();
-    
-    // Retry a few times if not ready
-    let attempts = 0;
-    const interval = setInterval(() => {
-      attempts++;
-      if (isLoaded || attempts > 10) {
-        clearInterval(interval);
-        if (!isLoaded && attempts > 10) {
-          setHasError(true);
-        }
-        return;
-      }
-      checkAndInit();
-    }, 500);
-
-    return () => clearInterval(interval);
-  };
-
-  useEffect(() => {
-    if (!isVisible) return;
-
-    const errorTimer = window.setTimeout(() => {
+    const t = window.setTimeout(() => {
       if (!isLoaded) setHasError(true);
-    }, 15000);
-
-    return () => window.clearTimeout(errorTimer);
+    }, 25000);
+    return () => window.clearTimeout(t);
   }, [isVisible, isLoaded]);
 
   return (
@@ -121,9 +51,9 @@ export const LazyCalendly = ({ url, height = 650 }: LazyCalendlyProps) => {
           </div>
           <p className="text-muted-foreground text-sm">Loading calendar...</p>
           <div className="flex gap-1 mt-3">
-            <div className="w-2 h-2 rounded-full bg-primary/50 animate-bounce" style={{ animationDelay: '0ms' }} />
-            <div className="w-2 h-2 rounded-full bg-primary/50 animate-bounce" style={{ animationDelay: '150ms' }} />
-            <div className="w-2 h-2 rounded-full bg-primary/50 animate-bounce" style={{ animationDelay: '300ms' }} />
+            <div className="w-2 h-2 rounded-full bg-primary/50 animate-bounce" style={{ animationDelay: "0ms" }} />
+            <div className="w-2 h-2 rounded-full bg-primary/50 animate-bounce" style={{ animationDelay: "150ms" }} />
+            <div className="w-2 h-2 rounded-full bg-primary/50 animate-bounce" style={{ animationDelay: "300ms" }} />
           </div>
         </div>
       )}
@@ -147,12 +77,18 @@ export const LazyCalendly = ({ url, height = 650 }: LazyCalendlyProps) => {
         </div>
       )}
 
-      {/* Calendly widget container */}
+      {/* Calendly iframe (most reliable; avoids widget.js + adblock issues) */}
       {isVisible && !hasError && (
-        <div
-          className={`calendly-inline-widget rounded-xl overflow-hidden border border-border/20 bg-card transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-          data-url={url}
-          style={{ minWidth: '320px', height }}
+        <iframe
+          title="Book a free strategy call"
+          src={url}
+          className={`w-full rounded-xl overflow-hidden border border-border/20 bg-card transition-opacity duration-500 ${
+            isLoaded ? "opacity-100" : "opacity-0"
+          }`}
+          style={{ minWidth: "320px", height }}
+          loading="lazy"
+          onLoad={() => setIsLoaded(true)}
+          referrerPolicy="strict-origin-when-cross-origin"
         />
       )}
 
@@ -173,18 +109,3 @@ export const LazyCalendly = ({ url, height = 650 }: LazyCalendlyProps) => {
     </div>
   );
 };
-
-// Add Calendly types
-declare global {
-  interface Window {
-    Calendly?: {
-      initInlineWidget: (options: {
-        url: string;
-        parentElement: Element;
-        prefill?: Record<string, unknown>;
-        utm?: Record<string, unknown>;
-      }) => void;
-      initBadgeWidget?: (options: unknown) => void;
-    };
-  }
-}
