@@ -81,15 +81,15 @@ export function ReviewsGallery() {
 
       {/* Trust Badge */}
       <div className="text-center mt-8">
-        <div className="inline-flex items-center gap-3 text-muted-foreground text-sm">
-          <span className="flex items-center gap-1">
-            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+        <div className="inline-flex items-center gap-4 text-sm bg-card/80 backdrop-blur-sm border border-primary/30 rounded-full px-6 py-3 shadow-lg shadow-primary/10">
+          <span className="flex items-center gap-2 text-foreground font-medium">
+            <span className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse" />
             Verified Results
           </span>
-          <span className="text-border">•</span>
-          <span>Multiple Success Stories</span>
-          <span className="text-border">•</span>
-          <span>100% Real Screenshots</span>
+          <span className="text-primary/50">|</span>
+          <span className="text-foreground font-medium">Multiple Success Stories</span>
+          <span className="text-primary/50">|</span>
+          <span className="text-foreground font-medium">100% Real Screenshots</span>
         </div>
       </div>
 
