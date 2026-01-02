@@ -557,6 +557,14 @@ const Index = () => {
                 </svg>
               </div>
             </a>
+            
+            <a href="https://www.pinterest.com/stackmodechris/" target="_blank" rel="noopener noreferrer" className="group">
+              <div className="bg-card neon-border rounded-full p-4 hover:bg-card/80 hover:soft-glow transition-all cursor-pointer hover-scale">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 text-red-600 neon-glow group-hover:scale-110 transition-transform">
+                  <path d="M12 0a12 12 0 0 0-4.373 23.178c-.07-.937-.134-2.377.028-3.401.146-.927.943-3.996.943-3.996s-.24-.482-.24-1.193c0-1.116.647-1.949 1.452-1.949.685 0 1.016.514 1.016 1.131 0 .69-.439 1.72-.666 2.677-.189.8.401 1.452 1.189 1.452 1.427 0 2.524-1.505 2.524-3.676 0-1.922-1.381-3.266-3.353-3.266-2.284 0-3.625 1.713-3.625 3.484 0 .69.265 1.429.596 1.832a.24.24 0 0 1 .056.23c-.061.253-.197.8-.224.912-.035.146-.116.177-.268.107-1-.465-1.624-1.926-1.624-3.1 0-2.523 1.834-4.84 5.286-4.84 2.775 0 4.932 1.977 4.932 4.62 0 2.757-1.739 4.976-4.151 4.976-.811 0-1.573-.421-1.834-.919l-.498 1.902c-.181.695-.669 1.566-.995 2.097A12 12 0 1 0 12 0z" />
+                </svg>
+              </div>
+            </a>
           </div>
           <p className="text-3xl md:text-4xl font-bold text-accent neon-glow text-center mt-6">
             May God Bless You And Your Loved Ones!
