@@ -57,12 +57,6 @@ export function ReviewsGallery() {
             {/* Image */}
             <img src={`/lovable-uploads/${img}`} alt={`Student success story ${index + 1}`} loading="lazy" className="w-full h-auto block" />
             
-            {/* Hover Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
-              <div className="flex items-center gap-1">
-                {[1, 2, 3, 4, 5].map(i => <Star key={i} className="w-4 h-4 text-secondary fill-secondary" />)}
-              </div>
-            </div>
           </div>)}
       </div>
 
