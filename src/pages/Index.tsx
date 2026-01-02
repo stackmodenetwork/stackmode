@@ -112,12 +112,7 @@ const Index = () => {
             
             {/* Video container with clean border */}
             <div className="relative bg-background rounded-xl overflow-hidden border-2 border-primary/40 shadow-lg shadow-primary/10">
-              <OptimizedVideo
-                mobileSrc="/videos/mentor-intro-mobile.mp4"
-                desktopSrc="/videos/mentor-intro.mp4"
-                poster="/images/video-thumbnail.png"
-                className="w-full h-auto"
-              />
+              <OptimizedVideo mobileSrc="/videos/mentor-intro-mobile.mp4" desktopSrc="/videos/mentor-intro.mp4" poster="/images/video-thumbnail.png" className="w-full h-auto" />
             </div>
           </div>
           
@@ -363,10 +358,7 @@ const Index = () => {
               <p className="text-muted-foreground">Book your free strategy call below</p>
             </div>
             <div className="relative">
-              <LazyCalendly 
-                url="https://calendly.com/stackmodechris/tradingmastermindcoaching?background_color=0a0b0d&text_color=ffffff&primary_color=d200ff"
-                height={650}
-              />
+              <LazyCalendly url="https://calendly.com/stackmodechris/tradingmastermindcoaching?background_color=0a0b0d&text_color=ffffff&primary_color=d200ff" height={650} />
             </div>
           </div>
         </AnimatedBlock>
@@ -384,20 +376,11 @@ const Index = () => {
         {/* Video 1 - How I Made $100 in 15 Minutes */}
         <AnimatedBlock delay={1.3} className="mb-12">
           <div className="max-w-4xl mx-auto">
-            <h3 className="text-2xl md:text-3xl font-bold text-primary neon-glow mb-6 text-center">
-              How I Made $100 in 15 Minutes Alhamdulillah!
-            </h3>
+            <h3 className="text-2xl md:text-3xl font-bold text-primary neon-glow mb-6 text-center">Here's How I Made $100 in 15 Minutes!</h3>
             <div className="relative w-full" style={{
             paddingBottom: '56.25%'
           }}>
-              <iframe 
-                className="absolute top-0 left-0 w-full h-full rounded-lg border-2 border-accent/50" 
-                src="https://www.youtube.com/embed/Ay6AYak6sXE" 
-                title="How I Made $100 in 15 Minutes" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowFullScreen
-                loading="lazy"
-              />
+              <iframe className="absolute top-0 left-0 w-full h-full rounded-lg border-2 border-accent/50" src="https://www.youtube.com/embed/Ay6AYak6sXE" title="How I Made $100 in 15 Minutes" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen loading="lazy" />
             </div>
           </div>
         </AnimatedBlock>
@@ -497,9 +480,7 @@ const Index = () => {
 
         <AnimatedBlock delay={1.4} className="mb-16">
           <div className="text-center max-w-4xl mx-auto">
-            <p className="text-2xl md:text-3xl font-bold text-foreground leading-relaxed">
-              Learn Real Trading With Stackmodechris — Book A FREE Mentorship Call, Catch My Trades Live, And Master Proven Strategies To Stack Wins Inshallah.
-            </p>
+            <p className="text-2xl md:text-3xl font-bold text-foreground leading-relaxed">Learn Real Trading With Stackmodechris — Book A FREE Mentorship Call, Catch My Trades Live, And Master Proven Strategies To Stack Wins.</p>
           </div>
         </AnimatedBlock>
 
