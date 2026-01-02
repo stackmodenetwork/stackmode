@@ -327,7 +327,7 @@ const Index = () => {
           <div className="max-w-3xl mx-auto bg-gradient-to-br from-card via-card/80 to-card border-2 border-accent/30 rounded-2xl p-6 sm:p-8 relative overflow-hidden">
             <div className="absolute top-4 left-4 text-6xl text-accent/20 mx-0 mr-[100px]">!</div>
             <div className="relative z-10">
-              <p className="text-lg sm:text-xl text-foreground/90 italic mb-4 leading-relaxed">  "Brother without your mentorship id still be blowing accounts rn"</p>
+              <p className="text-lg sm:text-xl text-foreground/90 italic mb-4 leading-relaxed">"Everything you've taught me is literally bread and butter bro"</p>
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
                   <Users size={24} className="text-primary" />
