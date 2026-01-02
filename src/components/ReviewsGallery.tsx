@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { ChevronDown, ChevronUp, Star, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronDown, ChevronUp, Star, X, ChevronLeft, ChevronRight, BadgeCheck, Users, Camera } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 const allReviews = ["review-1.png", "review-2.png", "review-3.png", "review-4.png", "review-5.png", "review-6.png", "review-7.png", "review-8.png", "review-9.png", "review-10.png", "review-11.png", "review-12.png", "review-13.png", "review-14.png", "review-15.png", "review-16.png", "review-17.png", "review-18.png", "review-19.png", "review-20.png", "review-21.png", "review-22.png", "review-23.png", "review-24.png", "review-25.png", "review-26.png", "review-27.png", "review-28.png", "review-29.png", "review-30.png", "review-31.png", "review-32.png", "review-33.png", "review-34.png", "review-35.png"];
@@ -81,15 +81,21 @@ export function ReviewsGallery() {
 
       {/* Trust Badge */}
       <div className="text-center mt-8">
-        <div className="inline-flex items-center gap-4 text-sm bg-card/80 backdrop-blur-sm border border-primary/30 rounded-full px-6 py-3 shadow-lg shadow-primary/10">
+        <div className="inline-flex items-center gap-4 text-sm bg-card/80 backdrop-blur-sm border border-primary/30 rounded-full px-6 py-3 shadow-lg shadow-primary/10 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/30 hover:border-primary/60 cursor-default">
           <span className="flex items-center gap-2 text-foreground font-medium">
-            <span className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse" />
+            <BadgeCheck className="w-4 h-4 text-green-500" />
             Verified Results
           </span>
           <span className="text-primary/50">|</span>
-          <span className="text-foreground font-medium">Multiple Success Stories</span>
+          <span className="flex items-center gap-2 text-foreground font-medium">
+            <Users className="w-4 h-4 text-secondary" />
+            Multiple Success Stories
+          </span>
           <span className="text-primary/50">|</span>
-          <span className="text-foreground font-medium">100% Real Screenshots</span>
+          <span className="flex items-center gap-2 text-foreground font-medium">
+            <Camera className="w-4 h-4 text-primary" />
+            100% Real Screenshots
+          </span>
         </div>
       </div>
 
