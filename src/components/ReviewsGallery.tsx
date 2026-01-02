@@ -87,7 +87,7 @@ export function ReviewsGallery() {
             Verified Results
           </span>
           <span className="text-border">•</span>
-          <span>{allReviews.length}+ Success Stories</span>
+          <span>Multiple Success Stories</span>
           <span className="text-border">•</span>
           <span>100% Real Screenshots</span>
         </div>
