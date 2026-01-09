@@ -27,11 +27,11 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <a href="#home" className="flex items-center gap-3">
+            <a href="#home" className="flex items-center gap-3" onClick={(e) => { e.preventDefault(); document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' }); }}>
               <img 
                 src="/images/sm-logo.png" 
                 alt="Stackmode Logo" 
-                className="w-10 h-10 rounded-lg"
+                className="w-10 h-10 object-contain"
               />
               <span className="text-lg font-bold text-foreground hidden sm:block">STACKMODE.NET</span>
             </a>
@@ -40,18 +40,21 @@ const Index = () => {
             <nav className="hidden md:flex items-center gap-8">
               <a 
                 href="#mentorship" 
+                onClick={(e) => { e.preventDefault(); document.getElementById('mentorship')?.scrollIntoView({ behavior: 'smooth' }); }}
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 Trading Mentorship
               </a>
               <a 
                 href="#courses" 
+                onClick={(e) => { e.preventDefault(); document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' }); }}
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 Courses
               </a>
               <a 
                 href="#books" 
+                onClick={(e) => { e.preventDefault(); document.getElementById('books')?.scrollIntoView({ behavior: 'smooth' }); }}
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 Books
@@ -99,13 +102,13 @@ const Index = () => {
             <div className="px-4 py-4">
               {/* Main Navigation Links */}
               <div className="space-y-1 mb-4">
-                <a href="#mentorship" onClick={closeMenu} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors">
+                <a href="#mentorship" onClick={(e) => { e.preventDefault(); closeMenu(); setTimeout(() => document.getElementById('mentorship')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors">
                   Trading Mentorship
                 </a>
-                <a href="#courses" onClick={closeMenu} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors">
+                <a href="#courses" onClick={(e) => { e.preventDefault(); closeMenu(); setTimeout(() => document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors">
                   Courses
                 </a>
-                <a href="#books" onClick={closeMenu} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors">
+                <a href="#books" onClick={(e) => { e.preventDefault(); closeMenu(); setTimeout(() => document.getElementById('books')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors">
                   Books
                 </a>
                 <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors">
