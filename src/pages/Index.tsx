@@ -60,24 +60,12 @@ const Index = () => {
   };
   return <main className="min-h-screen bg-background relative overflow-x-hidden scroll-smooth animate-page-load">
       {/* Sticky Mobile Header CTA */}
-      <div className={`fixed top-0 left-0 right-0 z-50 md:hidden transition-all duration-500 ${showStickyHeader ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
-        <div className="relative overflow-hidden">
-          {/* Animated gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] animate-[shimmer_3s_ease-in-out_infinite]" />
-          <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
-          
-          {/* Content */}
-          <div className="relative px-4 py-3 flex items-center justify-between border-b border-primary/30">
-            <div className="flex items-center gap-2">
-              <TrendingUp size={18} className="text-accent animate-bounce" />
-              <span className="text-sm font-bold text-foreground">Ready to Trade?</span>
-            </div>
-            <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="group relative overflow-hidden bg-gradient-to-r from-accent to-accent/80 text-background font-bold text-xs px-4 py-2 rounded-lg shadow-lg shadow-accent/30 transition-transform hover:scale-105">
-              <span className="relative z-10 flex items-center gap-1">
-                <Rocket size={14} className="group-hover:animate-pulse" />
-                BOOK FREE CALL
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+      <div className={`fixed top-0 left-0 right-0 z-50 md:hidden transition-all duration-300 ${showStickyHeader ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
+        <div className="bg-background/95 backdrop-blur-md border-b border-border">
+          <div className="px-4 py-3 flex items-center justify-between">
+            <span className="text-sm font-medium text-foreground">Ready to start?</span>
+            <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="bg-accent text-background font-medium text-xs px-4 py-2 rounded-md transition-colors hover:bg-accent/90">
+              Book Free Call
             </a>
           </div>
         </div>
@@ -142,18 +130,18 @@ const Index = () => {
         {/* Headline - Above the Fold */}
         <header id="intro" className="text-center mb-6 sm:mb-8 max-w-5xl mx-auto">
           {/* Trust Badge */}
-          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-2 mb-4 animate-pulse">
-            <div className="w-2 h-2 bg-primary rounded-full animate-ping"></div>
-            <span className="text-primary text-sm font-mono font-bold">Students Currently In Training</span>
+          <div className="inline-flex items-center gap-2 bg-primary/5 border border-primary/20 rounded-full px-4 py-2 mb-4">
+            <div className="w-2 h-2 bg-primary rounded-full"></div>
+            <span className="text-primary/90 text-sm font-medium">Active Trading Community</span>
           </div>
           
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary neon-glow mb-4 animate-fade-in">WELCOME TO STACKMODE.NET</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
+            Learn to Trade Profitably
+          </h1>
           
-          {/* Promo Video */}
-          <h3 style={{
-          animationDelay: '0.2s',
-          animationFillMode: 'both'
-        }} className="text-sm sm:text-base font-semibold text-orange-400 mb-3 text-center drop-shadow-[0_0_12px_rgba(251,146,60,0.8)] animate-fade-in md:text-xl">Hello, Here Is How I Mentor My Clients To Become Profitable Traders Watch This Video and Book A Free Call To Get Started Inshallah </h3>
+          <p className="text-base sm:text-lg text-muted-foreground mb-4 max-w-2xl mx-auto leading-relaxed">
+            Watch how I mentor traders to consistent profits, then book your free strategy call to get started.
+          </p>
           <div className="relative w-full max-w-xl mx-auto mb-6 px-4 sm:px-0">
             {/* Subtle glow effect */}
             <div className="absolute -inset-3 bg-gradient-to-r from-primary/20 via-accent/15 to-primary/20 rounded-2xl blur-xl opacity-60" />
@@ -184,9 +172,8 @@ const Index = () => {
         {/* Main CTAs - Optimized for Conversions */}
         <section id="mentorship" className="max-w-6xl mx-auto mb-8 sm:mb-12">
           {/* Section Header */}
-          <div className="text-center mb-6">
-            <p className="text-sm text-muted-foreground mb-2">Choose Your Path</p>
-            <h2 className="text-xl sm:text-2xl font-bold text-foreground">Two Ways to Start Winning</h2>
+          <div className="text-center mb-8">
+            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">Choose How You Want to Learn</h2>
           </div>
           
           {/* Mobile: Stacked with clear hierarchy. Desktop: Side by side */}
@@ -197,32 +184,21 @@ const Index = () => {
               <article className="relative h-full bg-gradient-to-br from-card/80 via-card/60 to-card/80 border-2 border-accent/50 rounded-2xl p-5 sm:p-6 md:p-8 pt-8 sm:pt-10 overflow-visible transition-all duration-500 hover:border-accent hover:shadow-[0_0_60px_rgba(var(--accent-rgb),0.4)] group-hover:scale-[1.02]">
                 {/* FREE Badge */}
                 <div className="absolute top-0 left-4 -translate-y-1/2 z-20">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-accent blur-md opacity-60 animate-pulse"></div>
-                    <div className="relative bg-gradient-to-r from-accent to-accent/80 text-background text-[10px] sm:text-xs font-black px-2 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-lg whitespace-nowrap">
-                      🎉 First Call Is Free!
-                    </div>
+                  <div className="bg-accent text-background text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded-md shadow-sm whitespace-nowrap">
+                    Free Strategy Call
                   </div>
                 </div>
                 
-                {/* Animated background pattern */}
-                <div className="absolute inset-0 opacity-10">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(var(--accent-rgb),0.8),transparent_50%)] animate-pulse"></div>
-                </div>
-                
-                {/* Animated corner accents */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-accent/20 rounded-full blur-3xl animate-pulse"></div>
-                <div className="absolute bottom-0 left-0 w-32 h-32 bg-accent/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+                {/* Subtle background accent */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl"></div>
                 
                 <div className="relative z-10">
-                  <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4 flex-wrap">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-accent/20 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
-                      <span className="text-xl sm:text-2xl" aria-hidden="true">📅</span>
-                    </div>
-                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-accent neon-glow group-hover:scale-105 transition-transform">1-ON-1 MENTORSHIP</h3>
+                  <div className="flex items-center justify-center gap-3 mb-4">
+                    <Briefcase size={24} className="text-accent" />
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-foreground">1-on-1 Mentorship</h3>
                   </div>
                   
-                  <p className="text-foreground/90 mb-3 text-center text-sm sm:text-base font-medium">Get a personalized trading game plan built for YOU</p>
+                  <p className="text-muted-foreground mb-4 text-center text-sm sm:text-base">Get a personalized trading strategy built for your goals</p>
                   
                   {/* Benefits list */}
                   <div className="flex flex-col gap-2 mb-4 sm:mb-5">
@@ -240,27 +216,13 @@ const Index = () => {
                     </div>
                   </div>
                   
-                  <div className="relative">
-                    {/* Pulsing ring effect */}
-                    <div className="absolute inset-0 rounded-xl bg-accent/30 blur-xl animate-pulse group-hover:bg-accent/50 transition-colors"></div>
-                    
-                    {/* Main button */}
-                    <div className="relative bg-gradient-to-r from-accent via-accent to-accent/80 text-background font-black text-base sm:text-lg md:text-xl px-4 sm:px-6 md:px-8 py-4 sm:py-5 rounded-xl shadow-2xl overflow-hidden">
-                      {/* Shimmer effect */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                      
-                      <span className="relative z-10 flex items-center justify-center gap-2 tracking-wide">
-                        BOOK YOUR FREE CALL
-                        <span className="inline-block group-hover:translate-x-1 transition-transform" aria-hidden="true">→</span>
-                      </span>
-                    </div>
+                  <div className="bg-accent hover:bg-accent/90 text-background font-semibold text-base sm:text-lg px-6 py-4 rounded-lg text-center transition-colors">
+                    Book Your Free Call →
                   </div>
                   
                   {/* Urgency */}
                   <div className="mt-4 flex justify-center">
-                    <div className="bg-destructive/20 border border-destructive/50 rounded-lg px-3 py-1.5">
-                      <p className="text-xs text-destructive font-bold animate-pulse">🔥 Limited spots available this week</p>
-                    </div>
+                    <p className="text-xs text-muted-foreground">Limited availability — book your spot today</p>
                   </div>
                 </div>
               </article>
@@ -271,36 +233,24 @@ const Index = () => {
               <article className="relative h-full bg-gradient-to-br from-card/80 via-card/60 to-card/80 border-2 border-cyan-400/50 rounded-2xl p-5 sm:p-6 md:p-8 pt-8 sm:pt-10 overflow-visible transition-all duration-500 hover:border-cyan-400 hover:shadow-[0_0_60px_rgba(34,211,238,0.4)] group-hover:scale-[1.02]">
                 {/* Best Value Badge */}
                 <div className="absolute top-0 right-4 -translate-y-1/2 z-20">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-cyan-400 blur-md opacity-60 animate-pulse"></div>
-                    <div className="relative bg-gradient-to-r from-cyan-400 to-cyan-500 text-background text-[10px] sm:text-xs font-black px-2 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-lg whitespace-nowrap">
-                      ⭐ Best Value
-                    </div>
+                  <div className="bg-cyan-500 text-background text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded-md shadow-sm whitespace-nowrap">
+                    Most Popular
                   </div>
                 </div>
                 
-                {/* Animated background pattern */}
-                <div className="absolute inset-0 opacity-10">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(34,211,238,0.8),transparent_50%)] animate-pulse"></div>
-                </div>
-                
-                {/* Animated corner accents */}
-                <div className="absolute top-0 left-0 w-32 h-32 bg-cyan-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-                <div className="absolute bottom-0 right-0 w-32 h-32 bg-cyan-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+                {/* Subtle background accent */}
+                <div className="absolute top-0 left-0 w-32 h-32 bg-cyan-400/5 rounded-full blur-3xl"></div>
                 
                 <div className="relative z-10">
-                  <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4 flex-wrap">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-cyan-400/20 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
-                      <span className="text-xl sm:text-2xl" aria-hidden="true">📈</span>
-                    </div>
-                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-cyan-400 neon-glow group-hover:scale-105 transition-transform">CATCH MY TRADES</h3>
+                  <div className="flex items-center justify-center gap-3 mb-4">
+                    <TrendingUp size={24} className="text-cyan-400" />
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-foreground">Trade Signals</h3>
                   </div>
-                  
                   {/* Pricing - prominent */}
-                  <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3">
-                    <span className="text-muted-foreground line-through text-base sm:text-lg">$50/mo</span>
-                    <span className="text-cyan-400 font-bold text-2xl sm:text-3xl md:text-4xl">$20/mo</span>
-                    <span className="bg-cyan-400/20 text-cyan-400 text-xs font-bold px-2 py-1 rounded">60% OFF</span>
+                  <div className="flex items-center justify-center gap-3 mb-4">
+                    <span className="text-muted-foreground line-through text-sm">$50/mo</span>
+                    <span className="text-foreground font-bold text-2xl sm:text-3xl">$20/mo</span>
+                    <span className="bg-cyan-500/10 text-cyan-400 text-xs font-medium px-2 py-1 rounded">Save 60%</span>
                   </div>
                   
                   {/* Benefits list */}
@@ -319,20 +269,8 @@ const Index = () => {
                     </div>
                   </div>
                   
-                  <div className="relative">
-                    {/* Pulsing ring effect */}
-                    <div className="absolute inset-0 rounded-xl bg-cyan-400/30 blur-xl animate-pulse group-hover:bg-cyan-400/50 transition-colors"></div>
-                    
-                    {/* Main button */}
-                    <div className="relative bg-gradient-to-r from-cyan-400 via-cyan-400 to-cyan-500 text-background font-black text-base sm:text-lg md:text-xl px-4 sm:px-6 md:px-8 py-4 sm:py-5 rounded-xl shadow-2xl overflow-hidden">
-                      {/* Shimmer effect */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                      
-                      <span className="relative z-10 flex items-center justify-center gap-2 tracking-wide">
-                        START COPYING NOW
-                        <span className="inline-block group-hover:translate-x-1 transition-transform" aria-hidden="true">→</span>
-                      </span>
-                    </div>
+                  <div className="bg-cyan-500 hover:bg-cyan-500/90 text-background font-semibold text-base sm:text-lg px-6 py-4 rounded-lg text-center transition-colors">
+                    Get Trade Signals →
                   </div>
                   
                   {/* Trust signal */}
@@ -408,11 +346,10 @@ const Index = () => {
 
         {/* SOCIAL PROOF - Real Results */}
         <section id="results" className="mb-8 sm:mb-12 text-center max-w-5xl mx-auto px-4">
-          
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary neon-glow mb-3">
-            Real Students, Real Profits 💰
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-foreground mb-3">
+            Proven Results from Real Traders
           </h2>
-          <p className="text-lg sm:text-xl text-secondary mb-6 sm:mb-8">See What Our Community Is Achieving Alhamdulillah</p>
+          <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8">See what our community has achieved</p>
         </section>
 
         {/* Featured Testimonial */}
@@ -446,10 +383,10 @@ const Index = () => {
         <AnimatedBlock delay={1.16} className="mb-16 px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-6">
-              <h2 className="text-2xl sm:text-3xl font-bold text-primary neon-glow mb-2">
-                Ready to Start Your Journey?
+              <h2 className="text-2xl sm:text-3xl font-semibold text-foreground mb-2">
+                Schedule Your Free Strategy Call
               </h2>
-              <p className="text-muted-foreground">Book your free strategy call below</p>
+              <p className="text-muted-foreground">Pick a time that works for you</p>
             </div>
             <div className="relative">
               <LazyCalendly url="https://calendly.com/stackmodechris/tradingmastermindcoaching?background_color=0a0b0d&text_color=ffffff&primary_color=d200ff" height={650} />
@@ -470,7 +407,7 @@ const Index = () => {
         {/* Video 1 - How I Made $100 in 15 Minutes */}
         <AnimatedBlock delay={1.3} className="mb-12">
           <div className="max-w-4xl mx-auto">
-            <h3 className="text-2xl md:text-3xl font-bold text-primary neon-glow mb-6 text-center">Here's How I Made $100 in 15 Minutes!</h3>
+            <h3 className="text-2xl md:text-3xl font-semibold text-foreground mb-6 text-center">Watch: $100 Profit in 15 Minutes</h3>
             <div className="relative w-full" style={{
             paddingBottom: '56.25%'
           }}>
@@ -488,8 +425,8 @@ const Index = () => {
                 <HelpCircle size={18} className="text-accent" />
                 <span className="text-accent text-sm font-bold">FAQ</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary neon-glow mb-2">
-                Common Questions
+              <h2 className="text-2xl sm:text-3xl font-semibold text-foreground mb-2">
+                Frequently Asked Questions
               </h2>
               <p className="text-muted-foreground">Everything you need to know before booking</p>
             </div>
