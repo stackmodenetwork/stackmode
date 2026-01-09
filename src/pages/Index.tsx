@@ -661,9 +661,6 @@ const Index = () => {
       <div className="hidden md:block absolute top-4 left-4 text-primary font-mono text-sm">
         v2.0.0
       </div>
-      <div className="hidden md:block absolute top-4 right-4 text-secondary font-mono text-sm">
-        ONLINE
-      </div>
       <div className="absolute bottom-4 left-4 text-accent font-mono text-sm">
         LOADING...
       </div>
