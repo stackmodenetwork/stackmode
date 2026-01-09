@@ -756,8 +756,8 @@ const Index = () => {
       </section>
 
       {/* Footer with Terms */}
-      <footer className="bg-background border-t border-border py-6 px-4">
-        <div className="max-w-4xl mx-auto text-center space-y-4">
+      <footer className="bg-background border-t border-border py-8 px-4">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
           <div className="flex flex-wrap justify-center gap-4 text-sm">
             <a href="https://stackmodechris.systeme.io/termsandconditions" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
               Terms & Conditions
@@ -766,6 +766,42 @@ const Index = () => {
             <a href="https://stackmodechris.systeme.io/privacypolicy" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
               Privacy Policy
             </a>
+            <span className="text-border hidden sm:inline">|</span>
+            <a href="#dmca" onClick={(e) => { e.preventDefault(); document.getElementById('dmca-section')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-muted-foreground hover:text-primary transition-colors">
+              DMCA Policy
+            </a>
+          </div>
+          
+          {/* Earnings Disclaimer */}
+          <div className="border border-border rounded-lg p-4 bg-muted/20">
+            <h4 className="text-sm font-semibold text-foreground mb-2">⚠️ Earnings Disclaimer</h4>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Trading involves substantial risk of loss and is not suitable for all investors. Past performance is not indicative of future results. 
+              The information provided on this website is for educational and informational purposes only and should not be construed as financial advice. 
+              We make no guarantees regarding income, earnings, or financial success. Individual results will vary, and there is no assurance that you will 
+              achieve similar results. You are solely responsible for your own trading decisions. By using our services, you acknowledge that you understand 
+              these risks and accept full responsibility for any losses incurred.
+            </p>
+          </div>
+
+          {/* DMCA Policy */}
+          <div id="dmca-section" className="border border-border rounded-lg p-4 bg-muted/20">
+            <h4 className="text-sm font-semibold text-foreground mb-2">📋 DMCA Policy</h4>
+            <p className="text-xs text-muted-foreground leading-relaxed mb-2">
+              Stackmode Network LLC respects the intellectual property rights of others and expects users to do the same. 
+              In accordance with the Digital Millennium Copyright Act (DMCA), we will respond promptly to claims of copyright infringement 
+              committed using our website or services.
+            </p>
+            <p className="text-xs text-muted-foreground leading-relaxed mb-2">
+              If you believe that your copyrighted work has been copied in a way that constitutes copyright infringement, please provide our 
+              designated copyright agent with the following information: (1) a physical or electronic signature of the copyright owner or authorized agent; 
+              (2) identification of the copyrighted work claimed to have been infringed; (3) identification of the material that is claimed to be infringing; 
+              (4) your contact information; (5) a statement that you have a good faith belief that use of the material is not authorized; and 
+              (6) a statement that the information in the notification is accurate and that you are authorized to act on behalf of the copyright owner.
+            </p>
+            <p className="text-xs text-muted-foreground">
+              Contact for DMCA notices: <a href="mailto:stackmodechris@gmail.com" className="text-primary hover:underline">stackmodechris@gmail.com</a>
+            </p>
           </div>
           
           <p className="text-xs text-muted-foreground leading-relaxed max-w-3xl mx-auto">
@@ -773,7 +809,7 @@ const Index = () => {
           </p>
           
           <p className="text-xs text-muted-foreground">
-            © 2025 Stackmode Network LLC
+            © 2025 Stackmode Network LLC. All Rights Reserved.
           </p>
         </div>
       </footer>
