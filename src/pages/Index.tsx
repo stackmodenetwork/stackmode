@@ -583,44 +583,6 @@ const Index = () => {
           </div>
         </AnimatedBlock>
 
-        {/* Blog Section */}
-        <AnimatedBlock delay={1.375} className="mb-16">
-          <div className="max-w-5xl mx-auto px-4">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Trading Blog</h2>
-              <p className="text-muted-foreground">Free education to level up your trading</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <a href="/blog" className="group bg-card/50 border border-primary/20 rounded-xl p-5 hover:border-primary transition-all">
-                <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center mb-3">
-                  <HelpCircle size={20} className="text-purple-500" />
-                </div>
-                <h3 className="font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">Trading Psychology</h3>
-                <p className="text-sm text-muted-foreground">Master your mindset and emotions</p>
-              </a>
-              <a href="/blog" className="group bg-card/50 border border-primary/20 rounded-xl p-5 hover:border-primary transition-all">
-                <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mb-3">
-                  <TrendingUp size={20} className="text-blue-500" />
-                </div>
-                <h3 className="font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">Technical Analysis</h3>
-                <p className="text-sm text-muted-foreground">Learn to read charts like a pro</p>
-              </a>
-              <a href="/blog" className="group bg-card/50 border border-primary/20 rounded-xl p-5 hover:border-primary transition-all">
-                <div className="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center mb-3">
-                  <Briefcase size={20} className="text-green-500" />
-                </div>
-                <h3 className="font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">Risk Management</h3>
-                <p className="text-sm text-muted-foreground">Protect and grow your capital</p>
-              </a>
-            </div>
-            <div className="text-center mt-6">
-              <a href="/blog" className="inline-flex items-center gap-2 text-primary hover:underline font-medium">
-                View All Articles →
-              </a>
-            </div>
-          </div>
-        </AnimatedBlock>
-
         <AnimatedBlock delay={1.4} className="mb-16">
           <div className="text-center max-w-4xl mx-auto">
             <p className="text-2xl md:text-3xl font-bold text-foreground leading-relaxed">Learn Real Trading With Stackmodechris — Book A FREE Mentorship Call, Catch My Trades Live, And Master Proven Strategies To Stack Wins.</p>
