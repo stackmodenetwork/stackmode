@@ -277,6 +277,8 @@ const Index = () => {
                     <span className="bg-cyan-500/10 text-cyan-400 text-xs font-medium px-2 py-1 rounded">Save 60%</span>
                   </div>
                   
+                  <p className="text-muted-foreground mb-4 text-center text-sm sm:text-base">Copy my trades and stack wins alongside me</p>
+                  
                   {/* Benefits list */}
                   <div className="flex flex-col gap-2 mb-4 sm:mb-5">
                     <div className="flex items-center gap-2 text-sm text-foreground/80">
