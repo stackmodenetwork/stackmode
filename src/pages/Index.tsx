@@ -752,7 +752,7 @@ const Index = () => {
         </div>
 
         {/* Bottom Navigation - Shop Section */}
-        <div className="max-w-4xl mx-auto mt-16 mb-8">
+        <div className="max-w-4xl mx-auto mt-8 mb-8">
           <div className="bg-card border border-border rounded-2xl p-6 sm:p-8">
             <h3 className="text-xl sm:text-2xl font-bold text-foreground text-center mb-6">Ready to Level Up?</h3>
             <nav className="flex flex-wrap justify-center gap-4 sm:gap-8">
