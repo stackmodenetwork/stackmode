@@ -475,7 +475,7 @@ const Index = () => {
                 <div className="flex-shrink-0">
                   <div className="w-40 h-40 md:w-52 md:h-52 rounded-2xl overflow-hidden border-4 border-primary/40 shadow-lg shadow-primary/20">
                     <img 
-                      src="/images/stackmodechris-about.png" 
+                      src="/images/stackmodechris-about-new.png" 
                       alt="Stackmodechris - Trading Mentor" 
                       className="w-full h-full object-cover"
                       loading="lazy"
