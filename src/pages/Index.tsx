@@ -194,13 +194,13 @@ const Index = () => {
             
             {/* Primary CTA: Free Mentorship - Lower barrier to entry */}
             <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" aria-label="Book Free Trading Mentorship Session" className="block group h-full order-1">
-              <article className="relative h-full bg-gradient-to-br from-card/80 via-card/60 to-card/80 border-2 border-accent/50 rounded-2xl p-5 sm:p-6 md:p-8 overflow-hidden transition-all duration-500 hover:border-accent hover:shadow-[0_0_60px_rgba(var(--accent-rgb),0.4)] group-hover:scale-[1.02]">
+              <article className="relative h-full bg-gradient-to-br from-card/80 via-card/60 to-card/80 border-2 border-accent/50 rounded-2xl p-5 sm:p-6 md:p-8 pt-8 sm:pt-10 overflow-visible transition-all duration-500 hover:border-accent hover:shadow-[0_0_60px_rgba(var(--accent-rgb),0.4)] group-hover:scale-[1.02]">
                 {/* FREE Badge */}
-                <div className="absolute -top-1 -left-1 z-20">
+                <div className="absolute top-0 left-4 -translate-y-1/2 z-20">
                   <div className="relative">
                     <div className="absolute inset-0 bg-accent blur-md opacity-60 animate-pulse"></div>
-                    <div className="relative bg-gradient-to-r from-accent to-accent/80 text-background text-xs font-black px-3 py-1.5 rounded-full shadow-lg transform -rotate-12">
-                      100% FREE
+                    <div className="relative bg-gradient-to-r from-accent to-accent/80 text-background text-[10px] sm:text-xs font-black px-2 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-lg whitespace-nowrap">
+                      🎉 First Call Is Free!
                     </div>
                   </div>
                 </div>
@@ -268,13 +268,13 @@ const Index = () => {
 
             {/* Secondary CTA: Catch My Trades - Paid offer */}
             <a href="https://whop.com/stackmode-network-llc/stackmode-trades/" target="_blank" rel="noopener noreferrer" aria-label="Subscribe to Live Trading Signals" className="block group h-full order-2">
-              <article className="relative h-full bg-gradient-to-br from-card/80 via-card/60 to-card/80 border-2 border-cyan-400/50 rounded-2xl p-5 sm:p-6 md:p-8 overflow-hidden transition-all duration-500 hover:border-cyan-400 hover:shadow-[0_0_60px_rgba(34,211,238,0.4)] group-hover:scale-[1.02]">
+              <article className="relative h-full bg-gradient-to-br from-card/80 via-card/60 to-card/80 border-2 border-cyan-400/50 rounded-2xl p-5 sm:p-6 md:p-8 pt-8 sm:pt-10 overflow-visible transition-all duration-500 hover:border-cyan-400 hover:shadow-[0_0_60px_rgba(34,211,238,0.4)] group-hover:scale-[1.02]">
                 {/* Best Value Badge */}
-                <div className="absolute -top-1 -right-1 z-20">
+                <div className="absolute top-0 right-4 -translate-y-1/2 z-20">
                   <div className="relative">
                     <div className="absolute inset-0 bg-cyan-400 blur-md opacity-60 animate-pulse"></div>
-                    <div className="relative bg-gradient-to-r from-cyan-400 to-cyan-500 text-background text-xs font-black px-3 py-1.5 rounded-full shadow-lg transform rotate-12">
-                      ⭐ BEST VALUE
+                    <div className="relative bg-gradient-to-r from-cyan-400 to-cyan-500 text-background text-[10px] sm:text-xs font-black px-2 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-lg whitespace-nowrap">
+                      ⭐ Best Value
                     </div>
                   </div>
                 </div>
