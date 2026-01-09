@@ -33,7 +33,7 @@ const Index = () => {
                 alt="Stackmode Logo" 
                 className="w-16 h-16 object-contain"
               />
-              <span className="text-lg font-bold text-foreground hidden sm:block">STACKMODE.NET</span>
+              <span className="text-lg font-bold text-foreground hidden sm:block -ml-1">STACKMODE.NET</span>
             </a>
             
             {/* Desktop Navigation */}
