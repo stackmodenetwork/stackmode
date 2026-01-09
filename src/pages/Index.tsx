@@ -83,7 +83,7 @@ const Index = () => {
         
         {/* Top Navigation Bar */}
         <nav className="flex items-center justify-between max-w-6xl mx-auto mb-6">
-          <span className="text-lg font-bold text-primary">STACKMODE</span>
+          <span className="text-lg font-bold text-primary">STACKMODE.NET</span>
           <button 
             onClick={() => setMenuOpen(!menuOpen)} 
             className="p-2 rounded-lg bg-card/50 border border-primary/30 hover:border-primary transition-colors"
