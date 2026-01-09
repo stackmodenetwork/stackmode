@@ -4,6 +4,7 @@ import { ReviewsGallery } from '@/components/ReviewsGallery';
 import { LazyCalendly } from '@/components/LazyCalendly';
 import { OptimizedVideo } from '@/components/OptimizedVideo';
 import { CookieConsent } from '@/components/CookieConsent';
+import { SocialShareButtons } from '@/components/SocialShareButtons';
 import { Briefcase, Check, Mic, Users, TrendingUp, HelpCircle, Menu, X, Youtube, Instagram, Facebook, Linkedin, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -592,7 +593,8 @@ const Index = () => {
 
         <AnimatedBlock delay={1.4} className="mb-16">
           <div className="text-center max-w-4xl mx-auto">
-            <p className="text-2xl md:text-3xl font-bold text-foreground leading-relaxed">Learn Real Trading With Stackmodechris — Book A FREE Mentorship Call, Catch My Trades Live, And Master Proven Strategies To Stack Wins.</p>
+            <p className="text-2xl md:text-3xl font-bold text-foreground leading-relaxed mb-6">Learn Real Trading With Stackmodechris — Book A FREE Mentorship Call, Catch My Trades Live, And Master Proven Strategies To Stack Wins.</p>
+            <SocialShareButtons className="justify-center" />
           </div>
         </AnimatedBlock>
 
