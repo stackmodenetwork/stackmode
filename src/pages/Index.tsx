@@ -234,7 +234,7 @@ const Index = () => {
                 {/* Best Value Badge */}
                 <div className="absolute top-0 right-4 -translate-y-1/2 z-20">
                   <div className="bg-cyan-500 text-background text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded-md shadow-sm whitespace-nowrap">
-                    Most Popular
+                    Consistent Trades
                   </div>
                 </div>
                 
