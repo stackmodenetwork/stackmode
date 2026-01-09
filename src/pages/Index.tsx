@@ -265,7 +265,7 @@ const Index = () => {
                     </div>
                     <div className="flex items-center gap-2 text-sm text-foreground/80">
                       <Check size={16} className="text-cyan-400 flex-shrink-0" />
-                      <span>Copy my exact strategy</span>
+                      <span>Copy my exact strategy and trades</span>
                     </div>
                   </div>
                   
