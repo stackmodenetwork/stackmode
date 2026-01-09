@@ -486,14 +486,14 @@ const Index = () => {
                 {/* Bio */}
                 <div className="flex-1 text-center md:text-left">
                   <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
-                    About StackmodeChris
+                    About Stackmodechris
                   </h2>
                   <p className="text-primary font-medium mb-4">Trading Mentor & Founder of Stackmode Network</p>
                   <p className="text-muted-foreground leading-relaxed mb-4">
-                    Christopher Robinson, known online as StackmodeChris, is a passionate trader and mentor dedicated to helping everyday people achieve financial freedom through the markets. With expertise spanning stocks, options, futures, forex, and crypto, Chris has built a thriving community of traders who learn to read price action and execute high-probability setups.
+                    Christopher Robinson, known online as Stackmodechris, is a passionate trader and mentor dedicated to helping everyday people achieve financial freedom through the markets. With expertise spanning stocks, options, futures, forex, and crypto, Stackmodechris has built a thriving community of traders who learn to read price action and execute high-probability setups. Through proven strategies and hands-on mentorship, Stackmodechris has helped clients generate thousands of dollars in profits.
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-4">
-                    Beyond trading, Chris is an IT specialist and content creator who shares his journey through his podcast, YouTube channel, and social media. His mission is simple: teach real trading skills that work, without the hype or empty promises.
+                    Beyond trading, Stackmodechris is an IT specialist and content creator who shares his journey through his podcast, YouTube channel, and social media. His mission is simple: teach real trading skills that work, without the hype or empty promises.
                   </p>
                   <div className="flex flex-wrap justify-center md:justify-start gap-3">
                     <a 
