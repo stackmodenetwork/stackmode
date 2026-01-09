@@ -89,7 +89,7 @@ const Index = () => {
             className="flex items-center gap-2 px-3 py-2 rounded-lg bg-card/50 border border-primary/30 hover:border-primary transition-colors"
             aria-label="Open menu"
           >
-            <span className="text-sm font-medium text-foreground">Categories</span>
+            <span className="text-sm font-medium text-foreground">All Categories</span>
             {menuOpen ? <X size={20} className="text-primary" /> : <Menu size={20} className="text-primary" />}
           </button>
         </nav>
