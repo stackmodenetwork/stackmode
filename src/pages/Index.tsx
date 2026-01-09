@@ -727,7 +727,7 @@ const Index = () => {
                 Trading Mentorship
               </a>
               <a 
-                href="https://discord.gg/5zYWSWGMYm" 
+                href="https://whop.com/checkout/plan_LmLfXmbJKPWTY"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
