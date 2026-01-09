@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { ChevronDown, ChevronUp, Star, X, ChevronLeft, ChevronRight, BadgeCheck, Users, Camera } from 'lucide-react';
+import { ChevronDown, ChevronUp, X, ChevronLeft, ChevronRight, BadgeCheck, Users, Camera } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 const allReviews = ["review-1.png", "review-2.png", "review-3.png", "review-4.png", "review-5.png", "review-6.png", "review-7.png", "review-8.png", "review-9.png", "review-10.png", "review-11.png", "review-12.png", "review-13.png", "review-14.png", "review-15.png", "review-16.png", "review-17.png", "review-18.png", "review-19.png", "review-20.png", "review-21.png", "review-22.png", "review-23.png", "review-24.png", "review-25.png", "review-26.png", "review-27.png", "review-28.png", "review-29.png", "review-30.png", "review-31.png", "review-32.png", "review-33.png", "review-34.png", "review-35.png"];
@@ -33,20 +33,13 @@ export function ReviewsGallery() {
   }, [isOpen, goNext, goPrev]);
   return <div className="max-w-7xl mx-auto px-4 relative">
       {/* Header */}
-      <div className="text-center mb-10">
-        <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-2 mb-4">
-          <Star className="w-4 h-4 text-secondary fill-secondary" />
-          <span className="text-sm font-semibold text-primary">Student Success Stories</span>
-          <Star className="w-4 h-4 text-secondary fill-secondary" />
-        </div>
-        <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+      <div className="text-center mb-8">
+        <h3 className="text-2xl md:text-3xl font-semibold text-foreground mb-2">
           Real Results from Real Clients
         </h3>
-        <p className="text-muted-foreground max-w-lg mx-auto">Join tons of successful traders who transformed their lives</p>
+        <p className="text-muted-foreground max-w-lg mx-auto">Join successful traders who transformed their results</p>
       </div>
 
-      {/* Subtle Glow Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-primary/10 to-primary/5 rounded-3xl blur-2xl -z-10" />
       
       {/* Masonry Grid */}
       <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">

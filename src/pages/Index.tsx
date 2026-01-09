@@ -1,63 +1,26 @@
-import { useNavigate } from 'react-router-dom';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { AnimatedBlock } from '@/components/AnimatedBlock';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
-import { Icon3D } from '@/components/Icon3D';
-import { PressStartButton } from '@/components/PressStartButton';
 import { LazyCalendly } from '@/components/LazyCalendly';
 import { OptimizedVideo } from '@/components/OptimizedVideo';
-import { ShoppingCart, Briefcase, Play, BookOpen, CandlestickChart, Siren, Check, DollarSign, Mic, Users, TrendingUp, Rocket, MessageSquare, Instagram, Youtube, HelpCircle, Linkedin, Facebook, Menu, X } from 'lucide-react';
+import { Briefcase, Check, Mic, Users, TrendingUp, HelpCircle, Menu, X, Youtube, Instagram, Facebook, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 const Index = () => {
-  const navigate = useNavigate();
-  const audioRef = useRef<HTMLAudioElement>(null);
-  const [showBadge, setShowBadge] = useState(true);
   const [showStickyHeader, setShowStickyHeader] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // Optimized scroll handler with passive listener
   useEffect(() => {
     const handleScroll = () => {
       setShowStickyHeader(window.scrollY > 400);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.volume = 0.2;
-    }
 
-    // YouTube IFrame API
-    const tag = document.createElement('script');
-    tag.src = 'https://www.youtube.com/iframe_api';
-    const firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
-    (window as any).onYouTubeIframeAPIReady = () => {
-      new (window as any).YT.Player('hero-video', {
-        events: {
-          onStateChange: (event: any) => {
-            if (event.data === (window as any).YT.PlayerState.PLAYING) {
-              setShowBadge(false);
-            }
-          }
-        }
-      });
-    };
-  }, []);
-  const handlePressStart = () => {
-    navigate('/game');
-  };
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
-    e.preventDefault();
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  };
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
   return <main className="min-h-screen bg-background relative overflow-x-hidden scroll-smooth animate-page-load">
       {/* Sticky Mobile Header CTA */}
       <div className={`fixed top-0 left-0 right-0 z-50 md:hidden transition-all duration-300 ${showStickyHeader ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
@@ -70,13 +33,6 @@ const Index = () => {
           </div>
         </div>
       </div>
-
-      {/* Background Music - Deferred Loading */}
-      <audio ref={audioRef} loop muted className="hidden" preload="none">
-        <source src="/ambient-cyber-music.mp3" type="audio/mpeg" />
-        <source src="/ambient-cyber-music.ogg" type="audio/ogg" />
-        Your browser does not support the audio element.
-      </audio>
 
       {/* Main Content - VSL Funnel Structure */}
       <section id="home" className="relative z-10 min-h-screen px-4 py-6 sm:py-8">
@@ -96,36 +52,36 @@ const Index = () => {
 
         {/* Dropdown Menu */}
         <div className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${menuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}`}>
-          <div className="bg-background/95 backdrop-blur-md border-b border-primary/30 shadow-2xl shadow-primary/10">
+          <div className="bg-background/95 backdrop-blur-md border-b border-border shadow-xl">
             <div className="max-w-6xl mx-auto px-4 py-6">
               <div className="flex items-center justify-between mb-6">
-                <span className="text-lg font-bold text-primary">STACKMODE</span>
-                <button onClick={() => setMenuOpen(false)} className="p-2 rounded-lg hover:bg-primary/10 transition-colors" aria-label="Close menu">
-                  <X size={24} className="text-primary" />
+                <span className="text-lg font-bold text-primary">STACKMODE.NET</span>
+                <button onClick={closeMenu} className="p-2 rounded-lg hover:bg-muted transition-colors" aria-label="Close menu">
+                  <X size={24} className="text-foreground" />
                 </button>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)} className="flex flex-col items-center gap-2 p-4 rounded-xl bg-card/50 border border-primary/20 hover:border-primary hover:bg-primary/10 transition-all">
-                  <svg className="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
-                  <span className="text-sm font-semibold text-foreground">Discord</span>
+                <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="flex flex-col items-center gap-2 p-4 rounded-xl bg-card border border-border hover:border-primary transition-colors">
+                  <svg className="w-7 h-7 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+                  <span className="text-sm font-medium text-foreground">Discord</span>
                 </a>
-                <a href="https://www.youtube.com/@stackmodetrading" target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)} className="flex flex-col items-center gap-2 p-4 rounded-xl bg-card/50 border border-primary/20 hover:border-red-500 hover:bg-red-500/10 transition-all">
-                  <Youtube className="w-8 h-8 text-red-500" />
-                  <span className="text-sm font-semibold text-foreground">YouTube</span>
+                <a href="https://www.youtube.com/@stackmodetrading" target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="flex flex-col items-center gap-2 p-4 rounded-xl bg-card border border-border hover:border-red-500 transition-colors">
+                  <Youtube className="w-7 h-7 text-red-500" />
+                  <span className="text-sm font-medium text-foreground">YouTube</span>
                 </a>
-                <a href="https://podcasters.spotify.com/pod/show/stackmodetrading" target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)} className="flex flex-col items-center gap-2 p-4 rounded-xl bg-card/50 border border-primary/20 hover:border-green-500 hover:bg-green-500/10 transition-all">
-                  <Mic className="w-8 h-8 text-green-500" />
-                  <span className="text-sm font-semibold text-foreground">Podcast</span>
+                <a href="https://podcasters.spotify.com/pod/show/stackmodetrading" target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="flex flex-col items-center gap-2 p-4 rounded-xl bg-card border border-border hover:border-green-500 transition-colors">
+                  <Mic className="w-7 h-7 text-green-500" />
+                  <span className="text-sm font-medium text-foreground">Podcast</span>
                 </a>
-                <a href="https://www.instagram.com/stackmodetrading/" target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)} className="flex flex-col items-center gap-2 p-4 rounded-xl bg-card/50 border border-primary/20 hover:border-pink-500 hover:bg-pink-500/10 transition-all">
-                  <Instagram className="w-8 h-8 text-pink-500" />
-                  <span className="text-sm font-semibold text-foreground">Instagram</span>
+                <a href="https://www.instagram.com/stackmodetrading/" target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="flex flex-col items-center gap-2 p-4 rounded-xl bg-card border border-border hover:border-pink-500 transition-colors">
+                  <Instagram className="w-7 h-7 text-pink-500" />
+                  <span className="text-sm font-medium text-foreground">Instagram</span>
                 </a>
               </div>
             </div>
           </div>
           {/* Backdrop */}
-          <div className="fixed inset-0 bg-background/50 -z-10" onClick={() => setMenuOpen(false)} />
+          <div className="fixed inset-0 bg-background/60 -z-10" onClick={closeMenu} />
         </div>
 
         {/* Headline - Above the Fold */}
@@ -652,53 +608,33 @@ const Index = () => {
           </p>
         </div>
 
-        {/* Bottom Spacer for Footer - Adjusted for mobile */}
-        <div className="h-[600px] md:h-96"></div>
+        {/* Bottom Spacer */}
+        <div className="h-16 md:h-24"></div>
         
       </section>
 
-      {/* Corner UI Elements */}
-      <div className="hidden md:block absolute top-4 left-4 text-primary font-mono text-sm">
-        v2.0.0
-      </div>
-      <div className="absolute bottom-4 left-4 text-accent font-mono text-sm">
-        LOADING...
-      </div>
-      <div className="absolute bottom-4 right-4 text-muted-foreground font-mono text-sm">
-        @STACKMODECHRIS
-      </div>
-
-      {/* Terms and Conditions */}
-      <div className="absolute bottom-0 left-0 right-0 bg-background/90 backdrop-blur-sm border-t border-border p-4 z-50">
-        <div className="text-center text-xs text-muted-foreground font-mono">
-          <p className="mb-2">
-            <a href="https://stackmodechris.systeme.io/termsandconditions" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-accent transition-colors underline">
-              Terms and Conditions/Refund Policy
+      {/* Footer with Terms */}
+      <footer className="bg-background border-t border-border py-6 px-4">
+        <div className="max-w-4xl mx-auto text-center space-y-4">
+          <div className="flex flex-wrap justify-center gap-4 text-sm">
+            <a href="https://stackmodechris.systeme.io/termsandconditions" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+              Terms & Conditions
             </a>
-          </p>
-          <p className="mb-2">
-            <a href="https://stackmodechris.systeme.io/privacypolicy" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-accent transition-colors underline">
+            <span className="text-border hidden sm:inline">|</span>
+            <a href="https://stackmodechris.systeme.io/privacypolicy" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
               Privacy Policy
             </a>
+          </div>
+          
+          <p className="text-xs text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+            Information shared here is for educational purposes only. Your results may vary. We do not guarantee success or make earnings claims.
           </p>
-          <p className="mb-2">
-            Information shared here is for educational purposes only. Individuals, traders and business owners should evaluate their own trading strategies as well as their own business strategies, and identify any potential risks. The information shared here is not a guarantee of success. Your results may vary.
-          </p>
-          <p className="mb-2">
-            <strong>INCOME DISCLAIMER:</strong> Although we make every effort to accurately represent the services and/or products presented on this website, Stackmodechris or Stackmode Network LLC. makes no assurance, representation or promise regarding future earnings or income, or that you will make any specific amount of money, or any money at all, or that you will not lose money. Earnings or income statements, or examples of earnings or income, represent estimates of what you may earn; however, there is no promise or guarantee that you may experience the same level of earnings or income. There is no assurance that any prior success or past results regarding earnings or income may be an indication of your future success or results. Stackmodechris Gives Education and Stackmode Network LLC is a education company. We do not sell a business opportunity, "get rich quick" program or money-making system. We believe, with education, individuals can be better prepared to make investment decisions, but we do not guarantee success in our training. We do not make earnings claims, efforts claims, or claims that our training will make you any money. All material is intellectual property and protected by copyright. Any duplication, reproduction, or distribution is strictly prohibited
-          </p>
-          <p>
-            @2025 Stackmodechris/Stackmode Network LLC
+          
+          <p className="text-xs text-muted-foreground">
+            © 2025 Stackmode Network LLC
           </p>
         </div>
-      </div>
-
-      {/* Scanlines Effect - Static */}
-      <div className="absolute inset-0 pointer-events-none opacity-5">
-        <div className="h-full bg-gradient-to-b from-transparent via-primary/10 to-transparent" style={{
-        backgroundSize: '100% 4px'
-      }} />
-      </div>
+      </footer>
 
     </main>;
 };
