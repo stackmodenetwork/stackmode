@@ -28,7 +28,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <a href="#home" className="flex items-center" onClick={(e) => { e.preventDefault(); document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' }); }}>
+            <a href="https://stackmode.net" className="flex items-center">
               <img 
                 src="/images/sm-logo.png" 
                 alt="Stackmode Logo" 
