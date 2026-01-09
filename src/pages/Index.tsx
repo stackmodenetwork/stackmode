@@ -751,8 +751,47 @@ const Index = () => {
           </p>
         </div>
 
+        {/* Bottom Navigation - Shop Section */}
+        <div className="max-w-4xl mx-auto mt-16 mb-8">
+          <div className="bg-card border border-border rounded-2xl p-6 sm:p-8">
+            <h3 className="text-xl sm:text-2xl font-bold text-foreground text-center mb-6">Ready to Level Up?</h3>
+            <nav className="flex flex-wrap justify-center gap-4 sm:gap-8">
+              <a 
+                href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+              >
+                Trading Mentorship
+              </a>
+              <a 
+                href="https://discord.gg/5zYWSWGMYm" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+              >
+                Catch My Trades
+              </a>
+              <a 
+                href="#courses" 
+                onClick={(e) => { e.preventDefault(); document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' }); }}
+                className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+              >
+                Courses
+              </a>
+              <a 
+                href="#books" 
+                onClick={(e) => { e.preventDefault(); document.getElementById('books')?.scrollIntoView({ behavior: 'smooth' }); }}
+                className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+              >
+                Books
+              </a>
+            </nav>
+          </div>
+        </div>
+
         {/* Bottom Spacer */}
-        <div className="h-16 md:h-24"></div>
+        <div className="h-8 md:h-12"></div>
         
       </section>
 
