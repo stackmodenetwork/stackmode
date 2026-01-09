@@ -39,8 +39,9 @@ const Index = () => {
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-8">
               <a 
-                href="#mentorship" 
-                onClick={(e) => { e.preventDefault(); document.getElementById('mentorship')?.scrollIntoView({ behavior: 'smooth' }); }}
+                href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 Trading Mentorship
