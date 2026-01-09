@@ -218,9 +218,8 @@ const Index = () => {
                   </div>
                   
                   {/* Pricing - prominent */}
-                  <div className="flex items-center justify-center gap-3 mb-4">
-                    <span className="text-foreground font-bold text-2xl sm:text-3xl">FREE</span>
-                    <span className="bg-accent/10 text-accent text-xs font-medium px-2 py-1 rounded">First Call</span>
+                  <div className="flex items-center justify-center mb-4">
+                    <span className="text-foreground font-bold text-2xl sm:text-3xl">The First Call is FREE</span>
                   </div>
                   
                   <p className="text-muted-foreground mb-4 text-center text-sm sm:text-base">Get a personalized trading strategy built for your goals</p>
