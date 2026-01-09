@@ -3,6 +3,7 @@ import { AnimatedBlock } from '@/components/AnimatedBlock';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
 import { LazyCalendly } from '@/components/LazyCalendly';
 import { OptimizedVideo } from '@/components/OptimizedVideo';
+import { CookieConsent } from '@/components/CookieConsent';
 import { Briefcase, Check, Mic, Users, TrendingUp, HelpCircle, Menu, X, Youtube, Instagram, Facebook, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -814,6 +815,8 @@ const Index = () => {
         </div>
       </footer>
 
+      {/* Cookie Consent Banner */}
+      <CookieConsent />
     </main>;
 };
 export default Index;
