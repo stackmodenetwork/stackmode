@@ -25,7 +25,7 @@ const Index = () => {
       {/* Top Navigation Bar - Acquisition.com Style */}
       <header className="bg-card border-b border-border sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <a href="#home" className="flex items-center" onClick={(e) => { e.preventDefault(); document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' }); }}>
               <img 
@@ -33,30 +33,30 @@ const Index = () => {
                 alt="Stackmode Logo" 
                 className="w-16 h-16 object-contain"
               />
-              <span className="text-lg font-bold text-foreground hidden sm:block -ml-1">STACKMODE.NET</span>
+              <span className="text-xl font-bold text-foreground hidden sm:block -ml-1">STACKMODE.NET</span>
             </a>
             
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-8">
+            {/* Desktop Navigation - Centered */}
+            <nav className="hidden md:flex items-center justify-center flex-1 gap-10 mx-8">
               <a 
                 href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors"
               >
                 Trading Mentorship
               </a>
               <a 
                 href="#courses" 
                 onClick={(e) => { e.preventDefault(); document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' }); }}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors"
               >
                 Courses
               </a>
               <a 
                 href="#books" 
                 onClick={(e) => { e.preventDefault(); document.getElementById('books')?.scrollIntoView({ behavior: 'smooth' }); }}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors"
               >
                 Books
               </a>
@@ -64,7 +64,7 @@ const Index = () => {
                 href="https://discord.gg/5zYWSWGMYm" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors"
               >
                 Catch My Trades
               </a>
