@@ -86,10 +86,11 @@ const Index = () => {
           <span className="text-lg font-bold text-primary">STACKMODE.NET</span>
           <button 
             onClick={() => setMenuOpen(!menuOpen)} 
-            className="p-2 rounded-lg bg-card/50 border border-primary/30 hover:border-primary transition-colors"
+            className="flex items-center gap-2 px-3 py-2 rounded-lg bg-card/50 border border-primary/30 hover:border-primary transition-colors"
             aria-label="Open menu"
           >
-            {menuOpen ? <X size={24} className="text-primary" /> : <Menu size={24} className="text-primary" />}
+            <span className="text-sm font-medium text-foreground">Categories</span>
+            {menuOpen ? <X size={20} className="text-primary" /> : <Menu size={20} className="text-primary" />}
           </button>
         </nav>
 
