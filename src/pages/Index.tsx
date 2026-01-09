@@ -157,7 +157,7 @@ const Index = () => {
           </h1>
           
           <p className="text-base sm:text-lg text-muted-foreground mb-4 max-w-2xl mx-auto leading-relaxed">
-            Watch how I mentor traders to consistent profits, then book your free strategy call to get started.
+            Watch how I mentor traders to consistent profits, then book your free strategy call to get started. Inshallah
           </p>
           <div className="relative w-full max-w-xl mx-auto mb-6 px-4 sm:px-0">
             {/* Subtle glow effect */}
