@@ -221,7 +221,8 @@ const Index = () => {
                     <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-cyan-400 neon-glow group-hover:scale-105 transition-transform">CATCH MY TRADES</h2>
                   </div>
                   
-                  <p className="text-foreground/90 mb-3 text-center text-sm sm:text-base">Copy my exact trading strategy and key levels</p>
+                  <p className="text-foreground/90 mb-2 text-center text-sm sm:text-base">Copy my exact trades, key levels & live strategy</p>
+                  <p className="text-foreground/80 mb-4 text-center text-xs sm:text-sm italic">Weekly group calls every Sunday @ 5PM EST</p>
                   
                   <div className="flex items-center justify-center gap-2 sm:gap-3 mb-4 sm:mb-6">
                     <span className="text-muted-foreground line-through text-base sm:text-lg">$50/month</span>
