@@ -136,7 +136,7 @@ const Index = () => {
           </div>
           
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
-            Learn to Trade Profitably
+            Learn How To Trade Profitably
           </h1>
           
           <p className="text-base sm:text-lg text-muted-foreground mb-4 max-w-2xl mx-auto leading-relaxed">
