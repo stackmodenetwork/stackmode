@@ -473,7 +473,7 @@ const Index = () => {
               <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
                 {/* Photo */}
                 <div className="flex-shrink-0">
-                  <div className="w-40 h-40 md:w-52 md:h-52 rounded-2xl overflow-hidden border-4 border-primary/40 shadow-lg shadow-primary/20">
+                  <div className="w-56 h-56 md:w-72 md:h-72 rounded-2xl overflow-hidden border-4 border-primary/40 shadow-lg shadow-primary/20">
                     <img 
                       src="/images/stackmodechris-about-new.png" 
                       alt="Stackmodechris - Trading Mentor" 
