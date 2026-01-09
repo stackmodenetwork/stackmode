@@ -48,7 +48,7 @@ const Index = () => {
                 Trading Mentorship
               </a>
               <a 
-                href="https://discord.gg/5zYWSWGMYm" 
+                href="https://whop.com/stackmode-network-llc/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
@@ -107,7 +107,7 @@ const Index = () => {
                 <a href="#mentorship" onClick={(e) => { e.preventDefault(); closeMenu(); setTimeout(() => document.getElementById('mentorship')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors relative after:content-[''] after:absolute after:w-[calc(100%-2rem)] after:scale-x-0 after:h-0.5 after:bottom-2 after:left-4 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                   Trading Mentorship
                 </a>
-                <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors relative after:content-[''] after:absolute after:w-[calc(100%-2rem)] after:scale-x-0 after:h-0.5 after:bottom-2 after:left-4 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
+                <a href="https://whop.com/stackmode-network-llc/" target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors relative after:content-[''] after:absolute after:w-[calc(100%-2rem)] after:scale-x-0 after:h-0.5 after:bottom-2 after:left-4 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                   Catch My Trades
                 </a>
                 <a href="#courses" onClick={(e) => { e.preventDefault(); closeMenu(); setTimeout(() => document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors relative after:content-[''] after:absolute after:w-[calc(100%-2rem)] after:scale-x-0 after:h-0.5 after:bottom-2 after:left-4 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
@@ -248,7 +248,7 @@ const Index = () => {
             </a>
 
             {/* Secondary CTA: Catch My Trades - Paid offer */}
-            <a href="https://whop.com/stackmode-network-llc/stackmode-trades/" target="_blank" rel="noopener noreferrer" aria-label="Subscribe to Live Trading Signals" className="block group h-full order-2">
+            <a href="https://whop.com/stackmode-network-llc/" target="_blank" rel="noopener noreferrer" aria-label="Subscribe to Live Trading Signals" className="block group h-full order-2">
               <article className="relative h-full bg-gradient-to-br from-card/80 via-card/60 to-card/80 border-2 border-cyan-400/50 rounded-2xl p-5 sm:p-6 md:p-8 pt-8 sm:pt-10 overflow-visible transition-all duration-500 hover:border-cyan-400 hover:shadow-[0_0_60px_rgba(34,211,238,0.4)] group-hover:scale-[1.02]">
                 {/* Best Value Badge */}
                 <div className="absolute top-0 right-4 -translate-y-1/2 z-20">
@@ -727,7 +727,7 @@ const Index = () => {
                 Trading Mentorship
               </a>
               <a 
-                href="https://whop.com/checkout/plan_LmLfXmbJKPWTY"
+                href="https://whop.com/stackmode-network-llc/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
