@@ -40,7 +40,7 @@ export function ReviewsGallery() {
           <Star className="w-4 h-4 text-secondary fill-secondary" />
         </div>
         <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
-          Real Results from Real Students
+          Real Results from Real Clients
         </h3>
         <p className="text-muted-foreground max-w-lg mx-auto">Join tons of successful traders who transformed their lives</p>
       </div>
