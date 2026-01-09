@@ -768,11 +768,11 @@ const Index = () => {
       <footer className="bg-background border-t border-border py-8 px-4">
         <div className="max-w-4xl mx-auto text-center space-y-6">
           <div className="flex flex-wrap justify-center gap-4 text-sm">
-            <a href="https://stackmodechris.systeme.io/termsandconditions" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+            <a href="/terms" className="text-muted-foreground hover:text-primary transition-colors">
               Terms & Conditions
             </a>
             <span className="text-border hidden sm:inline">|</span>
-            <a href="https://stackmodechris.systeme.io/privacypolicy" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+            <a href="/privacy" className="text-muted-foreground hover:text-primary transition-colors">
               Privacy Policy
             </a>
             <span className="text-border hidden sm:inline">|</span>
