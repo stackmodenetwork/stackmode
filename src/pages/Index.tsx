@@ -27,11 +27,11 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <a href="#home" className="flex items-center gap-0.5" onClick={(e) => { e.preventDefault(); document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' }); }}>
+            <a href="#home" className="flex items-center" onClick={(e) => { e.preventDefault(); document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' }); }}>
               <img 
                 src="/images/sm-logo.png" 
                 alt="Stackmode Logo" 
-                className="w-16 h-16 object-contain rounded-lg"
+                className="w-16 h-16 object-contain"
               />
               <span className="text-lg font-bold text-foreground hidden sm:block">STACKMODE.NET</span>
             </a>
