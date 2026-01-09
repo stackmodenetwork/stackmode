@@ -103,16 +103,16 @@ const Index = () => {
             <div className="px-4 py-4">
               {/* Main Navigation Links */}
               <div className="space-y-1 mb-4">
-                <a href="#mentorship" onClick={(e) => { e.preventDefault(); closeMenu(); setTimeout(() => document.getElementById('mentorship')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors">
+                <a href="#mentorship" onClick={(e) => { e.preventDefault(); closeMenu(); setTimeout(() => document.getElementById('mentorship')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors relative after:content-[''] after:absolute after:w-[calc(100%-2rem)] after:scale-x-0 after:h-0.5 after:bottom-2 after:left-4 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                   Trading Mentorship
                 </a>
-                <a href="#courses" onClick={(e) => { e.preventDefault(); closeMenu(); setTimeout(() => document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors">
+                <a href="#courses" onClick={(e) => { e.preventDefault(); closeMenu(); setTimeout(() => document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors relative after:content-[''] after:absolute after:w-[calc(100%-2rem)] after:scale-x-0 after:h-0.5 after:bottom-2 after:left-4 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                   Courses
                 </a>
-                <a href="#books" onClick={(e) => { e.preventDefault(); closeMenu(); setTimeout(() => document.getElementById('books')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors">
+                <a href="#books" onClick={(e) => { e.preventDefault(); closeMenu(); setTimeout(() => document.getElementById('books')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors relative after:content-[''] after:absolute after:w-[calc(100%-2rem)] after:scale-x-0 after:h-0.5 after:bottom-2 after:left-4 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                   Books
                 </a>
-                <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors">
+                <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors relative after:content-[''] after:absolute after:w-[calc(100%-2rem)] after:scale-x-0 after:h-0.5 after:bottom-2 after:left-4 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                   Catch My Trades
                 </a>
               </div>
