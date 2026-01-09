@@ -375,7 +375,7 @@ const Index = () => {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-foreground mb-3">
             Proven Results from Real Traders
           </h2>
-          <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8">See what our community has achieved Alhamdulillah</p>
+          <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8">See what our community has achieved, Alhamdulillah</p>
         </section>
 
         {/* Featured Testimonial */}
