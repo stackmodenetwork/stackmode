@@ -27,7 +27,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <a href="#home" className="flex items-center gap-3" onClick={(e) => { e.preventDefault(); document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' }); }}>
+            <a href="#home" className="flex items-center gap-1.5" onClick={(e) => { e.preventDefault(); document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' }); }}>
               <img 
                 src="/images/sm-logo.png" 
                 alt="Stackmode Logo" 
