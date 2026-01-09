@@ -184,7 +184,7 @@ const Index = () => {
         </header>
 
         {/* Main CTAs - Optimized for Conversions */}
-        <section id="mentorship" className="max-w-6xl mx-auto mb-8 sm:mb-12">
+        <section id="mentorship" className="max-w-6xl mx-auto mb-8 sm:mb-12 scroll-mt-20">
           {/* Section Header */}
           <div className="text-center mb-8">
             <h2 className="text-xl sm:text-2xl font-semibold text-foreground">Choose How You Want to Learn</h2>
@@ -307,7 +307,7 @@ const Index = () => {
 
         {/* Three Action Buttons */}
         <AnimatedBlock delay={1.175} className="mb-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
+          <div id="courses" className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4 scroll-mt-20">
             {/* Discord Button */}
             <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" className="group relative">
               <div className="relative overflow-hidden bg-card/50 backdrop-blur-sm border border-primary/30 rounded-xl p-6 hover:border-primary transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/20">
@@ -341,7 +341,7 @@ const Index = () => {
             </a>
 
             {/* Free Education Button */}
-            <a href="https://stackmodechris.systeme.io/trading" target="_blank" rel="noopener noreferrer" className="group relative">
+            <a id="books" href="https://stackmodechris.systeme.io/trading" target="_blank" rel="noopener noreferrer" className="group relative scroll-mt-20">
               <div className="relative overflow-hidden bg-card/50 backdrop-blur-sm border border-secondary/30 rounded-xl p-6 hover:border-secondary transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-secondary/20">
                 <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative z-10 text-center">
