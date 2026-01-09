@@ -775,7 +775,7 @@ const Index = () => {
           
           {/* Earnings Disclaimer */}
           <div className="border border-border rounded-lg p-4 bg-muted/20">
-            <h4 className="text-sm font-semibold text-foreground mb-2">⚠️ Earnings Disclaimer</h4>
+            <h4 className="text-xs text-muted-foreground mb-2">Earnings Disclaimer</h4>
             <p className="text-xs text-muted-foreground leading-relaxed">
               Trading involves substantial risk of loss and is not suitable for all investors. Past performance is not indicative of future results. 
               The information provided on this website is for educational and informational purposes only and should not be construed as financial advice. 
