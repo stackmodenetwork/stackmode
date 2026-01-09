@@ -183,11 +183,28 @@ const Index = () => {
 
         {/* Main CTAs - Optimized for Conversions */}
         <section id="mentorship" className="max-w-6xl mx-auto mb-8 sm:mb-12">
-          {/* Mobile: Primary CTA first, full width. Desktop: Side by side */}
+          {/* Section Header */}
+          <div className="text-center mb-6">
+            <p className="text-sm text-muted-foreground mb-2">Choose Your Path</p>
+            <h2 className="text-xl sm:text-2xl font-bold text-foreground">Two Ways to Start Winning</h2>
+          </div>
+          
+          {/* Mobile: Stacked with clear hierarchy. Desktop: Side by side */}
           <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4 sm:gap-6">
-            {/* Free Mentorship Button */}
-            <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" aria-label="Book Free Trading Mentorship Session" className="block group h-full">
-              <article className="relative h-full bg-gradient-to-br from-card/80 via-card/60 to-card/80 border-2 border-accent/50 rounded-2xl p-4 sm:p-6 md:p-8 overflow-hidden transition-all duration-500 hover:border-accent hover:shadow-[0_0_60px_rgba(var(--accent-rgb),0.4)] group-hover:scale-[1.02]">
+            
+            {/* Primary CTA: Free Mentorship - Lower barrier to entry */}
+            <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" aria-label="Book Free Trading Mentorship Session" className="block group h-full order-1">
+              <article className="relative h-full bg-gradient-to-br from-card/80 via-card/60 to-card/80 border-2 border-accent/50 rounded-2xl p-5 sm:p-6 md:p-8 overflow-hidden transition-all duration-500 hover:border-accent hover:shadow-[0_0_60px_rgba(var(--accent-rgb),0.4)] group-hover:scale-[1.02]">
+                {/* FREE Badge */}
+                <div className="absolute -top-1 -left-1 z-20">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-accent blur-md opacity-60 animate-pulse"></div>
+                    <div className="relative bg-gradient-to-r from-accent to-accent/80 text-background text-xs font-black px-3 py-1.5 rounded-full shadow-lg transform -rotate-12">
+                      100% FREE
+                    </div>
+                  </div>
+                </div>
+                
                 {/* Animated background pattern */}
                 <div className="absolute inset-0 opacity-10">
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(var(--accent-rgb),0.8),transparent_50%)] animate-pulse"></div>
@@ -195,20 +212,33 @@ const Index = () => {
                 
                 {/* Animated corner accents */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-accent/20 rounded-full blur-3xl animate-pulse"></div>
-                <div className="absolute bottom-0 left-0 w-32 h-32 bg-accent/20 rounded-full blur-3xl animate-pulse" style={{
-                animationDelay: '1s'
-              }}></div>
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-accent/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
                 
                 <div className="relative z-10">
                   <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4 flex-wrap">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-accent/20 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
                       <span className="text-xl sm:text-2xl" aria-hidden="true">📅</span>
                     </div>
-                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-accent neon-glow group-hover:scale-105 transition-transform">TRADING MENTORSHIP</h2>
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-accent neon-glow group-hover:scale-105 transition-transform">1-ON-1 MENTORSHIP</h3>
                   </div>
                   
-                  <p className="text-foreground/90 mb-2 text-center text-sm sm:text-base">Get your personalized market game plan</p>
-                  <p className="text-foreground/80 mb-4 sm:mb-6 text-center text-xs sm:text-sm italic">One-on-one guidance tailored to your trading goals — limited spots available!</p>
+                  <p className="text-foreground/90 mb-3 text-center text-sm sm:text-base font-medium">Get a personalized trading game plan built for YOU</p>
+                  
+                  {/* Benefits list */}
+                  <div className="flex flex-col gap-2 mb-4 sm:mb-5">
+                    <div className="flex items-center gap-2 text-sm text-foreground/80">
+                      <Check size={16} className="text-accent flex-shrink-0" />
+                      <span>Custom strategy based on your goals</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-foreground/80">
+                      <Check size={16} className="text-accent flex-shrink-0" />
+                      <span>Direct access to ask me anything</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-foreground/80">
+                      <Check size={16} className="text-accent flex-shrink-0" />
+                      <span>No commitment, no pressure</span>
+                    </div>
+                  </div>
                   
                   <div className="relative">
                     {/* Pulsing ring effect */}
@@ -219,35 +249,26 @@ const Index = () => {
                       {/* Shimmer effect */}
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                       
-                      {/* Grid pattern overlay */}
-                      <div className="absolute inset-0 opacity-10 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,.2)_25%,rgba(255,255,255,.2)_75%,transparent_75%,transparent),linear-gradient(45deg,transparent_25%,rgba(255,255,255,.2)_25%,rgba(255,255,255,.2)_75%,transparent_75%,transparent)] bg-[length:20px_20px]"></div>
-                      
                       <span className="relative z-10 flex items-center justify-center gap-2 tracking-wide">
-                        BOOK A FREE CALL TODAY    
+                        BOOK YOUR FREE CALL
                         <span className="inline-block group-hover:translate-x-1 transition-transform" aria-hidden="true">→</span>
                       </span>
                     </div>
                   </div>
                   
-                  <div className="mt-4 sm:mt-5 flex flex-col items-center gap-2">
-                    <div className="flex items-center gap-2">
-                      <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-green-500 flex items-center justify-center animate-pulse">
-                        <Check size={14} className="text-background" />
-                      </div>
-                      <p className="text-xs sm:text-sm text-muted-foreground font-mono font-semibold">24/7 Support</p>
-                    </div>
-                    {/* Urgency */}
-                    <div className="bg-destructive/20 border border-destructive/50 rounded-lg px-3 py-1.5 mt-2">
-                      <p className="text-xs text-destructive font-bold animate-pulse">🔥 Spots Are Filling Quick!</p>
+                  {/* Urgency */}
+                  <div className="mt-4 flex justify-center">
+                    <div className="bg-destructive/20 border border-destructive/50 rounded-lg px-3 py-1.5">
+                      <p className="text-xs text-destructive font-bold animate-pulse">🔥 Limited spots available this week</p>
                     </div>
                   </div>
                 </div>
               </article>
             </a>
 
-            {/* Catch My Trades Button */}
-            <a href="https://whop.com/stackmode-network-llc/stackmode-trades/" target="_blank" rel="noopener noreferrer" aria-label="Subscribe to Live Trading Signals" className="block group h-full">
-              <article className="relative h-full bg-gradient-to-br from-card/80 via-card/60 to-card/80 border-2 border-cyan-400/50 rounded-2xl p-4 sm:p-6 md:p-8 overflow-hidden transition-all duration-500 hover:border-cyan-400 hover:shadow-[0_0_60px_rgba(34,211,238,0.4)] group-hover:scale-[1.02]">
+            {/* Secondary CTA: Catch My Trades - Paid offer */}
+            <a href="https://whop.com/stackmode-network-llc/stackmode-trades/" target="_blank" rel="noopener noreferrer" aria-label="Subscribe to Live Trading Signals" className="block group h-full order-2">
+              <article className="relative h-full bg-gradient-to-br from-card/80 via-card/60 to-card/80 border-2 border-cyan-400/50 rounded-2xl p-5 sm:p-6 md:p-8 overflow-hidden transition-all duration-500 hover:border-cyan-400 hover:shadow-[0_0_60px_rgba(34,211,238,0.4)] group-hover:scale-[1.02]">
                 {/* Best Value Badge */}
                 <div className="absolute -top-1 -right-1 z-20">
                   <div className="relative">
@@ -264,27 +285,38 @@ const Index = () => {
                 </div>
                 
                 {/* Animated corner accents */}
-                <div className="absolute top-0 left-0 w-32 h-32 bg-cyan-400/20 rounded-full blur-3xl animate-pulse" style={{
-                animationDelay: '0.5s'
-              }}></div>
-                <div className="absolute bottom-0 right-0 w-32 h-32 bg-cyan-400/20 rounded-full blur-3xl animate-pulse" style={{
-                animationDelay: '1.5s'
-              }}></div>
+                <div className="absolute top-0 left-0 w-32 h-32 bg-cyan-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+                <div className="absolute bottom-0 right-0 w-32 h-32 bg-cyan-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }}></div>
                 
                 <div className="relative z-10">
                   <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4 flex-wrap">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-cyan-400/20 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
                       <span className="text-xl sm:text-2xl" aria-hidden="true">📈</span>
                     </div>
-                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-cyan-400 neon-glow group-hover:scale-105 transition-transform">CATCH MY TRADES</h2>
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-cyan-400 neon-glow group-hover:scale-105 transition-transform">CATCH MY TRADES</h3>
                   </div>
                   
-                  <p className="text-foreground/90 mb-2 text-center text-sm sm:text-base">Copy my exact trades, key levels & live strategy</p>
-                  <p className="text-foreground/80 mb-4 text-center text-xs sm:text-sm italic">Weekly group calls every Sunday @ 5PM EST</p>
+                  {/* Pricing - prominent */}
+                  <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3">
+                    <span className="text-muted-foreground line-through text-base sm:text-lg">$50/mo</span>
+                    <span className="text-cyan-400 font-bold text-2xl sm:text-3xl md:text-4xl">$20/mo</span>
+                    <span className="bg-cyan-400/20 text-cyan-400 text-xs font-bold px-2 py-1 rounded">60% OFF</span>
+                  </div>
                   
-                  <div className="flex items-center justify-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-                    <span className="text-muted-foreground line-through text-base sm:text-lg">$50/month</span>
-                    <span className="text-cyan-400 font-bold text-xl sm:text-2xl md:text-3xl">$20/month</span>
+                  {/* Benefits list */}
+                  <div className="flex flex-col gap-2 mb-4 sm:mb-5">
+                    <div className="flex items-center gap-2 text-sm text-foreground/80">
+                      <Check size={16} className="text-cyan-400 flex-shrink-0" />
+                      <span>Real-time trade alerts & key levels</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-foreground/80">
+                      <Check size={16} className="text-cyan-400 flex-shrink-0" />
+                      <span>Weekly group calls (Sundays @ 5PM EST)</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-foreground/80">
+                      <Check size={16} className="text-cyan-400 flex-shrink-0" />
+                      <span>Copy my exact strategy</span>
+                    </div>
                   </div>
                   
                   <div className="relative">
@@ -296,27 +328,29 @@ const Index = () => {
                       {/* Shimmer effect */}
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                       
-                      {/* Grid pattern overlay */}
-                      <div className="absolute inset-0 opacity-10 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,.2)_25%,rgba(255,255,255,.2)_75%,transparent_75%,transparent),linear-gradient(45deg,transparent_25%,rgba(255,255,255,.2)_25%,rgba(255,255,255,.2)_75%,transparent_75%,transparent)] bg-[length:20px_20px]"></div>
-                      
                       <span className="relative z-10 flex items-center justify-center gap-2 tracking-wide">
-                        START COPYING
+                        START COPYING NOW
                         <span className="inline-block group-hover:translate-x-1 transition-transform" aria-hidden="true">→</span>
                       </span>
                     </div>
                   </div>
                   
-                  <div className="mt-4 sm:mt-5 flex items-center justify-center gap-2">
-                    <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-green-500 flex items-center justify-center animate-pulse">
-                      <Check size={14} className="text-background" />
+                  {/* Trust signal */}
+                  <div className="mt-4 flex justify-center">
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <Check size={14} className="text-green-500" />
+                      <span>Cancel anytime</span>
                     </div>
-                    <p className="text-xs sm:text-sm text-muted-foreground font-mono font-semibold">Real-Time Alerts</p>
                   </div>
                 </div>
               </article>
             </a>
-        </div>
-
+          </div>
+          
+          {/* Trust indicator below CTAs */}
+          <div className="mt-6 text-center">
+            <p className="text-xs text-muted-foreground">Not sure which is right for you? <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Book a free call</a> and I'll help you decide.</p>
+          </div>
         </section>
 
         {/* Three Action Buttons */}
