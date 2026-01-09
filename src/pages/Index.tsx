@@ -466,6 +466,99 @@ const Index = () => {
           </div>
         </AnimatedBlock>
 
+        {/* About Section */}
+        <AnimatedBlock delay={1.35} className="mb-16">
+          <div className="max-w-5xl mx-auto px-4">
+            <div className="bg-gradient-to-br from-card/80 via-card/60 to-card/80 border-2 border-primary/30 rounded-2xl p-6 md:p-10 overflow-hidden">
+              <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
+                {/* Photo */}
+                <div className="flex-shrink-0">
+                  <div className="w-40 h-40 md:w-52 md:h-52 rounded-2xl overflow-hidden border-4 border-primary/40 shadow-lg shadow-primary/20">
+                    <img 
+                      src="/images/stackmodechris.png" 
+                      alt="StackmodeChris - Trading Mentor" 
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+                
+                {/* Bio */}
+                <div className="flex-1 text-center md:text-left">
+                  <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+                    About StackmodeChris
+                  </h2>
+                  <p className="text-primary font-medium mb-4">Trading Mentor & Founder of Stackmode Network</p>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    Christopher Robinson, known online as StackmodeChris, is a passionate trader and mentor dedicated to helping everyday people achieve financial freedom through the markets. With expertise spanning stocks, options, futures, forex, and crypto, Chris has built a thriving community of traders who learn to read price action and execute high-probability setups.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    Beyond trading, Chris is an IT specialist and content creator who shares his journey through his podcast, YouTube channel, and social media. His mission is simple: teach real trading skills that work, without the hype or empty promises.
+                  </p>
+                  <div className="flex flex-wrap justify-center md:justify-start gap-3">
+                    <a 
+                      href="https://discord.gg/5zYWSWGMYm" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-primary/10 hover:bg-primary/20 text-primary px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+                    >
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+                      Join Community
+                    </a>
+                    <a 
+                      href="https://www.youtube.com/@stackmodetrading" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-red-500/10 hover:bg-red-500/20 text-red-500 px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+                    >
+                      <Youtube size={16} />
+                      Watch on YouTube
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </AnimatedBlock>
+
+        {/* Blog Section */}
+        <AnimatedBlock delay={1.375} className="mb-16">
+          <div className="max-w-5xl mx-auto px-4">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Trading Blog</h2>
+              <p className="text-muted-foreground">Free education to level up your trading</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <a href="/blog" className="group bg-card/50 border border-primary/20 rounded-xl p-5 hover:border-primary transition-all">
+                <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center mb-3">
+                  <HelpCircle size={20} className="text-purple-500" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">Trading Psychology</h3>
+                <p className="text-sm text-muted-foreground">Master your mindset and emotions</p>
+              </a>
+              <a href="/blog" className="group bg-card/50 border border-primary/20 rounded-xl p-5 hover:border-primary transition-all">
+                <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mb-3">
+                  <TrendingUp size={20} className="text-blue-500" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">Technical Analysis</h3>
+                <p className="text-sm text-muted-foreground">Learn to read charts like a pro</p>
+              </a>
+              <a href="/blog" className="group bg-card/50 border border-primary/20 rounded-xl p-5 hover:border-primary transition-all">
+                <div className="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center mb-3">
+                  <Briefcase size={20} className="text-green-500" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">Risk Management</h3>
+                <p className="text-sm text-muted-foreground">Protect and grow your capital</p>
+              </a>
+            </div>
+            <div className="text-center mt-6">
+              <a href="/blog" className="inline-flex items-center gap-2 text-primary hover:underline font-medium">
+                View All Articles →
+              </a>
+            </div>
+          </div>
+        </AnimatedBlock>
+
         <AnimatedBlock delay={1.4} className="mb-16">
           <div className="text-center max-w-4xl mx-auto">
             <p className="text-2xl md:text-3xl font-bold text-foreground leading-relaxed">Learn Real Trading With Stackmodechris — Book A FREE Mentorship Call, Catch My Trades Live, And Master Proven Strategies To Stack Wins.</p>
