@@ -31,7 +31,7 @@ const Index = () => {
               <img 
                 src="/images/sm-logo.png" 
                 alt="Stackmode Logo" 
-                className="w-14 h-14 object-contain rounded-lg"
+                className="w-16 h-16 object-contain rounded-lg"
               />
               <span className="text-lg font-bold text-foreground hidden sm:block">STACKMODE.NET</span>
             </a>
