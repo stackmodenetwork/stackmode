@@ -40,9 +40,7 @@ export const CookieConsent = () => {
               We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. 
               By clicking "Accept All", you consent to our use of cookies. Read our{' '}
               <a 
-                href="https://stackmodechris.systeme.io/privacypolicy" 
-                target="_blank" 
-                rel="noopener noreferrer"
+                href="/privacy" 
                 className="text-primary hover:underline"
               >
                 Privacy Policy
