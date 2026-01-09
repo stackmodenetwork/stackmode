@@ -132,7 +132,7 @@ const Index = () => {
           {/* Live Activity Badge */}
           <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-2 mb-4 animate-pulse">
             <div className="w-2 h-2 bg-primary rounded-full animate-ping"></div>
-            <span className="text-primary text-sm font-semibold">12+ Traders Currently in Mentorship</span>
+            <span className="text-primary text-sm font-semibold">Traders Currently in Mentorship</span>
           </div>
           
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
