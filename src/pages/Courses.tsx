@@ -64,7 +64,7 @@ const blogPosts = [
   }
 ];
 
-const Blog = () => {
+const Courses = () => {
   return (
     <main className="min-h-screen bg-background">
       {/* Header */}
@@ -74,7 +74,7 @@ const Blog = () => {
             <ArrowLeft size={20} />
             <span className="font-medium">Back to Home</span>
           </Link>
-          <span className="text-lg font-bold text-primary">STACKMODE BLOG</span>
+          <span className="text-lg font-bold text-primary">STACKMODE COURSES</span>
         </div>
       </header>
 
@@ -191,4 +191,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default Courses;

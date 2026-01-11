@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
 import GamePage from "./pages/GamePage";
-import Blog from "./pages/Blog";
+import Courses from "./pages/Courses";
 import About from "./pages/About";
 import DMCAPolicy from "./pages/DMCAPolicy";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -25,7 +25,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/game" element={<GamePage />} />
-            <Route path="/blog" element={<Blog />} />
+            <Route path="/courses" element={<Courses />} />
             <Route path="/about" element={<About />} />
             <Route path="/dmca" element={<DMCAPolicy />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
