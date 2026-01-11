@@ -6,7 +6,7 @@ import { LazyCalendly } from '@/components/LazyCalendly';
 import { OptimizedVideo } from '@/components/OptimizedVideo';
 import { CookieConsent } from '@/components/CookieConsent';
 import { SocialShareButtons } from '@/components/SocialShareButtons';
-import { Briefcase, Check, Mic, Users, TrendingUp, HelpCircle, Menu, X, Youtube, Instagram, Facebook, Linkedin, Calendar, BookOpen } from 'lucide-react';
+import { Briefcase, Check, Mic, Users, TrendingUp, HelpCircle, Menu, X, Youtube, Instagram, Facebook, Linkedin, Calendar, BookOpen, PlayCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
@@ -300,40 +300,50 @@ const Index = () => {
             </a>
           </div>
           
+          {/* Courses & Books - Full Width CTA */}
+          <Link to="/learn" className="block group mt-6">
+            <article className="relative bg-gradient-to-r from-orange-950/80 via-orange-900/60 to-orange-950/80 border-2 border-orange-500/30 rounded-2xl p-5 sm:p-6 md:p-8 overflow-hidden transition-all duration-500 hover:border-orange-500/60 hover:shadow-[0_0_40px_rgba(249,115,22,0.15)] group-hover:scale-[1.01]">
+              {/* Subtle background accent */}
+              <div className="absolute top-0 right-0 w-48 h-48 bg-orange-500/5 rounded-full blur-3xl"></div>
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-orange-400/5 rounded-full blur-2xl"></div>
+              
+              <div className="relative z-10">
+                <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+                  {/* Icons */}
+                  <div className="flex items-center gap-3 flex-shrink-0">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 bg-orange-500/15 rounded-xl flex items-center justify-center">
+                      <PlayCircle size={24} className="text-orange-400 sm:w-7 sm:h-7" />
+                    </div>
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 bg-orange-500/15 rounded-xl flex items-center justify-center">
+                      <BookOpen size={24} className="text-orange-400 sm:w-7 sm:h-7" />
+                    </div>
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="flex-1 text-center sm:text-left">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-foreground mb-1">Courses & Books</h3>
+                    <p className="text-muted-foreground text-sm sm:text-base">Self-paced video courses and trading eBooks to master the markets on your own schedule</p>
+                  </div>
+                  
+                  {/* CTA Button */}
+                  <div className="flex-shrink-0 w-full sm:w-auto">
+                    <div className="bg-orange-500 hover:bg-orange-400 text-white font-semibold text-base px-6 py-3 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group-hover:gap-3">
+                      <span>Browse Library</span>
+                      <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </Link>
+          
           {/* Trust indicator below CTAs */}
           <div className="mt-6 text-center">
             <p className="text-xs text-muted-foreground">Not sure which is right for you? <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Book a free call</a> and I'll help you decide.</p>
           </div>
         </section>
-
-        {/* Courses & Books Button */}
-        <AnimatedBlock delay={1.175} className="mb-16">
-          <div id="courses" className="max-w-sm mx-auto px-4 scroll-mt-20">
-            <Link to="/learn" className="group block">
-              <div className="bg-card border border-border rounded-xl p-5 transition-all duration-300 hover:border-orange-500/50 hover:bg-card/80">
-                <div className="flex items-center gap-4">
-                  {/* Icon */}
-                  <div className="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-orange-500/20 transition-colors">
-                    <BookOpen className="w-6 h-6 text-orange-500" />
-                  </div>
-                  
-                  {/* Content */}
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-lg font-semibold text-foreground group-hover:text-orange-500 transition-colors">Courses & Books</h3>
-                    <p className="text-sm text-muted-foreground truncate">Learn trading strategies</p>
-                  </div>
-                  
-                  {/* Arrow */}
-                  <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </div>
-        </AnimatedBlock>
 
         {/* SOCIAL PROOF - Real Results */}
         <section id="results" className="mb-8 sm:mb-12 text-center max-w-5xl mx-auto px-4">
