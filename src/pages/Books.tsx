@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowLeft, BookOpen, TrendingUp, Brain } from 'lucide-react';
+import { ArrowLeft, BookOpen, TrendingUp, Brain, Bitcoin } from 'lucide-react';
 
 const books = [
   {
@@ -25,6 +25,14 @@ const books = [
     category: "Trading Fundamentals",
     icon: BookOpen,
     color: "text-blue-500"
+  },
+  {
+    id: 4,
+    title: "Freedom Money: Mastering Bitcoin & Private Keys",
+    excerpt: "Take control of your financial future with Bitcoin. Learn self-custody, private key management, and the path to true financial freedom.",
+    category: "Cryptocurrency",
+    icon: Bitcoin,
+    color: "text-orange-500"
   }
 ];
 
