@@ -7,25 +7,24 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { SocialShareButtons } from '@/components/SocialShareButtons';
 import { useToast } from '@/hooks/use-toast';
-
 const About = () => {
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: ''
   });
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Validate inputs
     const name = formData.name.trim();
     const email = formData.email.trim();
     const subject = formData.subject.trim();
     const message = formData.message.trim();
-    
     if (!name || !email || !message) {
       toast({
         title: "Missing fields",
@@ -48,19 +47,14 @@ const About = () => {
 
     // Build mailto link with proper encoding
     const mailtoSubject = encodeURIComponent(subject || 'Inquiry from Website');
-    const mailtoBody = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-    );
-    
+    const mailtoBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
     window.location.href = `mailto:stackmodenetwork@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
-    
     toast({
       title: "Opening email client",
-      description: "Your default email app should open now.",
+      description: "Your default email app should open now."
     });
   };
-  return (
-    <>
+  return <>
       <Helmet>
         <title>About Stackmodechris | Trading Mentor & Founder of Stackmode Network</title>
         <meta name="description" content="Meet Christopher Robinson (Stackmodechris) - a passionate trader and mentor helping everyday people achieve financial freedom through stocks, options, futures, forex, and crypto trading." />
@@ -83,22 +77,17 @@ const About = () => {
         {/* JSON-LD Person Schema */}
         <script type="application/ld+json">
           {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Christopher Robinson",
-            "alternateName": "Stackmodechris",
-            "description": "Trading Mentor & Founder of Stackmode Network",
-            "jobTitle": "Trading Mentor",
-            "url": "https://stackmode.net/about",
-            "image": "https://stackmode.net/images/stackmodechris-about-new.png",
-            "sameAs": [
-              "https://www.youtube.com/@stackmodetrading",
-              "https://www.instagram.com/stackmodechris",
-              "https://www.facebook.com/stackmodechris",
-              "https://www.linkedin.com/in/stackmodechris"
-            ],
-            "knowsAbout": ["Stock Trading", "Options Trading", "Futures Trading", "Forex Trading", "Cryptocurrency Trading", "Technical Analysis", "Price Action"]
-          })}
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Christopher Robinson",
+          "alternateName": "Stackmodechris",
+          "description": "Trading Mentor & Founder of Stackmode Network",
+          "jobTitle": "Trading Mentor",
+          "url": "https://stackmode.net/about",
+          "image": "https://stackmode.net/images/stackmodechris-about-new.png",
+          "sameAs": ["https://www.youtube.com/@stackmodetrading", "https://www.instagram.com/stackmodechris", "https://www.facebook.com/stackmodechris", "https://www.linkedin.com/in/stackmodechris"],
+          "knowsAbout": ["Stock Trading", "Options Trading", "Futures Trading", "Forex Trading", "Cryptocurrency Trading", "Technical Analysis", "Price Action"]
+        })}
         </script>
       </Helmet>
 
@@ -110,11 +99,7 @@ const About = () => {
               <ArrowLeft size={20} />
               <span className="font-medium">Back to Home</span>
             </Link>
-            <SocialShareButtons 
-              url="https://stackmode.net/about"
-              title="About Stackmodechris | Trading Mentor"
-              description="Meet Christopher Robinson - helping traders achieve financial freedom."
-            />
+            <SocialShareButtons url="https://stackmode.net/about" title="About Stackmodechris | Trading Mentor" description="Meet Christopher Robinson - helping traders achieve financial freedom." />
           </div>
         </header>
 
@@ -124,11 +109,7 @@ const About = () => {
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 max-w-5xl mx-auto">
               <div className="flex-shrink-0">
                 <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/40 shadow-2xl shadow-primary/20">
-                  <img 
-                    src="/images/stackmodechris-about-new.png" 
-                    alt="Stackmodechris - Christopher Robinson, Trading Mentor" 
-                    className="w-full h-full object-cover"
-                  />
+                  <img src="/images/stackmodechris-about-new.png" alt="Stackmodechris - Christopher Robinson, Trading Mentor" className="w-full h-full object-cover" />
                 </div>
               </div>
               
@@ -144,7 +125,7 @@ const About = () => {
                 </p>
                 <div className="flex flex-wrap justify-center md:justify-start gap-3">
                   <Button asChild className="gap-2">
-                    <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer">
+                    <a target="_blank" rel="noopener noreferrer" href="https://calendly.com/stackmodechris/tradingmastermindcoaching">
                       <Calendar size={18} />
                       Speak With Me For FREE
                     </a>
@@ -195,20 +176,29 @@ const About = () => {
               </h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {[
-                  { icon: TrendingUp, title: 'Stock Trading', desc: 'Technical analysis & swing trading strategies' },
-                  { icon: Briefcase, title: 'Options Trading', desc: 'High-probability options setups' },
-                  { icon: Award, title: 'Futures & Forex', desc: 'Day trading with price action' },
-                  { icon: Users, title: 'Crypto Trading', desc: 'Navigating digital asset markets' },
-                ].map((item, i) => (
-                  <div key={i} className="bg-background rounded-xl p-6 border border-border/50 text-center hover:border-primary/50 transition-colors">
+                {[{
+                icon: TrendingUp,
+                title: 'Stock Trading',
+                desc: 'Technical analysis & swing trading strategies'
+              }, {
+                icon: Briefcase,
+                title: 'Options Trading',
+                desc: 'High-probability options setups'
+              }, {
+                icon: Award,
+                title: 'Futures & Forex',
+                desc: 'Day trading with price action'
+              }, {
+                icon: Users,
+                title: 'Crypto Trading',
+                desc: 'Navigating digital asset markets'
+              }].map((item, i) => <div key={i} className="bg-background rounded-xl p-6 border border-border/50 text-center hover:border-primary/50 transition-colors">
                     <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                       <item.icon className="w-7 h-7 text-primary" />
                     </div>
                     <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
                     <p className="text-sm text-muted-foreground">{item.desc}</p>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </div>
           </div>
@@ -226,23 +216,26 @@ const About = () => {
               </p>
               
               <div className="flex flex-wrap justify-center gap-4 mb-12">
-                {[
-                  { icon: Youtube, href: 'https://www.youtube.com/@stackmodetrading', label: 'YouTube' },
-                  { icon: Instagram, href: 'https://www.instagram.com/stackmodechris', label: 'Instagram' },
-                  { icon: Facebook, href: 'https://www.facebook.com/stackmodechris', label: 'Facebook' },
-                  { icon: Linkedin, href: 'https://www.linkedin.com/in/stackmodechris', label: 'LinkedIn' },
-                ].map((social, i) => (
-                  <a
-                    key={i}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-foreground/5 hover:bg-primary/10 text-foreground hover:text-primary px-5 py-3 rounded-lg font-medium transition-colors"
-                  >
+                {[{
+                icon: Youtube,
+                href: 'https://www.youtube.com/@stackmodetrading',
+                label: 'YouTube'
+              }, {
+                icon: Instagram,
+                href: 'https://www.instagram.com/stackmodechris',
+                label: 'Instagram'
+              }, {
+                icon: Facebook,
+                href: 'https://www.facebook.com/stackmodechris',
+                label: 'Facebook'
+              }, {
+                icon: Linkedin,
+                href: 'https://www.linkedin.com/in/stackmodechris',
+                label: 'LinkedIn'
+              }].map((social, i) => <a key={i} href={social.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-foreground/5 hover:bg-primary/10 text-foreground hover:text-primary px-5 py-3 rounded-lg font-medium transition-colors">
                     <social.icon size={20} />
                     {social.label}
-                  </a>
-                ))}
+                  </a>)}
               </div>
 
               <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 rounded-2xl p-8 border border-primary/20">
@@ -285,29 +278,19 @@ const About = () => {
                     <label htmlFor="name" className="text-sm font-medium text-foreground">
                       Name <span className="text-destructive">*</span>
                     </label>
-                    <Input
-                      id="name"
-                      type="text"
-                      placeholder="Your name"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      maxLength={100}
-                      required
-                    />
+                    <Input id="name" type="text" placeholder="Your name" value={formData.name} onChange={e => setFormData({
+                    ...formData,
+                    name: e.target.value
+                  })} maxLength={100} required />
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="email" className="text-sm font-medium text-foreground">
                       Email <span className="text-destructive">*</span>
                     </label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="your@email.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      maxLength={255}
-                      required
-                    />
+                    <Input id="email" type="email" placeholder="your@email.com" value={formData.email} onChange={e => setFormData({
+                    ...formData,
+                    email: e.target.value
+                  })} maxLength={255} required />
                   </div>
                 </div>
                 
@@ -315,29 +298,20 @@ const About = () => {
                   <label htmlFor="subject" className="text-sm font-medium text-foreground">
                     Subject
                   </label>
-                  <Input
-                    id="subject"
-                    type="text"
-                    placeholder="What's this about?"
-                    value={formData.subject}
-                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    maxLength={150}
-                  />
+                  <Input id="subject" type="text" placeholder="What's this about?" value={formData.subject} onChange={e => setFormData({
+                  ...formData,
+                  subject: e.target.value
+                })} maxLength={150} />
                 </div>
                 
                 <div className="space-y-2">
                   <label htmlFor="message" className="text-sm font-medium text-foreground">
                     Message <span className="text-destructive">*</span>
                   </label>
-                  <Textarea
-                    id="message"
-                    placeholder="Your message..."
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    maxLength={2000}
-                    rows={5}
-                    required
-                  />
+                  <Textarea id="message" placeholder="Your message..." value={formData.message} onChange={e => setFormData({
+                  ...formData,
+                  message: e.target.value
+                })} maxLength={2000} rows={5} required />
                 </div>
                 
                 <Button type="submit" size="lg" className="w-full gap-2">
@@ -364,8 +338,6 @@ const About = () => {
           </div>
         </footer>
       </div>
-    </>
-  );
+    </>;
 };
-
 export default About;
