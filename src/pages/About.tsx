@@ -249,7 +249,7 @@ const About = () => {
                   Book a free 1-on-1 mentorship call and let's discuss your trading goals
                 </p>
                 <Button size="lg" asChild className="gap-2">
-                  <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer">
+                  <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer">
                     <Calendar size={20} />
                     Schedule Your FREE Call
                   </a>
