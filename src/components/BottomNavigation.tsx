@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Home, BookOpen, User, Calendar } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 // Haptic feedback utility
 const triggerHaptic = () => {
@@ -23,15 +24,35 @@ const navItems = [
 
 export const BottomNavigation = () => {
   const location = useLocation();
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const isActive = (path: string) => {
     if (path === '/') return location.pathname === '/';
     return location.pathname.startsWith(path);
   };
 
-  const handleClick = () => {
+  // Track active index for indicator animation
+  useEffect(() => {
+    const index = navItems.findIndex(item => !item.isExternal && isActive(item.path));
+    if (index !== -1 && index !== activeIndex) {
+      setIsAnimating(true);
+      setActiveIndex(index);
+      setTimeout(() => setIsAnimating(false), 300);
+    }
+  }, [location.pathname]);
+
+  const handleClick = (index: number) => {
     triggerHaptic();
+    if (!navItems[index].isExternal) {
+      setIsAnimating(true);
+      setTimeout(() => setIsAnimating(false), 300);
+    }
   };
+
+  // Calculate indicator position (excluding external links for indicator)
+  const internalItems = navItems.filter(item => !item.isExternal);
+  const indicatorWidth = 100 / navItems.length;
 
   return (
     <nav className="fixed bottom-0 inset-x-0 z-50 md:hidden">
@@ -42,15 +63,24 @@ export const BottomNavigation = () => {
         <div className="absolute inset-0 backdrop-blur-xl" />
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
         
+        {/* Sliding indicator */}
+        <div 
+          className={`absolute top-0 h-0.5 bg-gradient-to-r from-primary/50 via-primary to-primary/50 transition-all duration-300 ease-out ${isAnimating ? 'opacity-100' : 'opacity-70'}`}
+          style={{ 
+            width: `${indicatorWidth}%`,
+            left: `${activeIndex * indicatorWidth}%`,
+          }}
+        />
+        
         {/* Safe area padding for devices with home indicators */}
         <div className="relative px-2 pt-2 pb-safe">
           <div className="flex items-center justify-around">
-            {navItems.map((item) => {
+            {navItems.map((item, index) => {
               const Icon = item.icon;
               const active = !item.isExternal && isActive(item.path);
               
               const className = `
-                flex flex-col items-center justify-center gap-1 py-2 px-3 rounded-xl transition-all duration-200 active:scale-95 min-w-[64px]
+                relative flex flex-col items-center justify-center gap-1 py-2 px-3 rounded-xl transition-all duration-300 min-w-[64px]
                 ${item.isHighlighted 
                   ? 'text-primary-foreground' 
                   : active 
@@ -61,21 +91,33 @@ export const BottomNavigation = () => {
 
               const content = (
                 <>
+                  {/* Animated background glow for active state */}
+                  {active && !item.isHighlighted && (
+                    <div className="absolute inset-0 bg-primary/5 rounded-xl animate-fade-in" />
+                  )}
+                  
                   <div className={`
-                    relative p-2 rounded-xl transition-all duration-200
+                    relative p-2 rounded-xl transition-all duration-300
                     ${item.isHighlighted 
-                      ? 'bg-primary shadow-lg shadow-primary/30' 
+                      ? 'bg-primary shadow-lg shadow-primary/30 scale-100 hover:scale-105 active:scale-95' 
                       : active 
-                        ? 'bg-primary/15' 
-                        : 'bg-transparent'
+                        ? 'bg-primary/15 scale-110' 
+                        : 'bg-transparent scale-100 hover:scale-105 active:scale-95'
                     }
                   `}>
-                    <Icon size={20} />
+                    <Icon 
+                      size={20} 
+                      className={`transition-transform duration-300 ${active && !item.isHighlighted ? 'animate-scale-in' : ''}`}
+                    />
                     {item.isHighlighted && (
                       <span className="absolute -top-1 -right-1 w-2 h-2 bg-accent rounded-full animate-pulse" />
                     )}
                   </div>
-                  <span className={`text-[10px] font-medium ${item.isHighlighted ? 'text-primary' : ''}`}>
+                  <span className={`
+                    text-[10px] font-medium transition-all duration-300
+                    ${item.isHighlighted ? 'text-primary' : ''}
+                    ${active && !item.isHighlighted ? 'text-primary font-semibold' : ''}
+                  `}>
                     {item.label}
                   </span>
                 </>
@@ -88,7 +130,7 @@ export const BottomNavigation = () => {
                     href={item.path}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={handleClick}
+                    onClick={() => handleClick(index)}
                     className={className}
                   >
                     {content}
@@ -100,7 +142,7 @@ export const BottomNavigation = () => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  onClick={handleClick}
+                  onClick={() => handleClick(index)}
                   className={className}
                 >
                   {content}
