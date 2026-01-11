@@ -1,4 +1,4 @@
-import { TrendingUp, Brain, GraduationCap, Bitcoin, Video, BookOpen, ShoppingCart } from 'lucide-react';
+import { TrendingUp, Brain, GraduationCap, Bitcoin, Video, BookOpen, ShoppingCart, Clock } from 'lucide-react';
 import { MainHeader } from '@/components/MainHeader';
 import { MainFooter } from '@/components/MainFooter';
 
@@ -10,6 +10,7 @@ const products = [
     category: "Stock Analysis",
     icon: TrendingUp,
     color: "text-green-500",
+    comingSoon: true,
     courseLink: "#",
     ebookLink: "#",
     amazonLink: "#"
@@ -21,6 +22,7 @@ const products = [
     category: "Trading Psychology",
     icon: Brain,
     color: "text-purple-500",
+    comingSoon: true,
     courseLink: "#",
     ebookLink: "#",
     amazonLink: "#"
@@ -32,6 +34,7 @@ const products = [
     category: "Cryptocurrency",
     icon: Bitcoin,
     color: "text-orange-500",
+    comingSoon: true,
     courseLink: "#",
     ebookLink: "#",
     amazonLink: "#"
@@ -43,6 +46,7 @@ const products = [
     category: "Trading Fundamentals",
     icon: GraduationCap,
     color: "text-blue-500",
+    comingSoon: false,
     courseLink: "#",
     ebookLink: "#",
     amazonLink: "#"
@@ -98,35 +102,44 @@ const Learn = () => {
                     
                     {/* Action Buttons */}
                     <div className="space-y-2">
-                      <a 
-                        href={product.courseLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2 w-full py-2.5 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-colors text-sm"
-                      >
-                        <Video size={16} />
-                        <span>Watch Course</span>
-                      </a>
-                      <div className="grid grid-cols-2 gap-2">
-                        <a 
-                          href={product.ebookLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center justify-center gap-2 py-2.5 bg-muted text-foreground font-medium rounded-lg hover:bg-muted/80 transition-colors text-sm"
-                        >
-                          <BookOpen size={16} />
-                          <span>eBook</span>
-                        </a>
-                        <a 
-                          href={product.amazonLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center justify-center gap-2 py-2.5 bg-orange-500/10 text-orange-500 font-medium rounded-lg hover:bg-orange-500/20 transition-colors text-sm"
-                        >
-                          <ShoppingCart size={16} />
-                          <span>Amazon</span>
-                        </a>
-                      </div>
+                      {product.comingSoon ? (
+                        <div className="flex items-center justify-center gap-2 w-full py-3 bg-muted/50 text-muted-foreground font-medium rounded-lg text-sm border border-border">
+                          <Clock size={16} />
+                          <span>Coming Soon</span>
+                        </div>
+                      ) : (
+                        <>
+                          <a 
+                            href={product.courseLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-center gap-2 w-full py-2.5 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-colors text-sm"
+                          >
+                            <Video size={16} />
+                            <span>Watch Course</span>
+                          </a>
+                          <div className="grid grid-cols-2 gap-2">
+                            <a 
+                              href={product.ebookLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center justify-center gap-2 py-2.5 bg-muted text-foreground font-medium rounded-lg hover:bg-muted/80 transition-colors text-sm"
+                            >
+                              <BookOpen size={16} />
+                              <span>eBook</span>
+                            </a>
+                            <a 
+                              href={product.amazonLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center justify-center gap-2 py-2.5 bg-orange-500/10 text-orange-500 font-medium rounded-lg hover:bg-orange-500/20 transition-colors text-sm"
+                            >
+                              <ShoppingCart size={16} />
+                              <span>Amazon</span>
+                            </a>
+                          </div>
+                        </>
+                      )}
                     </div>
                   </div>
                 </article>
