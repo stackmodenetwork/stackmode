@@ -5,8 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
-import Books from "./pages/Books";
-import Courses from "./pages/Courses";
+import Learn from "./pages/Learn";
 import About from "./pages/About";
 import DMCAPolicy from "./pages/DMCAPolicy";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -24,8 +23,9 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/books" element={<Books />} />
-            <Route path="/courses" element={<Courses />} />
+            <Route path="/learn" element={<Learn />} />
+            <Route path="/books" element={<Learn />} />
+            <Route path="/courses" element={<Learn />} />
             <Route path="/about" element={<About />} />
             <Route path="/dmca" element={<DMCAPolicy />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
