@@ -32,7 +32,7 @@ const Index = () => {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <a href="https://stackmode.net" className="flex items-center">
-              <img src="/images/sm-logo.png" alt="Stackmode Logo" className="w-16 h-16 object-contain" />
+              <img src="/images/sm-logo.png" alt="Stackmode Logo" className="w-20 h-20 sm:w-16 sm:h-16 object-contain" />
               <span className="text-xl font-bold text-foreground hidden sm:block -ml-1">STACKMODE.NET</span>
             </a>
             
