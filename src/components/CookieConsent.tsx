@@ -27,10 +27,38 @@ export const CookieConsent = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 p-4 pb-20 md:pb-4 animate-in slide-in-from-bottom-5 duration-500">
-      <div className="max-w-4xl mx-auto bg-card border border-border rounded-xl shadow-2xl shadow-black/20 p-4 sm:p-6">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-          {/* Cookie Icon & Text */}
+    <div className="fixed bottom-0 left-0 right-0 z-40 p-3 pb-20 md:pb-4 animate-in slide-in-from-bottom-5 duration-500">
+      <div className="max-w-4xl mx-auto bg-card border border-border rounded-xl shadow-2xl shadow-black/20 p-3 sm:p-6">
+        {/* Mobile: Compact single-line layout */}
+        <div className="flex md:hidden items-center justify-between gap-3">
+          <div className="flex items-center gap-2 min-w-0">
+            <span className="text-lg flex-shrink-0">🍪</span>
+            <p className="text-xs text-muted-foreground truncate">
+              We use cookies.{' '}
+              <a href="/privacy" className="text-primary hover:underline">Learn more</a>
+            </p>
+          </div>
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={handleDecline}
+              className="text-xs h-8 px-2"
+            >
+              Decline
+            </Button>
+            <Button
+              size="sm"
+              onClick={handleAccept}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground text-xs font-medium h-8 px-3"
+            >
+              Accept
+            </Button>
+          </div>
+        </div>
+
+        {/* Desktop: Full layout */}
+        <div className="hidden md:flex items-center gap-4">
           <div className="flex-1">
             <div className="flex items-center gap-2 mb-2">
               <span className="text-2xl">🍪</span>
@@ -49,29 +77,27 @@ export const CookieConsent = () => {
             </p>
           </div>
           
-          {/* Buttons */}
-          <div className="flex items-center gap-3 w-full sm:w-auto">
+          <div className="flex items-center gap-3">
             <Button
               variant="outline"
               size="sm"
               onClick={handleDecline}
-              className="flex-1 sm:flex-none text-sm"
+              className="text-sm"
             >
               Decline
             </Button>
             <Button
               size="sm"
               onClick={handleAccept}
-              className="flex-1 sm:flex-none bg-primary hover:bg-primary/90 text-primary-foreground text-sm font-medium"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground text-sm font-medium"
             >
               Accept All
             </Button>
           </div>
           
-          {/* Close button */}
           <button
             onClick={handleDecline}
-            className="absolute top-3 right-3 sm:static text-muted-foreground hover:text-foreground transition-colors"
+            className="text-muted-foreground hover:text-foreground transition-colors"
             aria-label="Close cookie notice"
           >
             <X size={18} />
