@@ -1,31 +1,31 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
-import { ArrowLeft, Youtube, Calendar, Instagram, Facebook, Linkedin, TrendingUp, Users, Briefcase, Award, Mail, Send } from 'lucide-react';
+import { Youtube, Calendar, Instagram, Facebook, Linkedin, TrendingUp, Users, Briefcase, Award, Mail, Send } from 'lucide-react';
 import TikTokIcon from '@/components/TikTokIcon';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { SocialShareButtons } from '@/components/SocialShareButtons';
 import { useToast } from '@/hooks/use-toast';
+import { MainHeader } from '@/components/MainHeader';
+import { MainFooter } from '@/components/MainFooter';
+
 const About = () => {
-  const {
-    toast
-  } = useToast();
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: ''
   });
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Validate inputs
     const name = formData.name.trim();
     const email = formData.email.trim();
     const subject = formData.subject.trim();
     const message = formData.message.trim();
+
     if (!name || !email || !message) {
       toast({
         title: "Missing fields",
@@ -35,7 +35,6 @@ const About = () => {
       return;
     }
 
-    // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       toast({
@@ -46,7 +45,6 @@ const About = () => {
       return;
     }
 
-    // Build mailto link with proper encoding
     const mailtoSubject = encodeURIComponent(subject || 'Inquiry from Website');
     const mailtoBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
     window.location.href = `mailto:stackmodenetwork@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
@@ -55,54 +53,49 @@ const About = () => {
       description: "Your default email app should open now."
     });
   };
-  return <>
+
+  return (
+    <>
       <Helmet>
         <title>About Stackmodechris | Trading Mentor & Founder of Stackmode Network</title>
         <meta name="description" content="Meet Christopher Robinson (Stackmodechris) - a passionate trader and mentor helping everyday people achieve financial freedom through stocks, options, futures, forex, and crypto trading." />
         <meta name="keywords" content="Stackmodechris, trading mentor, Christopher Robinson, Stackmode Network, trading education, forex trading, crypto trading, stocks trading, options trading, futures trading" />
         <link rel="canonical" href="https://stackmode.net/about" />
         
-        {/* Open Graph */}
         <meta property="og:title" content="About Stackmodechris | Trading Mentor & Founder" />
         <meta property="og:description" content="Meet Christopher Robinson - a passionate trader helping everyday people achieve financial freedom through proven trading strategies." />
         <meta property="og:url" content="https://stackmode.net/about" />
         <meta property="og:type" content="profile" />
         <meta property="og:image" content="https://stackmode.net/images/stackmodechris-about-new.png" />
         
-        {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="About Stackmodechris | Trading Mentor" />
         <meta name="twitter:description" content="Meet Christopher Robinson - helping traders achieve financial freedom through proven strategies." />
         <meta name="twitter:image" content="https://stackmode.net/images/stackmodechris-about-new.png" />
         
-        {/* JSON-LD Person Schema */}
         <script type="application/ld+json">
           {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Person",
-          "name": "Christopher Robinson",
-          "alternateName": "Stackmodechris",
-          "description": "Trading Mentor & Founder of Stackmode Network",
-          "jobTitle": "Trading Mentor",
-          "url": "https://stackmode.net/about",
-          "image": "https://stackmode.net/images/stackmodechris-about-new.png",
-          "sameAs": ["https://www.youtube.com/@stackmodetrading", "https://www.instagram.com/stackmodechris", "https://www.facebook.com/stackmodechris", "https://www.linkedin.com/in/stackmodechris"],
-          "knowsAbout": ["Stock Trading", "Options Trading", "Futures Trading", "Forex Trading", "Cryptocurrency Trading", "Technical Analysis", "Price Action"]
-        })}
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Christopher Robinson",
+            "alternateName": "Stackmodechris",
+            "description": "Trading Mentor & Founder of Stackmode Network",
+            "jobTitle": "Trading Mentor",
+            "url": "https://stackmode.net/about",
+            "image": "https://stackmode.net/images/stackmodechris-about-new.png",
+            "sameAs": [
+              "https://www.youtube.com/@stackmodetrading",
+              "https://www.instagram.com/stackmodechris",
+              "https://www.facebook.com/stackmodechris",
+              "https://www.linkedin.com/in/stackmodechris"
+            ],
+            "knowsAbout": ["Stock Trading", "Options Trading", "Futures Trading", "Forex Trading", "Cryptocurrency Trading", "Technical Analysis", "Price Action"]
+          })}
         </script>
       </Helmet>
 
-      <div className="min-h-screen bg-background">
-        {/* Header */}
-        <header className="border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
-          <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-            <Link to="/" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
-              <ArrowLeft size={20} />
-              <span className="font-medium">Back to Home</span>
-            </Link>
-            <SocialShareButtons url="https://stackmode.net/about" title="About Stackmodechris | Trading Mentor" description="Meet Christopher Robinson - helping traders achieve financial freedom." />
-          </div>
-        </header>
+      <div className="min-h-screen bg-background flex flex-col">
+        <MainHeader />
 
         {/* Hero Section */}
         <section className="py-16 md:py-24 bg-gradient-to-b from-primary/5 to-background">
@@ -177,23 +170,13 @@ const About = () => {
               </h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {[{
-                icon: TrendingUp,
-                title: 'Stock Trading',
-                desc: 'Master technical analysis, chart patterns, and swing trading strategies to capture profitable moves in equity markets'
-              }, {
-                icon: Briefcase,
-                title: 'Options Trading',
-                desc: 'Learn high-probability options setups including credit spreads, iron condors, and directional plays for consistent income'
-              }, {
-                icon: Award,
-                title: 'Futures & Forex',
-                desc: 'Swing trading strategy using price action, support/resistance levels, and market structure analysis'
-              }, {
-                icon: Users,
-                title: 'Crypto Trading',
-                desc: 'Navigate volatile digital asset markets with risk management, trend analysis, and strategic position sizing'
-              }].map((item, i) => <div 
+                {[
+                  { icon: TrendingUp, title: 'Stock Trading', desc: 'Master technical analysis, chart patterns, and swing trading strategies to capture profitable moves in equity markets' },
+                  { icon: Briefcase, title: 'Options Trading', desc: 'Learn high-probability options setups including credit spreads, iron condors, and directional plays for consistent income' },
+                  { icon: Award, title: 'Futures & Forex', desc: 'Swing trading strategy using price action, support/resistance levels, and market structure analysis' },
+                  { icon: Users, title: 'Crypto Trading', desc: 'Navigate volatile digital asset markets with risk management, trend analysis, and strategic position sizing' }
+                ].map((item, i) => (
+                  <div 
                     key={i} 
                     className="bg-background rounded-xl p-6 border border-border/50 text-center hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1 group"
                   >
@@ -202,7 +185,8 @@ const About = () => {
                     </div>
                     <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
                     <p className="text-sm text-muted-foreground">{item.desc}</p>
-                  </div>)}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -220,30 +204,24 @@ const About = () => {
               </p>
               
               <div className="flex flex-wrap justify-center gap-4 mb-12">
-                {[{
-                icon: Youtube,
-                href: 'https://www.youtube.com/@Stackmodechris',
-                label: 'YouTube'
-              }, {
-                icon: Instagram,
-                href: 'https://www.instagram.com/stackmodechris_/',
-                label: 'Instagram'
-              }, {
-                icon: Facebook,
-                href: 'https://www.facebook.com/share/17cn4N587n/?mibextid=wwXIfr',
-                label: 'Facebook'
-              }, {
-                icon: Linkedin,
-                href: 'https://www.linkedin.com/in/christopher-robinson-119a01234/',
-                label: 'LinkedIn'
-              }, {
-                icon: TikTokIcon,
-                href: 'https://www.tiktok.com/@stackmodechris_?is_from_webapp=1&sender_device=pc',
-                label: 'TikTok'
-              }].map((social, i) => <a key={i} href={social.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-foreground/5 hover:bg-primary/10 text-foreground hover:text-primary px-5 py-3 rounded-lg font-medium transition-colors">
+                {[
+                  { icon: Youtube, href: 'https://www.youtube.com/@Stackmodechris', label: 'YouTube' },
+                  { icon: Instagram, href: 'https://www.instagram.com/stackmodechris_/', label: 'Instagram' },
+                  { icon: Facebook, href: 'https://www.facebook.com/share/17cn4N587n/?mibextid=wwXIfr', label: 'Facebook' },
+                  { icon: Linkedin, href: 'https://www.linkedin.com/in/christopher-robinson-119a01234/', label: 'LinkedIn' },
+                  { icon: TikTokIcon, href: 'https://www.tiktok.com/@stackmodechris_?is_from_webapp=1&sender_device=pc', label: 'TikTok' }
+                ].map((social, i) => (
+                  <a 
+                    key={i} 
+                    href={social.href} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="flex items-center gap-2 bg-foreground/5 hover:bg-primary/10 text-foreground hover:text-primary px-5 py-3 rounded-lg font-medium transition-colors"
+                  >
                     <social.icon size={20} />
                     {social.label}
-                  </a>)}
+                  </a>
+                ))}
               </div>
 
               <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 rounded-2xl p-8 border border-primary/20">
@@ -286,19 +264,29 @@ const About = () => {
                     <label htmlFor="name" className="text-sm font-medium text-foreground">
                       Name <span className="text-destructive">*</span>
                     </label>
-                    <Input id="name" type="text" placeholder="Your name" value={formData.name} onChange={e => setFormData({
-                    ...formData,
-                    name: e.target.value
-                  })} maxLength={100} required />
+                    <Input 
+                      id="name" 
+                      type="text" 
+                      placeholder="Your name" 
+                      value={formData.name} 
+                      onChange={e => setFormData({ ...formData, name: e.target.value })} 
+                      maxLength={100} 
+                      required 
+                    />
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="email" className="text-sm font-medium text-foreground">
                       Email <span className="text-destructive">*</span>
                     </label>
-                    <Input id="email" type="email" placeholder="your@email.com" value={formData.email} onChange={e => setFormData({
-                    ...formData,
-                    email: e.target.value
-                  })} maxLength={255} required />
+                    <Input 
+                      id="email" 
+                      type="email" 
+                      placeholder="your@email.com" 
+                      value={formData.email} 
+                      onChange={e => setFormData({ ...formData, email: e.target.value })} 
+                      maxLength={255} 
+                      required 
+                    />
                   </div>
                 </div>
                 
@@ -306,20 +294,29 @@ const About = () => {
                   <label htmlFor="subject" className="text-sm font-medium text-foreground">
                     Subject
                   </label>
-                  <Input id="subject" type="text" placeholder="What's this about?" value={formData.subject} onChange={e => setFormData({
-                  ...formData,
-                  subject: e.target.value
-                })} maxLength={150} />
+                  <Input 
+                    id="subject" 
+                    type="text" 
+                    placeholder="What's this about?" 
+                    value={formData.subject} 
+                    onChange={e => setFormData({ ...formData, subject: e.target.value })} 
+                    maxLength={150} 
+                  />
                 </div>
                 
                 <div className="space-y-2">
                   <label htmlFor="message" className="text-sm font-medium text-foreground">
                     Message <span className="text-destructive">*</span>
                   </label>
-                  <Textarea id="message" placeholder="Your message..." value={formData.message} onChange={e => setFormData({
-                  ...formData,
-                  message: e.target.value
-                })} maxLength={2000} rows={5} required />
+                  <Textarea 
+                    id="message" 
+                    placeholder="Your message..." 
+                    value={formData.message} 
+                    onChange={e => setFormData({ ...formData, message: e.target.value })} 
+                    maxLength={2000} 
+                    rows={5} 
+                    required 
+                  />
                 </div>
                 
                 <Button type="submit" size="lg" className="w-full gap-2">
@@ -335,17 +332,10 @@ const About = () => {
           </div>
         </section>
 
-        {/* Footer */}
-        <footer className="py-8 border-t border-border/40">
-          <div className="container mx-auto px-4 text-center text-muted-foreground">
-            <p>© {new Date().getFullYear()} Stackmode Network. All rights reserved.</p>
-            <div className="flex justify-center gap-4 mt-4">
-              <Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
-              <Link to="/terms" className="hover:text-primary transition-colors">Terms & Conditions</Link>
-            </div>
-          </div>
-        </footer>
+        <MainFooter />
       </div>
-    </>;
+    </>
+  );
 };
+
 export default About;

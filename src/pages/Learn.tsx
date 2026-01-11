@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom';
-import { ArrowLeft, TrendingUp, Brain, GraduationCap, Bitcoin, Video, BookOpen, ShoppingCart } from 'lucide-react';
+import { TrendingUp, Brain, GraduationCap, Bitcoin, Video, BookOpen, ShoppingCart } from 'lucide-react';
+import { MainHeader } from '@/components/MainHeader';
+import { MainFooter } from '@/components/MainFooter';
 
 const products = [
   {
@@ -50,17 +51,8 @@ const products = [
 
 const Learn = () => {
   return (
-    <main className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-            <ArrowLeft size={20} />
-            <span className="font-medium">Back to Home</span>
-          </Link>
-          <span className="text-lg font-bold text-primary">COURSES & BOOKS</span>
-        </div>
-      </header>
+    <main className="min-h-screen bg-background flex flex-col">
+      <MainHeader />
 
       {/* Hero Section */}
       <section className="py-12 md:py-20 px-4">
@@ -75,7 +67,7 @@ const Learn = () => {
       </section>
 
       {/* Products Grid */}
-      <section className="pb-20 px-4">
+      <section className="pb-20 px-4 flex-1">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {products.map((product) => {
@@ -164,27 +156,7 @@ const Learn = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-background border-t border-border py-6 px-4">
-        <div className="max-w-4xl mx-auto text-center space-y-4">
-          <div className="flex flex-wrap justify-center gap-4 text-sm">
-            <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">
-              Home
-            </Link>
-            <span className="text-border hidden sm:inline">|</span>
-            <a href="https://stackmodechris.systeme.io/termsandconditions" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-              Terms & Conditions
-            </a>
-            <span className="text-border hidden sm:inline">|</span>
-            <a href="https://stackmodechris.systeme.io/privacypolicy" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-              Privacy Policy
-            </a>
-          </div>
-          <p className="text-xs text-muted-foreground">
-            © 2026 Stackmode Network LLC
-          </p>
-        </div>
-      </footer>
+      <MainFooter />
     </main>
   );
 };
