@@ -1,6 +1,8 @@
 import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
-import { ArrowLeft, Home } from "lucide-react";
+import { Home } from "lucide-react";
+import { MainHeader } from '@/components/MainHeader';
+import { MainFooter } from '@/components/MainFooter';
 
 const NotFound = () => {
   const location = useLocation();
@@ -14,16 +16,7 @@ const NotFound = () => {
 
   return (
     <main className="min-h-screen bg-background text-foreground flex flex-col">
-      {/* Header */}
-      <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
-        <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-            <ArrowLeft size={20} />
-            <span className="font-medium">Back to Home</span>
-          </Link>
-          <span className="text-lg font-bold text-primary">STACKMODE</span>
-        </div>
-      </header>
+      <MainHeader />
 
       {/* Content */}
       <div className="flex-1 flex items-center justify-center px-4">
@@ -43,27 +36,7 @@ const NotFound = () => {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="bg-background border-t border-border py-6 px-4">
-        <div className="max-w-4xl mx-auto text-center space-y-4">
-          <div className="flex flex-wrap justify-center gap-4 text-sm">
-            <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">
-              Home
-            </Link>
-            <span className="text-border hidden sm:inline">|</span>
-            <Link to="/privacy" className="text-muted-foreground hover:text-primary transition-colors">
-              Privacy Policy
-            </Link>
-            <span className="text-border hidden sm:inline">|</span>
-            <Link to="/terms" className="text-muted-foreground hover:text-primary transition-colors">
-              Terms & Conditions
-            </Link>
-          </div>
-          <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Stackmode Network LLC. All Rights Reserved.
-          </p>
-        </div>
-      </footer>
+      <MainFooter />
     </main>
   );
 };
