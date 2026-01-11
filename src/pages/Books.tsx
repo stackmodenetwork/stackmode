@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowLeft, BookOpen, TrendingUp, Brain, Bitcoin } from 'lucide-react';
+import { ArrowLeft, BookOpen, TrendingUp, Brain, Bitcoin, Video } from 'lucide-react';
 
 const books = [
   {
@@ -106,9 +106,12 @@ const Books = () => {
       <section className="pb-16 px-4">
         <div className="max-w-2xl mx-auto">
           <div className="bg-card border border-border rounded-2xl p-6 text-center">
-            <p className="text-muted-foreground mb-4">
-              Prefer watching? Check out our video courses for visual learning.
-            </p>
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <Video className="text-primary" size={20} />
+              <p className="text-muted-foreground">
+                Prefer watching? Check out our video courses for visual learning.
+              </p>
+            </div>
             <Link 
               to="/courses"
               className="inline-block bg-primary/10 hover:bg-primary/20 text-primary font-medium px-6 py-3 rounded-lg transition-colors"
