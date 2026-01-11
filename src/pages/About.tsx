@@ -233,7 +233,7 @@ const About = () => {
                 label: 'Facebook'
               }, {
                 icon: Linkedin,
-                href: 'https://www.linkedin.com/in/stackmodechris',
+                href: 'https://www.linkedin.com/in/christopher-robinson-119a01234/',
                 label: 'LinkedIn'
               }].map((social, i) => <a key={i} href={social.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-foreground/5 hover:bg-primary/10 text-foreground hover:text-primary px-5 py-3 rounded-lg font-medium transition-colors">
                     <social.icon size={20} />
