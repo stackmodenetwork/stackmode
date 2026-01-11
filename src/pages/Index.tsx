@@ -360,6 +360,11 @@ const Index = () => {
           </div>
         </section>
 
+        {/* Divider */}
+        <div className="max-w-2xl mx-auto my-8 px-4">
+          <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
+        </div>
+
         {/* Trust indicator */}
         <div className="mb-8 text-center">
           <p className="text-xs text-muted-foreground">Not sure which is right for you? <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Book a free call</a> and I'll help you decide.</p>
