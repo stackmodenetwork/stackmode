@@ -99,6 +99,9 @@ const Index = () => {
                 <Link to="/learn" onClick={closeMenu} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors relative after:content-[''] after:absolute after:w-[calc(100%-2rem)] after:scale-x-0 after:h-0.5 after:bottom-2 after:left-4 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                   Courses & Books
                 </Link>
+                <a href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true" target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors relative after:content-[''] after:absolute after:w-[calc(100%-2rem)] after:scale-x-0 after:h-0.5 after:bottom-2 after:left-4 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
+                  Podcast
+                </a>
                 <a href="/about" onClick={closeMenu} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors relative after:content-[''] after:absolute after:w-[calc(100%-2rem)] after:scale-x-0 after:h-0.5 after:bottom-2 after:left-4 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                   About
                 </a>
