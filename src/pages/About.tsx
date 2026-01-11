@@ -179,22 +179,25 @@ const About = () => {
                 {[{
                 icon: TrendingUp,
                 title: 'Stock Trading',
-                desc: 'Technical analysis & swing trading strategies'
+                desc: 'Master technical analysis, chart patterns, and swing trading strategies to capture profitable moves in equity markets'
               }, {
                 icon: Briefcase,
                 title: 'Options Trading',
-                desc: 'High-probability options setups'
+                desc: 'Learn high-probability options setups including credit spreads, iron condors, and directional plays for consistent income'
               }, {
                 icon: Award,
                 title: 'Futures & Forex',
-                desc: 'Swing trading strategy using price action'
+                desc: 'Swing trading strategy using price action, support/resistance levels, and market structure analysis'
               }, {
                 icon: Users,
                 title: 'Crypto Trading',
-                desc: 'Navigating digital asset markets'
-              }].map((item, i) => <div key={i} className="bg-background rounded-xl p-6 border border-border/50 text-center hover:border-primary/50 transition-colors">
-                    <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                      <item.icon className="w-7 h-7 text-primary" />
+                desc: 'Navigate volatile digital asset markets with risk management, trend analysis, and strategic position sizing'
+              }].map((item, i) => <div 
+                    key={i} 
+                    className="bg-background rounded-xl p-6 border border-border/50 text-center hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1 group"
+                  >
+                    <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 transition-transform duration-300 group-hover:scale-110">
+                      <item.icon className="w-7 h-7 text-primary transition-colors duration-300 group-hover:text-primary" />
                     </div>
                     <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
                     <p className="text-sm text-muted-foreground">{item.desc}</p>
