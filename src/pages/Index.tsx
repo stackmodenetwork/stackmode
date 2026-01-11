@@ -585,74 +585,74 @@ const Index = () => {
           <h4 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
             Connect With Me
           </h4>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-            <a href="https://www.youtube.com/@stackmodechris" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-card/50 border border-border hover:border-red-500/50 rounded-xl p-4 transition-all hover:bg-card/80 group">
-              <div className="w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center">
-                <Youtube size={20} className="text-red-500" />
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+            <a href="https://www.youtube.com/@stackmodechris" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center gap-3 bg-card/50 border border-border hover:border-red-500/50 rounded-xl p-5 transition-all hover:bg-card/80 hover:scale-105 group min-h-[120px]">
+              <div className="w-12 h-12 rounded-full bg-red-500/10 flex items-center justify-center group-hover:bg-red-500/20 transition-colors">
+                <Youtube size={24} className="text-red-500" />
               </div>
               <span className="text-foreground font-medium text-sm">YouTube</span>
             </a>
             
-            <a href="https://www.instagram.com/stackmodechris_" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-card/50 border border-border hover:border-pink-500/50 rounded-xl p-4 transition-all hover:bg-card/80 group">
-              <div className="w-10 h-10 rounded-full bg-pink-500/10 flex items-center justify-center">
-                <Instagram size={20} className="text-pink-500" />
+            <a href="https://www.instagram.com/stackmodechris_" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center gap-3 bg-card/50 border border-border hover:border-pink-500/50 rounded-xl p-5 transition-all hover:bg-card/80 hover:scale-105 group min-h-[120px]">
+              <div className="w-12 h-12 rounded-full bg-pink-500/10 flex items-center justify-center group-hover:bg-pink-500/20 transition-colors">
+                <Instagram size={24} className="text-pink-500" />
               </div>
               <span className="text-foreground font-medium text-sm">Instagram</span>
             </a>
             
-            <a href="https://www.tiktok.com/@stackmodechris_" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-card/50 border border-border hover:border-cyan-400/50 rounded-xl p-4 transition-all hover:bg-card/80 group">
-              <div className="w-10 h-10 rounded-full bg-cyan-400/10 flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-cyan-400">
+            <a href="https://www.tiktok.com/@stackmodechris_" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center gap-3 bg-card/50 border border-border hover:border-cyan-400/50 rounded-xl p-5 transition-all hover:bg-card/80 hover:scale-105 group min-h-[120px]">
+              <div className="w-12 h-12 rounded-full bg-cyan-400/10 flex items-center justify-center group-hover:bg-cyan-400/20 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-cyan-400">
                   <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
                 </svg>
               </div>
               <span className="text-foreground font-medium text-sm">TikTok</span>
             </a>
             
-            <a href="https://www.facebook.com/share/17cn4N587n/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-card/50 border border-border hover:border-blue-600/50 rounded-xl p-4 transition-all hover:bg-card/80 group">
-              <div className="w-10 h-10 rounded-full bg-blue-600/10 flex items-center justify-center">
-                <Facebook size={20} className="text-blue-600" />
+            <a href="https://www.facebook.com/share/17cn4N587n/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center gap-3 bg-card/50 border border-border hover:border-blue-600/50 rounded-xl p-5 transition-all hover:bg-card/80 hover:scale-105 group min-h-[120px]">
+              <div className="w-12 h-12 rounded-full bg-blue-600/10 flex items-center justify-center group-hover:bg-blue-600/20 transition-colors">
+                <Facebook size={24} className="text-blue-600" />
               </div>
               <span className="text-foreground font-medium text-sm">Facebook</span>
             </a>
             
-            <a href="https://twitter.com/stackmodechris" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-card/50 border border-border hover:border-foreground/50 rounded-xl p-4 transition-all hover:bg-card/80 group">
-              <div className="w-10 h-10 rounded-full bg-foreground/10 flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-foreground">
+            <a href="https://twitter.com/stackmodechris" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center gap-3 bg-card/50 border border-border hover:border-foreground/50 rounded-xl p-5 transition-all hover:bg-card/80 hover:scale-105 group min-h-[120px]">
+              <div className="w-12 h-12 rounded-full bg-foreground/10 flex items-center justify-center group-hover:bg-foreground/20 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-foreground">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
               </div>
               <span className="text-foreground font-medium text-sm">X (Twitter)</span>
             </a>
             
-            <a href="https://www.linkedin.com/in/christopher-robinson-119a01234/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-card/50 border border-border hover:border-blue-500/50 rounded-xl p-4 transition-all hover:bg-card/80 group">
-              <div className="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center">
-                <Linkedin size={20} className="text-blue-500" />
+            <a href="https://www.linkedin.com/in/christopher-robinson-119a01234/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center gap-3 bg-card/50 border border-border hover:border-blue-500/50 rounded-xl p-5 transition-all hover:bg-card/80 hover:scale-105 group min-h-[120px]">
+              <div className="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center group-hover:bg-blue-500/20 transition-colors">
+                <Linkedin size={24} className="text-blue-500" />
               </div>
               <span className="text-foreground font-medium text-sm">LinkedIn</span>
             </a>
             
-            <a href="https://www.pinterest.com/stackmodechris/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-card/50 border border-border hover:border-red-600/50 rounded-xl p-4 transition-all hover:bg-card/80 group">
-              <div className="w-10 h-10 rounded-full bg-red-600/10 flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-red-600">
+            <a href="https://www.pinterest.com/stackmodechris/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center gap-3 bg-card/50 border border-border hover:border-red-600/50 rounded-xl p-5 transition-all hover:bg-card/80 hover:scale-105 group min-h-[120px]">
+              <div className="w-12 h-12 rounded-full bg-red-600/10 flex items-center justify-center group-hover:bg-red-600/20 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-red-600">
                   <path d="M12 0a12 12 0 0 0-4.373 23.178c-.07-.937-.134-2.377.028-3.401.146-.927.943-3.996.943-3.996s-.24-.482-.24-1.193c0-1.116.647-1.949 1.452-1.949.685 0 1.016.514 1.016 1.131 0 .69-.439 1.72-.666 2.677-.189.8.401 1.452 1.189 1.452 1.427 0 2.524-1.505 2.524-3.676 0-1.922-1.381-3.266-3.353-3.266-2.284 0-3.625 1.713-3.625 3.484 0 .69.265 1.429.596 1.832a.24.24 0 0 1 .056.23c-.061.253-.197.8-.224.912-.035.146-.116.177-.268.107-1-.465-1.624-1.926-1.624-3.1 0-2.523 1.834-4.84 5.286-4.84 2.775 0 4.932 1.977 4.932 4.62 0 2.757-1.739 4.976-4.151 4.976-.811 0-1.573-.421-1.834-.919l-.498 1.902c-.181.695-.669 1.566-.995 2.097A12 12 0 1 0 12 0z" />
                 </svg>
               </div>
               <span className="text-foreground font-medium text-sm">Pinterest</span>
             </a>
             
-            <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-card/50 border border-border hover:border-indigo-500/50 rounded-xl p-4 transition-all hover:bg-card/80 group">
-              <div className="w-10 h-10 rounded-full bg-indigo-500/10 flex items-center justify-center">
-                <svg className="w-5 h-5 text-indigo-500" fill="currentColor" viewBox="0 0 24 24">
+            <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center gap-3 bg-card/50 border border-border hover:border-indigo-500/50 rounded-xl p-5 transition-all hover:bg-card/80 hover:scale-105 group min-h-[120px]">
+              <div className="w-12 h-12 rounded-full bg-indigo-500/10 flex items-center justify-center group-hover:bg-indigo-500/20 transition-colors">
+                <svg className="w-6 h-6 text-indigo-500" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z" />
                 </svg>
               </div>
               <span className="text-foreground font-medium text-sm">Discord</span>
             </a>
             
-            <a href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 bg-card/50 border border-border hover:border-green-500/50 rounded-xl p-4 transition-all hover:bg-card/80 group mx-auto">
-              <div className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center">
-                <Mic size={20} className="text-green-500" />
+            <a href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center gap-3 bg-card/50 border border-border hover:border-green-500/50 rounded-xl p-5 transition-all hover:bg-card/80 hover:scale-105 group min-h-[120px]">
+              <div className="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center group-hover:bg-green-500/20 transition-colors">
+                <Mic size={24} className="text-green-500" />
               </div>
               <span className="text-foreground font-medium text-sm">Podcast</span>
             </a>
