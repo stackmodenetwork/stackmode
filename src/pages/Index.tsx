@@ -310,14 +310,31 @@ const Index = () => {
         <AnimatedBlock delay={1.175} className="mb-16">
           <div id="courses" className="max-w-md mx-auto px-4 scroll-mt-20">
             <Link to="/learn" className="group relative block">
-              <div className="relative overflow-hidden bg-card/50 backdrop-blur-sm border border-accent/30 rounded-xl p-6 hover:border-accent transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-accent/20">
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="relative z-10 text-center">
-                  <div className="w-12 h-12 mx-auto mb-3 bg-accent/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <BookOpen className="w-6 h-6 text-accent" />
+              {/* Animated glow effect */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 rounded-2xl blur-lg opacity-60 group-hover:opacity-100 transition-all duration-500 animate-pulse" />
+              
+              <div className="relative overflow-hidden bg-gradient-to-br from-amber-900/90 via-orange-900/90 to-red-900/90 backdrop-blur-sm border-2 border-amber-400/50 rounded-2xl p-8 hover:border-amber-300 transition-all duration-300 hover:scale-105">
+                {/* Decorative elements */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-amber-400/20 rounded-full blur-3xl" />
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-orange-400/20 rounded-full blur-2xl" />
+                
+                {/* Badge */}
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg">
+                  ⭐ BEST SELLER
+                </div>
+                
+                <div className="relative z-10 text-center pt-2">
+                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg shadow-amber-500/30">
+                    <BookOpen className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-lg font-bold text-foreground mb-1">COURSES & BOOKS</h3>
-                  <p className="text-sm text-muted-foreground">Learn trading strategies</p>
+                  <h3 className="text-2xl font-black text-white mb-2 tracking-tight">COURSES & BOOKS</h3>
+                  <p className="text-amber-200/90 font-medium mb-4">Master proven trading strategies</p>
+                  <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-amber-100 text-sm font-semibold group-hover:bg-white/20 transition-colors">
+                    <span>Explore Now</span>
+                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </div>
                 </div>
               </div>
             </Link>
