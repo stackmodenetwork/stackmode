@@ -106,12 +106,12 @@ export const MainHeader = memo(() => {
               <NavLink to="/learn" isActive={isLearnActive}>
                 Courses & Books
               </NavLink>
-              <ExternalNavLink href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true">
-                Podcast
-              </ExternalNavLink>
               <NavLink to="/about" isActive={isAboutActive}>
                 About
               </NavLink>
+              <ExternalNavLink href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true">
+                Podcast
+              </ExternalNavLink>
             </nav>
 
             {/* Mobile Menu Button */}
@@ -192,24 +192,24 @@ export const MainHeader = memo(() => {
               >
                 Courses & Books
               </Link>
+              <Link 
+                to="/about" 
+                onClick={handleMenuItemClick} 
+                className={`block px-4 py-3 rounded-lg font-medium border transition-all duration-300 active:scale-[0.98] animate-fade-in ${isAboutActive ? 'text-primary bg-primary/15 border-primary/30' : 'text-foreground bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10'}`}
+                style={{ animationDelay: '175ms' }}
+              >
+                About
+              </Link>
               <a 
                 href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 onClick={handleMenuItemClick} 
                 className="block px-4 py-3 rounded-lg text-foreground font-medium bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-300 active:scale-[0.98] animate-fade-in"
-                style={{ animationDelay: '175ms' }}
+                style={{ animationDelay: '225ms' }}
               >
                 Podcast
               </a>
-              <Link 
-                to="/about" 
-                onClick={handleMenuItemClick} 
-                className={`block px-4 py-3 rounded-lg font-medium border transition-all duration-300 active:scale-[0.98] animate-fade-in ${isAboutActive ? 'text-primary bg-primary/15 border-primary/30' : 'text-foreground bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10'}`}
-                style={{ animationDelay: '225ms' }}
-              >
-                About
-              </Link>
             </div>
             
             {/* Social Links */}
