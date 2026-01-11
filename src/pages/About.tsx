@@ -187,7 +187,7 @@ const About = () => {
               }, {
                 icon: Award,
                 title: 'Futures & Forex',
-                desc: 'Day trading with price action'
+                desc: 'Swing trading strategy using price action'
               }, {
                 icon: Users,
                 title: 'Crypto Trading',
