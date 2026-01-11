@@ -69,12 +69,19 @@ export const MainHeader = () => {
       <div className={`fixed inset-x-0 top-16 sm:top-20 z-50 md:hidden transition-all duration-300 ${menuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}`}>
         <div className="bg-background/95 backdrop-blur-md border-b border-border shadow-xl">
           <div className="px-4 py-4">
-            {/* Logo in Mobile Menu */}
-            <div className="flex items-center justify-center pb-4 mb-4 border-b border-border">
+            {/* Logo and Close Button in Mobile Menu */}
+            <div className="flex items-center justify-between pb-4 mb-4 border-b border-border">
               <Link to="/" onClick={closeMenu} className="flex items-center gap-1">
                 <img src="/images/sm-logo.png" alt="Stackmode Logo" className="w-12 h-12 object-contain" />
                 <span className="text-lg font-bold text-foreground">STACKMODE.NET</span>
               </Link>
+              <button 
+                onClick={closeMenu}
+                className="p-2 rounded-lg bg-muted/50 border border-border hover:border-primary hover:bg-muted transition-colors"
+                aria-label="Close menu"
+              >
+                <X size={20} className="text-primary" />
+              </button>
             </div>
 
             {/* Main Navigation Links */}
@@ -84,7 +91,8 @@ export const MainHeader = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
                 onClick={closeMenu} 
-                className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors"
+                className={`block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-all duration-300 ${menuOpen ? 'animate-fade-in' : ''}`}
+                style={{ animationDelay: '50ms' }}
               >
                 Trading Mentorship
               </a>
@@ -93,28 +101,31 @@ export const MainHeader = () => {
                 target="_blank" 
                 rel="noopener noreferrer" 
                 onClick={closeMenu} 
-                className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors"
+                className={`block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-all duration-300 ${menuOpen ? 'animate-fade-in' : ''}`}
+                style={{ animationDelay: '100ms' }}
               >
                 Catch My Trades
               </a>
               <Link 
                 to="/learn" 
                 onClick={closeMenu} 
-                className={`block px-4 py-3 rounded-lg font-medium transition-colors ${isActive('/learn') || isActive('/courses') || isActive('/books') ? 'text-primary bg-primary/10' : 'text-foreground hover:bg-muted'}`}
+                className={`block px-4 py-3 rounded-lg font-medium transition-all duration-300 ${menuOpen ? 'animate-fade-in' : ''} ${isActive('/learn') || isActive('/courses') || isActive('/books') ? 'text-primary bg-primary/10' : 'text-foreground hover:bg-muted'}`}
+                style={{ animationDelay: '150ms' }}
               >
                 Courses & Books
               </Link>
               <Link 
                 to="/about" 
                 onClick={closeMenu} 
-                className={`block px-4 py-3 rounded-lg font-medium transition-colors ${isActive('/about') ? 'text-primary bg-primary/10' : 'text-foreground hover:bg-muted'}`}
+                className={`block px-4 py-3 rounded-lg font-medium transition-all duration-300 ${menuOpen ? 'animate-fade-in' : ''} ${isActive('/about') ? 'text-primary bg-primary/10' : 'text-foreground hover:bg-muted'}`}
+                style={{ animationDelay: '200ms' }}
               >
                 About
               </Link>
             </div>
             
             {/* Social Links */}
-            <div className="border-t border-border pt-4">
+            <div className={`border-t border-border pt-4 ${menuOpen ? 'animate-fade-in' : ''}`} style={{ animationDelay: '250ms' }}>
               <p className="text-xs text-muted-foreground mb-3 px-4">Follow Us</p>
               <div className="grid grid-cols-4 gap-2">
                 <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="flex flex-col items-center gap-1 p-3 rounded-lg hover:bg-muted transition-colors">
