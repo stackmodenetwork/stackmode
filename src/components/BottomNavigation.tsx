@@ -19,7 +19,7 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { path: '/', label: 'Home', icon: Home },
-  { path: '/learn', label: 'Courses', icon: BookOpen },
+  { path: '/learn', label: 'Courses & Books', icon: BookOpen },
   { path: '/about', label: 'About', icon: User },
   { 
     path: 'https://calendly.com/stackmodechris/tradingmastermindcoaching', 
