@@ -649,6 +649,13 @@ const Index = () => {
               </div>
               <span className="text-foreground font-medium text-sm">Discord</span>
             </a>
+            
+            <a href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-card/50 border border-border hover:border-green-500/50 rounded-xl p-4 transition-all hover:bg-card/80 group">
+              <div className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center">
+                <Mic size={20} className="text-green-500" />
+              </div>
+              <span className="text-foreground font-medium text-sm">Podcast</span>
+            </a>
           </div>
           
           <p className="text-2xl md:text-3xl font-bold text-foreground text-center mt-10">
