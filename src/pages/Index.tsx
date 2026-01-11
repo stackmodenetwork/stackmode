@@ -71,6 +71,12 @@ const Index = () => {
               >
                 Books
               </a>
+              <a 
+                href="/about"
+                className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+              >
+                About
+              </a>
             </nav>
 
             {/* Mobile Menu Button */}
@@ -117,6 +123,9 @@ const Index = () => {
                 </a>
                 <a href="#books" onClick={(e) => { e.preventDefault(); closeMenu(); setTimeout(() => document.getElementById('books')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors relative after:content-[''] after:absolute after:w-[calc(100%-2rem)] after:scale-x-0 after:h-0.5 after:bottom-2 after:left-4 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                   Books
+                </a>
+                <a href="/about" onClick={closeMenu} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors relative after:content-[''] after:absolute after:w-[calc(100%-2rem)] after:scale-x-0 after:h-0.5 after:bottom-2 after:left-4 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
+                  About
                 </a>
               </div>
               
