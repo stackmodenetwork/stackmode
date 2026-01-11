@@ -308,31 +308,30 @@ const Index = () => {
 
         {/* Courses & Books Button */}
         <AnimatedBlock delay={1.175} className="mb-16">
-          <div id="courses" className="max-w-md mx-auto px-4 scroll-mt-20">
-            <Link to="/learn" className="group relative block">
-              {/* Animated glow effect */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 rounded-2xl blur-lg opacity-60 group-hover:opacity-100 transition-all duration-500 animate-pulse" />
-              
-              <div className="relative overflow-hidden bg-gradient-to-br from-amber-900/90 via-orange-900/90 to-red-900/90 backdrop-blur-sm border-2 border-amber-400/50 rounded-2xl p-8 hover:border-amber-300 transition-all duration-300 hover:scale-105">
-                {/* Decorative elements */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-amber-400/20 rounded-full blur-3xl" />
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-orange-400/20 rounded-full blur-2xl" />
-                
-                {/* Badge */}
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg">
-                  ⭐ BEST SELLER
-                </div>
-                
-                <div className="relative z-10 text-center pt-2">
-                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg shadow-amber-500/30">
-                    <BookOpen className="w-8 h-8 text-white" />
+          <div id="courses" className="max-w-lg mx-auto px-4 scroll-mt-20">
+            <Link to="/learn" className="group block">
+              <div className="bg-gradient-to-r from-orange-600 to-orange-500 rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:from-orange-500 hover:to-orange-400 hover:shadow-lg hover:shadow-orange-500/20">
+                <div className="flex flex-col sm:flex-row items-center gap-5">
+                  {/* Icon */}
+                  <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-white/30 transition-colors">
+                    <BookOpen className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-2xl font-black text-white mb-2 tracking-tight">COURSES & BOOKS</h3>
-                  <p className="text-amber-200/90 font-medium mb-4">Master proven trading strategies</p>
-                  <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-amber-100 text-sm font-semibold group-hover:bg-white/20 transition-colors">
-                    <span>Explore Now</span>
-                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  
+                  {/* Content */}
+                  <div className="flex-1 text-center sm:text-left">
+                    <div className="flex items-center justify-center sm:justify-start gap-2 mb-1">
+                      <h3 className="text-xl sm:text-2xl font-bold text-white">Courses & Books</h3>
+                      <span className="bg-white/20 text-white text-xs font-semibold px-2 py-0.5 rounded-full">Popular</span>
+                    </div>
+                    <p className="text-white/90 text-sm sm:text-base">
+                      Step-by-step trading education. Learn chart patterns, risk management, and strategies that actually work.
+                    </p>
+                  </div>
+                  
+                  {/* Arrow */}
+                  <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-white/20 transition-colors">
+                    <svg className="w-5 h-5 text-white group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </div>
                 </div>
