@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Home, BookOpen, User, Calendar } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback, memo, useMemo } from 'react';
 
 // Haptic feedback utility
 const triggerHaptic = () => {
@@ -9,7 +9,15 @@ const triggerHaptic = () => {
   }
 };
 
-const navItems = [
+interface NavItem {
+  path: string;
+  label: string;
+  icon: typeof Home;
+  isExternal?: boolean;
+  isHighlighted?: boolean;
+}
+
+const navItems: NavItem[] = [
   { path: '/', label: 'Home', icon: Home },
   { path: '/learn', label: 'Courses', icon: BookOpen },
   { path: '/about', label: 'About', icon: User },
@@ -22,15 +30,16 @@ const navItems = [
   },
 ];
 
-export const BottomNavigation = () => {
+export const BottomNavigation = memo(() => {
   const location = useLocation();
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  const isActive = (path: string) => {
+  // Memoize active check function
+  const isActive = useCallback((path: string) => {
     if (path === '/') return location.pathname === '/';
     return location.pathname.startsWith(path);
-  };
+  }, [location.pathname]);
 
   // Track active index for indicator animation
   useEffect(() => {
@@ -38,21 +47,20 @@ export const BottomNavigation = () => {
     if (index !== -1 && index !== activeIndex) {
       setIsAnimating(true);
       setActiveIndex(index);
-      setTimeout(() => setIsAnimating(false), 300);
+      const timeout = setTimeout(() => setIsAnimating(false), 300);
+      return () => clearTimeout(timeout);
     }
-  }, [location.pathname]);
+  }, [location.pathname, activeIndex, isActive]);
 
-  const handleClick = (index: number) => {
+  const handleClick = useCallback(() => {
     triggerHaptic();
-    if (!navItems[index].isExternal) {
-      setIsAnimating(true);
-      setTimeout(() => setIsAnimating(false), 300);
-    }
-  };
+  }, []);
 
-  // Calculate indicator position (excluding external links for indicator)
-  const internalItems = navItems.filter(item => !item.isExternal);
-  const indicatorWidth = 100 / navItems.length;
+  // Memoize indicator style calculation
+  const indicatorStyle = useMemo(() => ({
+    width: `${100 / navItems.length}%`,
+    left: `${activeIndex * (100 / navItems.length)}%`,
+  }), [activeIndex]);
 
   return (
     <nav className="fixed bottom-0 inset-x-0 z-50 md:hidden">
@@ -65,11 +73,8 @@ export const BottomNavigation = () => {
         
         {/* Sliding indicator */}
         <div 
-          className={`absolute top-0 h-0.5 bg-gradient-to-r from-primary/50 via-primary to-primary/50 transition-all duration-300 ease-out ${isAnimating ? 'opacity-100' : 'opacity-70'}`}
-          style={{ 
-            width: `${indicatorWidth}%`,
-            left: `${activeIndex * indicatorWidth}%`,
-          }}
+          className={`absolute top-0 h-0.5 bg-gradient-to-r from-primary/50 via-primary to-primary/50 will-change-transform transition-all duration-300 ease-out ${isAnimating ? 'opacity-100' : 'opacity-70'}`}
+          style={indicatorStyle}
         />
         
         {/* Safe area padding for devices with home indicators */}
@@ -130,7 +135,7 @@ export const BottomNavigation = () => {
                     href={item.path}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={() => handleClick(index)}
+                    onClick={handleClick}
                     className={className}
                   >
                     {content}
@@ -142,7 +147,7 @@ export const BottomNavigation = () => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  onClick={() => handleClick(index)}
+                  onClick={handleClick}
                   className={className}
                 >
                   {content}
@@ -154,6 +159,8 @@ export const BottomNavigation = () => {
       </div>
     </nav>
   );
-};
+});
+
+BottomNavigation.displayName = 'BottomNavigation';
 
 export default BottomNavigation;
