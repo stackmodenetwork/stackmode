@@ -78,18 +78,18 @@ export function ReviewsGallery() {
         </div>}
 
       {/* Trust Badge */}
-      <div className="text-center mt-8">
-        <div className="inline-flex items-center gap-4 text-sm bg-card/80 backdrop-blur-sm border border-primary/30 rounded-full px-6 py-3 shadow-lg shadow-primary/10 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/30 hover:border-primary/60 cursor-default">
+      <div className="text-center mt-8 px-2">
+        <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-xs sm:text-sm bg-card/80 backdrop-blur-sm border border-primary/30 rounded-2xl sm:rounded-full px-4 sm:px-6 py-3 shadow-lg shadow-primary/10 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/30 hover:border-primary/60 cursor-default">
           <span className="flex items-center gap-2 text-foreground font-medium">
             <BadgeCheck className="w-4 h-4 text-green-500" />
             Verified Results
           </span>
-          <span className="text-primary/50">|</span>
+          <span className="text-primary/50 hidden sm:inline">|</span>
           <span className="flex items-center gap-2 text-foreground font-medium">
             <Users className="w-4 h-4 text-secondary" />
             Multiple Success Stories
           </span>
-          <span className="text-primary/50">|</span>
+          <span className="text-primary/50 hidden sm:inline">|</span>
           <span className="flex items-center gap-2 text-foreground font-medium">
             <Camera className="w-4 h-4 text-primary" />
             100% Real Screenshots
