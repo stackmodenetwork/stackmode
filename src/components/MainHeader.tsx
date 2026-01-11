@@ -1,15 +1,43 @@
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, memo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Youtube, Instagram, Mic } from 'lucide-react';
 
-// Haptic feedback utility for mobile devices
+// Haptic feedback utility - memoized to prevent recreation
 const triggerHaptic = (style: 'light' | 'medium' = 'light') => {
   if ('vibrate' in navigator) {
     navigator.vibrate(style === 'light' ? 10 : 25);
   }
 };
 
-export const MainHeader = () => {
+// Memoized nav link for desktop
+const NavLink = memo(({ to, isActive, children }: { to: string; isActive: boolean; children: React.ReactNode }) => (
+  <Link 
+    to={to} 
+    className={`text-base font-semibold transition-colors relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:transition-transform after:duration-300 ${
+      isActive 
+        ? 'text-primary after:scale-x-100' 
+        : 'text-foreground/80 hover:text-primary after:scale-x-0 after:origin-bottom-right hover:after:scale-x-100 hover:after:origin-bottom-left'
+    }`}
+  >
+    {children}
+  </Link>
+));
+NavLink.displayName = 'NavLink';
+
+// Memoized external link for desktop
+const ExternalNavLink = memo(({ href, children }: { href: string; children: React.ReactNode }) => (
+  <a 
+    href={href} 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+  >
+    {children}
+  </a>
+));
+ExternalNavLink.displayName = 'ExternalNavLink';
+
+export const MainHeader = memo(() => {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const touchStartY = useRef<number | null>(null);
@@ -27,10 +55,10 @@ export const MainHeader = () => {
 
   const handleMenuItemClick = useCallback(() => {
     triggerHaptic('light');
-    closeMenu();
-  }, [closeMenu]);
+    setMenuOpen(false);
+  }, []);
 
-  // Swipe gesture handlers
+  // Optimized swipe gesture handlers
   const handleTouchStart = useCallback((e: React.TouchEvent) => {
     touchStartY.current = e.touches[0].clientY;
     touchStartX.current = e.touches[0].clientX;
@@ -44,7 +72,6 @@ export const MainHeader = () => {
     const deltaY = touchEndY - touchStartY.current;
     const deltaX = Math.abs(touchEndX - touchStartX.current);
     
-    // Swipe down detected: deltaY > 50px and more vertical than horizontal
     if (deltaY > 50 && deltaY > deltaX) {
       closeMenu();
     }
@@ -53,7 +80,8 @@ export const MainHeader = () => {
     touchStartX.current = null;
   }, [closeMenu]);
 
-  const isActive = (path: string) => location.pathname === path;
+  const isLearnActive = location.pathname === '/learn' || location.pathname === '/courses' || location.pathname === '/books';
+  const isAboutActive = location.pathname === '/about';
 
   return (
     <>
@@ -69,41 +97,25 @@ export const MainHeader = () => {
             
             {/* Desktop Navigation - Centered */}
             <nav className="hidden md:flex items-center justify-center flex-1 gap-10 mx-8">
-              <a 
-                href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
-              >
+              <ExternalNavLink href="https://calendly.com/stackmodechris/tradingmastermindcoaching">
                 Trading Mentorship
-              </a>
-              <a 
-                href="https://whop.com/stackmode-network-llc/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
-              >
+              </ExternalNavLink>
+              <ExternalNavLink href="https://whop.com/stackmode-network-llc/">
                 Catch My Trades
-              </a>
-              <Link 
-                to="/learn" 
-                className={`text-base font-semibold transition-colors relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:transition-transform after:duration-300 ${isActive('/learn') || isActive('/courses') || isActive('/books') ? 'text-primary after:scale-x-100' : 'text-foreground/80 hover:text-primary after:scale-x-0 after:origin-bottom-right hover:after:scale-x-100 hover:after:origin-bottom-left'}`}
-              >
+              </ExternalNavLink>
+              <NavLink to="/learn" isActive={isLearnActive}>
                 Courses & Books
-              </Link>
-              <Link 
-                to="/about" 
-                className={`text-base font-semibold transition-colors relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:transition-transform after:duration-300 ${isActive('/about') ? 'text-primary after:scale-x-100' : 'text-foreground/80 hover:text-primary after:scale-x-0 after:origin-bottom-right hover:after:scale-x-100 hover:after:origin-bottom-left'}`}
-              >
+              </NavLink>
+              <NavLink to="/about" isActive={isAboutActive}>
                 About
-              </Link>
+              </NavLink>
             </nav>
 
             {/* Mobile Menu Button */}
             <button 
               onClick={handleMenuToggle} 
               className="md:hidden flex items-center gap-2 px-3 py-2 rounded-lg bg-muted/50 border border-border hover:border-primary transition-colors" 
-              aria-label="Open menu"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
             >
               {menuOpen ? <X size={20} className="text-primary" /> : <Menu size={20} className="text-primary" />}
             </button>
@@ -111,26 +123,27 @@ export const MainHeader = () => {
         </div>
       </header>
 
-      {/* Mobile Dropdown Menu */}
-      <div 
-        className={`fixed inset-x-0 top-16 sm:top-20 z-50 md:hidden transition-all duration-300 ${menuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}`}
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
-      >
-        {/* Glassmorphism container with gradient */}
-        <div className="relative overflow-hidden border-b border-white/10 shadow-2xl">
-          {/* Swipe indicator */}
-          <div className="flex justify-center pt-2 pb-1">
-            <div className="w-10 h-1 rounded-full bg-white/20" />
-          </div>
-          
-          {/* Gradient background layers */}
-          <div className="absolute inset-0 bg-gradient-to-br from-background via-background/98 to-primary/5" />
-          <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-transparent" />
-          <div className="absolute inset-0 backdrop-blur-xl" />
-          
-          {/* Content */}
-          <div className="relative px-4 py-4">
+      {/* Mobile Dropdown Menu - Only render content when open for performance */}
+      {menuOpen && (
+        <div 
+          className="fixed inset-x-0 top-16 sm:top-20 z-50 md:hidden animate-fade-in"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
+          {/* Glassmorphism container with gradient */}
+          <div className="relative overflow-hidden border-b border-white/10 shadow-2xl">
+            {/* Swipe indicator */}
+            <div className="flex justify-center pt-2 pb-1">
+              <div className="w-10 h-1 rounded-full bg-white/20" />
+            </div>
+            
+            {/* Gradient background layers */}
+            <div className="absolute inset-0 bg-gradient-to-br from-background via-background/98 to-primary/5" />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-transparent" />
+            <div className="absolute inset-0 backdrop-blur-xl" />
+            
+            {/* Content */}
+            <div className="relative px-4 py-4">
             {/* Logo and Close Button in Mobile Menu */}
             <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/10">
               <Link to="/" onClick={handleMenuItemClick} className="flex items-center gap-1">
@@ -153,7 +166,7 @@ export const MainHeader = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
                 onClick={handleMenuItemClick} 
-                className={`block px-4 py-3 rounded-lg text-foreground font-medium bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-300 active:scale-[0.98] ${menuOpen ? 'animate-fade-in' : ''}`}
+                className="block px-4 py-3 rounded-lg text-foreground font-medium bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-300 active:scale-[0.98] animate-fade-in"
                 style={{ animationDelay: '50ms' }}
               >
                 Trading Mentorship
@@ -163,7 +176,7 @@ export const MainHeader = () => {
                 target="_blank" 
                 rel="noopener noreferrer" 
                 onClick={handleMenuItemClick} 
-                className={`block px-4 py-3 rounded-lg text-foreground font-medium bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-300 active:scale-[0.98] ${menuOpen ? 'animate-fade-in' : ''}`}
+                className="block px-4 py-3 rounded-lg text-foreground font-medium bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-300 active:scale-[0.98] animate-fade-in"
                 style={{ animationDelay: '100ms' }}
               >
                 Catch My Trades
@@ -171,7 +184,7 @@ export const MainHeader = () => {
               <Link 
                 to="/learn" 
                 onClick={handleMenuItemClick} 
-                className={`block px-4 py-3 rounded-lg font-medium border transition-all duration-300 active:scale-[0.98] ${menuOpen ? 'animate-fade-in' : ''} ${isActive('/learn') || isActive('/courses') || isActive('/books') ? 'text-primary bg-primary/15 border-primary/30' : 'text-foreground bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10'}`}
+                className={`block px-4 py-3 rounded-lg font-medium border transition-all duration-300 active:scale-[0.98] animate-fade-in ${isLearnActive ? 'text-primary bg-primary/15 border-primary/30' : 'text-foreground bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10'}`}
                 style={{ animationDelay: '150ms' }}
               >
                 Courses & Books
@@ -179,7 +192,7 @@ export const MainHeader = () => {
               <Link 
                 to="/about" 
                 onClick={handleMenuItemClick} 
-                className={`block px-4 py-3 rounded-lg font-medium border transition-all duration-300 active:scale-[0.98] ${menuOpen ? 'animate-fade-in' : ''} ${isActive('/about') ? 'text-primary bg-primary/15 border-primary/30' : 'text-foreground bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10'}`}
+                className={`block px-4 py-3 rounded-lg font-medium border transition-all duration-300 active:scale-[0.98] animate-fade-in ${isAboutActive ? 'text-primary bg-primary/15 border-primary/30' : 'text-foreground bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10'}`}
                 style={{ animationDelay: '200ms' }}
               >
                 About
@@ -187,7 +200,7 @@ export const MainHeader = () => {
             </div>
             
             {/* Social Links */}
-            <div className={`border-t border-white/10 pt-4 ${menuOpen ? 'animate-fade-in' : ''}`} style={{ animationDelay: '250ms' }}>
+            <div className="border-t border-white/10 pt-4 animate-fade-in" style={{ animationDelay: '250ms' }}>
               <p className="text-xs text-muted-foreground mb-3 px-4">Follow Us</p>
               <div className="grid grid-cols-4 gap-2">
                 <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" onClick={handleMenuItemClick} className="flex flex-col items-center gap-1 p-3 rounded-lg bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-200 active:scale-95">
@@ -213,8 +226,11 @@ export const MainHeader = () => {
         {/* Backdrop with blur */}
         <div className="fixed inset-0 bg-background/70 backdrop-blur-sm -z-10" onClick={closeMenu} />
       </div>
+      )}
     </>
   );
-};
+});
+
+MainHeader.displayName = 'MainHeader';
 
 export default MainHeader;
