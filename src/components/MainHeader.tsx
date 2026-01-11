@@ -14,11 +14,11 @@ export const MainHeader = () => {
       {/* Top Navigation Bar */}
       <header className="bg-card border-b border-border sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-16 sm:h-20 md:h-24">
             {/* Logo */}
             <Link to="/" className="flex items-center">
-              <img src="/images/sm-logo.png" alt="Stackmode Logo" className="w-20 h-20 object-contain" />
-              <span className="text-2xl font-bold text-foreground hidden sm:block -ml-1">STACKMODE.NET</span>
+              <img src="/images/sm-logo.png" alt="Stackmode Logo" className="w-14 h-14 sm:w-18 sm:h-18 md:w-20 md:h-20 object-contain" />
+              <span className="text-lg sm:text-xl md:text-2xl font-bold text-foreground hidden sm:block -ml-1">STACKMODE.NET</span>
             </Link>
             
             {/* Desktop Navigation - Centered */}
@@ -66,7 +66,7 @@ export const MainHeader = () => {
       </header>
 
       {/* Mobile Dropdown Menu */}
-      <div className={`fixed inset-x-0 top-20 z-50 md:hidden transition-all duration-300 ${menuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}`}>
+      <div className={`fixed inset-x-0 top-16 sm:top-20 z-50 md:hidden transition-all duration-300 ${menuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}`}>
         <div className="bg-background/95 backdrop-blur-md border-b border-border shadow-xl">
           <div className="px-4 py-4">
             {/* Main Navigation Links */}
