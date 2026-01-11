@@ -308,29 +308,24 @@ const Index = () => {
 
         {/* Courses & Books Button */}
         <AnimatedBlock delay={1.175} className="mb-16">
-          <div id="courses" className="max-w-lg mx-auto px-4 scroll-mt-20">
+          <div id="courses" className="max-w-sm mx-auto px-4 scroll-mt-20">
             <Link to="/learn" className="group block">
-              <div className="bg-gradient-to-r from-orange-600 to-orange-500 rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:from-orange-500 hover:to-orange-400 hover:shadow-lg hover:shadow-orange-500/20">
-                <div className="flex flex-col sm:flex-row items-center gap-5">
+              <div className="bg-card border border-border rounded-xl p-5 transition-all duration-300 hover:border-orange-500/50 hover:bg-card/80">
+                <div className="flex items-center gap-4">
                   {/* Icon */}
-                  <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-white/30 transition-colors">
-                    <BookOpen className="w-7 h-7 text-white" />
+                  <div className="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-orange-500/20 transition-colors">
+                    <BookOpen className="w-6 h-6 text-orange-500" />
                   </div>
                   
                   {/* Content */}
-                  <div className="flex-1 text-center sm:text-left">
-                    <div className="flex items-center justify-center sm:justify-start gap-2 mb-1">
-                      <h3 className="text-xl sm:text-2xl font-bold text-white">Courses & Books</h3>
-                      <span className="bg-white/20 text-white text-xs font-semibold px-2 py-0.5 rounded-full">Popular</span>
-                    </div>
-                    <p className="text-white/90 text-sm sm:text-base">
-                      Step-by-step trading education. Learn chart patterns, risk management, and strategies that actually work.
-                    </p>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-lg font-semibold text-foreground group-hover:text-orange-500 transition-colors">Courses & Books</h3>
+                    <p className="text-sm text-muted-foreground truncate">Learn trading strategies</p>
                   </div>
                   
                   {/* Arrow */}
-                  <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-white/20 transition-colors">
-                    <svg className="w-5 h-5 text-white group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </div>
