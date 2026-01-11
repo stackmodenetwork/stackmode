@@ -19,9 +19,18 @@ export const OptimizedVideo = memo(({
   const [isVisible, setIsVisible] = useState(false);
   const [hasLoaded, setHasLoaded] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
   // Determine if mobile based on viewport width
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const videoSrc = isMobile ? mobileSrc : desktopSrc;
 
   useEffect(() => {
@@ -34,14 +43,15 @@ export const OptimizedVideo = memo(({
         entries.forEach((entry) => {
           if (entry.isIntersecting && !hasLoaded) {
             setIsVisible(true);
-            // Start loading when visible
-            video.preload = 'metadata';
+            // Start loading when visible - use auto for better mobile support
+            video.preload = 'auto';
+            video.load(); // Force reload on mobile
             observer.disconnect();
           }
         });
       },
       { 
-        rootMargin: '100px', // Start loading 100px before visible
+        rootMargin: '200px', // Start loading 200px before visible for mobile
         threshold: 0.1 
       }
     );
@@ -49,7 +59,7 @@ export const OptimizedVideo = memo(({
     observer.observe(video);
 
     return () => observer.disconnect();
-  }, [hasLoaded]);
+  }, [hasLoaded, videoSrc]);
 
   const handleLoadedData = () => {
     setHasLoaded(true);
@@ -81,10 +91,12 @@ export const OptimizedVideo = memo(({
         }`}
         controls
         playsInline
-        preload="none"
+        webkit-playsinline=""
+        preload="metadata"
         poster={poster}
         onLoadedData={handleLoadedData}
         onLoadStart={handleLoadStart}
+        onCanPlay={() => setIsLoading(false)}
       >
         <source src={videoSrc} type="video/mp4" />
         Your browser does not support the video tag.
