@@ -1,54 +1,30 @@
 import { Link } from 'react-router-dom';
-import { ArrowLeft, BookOpen, TrendingUp, Brain, Target, DollarSign, LineChart } from 'lucide-react';
+import { ArrowLeft, BookOpen, TrendingUp, Brain } from 'lucide-react';
 
 const books = [
   {
     id: 1,
-    title: "The Complete Guide to Price Action Trading",
-    excerpt: "Master the art of reading charts without indicators. Learn to identify support, resistance, and key price patterns that professional traders use.",
-    category: "Technical Analysis",
-    icon: LineChart,
-    color: "text-blue-500"
+    title: "Find the Next 100x Stock: The Deep Analysis Framework",
+    excerpt: "A comprehensive guide to identifying high-potential stocks before they make massive moves. Learn the research methodology used by top investors.",
+    category: "Stock Analysis",
+    icon: TrendingUp,
+    color: "text-green-500"
   },
   {
     id: 2,
-    title: "Trading Psychology: Mastering Your Mindset",
-    excerpt: "Discover why 90% of traders fail and how to develop the mental discipline needed for consistent profitability.",
+    title: "Neuro-Trading: Rewire Your Brain for Stock Market Success",
+    excerpt: "Unlock your trading potential by understanding how your brain works. Master the mental game that separates winners from losers.",
     category: "Trading Psychology",
     icon: Brain,
     color: "text-purple-500"
   },
   {
     id: 3,
-    title: "Risk Management Fundamentals",
-    excerpt: "Learn the #1 skill that separates winning traders from losing traders. Position sizing, stop losses, and capital preservation strategies.",
-    category: "Risk Management",
-    icon: Target,
-    color: "text-green-500"
-  },
-  {
-    id: 4,
-    title: "From Zero to Funded: The Prop Firm Playbook",
-    excerpt: "A step-by-step guide to passing prop firm challenges and trading with $100K+ without risking your own capital.",
-    category: "Prop Trading",
-    icon: DollarSign,
-    color: "text-yellow-500"
-  },
-  {
-    id: 5,
-    title: "Futures Trading Simplified",
-    excerpt: "Everything you need to know about trading NAS100, US30, and other index futures. From margin requirements to winning strategies.",
-    category: "Futures Trading",
-    icon: TrendingUp,
-    color: "text-cyan-500"
-  },
-  {
-    id: 6,
-    title: "The Stackmode Trading Blueprint",
-    excerpt: "My complete trading system revealed. The exact strategies, setups, and rules I use to trade profitably every day.",
-    category: "Trading Strategy",
+    title: "The Key Steps To Profitability",
+    excerpt: "Your complete guide to building a profitable trading career. From mindset to execution, everything you need to succeed.",
+    category: "Trading Fundamentals",
     icon: BookOpen,
-    color: "text-orange-500"
+    color: "text-blue-500"
   }
 ];
 
