@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { ArrowLeft, TrendingUp, Brain, GraduationCap, Bitcoin, Video, BookOpen, Play, FileText } from 'lucide-react';
+import { ArrowLeft, TrendingUp, Brain, GraduationCap, Bitcoin, Video, BookOpen, ShoppingCart } from 'lucide-react';
 
-const courses = [
+const products = [
   {
     id: 1,
     title: "Find the Next 100x Stock: The Deep Analysis Framework",
@@ -9,7 +9,9 @@ const courses = [
     category: "Stock Analysis",
     icon: TrendingUp,
     color: "text-green-500",
-    duration: "4+ hours"
+    courseLink: "#",
+    ebookLink: "#",
+    amazonLink: "#"
   },
   {
     id: 2,
@@ -18,7 +20,9 @@ const courses = [
     category: "Trading Psychology",
     icon: Brain,
     color: "text-purple-500",
-    duration: "3+ hours"
+    courseLink: "#",
+    ebookLink: "#",
+    amazonLink: "#"
   },
   {
     id: 3,
@@ -27,55 +31,20 @@ const courses = [
     category: "Cryptocurrency",
     icon: Bitcoin,
     color: "text-orange-500",
-    duration: "2+ hours"
-  },
-  {
-    id: 4,
-    title: "The Key Steps To Profitability Course",
-    excerpt: "The complete roadmap from beginner to profitable trader. Learn risk management, strategy development, and consistent execution.",
-    category: "Trading Fundamentals",
-    icon: GraduationCap,
-    color: "text-blue-500",
-    duration: "5+ hours"
-  }
-];
-
-const books = [
-  {
-    id: 1,
-    title: "Find the Next 100x Stock: The Deep Analysis Framework",
-    excerpt: "A comprehensive guide to identifying high-potential stocks before they make massive moves. Learn the research methodology used by top investors.",
-    category: "Stock Analysis",
-    icon: TrendingUp,
-    color: "text-green-500",
-    pages: "200+ pages"
-  },
-  {
-    id: 2,
-    title: "Neuro-Trading: Rewire Your Brain for Stock Market Success",
-    excerpt: "Unlock your trading potential by understanding how your brain works. Master the mental game that separates winners from losers.",
-    category: "Trading Psychology",
-    icon: Brain,
-    color: "text-purple-500",
-    pages: "180+ pages"
-  },
-  {
-    id: 3,
-    title: "Freedom Money: Mastering Bitcoin & Private Keys",
-    excerpt: "Take control of your financial future with Bitcoin. Learn self-custody, private key management, and the path to true financial freedom.",
-    category: "Cryptocurrency",
-    icon: Bitcoin,
-    color: "text-orange-500",
-    pages: "150+ pages"
+    courseLink: "#",
+    ebookLink: "#",
+    amazonLink: "#"
   },
   {
     id: 4,
     title: "The Key Steps To Profitability",
-    excerpt: "Your complete guide to building a profitable trading career. From mindset to execution, everything you need to succeed.",
+    excerpt: "The complete roadmap from beginner to profitable trader. Learn risk management, strategy development, and consistent execution.",
     category: "Trading Fundamentals",
-    icon: BookOpen,
+    icon: GraduationCap,
     color: "text-blue-500",
-    pages: "220+ pages"
+    courseLink: "#",
+    ebookLink: "#",
+    amazonLink: "#"
   }
 ];
 
@@ -105,110 +74,67 @@ const Learn = () => {
         </div>
       </section>
 
-      {/* Video Courses Section */}
-      <section className="pb-16 px-4">
+      {/* Products Grid */}
+      <section className="pb-20 px-4">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-              <Video className="text-primary" size={20} />
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-foreground">Video Courses</h2>
-              <p className="text-sm text-muted-foreground">Learn by watching — visual, step-by-step training</p>
-            </div>
-          </div>
-          
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {courses.map((course) => {
-              const IconComponent = course.icon;
+            {products.map((product) => {
+              const IconComponent = product.icon;
               return (
                 <article 
-                  key={course.id}
+                  key={product.id}
                   className="group bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 flex flex-col"
                 >
+                  {/* Card Header */}
                   <div className="bg-gradient-to-br from-card to-muted p-5 border-b border-border">
-                    <div className="flex items-start justify-between mb-3">
-                      <div className={`w-11 h-11 rounded-xl bg-background flex items-center justify-center ${course.color}`}>
-                        <IconComponent size={22} />
-                      </div>
-                      <div className="flex items-center gap-1 text-xs text-muted-foreground bg-background px-2 py-1 rounded-full">
-                        <Play size={12} />
-                        <span>{course.duration}</span>
-                      </div>
+                    <div className={`w-12 h-12 rounded-xl bg-background flex items-center justify-center mb-3 ${product.color}`}>
+                      <IconComponent size={24} />
                     </div>
                     <span className="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded-full">
-                      {course.category}
+                      {product.category}
                     </span>
                   </div>
                   
+                  {/* Card Content */}
                   <div className="p-5 flex-1 flex flex-col">
-                    <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
-                      {course.title}
+                    <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+                      {product.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground mb-4 line-clamp-3 flex-1">
-                      {course.excerpt}
+                    <p className="text-sm text-muted-foreground mb-5 flex-1">
+                      {product.excerpt}
                     </p>
-                    <div className="text-center py-2 bg-muted rounded-lg text-sm text-muted-foreground">
-                      Coming Soon
-                    </div>
-                  </div>
-                </article>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Divider */}
-      <div className="max-w-5xl mx-auto px-4">
-        <div className="border-t border-border"></div>
-      </div>
-
-      {/* Books Section */}
-      <section className="py-16 px-4">
-        <div className="max-w-5xl mx-auto">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-              <BookOpen className="text-primary" size={20} />
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-foreground">Books</h2>
-              <p className="text-sm text-muted-foreground">Learn by reading — in-depth knowledge at your own pace</p>
-            </div>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {books.map((book) => {
-              const IconComponent = book.icon;
-              return (
-                <article 
-                  key={book.id}
-                  className="group bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 flex flex-col"
-                >
-                  <div className="bg-gradient-to-br from-card to-muted p-5 border-b border-border">
-                    <div className="flex items-start justify-between mb-3">
-                      <div className={`w-11 h-11 rounded-xl bg-background flex items-center justify-center ${book.color}`}>
-                        <IconComponent size={22} />
+                    
+                    {/* Action Buttons */}
+                    <div className="space-y-2">
+                      <a 
+                        href={product.courseLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2 w-full py-2.5 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-colors text-sm"
+                      >
+                        <Video size={16} />
+                        <span>Watch Course</span>
+                      </a>
+                      <div className="grid grid-cols-2 gap-2">
+                        <a 
+                          href={product.ebookLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-center gap-2 py-2.5 bg-muted text-foreground font-medium rounded-lg hover:bg-muted/80 transition-colors text-sm"
+                        >
+                          <BookOpen size={16} />
+                          <span>eBook</span>
+                        </a>
+                        <a 
+                          href={product.amazonLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-center gap-2 py-2.5 bg-orange-500/10 text-orange-500 font-medium rounded-lg hover:bg-orange-500/20 transition-colors text-sm"
+                        >
+                          <ShoppingCart size={16} />
+                          <span>Amazon</span>
+                        </a>
                       </div>
-                      <div className="flex items-center gap-1 text-xs text-muted-foreground bg-background px-2 py-1 rounded-full">
-                        <FileText size={12} />
-                        <span>{book.pages}</span>
-                      </div>
-                    </div>
-                    <span className="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded-full">
-                      {book.category}
-                    </span>
-                  </div>
-                  
-                  <div className="p-5 flex-1 flex flex-col">
-                    <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
-                      {book.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground mb-4 line-clamp-3 flex-1">
-                      {book.excerpt}
-                    </p>
-                    <div className="text-center py-2 bg-muted rounded-lg text-sm text-muted-foreground">
-                      Coming Soon
                     </div>
                   </div>
                 </article>
