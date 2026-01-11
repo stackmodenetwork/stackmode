@@ -131,7 +131,7 @@ const About = () => {
                     </a>
                   </Button>
                   <Button variant="outline" asChild className="gap-2">
-                    <a href="https://www.youtube.com/@stackmodetrading" target="_blank" rel="noopener noreferrer">
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@Stackmodechris">
                       <Youtube size={18} />
                       Watch on YouTube
                     </a>
