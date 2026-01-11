@@ -58,7 +58,7 @@ const Learn = () => {
             <ArrowLeft size={20} />
             <span className="font-medium">Back to Home</span>
           </Link>
-          <span className="text-lg font-bold text-primary">STACKMODE LEARNING</span>
+          <span className="text-lg font-bold text-primary">COURSES & BOOKS</span>
         </div>
       </header>
 
@@ -66,10 +66,10 @@ const Learn = () => {
       <section className="py-12 md:py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
-            Learning Hub
+            Courses & Books
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Master the markets with video courses and books designed to transform you into a profitable trader.
+            Master the markets with video courses and eBooks designed to transform you into a profitable trader.
           </p>
         </div>
       </section>
