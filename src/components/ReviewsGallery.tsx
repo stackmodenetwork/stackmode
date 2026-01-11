@@ -77,6 +77,23 @@ export function ReviewsGallery() {
           </Button>
         </div>}
 
+      {/* TrustPilot Widget */}
+      <div className="text-center mt-6">
+        <div 
+          className="trustpilot-widget" 
+          data-locale="en-US" 
+          data-template-id="56278e9abfbbba0bdcd568bc" 
+          data-businessunit-id="696401fbe66451fcf34d00f5" 
+          data-style-height="52px" 
+          data-style-width="100%"
+          data-token="64f6272d-b7b5-4f2d-abae-25366d28b234"
+        >
+          <a href="https://www.trustpilot.com/review/stackmode.net" target="_blank" rel="noopener noreferrer">
+            Trustpilot
+          </a>
+        </div>
+      </div>
+
       {/* Trust Badge */}
       <div className="text-center mt-8 px-2">
         <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-xs sm:text-sm bg-card/80 backdrop-blur-sm border border-primary/30 rounded-2xl sm:rounded-full px-4 sm:px-6 py-3 shadow-lg shadow-primary/10 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/30 hover:border-primary/60 cursor-default">
