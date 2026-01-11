@@ -72,14 +72,36 @@ export const OptimizedVideo = memo(({
 
   return (
     <div className={`relative ${className}`}>
-      {/* Loading skeleton */}
+      {/* Fallback poster image with loading overlay */}
       {isLoading && (
-        <div className="absolute inset-0 bg-muted rounded-xl overflow-hidden z-10">
-          <Skeleton className="absolute inset-0" />
+        <div className="absolute inset-0 rounded-xl overflow-hidden z-10">
+          {/* Show poster as fallback if available */}
+          {poster ? (
+            <img 
+              src={poster} 
+              alt="Video loading..." 
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          ) : (
+            <Skeleton className="absolute inset-0" />
+          )}
+          {/* Dark overlay for better play button visibility */}
+          <div className="absolute inset-0 bg-black/30" />
+          {/* Play button with loading indicator */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-14 h-14 rounded-full bg-background/80 flex items-center justify-center animate-pulse">
-              <Play className="w-7 h-7 text-primary ml-1" />
+            <div className="w-16 h-16 rounded-full bg-background/90 flex items-center justify-center shadow-lg">
+              <div className="relative">
+                <Play className="w-8 h-8 text-primary ml-1" />
+                {/* Loading spinner around play button */}
+                <div className="absolute -inset-3 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+              </div>
             </div>
+          </div>
+          {/* Loading text */}
+          <div className="absolute bottom-3 left-0 right-0 text-center">
+            <span className="text-xs text-white/80 bg-black/50 px-3 py-1 rounded-full">
+              Loading video...
+            </span>
           </div>
         </div>
       )}
