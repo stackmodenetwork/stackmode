@@ -130,6 +130,10 @@ const Courses = () => {
               Home
             </Link>
             <span className="text-border hidden sm:inline">|</span>
+            <Link to="/books" className="text-muted-foreground hover:text-primary transition-colors">
+              Books
+            </Link>
+            <span className="text-border hidden sm:inline">|</span>
             <a href="https://stackmodechris.systeme.io/termsandconditions" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
               Terms & Conditions
             </a>
