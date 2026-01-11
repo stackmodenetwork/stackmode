@@ -3,16 +3,19 @@ import { ArrowLeft } from 'lucide-react';
 
 const TermsAndConditions = () => {
   return (
-    <main className="min-h-screen bg-background text-foreground">
-      <div className="max-w-4xl mx-auto px-4 py-12">
-        <Link 
-          to="/" 
-          className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors mb-8"
-        >
-          <ArrowLeft size={20} />
-          Back to Home
-        </Link>
-        
+    <main className="min-h-screen bg-background text-foreground flex flex-col">
+      {/* Header */}
+      <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
+        <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
+          <Link to="/" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+            <ArrowLeft size={20} />
+            <span className="font-medium">Back to Home</span>
+          </Link>
+          <span className="text-lg font-bold text-primary">TERMS & CONDITIONS</span>
+        </div>
+      </header>
+
+      <div className="flex-1 max-w-4xl mx-auto px-4 py-12 w-full">
         <h1 className="text-4xl font-bold text-foreground mb-8">Terms & Conditions</h1>
         
         <div className="prose prose-invert max-w-none space-y-6 text-muted-foreground">
@@ -132,6 +135,28 @@ const TermsAndConditions = () => {
           </section>
         </div>
       </div>
+
+      {/* Footer */}
+      <footer className="bg-background border-t border-border py-6 px-4">
+        <div className="max-w-4xl mx-auto text-center space-y-4">
+          <div className="flex flex-wrap justify-center gap-4 text-sm">
+            <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">
+              Home
+            </Link>
+            <span className="text-border hidden sm:inline">|</span>
+            <Link to="/privacy" className="text-muted-foreground hover:text-primary transition-colors">
+              Privacy Policy
+            </Link>
+            <span className="text-border hidden sm:inline">|</span>
+            <Link to="/dmca" className="text-muted-foreground hover:text-primary transition-colors">
+              DMCA Policy
+            </Link>
+          </div>
+          <p className="text-xs text-muted-foreground">
+            © {new Date().getFullYear()} Stackmode Network LLC. All Rights Reserved.
+          </p>
+        </div>
+      </footer>
     </main>
   );
 };
