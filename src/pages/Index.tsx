@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { AnimatedBlock } from '@/components/AnimatedBlock';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
 import { LazyCalendly } from '@/components/LazyCalendly';
@@ -555,9 +556,11 @@ const Index = () => {
                 
                 {/* Bio */}
                 <div className="flex-1 text-center md:text-left">
-                  <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
-                    About Stackmodechris
-                  </h2>
+                  <Link to="/about" className="group">
+                    <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                      About Stackmodechris
+                    </h2>
+                  </Link>
                   <p className="text-primary font-medium mb-4">Trading Mentor & Founder of Stackmode Network</p>
                   <p className="text-muted-foreground leading-relaxed mb-4">
                     Christopher Robinson, known online as Stackmodechris, is a passionate trader and mentor dedicated to helping everyday people achieve financial freedom through the markets. With expertise spanning stocks, options, futures, forex, and crypto, Stackmodechris has built a thriving community of traders who learn to read price action and execute high-probability setups. Through proven strategies and hands-on mentorship, Stackmodechris has helped clients generate thousands of dollars in profits.
