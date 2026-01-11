@@ -27,7 +27,7 @@ export const CookieConsent = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 animate-in slide-in-from-bottom-5 duration-500">
+    <div className="fixed bottom-0 left-0 right-0 z-40 p-4 pb-20 md:pb-4 animate-in slide-in-from-bottom-5 duration-500">
       <div className="max-w-4xl mx-auto bg-card border border-border rounded-xl shadow-2xl shadow-black/20 p-4 sm:p-6">
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
           {/* Cookie Icon & Text */}
