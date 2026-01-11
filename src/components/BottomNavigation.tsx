@@ -21,7 +21,6 @@ const navItems: NavItem[] = [
   { path: '/', label: 'Home', icon: Home },
   { path: '/learn', label: 'Courses', icon: BookOpen },
   { path: 'https://whop.com/stackmode-network-llc/', label: 'Trades', icon: TrendingUp, isExternal: true },
-  { path: '/about', label: 'About', icon: User },
   { path: 'https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true', label: 'Podcast', icon: Mic, isExternal: true },
   { 
     path: 'https://calendly.com/stackmodechris/tradingmastermindcoaching', 
