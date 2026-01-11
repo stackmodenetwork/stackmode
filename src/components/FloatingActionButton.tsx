@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Calendar, X } from 'lucide-react';
 
 // Haptic feedback utility
@@ -11,11 +11,34 @@ const triggerHaptic = () => {
 export const FloatingActionButton = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const lastScrollY = useRef(0);
+  const scrollThreshold = 100; // Minimum scroll before showing FAB
+  const scrollDelta = 10; // Minimum scroll distance to trigger hide/show
 
-  // Show FAB after scrolling down a bit
+  // Show FAB when scrolling up, hide when scrolling down
   useEffect(() => {
     const handleScroll = () => {
-      setIsVisible(window.scrollY > 100);
+      const currentScrollY = window.scrollY;
+      const scrollDifference = currentScrollY - lastScrollY.current;
+      
+      // Only show FAB after scrolling past threshold
+      if (currentScrollY < scrollThreshold) {
+        setIsVisible(false);
+        lastScrollY.current = currentScrollY;
+        return;
+      }
+
+      // Scrolling down - hide FAB (only if scrolled enough)
+      if (scrollDifference > scrollDelta) {
+        setIsVisible(false);
+        setIsExpanded(false);
+      }
+      // Scrolling up - show FAB (only if scrolled enough)
+      else if (scrollDifference < -scrollDelta) {
+        setIsVisible(true);
+      }
+      
+      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
