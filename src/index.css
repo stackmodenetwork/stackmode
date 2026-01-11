@@ -318,4 +318,20 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;  /* Safari and Chrome */
   }
+
+  /* Safe area insets for mobile devices with notches/home indicators */
+  .pb-safe {
+    padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+  }
+
+  /* Bottom navigation padding for pages */
+  .pb-bottom-nav {
+    padding-bottom: 5rem;
+  }
+
+  @media (min-width: 768px) {
+    .pb-bottom-nav {
+      padding-bottom: 0;
+    }
+  }
 }

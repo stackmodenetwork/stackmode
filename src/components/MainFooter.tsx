@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export const MainFooter = () => {
   return (
-    <footer className="bg-background border-t border-border py-6 px-4">
+    <footer className="bg-background border-t border-border py-6 px-4 pb-bottom-nav md:pb-6">
       <div className="max-w-4xl mx-auto text-center space-y-4">
         <div className="flex flex-wrap justify-center gap-4 text-sm">
           <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">
