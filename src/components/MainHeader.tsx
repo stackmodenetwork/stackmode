@@ -43,7 +43,7 @@ export const MainHeader = () => {
                 to="/learn" 
                 className={`text-base font-semibold transition-colors relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:transition-transform after:duration-300 ${isActive('/learn') || isActive('/courses') || isActive('/books') ? 'text-primary after:scale-x-100' : 'text-foreground/80 hover:text-primary after:scale-x-0 after:origin-bottom-right hover:after:scale-x-100 hover:after:origin-bottom-left'}`}
               >
-                Learn
+                Courses & Books
               </Link>
               <Link 
                 to="/about" 
@@ -94,7 +94,7 @@ export const MainHeader = () => {
                 onClick={closeMenu} 
                 className={`block px-4 py-3 rounded-lg font-medium transition-colors ${isActive('/learn') || isActive('/courses') || isActive('/books') ? 'text-primary bg-primary/10' : 'text-foreground hover:bg-muted'}`}
               >
-                Learn
+                Courses & Books
               </Link>
               <Link 
                 to="/about" 
