@@ -33,7 +33,7 @@ const Index = () => {
             {/* Logo */}
             <a href="https://stackmode.net" className="flex items-center">
               <img src="/images/sm-logo.png" alt="Stackmode Logo" className="w-28 h-28 object-contain" />
-              <span className="text-xl font-bold text-foreground hidden sm:block -ml-1">STACKMODE.NET</span>
+              <span className="text-lg sm:text-xl font-bold text-foreground -ml-1">STACKMODE.NET</span>
             </a>
             
             {/* Desktop Navigation - Centered */}
