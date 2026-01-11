@@ -224,7 +224,7 @@ export const MainHeader = memo(() => {
                   <Youtube className="w-5 h-5 text-red-500" />
                   <span className="text-xs text-muted-foreground">YouTube</span>
                 </a>
-                <a href="https://podcasters.spotify.com/pod/show/stackmodetrading" target="_blank" rel="noopener noreferrer" onClick={handleMenuItemClick} className="flex flex-col items-center gap-1 p-3 rounded-lg bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-200 active:scale-95">
+                <a href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true" target="_blank" rel="noopener noreferrer" onClick={handleMenuItemClick} className="flex flex-col items-center gap-1 p-3 rounded-lg bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-200 active:scale-95">
                   <Mic className="w-5 h-5 text-green-500" />
                   <span className="text-xs text-muted-foreground">Podcast</span>
                 </a>
