@@ -68,7 +68,6 @@ const AnimatedRoutes = memo(() => {
           <Route path="/" element={<Index />} />
           <Route path="/learn" element={<Learn />} />
           <Route path="/books" element={<Learn />} />
-          <Route path="/courses" element={<Learn />} />
           <Route path="/about" element={<About />} />
           <Route path="/dmca" element={<DMCAPolicy />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
