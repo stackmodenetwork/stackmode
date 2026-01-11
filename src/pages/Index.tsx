@@ -119,7 +119,7 @@ const Index = () => {
                     <Youtube className="w-5 h-5 text-red-500" />
                     <span className="text-xs text-muted-foreground">YouTube</span>
                   </a>
-                  <a href="https://podcasters.spotify.com/pod/show/stackmodetrading" target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="flex flex-col items-center gap-1 p-3 rounded-lg hover:bg-muted transition-colors">
+                  <a href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true" target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="flex flex-col items-center gap-1 p-3 rounded-lg hover:bg-muted transition-colors">
                     <Mic className="w-5 h-5 text-green-500" />
                     <span className="text-xs text-muted-foreground">Podcast</span>
                   </a>
