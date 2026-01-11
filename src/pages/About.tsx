@@ -225,7 +225,7 @@ const About = () => {
                 label: 'YouTube'
               }, {
                 icon: Instagram,
-                href: 'https://www.instagram.com/stackmodechris',
+                href: 'https://www.instagram.com/stackmodechris_/',
                 label: 'Instagram'
               }, {
                 icon: Facebook,
