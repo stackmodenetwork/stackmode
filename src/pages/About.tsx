@@ -229,7 +229,7 @@ const About = () => {
                 label: 'Instagram'
               }, {
                 icon: Facebook,
-                href: 'https://www.facebook.com/stackmodechris',
+                href: 'https://www.facebook.com/share/17cn4N587n/?mibextid=wwXIfr',
                 label: 'Facebook'
               }, {
                 icon: Linkedin,
