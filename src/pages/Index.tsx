@@ -28,12 +28,12 @@ const Index = () => {
   return <main className="min-h-screen bg-background relative overflow-x-hidden scroll-smooth animate-page-load">
       {/* Top Navigation Bar - Acquisition.com Style */}
       <header className="bg-card border-b border-border sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4">
+          <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Logo */}
-            <a href="https://stackmode.net" className="flex items-center">
-              <img src="/images/sm-logo.png" alt="Stackmode Logo" className="w-20 h-20 sm:w-16 sm:h-16 object-contain" />
-              <span className="text-xl font-bold text-foreground hidden sm:block -ml-1">STACKMODE.NET</span>
+            <a href="https://stackmode.net" className="flex items-center gap-1 min-w-0">
+              <img src="/images/sm-logo.png" alt="Stackmode Logo" className="w-12 h-12 sm:w-16 sm:h-16 object-contain flex-shrink-0" />
+              <span className="text-sm sm:text-xl font-bold text-foreground truncate">STACKMODE.NET</span>
             </a>
             
             {/* Desktop Navigation - Centered */}
@@ -56,8 +56,9 @@ const Index = () => {
             </nav>
 
             {/* Mobile Menu Button */}
-            <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden flex items-center gap-2 px-3 py-2 rounded-lg bg-muted/50 border border-border hover:border-primary transition-colors" aria-label="Open menu">
+            <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden flex items-center gap-2 px-3 py-2 rounded-lg bg-muted/50 border border-border hover:border-primary transition-colors flex-shrink-0" aria-label="Open menu">
               {menuOpen ? <X size={20} className="text-primary" /> : <Menu size={20} className="text-primary" />}
+              <span className="text-sm font-medium text-foreground">Menu</span>
             </button>
           </div>
         </div>
