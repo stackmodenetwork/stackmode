@@ -300,11 +300,6 @@ const Index = () => {
             </a>
           </div>
           
-          {/* Trust indicator below CTAs */}
-          <div className="mt-6 text-center">
-            <p className="text-xs text-muted-foreground">Not sure which is right for you? <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Book a free call</a> and I'll help you decide.</p>
-          </div>
-          
           {/* Courses & Books Section */}
           <div className="mt-10">
             <div className="text-center mb-6">
@@ -364,6 +359,11 @@ const Index = () => {
             </Link>
           </div>
         </section>
+
+        {/* Trust indicator */}
+        <div className="mb-8 text-center">
+          <p className="text-xs text-muted-foreground">Not sure which is right for you? <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Book a free call</a> and I'll help you decide.</p>
+        </div>
 
         {/* SOCIAL PROOF - Real Results */}
         <section id="results" className="mb-8 sm:mb-12 text-center max-w-5xl mx-auto px-4">
