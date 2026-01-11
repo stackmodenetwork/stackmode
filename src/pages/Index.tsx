@@ -304,6 +304,65 @@ const Index = () => {
           <div className="mt-6 text-center">
             <p className="text-xs text-muted-foreground">Not sure which is right for you? <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Book a free call</a> and I'll help you decide.</p>
           </div>
+          
+          {/* Courses & Books Section */}
+          <div className="mt-10">
+            <div className="text-center mb-6">
+              <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-2">Prefer Self-Paced Learning?</h3>
+              <p className="text-sm text-muted-foreground">Master trading on your own schedule with our courses and eBooks</p>
+            </div>
+            
+            <Link to="/learn" className="block group">
+              <div className="relative bg-gradient-to-r from-orange-950/60 via-card to-orange-950/60 border border-orange-500/20 rounded-2xl p-5 sm:p-6 overflow-hidden transition-all duration-500 hover:border-orange-500/50 hover:shadow-[0_0_30px_rgba(249,115,22,0.1)] group-hover:scale-[1.01]">
+                {/* Background glow effects */}
+                <div className="absolute top-0 left-1/4 w-40 h-40 bg-orange-500/5 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-0 right-1/4 w-32 h-32 bg-orange-400/5 rounded-full blur-2xl"></div>
+                
+                <div className="relative z-10 flex flex-col sm:flex-row items-center gap-5">
+                  {/* Cards Preview */}
+                  <div className="flex items-center gap-3">
+                    {/* Video Course Card */}
+                    <div className="w-20 h-24 sm:w-24 sm:h-28 bg-gradient-to-br from-orange-600/20 to-orange-900/30 rounded-xl border border-orange-500/30 flex flex-col items-center justify-center gap-2 shadow-lg">
+                      <PlayCircle className="w-8 h-8 sm:w-10 sm:h-10 text-orange-400" />
+                      <span className="text-[10px] sm:text-xs text-orange-300 font-medium">Courses</span>
+                    </div>
+                    
+                    {/* Book Card */}
+                    <div className="w-20 h-24 sm:w-24 sm:h-28 bg-gradient-to-br from-orange-600/20 to-orange-900/30 rounded-xl border border-orange-500/30 flex flex-col items-center justify-center gap-2 shadow-lg -ml-2 transform rotate-3">
+                      <BookOpen className="w-8 h-8 sm:w-10 sm:h-10 text-orange-400" />
+                      <span className="text-[10px] sm:text-xs text-orange-300 font-medium">eBooks</span>
+                    </div>
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="flex-1 text-center sm:text-left">
+                    <h4 className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground mb-1 flex items-center justify-center sm:justify-start gap-2">
+                      <span>Courses & Books</span>
+                      <span className="text-xs bg-orange-500/20 text-orange-400 px-2 py-0.5 rounded-full">Popular</span>
+                    </h4>
+                    <p className="text-muted-foreground text-sm sm:text-base mb-3">Learn proven strategies at your own pace with video courses and comprehensive trading guides</p>
+                    
+                    {/* Features */}
+                    <div className="flex flex-wrap justify-center sm:justify-start gap-x-4 gap-y-1 text-xs sm:text-sm text-foreground/70">
+                      <span className="flex items-center gap-1"><Check size={14} className="text-orange-400" /> Instant Access</span>
+                      <span className="flex items-center gap-1"><Check size={14} className="text-orange-400" /> Lifetime Updates</span>
+                      <span className="flex items-center gap-1"><Check size={14} className="text-orange-400" /> Beginner Friendly</span>
+                    </div>
+                  </div>
+                  
+                  {/* CTA */}
+                  <div className="flex-shrink-0">
+                    <div className="bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 text-white font-semibold text-sm sm:text-base px-5 py-3 rounded-lg text-center transition-all flex items-center gap-2 group-hover:gap-3 shadow-lg shadow-orange-500/20">
+                      <span>Browse Library</span>
+                      <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </div>
         </section>
 
         {/* SOCIAL PROOF - Real Results */}
