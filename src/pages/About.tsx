@@ -1,10 +1,64 @@
+import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Youtube, Calendar, Instagram, Facebook, Linkedin, TrendingUp, Users, Briefcase, Award } from 'lucide-react';
+import { ArrowLeft, Youtube, Calendar, Instagram, Facebook, Linkedin, TrendingUp, Users, Briefcase, Award, Mail, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 import { SocialShareButtons } from '@/components/SocialShareButtons';
+import { useToast } from '@/hooks/use-toast';
 
 const About = () => {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Validate inputs
+    const name = formData.name.trim();
+    const email = formData.email.trim();
+    const subject = formData.subject.trim();
+    const message = formData.message.trim();
+    
+    if (!name || !email || !message) {
+      toast({
+        title: "Missing fields",
+        description: "Please fill in all required fields.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast({
+        title: "Invalid email",
+        description: "Please enter a valid email address.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    // Build mailto link with proper encoding
+    const mailtoSubject = encodeURIComponent(subject || 'Inquiry from Website');
+    const mailtoBody = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+    );
+    
+    window.location.href = `mailto:stackmodenetwork@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+    
+    toast({
+      title: "Opening email client",
+      description: "Your default email app should open now.",
+    });
+  };
   return (
     <>
       <Helmet>
@@ -205,6 +259,96 @@ const About = () => {
                   </a>
                 </Button>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Form Section */}
+        <section className="py-16 md:py-20 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-2xl mx-auto">
+              <div className="text-center mb-10">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                  <Mail className="w-8 h-8 text-primary" />
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                  Send Me a Message
+                </h2>
+                <p className="text-lg text-muted-foreground">
+                  Have a question or want to discuss trading? Fill out the form below.
+                </p>
+              </div>
+              
+              <form onSubmit={handleSubmit} className="bg-background rounded-2xl p-6 md:p-8 border border-border/50 shadow-lg space-y-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div className="space-y-2">
+                    <label htmlFor="name" className="text-sm font-medium text-foreground">
+                      Name <span className="text-destructive">*</span>
+                    </label>
+                    <Input
+                      id="name"
+                      type="text"
+                      placeholder="Your name"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      maxLength={100}
+                      required
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="text-sm font-medium text-foreground">
+                      Email <span className="text-destructive">*</span>
+                    </label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="your@email.com"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      maxLength={255}
+                      required
+                    />
+                  </div>
+                </div>
+                
+                <div className="space-y-2">
+                  <label htmlFor="subject" className="text-sm font-medium text-foreground">
+                    Subject
+                  </label>
+                  <Input
+                    id="subject"
+                    type="text"
+                    placeholder="What's this about?"
+                    value={formData.subject}
+                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                    maxLength={150}
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <label htmlFor="message" className="text-sm font-medium text-foreground">
+                    Message <span className="text-destructive">*</span>
+                  </label>
+                  <Textarea
+                    id="message"
+                    placeholder="Your message..."
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    maxLength={2000}
+                    rows={5}
+                    required
+                  />
+                </div>
+                
+                <Button type="submit" size="lg" className="w-full gap-2">
+                  <Send size={18} />
+                  Send Message
+                </Button>
+                
+                <p className="text-xs text-muted-foreground text-center">
+                  This will open your default email application to send the message.
+                </p>
+              </form>
             </div>
           </div>
         </section>
