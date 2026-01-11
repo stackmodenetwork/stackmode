@@ -3,25 +3,26 @@ import { ArrowLeft } from 'lucide-react';
 
 const DMCAPolicy = () => {
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background flex flex-col">
       {/* Header */}
-      <header className="bg-card border-b border-border py-6 px-4">
-        <div className="max-w-4xl mx-auto">
-          <Link 
-            to="/" 
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-4"
-          >
-            <ArrowLeft size={18} />
-            Back to Home
+      <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
+        <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
+          <Link to="/" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+            <ArrowLeft size={20} />
+            <span className="font-medium">Back to Home</span>
           </Link>
-          <h1 className="text-3xl sm:text-4xl font-bold text-foreground">DMCA Policy</h1>
-          <p className="text-muted-foreground mt-2">Digital Millennium Copyright Act Notice</p>
+          <span className="text-lg font-bold text-primary">DMCA POLICY</span>
         </div>
       </header>
 
       {/* Content */}
-      <section className="py-12 px-4">
+      <section className="flex-1 py-12 px-4">
         <div className="max-w-4xl mx-auto space-y-8">
+          <div className="mb-8">
+            <h1 className="text-3xl sm:text-4xl font-bold text-foreground">DMCA Policy</h1>
+            <p className="text-muted-foreground mt-2">Digital Millennium Copyright Act Notice</p>
+          </div>
+
           {/* Introduction */}
           <div className="bg-card border border-border rounded-xl p-6 sm:p-8">
             <h2 className="text-xl font-semibold text-foreground mb-4">📋 Overview</h2>
@@ -103,10 +104,23 @@ const DMCAPolicy = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-card border-t border-border py-6 px-4">
-        <div className="max-w-4xl mx-auto text-center">
+      <footer className="bg-background border-t border-border py-6 px-4">
+        <div className="max-w-4xl mx-auto text-center space-y-4">
+          <div className="flex flex-wrap justify-center gap-4 text-sm">
+            <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">
+              Home
+            </Link>
+            <span className="text-border hidden sm:inline">|</span>
+            <Link to="/privacy" className="text-muted-foreground hover:text-primary transition-colors">
+              Privacy Policy
+            </Link>
+            <span className="text-border hidden sm:inline">|</span>
+            <Link to="/terms" className="text-muted-foreground hover:text-primary transition-colors">
+              Terms & Conditions
+            </Link>
+          </div>
           <p className="text-xs text-muted-foreground">
-            © 2025 Stackmode Network LLC. All Rights Reserved.
+            © {new Date().getFullYear()} Stackmode Network LLC. All Rights Reserved.
           </p>
         </div>
       </footer>
