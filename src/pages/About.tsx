@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Youtube, Calendar, Instagram, Facebook, Linkedin, TrendingUp, Users, Briefcase, Award, Mail, Send } from 'lucide-react';
+import TikTokIcon from '@/components/TikTokIcon';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -235,6 +236,10 @@ const About = () => {
                 icon: Linkedin,
                 href: 'https://www.linkedin.com/in/christopher-robinson-119a01234/',
                 label: 'LinkedIn'
+              }, {
+                icon: TikTokIcon,
+                href: 'https://www.tiktok.com/@stackmodechris_?is_from_webapp=1&sender_device=pc',
+                label: 'TikTok'
               }].map((social, i) => <a key={i} href={social.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-foreground/5 hover:bg-primary/10 text-foreground hover:text-primary px-5 py-3 rounded-lg font-medium transition-colors">
                     <social.icon size={20} />
                     {social.label}
