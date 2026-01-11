@@ -68,6 +68,7 @@ const Index = () => {
             {/* Mobile Menu Button */}
             <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden flex items-center gap-2 px-3 py-2 rounded-lg bg-muted/50 border border-border hover:border-primary transition-colors" aria-label="Open menu">
               {menuOpen ? <X size={20} className="text-primary" /> : <Menu size={20} className="text-primary" />}
+              <span className="text-sm font-semibold text-foreground">Menu</span>
             </button>
           </div>
         </div>
