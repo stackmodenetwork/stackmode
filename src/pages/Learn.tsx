@@ -49,8 +49,8 @@ const products = [
     color: "text-blue-500",
     comingSoon: false,
     amazonComingSoon: true,
-    courseLink: "#",
-    ebookLink: "#",
+    courseLink: "https://stackmodechris.systeme.io/trading",
+    ebookLink: "https://stackmodechris.systeme.io/trading",
     amazonLink: "#"
   }
 ];
