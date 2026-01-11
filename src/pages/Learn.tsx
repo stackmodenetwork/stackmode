@@ -47,6 +47,7 @@ const products = [
     icon: GraduationCap,
     color: "text-blue-500",
     comingSoon: false,
+    amazonComingSoon: true,
     courseLink: "#",
     ebookLink: "#",
     amazonLink: "#"
@@ -128,15 +129,22 @@ const Learn = () => {
                               <BookOpen size={16} />
                               <span>eBook</span>
                             </a>
-                            <a 
-                              href={product.amazonLink}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex items-center justify-center gap-2 py-2.5 bg-orange-500/10 text-orange-500 font-medium rounded-lg hover:bg-orange-500/20 transition-colors text-sm"
-                            >
-                              <ShoppingCart size={16} />
-                              <span>Amazon</span>
-                            </a>
+                            {product.amazonComingSoon ? (
+                              <div className="flex items-center justify-center gap-2 py-2.5 bg-muted/50 text-muted-foreground font-medium rounded-lg text-sm border border-border">
+                                <Clock size={14} />
+                                <span>Soon</span>
+                              </div>
+                            ) : (
+                              <a 
+                                href={product.amazonLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center justify-center gap-2 py-2.5 bg-orange-500/10 text-orange-500 font-medium rounded-lg hover:bg-orange-500/20 transition-colors text-sm"
+                              >
+                                <ShoppingCart size={16} />
+                                <span>Amazon</span>
+                              </a>
+                            )}
                           </div>
                         </>
                       )}
