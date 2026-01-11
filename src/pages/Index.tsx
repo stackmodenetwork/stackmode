@@ -19,10 +19,11 @@ const Index = () => {
     const handleScroll = () => {
       setShowStickyHeader(window.scrollY > 400);
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll, {
+      passive: true
+    });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
   const closeMenu = useCallback(() => setMenuOpen(false), []);
   return <main className="min-h-screen bg-background relative overflow-x-hidden scroll-smooth animate-page-load">
       {/* Top Navigation Bar - Acquisition.com Style */}
@@ -31,60 +32,41 @@ const Index = () => {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <a href="https://stackmode.net" className="flex items-center">
-              <img 
-                src="/images/sm-logo.png" 
-                alt="Stackmode Logo" 
-                className="w-16 h-16 object-contain"
-              />
+              <img src="/images/sm-logo.png" alt="Stackmode Logo" className="w-16 h-16 object-contain" />
               <span className="text-xl font-bold text-foreground hidden sm:block -ml-1">STACKMODE.NET</span>
             </a>
             
             {/* Desktop Navigation - Centered */}
             <nav className="hidden md:flex items-center justify-center flex-1 gap-10 mx-8">
-              <a 
-                href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
-              >
+              <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                 Trading Mentorship
               </a>
-              <a 
-                href="https://whop.com/stackmode-network-llc/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
-              >
+              <a href="https://whop.com/stackmode-network-llc/" target="_blank" rel="noopener noreferrer" className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                 Catch My Trades
               </a>
-              <a 
-                href="#courses" 
-                onClick={(e) => { e.preventDefault(); document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' }); }}
-                className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
-              >
+              <a href="#courses" onClick={e => {
+              e.preventDefault();
+              document.getElementById('courses')?.scrollIntoView({
+                behavior: 'smooth'
+              });
+            }} className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                 Courses
               </a>
-              <a 
-                href="#books" 
-                onClick={(e) => { e.preventDefault(); document.getElementById('books')?.scrollIntoView({ behavior: 'smooth' }); }}
-                className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
-              >
+              <a href="#books" onClick={e => {
+              e.preventDefault();
+              document.getElementById('books')?.scrollIntoView({
+                behavior: 'smooth'
+              });
+            }} className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                 Books
               </a>
-              <a 
-                href="/about"
-                className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
-              >
+              <a href="/about" className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                 About
               </a>
             </nav>
 
             {/* Mobile Menu Button */}
-            <button 
-              onClick={() => setMenuOpen(!menuOpen)} 
-              className="md:hidden flex items-center gap-2 px-3 py-2 rounded-lg bg-muted/50 border border-border hover:border-primary transition-colors"
-              aria-label="Open menu"
-            >
+            <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden flex items-center gap-2 px-3 py-2 rounded-lg bg-muted/50 border border-border hover:border-primary transition-colors" aria-label="Open menu">
               {menuOpen ? <X size={20} className="text-primary" /> : <Menu size={20} className="text-primary" />}
             </button>
           </div>
@@ -112,16 +94,34 @@ const Index = () => {
             <div className="px-4 py-4">
               {/* Main Navigation Links */}
               <div className="space-y-1 mb-4">
-                <a href="#mentorship" onClick={(e) => { e.preventDefault(); closeMenu(); setTimeout(() => document.getElementById('mentorship')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors relative after:content-[''] after:absolute after:w-[calc(100%-2rem)] after:scale-x-0 after:h-0.5 after:bottom-2 after:left-4 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
+                <a href="#mentorship" onClick={e => {
+                e.preventDefault();
+                closeMenu();
+                setTimeout(() => document.getElementById('mentorship')?.scrollIntoView({
+                  behavior: 'smooth'
+                }), 100);
+              }} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors relative after:content-[''] after:absolute after:w-[calc(100%-2rem)] after:scale-x-0 after:h-0.5 after:bottom-2 after:left-4 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                   Trading Mentorship
                 </a>
                 <a href="https://whop.com/stackmode-network-llc/" target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors relative after:content-[''] after:absolute after:w-[calc(100%-2rem)] after:scale-x-0 after:h-0.5 after:bottom-2 after:left-4 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                   Catch My Trades
                 </a>
-                <a href="#courses" onClick={(e) => { e.preventDefault(); closeMenu(); setTimeout(() => document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors relative after:content-[''] after:absolute after:w-[calc(100%-2rem)] after:scale-x-0 after:h-0.5 after:bottom-2 after:left-4 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
+                <a href="#courses" onClick={e => {
+                e.preventDefault();
+                closeMenu();
+                setTimeout(() => document.getElementById('courses')?.scrollIntoView({
+                  behavior: 'smooth'
+                }), 100);
+              }} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors relative after:content-[''] after:absolute after:w-[calc(100%-2rem)] after:scale-x-0 after:h-0.5 after:bottom-2 after:left-4 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                   Courses
                 </a>
-                <a href="#books" onClick={(e) => { e.preventDefault(); closeMenu(); setTimeout(() => document.getElementById('books')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors relative after:content-[''] after:absolute after:w-[calc(100%-2rem)] after:scale-x-0 after:h-0.5 after:bottom-2 after:left-4 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
+                <a href="#books" onClick={e => {
+                e.preventDefault();
+                closeMenu();
+                setTimeout(() => document.getElementById('books')?.scrollIntoView({
+                  behavior: 'smooth'
+                }), 100);
+              }} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors relative after:content-[''] after:absolute after:w-[calc(100%-2rem)] after:scale-x-0 after:h-0.5 after:bottom-2 after:left-4 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                   Books
                 </a>
                 <a href="/about" onClick={closeMenu} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors relative after:content-[''] after:absolute after:w-[calc(100%-2rem)] after:scale-x-0 after:h-0.5 after:bottom-2 after:left-4 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
@@ -134,7 +134,7 @@ const Index = () => {
                 <p className="text-xs text-muted-foreground mb-3 px-4">Follow Us</p>
                 <div className="grid grid-cols-4 gap-2">
                   <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="flex flex-col items-center gap-1 p-3 rounded-lg hover:bg-muted transition-colors">
-                    <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+                    <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z" /></svg>
                     <span className="text-xs text-muted-foreground">Discord</span>
                   </a>
                   <a href="https://www.youtube.com/@stackmodetrading" target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="flex flex-col items-center gap-1 p-3 rounded-lg hover:bg-muted transition-colors">
@@ -554,12 +554,7 @@ const Index = () => {
                 {/* Photo */}
                 <div className="flex-shrink-0">
                   <div className="w-56 h-56 md:w-72 md:h-72 rounded-2xl overflow-hidden border-4 border-primary/40 shadow-lg shadow-primary/20">
-                    <img 
-                      src="/images/stackmodechris-about-new.png" 
-                      alt="Stackmodechris - Trading Mentor" 
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
+                    <img src="/images/stackmodechris-about-new.png" alt="Stackmodechris - Trading Mentor" className="w-full h-full object-cover" loading="lazy" />
                   </div>
                 </div>
                 
@@ -578,21 +573,11 @@ const Index = () => {
                     Beyond trading, Stackmodechris is an IT specialist and content creator who shares his journey through his podcast, YouTube channel, and social media. His mission is simple: teach real trading skills that work, without the hype or empty promises.
                   </p>
                   <div className="flex flex-wrap justify-center md:justify-start gap-3">
-                    <a 
-                      href="https://discord.gg/5zYWSWGMYm" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-foreground/10 hover:bg-foreground/20 text-foreground px-4 py-2 rounded-lg text-sm font-medium transition-colors"
-                    >
+                    <a target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-foreground/10 hover:bg-foreground/20 text-foreground px-4 py-2 rounded-lg text-sm font-medium transition-colors" href="https://calendly.com/stackmodechris/tradingmastermindcoaching">
                       <Calendar className="w-4 h-4" />
                       Speak With Me For FREE
                     </a>
-                    <a 
-                      href="https://www.youtube.com/@stackmodetrading" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-foreground/10 hover:bg-foreground/20 text-foreground px-4 py-2 rounded-lg text-sm font-medium transition-colors"
-                    >
+                    <a href="https://www.youtube.com/@stackmodetrading" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-foreground/10 hover:bg-foreground/20 text-foreground px-4 py-2 rounded-lg text-sm font-medium transition-colors">
                       <Youtube size={16} />
                       Watch on YouTube
                     </a>
@@ -656,24 +641,21 @@ const Index = () => {
             Connect With Me
           </h4>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-            <a href="https://www.youtube.com/@stackmodechris" target="_blank" rel="noopener noreferrer" 
-               className="flex items-center gap-3 bg-card/50 border border-border hover:border-red-500/50 rounded-xl p-4 transition-all hover:bg-card/80 group">
+            <a href="https://www.youtube.com/@stackmodechris" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-card/50 border border-border hover:border-red-500/50 rounded-xl p-4 transition-all hover:bg-card/80 group">
               <div className="w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center">
                 <Youtube size={20} className="text-red-500" />
               </div>
               <span className="text-foreground font-medium text-sm">YouTube</span>
             </a>
             
-            <a href="https://www.instagram.com/stackmodechris_" target="_blank" rel="noopener noreferrer" 
-               className="flex items-center gap-3 bg-card/50 border border-border hover:border-pink-500/50 rounded-xl p-4 transition-all hover:bg-card/80 group">
+            <a href="https://www.instagram.com/stackmodechris_" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-card/50 border border-border hover:border-pink-500/50 rounded-xl p-4 transition-all hover:bg-card/80 group">
               <div className="w-10 h-10 rounded-full bg-pink-500/10 flex items-center justify-center">
                 <Instagram size={20} className="text-pink-500" />
               </div>
               <span className="text-foreground font-medium text-sm">Instagram</span>
             </a>
             
-            <a href="https://www.tiktok.com/@stackmodechris_" target="_blank" rel="noopener noreferrer" 
-               className="flex items-center gap-3 bg-card/50 border border-border hover:border-cyan-400/50 rounded-xl p-4 transition-all hover:bg-card/80 group">
+            <a href="https://www.tiktok.com/@stackmodechris_" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-card/50 border border-border hover:border-cyan-400/50 rounded-xl p-4 transition-all hover:bg-card/80 group">
               <div className="w-10 h-10 rounded-full bg-cyan-400/10 flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-cyan-400">
                   <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
@@ -682,16 +664,14 @@ const Index = () => {
               <span className="text-foreground font-medium text-sm">TikTok</span>
             </a>
             
-            <a href="https://www.facebook.com/share/17cn4N587n/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" 
-               className="flex items-center gap-3 bg-card/50 border border-border hover:border-blue-600/50 rounded-xl p-4 transition-all hover:bg-card/80 group">
+            <a href="https://www.facebook.com/share/17cn4N587n/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-card/50 border border-border hover:border-blue-600/50 rounded-xl p-4 transition-all hover:bg-card/80 group">
               <div className="w-10 h-10 rounded-full bg-blue-600/10 flex items-center justify-center">
                 <Facebook size={20} className="text-blue-600" />
               </div>
               <span className="text-foreground font-medium text-sm">Facebook</span>
             </a>
             
-            <a href="https://twitter.com/stackmodechris" target="_blank" rel="noopener noreferrer" 
-               className="flex items-center gap-3 bg-card/50 border border-border hover:border-foreground/50 rounded-xl p-4 transition-all hover:bg-card/80 group">
+            <a href="https://twitter.com/stackmodechris" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-card/50 border border-border hover:border-foreground/50 rounded-xl p-4 transition-all hover:bg-card/80 group">
               <div className="w-10 h-10 rounded-full bg-foreground/10 flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-foreground">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -700,16 +680,14 @@ const Index = () => {
               <span className="text-foreground font-medium text-sm">X (Twitter)</span>
             </a>
             
-            <a href="https://www.linkedin.com/in/christopher-robinson-119a01234/" target="_blank" rel="noopener noreferrer" 
-               className="flex items-center gap-3 bg-card/50 border border-border hover:border-blue-500/50 rounded-xl p-4 transition-all hover:bg-card/80 group">
+            <a href="https://www.linkedin.com/in/christopher-robinson-119a01234/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-card/50 border border-border hover:border-blue-500/50 rounded-xl p-4 transition-all hover:bg-card/80 group">
               <div className="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center">
                 <Linkedin size={20} className="text-blue-500" />
               </div>
               <span className="text-foreground font-medium text-sm">LinkedIn</span>
             </a>
             
-            <a href="https://www.pinterest.com/stackmodechris/" target="_blank" rel="noopener noreferrer" 
-               className="flex items-center gap-3 bg-card/50 border border-border hover:border-red-600/50 rounded-xl p-4 transition-all hover:bg-card/80 group">
+            <a href="https://www.pinterest.com/stackmodechris/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-card/50 border border-border hover:border-red-600/50 rounded-xl p-4 transition-all hover:bg-card/80 group">
               <div className="w-10 h-10 rounded-full bg-red-600/10 flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-red-600">
                   <path d="M12 0a12 12 0 0 0-4.373 23.178c-.07-.937-.134-2.377.028-3.401.146-.927.943-3.996.943-3.996s-.24-.482-.24-1.193c0-1.116.647-1.949 1.452-1.949.685 0 1.016.514 1.016 1.131 0 .69-.439 1.72-.666 2.677-.189.8.401 1.452 1.189 1.452 1.427 0 2.524-1.505 2.524-3.676 0-1.922-1.381-3.266-3.353-3.266-2.284 0-3.625 1.713-3.625 3.484 0 .69.265 1.429.596 1.832a.24.24 0 0 1 .056.23c-.061.253-.197.8-.224.912-.035.146-.116.177-.268.107-1-.465-1.624-1.926-1.624-3.1 0-2.523 1.834-4.84 5.286-4.84 2.775 0 4.932 1.977 4.932 4.62 0 2.757-1.739 4.976-4.151 4.976-.811 0-1.573-.421-1.834-.919l-.498 1.902c-.181.695-.669 1.566-.995 2.097A12 12 0 1 0 12 0z" />
@@ -718,11 +696,10 @@ const Index = () => {
               <span className="text-foreground font-medium text-sm">Pinterest</span>
             </a>
             
-            <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" 
-               className="flex items-center gap-3 bg-card/50 border border-border hover:border-indigo-500/50 rounded-xl p-4 transition-all hover:bg-card/80 group">
+            <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-card/50 border border-border hover:border-indigo-500/50 rounded-xl p-4 transition-all hover:bg-card/80 group">
               <div className="w-10 h-10 rounded-full bg-indigo-500/10 flex items-center justify-center">
                 <svg className="w-5 h-5 text-indigo-500" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/>
+                  <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z" />
                 </svg>
               </div>
               <span className="text-foreground font-medium text-sm">Discord</span>
@@ -739,40 +716,29 @@ const Index = () => {
           <div className="bg-card border border-border rounded-2xl p-6 sm:p-8">
             <h3 className="text-xl sm:text-2xl font-bold text-foreground text-center mb-6">Ready to Level Up?</h3>
             <nav className="flex flex-wrap justify-center gap-4 sm:gap-8">
-              <a 
-                href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
-              >
+              <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                 Trading Mentorship
               </a>
-              <a 
-                href="https://whop.com/stackmode-network-llc/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
-              >
+              <a href="https://whop.com/stackmode-network-llc/" target="_blank" rel="noopener noreferrer" className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                 Catch My Trades
               </a>
-              <a 
-                href="#courses" 
-                onClick={(e) => { e.preventDefault(); document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' }); }}
-                className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
-              >
+              <a href="#courses" onClick={e => {
+              e.preventDefault();
+              document.getElementById('courses')?.scrollIntoView({
+                behavior: 'smooth'
+              });
+            }} className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                 Courses
               </a>
-              <a 
-                href="#books" 
-                onClick={(e) => { e.preventDefault(); document.getElementById('books')?.scrollIntoView({ behavior: 'smooth' }); }}
-                className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
-              >
+              <a href="#books" onClick={e => {
+              e.preventDefault();
+              document.getElementById('books')?.scrollIntoView({
+                behavior: 'smooth'
+              });
+            }} className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                 Books
               </a>
-              <a 
-                href="/about"
-                className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
-              >
+              <a href="/about" className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                 About
               </a>
             </nav>
