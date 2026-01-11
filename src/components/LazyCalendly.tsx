@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Calendar, ExternalLink } from "lucide-react";
+import { Calendar, ExternalLink, Clock, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface LazyCalendlyProps {
   url: string;
@@ -43,17 +44,77 @@ export const LazyCalendly = ({ url, height = 650 }: LazyCalendlyProps) => {
 
   return (
     <div ref={containerRef} className="relative" style={{ minHeight: height }}>
-      {/* Loading skeleton */}
+      {/* Enhanced loading skeleton - mimics Calendly layout */}
       {isVisible && !isLoaded && !hasError && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-card rounded-xl border border-border/20">
-          <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-4 animate-pulse">
-            <Calendar className="w-8 h-8 text-primary" />
+        <div className="absolute inset-0 bg-card rounded-xl border border-border/20 overflow-hidden">
+          {/* Header skeleton */}
+          <div className="p-6 border-b border-border/20">
+            <div className="flex items-center gap-4">
+              <Skeleton className="w-16 h-16 rounded-full" />
+              <div className="flex-1 space-y-2">
+                <Skeleton className="h-5 w-32" />
+                <Skeleton className="h-4 w-48" />
+              </div>
+            </div>
           </div>
-          <p className="text-muted-foreground text-sm">Loading calendar...</p>
-          <div className="flex gap-1 mt-3">
-            <div className="w-2 h-2 rounded-full bg-primary/50 animate-bounce" style={{ animationDelay: "0ms" }} />
-            <div className="w-2 h-2 rounded-full bg-primary/50 animate-bounce" style={{ animationDelay: "150ms" }} />
-            <div className="w-2 h-2 rounded-full bg-primary/50 animate-bounce" style={{ animationDelay: "300ms" }} />
+          
+          {/* Meeting info skeleton */}
+          <div className="p-6 border-b border-border/20 space-y-3">
+            <div className="flex items-center gap-2">
+              <Clock className="w-4 h-4 text-muted-foreground/50" />
+              <Skeleton className="h-4 w-24" />
+            </div>
+            <div className="flex items-center gap-2">
+              <User className="w-4 h-4 text-muted-foreground/50" />
+              <Skeleton className="h-4 w-32" />
+            </div>
+          </div>
+          
+          {/* Calendar grid skeleton */}
+          <div className="p-6">
+            <div className="flex justify-between items-center mb-4">
+              <Skeleton className="h-6 w-28" />
+              <div className="flex gap-2">
+                <Skeleton className="h-8 w-8 rounded" />
+                <Skeleton className="h-8 w-8 rounded" />
+              </div>
+            </div>
+            
+            {/* Days header */}
+            <div className="grid grid-cols-7 gap-2 mb-3">
+              {Array.from({ length: 7 }).map((_, i) => (
+                <Skeleton key={i} className="h-4 w-full" />
+              ))}
+            </div>
+            
+            {/* Calendar days */}
+            <div className="grid grid-cols-7 gap-2">
+              {Array.from({ length: 35 }).map((_, i) => (
+                <Skeleton 
+                  key={i} 
+                  className="h-10 w-full rounded-lg" 
+                  style={{ 
+                    opacity: Math.random() > 0.3 ? 1 : 0.4,
+                    animationDelay: `${i * 20}ms` 
+                  }} 
+                />
+              ))}
+            </div>
+          </div>
+          
+          {/* Loading indicator overlay */}
+          <div className="absolute inset-0 flex items-center justify-center bg-background/50 backdrop-blur-sm">
+            <div className="flex flex-col items-center">
+              <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mb-3">
+                <Calendar className="w-7 h-7 text-primary animate-pulse" />
+              </div>
+              <p className="text-muted-foreground text-sm font-medium">Loading calendar...</p>
+              <div className="flex gap-1.5 mt-3">
+                <div className="w-2 h-2 rounded-full bg-primary animate-bounce" style={{ animationDelay: "0ms" }} />
+                <div className="w-2 h-2 rounded-full bg-primary animate-bounce" style={{ animationDelay: "150ms" }} />
+                <div className="w-2 h-2 rounded-full bg-primary animate-bounce" style={{ animationDelay: "300ms" }} />
+              </div>
+            </div>
           </div>
         </div>
       )}

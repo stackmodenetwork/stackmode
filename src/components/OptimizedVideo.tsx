@@ -1,4 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, memo } from 'react';
+import { Play } from 'lucide-react';
+import { Skeleton } from '@/components/ui/skeleton';
 
 interface OptimizedVideoProps {
   mobileSrc: string;
@@ -7,7 +9,7 @@ interface OptimizedVideoProps {
   className?: string;
 }
 
-export const OptimizedVideo = ({ 
+export const OptimizedVideo = memo(({ 
   mobileSrc, 
   desktopSrc, 
   poster,
@@ -16,6 +18,7 @@ export const OptimizedVideo = ({
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [hasLoaded, setHasLoaded] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Determine if mobile based on viewport width
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
@@ -50,21 +53,44 @@ export const OptimizedVideo = ({
 
   const handleLoadedData = () => {
     setHasLoaded(true);
+    setIsLoading(false);
+  };
+
+  const handleLoadStart = () => {
+    setIsLoading(true);
   };
 
   return (
-    <video
-      ref={videoRef}
-      className={className}
-      controls
-      playsInline
-      preload="none" // Start with none, upgrade when visible
-      poster={poster}
-      onLoadedData={handleLoadedData}
-    >
-      {/* Serve appropriate video based on device */}
-      <source src={videoSrc} type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
+    <div className={`relative ${className}`}>
+      {/* Loading skeleton */}
+      {isLoading && (
+        <div className="absolute inset-0 bg-muted rounded-xl overflow-hidden z-10">
+          <Skeleton className="absolute inset-0" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-14 h-14 rounded-full bg-background/80 flex items-center justify-center animate-pulse">
+              <Play className="w-7 h-7 text-primary ml-1" />
+            </div>
+          </div>
+        </div>
+      )}
+      
+      <video
+        ref={videoRef}
+        className={`w-full h-auto rounded-xl transition-opacity duration-500 ${
+          hasLoaded ? 'opacity-100' : 'opacity-0'
+        }`}
+        controls
+        playsInline
+        preload="none"
+        poster={poster}
+        onLoadedData={handleLoadedData}
+        onLoadStart={handleLoadStart}
+      >
+        <source src={videoSrc} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
   );
-};
+});
+
+OptimizedVideo.displayName = 'OptimizedVideo';
