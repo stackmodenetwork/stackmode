@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowLeft, TrendingUp, Brain, GraduationCap } from 'lucide-react';
+import { ArrowLeft, TrendingUp, Brain, GraduationCap, Bitcoin } from 'lucide-react';
 
 const courses = [
   {
@@ -25,6 +25,14 @@ const courses = [
     category: "Trading Fundamentals",
     icon: GraduationCap,
     color: "text-blue-500"
+  },
+  {
+    id: 4,
+    title: "Freedom Money: Mastering Bitcoin & Private Keys",
+    excerpt: "Understand the future of money and how to secure your wealth with Bitcoin. Learn self-custody, private keys, and financial sovereignty.",
+    category: "Cryptocurrency",
+    icon: Bitcoin,
+    color: "text-orange-500"
   }
 ];
 
