@@ -300,45 +300,6 @@ const Index = () => {
             </a>
           </div>
           
-          {/* Courses & Books - Full Width CTA */}
-          <Link to="/learn" className="block group mt-6">
-            <article className="relative bg-gradient-to-r from-orange-950/80 via-orange-900/60 to-orange-950/80 border-2 border-orange-500/30 rounded-2xl p-5 sm:p-6 md:p-8 overflow-hidden transition-all duration-500 hover:border-orange-500/60 hover:shadow-[0_0_40px_rgba(249,115,22,0.15)] group-hover:scale-[1.01]">
-              {/* Subtle background accent */}
-              <div className="absolute top-0 right-0 w-48 h-48 bg-orange-500/5 rounded-full blur-3xl"></div>
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-orange-400/5 rounded-full blur-2xl"></div>
-              
-              <div className="relative z-10">
-                <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-                  {/* Icons */}
-                  <div className="flex items-center gap-3 flex-shrink-0">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 bg-orange-500/15 rounded-xl flex items-center justify-center">
-                      <PlayCircle size={24} className="text-orange-400 sm:w-7 sm:h-7" />
-                    </div>
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 bg-orange-500/15 rounded-xl flex items-center justify-center">
-                      <BookOpen size={24} className="text-orange-400 sm:w-7 sm:h-7" />
-                    </div>
-                  </div>
-                  
-                  {/* Content */}
-                  <div className="flex-1 text-center sm:text-left">
-                    <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-foreground mb-1">Courses & Books</h3>
-                    <p className="text-muted-foreground text-sm sm:text-base">Self-paced video courses and trading eBooks to master the markets on your own schedule</p>
-                  </div>
-                  
-                  {/* CTA Button */}
-                  <div className="flex-shrink-0 w-full sm:w-auto">
-                    <div className="bg-orange-500 hover:bg-orange-400 text-white font-semibold text-base px-6 py-3 rounded-lg text-center transition-colors flex items-center justify-center gap-2 group-hover:gap-3">
-                      <span>Browse Library</span>
-                      <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-          </Link>
-          
           {/* Trust indicator below CTAs */}
           <div className="mt-6 text-center">
             <p className="text-xs text-muted-foreground">Not sure which is right for you? <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Book a free call</a> and I'll help you decide.</p>
