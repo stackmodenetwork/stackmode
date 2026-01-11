@@ -221,7 +221,7 @@ const About = () => {
               <div className="flex flex-wrap justify-center gap-4 mb-12">
                 {[{
                 icon: Youtube,
-                href: 'https://www.youtube.com/@stackmodetrading',
+                href: 'https://www.youtube.com/@Stackmodechris',
                 label: 'YouTube'
               }, {
                 icon: Instagram,
