@@ -20,19 +20,19 @@ const books = [
   },
   {
     id: 3,
-    title: "The Key Steps To Profitability",
-    excerpt: "Your complete guide to building a profitable trading career. From mindset to execution, everything you need to succeed.",
-    category: "Trading Fundamentals",
-    icon: BookOpen,
-    color: "text-blue-500"
-  },
-  {
-    id: 4,
     title: "Freedom Money: Mastering Bitcoin & Private Keys",
     excerpt: "Take control of your financial future with Bitcoin. Learn self-custody, private key management, and the path to true financial freedom.",
     category: "Cryptocurrency",
     icon: Bitcoin,
     color: "text-orange-500"
+  },
+  {
+    id: 4,
+    title: "The Key Steps To Profitability",
+    excerpt: "Your complete guide to building a profitable trading career. From mindset to execution, everything you need to succeed.",
+    category: "Trading Fundamentals",
+    icon: BookOpen,
+    color: "text-blue-500"
   }
 ];
 
@@ -64,19 +64,19 @@ const Books = () => {
 
       {/* Books Grid */}
       <section className="pb-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {books.map((book) => {
               const IconComponent = book.icon;
               return (
                 <article 
                   key={book.id}
-                  className="group bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
+                  className="group bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 flex flex-col"
                 >
                   {/* Card Header with Icon */}
-                  <div className="bg-gradient-to-br from-card to-muted p-6 border-b border-border">
-                    <div className={`w-12 h-12 rounded-xl bg-background flex items-center justify-center mb-4 ${book.color}`}>
-                      <IconComponent size={24} />
+                  <div className="bg-gradient-to-br from-card to-muted p-5 border-b border-border">
+                    <div className={`w-11 h-11 rounded-xl bg-background flex items-center justify-center mb-3 ${book.color}`}>
+                      <IconComponent size={22} />
                     </div>
                     <span className="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded-full">
                       {book.category}
@@ -84,17 +84,13 @@ const Books = () => {
                   </div>
                   
                   {/* Card Content */}
-                  <div className="p-6">
-                    <h2 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                  <div className="p-5 flex-1 flex flex-col">
+                    <h2 className="text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
                       {book.title}
                     </h2>
-                    <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
+                    <p className="text-sm text-muted-foreground mb-4 line-clamp-3 flex-1">
                       {book.excerpt}
                     </p>
-                  </div>
-                  
-                  {/* Coming Soon Overlay */}
-                  <div className="px-6 pb-6">
                     <div className="text-center py-2 bg-muted rounded-lg text-sm text-muted-foreground">
                       Coming Soon
                     </div>
