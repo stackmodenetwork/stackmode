@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Youtube, Instagram, Mic } from 'lucide-react';
 
@@ -12,6 +12,8 @@ const triggerHaptic = (style: 'light' | 'medium' = 'light') => {
 export const MainHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const touchStartY = useRef<number | null>(null);
+  const touchStartX = useRef<number | null>(null);
   
   const closeMenu = useCallback(() => {
     triggerHaptic('light');
@@ -26,6 +28,29 @@ export const MainHeader = () => {
   const handleMenuItemClick = useCallback(() => {
     triggerHaptic('light');
     closeMenu();
+  }, [closeMenu]);
+
+  // Swipe gesture handlers
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    touchStartY.current = e.touches[0].clientY;
+    touchStartX.current = e.touches[0].clientX;
+  }, []);
+
+  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
+    if (touchStartY.current === null || touchStartX.current === null) return;
+    
+    const touchEndY = e.changedTouches[0].clientY;
+    const touchEndX = e.changedTouches[0].clientX;
+    const deltaY = touchEndY - touchStartY.current;
+    const deltaX = Math.abs(touchEndX - touchStartX.current);
+    
+    // Swipe down detected: deltaY > 50px and more vertical than horizontal
+    if (deltaY > 50 && deltaY > deltaX) {
+      closeMenu();
+    }
+    
+    touchStartY.current = null;
+    touchStartX.current = null;
   }, [closeMenu]);
 
   const isActive = (path: string) => location.pathname === path;
@@ -87,9 +112,18 @@ export const MainHeader = () => {
       </header>
 
       {/* Mobile Dropdown Menu */}
-      <div className={`fixed inset-x-0 top-16 sm:top-20 z-50 md:hidden transition-all duration-300 ${menuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}`}>
+      <div 
+        className={`fixed inset-x-0 top-16 sm:top-20 z-50 md:hidden transition-all duration-300 ${menuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}`}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
         {/* Glassmorphism container with gradient */}
         <div className="relative overflow-hidden border-b border-white/10 shadow-2xl">
+          {/* Swipe indicator */}
+          <div className="flex justify-center pt-2 pb-1">
+            <div className="w-10 h-1 rounded-full bg-white/20" />
+          </div>
+          
           {/* Gradient background layers */}
           <div className="absolute inset-0 bg-gradient-to-br from-background via-background/98 to-primary/5" />
           <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-transparent" />
