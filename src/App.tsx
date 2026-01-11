@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { FloatingActionButton } from "@/components/FloatingActionButton";
+import { BottomNavigation } from "@/components/BottomNavigation";
 import Index from "./pages/Index";
 import Learn from "./pages/Learn";
 import About from "./pages/About";
@@ -34,7 +35,7 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
-          <FloatingActionButton />
+          <BottomNavigation />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
