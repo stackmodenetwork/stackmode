@@ -28,20 +28,20 @@ const Index = () => {
   return <main className="min-h-screen bg-background relative overflow-x-hidden scroll-smooth animate-page-load">
       {/* Top Navigation Bar - Acquisition.com Style */}
       <header className="bg-card border-b border-border sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4">
+          <div className="flex items-center justify-between h-14 sm:h-16 md:h-20 gap-2">
             {/* Logo */}
-            <a href="https://stackmode.net" className="flex items-center">
-              <img src="/images/sm-logo.png" alt="Stackmode Logo" className="w-28 h-28 object-contain" />
-              <span className="text-lg sm:text-xl font-bold text-foreground -ml-1">STACKMODE.NET</span>
+            <a href="https://stackmode.net" className="flex items-center shrink-0">
+              <img src="/images/sm-logo.png" alt="Stackmode Logo" className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain" />
+              <span className="text-sm sm:text-base md:text-lg font-bold text-foreground ml-1 whitespace-nowrap">STACKMODE.NET</span>
             </a>
             
             {/* Desktop Navigation - Centered */}
-            <nav className="hidden md:flex items-center justify-center flex-1 gap-10 mx-8">
-              <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
+            <nav className="hidden lg:flex items-center justify-center flex-1 gap-6 xl:gap-10 mx-4">
+              <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="text-sm xl:text-base font-semibold text-foreground/80 hover:text-primary transition-colors whitespace-nowrap relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                 Trading Mentorship
               </a>
-              <a href="https://whop.com/stackmode-network-llc/" target="_blank" rel="noopener noreferrer" className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
+              <a href="https://whop.com/stackmode-network-llc/" target="_blank" rel="noopener noreferrer" className="text-sm xl:text-base font-semibold text-foreground/80 hover:text-primary transition-colors whitespace-nowrap relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                 Catch My Trades
               </a>
               <a href="#courses" onClick={e => {
@@ -49,7 +49,7 @@ const Index = () => {
               document.getElementById('courses')?.scrollIntoView({
                 behavior: 'smooth'
               });
-            }} className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
+            }} className="text-sm xl:text-base font-semibold text-foreground/80 hover:text-primary transition-colors whitespace-nowrap relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                 Courses
               </a>
               <a href="#books" onClick={e => {
@@ -57,18 +57,18 @@ const Index = () => {
               document.getElementById('books')?.scrollIntoView({
                 behavior: 'smooth'
               });
-            }} className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
+            }} className="text-sm xl:text-base font-semibold text-foreground/80 hover:text-primary transition-colors whitespace-nowrap relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                 Books
               </a>
-              <a href="/about" className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
+              <a href="/about" className="text-sm xl:text-base font-semibold text-foreground/80 hover:text-primary transition-colors whitespace-nowrap relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                 About
               </a>
             </nav>
 
             {/* Mobile Menu Button */}
-            <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden flex items-center gap-2 px-3 py-2 rounded-lg bg-muted/50 border border-border hover:border-primary transition-colors" aria-label="Open menu">
-              {menuOpen ? <X size={20} className="text-primary" /> : <Menu size={20} className="text-primary" />}
-              <span className="text-sm font-semibold text-foreground">Menu</span>
+            <button onClick={() => setMenuOpen(!menuOpen)} className="lg:hidden flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg bg-muted/50 border border-border hover:border-primary transition-colors shrink-0" aria-label="Open menu">
+              {menuOpen ? <X size={18} className="text-primary sm:w-5 sm:h-5" /> : <Menu size={18} className="text-primary sm:w-5 sm:h-5" />}
+              <span className="text-xs sm:text-sm font-semibold text-foreground">Menu</span>
             </button>
           </div>
         </div>
