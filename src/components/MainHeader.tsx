@@ -69,6 +69,14 @@ export const MainHeader = () => {
       <div className={`fixed inset-x-0 top-16 sm:top-20 z-50 md:hidden transition-all duration-300 ${menuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}`}>
         <div className="bg-background/95 backdrop-blur-md border-b border-border shadow-xl">
           <div className="px-4 py-4">
+            {/* Logo in Mobile Menu */}
+            <div className="flex items-center justify-center pb-4 mb-4 border-b border-border">
+              <Link to="/" onClick={closeMenu} className="flex items-center gap-1">
+                <img src="/images/sm-logo.png" alt="Stackmode Logo" className="w-12 h-12 object-contain" />
+                <span className="text-lg font-bold text-foreground">STACKMODE.NET</span>
+              </Link>
+            </div>
+
             {/* Main Navigation Links */}
             <div className="space-y-1 mb-4">
               <a 
