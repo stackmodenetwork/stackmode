@@ -102,6 +102,23 @@ const Courses = () => {
         </div>
       </section>
 
+      {/* Prefer Reading Section */}
+      <section className="pb-16 px-4">
+        <div className="max-w-2xl mx-auto">
+          <div className="bg-card border border-border rounded-2xl p-6 text-center">
+            <p className="text-muted-foreground mb-4">
+              Prefer reading? Check out our book collection for in-depth knowledge.
+            </p>
+            <Link 
+              to="/books"
+              className="inline-block bg-primary/10 hover:bg-primary/20 text-primary font-medium px-6 py-3 rounded-lg transition-colors"
+            >
+              Browse Books →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 px-4 bg-gradient-to-br from-card to-background border-t border-border">
         <div className="max-w-3xl mx-auto text-center">
