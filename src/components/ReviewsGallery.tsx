@@ -1,7 +1,8 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, memo } from 'react';
 import { ChevronDown, ChevronUp, X, ChevronLeft, ChevronRight, BadgeCheck, Users, Camera } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { OptimizedImage } from '@/components/OptimizedImage';
 const allReviews = ["review-1.png", "review-2.png", "review-3.png", "review-4.png", "review-5.png", "review-6.png", "review-7.png", "review-8.png", "review-9.png", "review-10.png", "review-11.png", "review-12.png", "review-13.png", "review-14.png", "review-15.png", "review-16.png", "review-17.png", "review-18.png", "review-19.png", "review-20.png", "review-21.png", "review-22.png", "review-23.png", "review-24.png", "review-25.png", "review-26.png", "review-27.png", "review-28.png", "review-29.png", "review-30.png", "review-31.png", "review-32.png", "review-33.png", "review-34.png", "review-35.png"];
 export function ReviewsGallery() {
   const [showAll, setShowAll] = useState(false);
@@ -43,14 +44,24 @@ export function ReviewsGallery() {
       
       {/* Masonry Grid */}
       <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
-        {displayedReviews.map((img, index) => <div key={img} onClick={() => setSelectedIndex(allReviews.indexOf(img))} className="break-inside-avoid group relative overflow-hidden rounded-2xl bg-card border border-border/50 hover:border-primary/50 transition-all duration-500 hover:shadow-xl hover:shadow-primary/20 hover:-translate-y-1 cursor-pointer" style={{
-        animationDelay: `${index * 50}ms`,
-        animation: 'fade-in 0.5s ease-out forwards'
-      }}>
-            {/* Image */}
-            <img src={`/lovable-uploads/${img}`} alt={`Student success story ${index + 1}`} loading="lazy" className="w-full h-auto block" />
-            
-          </div>)}
+        {displayedReviews.map((img, index) => (
+          <div 
+            key={img} 
+            onClick={() => setSelectedIndex(allReviews.indexOf(img))} 
+            className="break-inside-avoid group relative overflow-hidden rounded-2xl bg-card border border-border/50 hover:border-primary/50 transition-all duration-500 hover:shadow-xl hover:shadow-primary/20 hover:-translate-y-1 cursor-pointer" 
+            style={{
+              animationDelay: `${index * 50}ms`,
+              animation: 'fade-in 0.5s ease-out forwards'
+            }}
+          >
+            <OptimizedImage 
+              src={`/lovable-uploads/${img}`} 
+              alt={`Student success story ${index + 1}`} 
+              className="w-full h-auto block"
+              priority={index < 4}
+            />
+          </div>
+        ))}
       </div>
 
       {/* Show More / Less Button */}

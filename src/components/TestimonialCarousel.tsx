@@ -1,5 +1,6 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, memo } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { OptimizedImage } from "@/components/OptimizedImage";
 
 const reviewImages = [
   { src: "/lovable-uploads/review-1.png", alt: "Student Trading Success" },
@@ -84,18 +85,17 @@ export const TestimonialCarousel = () => {
               key={`${image.src}-${index}`}
               className="relative group flex-shrink-0 w-[calc(25%-12px)]"
             >
-              <div className="absolute -top-2 -left-2 text-accent text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute -top-2 -left-2 text-accent text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
                 ★
               </div>
-              <div className="absolute -bottom-3 -right-2 text-primary text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute -bottom-3 -right-2 text-primary text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
                 ★
               </div>
-              <img
+              <OptimizedImage
                 src={image.src}
                 alt={image.alt}
-                loading="lazy"
-                decoding="async"
                 className="w-full h-auto purple-border rounded-lg hover:soft-glow transition-all duration-300 group-hover:scale-105"
+                priority={index < 4}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </div>

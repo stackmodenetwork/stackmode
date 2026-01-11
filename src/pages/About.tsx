@@ -9,6 +9,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { MainHeader } from '@/components/MainHeader';
 import { MainFooter } from '@/components/MainFooter';
+import { OptimizedImage } from '@/components/OptimizedImage';
 
 const About = () => {
   const { toast } = useToast();
@@ -112,7 +113,12 @@ const About = () => {
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 max-w-5xl mx-auto">
               <div className="flex-shrink-0">
                 <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/40 shadow-2xl shadow-primary/20">
-                  <img src="/images/stackmodechris-about-new.png" alt="Stackmodechris - Christopher Robinson, Trading Mentor" className="w-full h-full object-cover" />
+                  <OptimizedImage 
+                    src="/images/stackmodechris-about-new.png" 
+                    alt="Stackmodechris - Christopher Robinson, Trading Mentor" 
+                    className="w-full h-full"
+                    priority
+                  />
                 </div>
               </div>
               
