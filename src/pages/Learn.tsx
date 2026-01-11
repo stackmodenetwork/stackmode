@@ -1,4 +1,5 @@
-import { TrendingUp, Brain, GraduationCap, Bitcoin, Video, BookOpen, ShoppingCart, Clock } from 'lucide-react';
+import { TrendingUp, Brain, GraduationCap, Bitcoin, Video, BookOpen, ShoppingCart, Clock, ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { MainHeader } from '@/components/MainHeader';
 import { MainFooter } from '@/components/MainFooter';
 
@@ -58,6 +59,14 @@ const Learn = () => {
   return (
     <main className="min-h-screen bg-background flex flex-col">
       <MainHeader />
+
+      {/* Back Button */}
+      <div className="max-w-5xl mx-auto px-4 pt-6">
+        <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+          <ArrowLeft size={20} />
+          <span>Back to Home</span>
+        </Link>
+      </div>
 
       {/* Hero Section */}
       <section className="py-12 md:py-20 px-4">
