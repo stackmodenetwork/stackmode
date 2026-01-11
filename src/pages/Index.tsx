@@ -799,10 +799,6 @@ const Index = () => {
             <a href="/dmca" className="text-muted-foreground hover:text-primary transition-colors">
               DMCA Policy
             </a>
-            <span className="text-border hidden sm:inline">|</span>
-            <a href="/about" className="text-muted-foreground hover:text-primary transition-colors">
-              About
-            </a>
           </div>
           
           {/* Earnings Disclaimer */}
