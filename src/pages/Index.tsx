@@ -784,7 +784,7 @@ const Index = () => {
           </p>
           
           <p className="text-xs text-muted-foreground">
-            © 2025 Stackmode Network LLC. All Rights Reserved.
+            © 2026 Stackmode Network LLC. All Rights Reserved.
           </p>
         </div>
       </footer>
