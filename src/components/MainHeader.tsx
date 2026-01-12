@@ -80,7 +80,7 @@ export const MainHeader = memo(() => {
     touchStartX.current = null;
   }, [closeMenu]);
 
-  const isLearnActive = location.pathname === '/learn' || location.pathname === '/courses';
+  const isLearnActive = location.pathname === '/learn';
   const isAboutActive = location.pathname === '/about';
 
   return (
