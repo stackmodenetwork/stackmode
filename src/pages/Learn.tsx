@@ -1,185 +1,202 @@
-import { TrendingUp, Brain, GraduationCap, Bitcoin, Video, BookOpen, ShoppingCart, Clock, ArrowLeft } from 'lucide-react';
+import { TrendingUp, Brain, GraduationCap, Bitcoin, Video, BookOpen, ShoppingCart, Clock, ArrowLeft, Star, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { MainHeader } from '@/components/MainHeader';
 import { MainFooter } from '@/components/MainFooter';
 
-const products = [
+const featuredProduct = {
+  id: 4,
+  title: "The Key Steps To Profitability",
+  excerpt: "The complete roadmap from beginner to profitable trader. Learn risk management, strategy development, and consistent execution.",
+  category: "Trading Fundamentals",
+  icon: GraduationCap,
+  color: "text-blue-500",
+  courseLink: "https://stackmodechris.systeme.io/trading",
+  ebookLink: "https://stackmodechris.systeme.io/trading",
+  benefits: [
+    "Proven step-by-step trading framework",
+    "Risk management strategies that protect your capital",
+    "Psychology techniques to trade without emotion",
+    "Real examples from profitable trades"
+  ]
+};
+
+const upcomingProducts = [
   {
     id: 1,
-    title: "Find the Next 100x Stock: The Deep Analysis Framework",
-    excerpt: "Learn the proven research methodology to identify high-potential stocks before they explode. Master fundamental and technical analysis combined.",
+    title: "Find the Next 100x Stock",
+    excerpt: "Master the deep analysis framework to identify high-potential stocks.",
     category: "Stock Analysis",
     icon: TrendingUp,
     color: "text-green-500",
-    comingSoon: true,
-    courseLink: "#",
-    ebookLink: "#",
-    amazonLink: "#"
   },
   {
     id: 2,
-    title: "Neuro-Trading: Rewire Your Brain for Stock Market Success",
-    excerpt: "Transform your trading psychology using neuroscience-backed techniques. Overcome fear, greed, and emotional trading forever.",
+    title: "Neuro-Trading",
+    excerpt: "Rewire your brain for stock market success using neuroscience.",
     category: "Trading Psychology",
     icon: Brain,
     color: "text-purple-500",
-    comingSoon: true,
-    courseLink: "#",
-    ebookLink: "#",
-    amazonLink: "#"
   },
   {
     id: 3,
-    title: "Freedom Money: Mastering Bitcoin & Private Keys",
-    excerpt: "Understand the future of money and how to secure your wealth with Bitcoin. Learn self-custody, private keys, and financial sovereignty.",
+    title: "Freedom Money",
+    excerpt: "Master Bitcoin, private keys, and financial sovereignty.",
     category: "Cryptocurrency",
     icon: Bitcoin,
     color: "text-orange-500",
-    comingSoon: true,
-    courseLink: "#",
-    ebookLink: "#",
-    amazonLink: "#"
-  },
-  {
-    id: 4,
-    title: "The Key Steps To Profitability",
-    excerpt: "The complete roadmap from beginner to profitable trader. Learn risk management, strategy development, and consistent execution.",
-    category: "Trading Fundamentals",
-    icon: GraduationCap,
-    color: "text-blue-500",
-    comingSoon: false,
-    amazonComingSoon: true,
-    courseLink: "https://stackmodechris.systeme.io/trading",
-    ebookLink: "https://stackmodechris.systeme.io/trading",
-    amazonLink: "#"
   }
 ];
 
 const Learn = () => {
   return (
     <main className="min-h-screen bg-background flex flex-col">
+      <Helmet>
+        <title>Trading Courses & eBooks | StackmodeChris - Learn to Trade Profitably</title>
+        <meta name="description" content="Master stock trading with StackmodeChris's proven courses and eBooks. Learn risk management, trading psychology, and strategies that actually work." />
+        <meta name="keywords" content="trading course, stock trading, learn to trade, trading psychology, risk management, profitable trading" />
+        <link rel="canonical" href="https://stackmodechris.com/learn" />
+      </Helmet>
+
       <MainHeader />
 
-      {/* Back Button */}
-      <div className="max-w-5xl mx-auto px-4 pt-6">
-        <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-          <ArrowLeft size={20} />
-          <span>Back to Home</span>
-        </Link>
-      </div>
+      {/* Compact Hero + Featured Product */}
+      <section className="pt-4 pb-6 md:pt-6 md:pb-8 px-4">
+        <div className="max-w-5xl mx-auto">
+          {/* Back Button */}
+          <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm mb-4">
+            <ArrowLeft size={16} />
+            <span>Back to Home</span>
+          </Link>
 
-      {/* Hero Section */}
-      <section className="py-12 md:py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
-            Courses & Books
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Master the markets with video courses and eBooks designed to transform you into a profitable trader.
-          </p>
+          {/* Page Title - Compact */}
+          <div className="text-center mb-6 md:mb-8">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-2">
+              Courses & Books
+            </h1>
+            <p className="text-sm md:text-base text-muted-foreground max-w-xl mx-auto">
+              Transform from beginner to profitable trader with proven strategies.
+            </p>
+          </div>
+
+          {/* Featured Product Card - Sales Optimized */}
+          <article className="bg-gradient-to-br from-primary/5 via-card to-card border-2 border-primary/30 rounded-2xl overflow-hidden shadow-lg shadow-primary/10">
+            <div className="grid md:grid-cols-2 gap-0">
+              {/* Left: Content */}
+              <div className="p-5 md:p-6 flex flex-col">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="bg-primary text-primary-foreground text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1">
+                    <Star size={12} fill="currentColor" />
+                    AVAILABLE NOW
+                  </span>
+                  <span className="text-xs text-muted-foreground">{featuredProduct.category}</span>
+                </div>
+                
+                <h2 className="text-xl md:text-2xl font-bold text-foreground mb-2">
+                  {featuredProduct.title}
+                </h2>
+                <p className="text-sm text-muted-foreground mb-4">
+                  {featuredProduct.excerpt}
+                </p>
+
+                {/* Benefits List */}
+                <ul className="space-y-2 mb-5 flex-1">
+                  {featuredProduct.benefits.map((benefit, index) => (
+                    <li key={index} className="flex items-start gap-2 text-sm">
+                      <CheckCircle size={16} className="text-primary mt-0.5 shrink-0" />
+                      <span className="text-foreground">{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* CTA Buttons */}
+                <div className="space-y-2">
+                  <a 
+                    href={featuredProduct.courseLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full py-3 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                  >
+                    <Video size={18} />
+                    <span>Watch Full Course</span>
+                  </a>
+                  <a 
+                    href={featuredProduct.ebookLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full py-2.5 bg-muted text-foreground font-medium rounded-lg hover:bg-muted/80 transition-colors"
+                  >
+                    <BookOpen size={16} />
+                    <span>Get the eBook</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Right: Visual/Icon */}
+              <div className="hidden md:flex items-center justify-center bg-gradient-to-br from-primary/10 to-primary/5 p-8">
+                <div className="relative">
+                  <div className="w-32 h-32 rounded-2xl bg-primary/20 flex items-center justify-center">
+                    <GraduationCap size={64} className="text-primary" />
+                  </div>
+                  <div className="absolute -bottom-2 -right-2 bg-accent text-background text-xs font-bold px-3 py-1.5 rounded-full">
+                    Best Seller
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 
-      {/* Products Grid */}
-      <section className="pb-20 px-4 flex-1">
+      {/* Coming Soon - Compact Grid */}
+      <section className="pb-6 md:pb-8 px-4">
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {products.map((product) => {
+          <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
+            <Clock size={18} className="text-muted-foreground" />
+            Coming Soon
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {upcomingProducts.map((product) => {
               const IconComponent = product.icon;
               return (
-                <article 
+                <div 
                   key={product.id}
-                  className="group bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 flex flex-col"
+                  className="bg-card border border-border rounded-xl p-4 opacity-75"
                 >
-                  {/* Card Header */}
-                  <div className="bg-gradient-to-br from-card to-muted p-5 border-b border-border">
-                    <div className={`w-12 h-12 rounded-xl bg-background flex items-center justify-center mb-3 ${product.color}`}>
-                      <IconComponent size={24} />
+                  <div className="flex items-start gap-3">
+                    <div className={`w-10 h-10 rounded-lg bg-muted flex items-center justify-center shrink-0 ${product.color}`}>
+                      <IconComponent size={20} />
                     </div>
-                    <span className="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded-full">
-                      {product.category}
-                    </span>
-                  </div>
-                  
-                  {/* Card Content */}
-                  <div className="p-5 flex-1 flex flex-col">
-                    <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-                      {product.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground mb-5 flex-1">
-                      {product.excerpt}
-                    </p>
-                    
-                    {/* Action Buttons */}
-                    <div className="space-y-2">
-                      {product.comingSoon ? (
-                        <div className="flex items-center justify-center gap-2 w-full py-3 bg-muted/50 text-muted-foreground font-medium rounded-lg text-sm border border-border">
-                          <Clock size={16} />
-                          <span>Coming Soon</span>
-                        </div>
-                      ) : (
-                        <>
-                          <a 
-                            href={product.courseLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center justify-center gap-2 w-full py-2.5 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-colors text-sm"
-                          >
-                            <Video size={16} />
-                            <span>Watch Course</span>
-                          </a>
-                          <div className="grid grid-cols-2 gap-2">
-                            <a 
-                              href={product.ebookLink}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex items-center justify-center gap-2 py-2.5 bg-muted text-foreground font-medium rounded-lg hover:bg-muted/80 transition-colors text-sm"
-                            >
-                              <BookOpen size={16} />
-                              <span>eBook</span>
-                            </a>
-                            {product.amazonComingSoon ? (
-                              <div className="flex items-center justify-center gap-2 py-2.5 bg-muted/50 text-muted-foreground font-medium rounded-lg text-sm border border-border">
-                                <Clock size={14} />
-                                <span>Soon</span>
-                              </div>
-                            ) : (
-                              <a 
-                                href={product.amazonLink}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center justify-center gap-2 py-2.5 bg-orange-500/10 text-orange-500 font-medium rounded-lg hover:bg-orange-500/20 transition-colors text-sm"
-                              >
-                                <ShoppingCart size={16} />
-                                <span>Amazon</span>
-                              </a>
-                            )}
-                          </div>
-                        </>
-                      )}
+                    <div className="min-w-0">
+                      <h4 className="font-medium text-foreground text-sm leading-tight mb-1">
+                        {product.title}
+                      </h4>
+                      <p className="text-xs text-muted-foreground line-clamp-2">
+                        {product.excerpt}
+                      </p>
                     </div>
                   </div>
-                </article>
+                </div>
               );
             })}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 px-4 bg-gradient-to-br from-card to-background border-t border-border">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-            Want Personalized Trading Guidance?
+      {/* CTA Section - Compact */}
+      <section className="py-8 md:py-10 px-4 bg-gradient-to-br from-card to-background border-t border-border mt-auto">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-xl md:text-2xl font-bold text-foreground mb-2">
+            Want 1-on-1 Trading Mentorship?
           </h2>
-          <p className="text-muted-foreground mb-6">
-            Skip the guesswork and get 1-on-1 mentorship from StackmodeChris himself.
+          <p className="text-sm text-muted-foreground mb-4">
+            Get personalized guidance from StackmodeChris himself.
           </p>
           <a 
             href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-block bg-accent hover:bg-accent/90 text-background font-semibold px-8 py-4 rounded-lg transition-colors"
+            className="inline-block bg-accent hover:bg-accent/90 text-background font-semibold px-6 py-3 rounded-lg transition-all hover:scale-105 active:scale-95"
           >
             Book Your Free Strategy Call →
           </a>
