@@ -775,6 +775,9 @@ const Index = () => {
           </p>
         </div>
       </footer>
+      
+      {/* Spacer for mobile bottom navigation */}
+      <div className="h-24 md:hidden" />
 
       {/* Cookie Consent Banner */}
       <CookieConsent />
