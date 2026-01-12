@@ -1,52 +1,93 @@
-import { TrendingUp, Brain, GraduationCap, Bitcoin, Video, BookOpen, ShoppingCart, Clock, ArrowLeft, Star, CheckCircle } from 'lucide-react';
+import { TrendingUp, Brain, GraduationCap, Bitcoin, Video, BookOpen, Clock, ArrowLeft, Bell, Zap, Gift } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { MainHeader } from '@/components/MainHeader';
 import { MainFooter } from '@/components/MainFooter';
+import { useState, useEffect } from 'react';
 
-const featuredProduct = {
+// Countdown component for urgency
+const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate.getTime() - now;
+      
+      if (distance > 0) {
+        setTimeLeft({
+          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((distance % (1000 * 60)) / 1000)
+        });
+      }
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [targetDate]);
+
+  return (
+    <div className="flex items-center gap-1 text-xs font-mono">
+      <span className="bg-background/80 px-1.5 py-0.5 rounded">{timeLeft.days}d</span>
+      <span>:</span>
+      <span className="bg-background/80 px-1.5 py-0.5 rounded">{timeLeft.hours}h</span>
+      <span>:</span>
+      <span className="bg-background/80 px-1.5 py-0.5 rounded">{timeLeft.minutes}m</span>
+      <span>:</span>
+      <span className="bg-background/80 px-1.5 py-0.5 rounded">{timeLeft.seconds}s</span>
+    </div>
+  );
+};
+
+const premiumProducts = [
+  {
+    id: 1,
+    title: "Find the Next 100x Stock",
+    subtitle: "The Deep Analysis Framework",
+    excerpt: "Master the proven research methodology to identify high-potential stocks before they explode. Fundamental + technical analysis combined.",
+    category: "Stock Analysis",
+    icon: TrendingUp,
+    color: "text-green-500",
+    bgColor: "bg-green-500/10",
+    borderColor: "border-green-500/30",
+    launchDate: new Date('2025-03-01'),
+  },
+  {
+    id: 2,
+    title: "Neuro-Trading",
+    subtitle: "Rewire Your Brain for Success",
+    excerpt: "Transform your trading psychology using neuroscience-backed techniques. Overcome fear, greed, and emotional trading forever.",
+    category: "Trading Psychology",
+    icon: Brain,
+    color: "text-purple-500",
+    bgColor: "bg-purple-500/10",
+    borderColor: "border-purple-500/30",
+    launchDate: new Date('2025-04-01'),
+  },
+  {
+    id: 3,
+    title: "Freedom Money",
+    subtitle: "Mastering Bitcoin & Private Keys",
+    excerpt: "Understand the future of money and secure your wealth with Bitcoin. Learn self-custody, private keys, and financial sovereignty.",
+    category: "Cryptocurrency",
+    icon: Bitcoin,
+    color: "text-orange-500",
+    bgColor: "bg-orange-500/10",
+    borderColor: "border-orange-500/30",
+    launchDate: new Date('2025-05-01'),
+  }
+];
+
+const freeProduct = {
   id: 4,
   title: "The Key Steps To Profitability",
   excerpt: "The complete roadmap from beginner to profitable trader. Learn risk management, strategy development, and consistent execution.",
   category: "Trading Fundamentals",
   icon: GraduationCap,
-  color: "text-blue-500",
   courseLink: "https://stackmodechris.systeme.io/trading",
   ebookLink: "https://stackmodechris.systeme.io/trading",
-  benefits: [
-    "Proven step-by-step trading framework",
-    "Risk management strategies that protect your capital",
-    "Psychology techniques to trade without emotion",
-    "Real examples from profitable trades"
-  ]
 };
-
-const upcomingProducts = [
-  {
-    id: 1,
-    title: "Find the Next 100x Stock",
-    excerpt: "Master the deep analysis framework to identify high-potential stocks.",
-    category: "Stock Analysis",
-    icon: TrendingUp,
-    color: "text-green-500",
-  },
-  {
-    id: 2,
-    title: "Neuro-Trading",
-    excerpt: "Rewire your brain for stock market success using neuroscience.",
-    category: "Trading Psychology",
-    icon: Brain,
-    color: "text-purple-500",
-  },
-  {
-    id: 3,
-    title: "Freedom Money",
-    excerpt: "Master Bitcoin, private keys, and financial sovereignty.",
-    category: "Cryptocurrency",
-    icon: Bitcoin,
-    color: "text-orange-500",
-  }
-];
 
 const Learn = () => {
   return (
@@ -60,17 +101,15 @@ const Learn = () => {
 
       <MainHeader />
 
-      {/* Compact Hero + Featured Product */}
-      <section className="pt-4 pb-6 md:pt-6 md:pb-8 px-4">
+      {/* Compact Hero */}
+      <section className="pt-4 pb-4 md:pt-6 md:pb-6 px-4">
         <div className="max-w-5xl mx-auto">
-          {/* Back Button */}
           <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm mb-4">
             <ArrowLeft size={16} />
             <span>Back to Home</span>
           </Link>
 
-          {/* Page Title - Compact */}
-          <div className="text-center mb-6 md:mb-8">
+          <div className="text-center mb-6">
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-2">
               Courses & Books
             </h1>
@@ -78,112 +117,137 @@ const Learn = () => {
               Transform from beginner to profitable trader with proven strategies.
             </p>
           </div>
-
-          {/* Featured Product Card - Sales Optimized */}
-          <article className="bg-gradient-to-br from-primary/5 via-card to-card border-2 border-primary/30 rounded-2xl overflow-hidden shadow-lg shadow-primary/10">
-            <div className="grid md:grid-cols-2 gap-0">
-              {/* Left: Content */}
-              <div className="p-5 md:p-6 flex flex-col">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="bg-primary text-primary-foreground text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1">
-                    <Star size={12} fill="currentColor" />
-                    AVAILABLE NOW
-                  </span>
-                  <span className="text-xs text-muted-foreground">{featuredProduct.category}</span>
-                </div>
-                
-                <h2 className="text-xl md:text-2xl font-bold text-foreground mb-2">
-                  {featuredProduct.title}
-                </h2>
-                <p className="text-sm text-muted-foreground mb-4">
-                  {featuredProduct.excerpt}
-                </p>
-
-                {/* Benefits List */}
-                <ul className="space-y-2 mb-5 flex-1">
-                  {featuredProduct.benefits.map((benefit, index) => (
-                    <li key={index} className="flex items-start gap-2 text-sm">
-                      <CheckCircle size={16} className="text-primary mt-0.5 shrink-0" />
-                      <span className="text-foreground">{benefit}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* CTA Buttons */}
-                <div className="space-y-2">
-                  <a 
-                    href={featuredProduct.courseLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full py-3 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-all hover:scale-[1.02] active:scale-[0.98]"
-                  >
-                    <Video size={18} />
-                    <span>Watch Full Course</span>
-                  </a>
-                  <a 
-                    href={featuredProduct.ebookLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full py-2.5 bg-muted text-foreground font-medium rounded-lg hover:bg-muted/80 transition-colors"
-                  >
-                    <BookOpen size={16} />
-                    <span>Get the eBook</span>
-                  </a>
-                </div>
-              </div>
-
-              {/* Right: Visual/Icon */}
-              <div className="hidden md:flex items-center justify-center bg-gradient-to-br from-primary/10 to-primary/5 p-8">
-                <div className="relative">
-                  <div className="w-32 h-32 rounded-2xl bg-primary/20 flex items-center justify-center">
-                    <GraduationCap size={64} className="text-primary" />
-                  </div>
-                  <div className="absolute -bottom-2 -right-2 bg-accent text-background text-xs font-bold px-3 py-1.5 rounded-full">
-                    Best Seller
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
         </div>
       </section>
 
-      {/* Coming Soon - Compact Grid */}
-      <section className="pb-6 md:pb-8 px-4">
+      {/* Premium Coming Soon Products */}
+      <section className="pb-6 px-4">
         <div className="max-w-5xl mx-auto">
-          <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
-            <Clock size={18} className="text-muted-foreground" />
-            Coming Soon
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            {upcomingProducts.map((product) => {
+          <div className="flex items-center gap-2 mb-4">
+            <Zap size={18} className="text-accent" />
+            <h2 className="text-lg font-semibold text-foreground">Premium Courses Coming Soon</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {premiumProducts.map((product) => {
               const IconComponent = product.icon;
               return (
-                <div 
+                <article 
                   key={product.id}
-                  className="bg-card border border-border rounded-xl p-4 opacity-75"
+                  className={`relative bg-gradient-to-br from-card to-muted/30 border-2 ${product.borderColor} rounded-2xl overflow-hidden group hover:scale-[1.02] transition-all duration-300`}
                 >
-                  <div className="flex items-start gap-3">
-                    <div className={`w-10 h-10 rounded-lg bg-muted flex items-center justify-center shrink-0 ${product.color}`}>
-                      <IconComponent size={20} />
-                    </div>
-                    <div className="min-w-0">
-                      <h4 className="font-medium text-foreground text-sm leading-tight mb-1">
-                        {product.title}
-                      </h4>
-                      <p className="text-xs text-muted-foreground line-clamp-2">
-                        {product.excerpt}
-                      </p>
-                    </div>
+                  {/* Urgency Banner */}
+                  <div className={`${product.bgColor} px-4 py-2 flex items-center justify-between`}>
+                    <span className="text-xs font-bold text-foreground flex items-center gap-1">
+                      <Clock size={12} />
+                      LAUNCHING IN
+                    </span>
+                    <CountdownTimer targetDate={product.launchDate} />
                   </div>
-                </div>
+
+                  <div className="p-4">
+                    {/* Icon & Category */}
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className={`w-12 h-12 rounded-xl ${product.bgColor} flex items-center justify-center ${product.color}`}>
+                        <IconComponent size={24} />
+                      </div>
+                      <span className="text-xs font-medium text-muted-foreground">
+                        {product.category}
+                      </span>
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-lg font-bold text-foreground mb-1">
+                      {product.title}
+                    </h3>
+                    <p className="text-xs text-primary font-medium mb-2">
+                      {product.subtitle}
+                    </p>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      {product.excerpt}
+                    </p>
+
+                    {/* Waitlist Button */}
+                    <button 
+                      className={`w-full py-2.5 ${product.bgColor} ${product.color} font-semibold rounded-lg flex items-center justify-center gap-2 hover:opacity-80 transition-opacity`}
+                    >
+                      <Bell size={16} />
+                      <span>Join Waitlist</span>
+                    </button>
+                  </div>
+
+                  {/* Corner Badge */}
+                  <div className="absolute top-12 -right-8 rotate-45 bg-accent text-background text-[10px] font-bold px-10 py-1">
+                    COMING SOON
+                  </div>
+                </article>
               );
             })}
           </div>
         </div>
       </section>
 
-      {/* CTA Section - Compact */}
+      {/* Free Resource Section */}
+      <section className="pb-6 md:pb-8 px-4">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex items-center gap-2 mb-4">
+            <Gift size={18} className="text-primary" />
+            <h2 className="text-lg font-semibold text-foreground">Free Resource</h2>
+          </div>
+
+          <article className="bg-card border border-border rounded-2xl overflow-hidden">
+            <div className="flex flex-col sm:flex-row">
+              {/* Content */}
+              <div className="flex-1 p-5">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="bg-primary/20 text-primary text-xs font-bold px-2.5 py-1 rounded-full">
+                    100% FREE
+                  </span>
+                  <span className="text-xs text-muted-foreground">{freeProduct.category}</span>
+                </div>
+
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-500 shrink-0">
+                    <GraduationCap size={20} />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground">
+                      {freeProduct.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      {freeProduct.excerpt}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* CTA Buttons */}
+              <div className="sm:w-48 p-5 sm:border-l border-t sm:border-t-0 border-border flex flex-col justify-center gap-2">
+                <a 
+                  href={freeProduct.courseLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 w-full py-2.5 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-colors text-sm"
+                >
+                  <Video size={16} />
+                  <span>Free Course</span>
+                </a>
+                <a 
+                  href={freeProduct.ebookLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 w-full py-2.5 bg-muted text-foreground font-medium rounded-lg hover:bg-muted/80 transition-colors text-sm"
+                >
+                  <BookOpen size={16} />
+                  <span>Free eBook</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      {/* CTA Section */}
       <section className="py-8 md:py-10 px-4 bg-gradient-to-br from-card to-background border-t border-border mt-auto">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-xl md:text-2xl font-bold text-foreground mb-2">
