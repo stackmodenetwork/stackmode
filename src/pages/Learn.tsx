@@ -1,9 +1,10 @@
-import { TrendingUp, Brain, GraduationCap, Bitcoin, Video, BookOpen, Clock, ArrowLeft, Bell, Zap, Gift, Star } from 'lucide-react';
+import { TrendingUp, Brain, GraduationCap, Bitcoin, Video, BookOpen, Clock, ArrowLeft, Bell, Zap, Gift, Star, HelpCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { MainHeader } from '@/components/MainHeader';
 import { MainFooter } from '@/components/MainFooter';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { useState, useEffect } from 'react';
 
 // Countdown component for urgency
@@ -258,6 +259,63 @@ const Learn = () => {
             <Star size={18} className="text-accent fill-accent" />
           </div>
           <ReviewsGallery />
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-8 md:py-12 px-4 border-t border-border">
+        <div className="max-w-3xl mx-auto">
+          <div className="flex items-center justify-center gap-2 mb-6">
+            <HelpCircle size={18} className="text-primary" />
+            <h2 className="text-lg font-semibold text-foreground">Frequently Asked Questions</h2>
+          </div>
+          
+          <Accordion type="single" collapsible className="w-full space-y-3">
+            <AccordionItem value="item-1" className="bg-card border border-border rounded-xl px-4">
+              <AccordionTrigger className="text-left text-sm md:text-base font-medium hover:no-underline">
+                Do I need trading experience to start?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground text-sm">
+                No! The free course "Key Steps To Profitability" is designed for complete beginners. It covers everything from the basics of market analysis to risk management. The premium courses build on these foundations for more advanced strategies.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-2" className="bg-card border border-border rounded-xl px-4">
+              <AccordionTrigger className="text-left text-sm md:text-base font-medium hover:no-underline">
+                What makes these courses different from others?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground text-sm">
+                These courses are built from real trading experience, not theory. StackmodeChris shares the exact strategies and psychology techniques that transformed his trading. You get actionable frameworks, not fluff.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-3" className="bg-card border border-border rounded-xl px-4">
+              <AccordionTrigger className="text-left text-sm md:text-base font-medium hover:no-underline">
+                How long do I have access to the courses?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground text-sm">
+                Once you enroll, you get lifetime access. This includes all future updates and additions to the course material. Learn at your own pace, revisit lessons anytime.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-4" className="bg-card border border-border rounded-xl px-4">
+              <AccordionTrigger className="text-left text-sm md:text-base font-medium hover:no-underline">
+                What's the difference between courses and 1-on-1 mentorship?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground text-sm">
+                Courses are self-paced learning with structured content. 1-on-1 mentorship provides personalized guidance, live feedback on your trades, and direct access to StackmodeChris for questions. Mentorship accelerates your progress with customized advice.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-5" className="bg-card border border-border rounded-xl px-4">
+              <AccordionTrigger className="text-left text-sm md:text-base font-medium hover:no-underline">
+                When will the premium courses be available?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground text-sm">
+                Premium courses are launching throughout 2025. "Before The HYPE" launches in March, "Neuro-Trading" in April, and "Freedom Money" in May. Start with the free course now to build your foundation!
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
       </section>
 
