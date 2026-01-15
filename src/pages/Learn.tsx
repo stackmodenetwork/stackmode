@@ -86,7 +86,7 @@ const freeProduct = {
   category: "Trading Fundamentals",
   icon: GraduationCap,
   courseLink: "https://stackmodechris.systeme.io/trading",
-  ebookLink: "https://stackmodechris.systeme.io/trading",
+  ebookLink: "https://stackmodechris.systeme.io/freebook",
 };
 
 const Learn = () => {
