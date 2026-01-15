@@ -85,7 +85,7 @@ const freeProduct = {
   excerpt: "The complete roadmap from beginner to profitable trader. Learn risk management, strategy development, and consistent execution.",
   category: "Trading Fundamentals",
   icon: GraduationCap,
-  courseLink: "https://stackmodechris.systeme.io/trading",
+  courseLink: "https://stackmodechris.systeme.io/freecourse",
   ebookLink: "https://stackmodechris.systeme.io/freebook",
 };
 
