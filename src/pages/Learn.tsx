@@ -43,7 +43,7 @@ const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
 const premiumProducts = [
   {
     id: 1,
-    title: "Find the Next 100x Stock",
+    title: "Before The HYPE",
     subtitle: "The Deep Analysis Framework",
     excerpt: "Master the proven research methodology to identify high-potential stocks before they explode. Fundamental + technical analysis combined.",
     category: "Stock Analysis",
