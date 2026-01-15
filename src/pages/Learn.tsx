@@ -169,7 +169,8 @@ const Learn = () => {
 
                     {/* Waitlist Button */}
                     <button 
-                      className={`w-full py-2.5 ${product.bgColor} ${product.color} font-semibold rounded-lg flex items-center justify-center gap-2 hover:opacity-80 transition-opacity`}
+                      disabled
+                      className="w-full py-2.5 bg-muted text-muted-foreground font-semibold rounded-lg flex items-center justify-center gap-2 cursor-not-allowed opacity-60"
                     >
                       <Clock size={16} />
                       <span>Coming Soon</span>
