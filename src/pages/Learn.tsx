@@ -1,8 +1,9 @@
-import { TrendingUp, Brain, GraduationCap, Bitcoin, Video, BookOpen, Clock, ArrowLeft, Bell, Zap, Gift } from 'lucide-react';
+import { TrendingUp, Brain, GraduationCap, Bitcoin, Video, BookOpen, Clock, ArrowLeft, Bell, Zap, Gift, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { MainHeader } from '@/components/MainHeader';
 import { MainFooter } from '@/components/MainFooter';
+import { ReviewsGallery } from '@/components/ReviewsGallery';
 import { useState, useEffect } from 'react';
 
 // Countdown component for urgency
@@ -245,6 +246,18 @@ const Learn = () => {
               </div>
             </div>
           </article>
+        </div>
+      </section>
+
+      {/* Social Proof Section */}
+      <section className="py-8 md:py-12 px-4 bg-muted/30 border-t border-border">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex items-center justify-center gap-2 mb-6">
+            <Star size={18} className="text-accent fill-accent" />
+            <h2 className="text-lg font-semibold text-foreground">What Students Are Saying</h2>
+            <Star size={18} className="text-accent fill-accent" />
+          </div>
+          <ReviewsGallery />
         </div>
       </section>
 
