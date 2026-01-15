@@ -171,8 +171,8 @@ const Learn = () => {
                     <button 
                       className={`w-full py-2.5 ${product.bgColor} ${product.color} font-semibold rounded-lg flex items-center justify-center gap-2 hover:opacity-80 transition-opacity`}
                     >
-                      <Bell size={16} />
-                      <span>Join Waitlist</span>
+                      <Clock size={16} />
+                      <span>Coming Soon</span>
                     </button>
                   </div>
 
