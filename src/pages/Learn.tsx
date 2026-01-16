@@ -1,4 +1,4 @@
-import { TrendingUp, Brain, GraduationCap, Bitcoin, Video, BookOpen, Clock, ArrowLeft, Bell, Zap, Gift, Star, HelpCircle } from 'lucide-react';
+import { TrendingUp, Brain, GraduationCap, Bitcoin, Video, BookOpen, Clock, ArrowLeft, Bell, Zap, Gift, Star, HelpCircle, Flame, Timer, ShoppingCart, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { MainHeader } from '@/components/MainHeader';
@@ -6,6 +6,17 @@ import { MainFooter } from '@/components/MainFooter';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { useState, useEffect } from 'react';
+
+// Sale end date - 7 days from now (resets on each visit for demo)
+const getSaleEndDate = () => {
+  const saved = sessionStorage.getItem('saleEndDate');
+  if (saved) return new Date(saved);
+  const endDate = new Date();
+  endDate.setDate(endDate.getDate() + 3);
+  endDate.setHours(23, 59, 59, 999);
+  sessionStorage.setItem('saleEndDate', endDate.toISOString());
+  return endDate;
+};
 
 // Countdown component for urgency
 const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
@@ -53,9 +64,12 @@ const premiumProducts = [
     color: "text-green-500",
     bgColor: "bg-green-500/10",
     borderColor: "border-green-500/30",
+    glowColor: "shadow-green-500/20",
     isAvailable: true,
     coursePrice: 50,
+    courseOriginalPrice: 97,
     ebookPrice: 25,
+    ebookOriginalPrice: 47,
     ebookLink: "https://stackmodechris.lemonsqueezy.com/checkout/buy/58e086f9-3f97-4bad-a634-50fe9b39da6e",
     courseLink: "https://stackmodechris.lemonsqueezy.com/checkout/buy/58e086f9-3f97-4bad-a634-50fe9b39da6e",
   },
@@ -98,6 +112,27 @@ const freeProduct = {
 };
 
 const Learn = () => {
+  const [saleEndDate] = useState(() => getSaleEndDate());
+  const [saleTimeLeft, setSaleTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = saleEndDate.getTime() - now;
+      
+      if (distance > 0) {
+        setSaleTimeLeft({
+          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((distance % (1000 * 60)) / 1000)
+        });
+      }
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [saleEndDate]);
+
   return (
     <main className="min-h-screen bg-background flex flex-col">
       <Helmet>
@@ -109,6 +144,23 @@ const Learn = () => {
 
       <MainHeader />
 
+      {/* URGENCY BANNER */}
+      <div className="bg-gradient-to-r from-red-600 via-accent to-red-600 text-background py-3 px-4 animate-pulse">
+        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center">
+          <div className="flex items-center gap-2">
+            <Flame size={20} className="animate-bounce" />
+            <span className="font-bold text-sm sm:text-base">🔥 FLASH SALE - UP TO 50% OFF!</span>
+            <Flame size={20} className="animate-bounce" />
+          </div>
+          <div className="flex items-center gap-2 bg-background/20 rounded-lg px-3 py-1">
+            <Timer size={16} />
+            <span className="font-mono font-bold text-sm">
+              {saleTimeLeft.days}d {saleTimeLeft.hours}h {saleTimeLeft.minutes}m {saleTimeLeft.seconds}s
+            </span>
+          </div>
+        </div>
+      </div>
+
       {/* Compact Hero */}
       <section className="pt-4 pb-4 md:pt-6 md:pb-6 px-4">
         <div className="max-w-5xl mx-auto">
@@ -118,6 +170,11 @@ const Learn = () => {
           </Link>
 
           <div className="text-center mb-6">
+            <div className="inline-flex items-center gap-2 bg-red-500/10 text-red-500 px-4 py-1.5 rounded-full text-sm font-bold mb-3 animate-pulse">
+              <Sparkles size={16} />
+              LIMITED TIME OFFER - PRICES GO UP SOON!
+              <Sparkles size={16} />
+            </div>
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-2">
               Courses & Books
             </h1>
@@ -189,27 +246,52 @@ const Learn = () => {
 
                     {/* CTA Buttons */}
                     {product.isAvailable ? (
-                      <div className="space-y-2">
+                      <div className="space-y-3">
+                        {/* Course Button */}
                         <a 
                           href={product.courseLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-full py-3 bg-gradient-to-r from-accent to-primary text-background font-bold rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-all hover:scale-[1.02] active:scale-95 shadow-lg"
+                          className={`group relative w-full py-4 bg-gradient-to-r from-green-500 via-accent to-green-500 text-background font-bold rounded-xl flex flex-col items-center justify-center gap-1 hover:shadow-2xl hover:shadow-accent/40 transition-all duration-300 hover:scale-[1.03] active:scale-95 shadow-xl overflow-hidden`}
                         >
-                          <Video size={18} />
-                          <span>Get Full Course</span>
-                          <span className="bg-background/20 px-2 py-0.5 rounded text-sm">$50</span>
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                          <div className="flex items-center gap-2">
+                            <Video size={20} />
+                            <span className="text-lg">🎓 Get Full Course</span>
+                            <ShoppingCart size={18} />
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="line-through text-background/60 text-sm">${product.courseOriginalPrice}</span>
+                            <span className="bg-background text-accent px-3 py-0.5 rounded-full text-lg font-black">${product.coursePrice}</span>
+                            <span className="bg-red-500 text-white text-xs px-2 py-0.5 rounded-full font-bold animate-pulse">SAVE 48%</span>
+                          </div>
                         </a>
+                        
+                        {/* eBook Button */}
                         <a 
                           href={product.ebookLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-full py-2.5 bg-card border-2 border-accent text-accent font-semibold rounded-lg flex items-center justify-center gap-2 hover:bg-accent hover:text-background transition-all"
+                          className="group relative w-full py-3 bg-gradient-to-r from-card via-muted to-card border-2 border-accent text-foreground font-bold rounded-xl flex flex-col items-center justify-center gap-1 hover:bg-accent hover:text-background hover:border-accent transition-all duration-300 overflow-hidden"
                         >
-                          <BookOpen size={16} />
-                          <span>Get eBook Only</span>
-                          <span className="text-sm opacity-80">$25</span>
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-accent/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                          <div className="flex items-center gap-2">
+                            <BookOpen size={18} />
+                            <span>📖 Get eBook Only</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="line-through text-muted-foreground text-sm">${product.ebookOriginalPrice}</span>
+                            <span className="text-accent group-hover:text-background font-black text-lg">${product.ebookPrice}</span>
+                            <span className="bg-orange-500 text-white text-xs px-2 py-0.5 rounded-full font-bold">47% OFF</span>
+                          </div>
                         </a>
+
+                        {/* Urgency text */}
+                        <p className="text-center text-xs text-red-400 font-medium flex items-center justify-center gap-1">
+                          <Flame size={12} />
+                          Only {Math.floor(Math.random() * 5) + 3} left at this price!
+                          <Flame size={12} />
+                        </p>
                       </div>
                     ) : (
                       <button 
@@ -224,8 +306,8 @@ const Learn = () => {
 
                   {/* Corner Badge */}
                   {product.isAvailable ? (
-                    <div className="absolute top-12 -right-6 rotate-45 bg-accent text-background text-[10px] font-bold px-8 py-1 shadow-lg">
-                      BESTSELLER
+                    <div className="absolute top-14 -right-8 rotate-45 bg-red-500 text-white text-[10px] font-bold px-10 py-1.5 shadow-lg animate-pulse">
+                      🔥 50% OFF
                     </div>
                   ) : (
                     <div className="absolute top-12 -right-8 rotate-45 bg-muted text-muted-foreground text-[10px] font-bold px-10 py-1">
