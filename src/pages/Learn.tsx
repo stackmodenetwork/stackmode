@@ -53,7 +53,11 @@ const premiumProducts = [
     color: "text-green-500",
     bgColor: "bg-green-500/10",
     borderColor: "border-green-500/30",
-    launchDate: new Date('2025-03-01'),
+    isAvailable: true,
+    coursePrice: 50,
+    ebookPrice: 25,
+    ebookLink: "https://stackmodechris.lemonsqueezy.com/checkout/buy/58e086f9-3f97-4bad-a634-50fe9b39da6e",
+    courseLink: "https://stackmodechris.lemonsqueezy.com/checkout/buy/58e086f9-3f97-4bad-a634-50fe9b39da6e",
   },
   {
     id: 2,
@@ -66,6 +70,7 @@ const premiumProducts = [
     bgColor: "bg-purple-500/10",
     borderColor: "border-purple-500/30",
     launchDate: new Date('2025-04-01'),
+    isAvailable: false,
   },
   {
     id: 3,
@@ -78,6 +83,7 @@ const premiumProducts = [
     bgColor: "bg-orange-500/10",
     borderColor: "border-orange-500/30",
     launchDate: new Date('2025-05-01'),
+    isAvailable: false,
   }
 ];
 
@@ -138,13 +144,25 @@ const Learn = () => {
                   key={product.id}
                   className={`relative bg-gradient-to-br from-card to-muted/30 border-2 ${product.borderColor} rounded-2xl overflow-hidden group hover:scale-[1.02] transition-all duration-300`}
                 >
-                  {/* Urgency Banner */}
+                  {/* Banner */}
                   <div className={`${product.bgColor} px-4 py-2 flex items-center justify-between`}>
-                    <span className="text-xs font-bold text-foreground flex items-center gap-1">
-                      <Clock size={12} />
-                      LAUNCHING IN
-                    </span>
-                    <CountdownTimer targetDate={product.launchDate} />
+                    {product.isAvailable ? (
+                      <>
+                        <span className="text-xs font-bold text-foreground flex items-center gap-1">
+                          <Zap size={12} className="text-accent" />
+                          AVAILABLE NOW
+                        </span>
+                        <span className="text-xs font-bold text-accent animate-pulse">🔥 HOT</span>
+                      </>
+                    ) : (
+                      <>
+                        <span className="text-xs font-bold text-foreground flex items-center gap-1">
+                          <Clock size={12} />
+                          LAUNCHING IN
+                        </span>
+                        <CountdownTimer targetDate={product.launchDate!} />
+                      </>
+                    )}
                   </div>
 
                   <div className="p-4">
@@ -169,20 +187,51 @@ const Learn = () => {
                       {product.excerpt}
                     </p>
 
-                    {/* Waitlist Button */}
-                    <button 
-                      disabled
-                      className="w-full py-2.5 bg-muted text-muted-foreground font-semibold rounded-lg flex items-center justify-center gap-2 cursor-not-allowed opacity-60"
-                    >
-                      <Clock size={16} />
-                      <span>Coming Soon</span>
-                    </button>
+                    {/* CTA Buttons */}
+                    {product.isAvailable ? (
+                      <div className="space-y-2">
+                        <a 
+                          href={product.courseLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full py-3 bg-gradient-to-r from-accent to-primary text-background font-bold rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-all hover:scale-[1.02] active:scale-95 shadow-lg"
+                        >
+                          <Video size={18} />
+                          <span>Get Full Course</span>
+                          <span className="bg-background/20 px-2 py-0.5 rounded text-sm">$50</span>
+                        </a>
+                        <a 
+                          href={product.ebookLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full py-2.5 bg-card border-2 border-accent text-accent font-semibold rounded-lg flex items-center justify-center gap-2 hover:bg-accent hover:text-background transition-all"
+                        >
+                          <BookOpen size={16} />
+                          <span>Get eBook Only</span>
+                          <span className="text-sm opacity-80">$25</span>
+                        </a>
+                      </div>
+                    ) : (
+                      <button 
+                        disabled
+                        className="w-full py-2.5 bg-muted text-muted-foreground font-semibold rounded-lg flex items-center justify-center gap-2 cursor-not-allowed opacity-60"
+                      >
+                        <Clock size={16} />
+                        <span>Coming Soon</span>
+                      </button>
+                    )}
                   </div>
 
                   {/* Corner Badge */}
-                  <div className="absolute top-12 -right-8 rotate-45 bg-accent text-background text-[10px] font-bold px-10 py-1">
-                    COMING SOON
-                  </div>
+                  {product.isAvailable ? (
+                    <div className="absolute top-12 -right-6 rotate-45 bg-accent text-background text-[10px] font-bold px-8 py-1 shadow-lg">
+                      BESTSELLER
+                    </div>
+                  ) : (
+                    <div className="absolute top-12 -right-8 rotate-45 bg-muted text-muted-foreground text-[10px] font-bold px-10 py-1">
+                      COMING SOON
+                    </div>
+                  )}
                 </article>
               );
             })}
