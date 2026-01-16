@@ -145,19 +145,11 @@ const Learn = () => {
       <MainHeader />
 
       {/* URGENCY BANNER */}
-      <div className="bg-gradient-to-r from-red-600 via-accent to-red-600 text-background py-3 px-4 animate-pulse">
-        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center">
-          <div className="flex items-center gap-2">
-            <Flame size={20} className="animate-bounce" />
-            <span className="font-bold text-sm sm:text-base">🔥 FLASH SALE - UP TO 50% OFF!</span>
-            <Flame size={20} className="animate-bounce" />
-          </div>
-          <div className="flex items-center gap-2 bg-background/20 rounded-lg px-3 py-1">
-            <Timer size={16} />
-            <span className="font-mono font-bold text-sm">
-              {saleTimeLeft.days}d {saleTimeLeft.hours}h {saleTimeLeft.minutes}m {saleTimeLeft.seconds}s
-            </span>
-          </div>
+      <div className="bg-gradient-to-r from-accent via-primary to-accent text-background py-2.5 px-4">
+        <div className="max-w-5xl mx-auto flex items-center justify-center gap-3 text-center">
+          <Flame size={18} />
+          <span className="font-bold text-sm sm:text-base">🔥 50% OFF - LIMITED TIME SALE!</span>
+          <Flame size={18} />
         </div>
       </div>
 
@@ -247,23 +239,23 @@ const Learn = () => {
                     {/* CTA Buttons */}
                     {product.isAvailable ? (
                       <div className="space-y-3">
-                        {/* Course Button */}
+                        {/* Course + eBook Combo Button */}
                         <a 
                           href={product.courseLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`group relative w-full py-4 bg-gradient-to-r from-green-500 via-accent to-green-500 text-background font-bold rounded-xl flex flex-col items-center justify-center gap-1 hover:shadow-2xl hover:shadow-accent/40 transition-all duration-300 hover:scale-[1.03] active:scale-95 shadow-xl overflow-hidden`}
+                          className="group relative w-full py-4 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white font-bold rounded-xl flex flex-col items-center justify-center gap-1 hover:shadow-2xl hover:shadow-primary/30 transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-xl overflow-hidden border border-slate-700"
                         >
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                           <div className="flex items-center gap-2">
-                            <Video size={20} />
-                            <span className="text-lg">🎓 Get Full Course</span>
-                            <ShoppingCart size={18} />
+                            <Video size={18} />
+                            <span className="text-base">📚 Course + eBook Combo</span>
+                            <BookOpen size={16} />
                           </div>
                           <div className="flex items-center gap-2">
-                            <span className="line-through text-background/60 text-sm">${product.courseOriginalPrice}</span>
-                            <span className="bg-background text-accent px-3 py-0.5 rounded-full text-lg font-black">${product.coursePrice}</span>
-                            <span className="bg-red-500 text-white text-xs px-2 py-0.5 rounded-full font-bold animate-pulse">SAVE 48%</span>
+                            <span className="line-through text-slate-400 text-sm">${product.courseOriginalPrice}</span>
+                            <span className="bg-accent text-background px-3 py-0.5 rounded-full text-lg font-black">${product.coursePrice}</span>
+                            <span className="bg-accent/20 text-accent text-xs px-2 py-0.5 rounded-full font-bold">SAVE 48%</span>
                           </div>
                         </a>
                         
@@ -272,26 +264,18 @@ const Learn = () => {
                           href={product.ebookLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group relative w-full py-3 bg-gradient-to-r from-card via-muted to-card border-2 border-accent text-foreground font-bold rounded-xl flex flex-col items-center justify-center gap-1 hover:bg-accent hover:text-background hover:border-accent transition-all duration-300 overflow-hidden"
+                          className="group relative w-full py-3 bg-card border border-border text-foreground font-semibold rounded-xl flex flex-col items-center justify-center gap-1 hover:border-accent hover:bg-accent/5 transition-all duration-300 overflow-hidden"
                         >
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-accent/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                           <div className="flex items-center gap-2">
-                            <BookOpen size={18} />
-                            <span>📖 Get eBook Only</span>
+                            <BookOpen size={16} />
+                            <span>📖 eBook Only</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="line-through text-muted-foreground text-sm">${product.ebookOriginalPrice}</span>
-                            <span className="text-accent group-hover:text-background font-black text-lg">${product.ebookPrice}</span>
-                            <span className="bg-orange-500 text-white text-xs px-2 py-0.5 rounded-full font-bold">47% OFF</span>
+                            <span className="text-accent font-bold">${product.ebookPrice}</span>
+                            <span className="text-muted-foreground text-xs">47% OFF</span>
                           </div>
                         </a>
-
-                        {/* Urgency text */}
-                        <p className="text-center text-xs text-red-400 font-medium flex items-center justify-center gap-1">
-                          <Flame size={12} />
-                          Only {Math.floor(Math.random() * 5) + 3} left at this price!
-                          <Flame size={12} />
-                        </p>
                       </div>
                     ) : (
                       <button 
