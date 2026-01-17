@@ -20,7 +20,7 @@ interface NavItem {
 const navItems: NavItem[] = [
   { path: '/', label: 'Home', icon: Home },
   { path: '/learn', label: 'Learn', icon: BookOpen },
-  { path: 'https://whop.com/stackmode-network-llc/stackmode-trades/?utm_source=store_page&funnelId=store_0e6ca92a-1fc5-48f7-b5c6-8fff547041f9', label: 'Trades', icon: TrendingUp, isExternal: true },
+  { path: 'https://whop.com/stackmode-network-llc', label: 'Trades', icon: TrendingUp, isExternal: true },
   { path: 'https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true', label: 'Podcast', icon: Mic, isExternal: true },
   { 
     path: 'https://calendly.com/stackmodechris/tradingmastermindcoaching', 
