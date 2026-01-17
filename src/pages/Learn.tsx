@@ -22,7 +22,7 @@ const premiumProducts = [{
   ebookOriginalPrice: 47,
   ebookLink: "https://stackmode-net.kit.com/products/before-the-hype-100-x-stock-finder-e-book?step=checkout",
   courseLink: "https://stackmodechris.lemonsqueezy.com/checkout/buy/58e086f9-3f97-4bad-a634-50fe9b39da6e",
-  features: ["Find 100x Stocks Before Wall Street", "Complete eBook Guide", "Real Trade Breakdowns", "Lifetime Updates"]
+  features: ["Find 100x Stocks Before They Rally 📈", "Complete eBook Guide", "Real Trade Breakdowns", "Lifetime Updates"]
 }, {
   id: 2,
   title: "Neuro-Trading",
