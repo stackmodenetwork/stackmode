@@ -130,14 +130,23 @@ const Learn = () => {
             Back to Home
           </Link>
 
+          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 py-1.5 rounded-full text-sm font-medium mb-4">
+            <Gift size={14} />
+            Free eBook Available Below
+          </div>
+          
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Trading Education
+            Learn The Strategies Wall Street <span className="text-primary">Doesn't Want You To Know</span>
           </h1>
-          <p className="text-lg text-muted-foreground max-w-xl mb-6">
-            Courses and eBooks to help you become a consistently profitable trader.
+          <p className="text-lg text-muted-foreground max-w-2xl mb-6">
+            Exclusive courses and eBooks that helped me turn $500 into a 6-figure portfolio. Start with a free download — no catch.
           </p>
           
-          <div className="flex items-center gap-6 text-sm text-muted-foreground">
+          <div className="flex flex-wrap items-center gap-4 md:gap-6 text-sm text-muted-foreground">
+            <span className="flex items-center gap-2">
+              <Check size={16} className="text-primary" />
+              Free Value First
+            </span>
             <span className="flex items-center gap-2">
               <Check size={16} className="text-primary" />
               Lifetime Access
