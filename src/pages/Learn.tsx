@@ -263,7 +263,20 @@ const Learn = () => {
                         </div>
                       </div>
 
-                      {/* Secondary Option */}
+                      {/* Course Only Option */}
+                      <div 
+                        className="flex items-center justify-between w-full bg-muted/50 hover:bg-muted text-foreground rounded-xl p-4 transition-colors cursor-pointer"
+                      >
+                        <div className="flex items-center gap-3">
+                          <Video size={18} className="text-muted-foreground" />
+                          <span className="font-medium">Course Only</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <span className="font-bold">$50</span>
+                        </div>
+                      </div>
+
+                      {/* eBook Only Option */}
                       <a 
                         href={product.ebookLink} 
                         target="_blank" 
