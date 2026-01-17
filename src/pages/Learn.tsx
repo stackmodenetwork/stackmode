@@ -234,30 +234,42 @@ const Learn = () => {
 
                     {/* Purchase Options - Clean */}
                     <div className="space-y-3">
-                      {/* Main CTA */}
-                      <div className="group flex items-center justify-between w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl p-4 transition-all hover:scale-[1.01] active:scale-[0.99] cursor-pointer">
-                        <div className="flex items-center gap-3">
-                          <ShoppingCart size={20} />
-                          <div>
-                            <div className="font-semibold">Course + eBook Bundle</div>
-                            <div className="text-xs opacity-80">Best value • Instant access</div>
+                      {/* Bundle CTA - Hero Option */}
+                      <div className="group relative overflow-hidden w-full bg-gradient-to-r from-primary via-primary to-primary/80 hover:from-primary/90 hover:via-primary/90 hover:to-primary/70 text-primary-foreground rounded-xl p-5 transition-all hover:scale-[1.01] active:scale-[0.99] cursor-pointer border-2 border-primary/20">
+                        <div className="absolute top-0 right-0 bg-yellow-400 text-black text-[10px] font-bold px-3 py-1 rounded-bl-lg">
+                          SAVE $32
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-4">
+                            <div className="flex -space-x-2">
+                              <div className="w-10 h-10 rounded-full bg-primary-foreground/20 flex items-center justify-center border-2 border-primary-foreground/30">
+                                <Video size={18} />
+                              </div>
+                              <div className="w-10 h-10 rounded-full bg-primary-foreground/20 flex items-center justify-center border-2 border-primary-foreground/30">
+                                <BookOpen size={18} />
+                              </div>
+                            </div>
+                            <div>
+                              <div className="font-bold text-lg">Complete Bundle</div>
+                              <div className="text-xs opacity-90 flex items-center gap-2">
+                                <span className="flex items-center gap-1"><Video size={12} /> Full Course</span>
+                                <span>+</span>
+                                <span className="flex items-center gap-1"><BookOpen size={12} /> eBook</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <div className="text-right">
+                              <span className="line-through opacity-60 text-sm block">${product.courseOriginalPrice}</span>
+                              <span className="text-3xl font-bold">${product.coursePrice}</span>
+                            </div>
+                            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                           </div>
                         </div>
-                        <div className="flex items-center gap-2">
-                          <span className="line-through opacity-60 text-sm">${product.courseOriginalPrice}</span>
-                          <span className="text-2xl font-bold">${product.coursePrice}</span>
-                          <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                        </div>
-                      </div>
-
-                      {/* Course Only Option */}
-                      <div className="flex items-center justify-between w-full bg-muted/50 hover:bg-muted text-foreground rounded-xl p-4 transition-colors cursor-pointer">
-                        <div className="flex items-center gap-3">
-                          <Video size={18} className="text-muted-foreground" />
-                          <span className="font-medium">Course Only</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <span className="font-bold">$50</span>
+                        <div className="mt-3 pt-3 border-t border-primary-foreground/20 text-xs opacity-90 flex items-center justify-center gap-4">
+                          <span>✓ Instant Access</span>
+                          <span>✓ Lifetime Updates</span>
+                          <span>✓ Best Value</span>
                         </div>
                       </div>
 
