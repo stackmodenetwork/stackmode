@@ -100,7 +100,7 @@ export const MainHeader = memo(() => {
               <ExternalNavLink href="https://calendly.com/stackmodechris/tradingmastermindcoaching">
                 Trading Mentorship
               </ExternalNavLink>
-              <ExternalNavLink href="https://whop.com/stackmode-network-llc/stackmode-trades/?utm_source=store_page&funnelId=store_0e6ca92a-1fc5-48f7-b5c6-8fff547041f9">
+              <ExternalNavLink href="https://whop.com/stackmode-network-llc">
                 Catch My Trades
               </ExternalNavLink>
               <NavLink to="/learn" isActive={isLearnActive}>
@@ -175,7 +175,7 @@ export const MainHeader = memo(() => {
                 Trading Mentorship
               </a>
               <a 
-                href="https://whop.com/stackmode-network-llc/stackmode-trades/?utm_source=store_page&funnelId=store_0e6ca92a-1fc5-48f7-b5c6-8fff547041f9" 
+                href="https://whop.com/stackmode-network-llc" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 onClick={handleMenuItemClick} 
