@@ -6,7 +6,7 @@ import { LazyCalendly } from '@/components/LazyCalendly';
 import { OptimizedVideo } from '@/components/OptimizedVideo';
 import { CookieConsent } from '@/components/CookieConsent';
 import { SocialShareButtons } from '@/components/SocialShareButtons';
-import { Briefcase, Check, Mic, Users, TrendingUp, HelpCircle, Menu, X, Youtube, Instagram, Facebook, Linkedin, Calendar, BookOpen, PlayCircle } from 'lucide-react';
+import { Briefcase, Check, Mic, Users, TrendingUp, HelpCircle, Menu, X, Youtube, Instagram, Facebook, Linkedin, Calendar, BookOpen, PlayCircle, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
@@ -63,6 +63,35 @@ const Index = () => {
           </div>
         </div>
       </header>
+
+      {/* Phone Call CTA Banner */}
+      <div className="bg-gradient-to-r from-primary/20 via-accent/10 to-primary/20 border-y border-primary/30">
+        <div className="max-w-7xl mx-auto px-4 py-3">
+          <a 
+            href="tel:6787758532" 
+            className="flex items-center justify-center gap-3 group"
+          >
+            <div className="relative">
+              <div className="absolute inset-0 bg-primary rounded-full animate-ping opacity-30" />
+              <div className="relative bg-primary/20 border border-primary/50 rounded-full p-2 group-hover:bg-primary/30 transition-colors">
+                <Phone size={18} className="text-primary" />
+              </div>
+            </div>
+            <div className="text-center sm:text-left">
+              <span className="text-foreground font-semibold text-sm sm:text-base">
+                Have Questions? Call Now: <span className="text-primary">(678) 775-8532</span>
+              </span>
+              <span className="hidden sm:inline text-muted-foreground text-sm ml-2">
+                — Get instant answers & book your session
+              </span>
+            </div>
+            <span className="hidden md:inline-flex items-center gap-1 bg-primary/20 border border-primary/40 text-primary text-xs font-medium px-3 py-1 rounded-full group-hover:bg-primary/30 transition-colors">
+              <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
+              Available Now
+            </span>
+          </a>
+        </div>
+      </div>
 
       {/* Sticky Mobile Header CTA */}
       <div className={`fixed top-16 left-0 right-0 z-30 md:hidden transition-all duration-300 ${showStickyHeader ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
