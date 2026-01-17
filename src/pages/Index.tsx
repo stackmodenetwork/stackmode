@@ -276,7 +276,7 @@ const Index = () => {
             </a>
 
             {/* Secondary CTA: Catch My Trades - Paid offer */}
-            <a href="https://whop.com/stackmode-network-llc/stackmode-trades/?utm_source=store_page&funnelId=store_0e6ca92a-1fc5-48f7-b5c6-8fff547041f9" target="_blank" rel="noopener noreferrer" aria-label="Subscribe to Live Trading Signals" className="block group h-full order-2">
+            <a href="https://whop.com/stackmode-network-llc" target="_blank" rel="noopener noreferrer" aria-label="Subscribe to Live Trading Signals" className="block group h-full order-2">
               <article className="relative h-full bg-gradient-to-br from-card/80 via-card/60 to-card/80 border-2 border-cyan-400/50 rounded-2xl p-5 sm:p-6 md:p-8 pt-8 sm:pt-10 overflow-visible transition-all duration-500 hover:border-cyan-400 hover:shadow-[0_0_60px_rgba(34,211,238,0.4)] group-hover:scale-[1.02]">
                 {/* Best Value Badge */}
                 <div className="absolute top-0 right-4 -translate-y-1/2 z-20">
