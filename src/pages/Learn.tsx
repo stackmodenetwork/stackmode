@@ -93,7 +93,7 @@ const premiumProducts = [
     glowColor: "hover:shadow-green-500/30",
     buttonColor: "bg-green-500 hover:bg-green-600",
     isAvailable: true,
-    coursePrice: 50,
+    coursePrice: 65,
     courseOriginalPrice: 97,
     ebookPrice: 25,
     ebookOriginalPrice: 47,
