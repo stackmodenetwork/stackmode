@@ -37,7 +37,7 @@ const Index = () => {
             </a>
             
             {/* Desktop Navigation - Centered */}
-            <nav className="hidden md:flex items-center justify-center flex-1 gap-10 mx-8">
+            <nav className="hidden md:flex items-center justify-center flex-1 gap-8 mx-8">
               <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                 Trading Mentorship
               </a>
@@ -52,6 +52,10 @@ const Index = () => {
               </a>
               <a href="/about" className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
                 About
+              </a>
+              <a href="tel:6787758532" className="flex items-center gap-2 bg-primary/10 hover:bg-primary/20 border border-primary/30 hover:border-primary/50 text-primary font-semibold text-sm px-4 py-2 rounded-full transition-all">
+                <Phone size={16} />
+                <span>Call Now</span>
               </a>
             </nav>
 
@@ -291,9 +295,9 @@ const Index = () => {
                   </div>
                   {/* Pricing - prominent */}
                   <div className="flex items-center justify-center gap-3 mb-4">
-                    <span className="text-muted-foreground line-through text-sm">$50/mo</span>
-                    <span className="text-foreground font-bold text-2xl sm:text-3xl">$20/mo</span>
-                    <span className="bg-cyan-500/10 text-cyan-400 text-xs font-medium px-2 py-1 rounded">Save 60%</span>
+                    <span className="text-muted-foreground line-through text-lg">$100/mo</span>
+                    <span className="text-foreground font-bold text-2xl sm:text-3xl">$50/mo</span>
+                    <span className="bg-cyan-500/10 text-cyan-400 text-xs font-medium px-2 py-1 rounded">50% OFF</span>
                   </div>
                   
                   <p className="text-muted-foreground mb-4 text-center text-sm sm:text-base">Copy my trades and stack wins alongside me</p>
