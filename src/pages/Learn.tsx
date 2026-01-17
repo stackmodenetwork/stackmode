@@ -5,7 +5,6 @@ import { MainHeader } from '@/components/MainHeader';
 import { MainFooter } from '@/components/MainFooter';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-
 const premiumProducts = [{
   id: 1,
   title: "Before The HYPE",
@@ -44,7 +43,6 @@ const premiumProducts = [{
   bgColor: "bg-secondary/10",
   isAvailable: false
 }];
-
 const freeProduct = {
   id: 4,
   title: "The Key Steps To Profitability",
@@ -54,10 +52,8 @@ const freeProduct = {
   courseLink: "https://stackmodechris.systeme.io/freecourse",
   ebookLink: "https://stackmodechris.systeme.io/freebook"
 };
-
 const Learn = () => {
-  return (
-    <main className="min-h-screen bg-background flex flex-col">
+  return <main className="min-h-screen bg-background flex flex-col">
       <Helmet>
         <title>Trading Courses & eBooks | Learn Stock Trading | StackmodeChris</title>
         <meta name="description" content="Master stock trading with StackmodeChris's proven courses and eBooks. Learn fundamental analysis, trading psychology, and strategies that actually work." />
@@ -75,41 +71,41 @@ const Learn = () => {
 
         <script type="application/ld+json">
           {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "ItemList",
-            "name": "StackmodeChris Trading Courses",
-            "description": "Premium trading education courses and eBooks",
-            "itemListElement": [{
-              "@type": "Course",
-              "position": 1,
-              "name": "Before The HYPE - Stock Analysis Course",
-              "description": "Master the proven research methodology to identify high-potential stocks",
-              "provider": {
-                "@type": "Organization",
-                "name": "Stackmode Network LLC"
-              },
-              "offers": {
-                "@type": "Offer",
-                "price": "65",
-                "priceCurrency": "USD",
-                "availability": "https://schema.org/InStock"
-              }
-            }, {
-              "@type": "Course",
-              "position": 2,
-              "name": "The Key Steps To Profitability",
-              "description": "Free trading course covering fundamentals and strategy development",
-              "provider": {
-                "@type": "Organization",
-                "name": "Stackmode Network LLC"
-              },
-              "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD"
-              }
-            }]
-          })}
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "StackmodeChris Trading Courses",
+          "description": "Premium trading education courses and eBooks",
+          "itemListElement": [{
+            "@type": "Course",
+            "position": 1,
+            "name": "Before The HYPE - Stock Analysis Course",
+            "description": "Master the proven research methodology to identify high-potential stocks",
+            "provider": {
+              "@type": "Organization",
+              "name": "Stackmode Network LLC"
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": "65",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock"
+            }
+          }, {
+            "@type": "Course",
+            "position": 2,
+            "name": "The Key Steps To Profitability",
+            "description": "Free trading course covering fundamentals and strategy development",
+            "provider": {
+              "@type": "Organization",
+              "name": "Stackmode Network LLC"
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            }
+          }]
+        })}
         </script>
       </Helmet>
 
@@ -130,9 +126,9 @@ const Learn = () => {
             Back to Home
           </Link>
 
-          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 py-1.5 rounded-full text-sm font-medium mb-4">
+          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 py-1.5 rounded-full text-sm font-medium mb-4 mx-[8px]">
             <Gift size={14} />
-            Free eBook Available Below
+            Get My FREE Course & eBook Available Below
           </div>
           
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
@@ -179,21 +175,11 @@ const Learn = () => {
               </div>
               
               <div className="flex flex-col sm:flex-row gap-3 lg:flex-shrink-0">
-                <a 
-                  href={freeProduct.courseLink} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 py-3 rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98]"
-                >
+                <a href={freeProduct.courseLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 py-3 rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98]">
                   <Video size={18} />
                   Free Course
                 </a>
-                <a 
-                  href={freeProduct.ebookLink} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="inline-flex items-center justify-center gap-2 bg-card border border-border hover:border-primary/50 text-foreground font-medium px-6 py-3 rounded-xl transition-colors"
-                >
+                <a href={freeProduct.ebookLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-card border border-border hover:border-primary/50 text-foreground font-medium px-6 py-3 rounded-xl transition-colors">
                   <BookOpen size={18} />
                   Free eBook
                 </a>
@@ -211,12 +197,8 @@ const Learn = () => {
           <div className="space-y-6">
             {/* Available Product - Featured */}
             {premiumProducts.filter(p => p.isAvailable).map(product => {
-              const IconComponent = product.icon;
-              return (
-                <article 
-                  key={product.id} 
-                  className="bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/30 transition-colors"
-                >
+            const IconComponent = product.icon;
+            return <article key={product.id} className="bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/30 transition-colors">
                   <div className="p-6 md:p-8">
                     {/* Product Header */}
                     <div className="flex items-start gap-4 mb-6">
@@ -244,20 +226,16 @@ const Learn = () => {
 
                     {/* What's Included - Compact */}
                     <div className="grid grid-cols-2 gap-2 mb-6">
-                      {product.features?.map((feature, i) => (
-                        <div key={i} className="flex items-center gap-2 text-sm text-foreground/80">
+                      {product.features?.map((feature, i) => <div key={i} className="flex items-center gap-2 text-sm text-foreground/80">
                           <Check size={14} className="text-primary flex-shrink-0" />
                           <span>{feature}</span>
-                        </div>
-                      ))}
+                        </div>)}
                     </div>
 
                     {/* Purchase Options - Clean */}
                     <div className="space-y-3">
                       {/* Main CTA */}
-                      <div 
-                        className="group flex items-center justify-between w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl p-4 transition-all hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
-                      >
+                      <div className="group flex items-center justify-between w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl p-4 transition-all hover:scale-[1.01] active:scale-[0.99] cursor-pointer">
                         <div className="flex items-center gap-3">
                           <ShoppingCart size={20} />
                           <div>
@@ -273,9 +251,7 @@ const Learn = () => {
                       </div>
 
                       {/* Course Only Option */}
-                      <div 
-                        className="flex items-center justify-between w-full bg-muted/50 hover:bg-muted text-foreground rounded-xl p-4 transition-colors cursor-pointer"
-                      >
+                      <div className="flex items-center justify-between w-full bg-muted/50 hover:bg-muted text-foreground rounded-xl p-4 transition-colors cursor-pointer">
                         <div className="flex items-center gap-3">
                           <Video size={18} className="text-muted-foreground" />
                           <span className="font-medium">Course Only</span>
@@ -286,12 +262,7 @@ const Learn = () => {
                       </div>
 
                       {/* eBook Only Option */}
-                      <a 
-                        href={product.ebookLink} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="flex items-center justify-between w-full bg-muted/50 hover:bg-muted text-foreground rounded-xl p-4 transition-colors"
-                      >
+                      <a href={product.ebookLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between w-full bg-muted/50 hover:bg-muted text-foreground rounded-xl p-4 transition-colors">
                         <div className="flex items-center gap-3">
                           <BookOpen size={18} className="text-muted-foreground" />
                           <span className="font-medium">eBook Only</span>
@@ -313,21 +284,16 @@ const Learn = () => {
                       </span>
                     </div>
                   </div>
-                </article>
-              );
-            })}
+                </article>;
+          })}
 
             {/* Coming Soon - Compact Grid */}
             <div className="pt-4">
               <h3 className="text-sm font-medium text-muted-foreground mb-4">Coming Soon</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {premiumProducts.filter(p => !p.isAvailable).map(product => {
-                  const IconComponent = product.icon;
-                  return (
-                    <article 
-                      key={product.id} 
-                      className="bg-card/50 border border-border rounded-xl p-4 opacity-70"
-                    >
+                const IconComponent = product.icon;
+                return <article key={product.id} className="bg-card/50 border border-border rounded-xl p-4 opacity-70">
                       <div className="flex items-start gap-3">
                         <div className={`w-10 h-10 rounded-lg ${product.bgColor} flex items-center justify-center ${product.color} flex-shrink-0`}>
                           <IconComponent size={20} />
@@ -340,9 +306,8 @@ const Learn = () => {
                           <p className="text-xs text-muted-foreground mt-0.5">{product.subtitle}</p>
                         </div>
                       </div>
-                    </article>
-                  );
-                })}
+                    </article>;
+              })}
               </div>
             </div>
           </div>
@@ -354,9 +319,7 @@ const Learn = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
             <div className="flex items-center justify-center gap-0.5 mb-3">
-              {[1, 2, 3, 4, 5].map(i => (
-                <Star key={i} size={18} className="text-secondary fill-secondary" />
-              ))}
+              {[1, 2, 3, 4, 5].map(i => <Star key={i} size={18} className="text-secondary fill-secondary" />)}
             </div>
             <h2 className="text-2xl font-bold text-foreground">What Students Say</h2>
           </div>
@@ -422,12 +385,7 @@ const Learn = () => {
           <p className="text-muted-foreground mb-5 text-sm">
             Book a free strategy call to discuss your trading goals.
           </p>
-          <a 
-            href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-6 py-3 rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98]"
-          >
+          <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-6 py-3 rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98]">
             Book Free Call
             <ArrowRight size={18} />
           </a>
@@ -435,8 +393,6 @@ const Learn = () => {
       </section>
 
       <MainFooter />
-    </main>
-  );
+    </main>;
 };
-
 export default Learn;
