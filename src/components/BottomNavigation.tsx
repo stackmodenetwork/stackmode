@@ -64,13 +64,14 @@ export const BottomNavigation = memo(() => {
   }), [activeIndex]);
 
   return (
-    <nav className="fixed bottom-0 inset-x-0 z-50 md:hidden">
+    <nav className="fixed bottom-0 inset-x-0 z-50 md:hidden" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
       {/* Glassmorphism background */}
       <div className="relative">
-        {/* Background layers */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/98 to-background/95" />
+        {/* Background layers - solid for better readability */}
+        <div className="absolute inset-0 bg-background" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background to-background/98" />
         <div className="absolute inset-0 backdrop-blur-xl" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
         
         {/* Sliding indicator */}
         <div 

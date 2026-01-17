@@ -98,12 +98,12 @@ const Index = () => {
       </div>
 
       {/* Sticky Mobile Header CTA */}
-      <div className={`fixed top-16 left-0 right-0 z-30 md:hidden transition-all duration-300 ${showStickyHeader ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
-        <div className="bg-background/95 backdrop-blur-md border-b border-border">
-          <div className="px-4 py-3 flex items-center justify-between">
-            <span className="text-sm font-medium text-foreground">Ready to start?</span>
-            <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="bg-accent text-background font-medium text-xs px-4 py-2 rounded-md transition-colors hover:bg-accent/90">
-              Book Free Call
+      <div className={`fixed top-16 left-0 right-0 z-35 md:hidden transition-all duration-300 pointer-events-none ${showStickyHeader ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
+        <div className="bg-background/98 backdrop-blur-lg border-b border-primary/20 shadow-lg pointer-events-auto">
+          <div className="px-4 py-2.5 flex items-center justify-between gap-3">
+            <span className="text-xs font-medium text-foreground/80">Ready to profit?</span>
+            <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="bg-accent hover:bg-accent/90 text-background font-bold text-xs px-5 py-2.5 rounded-lg transition-all shadow-md shadow-accent/20 flex-shrink-0">
+              Book FREE Call →
             </a>
           </div>
         </div>
@@ -533,7 +533,7 @@ const Index = () => {
                   What is the difference between mentorship and the trade signals?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-4">
-                  <strong className="text-foreground">Trade Signals ($20/month):</strong> You receive my exact trade entries, stop losses, and take profits in real-time. Great for copying my trades while you learn.<br /><br />
+                  <strong className="text-foreground">Trade Signals ($50/month):</strong> You receive my exact trade entries, stop losses, and take profits in real-time. Great for copying my trades while you learn.<br /><br />
                   <strong className="text-foreground">Mentorship:</strong> Deep 1-on-1 coaching where I teach you the WHY behind every trade. You will learn to find your own setups and become an independent, profitable trader.
                 </AccordionContent>
               </AccordionItem>
@@ -809,8 +809,8 @@ const Index = () => {
         </div>
       </footer>
       
-      {/* Spacer for mobile bottom navigation */}
-      <div className="h-24 md:hidden" />
+      {/* Spacer for mobile bottom navigation - ensures no content hidden behind nav */}
+      <div className="h-28 md:hidden" />
 
       {/* Cookie Consent Banner */}
       <CookieConsent />
