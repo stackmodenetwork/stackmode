@@ -246,11 +246,8 @@ const Learn = () => {
                     {/* Purchase Options - Clean */}
                     <div className="space-y-3">
                       {/* Main CTA */}
-                      <a 
-                        href={product.courseLink} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="group flex items-center justify-between w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl p-4 transition-all hover:scale-[1.01] active:scale-[0.99]"
+                      <div 
+                        className="group flex items-center justify-between w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl p-4 transition-all hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
                       >
                         <div className="flex items-center gap-3">
                           <ShoppingCart size={20} />
@@ -264,7 +261,7 @@ const Learn = () => {
                           <span className="text-2xl font-bold">${product.coursePrice}</span>
                           <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                         </div>
-                      </a>
+                      </div>
 
                       {/* Secondary Option */}
                       <a 
