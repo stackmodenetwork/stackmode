@@ -135,7 +135,7 @@ const Learn = () => {
             Learn The Strategies Wall Street <span className="text-primary">Doesn't Want You To Know</span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mb-6">
-            Exclusive courses and eBooks that helped me turn $500 into a 6-figure portfolio. Start with a free download — no catch.
+            Exclusive courses and eBooks that helped my clients turn into Profitable Traders. Start with a free download — no catch.
           </p>
           
           <div className="flex flex-wrap items-center gap-4 md:gap-6 text-sm text-muted-foreground">
