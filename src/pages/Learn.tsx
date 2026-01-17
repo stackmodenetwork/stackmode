@@ -116,7 +116,6 @@ const premiumProducts = [
     color: "text-purple-500",
     bgColor: "bg-purple-500/10",
     borderColor: "border-purple-500/30",
-    launchDate: new Date('2025-04-01'),
     isAvailable: false,
   },
   {
@@ -129,7 +128,6 @@ const premiumProducts = [
     color: "text-orange-500",
     bgColor: "bg-orange-500/10",
     borderColor: "border-orange-500/30",
-    launchDate: new Date('2025-05-01'),
     isAvailable: false,
   }
 ];
@@ -211,12 +209,9 @@ const Learn = () => {
 
       {/* URGENCY BANNER - Sticky */}
       <div className="bg-gradient-to-r from-red-600 via-red-500 to-red-600 text-white py-3 px-4 sticky top-16 sm:top-20 md:top-24 z-30">
-        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center">
-          <div className="flex items-center gap-2">
-            <Flame size={20} className="animate-pulse" />
-            <span className="font-bold text-sm sm:text-base">🔥 50% OFF FLASH SALE - ENDS IN:</span>
-          </div>
-          <CountdownTimer targetDate={saleEndDate} />
+        <div className="max-w-5xl mx-auto flex items-center justify-center gap-2 text-center">
+          <Flame size={20} className="animate-pulse" />
+          <span className="font-bold text-sm sm:text-base">🔥 50% OFF FLASH SALE - FOR A LIMITED TIME ONLY!</span>
         </div>
       </div>
 
@@ -244,8 +239,59 @@ const Learn = () => {
         </div>
       </section>
 
+      {/* FREE COURSE SECTION - First */}
+      <section className="pb-8 px-4 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 border-b border-primary/20">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-6">
+            <span className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-bold mb-3">
+              <Gift size={16} />
+              100% FREE - NO CREDIT CARD REQUIRED
+            </span>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground">Start Learning For Free</h2>
+          </div>
+
+          <article className="bg-card border-2 border-primary/30 rounded-2xl overflow-hidden shadow-lg">
+            <div className="p-6 md:p-8">
+              <div className="flex flex-col md:flex-row items-center gap-6">
+                <div className="w-20 h-20 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-500 flex-shrink-0">
+                  <GraduationCap size={40} />
+                </div>
+                <div className="flex-1 text-center md:text-left">
+                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">
+                    {freeProduct.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-4">
+                    {freeProduct.excerpt}
+                  </p>
+                  <div className="flex flex-wrap justify-center md:justify-start gap-3">
+                    <a 
+                      href={freeProduct.courseLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-6 py-3 rounded-xl transition-all hover:scale-105 active:scale-95 shadow-lg"
+                    >
+                      <Video size={18} />
+                      Get Free Course
+                    </a>
+                    <a 
+                      href={freeProduct.ebookLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-muted hover:bg-muted/80 text-foreground font-semibold px-6 py-3 rounded-xl transition-colors"
+                    >
+                      <BookOpen size={18} />
+                      Get Free eBook
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
       {/* FEATURED: Available Product */}
-      <section className="pb-8 px-4">
+      <section className="py-8 px-4">
         <div className="max-w-4xl mx-auto">
           {premiumProducts.filter(p => p.isAvailable).map((product) => {
             const IconComponent = product.icon;
@@ -408,65 +454,13 @@ const Learn = () => {
                   
                   <p className="text-sm text-muted-foreground mb-4">{product.excerpt}</p>
                   
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-muted-foreground">Launches {product.launchDate?.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</span>
-                    <CountdownTimer targetDate={product.launchDate!} />
+                  <div className="flex items-center justify-center">
+                    <span className="text-xs font-medium text-primary bg-primary/10 px-3 py-1.5 rounded-full">Coming Soon</span>
                   </div>
                 </article>
               );
             })}
           </div>
-        </div>
-      </section>
-
-      {/* Free Resource Section - Clear Design */}
-      <section className="py-8 px-4 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 border-y border-primary/20">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-6">
-            <span className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-bold mb-3">
-              <Gift size={16} />
-              100% FREE - NO CREDIT CARD REQUIRED
-            </span>
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground">Start Learning For Free</h2>
-          </div>
-
-          <article className="bg-card border-2 border-primary/30 rounded-2xl overflow-hidden shadow-lg">
-            <div className="p-6 md:p-8">
-              <div className="flex flex-col md:flex-row items-center gap-6">
-                <div className="w-20 h-20 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-500 flex-shrink-0">
-                  <GraduationCap size={40} />
-                </div>
-                <div className="flex-1 text-center md:text-left">
-                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">
-                    {freeProduct.title}
-                  </h3>
-                  <p className="text-muted-foreground mb-4">
-                    {freeProduct.excerpt}
-                  </p>
-                  <div className="flex flex-wrap justify-center md:justify-start gap-3">
-                    <a 
-                      href={freeProduct.courseLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-6 py-3 rounded-xl transition-all hover:scale-105 active:scale-95 shadow-lg"
-                    >
-                      <Video size={18} />
-                      Get Free Course
-                    </a>
-                    <a 
-                      href={freeProduct.ebookLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-muted hover:bg-muted/80 text-foreground font-semibold px-6 py-3 rounded-xl transition-colors"
-                    >
-                      <BookOpen size={18} />
-                      Get Free eBook
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
         </div>
       </section>
 
