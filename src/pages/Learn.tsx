@@ -386,7 +386,7 @@ const Learn = () => {
                 Is payment secure?
               </AccordionTrigger>
               <AccordionContent className="text-sm text-muted-foreground pb-4">
-                100% secure via LemonSqueezy. Your payment info is encrypted and never stored on our servers.
+                100% secure! Your payment info is encrypted and never stored on our servers.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
