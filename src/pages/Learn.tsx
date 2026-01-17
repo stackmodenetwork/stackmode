@@ -234,39 +234,39 @@ const Learn = () => {
 
                     {/* Purchase Options - Clean */}
                     <div className="space-y-3">
-                      {/* Bundle CTA - Hero Option */}
-                      <div className="group relative overflow-hidden w-full bg-gradient-to-r from-primary via-primary to-primary/80 hover:from-primary/90 hover:via-primary/90 hover:to-primary/70 text-primary-foreground rounded-xl p-5 transition-all hover:scale-[1.01] active:scale-[0.99] cursor-pointer border-2 border-primary/20">
-                        <div className="absolute top-0 right-0 bg-yellow-400 text-black text-[10px] font-bold px-3 py-1 rounded-bl-lg">
+                      {/* Bundle CTA - Hero Option with Glow */}
+                      <div className="group relative overflow-hidden w-full bg-gradient-to-r from-primary via-primary to-primary/80 hover:from-primary/90 hover:via-primary/90 hover:to-primary/70 text-primary-foreground rounded-xl p-4 sm:p-5 transition-all hover:scale-[1.01] active:scale-[0.99] cursor-pointer border-2 border-primary/20 shadow-[0_0_25px_rgba(var(--primary-rgb),0.4)] hover:shadow-[0_0_35px_rgba(var(--primary-rgb),0.6)]">
+                        <div className="absolute top-0 right-0 bg-yellow-400 text-black text-[10px] font-bold px-2 sm:px-3 py-1 rounded-bl-lg">
                           SAVE $32
                         </div>
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-4">
-                            <div className="flex -space-x-2">
-                              <div className="w-10 h-10 rounded-full bg-primary-foreground/20 flex items-center justify-center border-2 border-primary-foreground/30">
-                                <Video size={18} />
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                          <div className="flex items-center gap-3 sm:gap-4">
+                            <div className="flex -space-x-2 flex-shrink-0">
+                              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary-foreground/20 flex items-center justify-center border-2 border-primary-foreground/30">
+                                <Video size={14} className="sm:w-[18px] sm:h-[18px]" />
                               </div>
-                              <div className="w-10 h-10 rounded-full bg-primary-foreground/20 flex items-center justify-center border-2 border-primary-foreground/30">
-                                <BookOpen size={18} />
+                              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary-foreground/20 flex items-center justify-center border-2 border-primary-foreground/30">
+                                <BookOpen size={14} className="sm:w-[18px] sm:h-[18px]" />
                               </div>
                             </div>
-                            <div>
-                              <div className="font-bold text-lg">Complete Bundle</div>
-                              <div className="text-xs opacity-90 flex items-center gap-2">
-                                <span className="flex items-center gap-1"><Video size={12} /> Full Course</span>
+                            <div className="min-w-0">
+                              <div className="font-bold text-base sm:text-lg">Complete Bundle</div>
+                              <div className="text-[10px] sm:text-xs opacity-90 flex items-center gap-1 sm:gap-2 flex-wrap">
+                                <span className="flex items-center gap-1"><Video size={10} className="sm:w-3 sm:h-3" /> Course</span>
                                 <span>+</span>
-                                <span className="flex items-center gap-1"><BookOpen size={12} /> eBook</span>
+                                <span className="flex items-center gap-1"><BookOpen size={10} className="sm:w-3 sm:h-3" /> eBook</span>
                               </div>
                             </div>
                           </div>
-                          <div className="flex items-center gap-3">
-                            <div className="text-right">
-                              <span className="line-through opacity-60 text-sm block">${product.courseOriginalPrice}</span>
-                              <span className="text-3xl font-bold">${product.coursePrice}</span>
+                          <div className="flex items-center justify-between sm:justify-end gap-2 sm:gap-3 pl-11 sm:pl-0">
+                            <div className="text-left sm:text-right">
+                              <span className="line-through opacity-60 text-xs sm:text-sm block">${product.courseOriginalPrice}</span>
+                              <span className="text-2xl sm:text-3xl font-bold">${product.coursePrice}</span>
                             </div>
-                            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                            <ArrowRight size={18} className="sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
                           </div>
                         </div>
-                        <div className="mt-3 pt-3 border-t border-primary-foreground/20 text-xs opacity-90 flex items-center justify-center gap-4">
+                        <div className="mt-3 pt-3 border-t border-primary-foreground/20 text-[10px] sm:text-xs opacity-90 flex items-center justify-center gap-2 sm:gap-4 flex-wrap">
                           <span>✓ Instant Access</span>
                           <span>✓ Lifetime Updates</span>
                           <span>✓ Best Value</span>
@@ -274,14 +274,14 @@ const Learn = () => {
                       </div>
 
                       {/* eBook Only Option */}
-                      <a href={product.ebookLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between w-full bg-muted/50 hover:bg-muted text-foreground rounded-xl p-4 transition-colors">
-                        <div className="flex items-center gap-3">
-                          <BookOpen size={18} className="text-muted-foreground" />
-                          <span className="font-medium">eBook Only</span>
+                      <a href={product.ebookLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between w-full bg-muted/50 hover:bg-muted text-foreground rounded-xl p-3 sm:p-4 transition-colors">
+                        <div className="flex items-center gap-2 sm:gap-3">
+                          <BookOpen size={16} className="sm:w-[18px] sm:h-[18px] text-muted-foreground" />
+                          <span className="font-medium text-sm sm:text-base">eBook Only</span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <span className="line-through text-muted-foreground text-sm">${product.ebookOriginalPrice}</span>
-                          <span className="font-bold">${product.ebookPrice}</span>
+                          <span className="line-through text-muted-foreground text-xs sm:text-sm">${product.ebookOriginalPrice}</span>
+                          <span className="font-bold text-sm sm:text-base">${product.ebookPrice}</span>
                         </div>
                       </a>
                     </div>

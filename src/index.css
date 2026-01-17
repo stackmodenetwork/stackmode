@@ -21,6 +21,7 @@
     --primary: 145 80% 50%;
     --primary-foreground: 230 15% 5%;
     --primary-glow: 145 80% 65%;
+    --primary-rgb: 34, 197, 94;
 
     /* Warm Secondary - Gold */
     --secondary: 45 100% 55%;
