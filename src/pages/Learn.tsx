@@ -19,30 +19,36 @@ const getSaleEndDate = () => {
 };
 
 // Countdown Timer component
-const CountdownTimer = ({ targetDate, large = false }: { targetDate: Date; large?: boolean }) => {
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-
+const CountdownTimer = ({
+  targetDate,
+  large = false
+}: {
+  targetDate: Date;
+  large?: boolean;
+}) => {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
   useEffect(() => {
     const timer = setInterval(() => {
       const now = new Date().getTime();
       const distance = targetDate.getTime() - now;
-      
       if (distance > 0) {
         setTimeLeft({
           days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((distance % (1000 * 60)) / 1000)
+          hours: Math.floor(distance % (1000 * 60 * 60 * 24) / (1000 * 60 * 60)),
+          minutes: Math.floor(distance % (1000 * 60 * 60) / (1000 * 60)),
+          seconds: Math.floor(distance % (1000 * 60) / 1000)
         });
       }
     }, 1000);
-
     return () => clearInterval(timer);
   }, [targetDate]);
-
   if (large) {
-    return (
-      <div className="flex items-center justify-center gap-2 sm:gap-3">
+    return <div className="flex items-center justify-center gap-2 sm:gap-3">
         <div className="flex flex-col items-center">
           <span className="bg-background text-foreground font-bold text-xl sm:text-2xl px-3 py-2 rounded-lg min-w-[3rem] text-center">{timeLeft.days}</span>
           <span className="text-[10px] text-muted-foreground mt-1">DAYS</span>
@@ -62,12 +68,9 @@ const CountdownTimer = ({ targetDate, large = false }: { targetDate: Date; large
           <span className="bg-background text-foreground font-bold text-xl sm:text-2xl px-3 py-2 rounded-lg min-w-[3rem] text-center animate-pulse">{timeLeft.seconds}</span>
           <span className="text-[10px] text-muted-foreground mt-1">SEC</span>
         </div>
-      </div>
-    );
+      </div>;
   }
-
-  return (
-    <div className="flex items-center gap-1 text-xs font-mono">
+  return <div className="flex items-center gap-1 text-xs font-mono">
       <span className="bg-background/80 px-1.5 py-0.5 rounded">{timeLeft.days}d</span>
       <span>:</span>
       <span className="bg-background/80 px-1.5 py-0.5 rounded">{timeLeft.hours}h</span>
@@ -75,63 +78,51 @@ const CountdownTimer = ({ targetDate, large = false }: { targetDate: Date; large
       <span className="bg-background/80 px-1.5 py-0.5 rounded">{timeLeft.minutes}m</span>
       <span>:</span>
       <span className="bg-background/80 px-1.5 py-0.5 rounded">{timeLeft.seconds}s</span>
-    </div>
-  );
+    </div>;
 };
-
-const premiumProducts = [
-  {
-    id: 1,
-    title: "Before The HYPE",
-    subtitle: "The Deep Analysis Framework",
-    excerpt: "Master the proven research methodology to identify high-potential stocks before they explode. Fundamental + technical analysis combined.",
-    category: "Stock Analysis",
-    icon: TrendingUp,
-    color: "text-green-500",
-    bgColor: "bg-green-500/10",
-    borderColor: "border-green-500/40",
-    glowColor: "hover:shadow-green-500/30",
-    buttonColor: "bg-green-500 hover:bg-green-600",
-    isAvailable: true,
-    coursePrice: 65,
-    courseOriginalPrice: 97,
-    ebookPrice: 25,
-    ebookOriginalPrice: 47,
-    ebookLink: "https://stackmodechris.lemonsqueezy.com/checkout/buy/58e086f9-3f97-4bad-a634-50fe9b39da6e",
-    courseLink: "https://stackmodechris.lemonsqueezy.com/checkout/buy/58e086f9-3f97-4bad-a634-50fe9b39da6e",
-    features: [
-      "Video Course (2+ Hours)",
-      "Complete eBook Guide",
-      "Stock Screening Templates",
-      "Lifetime Access + Updates"
-    ]
-  },
-  {
-    id: 2,
-    title: "Neuro-Trading",
-    subtitle: "Rewire Your Brain for Success",
-    excerpt: "Transform your trading psychology using neuroscience-backed techniques. Overcome fear, greed, and emotional trading forever.",
-    category: "Trading Psychology",
-    icon: Brain,
-    color: "text-purple-500",
-    bgColor: "bg-purple-500/10",
-    borderColor: "border-purple-500/30",
-    isAvailable: false,
-  },
-  {
-    id: 3,
-    title: "Freedom Money",
-    subtitle: "Mastering Bitcoin & Private Keys",
-    excerpt: "Understand the future of money and secure your wealth with Bitcoin. Learn self-custody, private keys, and financial sovereignty.",
-    category: "Cryptocurrency",
-    icon: Bitcoin,
-    color: "text-orange-500",
-    bgColor: "bg-orange-500/10",
-    borderColor: "border-orange-500/30",
-    isAvailable: false,
-  }
-];
-
+const premiumProducts = [{
+  id: 1,
+  title: "Before The HYPE",
+  subtitle: "The Deep Analysis Framework",
+  excerpt: "Master the proven research methodology to identify high-potential stocks before they explode. Fundamental + technical analysis combined.",
+  category: "Stock Analysis",
+  icon: TrendingUp,
+  color: "text-green-500",
+  bgColor: "bg-green-500/10",
+  borderColor: "border-green-500/40",
+  glowColor: "hover:shadow-green-500/30",
+  buttonColor: "bg-green-500 hover:bg-green-600",
+  isAvailable: true,
+  coursePrice: 65,
+  courseOriginalPrice: 97,
+  ebookPrice: 25,
+  ebookOriginalPrice: 47,
+  ebookLink: "https://stackmodechris.lemonsqueezy.com/checkout/buy/58e086f9-3f97-4bad-a634-50fe9b39da6e",
+  courseLink: "https://stackmodechris.lemonsqueezy.com/checkout/buy/58e086f9-3f97-4bad-a634-50fe9b39da6e",
+  features: ["Video Course (2+ Hours)", "Complete eBook Guide", "Stock Screening Templates", "Lifetime Access + Updates"]
+}, {
+  id: 2,
+  title: "Neuro-Trading",
+  subtitle: "Rewire Your Brain for Success",
+  excerpt: "Transform your trading psychology using neuroscience-backed techniques. Overcome fear, greed, and emotional trading forever.",
+  category: "Trading Psychology",
+  icon: Brain,
+  color: "text-purple-500",
+  bgColor: "bg-purple-500/10",
+  borderColor: "border-purple-500/30",
+  isAvailable: false
+}, {
+  id: 3,
+  title: "Freedom Money",
+  subtitle: "Mastering Bitcoin & Private Keys",
+  excerpt: "Understand the future of money and secure your wealth with Bitcoin. Learn self-custody, private keys, and financial sovereignty.",
+  category: "Cryptocurrency",
+  icon: Bitcoin,
+  color: "text-orange-500",
+  bgColor: "bg-orange-500/10",
+  borderColor: "border-orange-500/30",
+  isAvailable: false
+}];
 const freeProduct = {
   id: 4,
   title: "The Key Steps To Profitability",
@@ -139,14 +130,11 @@ const freeProduct = {
   category: "Trading Fundamentals",
   icon: GraduationCap,
   courseLink: "https://stackmodechris.systeme.io/freecourse",
-  ebookLink: "https://stackmodechris.systeme.io/freebook",
+  ebookLink: "https://stackmodechris.systeme.io/freebook"
 };
-
 const Learn = () => {
   const [saleEndDate] = useState(() => getSaleEndDate());
-
-  return (
-    <main className="min-h-screen bg-background flex flex-col">
+  return <main className="min-h-screen bg-background flex flex-col">
       <Helmet>
         <title>Trading Courses & eBooks | Learn Stock Trading | StackmodeChris</title>
         <meta name="description" content="Master stock trading with StackmodeChris's proven courses and eBooks. Learn fundamental analysis, trading psychology, and strategies that actually work. 50% OFF limited time sale!" />
@@ -164,44 +152,41 @@ const Learn = () => {
 
         <script type="application/ld+json">
           {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "ItemList",
-            "name": "StackmodeChris Trading Courses",
-            "description": "Premium trading education courses and eBooks",
-            "itemListElement": [
-              {
-                "@type": "Course",
-                "position": 1,
-                "name": "Before The HYPE - Stock Analysis Course",
-                "description": "Master the proven research methodology to identify high-potential stocks before they explode",
-                "provider": {
-                  "@type": "Organization",
-                  "name": "Stackmode Network LLC"
-                },
-                "offers": {
-                  "@type": "Offer",
-                  "price": "50",
-                  "priceCurrency": "USD",
-                  "availability": "https://schema.org/InStock"
-                }
-              },
-              {
-                "@type": "Course",
-                "position": 2,
-                "name": "The Key Steps To Profitability",
-                "description": "Free trading course covering fundamentals, risk management, and strategy development",
-                "provider": {
-                  "@type": "Organization",
-                  "name": "Stackmode Network LLC"
-                },
-                "offers": {
-                  "@type": "Offer",
-                  "price": "0",
-                  "priceCurrency": "USD"
-                }
-              }
-            ]
-          })}
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "StackmodeChris Trading Courses",
+          "description": "Premium trading education courses and eBooks",
+          "itemListElement": [{
+            "@type": "Course",
+            "position": 1,
+            "name": "Before The HYPE - Stock Analysis Course",
+            "description": "Master the proven research methodology to identify high-potential stocks before they explode",
+            "provider": {
+              "@type": "Organization",
+              "name": "Stackmode Network LLC"
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": "50",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock"
+            }
+          }, {
+            "@type": "Course",
+            "position": 2,
+            "name": "The Key Steps To Profitability",
+            "description": "Free trading course covering fundamentals, risk management, and strategy development",
+            "provider": {
+              "@type": "Organization",
+              "name": "Stackmode Network LLC"
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            }
+          }]
+        })}
         </script>
       </Helmet>
 
@@ -264,21 +249,11 @@ const Learn = () => {
                     {freeProduct.excerpt}
                   </p>
                   <div className="flex flex-wrap justify-center md:justify-start gap-3">
-                    <a 
-                      href={freeProduct.courseLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-6 py-3 rounded-xl transition-all hover:scale-105 active:scale-95 shadow-lg"
-                    >
+                    <a href={freeProduct.courseLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-6 py-3 rounded-xl transition-all hover:scale-105 active:scale-95 shadow-lg">
                       <Video size={18} />
                       Get Free Course
                     </a>
-                    <a 
-                      href={freeProduct.ebookLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-muted hover:bg-muted/80 text-foreground font-semibold px-6 py-3 rounded-xl transition-colors"
-                    >
+                    <a href={freeProduct.ebookLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-muted hover:bg-muted/80 text-foreground font-semibold px-6 py-3 rounded-xl transition-colors">
                       <BookOpen size={18} />
                       Get Free eBook
                     </a>
@@ -293,13 +268,9 @@ const Learn = () => {
       {/* FEATURED: Available Product */}
       <section className="py-8 px-4">
         <div className="max-w-4xl mx-auto">
-          {premiumProducts.filter(p => p.isAvailable).map((product) => {
-            const IconComponent = product.icon;
-            return (
-              <article 
-                key={product.id}
-                className={`relative bg-gradient-to-br from-card via-card to-green-950/20 border-2 ${product.borderColor} rounded-3xl overflow-hidden shadow-2xl ${product.glowColor} hover:shadow-xl transition-all duration-500`}
-              >
+          {premiumProducts.filter(p => p.isAvailable).map(product => {
+          const IconComponent = product.icon;
+          return <article key={product.id} className={`relative bg-gradient-to-br from-card via-card to-green-950/20 border-2 ${product.borderColor} rounded-3xl overflow-hidden shadow-2xl ${product.glowColor} hover:shadow-xl transition-all duration-500`}>
                 {/* Sale Ribbon */}
                 <div className="absolute top-6 -right-12 rotate-45 bg-red-500 text-white text-sm font-bold px-14 py-2 shadow-lg z-10">
                   50% OFF
@@ -338,24 +309,17 @@ const Learn = () => {
                       What's Included:
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {product.features?.map((feature, i) => (
-                        <div key={i} className="flex items-center gap-2 text-sm text-foreground/90">
+                      {product.features?.map((feature, i) => <div key={i} className="flex items-center gap-2 text-sm text-foreground/90">
                           <Check size={16} className="text-green-500 flex-shrink-0" />
                           <span>{feature}</span>
-                        </div>
-                      ))}
+                        </div>)}
                     </div>
                   </div>
 
                   {/* Purchase Options */}
                   <div className="space-y-4">
                     {/* MAIN CTA: Course + eBook Combo */}
-                    <a 
-                      href={product.courseLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group relative block w-full"
-                    >
+                    <a href={product.courseLink} target="_blank" rel="noopener noreferrer" className="group relative block w-full">
                       <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-green-500 rounded-2xl blur-sm opacity-50 group-hover:opacity-75 transition-opacity" />
                       <div className="relative bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white rounded-2xl p-5 md:p-6 transition-all duration-300 group-hover:scale-[1.02] active:scale-[0.98]">
                         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
@@ -384,12 +348,7 @@ const Learn = () => {
                     </a>
 
                     {/* Secondary CTA: eBook Only */}
-                    <a 
-                      href={product.ebookLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group block w-full bg-card border-2 border-border hover:border-primary/50 rounded-xl p-4 transition-all duration-300 hover:bg-primary/5"
-                    >
+                    <a href={product.ebookLink} target="_blank" rel="noopener noreferrer" className="group block w-full bg-card border-2 border-border hover:border-primary/50 rounded-xl p-4 transition-all duration-300 hover:bg-primary/5">
                       <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
                         <div className="flex items-center gap-3">
                           <div className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center">
@@ -416,9 +375,8 @@ const Learn = () => {
                     </div>
                   </div>
                 </div>
-              </article>
-            );
-          })}
+              </article>;
+        })}
         </div>
       </section>
 
@@ -431,13 +389,9 @@ const Learn = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {premiumProducts.filter(p => !p.isAvailable).map((product) => {
-              const IconComponent = product.icon;
-              return (
-                <article 
-                  key={product.id}
-                  className={`relative bg-card/50 border ${product.borderColor} rounded-xl p-5 opacity-75`}
-                >
+            {premiumProducts.filter(p => !p.isAvailable).map(product => {
+            const IconComponent = product.icon;
+            return <article key={product.id} className={`relative bg-card/50 border ${product.borderColor} rounded-xl p-5 opacity-75`}>
                   <div className="absolute top-3 right-3">
                     <Lock size={16} className="text-muted-foreground" />
                   </div>
@@ -457,9 +411,8 @@ const Learn = () => {
                   <div className="flex items-center justify-center">
                     <span className="text-xs font-medium text-primary bg-primary/10 px-3 py-1.5 rounded-full">Coming Soon</span>
                   </div>
-                </article>
-              );
-            })}
+                </article>;
+          })}
           </div>
         </div>
       </section>
@@ -469,9 +422,9 @@ const Learn = () => {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-8">
             <div className="flex items-center justify-center gap-1 mb-2">
-              {[1,2,3,4,5].map(i => <Star key={i} size={20} className="text-yellow-500 fill-yellow-500" />)}
+              {[1, 2, 3, 4, 5].map(i => <Star key={i} size={20} className="text-yellow-500 fill-yellow-500" />)}
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Trusted by 500+ Students</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Trusted by Profitable Students</h2>
             <p className="text-muted-foreground">See what traders are saying about our courses</p>
           </div>
           <ReviewsGallery />
@@ -546,12 +499,7 @@ const Learn = () => {
           <p className="text-muted-foreground mb-6">
             Get personalized 1-on-1 mentorship from StackmodeChris and accelerate your path to profitability.
           </p>
-          <a 
-            href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-background font-bold text-lg px-8 py-4 rounded-xl transition-all hover:scale-105 active:scale-95 shadow-xl shadow-accent/30"
-          >
+          <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-background font-bold text-lg px-8 py-4 rounded-xl transition-all hover:scale-105 active:scale-95 shadow-xl shadow-accent/30">
             Book Your FREE Strategy Call
             <ArrowRight size={20} />
           </a>
@@ -560,8 +508,6 @@ const Learn = () => {
       </section>
 
       <MainFooter />
-    </main>
-  );
+    </main>;
 };
-
 export default Learn;
