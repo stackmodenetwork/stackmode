@@ -133,48 +133,122 @@ const Home = () => {
             Become the apex authority in the market, without the burnout of the 24/7 grind.
           </p>
 
-          {/* CTA Buttons - Right after title */}
-          <div className="bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/30 rounded-2xl p-6 sm:p-8 max-w-3xl mx-auto mb-8">
-            <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3">Ready to Get Started?</h3>
-            <p className="text-muted-foreground mb-2">Book a free call to find the right path for you.</p>
-            <div className="inline-flex items-center gap-2 bg-red-500/20 border border-red-500/40 text-red-400 text-xs font-semibold px-3 py-1 rounded-full mb-6 animate-pulse">
-              <span className="w-2 h-2 bg-red-500 rounded-full"></span>
-              Limited Spots Available
-            </div>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <div className="flex flex-col items-center gap-2">
+          {/* Path Selection Cards with CTAs - Primary Action */}
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-8">
+            {/* Trading Path */}
+            <div className="group relative bg-gradient-to-br from-card via-card/80 to-card border-2 border-primary/30 rounded-3xl p-6 sm:p-8 overflow-hidden transition-all duration-500 hover:border-primary hover:shadow-[0_0_60px_rgba(var(--primary-rgb),0.3)]">
+              {/* Glow effect */}
+              <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 rounded-full blur-3xl transition-opacity group-hover:opacity-100 opacity-50" />
+              
+              <div className="relative z-10">
+                <div className="w-14 h-14 bg-primary/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <TrendingUp size={28} className="text-primary" />
+                </div>
+
+                <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2 text-left">
+                  Trading Education
+                </h2>
+
+                <p className="text-muted-foreground text-left text-sm mb-4 leading-relaxed">
+                  Master stocks, options, futures, forex & crypto with 1-on-1 mentorship and proven strategies.
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="text-xs bg-primary/10 text-primary px-2.5 py-1 rounded-full">Mentorship</span>
+                  <span className="text-xs bg-primary/10 text-primary px-2.5 py-1 rounded-full">Signals</span>
+                  <span className="text-xs bg-primary/10 text-primary px-2.5 py-1 rounded-full">Courses</span>
+                </div>
+
                 <a 
                   href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-6 py-3 rounded-full transition-all hover:scale-105"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-5 py-3 rounded-full transition-all hover:scale-105 mb-3"
                 >
                   <TrendingUp size={18} />
-                  <span>FREE Trading Mentorship Call</span>
+                  <span>FREE Trading Call</span>
                 </a>
-                <p className="text-xs text-muted-foreground max-w-[200px] text-center">
-                  Learn trading strategies, chart analysis & risk management
-                </p>
+
+                <Link 
+                  to="/trading" 
+                  className="flex items-center justify-center gap-2 text-primary/80 hover:text-primary text-sm font-medium transition-colors"
+                >
+                  <span>Learn more</span>
+                  <ArrowRight size={16} />
+                </Link>
               </div>
-              <div className="flex flex-col items-center gap-2">
+            </div>
+
+            {/* Business Path */}
+            <div className="group relative bg-gradient-to-br from-card via-card/80 to-card border-2 border-accent/30 rounded-3xl p-6 sm:p-8 overflow-hidden transition-all duration-500 hover:border-accent hover:shadow-[0_0_60px_rgba(168,85,247,0.3)]">
+              {/* Glow effect */}
+              <div className="absolute top-0 right-0 w-40 h-40 bg-accent/10 rounded-full blur-3xl transition-opacity group-hover:opacity-100 opacity-50" />
+              
+              <div className="relative z-10">
+                <div className="w-14 h-14 bg-accent/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <Briefcase size={28} className="text-accent" />
+                </div>
+
+                <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2 text-left">
+                  Business Education
+                </h2>
+
+                <p className="text-muted-foreground text-left text-sm mb-4 leading-relaxed">
+                  Build & scale your online business with digital marketing, sales funnels, and multiple income streams.
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="text-xs bg-accent/10 text-accent px-2.5 py-1 rounded-full">Marketing</span>
+                  <span className="text-xs bg-accent/10 text-accent px-2.5 py-1 rounded-full">Sales</span>
+                  <span className="text-xs bg-accent/10 text-accent px-2.5 py-1 rounded-full">Branding</span>
+                </div>
+
                 <a 
                   href="https://calendly.com/stackmodechris/businessscaling" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent/90 text-accent-foreground font-bold px-6 py-3 rounded-full transition-all hover:scale-105"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent/90 text-accent-foreground font-bold px-5 py-3 rounded-full transition-all hover:scale-105 mb-3"
                 >
                   <Briefcase size={18} />
-                  <span>FREE Business Scaling Call</span>
+                  <span>FREE Business Call</span>
                 </a>
-                <p className="text-xs text-muted-foreground max-w-[200px] text-center">
-                  Grow your brand, marketing & revenue streams
-                </p>
+
+                <Link 
+                  to="/business" 
+                  className="flex items-center justify-center gap-2 text-accent/80 hover:text-accent text-sm font-medium transition-colors"
+                >
+                  <span>Learn more</span>
+                  <ArrowRight size={16} />
+                </Link>
               </div>
             </div>
           </div>
 
-          {/* Video Introduction - Below buttons */}
-          <div className="max-w-4xl mx-auto mb-12">
+          {/* Urgency Banner */}
+          <div className="inline-flex items-center gap-2 bg-red-500/20 border border-red-500/40 text-red-400 text-xs font-semibold px-4 py-2 rounded-full mb-8 animate-pulse">
+            <span className="w-2 h-2 bg-red-500 rounded-full"></span>
+            Limited Spots Available — Book Your Free Call Now
+          </div>
+
+          {/* Trust indicators */}
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-10 text-muted-foreground text-sm mb-10">
+            <div className="flex items-center gap-2">
+              <span className="text-primary font-bold">Proven</span>
+              <span>Results</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-primary font-bold">5+ Years</span>
+              <span>Experience</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-primary font-bold">Free</span>
+              <span>Strategy Calls</span>
+            </div>
+          </div>
+
+          {/* Video Introduction */}
+          <div className="max-w-4xl mx-auto">
+            <p className="text-muted-foreground text-sm mb-4">👇 Watch to learn how I can help you</p>
             <div className="relative rounded-2xl overflow-hidden border-2 border-primary/30 shadow-[0_0_60px_rgba(var(--primary-rgb),0.2)]">
               {!videoPlaying ? (
                 <button
@@ -224,93 +298,6 @@ const Home = () => {
                   />
                 </div>
               )}
-            </div>
-          </div>
-
-          {/* Path Selection Cards */}
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {/* Trading Path */}
-            <Link 
-              to="/trading" 
-              className="group relative bg-gradient-to-br from-card via-card/80 to-card border-2 border-primary/30 rounded-3xl p-8 sm:p-10 overflow-hidden transition-all duration-500 hover:border-primary hover:shadow-[0_0_60px_rgba(var(--primary-rgb),0.3)] hover:scale-[1.02]"
-            >
-              {/* Glow effect */}
-              <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 rounded-full blur-3xl transition-opacity group-hover:opacity-100 opacity-50" />
-              
-              <div className="relative z-10">
-                <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <TrendingUp size={32} className="text-primary" />
-                </div>
-
-                <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 text-left">
-                  Trading Education
-                </h2>
-
-                <p className="text-muted-foreground text-left mb-6 leading-relaxed">
-                  Learn to trade stocks, options, futures, forex & crypto. Get 1-on-1 mentorship, live trade signals, and proven strategies to become a profitable trader.
-                </p>
-
-                <div className="flex flex-wrap gap-2 mb-6">
-                  <span className="text-xs bg-primary/10 text-primary px-3 py-1 rounded-full">Mentorship</span>
-                  <span className="text-xs bg-primary/10 text-primary px-3 py-1 rounded-full">Trade Signals</span>
-                  <span className="text-xs bg-primary/10 text-primary px-3 py-1 rounded-full">Courses</span>
-                </div>
-
-                <div className="flex items-center gap-2 text-primary font-semibold group-hover:gap-3 transition-all">
-                  <span>Start Trading</span>
-                  <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            </Link>
-
-            {/* Business Path */}
-            <Link 
-              to="/business" 
-              className="group relative bg-gradient-to-br from-card via-card/80 to-card border-2 border-accent/30 rounded-3xl p-8 sm:p-10 overflow-hidden transition-all duration-500 hover:border-accent hover:shadow-[0_0_60px_rgba(168,85,247,0.3)] hover:scale-[1.02]"
-            >
-              {/* Glow effect */}
-              <div className="absolute top-0 right-0 w-40 h-40 bg-accent/10 rounded-full blur-3xl transition-opacity group-hover:opacity-100 opacity-50" />
-              
-              <div className="relative z-10">
-                <div className="w-16 h-16 bg-accent/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <Briefcase size={32} className="text-accent" />
-                </div>
-
-                <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 text-left">
-                  Business Education
-                </h2>
-
-                <p className="text-muted-foreground text-left mb-6 leading-relaxed">
-                  Build and scale your online business. Learn digital marketing, content creation, sales funnels, and how to create multiple streams of income.
-                </p>
-
-                <div className="flex flex-wrap gap-2 mb-6">
-                  <span className="text-xs bg-accent/10 text-accent px-3 py-1 rounded-full">Marketing</span>
-                  <span className="text-xs bg-accent/10 text-accent px-3 py-1 rounded-full">Sales</span>
-                  <span className="text-xs bg-accent/10 text-accent px-3 py-1 rounded-full">Branding</span>
-                </div>
-
-                <div className="flex items-center gap-2 text-accent font-semibold group-hover:gap-3 transition-all">
-                  <span>Start Building</span>
-                  <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            </Link>
-          </div>
-
-          {/* Trust indicators */}
-          <div className="flex flex-wrap justify-center gap-6 sm:gap-10 text-muted-foreground text-sm">
-            <div className="flex items-center gap-2">
-              <span className="text-primary font-bold">Proven</span>
-              <span>Results</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-primary font-bold">5+ Years</span>
-              <span>Experience</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-primary font-bold">Free</span>
-              <span>Strategy Calls</span>
             </div>
           </div>
         </div>
