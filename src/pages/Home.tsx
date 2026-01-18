@@ -109,7 +109,7 @@ const Home = () => {
         </nav>
       </header>
 
-      {/* Hero Section */}
+      {/* Hero Section - VSL Style */}
       <section className="relative pt-8 sm:pt-12 pb-16 sm:pb-20 px-4">
         {/* Background effects */}
         <div className="absolute inset-0 overflow-hidden">
@@ -124,15 +124,108 @@ const Home = () => {
             <span className="text-primary text-sm font-semibold">Welcome to Stackmode Network</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
-            Build Your <span className="text-primary">Wealth</span>
-            <br />
-            Your Way
+          {/* VSL Headline */}
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight max-w-5xl mx-auto">
+            Stackmode is the <span className="text-primary">ULTIMATE</span> system to stack to multi 6 or 7-figure trading profits <span className="text-accent">AND</span> business revenue simultaneously.
           </h1>
 
-          <p className="text-lg sm:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Choose your path to financial freedom. Whether you want to master the markets or build a thriving business, we've got you covered.
+          <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+            Become the apex authority in the market, without the burnout of the 24/7 grind.
           </p>
+
+          {/* Video Introduction - VSL Style */}
+          <div className="max-w-4xl mx-auto mb-12">
+            <div className="relative rounded-2xl overflow-hidden border-2 border-primary/30 shadow-[0_0_60px_rgba(var(--primary-rgb),0.2)]">
+              {!videoPlaying ? (
+                <button
+                  onClick={() => setVideoPlaying(true)}
+                  className="relative w-full aspect-video group cursor-pointer"
+                  aria-label="Play video"
+                >
+                  {/* YouTube Thumbnail */}
+                  <img
+                    src="https://img.youtube.com/vi/beRKDGUDcdU/maxresdefault.jpg"
+                    alt="Meet Your Mentor - Stackmodechris"
+                    className="w-full h-full object-cover"
+                  />
+                  
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors" />
+                  
+                  {/* Branded Play Button */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center">
+                    <div className="w-20 h-20 sm:w-24 sm:h-24 bg-primary rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(var(--primary-rgb),0.6)] group-hover:scale-110 transition-transform">
+                      <Play size={40} className="text-primary-foreground ml-1" fill="currentColor" />
+                    </div>
+                    <span className="mt-4 text-white font-bold text-base sm:text-lg opacity-90">
+                      Watch Now
+                    </span>
+                  </div>
+
+                  {/* Logo Watermark */}
+                  <div className="absolute top-4 left-4 flex items-center gap-2 bg-black/50 rounded-full px-3 py-1.5">
+                    <img 
+                      src="/images/sm-logo.png" 
+                      alt="Stackmode" 
+                      className="w-6 h-6 object-contain" 
+                    />
+                    <span className="text-white text-xs font-semibold">STACKMODE</span>
+                  </div>
+                </button>
+              ) : (
+                <div className="aspect-video">
+                  <iframe
+                    src="https://www.youtube.com/embed/beRKDGUDcdU?autoplay=1"
+                    title="Meet Your Mentor - Stackmodechris"
+                    className="w-full h-full"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* CTA Buttons - Right after video */}
+          <div className="bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/30 rounded-2xl p-6 sm:p-8 max-w-3xl mx-auto mb-12">
+            <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3">Ready to Get Started?</h3>
+            <p className="text-muted-foreground mb-2">Book a free call to find the right path for you.</p>
+            <div className="inline-flex items-center gap-2 bg-red-500/20 border border-red-500/40 text-red-400 text-xs font-semibold px-3 py-1 rounded-full mb-6 animate-pulse">
+              <span className="w-2 h-2 bg-red-500 rounded-full"></span>
+              Limited Spots Available
+            </div>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <div className="flex flex-col items-center gap-2">
+                <a 
+                  href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-6 py-3 rounded-full transition-all hover:scale-105"
+                >
+                  <TrendingUp size={18} />
+                  <span>FREE Trading Mentorship Call</span>
+                </a>
+                <p className="text-xs text-muted-foreground max-w-[200px] text-center">
+                  Learn trading strategies, chart analysis & risk management
+                </p>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <a 
+                  href="https://calendly.com/stackmodechris/businessscaling" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent/90 text-accent-foreground font-bold px-6 py-3 rounded-full transition-all hover:scale-105"
+                >
+                  <Briefcase size={18} />
+                  <span>FREE Business Scaling Call</span>
+                </a>
+                <p className="text-xs text-muted-foreground max-w-[200px] text-center">
+                  Grow your brand, marketing & revenue streams
+                </p>
+              </div>
+            </div>
+          </div>
 
           {/* Path Selection Cards */}
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -206,7 +299,7 @@ const Home = () => {
           </div>
 
           {/* Trust indicators */}
-          <div className="mt-12 flex flex-wrap justify-center gap-6 sm:gap-10 text-muted-foreground text-sm">
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-10 text-muted-foreground text-sm">
             <div className="flex items-center gap-2">
               <span className="text-primary font-bold">Proven</span>
               <span>Results</span>
@@ -218,109 +311,6 @@ const Home = () => {
             <div className="flex items-center gap-2">
               <span className="text-primary font-bold">Free</span>
               <span>Strategy Calls</span>
-            </div>
-          </div>
-
-          {/* Video Introduction */}
-          <div className="mt-12 max-w-3xl mx-auto">
-            <div className="text-center mb-6">
-              <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
-                Meet Your Mentor
-              </h2>
-              <p className="text-muted-foreground text-sm sm:text-base">
-                Watch to learn how I can help you achieve your financial goals
-              </p>
-            </div>
-
-            <div className="relative rounded-2xl overflow-hidden border-2 border-primary/30 shadow-[0_0_40px_rgba(var(--primary-rgb),0.15)]">
-              {!videoPlaying ? (
-                <button
-                  onClick={() => setVideoPlaying(true)}
-                  className="relative w-full aspect-video group cursor-pointer"
-                  aria-label="Play video"
-                >
-                  {/* YouTube Thumbnail */}
-                  <img
-                    src="https://img.youtube.com/vi/beRKDGUDcdU/maxresdefault.jpg"
-                    alt="Meet Your Mentor - Stackmodechris"
-                    className="w-full h-full object-cover"
-                  />
-                  
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors" />
-                  
-                  {/* Branded Play Button */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-primary rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(var(--primary-rgb),0.5)] group-hover:scale-110 transition-transform">
-                      <Play size={32} className="text-primary-foreground ml-1" fill="currentColor" />
-                    </div>
-                    <span className="mt-4 text-white font-semibold text-sm sm:text-base opacity-90">
-                      Watch Introduction
-                    </span>
-                  </div>
-
-                  {/* Logo Watermark */}
-                  <div className="absolute top-4 left-4 flex items-center gap-2 bg-black/50 rounded-full px-3 py-1.5">
-                    <img 
-                      src="/images/sm-logo.png" 
-                      alt="Stackmode" 
-                      className="w-6 h-6 object-contain" 
-                    />
-                    <span className="text-white text-xs font-semibold">STACKMODE</span>
-                  </div>
-                </button>
-              ) : (
-                <div className="aspect-video">
-                  <iframe
-                    src="https://www.youtube.com/embed/beRKDGUDcdU?autoplay=1"
-                    title="Meet Your Mentor - Stackmodechris"
-                    className="w-full h-full"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  />
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* CTA Section */}
-          <div className="mt-12 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/30 rounded-2xl p-6 sm:p-8 max-w-2xl mx-auto">
-            <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3">Ready to Get Started?</h3>
-            <p className="text-muted-foreground mb-2">Book a free call to find the right path for you.</p>
-            <div className="inline-flex items-center gap-2 bg-red-500/20 border border-red-500/40 text-red-400 text-xs font-semibold px-3 py-1 rounded-full mb-6 animate-pulse">
-              <span className="w-2 h-2 bg-red-500 rounded-full"></span>
-              Limited Spots Available
-            </div>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <div className="flex flex-col items-center gap-2">
-                <a 
-                  href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-6 py-3 rounded-full transition-all hover:scale-105"
-                >
-                  <TrendingUp size={18} />
-                  <span>FREE Trading Mentorship Call</span>
-                </a>
-                <p className="text-xs text-muted-foreground max-w-[200px] text-center">
-                  Learn trading strategies, chart analysis & risk management
-                </p>
-              </div>
-              <div className="flex flex-col items-center gap-2">
-                <a 
-                  href="https://calendly.com/stackmodechris/businessscaling" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent/90 text-accent-foreground font-bold px-6 py-3 rounded-full transition-all hover:scale-105"
-                >
-                  <Briefcase size={18} />
-                  <span>FREE Business Scaling Call</span>
-                </a>
-                <p className="text-xs text-muted-foreground max-w-[200px] text-center">
-                  Grow your brand, marketing & revenue streams
-                </p>
-              </div>
             </div>
           </div>
         </div>
