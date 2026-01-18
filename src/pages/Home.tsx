@@ -205,17 +205,22 @@ const Home = () => {
             <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3">Ready to Get Started?</h3>
             <p className="text-muted-foreground mb-6">Book a free call to find the right path for you.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="relative">
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full animate-pulse z-10">
+                  Limited Spots
+                </span>
+                <a 
+                  href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-6 py-3 rounded-full transition-all hover:scale-105"
+                >
+                  <TrendingUp size={18} />
+                  <span>FREE Trading Mentorship Call</span>
+                </a>
+              </div>
               <a 
-                href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-6 py-3 rounded-full transition-all hover:scale-105"
-              >
-                <TrendingUp size={18} />
-                <span>FREE Trading Mentorship Call</span>
-              </a>
-              <a 
-                href="https://calendly.com/stackmodechris/15min" 
+                href="https://calendly.com/stackmodechris/businessscaling" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent/90 text-accent-foreground font-bold px-6 py-3 rounded-full transition-all hover:scale-105"
