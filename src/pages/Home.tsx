@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
-import { TrendingUp, Briefcase, ArrowRight, Zap } from 'lucide-react';
+import { TrendingUp, Briefcase, ArrowRight, Zap, Play } from 'lucide-react';
 import { CookieConsent } from '@/components/CookieConsent';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
+import { useState } from 'react';
 
 const Home = () => {
+  const [videoPlaying, setVideoPlaying] = useState(false);
+
   return (
     <main className="min-h-screen bg-background relative overflow-x-hidden">
       {/* Header */}
@@ -134,6 +137,69 @@ const Home = () => {
             </div>
           </div>
 
+          {/* Video Introduction */}
+          <div className="mt-12 max-w-3xl mx-auto">
+            <div className="text-center mb-6">
+              <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
+                Meet Your Mentor
+              </h2>
+              <p className="text-muted-foreground text-sm sm:text-base">
+                Watch to learn how I can help you achieve your financial goals
+              </p>
+            </div>
+
+            <div className="relative rounded-2xl overflow-hidden border-2 border-primary/30 shadow-[0_0_40px_rgba(var(--primary-rgb),0.15)]">
+              {!videoPlaying ? (
+                <button
+                  onClick={() => setVideoPlaying(true)}
+                  className="relative w-full aspect-video group cursor-pointer"
+                  aria-label="Play video"
+                >
+                  {/* YouTube Thumbnail */}
+                  <img
+                    src="https://img.youtube.com/vi/beRKDGUDcdU/maxresdefault.jpg"
+                    alt="Meet Your Mentor - Stackmodechris"
+                    className="w-full h-full object-cover"
+                  />
+                  
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors" />
+                  
+                  {/* Branded Play Button */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-primary rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(var(--primary-rgb),0.5)] group-hover:scale-110 transition-transform">
+                      <Play size={32} className="text-primary-foreground ml-1" fill="currentColor" />
+                    </div>
+                    <span className="mt-4 text-white font-semibold text-sm sm:text-base opacity-90">
+                      Watch Introduction
+                    </span>
+                  </div>
+
+                  {/* Logo Watermark */}
+                  <div className="absolute top-4 left-4 flex items-center gap-2 bg-black/50 rounded-full px-3 py-1.5">
+                    <img 
+                      src="/images/sm-logo.png" 
+                      alt="Stackmode" 
+                      className="w-6 h-6 object-contain" 
+                    />
+                    <span className="text-white text-xs font-semibold">STACKMODE</span>
+                  </div>
+                </button>
+              ) : (
+                <div className="aspect-video">
+                  <iframe
+                    src="https://www.youtube.com/embed/beRKDGUDcdU?autoplay=1"
+                    title="Meet Your Mentor - Stackmodechris"
+                    className="w-full h-full"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+
           {/* CTA Section */}
           <div className="mt-12 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/30 rounded-2xl p-6 sm:p-8 max-w-2xl mx-auto">
             <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3">Ready to Get Started?</h3>
@@ -147,33 +213,6 @@ const Home = () => {
               <span>Book Free Call</span>
               <ArrowRight size={18} />
             </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Video Introduction Section */}
-      <section className="py-16 px-4 border-t border-border">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3">
-              Meet Your Mentor
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Learn how I can help you achieve your financial goals through trading and business education.
-            </p>
-          </div>
-
-          <div className="relative rounded-2xl overflow-hidden border-2 border-primary/30 shadow-[0_0_40px_rgba(var(--primary-rgb),0.15)]">
-            <div className="aspect-video">
-              <iframe
-                src="https://www.youtube.com/embed/beRKDGUDcdU"
-                title="Meet Your Mentor - Stackmodechris"
-                className="w-full h-full"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
-            </div>
           </div>
         </div>
       </section>
