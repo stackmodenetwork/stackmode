@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { TrendingUp, Briefcase, ArrowRight, Zap } from 'lucide-react';
 import { CookieConsent } from '@/components/CookieConsent';
+import { ReviewsGallery } from '@/components/ReviewsGallery';
 
 const Home = () => {
   return (
@@ -133,6 +134,11 @@ const Home = () => {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Reviews Section */}
+      <section className="py-16 px-4 border-t border-border">
+        <ReviewsGallery />
       </section>
 
       {/* About Preview */}
