@@ -159,23 +159,23 @@ const Home = () => {
                   <span className="text-xs bg-primary/10 text-primary px-2.5 py-1 rounded-full">Courses</span>
                 </div>
 
+                <Link 
+                  to="/trading" 
+                  className="w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-5 py-3 rounded-full transition-all hover:scale-105 mb-3"
+                >
+                  <TrendingUp size={18} />
+                  <span>Explore Trading</span>
+                </Link>
+
                 <a 
                   href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-5 py-3 rounded-full transition-all hover:scale-105 mb-3"
-                >
-                  <TrendingUp size={18} />
-                  <span>FREE Trading Call</span>
-                </a>
-
-                <Link 
-                  to="/trading" 
                   className="flex items-center justify-center gap-2 text-primary/80 hover:text-primary text-sm font-medium transition-colors"
                 >
-                  <span>Learn more</span>
+                  <span>FREE Trading Call</span>
                   <ArrowRight size={16} />
-                </Link>
+                </a>
               </div>
             </div>
 
@@ -203,23 +203,23 @@ const Home = () => {
                   <span className="text-xs bg-accent/10 text-accent px-2.5 py-1 rounded-full">Branding</span>
                 </div>
 
+                <Link 
+                  to="/business" 
+                  className="w-full inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent/90 text-accent-foreground font-bold px-5 py-3 rounded-full transition-all hover:scale-105 mb-3"
+                >
+                  <Briefcase size={18} />
+                  <span>Explore Business</span>
+                </Link>
+
                 <a 
                   href="https://calendly.com/stackmodechris/businessscaling" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent/90 text-accent-foreground font-bold px-5 py-3 rounded-full transition-all hover:scale-105 mb-3"
-                >
-                  <Briefcase size={18} />
-                  <span>FREE Business Call</span>
-                </a>
-
-                <Link 
-                  to="/business" 
                   className="flex items-center justify-center gap-2 text-accent/80 hover:text-accent text-sm font-medium transition-colors"
                 >
-                  <span>Learn more</span>
+                  <span>FREE Business Call</span>
                   <ArrowRight size={16} />
-                </Link>
+                </a>
               </div>
             </div>
           </div>
