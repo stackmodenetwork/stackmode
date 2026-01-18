@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { TrendingUp, Briefcase, ArrowRight, Zap, Play } from 'lucide-react';
+import { TrendingUp, Briefcase, ArrowRight, Zap, Play, BookOpen, User, Mic, MessageCircle } from 'lucide-react';
 import { CookieConsent } from '@/components/CookieConsent';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
 import { useState } from 'react';
@@ -12,17 +12,101 @@ const Home = () => {
       {/* Header */}
       <header className="bg-card border-b border-border sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center justify-center h-16 sm:h-20">
+          <div className="flex items-center justify-between h-16 sm:h-20">
             <a href="https://stackmode.net" className="flex items-center gap-2">
               <img 
                 src="/images/sm-logo.png" 
                 alt="Stackmode Logo" 
-                className="w-12 h-12 sm:w-16 sm:h-16 object-contain" 
+                className="w-10 h-10 sm:w-12 sm:h-12 object-contain" 
               />
-              <span className="text-xl sm:text-2xl font-bold text-foreground">STACKMODE.NET</span>
+              <span className="text-lg sm:text-xl font-bold text-foreground hidden sm:inline">STACKMODE.NET</span>
             </a>
+            
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center gap-6">
+              <Link to="/trading" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+                Trading
+              </Link>
+              <Link to="/business" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+                Business
+              </Link>
+              <Link to="/learn" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+                Library
+              </Link>
+              <Link to="/about" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+                About
+              </Link>
+              <a 
+                href="https://open.spotify.com/show/stackmodechris" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              >
+                Podcast
+              </a>
+              <a 
+                href="https://discord.gg/stackmode" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-sm font-medium text-muted-foreground hover:text-accent transition-colors"
+              >
+                Discord
+              </a>
+            </nav>
           </div>
         </div>
+        
+        {/* Mobile Navigation */}
+        <nav className="md:hidden border-t border-border overflow-x-auto scrollbar-hide">
+          <div className="flex items-center gap-1 px-2 py-2">
+            <Link 
+              to="/trading" 
+              className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-primary bg-muted/50 hover:bg-muted px-3 py-2 rounded-full whitespace-nowrap transition-colors"
+            >
+              <TrendingUp size={14} />
+              Trading
+            </Link>
+            <Link 
+              to="/business" 
+              className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-accent bg-muted/50 hover:bg-muted px-3 py-2 rounded-full whitespace-nowrap transition-colors"
+            >
+              <Briefcase size={14} />
+              Business
+            </Link>
+            <Link 
+              to="/learn" 
+              className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-primary bg-muted/50 hover:bg-muted px-3 py-2 rounded-full whitespace-nowrap transition-colors"
+            >
+              <BookOpen size={14} />
+              Library
+            </Link>
+            <Link 
+              to="/about" 
+              className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-primary bg-muted/50 hover:bg-muted px-3 py-2 rounded-full whitespace-nowrap transition-colors"
+            >
+              <User size={14} />
+              About
+            </Link>
+            <a 
+              href="https://open.spotify.com/show/stackmodechris" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-primary bg-muted/50 hover:bg-muted px-3 py-2 rounded-full whitespace-nowrap transition-colors"
+            >
+              <Mic size={14} />
+              Podcast
+            </a>
+            <a 
+              href="https://discord.gg/stackmode" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-accent bg-muted/50 hover:bg-muted px-3 py-2 rounded-full whitespace-nowrap transition-colors"
+            >
+              <MessageCircle size={14} />
+              Discord
+            </a>
+          </div>
+        </nav>
       </header>
 
       {/* Hero Section */}
