@@ -203,22 +203,21 @@ const Home = () => {
           {/* CTA Section */}
           <div className="mt-12 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/30 rounded-2xl p-6 sm:p-8 max-w-2xl mx-auto">
             <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3">Ready to Get Started?</h3>
-            <p className="text-muted-foreground mb-6">Book a free call to find the right path for you.</p>
+            <p className="text-muted-foreground mb-2">Book a free call to find the right path for you.</p>
+            <div className="inline-flex items-center gap-2 bg-red-500/20 border border-red-500/40 text-red-400 text-xs font-semibold px-3 py-1 rounded-full mb-6 animate-pulse">
+              <span className="w-2 h-2 bg-red-500 rounded-full"></span>
+              Limited Spots Available for Both Calls
+            </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <div className="relative">
-                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full animate-pulse z-10">
-                  Limited Spots
-                </span>
-                <a 
-                  href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-6 py-3 rounded-full transition-all hover:scale-105"
-                >
-                  <TrendingUp size={18} />
-                  <span>FREE Trading Mentorship Call</span>
-                </a>
-              </div>
+              <a 
+                href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-6 py-3 rounded-full transition-all hover:scale-105"
+              >
+                <TrendingUp size={18} />
+                <span>FREE Trading Mentorship Call</span>
+              </a>
               <a 
                 href="https://calendly.com/stackmodechris/businessscaling" 
                 target="_blank" 
