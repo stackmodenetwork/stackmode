@@ -212,7 +212,7 @@ const Home = () => {
                 className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-6 py-3 rounded-full transition-all hover:scale-105"
               >
                 <TrendingUp size={18} />
-                <span>Free Trading Call</span>
+                <span>FREE Trading Mentorship Call</span>
               </a>
               <a 
                 href="https://calendly.com/stackmodechris/15min" 
@@ -221,7 +221,7 @@ const Home = () => {
                 className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent/90 text-accent-foreground font-bold px-6 py-3 rounded-full transition-all hover:scale-105"
               >
                 <Briefcase size={18} />
-                <span>Free Business Call</span>
+                <span>FREE Business Scaling Call</span>
               </a>
             </div>
           </div>
