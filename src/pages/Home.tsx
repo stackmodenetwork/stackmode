@@ -1,11 +1,15 @@
 import { Link } from 'react-router-dom';
-import { TrendingUp, Briefcase, ArrowRight, Zap, Play, BookOpen, User, Mic, MessageCircle, Phone } from 'lucide-react';
+import { TrendingUp, Briefcase, ArrowRight, Zap, Play, BookOpen, User, Mic, MessageCircle, Phone, Menu, X, Youtube, Instagram } from 'lucide-react';
 import { CookieConsent } from '@/components/CookieConsent';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
+import TikTokIcon from '@/components/TikTokIcon';
 
 const Home = () => {
   const [videoPlaying, setVideoPlaying] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
 
   return (
     <main className="min-h-screen bg-background relative overflow-x-hidden">
@@ -53,61 +57,103 @@ const Home = () => {
                 Discord
               </a>
             </nav>
+
+            {/* Mobile Menu Button */}
+            <button 
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="md:hidden p-2 text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="Toggle menu"
+            >
+              {menuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
         </div>
-        
-        {/* Mobile Navigation */}
-        <nav className="md:hidden border-t border-border overflow-x-auto scrollbar-hide">
-          <div className="flex items-center gap-1 px-2 py-2">
+      </header>
+
+      {/* Mobile Dropdown Menu */}
+      <div 
+        className={`md:hidden fixed inset-x-0 top-16 z-50 bg-card border-b border-border shadow-2xl transition-all duration-300 ${
+          menuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'
+        }`}
+      >
+        <nav className="max-w-7xl mx-auto px-4 py-4">
+          <div className="flex flex-col gap-2">
             <Link 
               to="/trading" 
-              className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-primary bg-muted/50 hover:bg-muted px-3 py-2 rounded-full whitespace-nowrap transition-colors"
+              onClick={closeMenu}
+              className="flex items-center gap-3 text-base font-medium text-foreground hover:text-primary bg-muted/50 hover:bg-muted px-4 py-3 rounded-xl transition-colors"
             >
-              <TrendingUp size={14} />
+              <TrendingUp size={20} className="text-primary" />
               Learn How To Trade
             </Link>
             <Link 
               to="/business" 
-              className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-accent bg-muted/50 hover:bg-muted px-3 py-2 rounded-full whitespace-nowrap transition-colors"
+              onClick={closeMenu}
+              className="flex items-center gap-3 text-base font-medium text-foreground hover:text-accent bg-muted/50 hover:bg-muted px-4 py-3 rounded-xl transition-colors"
             >
-              <Briefcase size={14} />
+              <Briefcase size={20} className="text-accent" />
               Grow Your Business
             </Link>
             <Link 
               to="/learn" 
-              className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-primary bg-muted/50 hover:bg-muted px-3 py-2 rounded-full whitespace-nowrap transition-colors"
+              onClick={closeMenu}
+              className="flex items-center gap-3 text-base font-medium text-foreground hover:text-primary bg-muted/50 hover:bg-muted px-4 py-3 rounded-xl transition-colors"
             >
-              <BookOpen size={14} />
+              <BookOpen size={20} className="text-primary" />
               Library
             </Link>
             <Link 
               to="/about" 
-              className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-primary bg-muted/50 hover:bg-muted px-3 py-2 rounded-full whitespace-nowrap transition-colors"
+              onClick={closeMenu}
+              className="flex items-center gap-3 text-base font-medium text-foreground hover:text-primary bg-muted/50 hover:bg-muted px-4 py-3 rounded-xl transition-colors"
             >
-              <User size={14} />
+              <User size={20} className="text-primary" />
               About
             </Link>
             <a 
               href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-primary bg-muted/50 hover:bg-muted px-3 py-2 rounded-full whitespace-nowrap transition-colors"
+              onClick={closeMenu}
+              className="flex items-center gap-3 text-base font-medium text-foreground hover:text-primary bg-muted/50 hover:bg-muted px-4 py-3 rounded-xl transition-colors"
             >
-              <Mic size={14} />
+              <Mic size={20} className="text-primary" />
               Podcast
             </a>
             <a 
               href="https://discord.gg/5zYWSWGMYm" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-accent bg-muted/50 hover:bg-muted px-3 py-2 rounded-full whitespace-nowrap transition-colors"
+              onClick={closeMenu}
+              className="flex items-center gap-3 text-base font-medium text-foreground hover:text-accent bg-muted/50 hover:bg-muted px-4 py-3 rounded-xl transition-colors"
             >
-              <MessageCircle size={14} />
+              <MessageCircle size={20} className="text-accent" />
               Discord
             </a>
           </div>
+          
+          {/* Social Links in Mobile Menu */}
+          <div className="flex items-center justify-center gap-4 mt-4 pt-4 border-t border-border">
+            <a href="https://www.youtube.com/@stackmodechris" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-red-500 transition-colors">
+              <Youtube size={22} />
+            </a>
+            <a href="https://www.instagram.com/stackmodechris/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-pink-500 transition-colors">
+              <Instagram size={22} />
+            </a>
+            <a href="https://www.tiktok.com/@stackmodechris" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+              <TikTokIcon className="w-5 h-5" />
+            </a>
+          </div>
         </nav>
-      </header>
+      </div>
+
+      {/* Backdrop for mobile menu */}
+      {menuOpen && (
+        <div 
+          className="md:hidden fixed inset-0 bg-black/50 z-40" 
+          onClick={closeMenu}
+        />
+      )}
 
       {/* Phone Call CTA Banner */}
       <div className="bg-gradient-to-r from-primary/20 via-accent/10 to-primary/20 border-y border-primary/30">
