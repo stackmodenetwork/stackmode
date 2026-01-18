@@ -37,7 +37,7 @@ const Home = () => {
                 About
               </Link>
               <a 
-                href="https://open.spotify.com/show/stackmodechris" 
+                href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true"
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
@@ -45,7 +45,7 @@ const Home = () => {
                 Podcast
               </a>
               <a 
-                href="https://discord.gg/stackmode" 
+                href="https://discord.gg/5zYWSWGMYm"
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-sm font-medium text-muted-foreground hover:text-accent transition-colors"
@@ -88,7 +88,7 @@ const Home = () => {
               About
             </Link>
             <a 
-              href="https://open.spotify.com/show/stackmodechris" 
+              href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-primary bg-muted/50 hover:bg-muted px-3 py-2 rounded-full whitespace-nowrap transition-colors"
@@ -97,7 +97,7 @@ const Home = () => {
               Podcast
             </a>
             <a 
-              href="https://discord.gg/stackmode" 
+              href="https://discord.gg/5zYWSWGMYm" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-accent bg-muted/50 hover:bg-muted px-3 py-2 rounded-full whitespace-nowrap transition-colors"
