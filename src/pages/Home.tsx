@@ -1,20 +1,9 @@
 import { Link } from 'react-router-dom';
-import { TrendingUp, Briefcase, ArrowRight, Zap, Play } from 'lucide-react';
+import { TrendingUp, Briefcase, ArrowRight, Zap } from 'lucide-react';
 import { CookieConsent } from '@/components/CookieConsent';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
-import { useState, useRef } from 'react';
 
 const Home = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  const handlePlayVideo = () => {
-    if (videoRef.current) {
-      videoRef.current.play();
-      setIsPlaying(true);
-    }
-  };
-
   return (
     <main className="min-h-screen bg-background relative overflow-x-hidden">
       {/* Header */}
@@ -175,31 +164,16 @@ const Home = () => {
           </div>
 
           <div className="relative rounded-2xl overflow-hidden border-2 border-primary/30 shadow-[0_0_40px_rgba(var(--primary-rgb),0.15)]">
-            <video
-              ref={videoRef}
-              className="w-full aspect-video object-cover"
-              poster="/images/video-thumbnail.png"
-              controls={isPlaying}
-              onEnded={() => setIsPlaying(false)}
-              playsInline
-            >
-              <source src="/videos/mentor-intro.mp4" type="video/mp4" media="(min-width: 768px)" />
-              <source src="/videos/mentor-intro-mobile.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-
-            {/* Play button overlay */}
-            {!isPlaying && (
-              <button
-                onClick={handlePlayVideo}
-                className="absolute inset-0 flex items-center justify-center bg-black/30 group cursor-pointer transition-all hover:bg-black/40"
-                aria-label="Play video"
-              >
-                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-primary rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                  <Play size={32} className="text-primary-foreground ml-1" fill="currentColor" />
-                </div>
-              </button>
-            )}
+            <div className="aspect-video">
+              <iframe
+                src="https://www.youtube.com/embed/beRKDGUDcdU"
+                title="Meet Your Mentor - Stackmodechris"
+                className="w-full h-full"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
           </div>
         </div>
       </section>
