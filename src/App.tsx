@@ -8,7 +8,9 @@ import { BottomNavigation } from "@/components/BottomNavigation";
 import { useEffect, useState, useCallback, memo, lazy, Suspense } from "react";
 
 // Lazy load pages for better initial load performance
-const Index = lazy(() => import("./pages/Index"));
+const Home = lazy(() => import("./pages/Home"));
+const Trading = lazy(() => import("./pages/Trading"));
+const Business = lazy(() => import("./pages/Business"));
 const Learn = lazy(() => import("./pages/Learn"));
 const About = lazy(() => import("./pages/About"));
 const DMCAPolicy = lazy(() => import("./pages/DMCAPolicy"));
@@ -65,7 +67,9 @@ const AnimatedRoutes = memo(() => {
     >
       <Suspense fallback={<PageLoader />}>
         <Routes location={currentLocation}>
-          <Route path="/" element={<Index />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/trading" element={<Trading />} />
+          <Route path="/business" element={<Business />} />
           <Route path="/learn" element={<Learn />} />
           <Route path="/about" element={<About />} />
           <Route path="/dmca" element={<DMCAPolicy />} />

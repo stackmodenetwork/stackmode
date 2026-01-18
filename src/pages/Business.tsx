@@ -1,0 +1,453 @@
+import { useEffect, useState, useCallback } from 'react';
+import { Link } from 'react-router-dom';
+import { AnimatedBlock } from '@/components/AnimatedBlock';
+import { CookieConsent } from '@/components/CookieConsent';
+import { SocialShareButtons } from '@/components/SocialShareButtons';
+import { Briefcase, Check, Menu, X, Youtube, Instagram, Facebook, Linkedin, Calendar, Rocket, Target, Users, DollarSign, Lightbulb, Megaphone, Globe, Phone } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+
+const Business = () => {
+  const [showStickyHeader, setShowStickyHeader] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowStickyHeader(window.scrollY > 400);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
+
+  return (
+    <main className="min-h-screen bg-background relative overflow-x-hidden scroll-smooth animate-page-load">
+      {/* Top Navigation Bar */}
+      <header className="bg-card border-b border-border sticky top-0 z-40">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4">
+          <div className="flex items-center justify-between h-16 sm:h-20">
+            {/* Logo */}
+            <Link to="/" className="flex items-center gap-1 min-w-0">
+              <img src="/images/sm-logo.png" alt="Stackmode Logo" className="w-12 h-12 sm:w-16 sm:h-16 object-contain flex-shrink-0" />
+              <span className="text-sm sm:text-xl font-bold text-foreground truncate">STACKMODE.NET</span>
+            </Link>
+            
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center justify-center flex-1 gap-8 mx-8">
+              <Link to="/trading" className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors">
+                Trading
+              </Link>
+              <Link to="/business" className="text-base font-semibold text-accent">
+                Business
+              </Link>
+              <a href="https://calendly.com/stackmodechris/businessconsulting" target="_blank" rel="noopener noreferrer" className="text-base font-semibold text-foreground/80 hover:text-accent transition-colors">
+                Book Consultation
+              </a>
+              <Link to="/about" className="text-base font-semibold text-foreground/80 hover:text-accent transition-colors">
+                About
+              </Link>
+              <a href="tel:6787758532" className="flex items-center gap-2 bg-accent/10 hover:bg-accent/20 border border-accent/30 hover:border-accent/50 text-accent font-semibold text-sm px-4 py-2 rounded-full transition-all">
+                <Phone size={16} />
+                <span>Call Now</span>
+              </a>
+            </nav>
+
+            {/* Mobile Menu Button */}
+            <button 
+              onClick={() => setMenuOpen(!menuOpen)} 
+              className="md:hidden flex items-center gap-2 px-3 py-2 rounded-lg bg-muted/50 border border-border hover:border-accent transition-colors flex-shrink-0"
+            >
+              {menuOpen ? <X size={20} className="text-accent" /> : <Menu size={20} className="text-accent" />}
+              <span className="text-sm font-medium text-foreground">Menu</span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Phone Call CTA Banner */}
+      <div className="bg-gradient-to-r from-accent/20 via-primary/10 to-accent/20 border-y border-accent/30">
+        <div className="max-w-7xl mx-auto px-4 py-3">
+          <a href="tel:6787758532" className="flex items-center justify-center gap-3 group">
+            <div className="relative">
+              <div className="absolute inset-0 bg-accent rounded-full animate-ping opacity-30" />
+              <div className="relative bg-accent/20 border border-accent/50 rounded-full p-2 group-hover:bg-accent/30 transition-colors">
+                <Phone size={18} className="text-accent" />
+              </div>
+            </div>
+            <div className="text-center sm:text-left">
+              <span className="text-foreground font-semibold text-sm sm:text-base">
+                Ready to Scale? Call Now: <span className="text-accent">(678) 775-8532</span>
+              </span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      {/* Sticky Mobile Header CTA */}
+      <div className={`fixed top-16 left-0 right-0 z-35 md:hidden transition-all duration-300 pointer-events-none ${showStickyHeader ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
+        <div className="bg-background/98 backdrop-blur-lg border-b border-accent/20 shadow-lg pointer-events-auto">
+          <div className="px-4 py-2.5 flex items-center justify-between gap-3">
+            <span className="text-xs font-medium text-foreground/80">Ready to grow?</span>
+            <a href="https://calendly.com/stackmodechris/businessconsulting" target="_blank" rel="noopener noreferrer" className="bg-accent hover:bg-accent/90 text-background font-bold text-xs px-5 py-2.5 rounded-lg transition-all shadow-md shadow-accent/20 flex-shrink-0">
+              Book FREE Call →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Dropdown Menu */}
+      <div className={`fixed inset-x-0 top-16 z-50 md:hidden transition-all duration-300 ${menuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}`}>
+        <div className="bg-background/95 backdrop-blur-md border-b border-border shadow-xl">
+          <div className="px-4 py-4 space-y-1">
+            <Link to="/trading" onClick={closeMenu} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors">
+              Trading Education
+            </Link>
+            <Link to="/business" onClick={closeMenu} className="block px-4 py-3 rounded-lg text-accent font-medium bg-accent/10">
+              Business Education
+            </Link>
+            <a href="https://calendly.com/stackmodechris/businessconsulting" target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors">
+              Book Consultation
+            </a>
+            <Link to="/about" onClick={closeMenu} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors">
+              About
+            </Link>
+          </div>
+        </div>
+        <div className="fixed inset-0 bg-background/60 -z-10" onClick={closeMenu} />
+      </div>
+
+      {/* Main Content */}
+      <section className="relative z-10 min-h-screen px-4 py-6 sm:py-8">
+        {/* Hero Section */}
+        <header className="text-center mb-8 sm:mb-12 max-w-5xl mx-auto">
+          <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-2 mb-4 animate-pulse">
+            <div className="w-2 h-2 bg-accent rounded-full animate-ping"></div>
+            <span className="text-accent text-sm font-semibold">Business Education Hub</span>
+          </div>
+          
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
+            Build Your <span className="text-accent">Empire</span>
+          </h1>
+          
+          <p className="text-base sm:text-lg text-muted-foreground mb-6 max-w-2xl mx-auto leading-relaxed">
+            Learn how to start, grow, and scale a profitable online business. From idea to execution — we'll guide you every step of the way.
+          </p>
+
+          {/* Value Props */}
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-6 text-sm sm:text-base">
+            <div className="flex items-center gap-2 text-accent">
+              <Check size={18} className="text-accent" />
+              <span>1-on-1 Consulting</span>
+            </div>
+            <div className="flex items-center gap-2 text-accent">
+              <Check size={18} className="text-accent" />
+              <span>Proven Strategies</span>
+            </div>
+            <div className="flex items-center gap-2 text-accent">
+              <Check size={18} className="text-accent" />
+              <span>Real Results</span>
+            </div>
+          </div>
+        </header>
+
+        {/* Services Grid */}
+        <section className="max-w-6xl mx-auto mb-12">
+          <h2 className="text-xl sm:text-2xl font-semibold text-foreground text-center mb-8">What You'll Learn</h2>
+          
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            {/* Digital Marketing */}
+            <div className="bg-card/50 border border-border rounded-2xl p-6 hover:border-accent/50 transition-all">
+              <div className="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center mb-4">
+                <Megaphone size={24} className="text-accent" />
+              </div>
+              <h3 className="text-lg font-semibold text-foreground mb-2">Digital Marketing</h3>
+              <p className="text-muted-foreground text-sm">Master social media, content creation, and paid advertising to attract customers.</p>
+            </div>
+
+            {/* Sales Funnels */}
+            <div className="bg-card/50 border border-border rounded-2xl p-6 hover:border-accent/50 transition-all">
+              <div className="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center mb-4">
+                <Target size={24} className="text-accent" />
+              </div>
+              <h3 className="text-lg font-semibold text-foreground mb-2">Sales Funnels</h3>
+              <p className="text-muted-foreground text-sm">Build high-converting funnels that turn visitors into paying customers.</p>
+            </div>
+
+            {/* Brand Building */}
+            <div className="bg-card/50 border border-border rounded-2xl p-6 hover:border-accent/50 transition-all">
+              <div className="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center mb-4">
+                <Lightbulb size={24} className="text-accent" />
+              </div>
+              <h3 className="text-lg font-semibold text-foreground mb-2">Brand Building</h3>
+              <p className="text-muted-foreground text-sm">Create a memorable brand that stands out and builds trust with your audience.</p>
+            </div>
+
+            {/* Online Business */}
+            <div className="bg-card/50 border border-border rounded-2xl p-6 hover:border-accent/50 transition-all">
+              <div className="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center mb-4">
+                <Globe size={24} className="text-accent" />
+              </div>
+              <h3 className="text-lg font-semibold text-foreground mb-2">Online Business</h3>
+              <p className="text-muted-foreground text-sm">Launch and scale e-commerce, coaching, or service-based businesses.</p>
+            </div>
+
+            {/* Revenue Streams */}
+            <div className="bg-card/50 border border-border rounded-2xl p-6 hover:border-accent/50 transition-all">
+              <div className="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center mb-4">
+                <DollarSign size={24} className="text-accent" />
+              </div>
+              <h3 className="text-lg font-semibold text-foreground mb-2">Multiple Income Streams</h3>
+              <p className="text-muted-foreground text-sm">Diversify your income with affiliate marketing, digital products, and more.</p>
+            </div>
+
+            {/* Community Building */}
+            <div className="bg-card/50 border border-border rounded-2xl p-6 hover:border-accent/50 transition-all">
+              <div className="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center mb-4">
+                <Users size={24} className="text-accent" />
+              </div>
+              <h3 className="text-lg font-semibold text-foreground mb-2">Community Building</h3>
+              <p className="text-muted-foreground text-sm">Build a loyal audience and community around your brand.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Main CTA */}
+        <section className="max-w-3xl mx-auto mb-12">
+          <a 
+            href="https://calendly.com/stackmodechris/businessconsulting" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="block group"
+          >
+            <div className="relative bg-gradient-to-br from-card/80 via-card/60 to-card/80 border-2 border-accent/50 rounded-2xl p-6 sm:p-8 overflow-hidden transition-all duration-500 hover:border-accent hover:shadow-[0_0_60px_rgba(168,85,247,0.4)] group-hover:scale-[1.02]">
+              <div className="absolute top-0 left-4 -translate-y-1/2 z-20">
+                <div className="bg-accent text-background text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded-md shadow-sm whitespace-nowrap">
+                  Free Strategy Session
+                </div>
+              </div>
+              
+              <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl"></div>
+              
+              <div className="relative z-10 text-center">
+                <div className="flex items-center justify-center gap-3 mb-4">
+                  <Rocket size={28} className="text-accent" />
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-foreground">1-on-1 Business Consulting</h3>
+                </div>
+                
+                <p className="text-muted-foreground mb-6 text-sm sm:text-base max-w-xl mx-auto">
+                  Get personalized guidance on starting or scaling your business. Let's create a custom roadmap for your success.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-3 justify-center mb-4">
+                  <div className="flex items-center gap-2 text-sm text-foreground/80">
+                    <Check size={16} className="text-accent flex-shrink-0" />
+                    <span>Custom business strategy</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-foreground/80">
+                    <Check size={16} className="text-accent flex-shrink-0" />
+                    <span>Marketing & sales advice</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-foreground/80">
+                    <Check size={16} className="text-accent flex-shrink-0" />
+                    <span>No obligation</span>
+                  </div>
+                </div>
+                
+                <div className="bg-accent hover:bg-accent/90 text-background font-semibold text-base sm:text-lg px-8 py-4 rounded-lg inline-block transition-colors">
+                  Book Your Free Call →
+                </div>
+              </div>
+            </div>
+          </a>
+        </section>
+
+        {/* FAQ Section */}
+        <AnimatedBlock delay={0.3} className="mb-16">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl sm:text-3xl font-semibold text-foreground mb-2">
+                Frequently Asked Questions
+              </h2>
+            </div>
+
+            <Accordion type="single" collapsible className="space-y-3">
+              <AccordionItem value="item-1" className="bg-card/50 border border-accent/20 rounded-xl px-4 overflow-hidden">
+                <AccordionTrigger className="text-left text-foreground hover:text-accent hover:no-underline py-4">
+                  What kind of businesses can you help with?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-4">
+                  I help with a wide range of online businesses including e-commerce, coaching/consulting, content creation, affiliate marketing, and service-based businesses. Whether you're starting from scratch or looking to scale, I can help.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-2" className="bg-card/50 border border-accent/20 rounded-xl px-4 overflow-hidden">
+                <AccordionTrigger className="text-left text-foreground hover:text-accent hover:no-underline py-4">
+                  Do I need experience to get started?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-4">
+                  Not at all! I work with complete beginners to experienced entrepreneurs. The consulting is tailored to YOUR level and goals. I'll meet you where you are and help you build from there.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-3" className="bg-card/50 border border-accent/20 rounded-xl px-4 overflow-hidden">
+                <AccordionTrigger className="text-left text-foreground hover:text-accent hover:no-underline py-4">
+                  How much capital do I need to start?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-4">
+                  Many online businesses can be started with minimal investment. During our call, we'll discuss your budget and find the best approach for your situation. Some strategies require almost no upfront cost.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-4" className="bg-card/50 border border-accent/20 rounded-xl px-4 overflow-hidden">
+                <AccordionTrigger className="text-left text-foreground hover:text-accent hover:no-underline py-4">
+                  What happens on the free consultation call?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-4">
+                  We'll discuss your business goals, current situation, and challenges. I'll provide actionable advice and outline a roadmap for your success. It's a no-pressure conversation to see if we're a good fit to work together.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+
+            <div className="text-center mt-8">
+              <Button asChild className="bg-accent hover:bg-accent/90 text-background font-bold px-8 py-4">
+                <a href="https://calendly.com/stackmodechris/businessconsulting" target="_blank" rel="noopener noreferrer">
+                  Book Your Free Call →
+                </a>
+              </Button>
+            </div>
+          </div>
+        </AnimatedBlock>
+
+        {/* About Section */}
+        <AnimatedBlock delay={0.4} className="mb-16">
+          <div className="max-w-5xl mx-auto">
+            <div className="bg-gradient-to-br from-card/80 via-card/60 to-card/80 border-2 border-accent/30 rounded-2xl p-6 md:p-10 overflow-hidden">
+              <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
+                <div className="flex-shrink-0">
+                  <div className="w-56 h-56 md:w-72 md:h-72 rounded-2xl overflow-hidden border-4 border-accent/40 shadow-lg shadow-accent/20">
+                    <img src="/images/stackmodechris-about-new.png" alt="Stackmodechris - Business Mentor" className="w-full h-full object-cover" loading="lazy" />
+                  </div>
+                </div>
+                
+                <div className="flex-1 text-center md:text-left">
+                  <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+                    About Stackmodechris
+                  </h2>
+                  <p className="text-accent font-medium mb-4">Business Strategist & Founder of Stackmode Network</p>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    Beyond trading, I'm passionate about helping entrepreneurs build and scale their businesses. With experience in digital marketing, content creation, and brand building, I've helped clients create multiple streams of income.
+                  </p>
+                  <div className="flex flex-wrap justify-center md:justify-start gap-3">
+                    <a target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-foreground/10 hover:bg-foreground/20 text-foreground px-4 py-2 rounded-lg text-sm font-medium transition-colors" href="https://calendly.com/stackmodechris/businessconsulting">
+                      <Calendar className="w-4 h-4" />
+                      Book Free Consultation
+                    </a>
+                    <Link to="/trading" className="inline-flex items-center gap-2 bg-foreground/10 hover:bg-foreground/20 text-foreground px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                      <Briefcase size={16} />
+                      View Trading Education
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </AnimatedBlock>
+
+        {/* Social Share */}
+        <AnimatedBlock delay={0.5} className="mb-16">
+          <div className="text-center max-w-4xl mx-auto">
+            <p className="text-2xl md:text-3xl font-bold text-foreground leading-relaxed mb-6">
+              Ready to Build Your Business Empire? Let's Make It Happen.
+            </p>
+            <SocialShareButtons className="justify-center" />
+          </div>
+        </AnimatedBlock>
+
+        {/* Final CTA */}
+        <div className="text-center mb-16 max-w-3xl mx-auto px-4">
+          <Button asChild className="bg-accent hover:bg-accent/90 text-background font-bold text-base md:text-xl px-6 py-6 md:px-12 md:py-8 rounded-lg w-full transform hover:scale-105 transition-all shadow-2xl">
+            <a href="https://calendly.com/stackmodechris/businessconsulting" target="_blank" rel="noopener noreferrer">
+              🚀 BOOK YOUR FREE BUSINESS CONSULTATION
+            </a>
+          </Button>
+          <p className="text-sm text-muted-foreground mt-4 font-mono">⚡ Limited Slots Available - Don't Miss Out</p>
+        </div>
+
+        {/* Social Links */}
+        <div className="max-w-4xl mx-auto mb-16 px-4">
+          <h4 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
+            Connect With Me
+          </h4>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <a href="https://www.youtube.com/@stackmodechris" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center gap-3 bg-card/50 border border-border hover:border-red-500/50 rounded-xl p-5 transition-all hover:bg-card/80 hover:scale-105 group">
+              <div className="w-12 h-12 rounded-full bg-red-500/10 flex items-center justify-center group-hover:bg-red-500/20 transition-colors">
+                <Youtube size={24} className="text-red-500" />
+              </div>
+              <span className="text-foreground font-medium text-sm">YouTube</span>
+            </a>
+            
+            <a href="https://www.instagram.com/stackmodechris_" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center gap-3 bg-card/50 border border-border hover:border-pink-500/50 rounded-xl p-5 transition-all hover:bg-card/80 hover:scale-105 group">
+              <div className="w-12 h-12 rounded-full bg-pink-500/10 flex items-center justify-center group-hover:bg-pink-500/20 transition-colors">
+                <Instagram size={24} className="text-pink-500" />
+              </div>
+              <span className="text-foreground font-medium text-sm">Instagram</span>
+            </a>
+            
+            <a href="https://www.linkedin.com/in/christopher-robinson-119a01234/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center gap-3 bg-card/50 border border-border hover:border-blue-500/50 rounded-xl p-5 transition-all hover:bg-card/80 hover:scale-105 group">
+              <div className="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center group-hover:bg-blue-500/20 transition-colors">
+                <Linkedin size={24} className="text-blue-500" />
+              </div>
+              <span className="text-foreground font-medium text-sm">LinkedIn</span>
+            </a>
+            
+            <a href="https://www.facebook.com/share/17cn4N587n/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center gap-3 bg-card/50 border border-border hover:border-blue-600/50 rounded-xl p-5 transition-all hover:bg-card/80 hover:scale-105 group">
+              <div className="w-12 h-12 rounded-full bg-blue-600/10 flex items-center justify-center group-hover:bg-blue-600/20 transition-colors">
+                <Facebook size={24} className="text-blue-600" />
+              </div>
+              <span className="text-foreground font-medium text-sm">Facebook</span>
+            </a>
+          </div>
+        </div>
+
+        <div className="h-8 md:h-12"></div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-background border-t border-border py-8 px-4">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <div className="flex flex-wrap justify-center gap-4 text-sm">
+            <a href="/terms" className="text-muted-foreground hover:text-accent transition-colors">
+              Terms & Conditions
+            </a>
+            <span className="text-border hidden sm:inline">|</span>
+            <a href="/privacy" className="text-muted-foreground hover:text-accent transition-colors">
+              Privacy Policy
+            </a>
+            <span className="text-border hidden sm:inline">|</span>
+            <a href="/dmca" className="text-muted-foreground hover:text-accent transition-colors">
+              DMCA Policy
+            </a>
+          </div>
+          
+          <div className="border border-border rounded-lg p-4 bg-muted/20">
+            <h4 className="text-xs text-muted-foreground mb-2">Earnings Disclaimer</h4>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Business success involves substantial effort and risk. Past results are not indicative of future performance. 
+              The information provided is for educational purposes only. Individual results will vary based on effort, market conditions, and other factors.
+            </p>
+          </div>
+          
+          <p className="text-xs text-muted-foreground">
+            © 2026 Stackmode Network LLC. All Rights Reserved.
+          </p>
+        </div>
+      </footer>
+      
+      <div className="h-28 md:hidden" />
+      <CookieConsent />
+    </main>
+  );
+};
+
+export default Business;

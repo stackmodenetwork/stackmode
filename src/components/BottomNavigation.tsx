@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Home, BookOpen, User, TrendingUp, Mic, Calendar } from 'lucide-react';
+import { Home, BookOpen, User, TrendingUp, Calendar } from 'lucide-react';
 import { useEffect, useState, useCallback, memo, useMemo } from 'react';
 
 // Haptic feedback utility
@@ -19,9 +19,9 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { path: '/', label: 'Home', icon: Home },
+  { path: '/trading', label: 'Trading', icon: TrendingUp },
+  { path: '/business', label: 'Business', icon: User },
   { path: '/learn', label: 'Learn', icon: BookOpen },
-  { path: 'https://whop.com/stackmode-network-llc', label: 'Trades', icon: TrendingUp, isExternal: true },
-  { path: 'https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true', label: 'Podcast', icon: Mic, isExternal: true },
   { 
     path: 'https://calendly.com/stackmodechris/tradingmastermindcoaching', 
     label: 'Book Call', 
