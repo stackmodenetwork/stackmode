@@ -164,7 +164,7 @@ const Home = () => {
                   className="w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-5 py-3 rounded-full transition-all hover:scale-105 mb-3"
                 >
                   <TrendingUp size={18} />
-                  <span>Explore Trading</span>
+                  <span>Learn How To Trade</span>
                 </Link>
 
                 <a 
@@ -173,7 +173,7 @@ const Home = () => {
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 text-primary/80 hover:text-primary text-sm font-medium transition-colors"
                 >
-                  <span>FREE Trading Call</span>
+                  <span>FREE Trading Mentorship Call</span>
                   <ArrowRight size={16} />
                 </a>
               </div>
@@ -208,7 +208,7 @@ const Home = () => {
                   className="w-full inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent/90 text-accent-foreground font-bold px-5 py-3 rounded-full transition-all hover:scale-105 mb-3"
                 >
                   <Briefcase size={18} />
-                  <span>Explore Business</span>
+                  <span>Learn How To Grow Your Business</span>
                 </Link>
 
                 <a 
@@ -217,7 +217,7 @@ const Home = () => {
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 text-accent/80 hover:text-accent text-sm font-medium transition-colors"
                 >
-                  <span>FREE Business Call</span>
+                  <span>FREE Business Scaling Call</span>
                   <ArrowRight size={16} />
                 </a>
               </div>
