@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { TrendingUp, Briefcase, ArrowRight, Zap, Play, BookOpen, User, Mic, MessageCircle } from 'lucide-react';
+import { TrendingUp, Briefcase, ArrowRight, Zap, Play, BookOpen, User, Mic, MessageCircle, Phone } from 'lucide-react';
 import { CookieConsent } from '@/components/CookieConsent';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
 import { useState } from 'react';
@@ -25,10 +25,10 @@ const Home = () => {
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-6">
               <Link to="/trading" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-                Trading
+                Learn How To Trade
               </Link>
               <Link to="/business" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-                Business
+                Grow Your Business
               </Link>
               <Link to="/learn" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
                 Library
@@ -64,14 +64,14 @@ const Home = () => {
               className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-primary bg-muted/50 hover:bg-muted px-3 py-2 rounded-full whitespace-nowrap transition-colors"
             >
               <TrendingUp size={14} />
-              Trading
+              Learn How To Trade
             </Link>
             <Link 
               to="/business" 
               className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-accent bg-muted/50 hover:bg-muted px-3 py-2 rounded-full whitespace-nowrap transition-colors"
             >
               <Briefcase size={14} />
-              Business
+              Grow Your Business
             </Link>
             <Link 
               to="/learn" 
@@ -109,6 +109,35 @@ const Home = () => {
         </nav>
       </header>
 
+      {/* Phone Call CTA Banner */}
+      <div className="bg-gradient-to-r from-primary/20 via-accent/10 to-primary/20 border-y border-primary/30">
+        <div className="max-w-7xl mx-auto px-4 py-3">
+          <a 
+            href="tel:6787758532" 
+            className="flex items-center justify-center gap-3 group"
+          >
+            <div className="relative">
+              <div className="absolute inset-0 bg-primary rounded-full animate-ping opacity-30" />
+              <div className="relative bg-primary/20 border border-primary/50 rounded-full p-2 group-hover:bg-primary/30 transition-colors">
+                <Phone size={18} className="text-primary" />
+              </div>
+            </div>
+            <div className="text-center sm:text-left">
+              <span className="text-foreground font-semibold text-sm sm:text-base">
+                Have Questions? Call Now: <span className="text-primary">(678) 775-8532</span>
+              </span>
+              <span className="hidden sm:inline text-muted-foreground text-sm ml-2">
+                — Get instant answers & book your session
+              </span>
+            </div>
+            <span className="hidden md:inline-flex items-center gap-1 bg-primary/20 border border-primary/40 text-primary text-xs font-medium px-3 py-1 rounded-full group-hover:bg-primary/30 transition-colors">
+              <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
+              Available Now
+            </span>
+          </a>
+        </div>
+      </div>
+
       {/* Hero Section - VSL Style */}
       <section className="relative pt-8 sm:pt-12 pb-16 sm:pb-20 px-4">
         {/* Background effects */}
@@ -121,7 +150,7 @@ const Home = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-2 mb-6">
             <Zap size={16} className="text-primary" />
-            <span className="text-primary text-sm font-semibold">Welcome to Stackmode Network</span>
+            <span className="text-primary text-sm font-semibold">Clients In Training</span>
           </div>
 
           {/* VSL Headline */}
@@ -173,7 +202,7 @@ const Home = () => {
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 text-primary/80 hover:text-primary text-sm font-medium transition-colors"
                 >
-                  <span>📞 FREE Trading Mentorship Call</span>
+                  <span>FREE Trading Mentorship Call</span>
                   <ArrowRight size={16} />
                 </a>
               </div>
@@ -217,7 +246,7 @@ const Home = () => {
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 text-accent/80 hover:text-accent text-sm font-medium transition-colors"
                 >
-                  <span>📞 FREE Business Scaling Call</span>
+                  <span>FREE Business Scaling Call</span>
                   <ArrowRight size={16} />
                 </a>
               </div>
