@@ -203,16 +203,27 @@ const Home = () => {
           {/* CTA Section */}
           <div className="mt-12 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/30 rounded-2xl p-6 sm:p-8 max-w-2xl mx-auto">
             <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3">Ready to Get Started?</h3>
-            <p className="text-muted-foreground mb-6">Book a free strategy call to find the right path for you.</p>
-            <a 
-              href="https://calendly.com/stackmodechris/15min" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-8 py-3 rounded-full transition-all hover:scale-105"
-            >
-              <span>Book Free Call</span>
-              <ArrowRight size={18} />
-            </a>
+            <p className="text-muted-foreground mb-6">Book a free call to find the right path for you.</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a 
+                href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-6 py-3 rounded-full transition-all hover:scale-105"
+              >
+                <TrendingUp size={18} />
+                <span>Free Trading Call</span>
+              </a>
+              <a 
+                href="https://calendly.com/stackmodechris/15min" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent/90 text-accent-foreground font-bold px-6 py-3 rounded-full transition-all hover:scale-105"
+              >
+                <Briefcase size={18} />
+                <span>Free Business Call</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
