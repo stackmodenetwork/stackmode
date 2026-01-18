@@ -173,7 +173,7 @@ const Home = () => {
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 text-primary/80 hover:text-primary text-sm font-medium transition-colors"
                 >
-                  <span>FREE Trading Mentorship Call</span>
+                  <span>📞 FREE Trading Mentorship Call</span>
                   <ArrowRight size={16} />
                 </a>
               </div>
@@ -217,7 +217,7 @@ const Home = () => {
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 text-accent/80 hover:text-accent text-sm font-medium transition-colors"
                 >
-                  <span>FREE Business Scaling Call</span>
+                  <span>📞 FREE Business Scaling Call</span>
                   <ArrowRight size={16} />
                 </a>
               </div>
