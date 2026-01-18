@@ -23,7 +23,7 @@ const Home = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="relative py-16 sm:py-24 px-4">
+      <section className="relative pt-8 sm:pt-12 pb-16 sm:pb-20 px-4">
         {/* Background effects */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
@@ -121,8 +121,8 @@ const Home = () => {
           {/* Trust indicators */}
           <div className="mt-12 flex flex-wrap justify-center gap-6 sm:gap-10 text-muted-foreground text-sm">
             <div className="flex items-center gap-2">
-              <span className="text-primary font-bold">500+</span>
-              <span>Students Trained</span>
+              <span className="text-primary font-bold">Proven</span>
+              <span>Results</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="text-primary font-bold">5+ Years</span>
@@ -132,6 +132,21 @@ const Home = () => {
               <span className="text-primary font-bold">Free</span>
               <span>Strategy Calls</span>
             </div>
+          </div>
+
+          {/* CTA Section */}
+          <div className="mt-12 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/30 rounded-2xl p-6 sm:p-8 max-w-2xl mx-auto">
+            <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3">Ready to Get Started?</h3>
+            <p className="text-muted-foreground mb-6">Book a free strategy call to find the right path for you.</p>
+            <a 
+              href="https://calendly.com/stackmodechris/15min" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-8 py-3 rounded-full transition-all hover:scale-105"
+            >
+              <span>Book Free Call</span>
+              <ArrowRight size={18} />
+            </a>
           </div>
         </div>
       </section>
