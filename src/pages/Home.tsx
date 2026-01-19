@@ -245,6 +245,9 @@ const Home = () => {
 
           {/* Video Introduction */}
           <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-center">
+              This Is How You Turn <span className="text-purple-500">Business Profits</span> Into <span className="text-cyan-400">Trading Income</span>
+            </h2>
             <p className="text-muted-foreground text-sm mb-4">👇 Watch to learn how I can help you</p>
             <div className="relative rounded-2xl overflow-hidden border-2 border-primary/30 shadow-[0_0_60px_rgba(var(--primary-rgb),0.2)]">
               {!videoPlaying ? <button onClick={() => setVideoPlaying(true)} className="relative w-full aspect-video group cursor-pointer" aria-label="Play video">
