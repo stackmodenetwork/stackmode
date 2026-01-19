@@ -19,8 +19,8 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { path: '/', label: 'Home', icon: Home },
-  { path: '/trading', label: 'Learn to Trade', icon: TrendingUp },
-  { path: '/business', label: 'Grow Business', icon: Briefcase },
+  { path: '/trading', label: 'Trading', icon: TrendingUp },
+  { path: '/business', label: 'Business', icon: Briefcase },
   { path: '/library', label: 'Library', icon: BookOpen },
   { 
     path: 'tel:+1234567890', 
