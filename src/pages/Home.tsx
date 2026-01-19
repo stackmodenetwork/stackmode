@@ -34,7 +34,7 @@ const Home = () => {
               <Link to="/business" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
                 Grow Your Business
               </Link>
-              <Link to="/learn" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+              <Link to="/library" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
                 Library
               </Link>
               <Link to="/about" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
@@ -95,7 +95,7 @@ const Home = () => {
               Grow Your Business
             </Link>
             <Link 
-              to="/learn" 
+              to="/library" 
               onClick={closeMenu}
               className="flex items-center gap-3 text-base font-medium text-foreground hover:text-primary bg-muted/50 hover:bg-muted px-4 py-3 rounded-xl transition-colors"
             >

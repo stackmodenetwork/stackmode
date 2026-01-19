@@ -58,11 +58,11 @@ const Learn = () => {
         <title>Trading Courses & eBooks | Learn Stock Trading | StackmodeChris</title>
         <meta name="description" content="Master stock trading with StackmodeChris's proven courses and eBooks. Learn fundamental analysis, trading psychology, and strategies that actually work." />
         <meta name="keywords" content="trading course, stock trading course, learn to trade stocks, trading psychology course, stock analysis course, trading eBook, profitable trading strategies, StackmodeChris course, trading education, beginner trading course" />
-        <link rel="canonical" href="https://stackmode.net/learn" />
+        <link rel="canonical" href="https://stackmode.net/library" />
         
         <meta property="og:title" content="Trading Courses & eBooks | StackmodeChris" />
         <meta property="og:description" content="Master stock trading with proven courses. Learn fundamental analysis, trading psychology, and strategies that work." />
-        <meta property="og:url" content="https://stackmode.net/learn" />
+        <meta property="og:url" content="https://stackmode.net/library" />
         <meta property="og:type" content="website" />
         
         <meta name="twitter:card" content="summary_large_image" />
