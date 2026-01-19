@@ -1,11 +1,13 @@
-import { TrendingUp, Brain, GraduationCap, Bitcoin, Video, BookOpen, ArrowLeft, Gift, Star, HelpCircle, ShoppingCart, Check, Lock, ArrowRight, Shield, Zap, Sparkles, Phone } from 'lucide-react';
+import { TrendingUp, Brain, GraduationCap, Bitcoin, Video, BookOpen, ArrowLeft, Gift, Star, HelpCircle, ShoppingCart, Check, Lock, ArrowRight, Shield, Zap, Sparkles, Phone, Briefcase, DollarSign, Youtube, Megaphone, Target, TrendingDown, BarChart3 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { MainHeader } from '@/components/MainHeader';
 import { MainFooter } from '@/components/MainFooter';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-const premiumProducts = [{
+
+// Trading Products
+const tradingProducts = [{
   id: 1,
   title: "Before The HYPE",
   subtitle: "The Deep Analysis Framework",
@@ -43,7 +45,33 @@ const premiumProducts = [{
   bgColor: "bg-secondary/10",
   isAvailable: false
 }];
-const freeProduct = {
+
+// Business Products
+const businessProducts = [{
+  id: 10,
+  title: "Scale To 6 Figures",
+  subtitle: "The Complete Business Growth System",
+  excerpt: "Master paid advertising, YouTube monetization, social media growth, and proven strategies to scale your business to $10K-$100K+ per month consistently.",
+  category: "Business Growth",
+  icon: Briefcase,
+  color: "text-secondary",
+  bgColor: "bg-secondary/10",
+  isAvailable: true,
+  comboPrice: 250,
+  comboOriginalPrice: 497,
+  comboLink: "https://stackmodechris.lemonsqueezy.com/checkout/buy/business-scale-combo",
+  features: [
+    "Facebook & Instagram Ads Mastery",
+    "YouTube Monetization Blueprint", 
+    "Social Media Growth Strategies",
+    "Scaling to 4-7 Figures Monthly",
+    "Client Acquisition Systems",
+    "Revenue Automation Frameworks"
+  ]
+}];
+
+// Free Resources
+const freeTrading = {
   id: 4,
   title: "The Key Steps To Profitability",
   excerpt: "The complete roadmap from beginner to profitable trader. Learn risk management, strategy development, and consistent execution.",
@@ -52,29 +80,37 @@ const freeProduct = {
   courseLink: "https://stackmodechris.systeme.io/freecourse",
   ebookLink: "https://stackmodechris.systeme.io/freebook"
 };
+
 const Learn = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return <main className="min-h-screen bg-background flex flex-col">
       <Helmet>
-        <title>Trading Courses & eBooks | Learn Stock Trading | StackmodeChris</title>
-        <meta name="description" content="Master stock trading with StackmodeChris's proven courses and eBooks. Learn fundamental analysis, trading psychology, and strategies that actually work." />
-        <meta name="keywords" content="trading course, stock trading course, learn to trade stocks, trading psychology course, stock analysis course, trading eBook, profitable trading strategies, StackmodeChris course, trading education, beginner trading course" />
+        <title>Trading & Business Courses | Learn Stock Trading & Scale Your Business | StackmodeChris</title>
+        <meta name="description" content="Master stock trading and grow your business with StackmodeChris's proven courses and eBooks. Trading strategies and business scaling systems that work." />
+        <meta name="keywords" content="trading course, stock trading course, business course, youtube monetization, facebook ads course, scaling business, trading eBook, StackmodeChris course" />
         <link rel="canonical" href="https://stackmode.net/library" />
         
-        <meta property="og:title" content="Trading Courses & eBooks | StackmodeChris" />
-        <meta property="og:description" content="Master stock trading with proven courses. Learn fundamental analysis, trading psychology, and strategies that work." />
+        <meta property="og:title" content="Trading & Business Courses | StackmodeChris" />
+        <meta property="og:description" content="Master stock trading and scale your business with proven courses." />
         <meta property="og:url" content="https://stackmode.net/library" />
         <meta property="og:type" content="website" />
         
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Trading Courses & eBooks | StackmodeChris" />
-        <meta name="twitter:description" content="Master stock trading with proven courses." />
+        <meta name="twitter:title" content="Trading & Business Courses | StackmodeChris" />
+        <meta name="twitter:description" content="Master trading and business with proven courses." />
 
         <script type="application/ld+json">
           {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ItemList",
-          "name": "StackmodeChris Trading Courses",
-          "description": "Premium trading education courses and eBooks",
+          "name": "StackmodeChris Courses",
+          "description": "Premium trading and business education courses",
           "itemListElement": [{
             "@type": "Course",
             "position": 1,
@@ -93,6 +129,21 @@ const Learn = () => {
           }, {
             "@type": "Course",
             "position": 2,
+            "name": "Scale To 6 Figures - Business Growth System",
+            "description": "Master paid advertising, YouTube monetization, and business scaling",
+            "provider": {
+              "@type": "Organization",
+              "name": "Stackmode Network LLC"
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": "250",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock"
+            }
+          }, {
+            "@type": "Course",
+            "position": 3,
             "name": "The Key Steps To Profitability",
             "description": "Free trading course covering fundamentals and strategy development",
             "provider": {
@@ -137,14 +188,7 @@ const Learn = () => {
         </div>
       </div>
 
-      {/* Minimal Sale Banner */}
-      <div className="bg-primary/10 border-b border-primary/20 py-2.5 px-4">
-        <p className="text-center text-sm font-medium text-primary">
-          🎉 Limited Time: 30% OFF Premium Courses
-        </p>
-      </div>
-
-      {/* Clean Hero */}
+      {/* Hero Section */}
       <section className="py-8 md:py-12 px-4">
         <div className="max-w-4xl mx-auto">
           <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm mb-6">
@@ -154,16 +198,34 @@ const Learn = () => {
 
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 py-1.5 rounded-full text-sm font-medium mb-4 mx-[8px]">
             <Gift size={14} />
-            Get My FREE Course & eBook Available Below
+            Free Resources Available Below
           </div>
           
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Learn The Strategies Wall Street <span className="text-primary">Doesn't Want You To Know</span>
+            Your <span className="text-primary">Education Hub</span> for Trading & Business
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mb-6">
-            Exclusive courses and eBooks that helped my clients turn into Profitable Traders. Start with a free download — no catch.
+            Whether you want to master the markets or scale your business, I've got the resources to help you succeed.
           </p>
           
+          {/* Category Navigation */}
+          <div className="flex flex-wrap gap-3 mb-6">
+            <button 
+              onClick={() => scrollToSection('trading-section')}
+              className="inline-flex items-center gap-2 bg-primary/10 hover:bg-primary/20 border border-primary/30 text-primary px-5 py-2.5 rounded-xl font-medium transition-colors"
+            >
+              <TrendingUp size={18} />
+              Trading Education
+            </button>
+            <button 
+              onClick={() => scrollToSection('business-section')}
+              className="inline-flex items-center gap-2 bg-secondary/10 hover:bg-secondary/20 border border-secondary/30 text-secondary px-5 py-2.5 rounded-xl font-medium transition-colors"
+            >
+              <Briefcase size={18} />
+              Business Education
+            </button>
+          </div>
+
           <div className="flex flex-wrap items-center gap-4 md:gap-6 text-sm text-muted-foreground">
             <span className="flex items-center gap-2">
               <Check size={16} className="text-primary" />
@@ -181,31 +243,37 @@ const Learn = () => {
         </div>
       </section>
 
-      {/* Free Course - Clean Card */}
+      {/* ==================== FREE RESOURCES ==================== */}
       <section className="px-4 pb-8">
         <div className="max-w-4xl mx-auto">
+          <div className="flex items-center gap-2 mb-6">
+            <Gift size={20} className="text-primary" />
+            <h2 className="text-xl font-semibold text-foreground">Free Resources</h2>
+          </div>
+
+          {/* Free Trading Resource */}
           <div className="bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/20 rounded-2xl p-6 md:p-8">
             <div className="flex items-center gap-2 mb-4">
-              <Gift size={18} className="text-primary" />
-              <span className="text-sm font-semibold text-primary uppercase tracking-wide">Free Resource</span>
+              <TrendingUp size={18} className="text-primary" />
+              <span className="text-sm font-semibold text-primary uppercase tracking-wide">Free Trading Resource</span>
             </div>
             
             <div className="flex flex-col lg:flex-row lg:items-center gap-6">
               <div className="flex-1">
-                <h2 className="text-xl md:text-2xl font-bold text-foreground mb-2">
-                  {freeProduct.title}
-                </h2>
+                <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">
+                  {freeTrading.title}
+                </h3>
                 <p className="text-muted-foreground mb-4 md:mb-0">
-                  {freeProduct.excerpt}
+                  {freeTrading.excerpt}
                 </p>
               </div>
               
               <div className="flex flex-col sm:flex-row gap-3 lg:flex-shrink-0">
-                <a href={freeProduct.courseLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 py-3 rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98]">
+                <a href={freeTrading.courseLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 py-3 rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98]">
                   <Video size={18} />
                   Free Course
                 </a>
-                <a href={freeProduct.ebookLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-card border border-border hover:border-primary/50 text-foreground font-medium px-6 py-3 rounded-xl transition-colors">
+                <a href={freeTrading.ebookLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-card border border-border hover:border-primary/50 text-foreground font-medium px-6 py-3 rounded-xl transition-colors">
                   <BookOpen size={18} />
                   Free eBook
                 </a>
@@ -215,28 +283,186 @@ const Learn = () => {
         </div>
       </section>
 
-      {/* Premium Products */}
-      <section className="px-4 py-8 md:py-12">
+      {/* ==================== TRADING SECTION ==================== */}
+      <section id="trading-section" className="px-4 py-12 md:py-16 scroll-mt-20">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-xl font-semibold text-foreground mb-6">Premium Courses</h2>
-          
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+              <TrendingUp size={24} className="text-primary" />
+            </div>
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground">Trading Education</h2>
+              <p className="text-muted-foreground text-sm">Master the markets with proven strategies</p>
+            </div>
+          </div>
+
+          <div className="w-full h-px bg-gradient-to-r from-primary/50 via-primary/20 to-transparent my-6" />
+
           <div className="space-y-6">
-            {/* Available Product - Featured */}
-            {premiumProducts.filter(p => p.isAvailable).map(product => {
-            const IconComponent = product.icon;
-            return <article key={product.id} className="bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/30 transition-colors">
-                  <div className="p-6 md:p-8">
-                    {/* Product Header */}
-                    <div className="flex items-start gap-4 mb-6">
+            {/* Available Trading Products */}
+            {tradingProducts.filter(p => p.isAvailable).map(product => {
+              const IconComponent = product.icon;
+              return <article key={product.id} className="bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/30 transition-colors">
+                <div className="p-6 md:p-8">
+                  {/* Product Header */}
+                  <div className="flex items-start gap-4 mb-6">
+                    <div className={`w-14 h-14 rounded-xl ${product.bgColor} flex items-center justify-center ${product.color} flex-shrink-0`}>
+                      <IconComponent size={28} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 flex-wrap mb-1">
+                        <span className="text-xs font-medium text-muted-foreground">{product.category}</span>
+                        <span className="inline-flex items-center gap-1 text-xs font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-full">
+                          <Zap size={10} />
+                          Bestseller
+                        </span>
+                      </div>
+                      <h3 className="text-xl md:text-2xl font-bold text-foreground">
+                        {product.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground mt-1">{product.subtitle}</p>
+                    </div>
+                  </div>
+
+                  <p className="text-muted-foreground mb-6">
+                    {product.excerpt}
+                  </p>
+
+                  {/* What's Included */}
+                  <div className="grid grid-cols-2 gap-2 mb-6">
+                    {product.features?.map((feature, i) => <div key={i} className="flex items-center gap-2 text-sm text-foreground/80">
+                        <Check size={14} className="text-primary flex-shrink-0" />
+                        <span>{feature}</span>
+                      </div>)}
+                  </div>
+
+                  {/* Purchase Options */}
+                  <div className="space-y-3">
+                    {/* Bundle CTA */}
+                    <a href={product.courseLink} target="_blank" rel="noopener noreferrer" className="group relative overflow-hidden block w-full bg-gradient-to-r from-primary via-primary to-primary/80 hover:from-primary/90 hover:via-primary/90 hover:to-primary/70 text-primary-foreground rounded-xl p-4 sm:p-5 transition-all hover:scale-[1.01] active:scale-[0.99] border-2 border-primary/20 shadow-[0_0_25px_rgba(var(--primary-rgb),0.4)] hover:shadow-[0_0_35px_rgba(var(--primary-rgb),0.6)]">
+                      <div className="absolute top-0 right-0 bg-yellow-400 text-black text-[10px] font-bold px-2 sm:px-3 py-1 rounded-bl-lg">
+                        SAVE $32
+                      </div>
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                        <div className="flex items-center gap-3 sm:gap-4">
+                          <div className="flex -space-x-2 flex-shrink-0">
+                            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary-foreground/20 flex items-center justify-center border-2 border-primary-foreground/30">
+                              <Video size={14} className="sm:w-[18px] sm:h-[18px]" />
+                            </div>
+                            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary-foreground/20 flex items-center justify-center border-2 border-primary-foreground/30">
+                              <BookOpen size={14} className="sm:w-[18px] sm:h-[18px]" />
+                            </div>
+                          </div>
+                          <div className="min-w-0">
+                            <div className="font-bold text-base sm:text-lg">Complete Bundle</div>
+                            <div className="text-[10px] sm:text-xs opacity-90 flex items-center gap-1 sm:gap-2 flex-wrap">
+                              <span className="flex items-center gap-1"><Video size={10} className="sm:w-3 sm:h-3" /> Course</span>
+                              <span>+</span>
+                              <span className="flex items-center gap-1"><BookOpen size={10} className="sm:w-3 sm:h-3" /> eBook</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex items-center justify-between sm:justify-end gap-2 sm:gap-3 pl-11 sm:pl-0">
+                          <div className="text-left sm:text-right">
+                            <span className="line-through opacity-60 text-xs sm:text-sm block">${product.courseOriginalPrice}</span>
+                            <span className="text-2xl sm:text-3xl font-bold">${product.coursePrice}</span>
+                          </div>
+                          <ArrowRight size={18} className="sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                        </div>
+                      </div>
+                      <div className="mt-3 pt-3 border-t border-primary-foreground/20 text-[10px] sm:text-xs opacity-90 flex items-center justify-center gap-2 sm:gap-4 flex-wrap">
+                        <span>✓ Instant Access</span>
+                        <span>✓ Lifetime Updates</span>
+                        <span>✓ Best Value</span>
+                      </div>
+                    </a>
+
+                    {/* eBook Only Option */}
+                    <a href={product.ebookLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between w-full bg-muted/50 hover:bg-muted text-foreground rounded-xl p-3 sm:p-4 transition-colors">
+                      <div className="flex items-center gap-2 sm:gap-3">
+                        <BookOpen size={16} className="sm:w-[18px] sm:h-[18px] text-muted-foreground" />
+                        <span className="font-medium text-sm sm:text-base">eBook Only</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="line-through text-muted-foreground text-xs sm:text-sm">${product.ebookOriginalPrice}</span>
+                        <span className="font-bold text-sm sm:text-base">${product.ebookPrice}</span>
+                      </div>
+                    </a>
+                  </div>
+
+                  {/* Trust Signals */}
+                  <div className="flex items-center justify-center gap-6 mt-4 pt-4 border-t border-border">
+                    <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                      <Shield size={12} className="text-primary" /> Secure Checkout
+                    </span>
+                    <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                      <Star size={12} className="text-secondary" /> 5-Star Rated
+                    </span>
+                  </div>
+                </div>
+              </article>;
+            })}
+
+            {/* Coming Soon Trading */}
+            <div className="pt-4">
+              <h3 className="text-sm font-medium text-muted-foreground mb-4">Coming Soon</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {tradingProducts.filter(p => !p.isAvailable).map(product => {
+                  const IconComponent = product.icon;
+                  return <article key={product.id} className="bg-card/50 border border-border rounded-xl p-4 opacity-70">
+                    <div className="flex items-start gap-3">
+                      <div className={`w-10 h-10 rounded-lg ${product.bgColor} flex items-center justify-center ${product.color} flex-shrink-0`}>
+                        <IconComponent size={20} />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between gap-2">
+                          <h4 className="font-semibold text-foreground truncate">{product.title}</h4>
+                          <Lock size={14} className="text-muted-foreground flex-shrink-0" />
+                        </div>
+                        <p className="text-xs text-muted-foreground mt-0.5">{product.subtitle}</p>
+                      </div>
+                    </div>
+                  </article>;
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== BUSINESS SECTION ==================== */}
+      <section id="business-section" className="px-4 py-12 md:py-16 bg-gradient-to-b from-secondary/5 to-background scroll-mt-20">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center">
+              <Briefcase size={24} className="text-secondary" />
+            </div>
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground">Business Education</h2>
+              <p className="text-muted-foreground text-sm">Scale your income with proven business systems</p>
+            </div>
+          </div>
+
+          <div className="w-full h-px bg-gradient-to-r from-secondary/50 via-secondary/20 to-transparent my-6" />
+
+          <div className="space-y-6">
+            {/* Business Combo Product */}
+            {businessProducts.filter(p => p.isAvailable).map(product => {
+              const IconComponent = product.icon;
+              return <article key={product.id} className="bg-card border-2 border-secondary/30 rounded-2xl overflow-hidden hover:border-secondary/50 transition-colors shadow-[0_0_30px_rgba(var(--secondary-rgb),0.15)]">
+                <div className="p-6 md:p-8">
+                  {/* Premium Badge */}
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center gap-2">
                       <div className={`w-14 h-14 rounded-xl ${product.bgColor} flex items-center justify-center ${product.color} flex-shrink-0`}>
                         <IconComponent size={28} />
                       </div>
-                      <div className="flex-1 min-w-0">
+                      <div>
                         <div className="flex items-center gap-2 flex-wrap mb-1">
                           <span className="text-xs font-medium text-muted-foreground">{product.category}</span>
-                          <span className="inline-flex items-center gap-1 text-xs font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-full">
-                            <Zap size={10} />
-                            Bestseller
+                          <span className="inline-flex items-center gap-1 text-xs font-semibold text-secondary bg-secondary/10 px-2 py-0.5 rounded-full">
+                            <DollarSign size={10} />
+                            Premium Bundle
                           </span>
                         </div>
                         <h3 className="text-xl md:text-2xl font-bold text-foreground">
@@ -245,114 +471,98 @@ const Learn = () => {
                         <p className="text-sm text-muted-foreground mt-1">{product.subtitle}</p>
                       </div>
                     </div>
+                  </div>
 
-                    <p className="text-muted-foreground mb-6">
-                      {product.excerpt}
-                    </p>
+                  <p className="text-muted-foreground mb-6">
+                    {product.excerpt}
+                  </p>
 
-                    {/* What's Included - Compact */}
-                    <div className="grid grid-cols-2 gap-2 mb-6">
-                      {product.features?.map((feature, i) => <div key={i} className="flex items-center gap-2 text-sm text-foreground/80">
-                          <Check size={14} className="text-primary flex-shrink-0" />
+                  {/* What's Included - Highlighted */}
+                  <div className="bg-secondary/5 border border-secondary/20 rounded-xl p-4 mb-6">
+                    <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                      <Sparkles size={16} className="text-secondary" />
+                      What's Inside This Bundle
+                    </h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {product.features?.map((feature, i) => <div key={i} className="flex items-start gap-2 text-sm text-foreground/80">
+                          <Check size={16} className="text-secondary flex-shrink-0 mt-0.5" />
                           <span>{feature}</span>
                         </div>)}
                     </div>
+                  </div>
 
-                    {/* Purchase Options - Clean */}
-                    <div className="space-y-3">
-                      {/* Bundle CTA - Hero Option with Glow */}
-                      <div className="group relative overflow-hidden w-full bg-gradient-to-r from-primary via-primary to-primary/80 hover:from-primary/90 hover:via-primary/90 hover:to-primary/70 text-primary-foreground rounded-xl p-4 sm:p-5 transition-all hover:scale-[1.01] active:scale-[0.99] cursor-pointer border-2 border-primary/20 shadow-[0_0_25px_rgba(var(--primary-rgb),0.4)] hover:shadow-[0_0_35px_rgba(var(--primary-rgb),0.6)]">
-                        <div className="absolute top-0 right-0 bg-yellow-400 text-black text-[10px] font-bold px-2 sm:px-3 py-1 rounded-bl-lg">
-                          SAVE $32
-                        </div>
-                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                          <div className="flex items-center gap-3 sm:gap-4">
-                            <div className="flex -space-x-2 flex-shrink-0">
-                              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary-foreground/20 flex items-center justify-center border-2 border-primary-foreground/30">
-                                <Video size={14} className="sm:w-[18px] sm:h-[18px]" />
-                              </div>
-                              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary-foreground/20 flex items-center justify-center border-2 border-primary-foreground/30">
-                                <BookOpen size={14} className="sm:w-[18px] sm:h-[18px]" />
-                              </div>
-                            </div>
-                            <div className="min-w-0">
-                              <div className="font-bold text-base sm:text-lg">Complete Bundle</div>
-                              <div className="text-[10px] sm:text-xs opacity-90 flex items-center gap-1 sm:gap-2 flex-wrap">
-                                <span className="flex items-center gap-1"><Video size={10} className="sm:w-3 sm:h-3" /> Course</span>
-                                <span>+</span>
-                                <span className="flex items-center gap-1"><BookOpen size={10} className="sm:w-3 sm:h-3" /> eBook</span>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="flex items-center justify-between sm:justify-end gap-2 sm:gap-3 pl-11 sm:pl-0">
-                            <div className="text-left sm:text-right">
-                              <span className="line-through opacity-60 text-xs sm:text-sm block">${product.courseOriginalPrice}</span>
-                              <span className="text-2xl sm:text-3xl font-bold">${product.coursePrice}</span>
-                            </div>
-                            <ArrowRight size={18} className="sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
-                          </div>
-                        </div>
-                        <div className="mt-3 pt-3 border-t border-primary-foreground/20 text-[10px] sm:text-xs opacity-90 flex items-center justify-center gap-2 sm:gap-4 flex-wrap">
-                          <span>✓ Instant Access</span>
-                          <span>✓ Lifetime Updates</span>
-                          <span>✓ Best Value</span>
-                        </div>
-                      </div>
-
-                      {/* eBook Only Option */}
-                      <a href={product.ebookLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between w-full bg-muted/50 hover:bg-muted text-foreground rounded-xl p-3 sm:p-4 transition-colors">
-                        <div className="flex items-center gap-2 sm:gap-3">
-                          <BookOpen size={16} className="sm:w-[18px] sm:h-[18px] text-muted-foreground" />
-                          <span className="font-medium text-sm sm:text-base">eBook Only</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <span className="line-through text-muted-foreground text-xs sm:text-sm">${product.ebookOriginalPrice}</span>
-                          <span className="font-bold text-sm sm:text-base">${product.ebookPrice}</span>
-                        </div>
-                      </a>
+                  {/* Icons showing what's covered */}
+                  <div className="flex flex-wrap gap-3 mb-6">
+                    <div className="flex items-center gap-2 bg-muted/50 px-3 py-2 rounded-lg">
+                      <Megaphone size={16} className="text-secondary" />
+                      <span className="text-sm text-muted-foreground">Paid Ads</span>
                     </div>
-
-                    {/* Trust Signals - Minimal */}
-                    <div className="flex items-center justify-center gap-6 mt-4 pt-4 border-t border-border">
-                      <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                        <Shield size={12} className="text-primary" /> Secure Checkout
-                      </span>
-                      <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                        <Star size={12} className="text-secondary" /> 5-Star Rated
-                      </span>
+                    <div className="flex items-center gap-2 bg-muted/50 px-3 py-2 rounded-lg">
+                      <Youtube size={16} className="text-red-500" />
+                      <span className="text-sm text-muted-foreground">YouTube</span>
+                    </div>
+                    <div className="flex items-center gap-2 bg-muted/50 px-3 py-2 rounded-lg">
+                      <Target size={16} className="text-secondary" />
+                      <span className="text-sm text-muted-foreground">Client Acquisition</span>
+                    </div>
+                    <div className="flex items-center gap-2 bg-muted/50 px-3 py-2 rounded-lg">
+                      <BarChart3 size={16} className="text-secondary" />
+                      <span className="text-sm text-muted-foreground">Scaling Systems</span>
                     </div>
                   </div>
-                </article>;
-          })}
 
-            {/* Coming Soon - Compact Grid */}
-            <div className="pt-4">
-              <h3 className="text-sm font-medium text-muted-foreground mb-4">Coming Soon</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {premiumProducts.filter(p => !p.isAvailable).map(product => {
-                const IconComponent = product.icon;
-                return <article key={product.id} className="bg-card/50 border border-border rounded-xl p-4 opacity-70">
-                      <div className="flex items-start gap-3">
-                        <div className={`w-10 h-10 rounded-lg ${product.bgColor} flex items-center justify-center ${product.color} flex-shrink-0`}>
-                          <IconComponent size={20} />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center justify-between gap-2">
-                            <h4 className="font-semibold text-foreground truncate">{product.title}</h4>
-                            <Lock size={14} className="text-muted-foreground flex-shrink-0" />
+                  {/* Purchase CTA */}
+                  <a href={product.comboLink} target="_blank" rel="noopener noreferrer" className="group relative overflow-hidden block w-full bg-gradient-to-r from-secondary via-secondary to-secondary/80 hover:from-secondary/90 hover:via-secondary/90 hover:to-secondary/70 text-secondary-foreground rounded-xl p-5 sm:p-6 transition-all hover:scale-[1.01] active:scale-[0.99] border-2 border-secondary/20 shadow-[0_0_30px_rgba(var(--secondary-rgb),0.4)] hover:shadow-[0_0_40px_rgba(var(--secondary-rgb),0.6)]">
+                    <div className="absolute top-0 right-0 bg-yellow-400 text-black text-[10px] font-bold px-3 py-1 rounded-bl-lg">
+                      SAVE $247
+                    </div>
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                      <div className="flex items-center gap-4">
+                        <div className="flex -space-x-2 flex-shrink-0">
+                          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-secondary-foreground/20 flex items-center justify-center border-2 border-secondary-foreground/30">
+                            <Video size={18} />
                           </div>
-                          <p className="text-xs text-muted-foreground mt-0.5">{product.subtitle}</p>
+                          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-secondary-foreground/20 flex items-center justify-center border-2 border-secondary-foreground/30">
+                            <BookOpen size={18} />
+                          </div>
+                        </div>
+                        <div>
+                          <div className="font-bold text-lg sm:text-xl">Complete Course + eBook Bundle</div>
+                          <div className="text-xs sm:text-sm opacity-90">Everything you need to scale to 6+ figures/month</div>
                         </div>
                       </div>
-                    </article>;
-              })}
-              </div>
-            </div>
+                      <div className="flex items-center justify-between sm:justify-end gap-3 pl-12 sm:pl-0">
+                        <div className="text-left sm:text-right">
+                          <span className="line-through opacity-60 text-sm block">${product.comboOriginalPrice}</span>
+                          <span className="text-3xl sm:text-4xl font-bold">${product.comboPrice}</span>
+                        </div>
+                        <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                      </div>
+                    </div>
+                    <div className="mt-4 pt-4 border-t border-secondary-foreground/20 text-xs sm:text-sm opacity-90 flex items-center justify-center gap-4 flex-wrap">
+                      <span>✓ Instant Access</span>
+                      <span>✓ Lifetime Updates</span>
+                      <span>✓ 6-Figure Blueprint</span>
+                    </div>
+                  </a>
+
+                  {/* Trust Signals */}
+                  <div className="flex items-center justify-center gap-6 mt-4 pt-4 border-t border-border">
+                    <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                      <Shield size={12} className="text-secondary" /> Secure Checkout
+                    </span>
+                    <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                      <DollarSign size={12} className="text-secondary" /> Results Guaranteed
+                    </span>
+                  </div>
+                </div>
+              </article>;
+            })}
           </div>
         </div>
       </section>
 
-      {/* Social Proof - Cleaner */}
+      {/* Social Proof */}
       <section className="py-12 md:py-16 px-4 bg-muted/20">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
@@ -365,7 +575,7 @@ const Learn = () => {
         </div>
       </section>
 
-      {/* FAQ - Minimal */}
+      {/* FAQ */}
       <section className="py-12 md:py-16 px-4">
         <div className="max-w-2xl mx-auto">
           <div className="flex items-center gap-2 mb-6">
@@ -376,7 +586,7 @@ const Learn = () => {
           <Accordion type="single" collapsible className="space-y-2">
             <AccordionItem value="item-1" className="bg-card border border-border rounded-xl px-4">
               <AccordionTrigger className="text-left font-medium hover:no-underline py-4 text-sm">
-                Do I need trading experience?
+                Do I need experience for the trading courses?
               </AccordionTrigger>
               <AccordionContent className="text-sm text-muted-foreground pb-4">
                 No! Start with the free course for beginners. Premium courses build on those foundations.
@@ -385,6 +595,15 @@ const Learn = () => {
 
             <AccordionItem value="item-2" className="bg-card border border-border rounded-xl px-4">
               <AccordionTrigger className="text-left font-medium hover:no-underline py-4 text-sm">
+                What's included in the business bundle?
+              </AccordionTrigger>
+              <AccordionContent className="text-sm text-muted-foreground pb-4">
+                The complete business bundle includes video courses and eBooks covering Facebook/Instagram ads, YouTube monetization, social media growth strategies, and proven systems to scale your income to 4-7 figures monthly.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-3" className="bg-card border border-border rounded-xl px-4">
+              <AccordionTrigger className="text-left font-medium hover:no-underline py-4 text-sm">
                 How long do I have access?
               </AccordionTrigger>
               <AccordionContent className="text-sm text-muted-foreground pb-4">
@@ -392,7 +611,7 @@ const Learn = () => {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-3" className="bg-card border border-border rounded-xl px-4">
+            <AccordionItem value="item-4" className="bg-card border border-border rounded-xl px-4">
               <AccordionTrigger className="text-left font-medium hover:no-underline py-4 text-sm">
                 How do I access after purchase?
               </AccordionTrigger>
@@ -401,7 +620,7 @@ const Learn = () => {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-4" className="bg-card border border-border rounded-xl px-4">
+            <AccordionItem value="item-5" className="bg-card border border-border rounded-xl px-4">
               <AccordionTrigger className="text-left font-medium hover:no-underline py-4 text-sm">
                 Is payment secure?
               </AccordionTrigger>
@@ -413,7 +632,7 @@ const Learn = () => {
         </div>
       </section>
 
-      {/* Final CTA - Subtle */}
+      {/* Final CTA */}
       <section className="py-12 px-4 border-t border-border">
         <div className="max-w-xl mx-auto text-center">
           <Sparkles size={24} className="text-accent mx-auto mb-3" />
@@ -421,7 +640,7 @@ const Learn = () => {
             Want Personalized Guidance?
           </h2>
           <p className="text-muted-foreground mb-5 text-sm">
-            Book a free strategy call to discuss your trading goals.
+            Book a free strategy call to discuss your goals.
           </p>
           <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-6 py-3 rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98]">
             Book Free Call
@@ -433,4 +652,5 @@ const Learn = () => {
       <MainFooter />
     </main>;
 };
+
 export default Learn;
