@@ -1,6 +1,6 @@
 import { useState, useCallback, useRef, memo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Youtube, Instagram, Mic, Phone } from 'lucide-react';
+import { Menu, X, Youtube, Instagram, Mic } from 'lucide-react';
 
 // Haptic feedback utility - memoized to prevent recreation
 const triggerHaptic = (style: 'light' | 'medium' = 'light') => {
@@ -128,32 +128,6 @@ export const MainHeader = memo(() => {
           </div>
         </div>
       </header>
-
-      {/* Phone Call CTA Banner */}
-      <div className="bg-gradient-to-r from-primary/20 via-accent/10 to-primary/20 border-y border-primary/30">
-        <div className="max-w-7xl mx-auto px-4 py-3">
-          <a href="tel:6787758532" className="flex items-center justify-center gap-3 group">
-            <div className="relative">
-              <div className="absolute inset-0 bg-primary rounded-full animate-ping opacity-30" />
-              <div className="relative bg-primary/20 border border-primary/50 rounded-full p-2 group-hover:bg-primary/30 transition-colors">
-                <Phone size={18} className="text-primary" />
-              </div>
-            </div>
-            <div className="text-center sm:text-left">
-              <span className="text-foreground font-semibold text-sm sm:text-base">
-                Have Questions? Call Now: <span className="text-primary">(678) 775-8532</span>
-              </span>
-              <span className="hidden sm:inline text-muted-foreground text-sm ml-2">
-                — Get instant answers & book your session
-              </span>
-            </div>
-            <span className="hidden md:inline-flex items-center gap-1 bg-primary/20 border border-primary/40 text-primary text-xs font-medium px-3 py-1 rounded-full group-hover:bg-primary/30 transition-colors">
-              <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
-              Available Now
-            </span>
-          </a>
-        </div>
-      </div>
 
       {/* Mobile Dropdown Menu - Only render content when open for performance */}
       {menuOpen && (
