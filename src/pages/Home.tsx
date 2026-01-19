@@ -4,25 +4,17 @@ import { CookieConsent } from '@/components/CookieConsent';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
 import { useState, useCallback } from 'react';
 import TikTokIcon from '@/components/TikTokIcon';
-
 const Home = () => {
   const [videoPlaying, setVideoPlaying] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  
   const closeMenu = useCallback(() => setMenuOpen(false), []);
-
-  return (
-    <main className="min-h-screen bg-background relative overflow-x-hidden">
+  return <main className="min-h-screen bg-background relative overflow-x-hidden">
       {/* Header */}
       <header className="bg-card border-b border-border sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-16 sm:h-20">
             <a href="https://stackmode.net" className="flex items-center gap-2">
-              <img 
-                src="/images/sm-logo.png" 
-                alt="Stackmode Logo" 
-                className="w-10 h-10 sm:w-12 sm:h-12 object-contain" 
-              />
+              <img src="/images/sm-logo.png" alt="Stackmode Logo" className="w-10 h-10 sm:w-12 sm:h-12 object-contain" />
               <span className="text-lg sm:text-xl font-bold text-foreground hidden sm:inline">STACKMODE.NET</span>
             </a>
             
@@ -40,30 +32,16 @@ const Home = () => {
               <Link to="/about" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
                 About
               </Link>
-              <a 
-                href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true"
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-              >
+              <a href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
                 Podcast
               </a>
-              <a 
-                href="https://discord.gg/5zYWSWGMYm"
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-sm font-medium text-muted-foreground hover:text-accent transition-colors"
-              >
+              <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-muted-foreground hover:text-accent transition-colors">
                 Discord
               </a>
             </nav>
 
             {/* Mobile Menu Button */}
-            <button 
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="md:hidden p-2 text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="Toggle menu"
-            >
+            <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden p-2 text-muted-foreground hover:text-foreground transition-colors" aria-label="Toggle menu">
               {menuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
@@ -71,62 +49,30 @@ const Home = () => {
       </header>
 
       {/* Mobile Dropdown Menu */}
-      <div 
-        className={`md:hidden fixed inset-x-0 top-16 z-50 bg-card border-b border-border shadow-2xl transition-all duration-300 ${
-          menuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'
-        }`}
-      >
+      <div className={`md:hidden fixed inset-x-0 top-16 z-50 bg-card border-b border-border shadow-2xl transition-all duration-300 ${menuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}`}>
         <nav className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex flex-col gap-2">
-            <Link 
-              to="/trading" 
-              onClick={closeMenu}
-              className="flex items-center gap-3 text-base font-medium text-foreground hover:text-primary bg-muted/50 hover:bg-muted px-4 py-3 rounded-xl transition-colors"
-            >
+            <Link to="/trading" onClick={closeMenu} className="flex items-center gap-3 text-base font-medium text-foreground hover:text-primary bg-muted/50 hover:bg-muted px-4 py-3 rounded-xl transition-colors">
               <TrendingUp size={20} className="text-primary" />
               Learn How To Trade
             </Link>
-            <Link 
-              to="/business" 
-              onClick={closeMenu}
-              className="flex items-center gap-3 text-base font-medium text-foreground hover:text-accent bg-muted/50 hover:bg-muted px-4 py-3 rounded-xl transition-colors"
-            >
+            <Link to="/business" onClick={closeMenu} className="flex items-center gap-3 text-base font-medium text-foreground hover:text-accent bg-muted/50 hover:bg-muted px-4 py-3 rounded-xl transition-colors">
               <Briefcase size={20} className="text-accent" />
               Grow Your Business
             </Link>
-            <Link 
-              to="/library" 
-              onClick={closeMenu}
-              className="flex items-center gap-3 text-base font-medium text-foreground hover:text-primary bg-muted/50 hover:bg-muted px-4 py-3 rounded-xl transition-colors"
-            >
+            <Link to="/library" onClick={closeMenu} className="flex items-center gap-3 text-base font-medium text-foreground hover:text-primary bg-muted/50 hover:bg-muted px-4 py-3 rounded-xl transition-colors">
               <BookOpen size={20} className="text-primary" />
               Library
             </Link>
-            <Link 
-              to="/about" 
-              onClick={closeMenu}
-              className="flex items-center gap-3 text-base font-medium text-foreground hover:text-primary bg-muted/50 hover:bg-muted px-4 py-3 rounded-xl transition-colors"
-            >
+            <Link to="/about" onClick={closeMenu} className="flex items-center gap-3 text-base font-medium text-foreground hover:text-primary bg-muted/50 hover:bg-muted px-4 py-3 rounded-xl transition-colors">
               <User size={20} className="text-primary" />
               About
             </Link>
-            <a 
-              href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              onClick={closeMenu}
-              className="flex items-center gap-3 text-base font-medium text-foreground hover:text-primary bg-muted/50 hover:bg-muted px-4 py-3 rounded-xl transition-colors"
-            >
+            <a href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true" target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="flex items-center gap-3 text-base font-medium text-foreground hover:text-primary bg-muted/50 hover:bg-muted px-4 py-3 rounded-xl transition-colors">
               <Mic size={20} className="text-primary" />
               Podcast
             </a>
-            <a 
-              href="https://discord.gg/5zYWSWGMYm" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              onClick={closeMenu}
-              className="flex items-center gap-3 text-base font-medium text-foreground hover:text-accent bg-muted/50 hover:bg-muted px-4 py-3 rounded-xl transition-colors"
-            >
+            <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="flex items-center gap-3 text-base font-medium text-foreground hover:text-accent bg-muted/50 hover:bg-muted px-4 py-3 rounded-xl transition-colors">
               <MessageCircle size={20} className="text-accent" />
               Discord
             </a>
@@ -148,20 +94,12 @@ const Home = () => {
       </div>
 
       {/* Backdrop for mobile menu */}
-      {menuOpen && (
-        <div 
-          className="md:hidden fixed inset-0 bg-black/50 z-40" 
-          onClick={closeMenu}
-        />
-      )}
+      {menuOpen && <div className="md:hidden fixed inset-0 bg-black/50 z-40" onClick={closeMenu} />}
 
       {/* Phone Call CTA Banner */}
       <div className="bg-gradient-to-r from-primary/20 via-accent/10 to-primary/20 border-y border-primary/30">
         <div className="max-w-7xl mx-auto px-4 py-3">
-          <a 
-            href="tel:6787758532" 
-            className="flex items-center justify-center gap-3 group"
-          >
+          <a href="tel:6787758532" className="flex items-center justify-center gap-3 group">
             <div className="relative">
               <div className="absolute inset-0 bg-primary rounded-full animate-ping opacity-30" />
               <div className="relative bg-primary/20 border border-primary/50 rounded-full p-2 group-hover:bg-primary/30 transition-colors">
@@ -201,7 +139,7 @@ const Home = () => {
 
           {/* VSL Headline */}
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight max-w-5xl mx-auto">
-            Stackmode is the <span className="text-cyan-400">ULTIMATE</span> system to stack to multi 6 or 7-figure <span className="text-purple-500">trading</span> profits <span className="text-white">AND</span> <span className="text-purple-500">business</span> revenue simultaneously.
+            Stackmode is the <span className="text-primary">ULTIMATE</span> system to stack to multi 6 or 7-figure trading profits <span className="text-accent">AND</span> business revenue simultaneously.
           </h1>
 
           <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
@@ -234,20 +172,12 @@ const Home = () => {
                   <span className="text-xs bg-primary/10 text-primary px-2.5 py-1 rounded-full">Courses</span>
                 </div>
 
-                <Link 
-                  to="/trading" 
-                  className="w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-5 py-3 rounded-full transition-all hover:scale-105 mb-3"
-                >
+                <Link to="/trading" className="w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-5 py-3 rounded-full transition-all hover:scale-105 mb-3">
                   <TrendingUp size={18} />
                   <span>Learn How To Trade</span>
                 </Link>
 
-                <a 
-                  href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 text-primary/80 hover:text-primary text-sm font-medium transition-colors"
-                >
+                <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 text-primary/80 hover:text-primary text-sm font-medium transition-colors">
                   <span>FREE Trading Mentorship Call</span>
                   <ArrowRight size={16} />
                 </a>
@@ -278,20 +208,12 @@ const Home = () => {
                   <span className="text-xs bg-accent/10 text-accent px-2.5 py-1 rounded-full">Branding</span>
                 </div>
 
-                <Link 
-                  to="/business" 
-                  className="w-full inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent/90 text-accent-foreground font-bold px-5 py-3 rounded-full transition-all hover:scale-105 mb-3"
-                >
+                <Link to="/business" className="w-full inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent/90 text-accent-foreground font-bold px-5 py-3 rounded-full transition-all hover:scale-105 mb-3">
                   <Briefcase size={18} />
                   <span>Learn How To Grow Your Business</span>
                 </Link>
 
-                <a 
-                  href="https://calendly.com/stackmodechris/businessscaling" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 text-accent/80 hover:text-accent text-sm font-medium transition-colors"
-                >
+                <a href="https://calendly.com/stackmodechris/businessscaling" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 text-accent/80 hover:text-accent text-sm font-medium transition-colors">
                   <span>FREE Business Scaling Call</span>
                   <ArrowRight size={16} />
                 </a>
@@ -325,18 +247,9 @@ const Home = () => {
           <div className="max-w-4xl mx-auto">
             <p className="text-muted-foreground text-sm mb-4">👇 Watch to learn how I can help you</p>
             <div className="relative rounded-2xl overflow-hidden border-2 border-primary/30 shadow-[0_0_60px_rgba(var(--primary-rgb),0.2)]">
-              {!videoPlaying ? (
-                <button
-                  onClick={() => setVideoPlaying(true)}
-                  className="relative w-full aspect-video group cursor-pointer"
-                  aria-label="Play video"
-                >
+              {!videoPlaying ? <button onClick={() => setVideoPlaying(true)} className="relative w-full aspect-video group cursor-pointer" aria-label="Play video">
                   {/* YouTube Thumbnail */}
-                  <img
-                    src="https://img.youtube.com/vi/beRKDGUDcdU/maxresdefault.jpg"
-                    alt="Meet Your Mentor - Stackmodechris"
-                    className="w-full h-full object-cover"
-                  />
+                  <img src="https://img.youtube.com/vi/beRKDGUDcdU/maxresdefault.jpg" alt="Meet Your Mentor - Stackmodechris" className="w-full h-full object-cover" />
                   
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors" />
@@ -353,26 +266,12 @@ const Home = () => {
 
                   {/* Logo Watermark */}
                   <div className="absolute top-4 left-4 flex items-center gap-2 bg-black/50 rounded-full px-3 py-1.5">
-                    <img 
-                      src="/images/sm-logo.png" 
-                      alt="Stackmode" 
-                      className="w-6 h-6 object-contain" 
-                    />
+                    <img src="/images/sm-logo.png" alt="Stackmode" className="w-6 h-6 object-contain" />
                     <span className="text-white text-xs font-semibold">STACKMODE</span>
                   </div>
-                </button>
-              ) : (
-                <div className="aspect-video">
-                  <iframe
-                    src="https://www.youtube.com/embed/beRKDGUDcdU?autoplay=1"
-                    title="Meet Your Mentor - Stackmodechris"
-                    className="w-full h-full"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  />
-                </div>
-              )}
+                </button> : <div className="aspect-video">
+                  <iframe src="https://www.youtube.com/embed/beRKDGUDcdU?autoplay=1" title="Meet Your Mentor - Stackmodechris" className="w-full h-full" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+                </div>}
             </div>
           </div>
         </div>
@@ -388,21 +287,14 @@ const Home = () => {
         <div className="max-w-4xl mx-auto text-center">
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="flex-shrink-0">
-              <img 
-                src="/images/stackmodechris-about-new.png" 
-                alt="Stackmodechris" 
-                className="w-32 h-32 md:w-40 md:h-40 rounded-2xl object-cover border-4 border-primary/30"
-              />
+              <img src="/images/stackmodechris-about-new.png" alt="Stackmodechris" className="w-32 h-32 md:w-40 md:h-40 rounded-2xl object-cover border-4 border-primary/30" />
             </div>
             <div className="text-center md:text-left">
               <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-2">Meet Stackmodechris</h3>
               <p className="text-muted-foreground mb-4">
                 Trading mentor, business strategist, and founder of Stackmode Network. Helping people build wealth through trading and entrepreneurship.
               </p>
-              <Link 
-                to="/about" 
-                className="inline-flex items-center gap-2 text-primary hover:gap-3 transition-all font-medium"
-              >
+              <Link to="/about" className="inline-flex items-center gap-2 text-primary hover:gap-3 transition-all font-medium">
                 <span>Learn more about me</span>
                 <ArrowRight size={18} />
               </Link>
@@ -438,8 +330,6 @@ const Home = () => {
       <div className="h-28 md:hidden" />
 
       <CookieConsent />
-    </main>
-  );
+    </main>;
 };
-
 export default Home;
