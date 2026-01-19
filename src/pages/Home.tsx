@@ -201,7 +201,7 @@ const Home = () => {
 
           {/* VSL Headline */}
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight max-w-5xl mx-auto">
-            Stackmode is the <span className="text-primary">ULTIMATE</span> system to stack to multi 6 or 7-figure trading profits <span className="text-accent">AND</span> business revenue simultaneously.
+            Stackmode is the <span className="text-primary">ULTIMATE</span> system to stack to multi 6 or 7-figure <span className="text-primary">trading</span> profits <span className="text-cyan-400">AND</span> <span className="text-primary">business</span> revenue simultaneously.
           </h1>
 
           <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
