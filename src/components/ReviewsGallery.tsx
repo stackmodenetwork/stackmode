@@ -3,7 +3,17 @@ import { ChevronDown, ChevronUp, X, ChevronLeft, ChevronRight, BadgeCheck, Users
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { OptimizedImage } from '@/components/OptimizedImage';
-const allReviews = ["review-1.png", "review-2.png", "review-3.png", "review-4.png", "review-5.png", "review-6.png", "review-7.png", "review-8.png", "review-9.png", "review-10.png", "review-11.png", "review-12.png", "review-13.png", "review-14.png", "review-15.png", "review-16.png", "review-17.png", "review-18.png", "review-19.png", "review-20.png", "review-21.png", "review-22.png", "review-23.png", "review-24.png", "review-25.png", "review-26.png", "review-27.png", "review-28.png", "review-29.png", "review-30.png", "review-31.png", "review-32.png", "review-33.png", "review-34.png", "review-35.png"];
+const allReviews = [
+  "review-1.png", "review-2.png", "review-3.png", "review-36.png", "review-4.png", 
+  "review-5.png", "review-37.png", "review-6.png", "review-7.png", "review-8.png", 
+  "review-38.png", "review-9.png", "review-10.png", "review-39.png", "review-11.png", 
+  "review-12.png", "review-40.png", "review-13.png", "review-14.png", "review-15.png", 
+  "review-41.png", "review-16.png", "review-17.png", "review-18.png", "review-42.png",
+  "review-19.png", "review-20.png", "review-21.png", "review-43.png", "review-22.png", 
+  "review-23.png", "review-24.png", "review-25.png", "review-26.png", "review-27.png", 
+  "review-28.png", "review-29.png", "review-30.png", "review-31.png", "review-32.png", 
+  "review-33.png", "review-34.png", "review-35.png"
+];
 export function ReviewsGallery() {
   const [showAll, setShowAll] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
