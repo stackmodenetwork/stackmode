@@ -143,7 +143,7 @@ const Home = () => {
           </h1>
 
           <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Stop trading time for money: Learn to invest in markets and build assets that last.
+            Trade smarter. Build faster. Live freely.
           </p>
 
           {/* Path Selection Cards with CTAs - Primary Action */}
