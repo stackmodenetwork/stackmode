@@ -71,11 +71,11 @@ const businessProducts = [{
 }];
 
 // Free Resources
-const freeTrading = {
+const freeResource = {
   id: 4,
   title: "The Key Steps To Profitability",
-  excerpt: "The complete roadmap from beginner to profitable trader. Learn risk management, strategy development, and consistent execution.",
-  category: "Trading Fundamentals",
+  excerpt: "The complete roadmap covering both trading AND business fundamentals. Learn risk management, strategy development, business scaling basics, and consistent execution for success in any market.",
+  category: "Trading & Business Fundamentals",
   icon: GraduationCap,
   courseLink: "https://stackmodechris.systeme.io/freecourse",
   ebookLink: "https://stackmodechris.systeme.io/freebook"
@@ -251,29 +251,32 @@ const Learn = () => {
             <h2 className="text-xl font-semibold text-foreground">Free Resources</h2>
           </div>
 
-          {/* Free Trading Resource */}
-          <div className="bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/20 rounded-2xl p-6 md:p-8">
-            <div className="flex items-center gap-2 mb-4">
-              <TrendingUp size={18} className="text-primary" />
-              <span className="text-sm font-semibold text-primary uppercase tracking-wide">Free Trading Resource</span>
+          {/* Free Trading & Business Resource */}
+          <div className="bg-gradient-to-br from-accent/5 via-secondary/5 to-accent/10 border border-accent/20 rounded-2xl p-6 md:p-8">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="flex -space-x-1">
+                <TrendingUp size={16} className="text-accent" />
+                <Briefcase size={16} className="text-secondary" />
+              </div>
+              <span className="text-sm font-semibold bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent uppercase tracking-wide">Free Trading & Business Resource</span>
             </div>
             
             <div className="flex flex-col lg:flex-row lg:items-center gap-6">
               <div className="flex-1">
                 <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">
-                  {freeTrading.title}
+                  {freeResource.title}
                 </h3>
                 <p className="text-muted-foreground mb-4 md:mb-0">
-                  {freeTrading.excerpt}
+                  {freeResource.excerpt}
                 </p>
               </div>
               
               <div className="flex flex-col sm:flex-row gap-3 lg:flex-shrink-0">
-                <a href={freeTrading.courseLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 py-3 rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98]">
+                <a href={freeResource.courseLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-accent to-secondary hover:from-accent/90 hover:to-secondary/90 text-white font-semibold px-6 py-3 rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98]">
                   <Video size={18} />
                   Free Course
                 </a>
-                <a href={freeTrading.ebookLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-card border border-border hover:border-primary/50 text-foreground font-medium px-6 py-3 rounded-xl transition-colors">
+                <a href={freeResource.ebookLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-card border border-border hover:border-accent/50 text-foreground font-medium px-6 py-3 rounded-xl transition-colors">
                   <BookOpen size={18} />
                   Free eBook
                 </a>
