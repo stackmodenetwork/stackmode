@@ -403,9 +403,161 @@ const Learn = () => {
               </article>;
             })}
 
+            {/* Ultimate Trading Bundle */}
+            <article className="bg-card border-2 border-accent/40 rounded-2xl overflow-hidden hover:border-accent/60 transition-colors shadow-[0_0_30px_rgba(var(--accent-rgb),0.2)]">
+              <div className="p-6 md:p-8">
+                {/* Bundle Header */}
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center flex-shrink-0">
+                    <Sparkles size={28} className="text-accent" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 flex-wrap mb-1">
+                      <span className="text-xs font-medium text-muted-foreground">Complete Trading System</span>
+                      <span className="inline-flex items-center gap-1 text-xs font-semibold text-accent bg-accent/10 px-2 py-0.5 rounded-full">
+                        <Star size={10} />
+                        ULTIMATE VALUE
+                      </span>
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-bold text-foreground">
+                      Triple Threat Trading Bundle
+                    </h3>
+                    <p className="text-sm text-muted-foreground mt-1">Everything you need to become a complete trader</p>
+                  </div>
+                </div>
+
+                <p className="text-muted-foreground mb-6">
+                  Get the complete trading education package: all three courses, eBooks, and exclusive access to my live trading signals. This is the ultimate shortcut to trading mastery.
+                </p>
+
+                {/* What's Included - 4 Products */}
+                <div className="bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/5 border border-accent/20 rounded-xl p-4 mb-6">
+                  <h4 className="font-semibold text-foreground mb-4 flex items-center gap-2">
+                    <Gift size={16} className="text-accent" />
+                    Everything Included in This Bundle
+                  </h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* Before The Hype */}
+                    <div className="flex items-start gap-3 bg-card/50 rounded-lg p-3">
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <TrendingUp size={20} className="text-primary" />
+                      </div>
+                      <div>
+                        <div className="font-semibold text-foreground text-sm">Before The HYPE</div>
+                        <div className="text-xs text-muted-foreground">Course + eBook</div>
+                      </div>
+                    </div>
+                    
+                    {/* Neuro Trading */}
+                    <div className="flex items-start gap-3 bg-card/50 rounded-lg p-3">
+                      <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
+                        <Brain size={20} className="text-accent" />
+                      </div>
+                      <div>
+                        <div className="font-semibold text-foreground text-sm">Neuro-Trading</div>
+                        <div className="text-xs text-muted-foreground">Course + eBook</div>
+                      </div>
+                    </div>
+                    
+                    {/* Freedom Money */}
+                    <div className="flex items-start gap-3 bg-card/50 rounded-lg p-3">
+                      <div className="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center flex-shrink-0">
+                        <Bitcoin size={20} className="text-secondary" />
+                      </div>
+                      <div>
+                        <div className="font-semibold text-foreground text-sm">Freedom Money</div>
+                        <div className="text-xs text-muted-foreground">Course + eBook</div>
+                      </div>
+                    </div>
+                    
+                    {/* Trading Signals */}
+                    <div className="flex items-start gap-3 bg-card/50 rounded-lg p-3 border border-primary/30">
+                      <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0">
+                        <BarChart3 size={20} className="text-primary" />
+                      </div>
+                      <div>
+                        <div className="font-semibold text-foreground text-sm">Live Trading Signals</div>
+                        <div className="text-xs text-primary">Included FREE ($20/mo value)</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Key Benefits */}
+                <div className="grid grid-cols-2 gap-2 mb-6">
+                  <div className="flex items-center gap-2 text-sm text-foreground/80">
+                    <Check size={14} className="text-accent flex-shrink-0" />
+                    <span>3 Complete Courses</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-foreground/80">
+                    <Check size={14} className="text-accent flex-shrink-0" />
+                    <span>3 In-Depth eBooks</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-foreground/80">
+                    <Check size={14} className="text-accent flex-shrink-0" />
+                    <span>Live Trading Signals</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-foreground/80">
+                    <Check size={14} className="text-accent flex-shrink-0" />
+                    <span>Lifetime Access</span>
+                  </div>
+                </div>
+
+                {/* Purchase CTA */}
+                <a href="https://stackmodechris.lemonsqueezy.com/checkout/buy/triple-trading-bundle" target="_blank" rel="noopener noreferrer" className="group relative overflow-hidden block w-full bg-gradient-to-r from-accent via-accent to-accent/80 hover:from-accent/90 hover:via-accent/90 hover:to-accent/70 text-accent-foreground rounded-xl p-4 sm:p-5 transition-all hover:scale-[1.01] active:scale-[0.99] border-2 border-accent/30 shadow-[0_0_25px_rgba(var(--accent-rgb),0.4)] hover:shadow-[0_0_35px_rgba(var(--accent-rgb),0.6)]">
+                  <div className="absolute top-0 right-0 bg-yellow-400 text-black text-[10px] font-bold px-2 sm:px-3 py-1 rounded-bl-lg">
+                    SAVE $82+
+                  </div>
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                    <div className="flex items-center gap-3 sm:gap-4">
+                      <div className="flex -space-x-2 flex-shrink-0">
+                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-accent-foreground/20 flex items-center justify-center border-2 border-accent-foreground/30">
+                          <TrendingUp size={14} className="sm:w-[18px] sm:h-[18px]" />
+                        </div>
+                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-accent-foreground/20 flex items-center justify-center border-2 border-accent-foreground/30">
+                          <Brain size={14} className="sm:w-[18px] sm:h-[18px]" />
+                        </div>
+                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-accent-foreground/20 flex items-center justify-center border-2 border-accent-foreground/30">
+                          <Bitcoin size={14} className="sm:w-[18px] sm:h-[18px]" />
+                        </div>
+                      </div>
+                      <div className="min-w-0">
+                        <div className="font-bold text-base sm:text-lg">Get the Triple Bundle</div>
+                        <div className="text-[10px] sm:text-xs opacity-90">
+                          All 3 Courses + eBooks + Trading Signals
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between sm:justify-end gap-2 sm:gap-3 pl-11 sm:pl-0">
+                      <div className="text-left sm:text-right">
+                        <span className="line-through opacity-60 text-xs sm:text-sm block">$247</span>
+                        <span className="text-2xl sm:text-3xl font-bold">$165</span>
+                      </div>
+                      <ArrowRight size={18} className="sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                    </div>
+                  </div>
+                  <div className="mt-3 pt-3 border-t border-accent-foreground/20 text-[10px] sm:text-xs opacity-90 flex items-center justify-center gap-2 sm:gap-4 flex-wrap">
+                    <span>✓ Instant Access</span>
+                    <span>✓ Lifetime Updates</span>
+                    <span>✓ Signals Included</span>
+                  </div>
+                </a>
+
+                {/* Trust Signals */}
+                <div className="flex items-center justify-center gap-6 mt-4 pt-4 border-t border-border">
+                  <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                    <Shield size={12} className="text-accent" /> Secure Checkout
+                  </span>
+                  <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                    <Star size={12} className="text-secondary" /> Best Value
+                  </span>
+                </div>
+              </div>
+            </article>
+
             {/* Coming Soon Trading */}
             <div className="pt-4">
-              <h3 className="text-sm font-medium text-muted-foreground mb-4">Coming Soon</h3>
+              <h3 className="text-sm font-medium text-muted-foreground mb-4">Coming Soon (Included in Triple Bundle)</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {tradingProducts.filter(p => !p.isAvailable).map(product => {
                   const IconComponent = product.icon;
