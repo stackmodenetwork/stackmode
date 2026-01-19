@@ -96,21 +96,24 @@ export const MainHeader = memo(() => {
             </Link>
             
             {/* Desktop Navigation - Centered */}
-            <nav className="hidden md:flex items-center justify-center flex-1 gap-10 mx-8">
-              <ExternalNavLink href="https://calendly.com/stackmodechris/tradingmastermindcoaching">
-                Trading Mentorship
-              </ExternalNavLink>
-              <ExternalNavLink href="https://whop.com/stackmode-network-llc">
-                Catch My Trades
-              </ExternalNavLink>
+            <nav className="hidden md:flex items-center justify-center flex-1 gap-8 mx-8">
+              <NavLink to="/trading" isActive={location.pathname === '/trading'}>
+                Learn How To Trade
+              </NavLink>
+              <NavLink to="/business" isActive={location.pathname === '/business'}>
+                Grow Your Business
+              </NavLink>
               <NavLink to="/library" isActive={isLibraryActive}>
-                Courses & Books
+                Library
               </NavLink>
               <NavLink to="/about" isActive={isAboutActive}>
                 About
               </NavLink>
               <ExternalNavLink href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true">
                 Podcast
+              </ExternalNavLink>
+              <ExternalNavLink href="https://discord.gg/5zYWSWGMYm">
+                Discord
               </ExternalNavLink>
             </nav>
 
@@ -162,28 +165,23 @@ export const MainHeader = memo(() => {
               </button>
             </div>
 
-            {/* Main Navigation Links */}
             <div className="space-y-1 mb-4">
-              <a 
-                href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
-                target="_blank" 
-                rel="noopener noreferrer"
+              <Link 
+                to="/trading" 
                 onClick={handleMenuItemClick} 
-                className="block px-4 py-3 rounded-lg text-foreground font-medium bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-300 active:scale-[0.98] animate-fade-in"
+                className={`block px-4 py-3 rounded-lg font-medium border transition-all duration-300 active:scale-[0.98] animate-fade-in ${location.pathname === '/trading' ? 'text-primary bg-primary/15 border-primary/30' : 'text-foreground bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10'}`}
                 style={{ animationDelay: '50ms' }}
               >
-                Trading Mentorship
-              </a>
-              <a 
-                href="https://whop.com/stackmode-network-llc" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+                Learn How To Trade
+              </Link>
+              <Link 
+                to="/business" 
                 onClick={handleMenuItemClick} 
-                className="block px-4 py-3 rounded-lg text-foreground font-medium bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-300 active:scale-[0.98] animate-fade-in"
+                className={`block px-4 py-3 rounded-lg font-medium border transition-all duration-300 active:scale-[0.98] animate-fade-in ${location.pathname === '/business' ? 'text-accent bg-accent/15 border-accent/30' : 'text-foreground bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10'}`}
                 style={{ animationDelay: '100ms' }}
               >
-                Catch My Trades
-              </a>
+                Grow Your Business
+              </Link>
               <Link 
                 to="/library" 
                 onClick={handleMenuItemClick} 
@@ -206,9 +204,19 @@ export const MainHeader = memo(() => {
                 rel="noopener noreferrer"
                 onClick={handleMenuItemClick} 
                 className="block px-4 py-3 rounded-lg text-foreground font-medium bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-300 active:scale-[0.98] animate-fade-in"
-                style={{ animationDelay: '225ms' }}
+                style={{ animationDelay: '200ms' }}
               >
                 Podcast
+              </a>
+              <a 
+                href="https://discord.gg/5zYWSWGMYm" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                onClick={handleMenuItemClick} 
+                className="block px-4 py-3 rounded-lg text-foreground font-medium bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-300 active:scale-[0.98] animate-fade-in"
+                style={{ animationDelay: '225ms' }}
+              >
+                Discord
               </a>
             </div>
             
