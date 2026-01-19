@@ -64,7 +64,7 @@ const Home = () => {
           {/* Path Selection Cards with CTAs - Primary Action */}
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-8">
             {/* Trading Path */}
-            <div className="group relative bg-gradient-to-br from-card via-card/80 to-card border-2 border-primary/30 rounded-3xl p-6 sm:p-8 overflow-hidden transition-all duration-500 hover:border-primary hover:shadow-[0_0_60px_rgba(var(--primary-rgb),0.3)]">
+            <Link to="/trading" className="group relative bg-gradient-to-br from-card via-card/80 to-card border-2 border-primary/30 rounded-3xl p-6 sm:p-8 overflow-hidden transition-all duration-500 hover:border-primary hover:shadow-[0_0_60px_rgba(var(--primary-rgb),0.3)] cursor-pointer block">
               {/* Glow effect */}
               <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 rounded-full blur-3xl transition-opacity group-hover:opacity-100 opacity-50" />
               
@@ -87,20 +87,20 @@ const Home = () => {
                   <span className="text-xs bg-primary/10 text-primary px-2.5 py-1 rounded-full">Courses</span>
                 </div>
 
-                <Link to="/trading" className="w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-5 py-3 rounded-full transition-all hover:scale-105 mb-3">
+                <div className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold px-5 py-3 rounded-full transition-all group-hover:scale-105 mb-3">
                   <TrendingUp size={18} />
                   <span>Learn How To Trade</span>
-                </Link>
+                </div>
 
-                <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 text-primary/80 hover:text-primary text-sm font-medium transition-colors">
+                <span onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open('https://calendly.com/stackmodechris/tradingmastermindcoaching', '_blank'); }} className="flex items-center justify-center gap-2 text-primary/80 hover:text-primary text-sm font-medium transition-colors">
                   <span>FREE Trading Mentorship Call</span>
                   <ArrowRight size={16} />
-                </a>
+                </span>
               </div>
-            </div>
+            </Link>
 
             {/* Business Path */}
-            <div className="group relative bg-gradient-to-br from-card via-card/80 to-card border-2 border-accent/30 rounded-3xl p-6 sm:p-8 overflow-hidden transition-all duration-500 hover:border-accent hover:shadow-[0_0_60px_rgba(168,85,247,0.3)]">
+            <Link to="/business" className="group relative bg-gradient-to-br from-card via-card/80 to-card border-2 border-accent/30 rounded-3xl p-6 sm:p-8 overflow-hidden transition-all duration-500 hover:border-accent hover:shadow-[0_0_60px_rgba(168,85,247,0.3)] cursor-pointer block">
               {/* Glow effect */}
               <div className="absolute top-0 right-0 w-40 h-40 bg-accent/10 rounded-full blur-3xl transition-opacity group-hover:opacity-100 opacity-50" />
               
@@ -123,17 +123,17 @@ const Home = () => {
                   <span className="text-xs bg-accent/10 text-accent px-2.5 py-1 rounded-full">Branding</span>
                 </div>
 
-                <Link to="/business" className="w-full inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent/90 text-accent-foreground font-bold px-5 py-3 rounded-full transition-all hover:scale-105 mb-3">
+                <div className="w-full inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground font-bold px-5 py-3 rounded-full transition-all group-hover:scale-105 mb-3">
                   <Briefcase size={18} />
                   <span>Learn How To Grow Your Business</span>
-                </Link>
+                </div>
 
-                <a href="https://calendly.com/stackmodechris/businessscaling" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 text-accent/80 hover:text-accent text-sm font-medium transition-colors">
+                <span onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open('https://calendly.com/stackmodechris/businessscaling', '_blank'); }} className="flex items-center justify-center gap-2 text-accent/80 hover:text-accent text-sm font-medium transition-colors">
                   <span>FREE Business Scaling Call</span>
                   <ArrowRight size={16} />
-                </a>
+                </span>
               </div>
-            </div>
+            </Link>
           </div>
 
           {/* Urgency Banner */}
