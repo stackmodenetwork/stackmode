@@ -21,7 +21,7 @@ const navItems: NavItem[] = [
   { path: '/', label: 'Home', icon: Home },
   { path: '/trading', label: 'Trading', icon: TrendingUp },
   { path: '/business', label: 'Business', icon: User },
-  { path: '/learn', label: 'Learn', icon: BookOpen },
+  { path: '/library', label: 'Library', icon: BookOpen },
   { 
     path: 'https://calendly.com/stackmodechris/tradingmastermindcoaching', 
     label: 'Book Call', 

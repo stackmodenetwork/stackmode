@@ -1,15 +1,15 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AnimatedBlock } from '@/components/AnimatedBlock';
 import { CookieConsent } from '@/components/CookieConsent';
 import { SocialShareButtons } from '@/components/SocialShareButtons';
-import { Briefcase, Check, Menu, X, Youtube, Instagram, Facebook, Linkedin, Calendar, Rocket, Target, Users, DollarSign, Lightbulb, Megaphone, Globe, Phone } from 'lucide-react';
+import { MainHeader } from '@/components/MainHeader';
+import { Briefcase, Check, Rocket, Target, Users, DollarSign, Lightbulb, Megaphone, Globe, Phone, Calendar, Youtube, Instagram, Linkedin, Facebook } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const Business = () => {
   const [showStickyHeader, setShowStickyHeader] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,51 +19,9 @@ const Business = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const closeMenu = useCallback(() => setMenuOpen(false), []);
-
   return (
     <main className="min-h-screen bg-background relative overflow-x-hidden scroll-smooth animate-page-load">
-      {/* Top Navigation Bar */}
-      <header className="bg-card border-b border-border sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-3 sm:px-4">
-          <div className="flex items-center justify-between h-16 sm:h-20">
-            {/* Logo */}
-            <Link to="/" className="flex items-center gap-1 min-w-0">
-              <img src="/images/sm-logo.png" alt="Stackmode Logo" className="w-12 h-12 sm:w-16 sm:h-16 object-contain flex-shrink-0" />
-              <span className="text-sm sm:text-xl font-bold text-foreground truncate">STACKMODE.NET</span>
-            </Link>
-            
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center justify-center flex-1 gap-8 mx-8">
-              <Link to="/trading" className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors">
-                Trading
-              </Link>
-              <Link to="/business" className="text-base font-semibold text-accent">
-                Business
-              </Link>
-              <a href="https://calendly.com/stackmodechris/businessconsulting" target="_blank" rel="noopener noreferrer" className="text-base font-semibold text-foreground/80 hover:text-accent transition-colors">
-                Book Consultation
-              </a>
-              <Link to="/about" className="text-base font-semibold text-foreground/80 hover:text-accent transition-colors">
-                About
-              </Link>
-              <a href="tel:6787758532" className="flex items-center gap-2 bg-accent/10 hover:bg-accent/20 border border-accent/30 hover:border-accent/50 text-accent font-semibold text-sm px-4 py-2 rounded-full transition-all">
-                <Phone size={16} />
-                <span>Call Now</span>
-              </a>
-            </nav>
-
-            {/* Mobile Menu Button */}
-            <button 
-              onClick={() => setMenuOpen(!menuOpen)} 
-              className="md:hidden flex items-center gap-2 px-3 py-2 rounded-lg bg-muted/50 border border-border hover:border-accent transition-colors flex-shrink-0"
-            >
-              {menuOpen ? <X size={20} className="text-accent" /> : <Menu size={20} className="text-accent" />}
-              <span className="text-sm font-medium text-foreground">Menu</span>
-            </button>
-          </div>
-        </div>
-      </header>
+      <MainHeader />
 
       {/* Phone Call CTA Banner */}
       <div className="bg-gradient-to-r from-accent/20 via-primary/10 to-accent/20 border-y border-accent/30">
@@ -94,27 +52,6 @@ const Business = () => {
             </a>
           </div>
         </div>
-      </div>
-
-      {/* Mobile Dropdown Menu */}
-      <div className={`fixed inset-x-0 top-16 z-50 md:hidden transition-all duration-300 ${menuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}`}>
-        <div className="bg-background/95 backdrop-blur-md border-b border-border shadow-xl">
-          <div className="px-4 py-4 space-y-1">
-            <Link to="/trading" onClick={closeMenu} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors">
-              Trading Education
-            </Link>
-            <Link to="/business" onClick={closeMenu} className="block px-4 py-3 rounded-lg text-accent font-medium bg-accent/10">
-              Business Education
-            </Link>
-            <a href="https://calendly.com/stackmodechris/businessconsulting" target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors">
-              Book Consultation
-            </a>
-            <Link to="/about" onClick={closeMenu} className="block px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors">
-              About
-            </Link>
-          </div>
-        </div>
-        <div className="fixed inset-0 bg-background/60 -z-10" onClick={closeMenu} />
       </div>
 
       {/* Main Content */}

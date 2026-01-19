@@ -11,7 +11,7 @@ import { useEffect, useState, useCallback, memo, lazy, Suspense } from "react";
 const Home = lazy(() => import("./pages/Home"));
 const Trading = lazy(() => import("./pages/Trading"));
 const Business = lazy(() => import("./pages/Business"));
-const Learn = lazy(() => import("./pages/Learn"));
+const Library = lazy(() => import("./pages/Learn"));
 const About = lazy(() => import("./pages/About"));
 const DMCAPolicy = lazy(() => import("./pages/DMCAPolicy"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
@@ -70,7 +70,7 @@ const AnimatedRoutes = memo(() => {
           <Route path="/" element={<Home />} />
           <Route path="/trading" element={<Trading />} />
           <Route path="/business" element={<Business />} />
-          <Route path="/learn" element={<Learn />} />
+          <Route path="/library" element={<Library />} />
           <Route path="/about" element={<About />} />
           <Route path="/dmca" element={<DMCAPolicy />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
