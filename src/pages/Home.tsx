@@ -234,8 +234,8 @@ const Home = () => {
               <span>Results</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-primary font-bold">5+ Years</span>
-              <span>Experience</span>
+              <span className="text-primary font-bold">Full</span>
+              <span>Educational Library</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="text-primary font-bold">Free</span>
