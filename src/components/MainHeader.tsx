@@ -190,7 +190,7 @@ export const MainHeader = memo(() => {
                 className={`block px-4 py-3 rounded-lg font-medium border transition-all duration-300 active:scale-[0.98] animate-fade-in ${isLibraryActive ? 'text-primary bg-primary/15 border-primary/30' : 'text-foreground bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10'}`}
                 style={{ animationDelay: '150ms' }}
               >
-                Courses & Books
+                Library
               </Link>
               <Link 
                 to="/about" 
