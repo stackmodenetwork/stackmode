@@ -143,7 +143,7 @@ const Home = () => {
           </h1>
 
           <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Become the apex authority in the market, without the burnout of the 24/7 grind.
+            Stop trading time for money: Learn to invest in markets and build assets that last.
           </p>
 
           {/* Path Selection Cards with CTAs - Primary Action */}
