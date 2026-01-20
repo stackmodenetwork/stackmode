@@ -200,6 +200,26 @@ const Home = () => {
         <ReviewsGallery />
       </section>
 
+      {/* About Preview */}
+      <section className="py-16 px-4 border-t border-border">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="flex-shrink-0">
+              <img src="/images/stackmodechris-about-new.png" alt="Stackmodechris" className="w-32 h-32 md:w-40 md:h-40 rounded-2xl object-cover border-4 border-primary/30" />
+            </div>
+            <div className="text-center md:text-left">
+              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-2">Meet Stackmodechris</h3>
+              <p className="text-muted-foreground mb-4">
+                Trading mentor, business strategist, and founder of Stackmode Network. Helping people build wealth through trading and entrepreneurship.
+              </p>
+              <Link to="/about" className="inline-flex items-center gap-2 text-primary hover:gap-3 transition-all font-medium">
+                <span>Learn more about me</span>
+                <ArrowRight size={18} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Footer */}
       <footer className="bg-background border-t border-border py-8 px-4">
