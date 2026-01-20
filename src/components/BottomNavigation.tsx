@@ -23,7 +23,7 @@ const navItems: NavItem[] = [
   { path: '/business', label: 'Business', icon: Briefcase },
   { path: '/library', label: 'Library', icon: BookOpen },
   { 
-    path: 'tel:+1234567890', 
+    path: 'tel:+16787758532', 
     label: 'Call Me', 
     icon: Phone,
     isExternal: true,
