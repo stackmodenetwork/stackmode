@@ -6,45 +6,25 @@ import { MainFooter } from '@/components/MainFooter';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
-// Trading Products
-const tradingProducts = [{
-  id: 1,
-  title: "Before The HYPE",
-  subtitle: "The Deep Analysis Framework",
-  excerpt: "Master the proven research methodology to identify high-potential stocks before they explode.",
-  category: "Stock Analysis",
-  icon: TrendingUp,
-  color: "text-primary",
-  bgColor: "bg-primary/10",
-  isAvailable: true,
-  coursePrice: 65,
-  courseOriginalPrice: 97,
-  ebookPrice: 25,
-  ebookOriginalPrice: 47,
-  ebookLink: "https://stackmode-net.kit.com/products/before-the-hype-100-x-stock-finder-e-book?step=checkout",
-  courseLink: "https://stackmodechris.lemonsqueezy.com/checkout/buy/58e086f9-3f97-4bad-a634-50fe9b39da6e",
-  features: ["Find 100x Stocks Before They Rally", "Complete eBook Guide", "Real Trade Breakdowns", "Lifetime Updates"]
-}, {
-  id: 2,
-  title: "Neuro-Trading",
-  subtitle: "Rewire Your Brain for Success",
-  excerpt: "Transform your trading psychology using neuroscience-backed techniques.",
-  category: "Trading Psychology",
-  icon: Brain,
-  color: "text-accent",
-  bgColor: "bg-accent/10",
-  isAvailable: false
-}, {
-  id: 3,
-  title: "Freedom Money",
-  subtitle: "Mastering Bitcoin & Private Keys",
-  excerpt: "Understand the future of money and secure your wealth with Bitcoin.",
-  category: "Cryptocurrency",
-  icon: Bitcoin,
-  color: "text-secondary",
-  bgColor: "bg-secondary/10",
-  isAvailable: false
-}];
+// Trading Products - Empty array since individual products are removed, only bundle remains
+const tradingProducts: Array<{
+  id: number;
+  title: string;
+  subtitle: string;
+  excerpt: string;
+  category: string;
+  icon: typeof TrendingUp;
+  color: string;
+  bgColor: string;
+  isAvailable: boolean;
+  coursePrice?: number;
+  courseOriginalPrice?: number;
+  ebookPrice?: number;
+  ebookOriginalPrice?: number;
+  ebookLink?: string;
+  courseLink?: string;
+  features?: string[];
+}> = [];
 
 // Business Products
 const businessProducts = [{
@@ -114,15 +94,15 @@ const Learn = () => {
           "itemListElement": [{
             "@type": "Course",
             "position": 1,
-            "name": "Before The HYPE - Stock Analysis Course",
-            "description": "Master the proven research methodology to identify high-potential stocks",
+            "name": "Triple Threat Trading Bundle",
+            "description": "Complete trading education package with all courses, eBooks, and live trading signals",
             "provider": {
               "@type": "Organization",
               "name": "Stackmode Network LLC"
             },
             "offers": {
               "@type": "Offer",
-              "price": "65",
+              "price": "250",
               "priceCurrency": "USD",
               "availability": "https://schema.org/InStock"
             }
@@ -509,7 +489,7 @@ const Learn = () => {
                 {/* Purchase CTA */}
                 <a href="https://stackmodechris.lemonsqueezy.com/checkout/buy/triple-trading-bundle" target="_blank" rel="noopener noreferrer" className="group relative overflow-hidden block w-full bg-gradient-to-r from-accent via-accent to-accent/80 hover:from-accent/90 hover:via-accent/90 hover:to-accent/70 text-accent-foreground rounded-xl p-4 sm:p-5 transition-all hover:scale-[1.01] active:scale-[0.99] border-2 border-accent/30 shadow-[0_0_25px_rgba(var(--accent-rgb),0.4)] hover:shadow-[0_0_35px_rgba(var(--accent-rgb),0.6)]">
                   <div className="absolute top-0 right-0 bg-yellow-400 text-black text-[10px] font-bold px-2 sm:px-3 py-1 rounded-bl-lg">
-                    SAVE $82+
+                    SAVE $247
                   </div>
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                     <div className="flex items-center gap-3 sm:gap-4">
@@ -533,8 +513,8 @@ const Learn = () => {
                     </div>
                     <div className="flex items-center justify-between sm:justify-end gap-2 sm:gap-3 pl-11 sm:pl-0">
                       <div className="text-left sm:text-right">
-                        <span className="line-through opacity-60 text-xs sm:text-sm block">$247</span>
-                        <span className="text-2xl sm:text-3xl font-bold">$165</span>
+                        <span className="line-through opacity-60 text-xs sm:text-sm block">$497</span>
+                        <span className="text-2xl sm:text-3xl font-bold">$250</span>
                       </div>
                       <ArrowRight size={18} className="sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
                     </div>
