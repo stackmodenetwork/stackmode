@@ -7,7 +7,7 @@ import { OptimizedVideo } from '@/components/OptimizedVideo';
 import { CookieConsent } from '@/components/CookieConsent';
 import { SocialShareButtons } from '@/components/SocialShareButtons';
 import { MainHeader } from '@/components/MainHeader';
-import { Briefcase, Check, Mic, Users, TrendingUp, HelpCircle, Youtube, Instagram, Facebook, Linkedin, Calendar, BookOpen, PlayCircle, Phone } from 'lucide-react';
+import { Briefcase, Check, Mic, Users, TrendingUp, HelpCircle, Youtube, Instagram, Facebook, Linkedin, Calendar, BookOpen, PlayCircle, Phone, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
@@ -69,6 +69,29 @@ const Index = () => {
           </div>
         </div>
       </div>
+
+      {/* Floating Catch My Trades Button */}
+      <a
+        href="https://whop.com/stackmode-network-llc"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`fixed bottom-24 right-4 md:bottom-8 md:right-8 z-40 group transition-all duration-500 ${showStickyHeader ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-4 opacity-0 scale-95 pointer-events-none'}`}
+      >
+        <div className="relative">
+          {/* Glow effect */}
+          <div className="absolute inset-0 bg-cyan-500 rounded-full blur-lg opacity-50 group-hover:opacity-75 transition-opacity animate-pulse" />
+          
+          {/* Button */}
+          <div className="relative flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-cyan-400 hover:from-cyan-400 hover:to-cyan-300 text-background font-bold px-5 py-3 rounded-full shadow-xl shadow-cyan-500/30 transition-all group-hover:scale-105 group-hover:shadow-cyan-500/50">
+            <Zap size={18} className="animate-pulse" />
+            <span className="text-sm whitespace-nowrap">Catch My Trades</span>
+          </div>
+          
+          {/* Notification dot */}
+          <span className="absolute -top-1 -right-1 w-3 h-3 bg-accent rounded-full animate-ping" />
+          <span className="absolute -top-1 -right-1 w-3 h-3 bg-accent rounded-full" />
+        </div>
+      </a>
 
       {/* Main Content - VSL Funnel Structure */}
       <section id="home" className="relative z-10 min-h-screen px-4 py-6 sm:py-8">
