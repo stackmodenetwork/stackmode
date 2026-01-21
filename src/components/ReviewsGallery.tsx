@@ -43,13 +43,21 @@ export function ReviewsGallery() {
 
       
       {/* Masonry Grid */}
-      <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
-        {displayedReviews.map((img, index) => <div key={img} onClick={() => setSelectedIndex(allReviews.indexOf(img))} className="break-inside-avoid group relative overflow-hidden rounded-2xl bg-card border border-border/50 hover:border-primary/50 transition-all duration-500 hover:shadow-xl hover:shadow-primary/20 hover:-translate-y-1 cursor-pointer" style={{
-        animationDelay: `${index * 50}ms`,
-        animation: 'fade-in 0.5s ease-out forwards'
-      }}>
-            <OptimizedImage src={`/lovable-uploads/${img}`} alt={`Student success story ${index + 1}`} className="w-full h-auto block" priority={index < 4} />
-          </div>)}
+      <div className="columns-2 sm:columns-3 lg:columns-4 gap-3 sm:gap-4 space-y-3 sm:space-y-4">
+        {displayedReviews.map((img, index) => (
+          <div 
+            key={img} 
+            onClick={() => setSelectedIndex(allReviews.indexOf(img))} 
+            className="break-inside-avoid bg-card/50 border-2 border-primary rounded-xl overflow-hidden hover:border-primary hover:shadow-[0_0_20px_rgba(var(--primary-rgb),0.3)] transition-all duration-300 cursor-pointer"
+          >
+            <OptimizedImage 
+              src={`/lovable-uploads/${img}`} 
+              alt={`Student success story ${index + 1}`} 
+              className="w-full h-auto block" 
+              priority={index < 4} 
+            />
+          </div>
+        ))}
       </div>
 
       {/* Show More / Less Button */}
