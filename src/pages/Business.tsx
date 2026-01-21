@@ -88,6 +88,50 @@ const Business = () => {
           </div>
         </header>
 
+        {/* Proof/Reviews Section */}
+        <section className="max-w-6xl mx-auto mb-12">
+          <div className="text-center mb-6">
+            <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-2 mb-3">
+              <Check size={16} className="text-accent" />
+              <span className="text-accent text-sm font-semibold">Real Results</span>
+            </div>
+            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">Verified Success</h2>
+          </div>
+          
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4">
+            <div className="bg-card/50 border border-accent/20 rounded-xl p-2 overflow-hidden hover:border-accent/40 transition-all">
+              <img src="/lovable-uploads/business-proof-1.png" alt="Watch page ads revenue" className="w-full h-auto rounded-lg" loading="lazy" />
+            </div>
+            <div className="bg-card/50 border border-accent/20 rounded-xl p-2 overflow-hidden hover:border-accent/40 transition-all">
+              <img src="/lovable-uploads/business-proof-2.png" alt="Deposit balances" className="w-full h-auto rounded-lg" loading="lazy" />
+            </div>
+            <div className="bg-card/50 border border-accent/20 rounded-xl p-2 overflow-hidden hover:border-accent/40 transition-all">
+              <img src="/lovable-uploads/business-proof-3.png" alt="Ad results and leads" className="w-full h-auto rounded-lg" loading="lazy" />
+            </div>
+            <div className="bg-card/50 border border-accent/20 rounded-xl p-2 overflow-hidden hover:border-accent/40 transition-all">
+              <img src="/lovable-uploads/business-proof-4.png" alt="YouTube impressions" className="w-full h-auto rounded-lg" loading="lazy" />
+            </div>
+            <div className="bg-card/50 border border-accent/20 rounded-xl p-2 overflow-hidden hover:border-accent/40 transition-all">
+              <img src="/lovable-uploads/business-proof-5.png" alt="Facebook ad activity" className="w-full h-auto rounded-lg" loading="lazy" />
+            </div>
+            <div className="bg-card/50 border border-accent/20 rounded-xl p-2 overflow-hidden hover:border-accent/40 transition-all">
+              <img src="/lovable-uploads/business-proof-6.png" alt="YouTube views breakdown" className="w-full h-auto rounded-lg" loading="lazy" />
+            </div>
+            <div className="bg-card/50 border border-accent/20 rounded-xl p-2 overflow-hidden hover:border-accent/40 transition-all">
+              <img src="/lovable-uploads/business-proof-7.png" alt="Content performance" className="w-full h-auto rounded-lg" loading="lazy" />
+            </div>
+            <div className="bg-card/50 border border-accent/20 rounded-xl p-2 overflow-hidden hover:border-accent/40 transition-all">
+              <img src="/lovable-uploads/business-proof-8.png" alt="Net revenue stats" className="w-full h-auto rounded-lg" loading="lazy" />
+            </div>
+            <div className="bg-card/50 border border-accent/20 rounded-xl p-2 overflow-hidden hover:border-accent/40 transition-all">
+              <img src="/lovable-uploads/business-proof-9.png" alt="Payment successes" className="w-full h-auto rounded-lg" loading="lazy" />
+            </div>
+            <div className="bg-card/50 border border-accent/20 rounded-xl p-2 overflow-hidden hover:border-accent/40 transition-all">
+              <img src="/lovable-uploads/business-proof-10.png" alt="More payment successes" className="w-full h-auto rounded-lg" loading="lazy" />
+            </div>
+          </div>
+        </section>
+
         {/* Services Grid */}
         <section className="max-w-6xl mx-auto mb-12">
           <h2 className="text-xl sm:text-2xl font-semibold text-foreground text-center mb-8">What You'll Learn</h2>
