@@ -1,15 +1,50 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { AnimatedBlock } from '@/components/AnimatedBlock';
 import { CookieConsent } from '@/components/CookieConsent';
 import { SocialShareButtons } from '@/components/SocialShareButtons';
 import { MainHeader } from '@/components/MainHeader';
-import { Briefcase, Check, Rocket, Target, Users, DollarSign, Lightbulb, Megaphone, Globe, Phone, Calendar, Youtube, Instagram, Linkedin, Facebook, PlayCircle, BookOpen } from 'lucide-react';
+import { Briefcase, Check, Rocket, Target, Users, DollarSign, Lightbulb, Megaphone, Globe, Phone, Calendar, Youtube, Instagram, Linkedin, Facebook, PlayCircle, BookOpen, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Dialog, DialogContent } from '@/components/ui/dialog';
+const businessProofImages = [
+  { src: "business-proof-1.png", alt: "Watch page ads revenue" },
+  { src: "business-proof-2.png", alt: "Deposit balances" },
+  { src: "business-proof-3.png", alt: "Ad results and leads" },
+  { src: "business-proof-4.png", alt: "YouTube impressions" },
+  { src: "business-proof-5.png", alt: "Facebook ad activity" },
+  { src: "business-proof-6.png", alt: "YouTube views breakdown" },
+  { src: "business-proof-7.png", alt: "Content performance" },
+  { src: "business-proof-8.png", alt: "Net revenue stats" },
+  { src: "business-proof-11.png", alt: "Gross volume" },
+  { src: "business-proof-12.png", alt: "Estimated revenue" },
+  { src: "business-proof-13.png", alt: "Lifetime views" },
+  { src: "business-proof-14.png", alt: "Views from shorts" },
+  { src: "business-proof-15.png", alt: "Views breakdown" },
+  { src: "business-proof-18.png", alt: "Balance deposits" },
+  { src: "business-proof-19.png", alt: "Ad campaign results" },
+  { src: "business-proof-20.png", alt: "YouTube impressions funnel" },
+];
 
 const Business = () => {
   const [showStickyHeader, setShowStickyHeader] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const isLightboxOpen = selectedIndex !== null;
+
+  const goNext = useCallback(() => {
+    if (selectedIndex !== null) {
+      setSelectedIndex((selectedIndex + 1) % businessProofImages.length);
+    }
+  }, [selectedIndex]);
+
+  const goPrev = useCallback(() => {
+    if (selectedIndex !== null) {
+      setSelectedIndex((selectedIndex - 1 + businessProofImages.length) % businessProofImages.length);
+    }
+  }, [selectedIndex]);
+
+  const handleCloseLightbox = () => setSelectedIndex(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +53,18 @@ const Business = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Keyboard navigation for lightbox
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!isLightboxOpen) return;
+      if (e.key === 'ArrowRight') goNext();
+      if (e.key === 'ArrowLeft') goPrev();
+      if (e.key === 'Escape') handleCloseLightbox();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isLightboxOpen, goNext, goPrev]);
 
   return (
     <main className="min-h-screen bg-background relative overflow-x-hidden scroll-smooth animate-page-load">
@@ -99,31 +146,11 @@ const Business = () => {
           </div>
           
           <div className="columns-2 sm:columns-3 lg:columns-4 gap-3 sm:gap-4 space-y-3 sm:space-y-4">
-            {[
-              { src: "business-proof-1.png", alt: "Watch page ads revenue" },
-              { src: "business-proof-2.png", alt: "Deposit balances" },
-              { src: "business-proof-3.png", alt: "Ad results and leads" },
-              { src: "business-proof-4.png", alt: "YouTube impressions" },
-              { src: "business-proof-5.png", alt: "Facebook ad activity" },
-              { src: "business-proof-6.png", alt: "YouTube views breakdown" },
-              { src: "business-proof-7.png", alt: "Content performance" },
-              { src: "business-proof-8.png", alt: "Net revenue stats" },
-              { src: "business-proof-9.png", alt: "Payment successes" },
-              { src: "business-proof-10.png", alt: "More payment successes" },
-              { src: "business-proof-11.png", alt: "Gross volume" },
-              { src: "business-proof-12.png", alt: "Estimated revenue" },
-              { src: "business-proof-13.png", alt: "Lifetime views" },
-              { src: "business-proof-14.png", alt: "Views from shorts" },
-              { src: "business-proof-15.png", alt: "Views breakdown" },
-              { src: "business-proof-16.png", alt: "Payment transactions" },
-              { src: "business-proof-17.png", alt: "Successful payments" },
-              { src: "business-proof-18.png", alt: "Balance deposits" },
-              { src: "business-proof-19.png", alt: "Ad campaign results" },
-              { src: "business-proof-20.png", alt: "YouTube impressions funnel" },
-            ].map((proof, index) => (
+            {businessProofImages.map((proof, index) => (
               <div 
-                key={proof.src} 
-                className="break-inside-avoid bg-card/50 border-2 border-accent rounded-xl overflow-hidden hover:border-accent hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all duration-300"
+                key={proof.src}
+                onClick={() => setSelectedIndex(index)}
+                className="break-inside-avoid bg-card/50 border-2 border-accent rounded-xl overflow-hidden hover:border-accent hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all duration-300 cursor-pointer"
               >
                 <img 
                   src={`/lovable-uploads/${proof.src}`} 
@@ -135,6 +162,42 @@ const Business = () => {
             ))}
           </div>
         </section>
+
+        {/* Lightbox Modal */}
+        <Dialog open={isLightboxOpen} onOpenChange={open => !open && handleCloseLightbox()}>
+          <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-background/95 backdrop-blur-xl border-accent/20 overflow-hidden">
+            {selectedIndex !== null && (
+              <div className="relative flex items-center justify-center min-h-[50vh]">
+                {/* Close Button */}
+                <button onClick={handleCloseLightbox} className="absolute top-4 right-4 z-50 p-2 rounded-full bg-background/80 hover:bg-background border border-border/50 transition-colors">
+                  <X className="w-5 h-5 text-foreground" />
+                </button>
+
+                {/* Previous Button */}
+                <button onClick={goPrev} className="absolute left-4 top-1/2 -translate-y-1/2 z-50 p-3 rounded-full bg-background/80 hover:bg-background border border-border/50 transition-all hover:scale-110">
+                  <ChevronLeft className="w-6 h-6 text-foreground" />
+                </button>
+
+                {/* Image */}
+                <img 
+                  src={`/lovable-uploads/${businessProofImages[selectedIndex].src}`} 
+                  alt={businessProofImages[selectedIndex].alt} 
+                  className="max-w-full max-h-[85vh] object-contain rounded-lg" 
+                />
+
+                {/* Next Button */}
+                <button onClick={goNext} className="absolute right-4 top-1/2 -translate-y-1/2 z-50 p-3 rounded-full bg-background/80 hover:bg-background border border-border/50 transition-all hover:scale-110">
+                  <ChevronRight className="w-6 h-6 text-foreground" />
+                </button>
+
+                {/* Image Counter */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-background/80 border border-border/50 text-sm text-muted-foreground">
+                  {selectedIndex + 1} / {businessProofImages.length}
+                </div>
+              </div>
+            )}
+          </DialogContent>
+        </Dialog>
 
         {/* Services Grid */}
         <section className="max-w-6xl mx-auto mb-12">
