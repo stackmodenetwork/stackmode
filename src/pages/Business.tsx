@@ -10,18 +10,15 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 const businessProofImages = [
   { src: "business-proof-1.png", alt: "Watch page ads revenue" },
-  { src: "business-proof-2.png", alt: "Deposit balances" },
   { src: "business-proof-3.png", alt: "Ad results and leads" },
   { src: "business-proof-4.png", alt: "YouTube impressions" },
   { src: "business-proof-5.png", alt: "Facebook ad activity" },
-  { src: "business-proof-6.png", alt: "YouTube views breakdown" },
   { src: "business-proof-7.png", alt: "Content performance" },
   { src: "business-proof-8.png", alt: "Net revenue stats" },
   { src: "business-proof-11.png", alt: "Gross volume" },
   { src: "business-proof-12.png", alt: "Estimated revenue" },
   { src: "business-proof-13.png", alt: "Lifetime views" },
   { src: "business-proof-14.png", alt: "Views from shorts" },
-  { src: "business-proof-15.png", alt: "Views breakdown" },
   { src: "business-proof-18.png", alt: "Balance deposits" },
   { src: "business-proof-19.png", alt: "Ad campaign results" },
   { src: "business-proof-20.png", alt: "YouTube impressions funnel" },
