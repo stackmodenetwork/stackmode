@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Youtube, Calendar, Instagram, Facebook, Linkedin, TrendingUp, Users, Briefcase, Award, Mail, Send, ArrowLeft } from 'lucide-react';
+import { Youtube, Calendar, Instagram, Facebook, Linkedin, TrendingUp, Users, Briefcase, Award, Mail, Send, ArrowLeft, Zap, BookOpen } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import TikTokIcon from '@/components/TikTokIcon';
 import { Button } from '@/components/ui/button';
@@ -133,12 +133,32 @@ const About = () => {
                   Trading Mentor & Founder of Stackmode Network
                 </p>
                 <div className="flex flex-wrap justify-center md:justify-start gap-3">
-                  <Button asChild className="gap-2">
+                  <Button asChild className="gap-2 bg-primary hover:bg-primary/90">
                     <a target="_blank" rel="noopener noreferrer" href="https://calendly.com/stackmodechris/tradingmastermindcoaching">
-                      <Calendar size={18} />
-                      Speak With Me For FREE
+                      <TrendingUp size={18} />
+                      Free Trading Call
                     </a>
                   </Button>
+                  <Button asChild className="gap-2 bg-accent hover:bg-accent/90">
+                    <a target="_blank" rel="noopener noreferrer" href="https://calendly.com/stackmodechris/businessconsulting">
+                      <Briefcase size={18} />
+                      Free Business Call
+                    </a>
+                  </Button>
+                  <Button asChild className="gap-2 bg-cyan-500 hover:bg-cyan-500/90 text-background">
+                    <a target="_blank" rel="noopener noreferrer" href="https://whop.com/stackmode-network-llc">
+                      <Zap size={18} />
+                      Catch My Trades
+                    </a>
+                  </Button>
+                  <Button variant="outline" asChild className="gap-2 border-orange-500/50 text-orange-400 hover:bg-orange-500/10">
+                    <Link to="/library">
+                      <BookOpen size={18} />
+                      Library
+                    </Link>
+                  </Button>
+                </div>
+                <div className="flex flex-wrap justify-center md:justify-start gap-3 mt-3">
                   <Button variant="outline" asChild className="gap-2">
                     <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@Stackmodechris">
                       <Youtube size={18} />
