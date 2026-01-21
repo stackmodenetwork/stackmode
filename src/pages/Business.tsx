@@ -20,8 +20,6 @@ const businessProofImages = [
   { src: "business-proof-13.png", alt: "Lifetime views" },
   { src: "business-proof-14.png", alt: "Views from shorts" },
   { src: "business-proof-18.png", alt: "Balance deposits" },
-  { src: "business-proof-19.png", alt: "Ad campaign results" },
-  { src: "business-proof-20.png", alt: "YouTube impressions funnel" },
 ];
 
 const Business = () => {
@@ -142,7 +140,7 @@ const Business = () => {
             <h2 className="text-xl sm:text-2xl font-semibold text-foreground">Verified Success</h2>
           </div>
           
-          <div className="columns-2 sm:columns-3 lg:columns-4 gap-3 sm:gap-4 space-y-3 sm:space-y-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 justify-items-center">
             {businessProofImages.map((proof, index) => (
               <div 
                 key={proof.src}
