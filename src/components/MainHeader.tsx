@@ -100,6 +100,9 @@ export const MainHeader = memo(() => {
               <NavLink to="/trading" isActive={location.pathname === '/trading'}>
                 Learn How To Trade
               </NavLink>
+              <ExternalNavLink href="https://whop.com/stackmode-network-llc">
+                Catch My Trades
+              </ExternalNavLink>
               <NavLink to="/business" isActive={location.pathname === '/business'}>
                 Grow Your Business
               </NavLink>
@@ -174,6 +177,16 @@ export const MainHeader = memo(() => {
               >
                 Learn How To Trade
               </Link>
+              <a 
+                href="https://whop.com/stackmode-network-llc" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                onClick={handleMenuItemClick} 
+                className="block px-4 py-3 rounded-lg text-foreground font-medium bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-300 active:scale-[0.98] animate-fade-in"
+                style={{ animationDelay: '75ms' }}
+              >
+                Catch My Trades
+              </a>
               <Link 
                 to="/business" 
                 onClick={handleMenuItemClick} 
