@@ -131,8 +131,8 @@ const Business = () => {
         </header>
 
         {/* Proof/Reviews Section */}
-        <section className="max-w-6xl mx-auto mb-12">
-          <div className="text-center mb-6">
+        <section className="max-w-7xl mx-auto mb-12 px-2">
+          <div className="text-center mb-8">
             <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-2 mb-3">
               <Check size={16} className="text-accent" />
               <span className="text-accent text-sm font-semibold">Real Results</span>
@@ -140,18 +140,19 @@ const Business = () => {
             <h2 className="text-xl sm:text-2xl font-semibold text-foreground">Verified Success</h2>
           </div>
           
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 justify-items-center">
+          {/* Masonry Layout - No Dead Space */}
+          <div className="columns-2 sm:columns-3 lg:columns-4 gap-2 sm:gap-3">
             {businessProofImages.map((proof, index) => (
               <div 
                 key={proof.src}
                 onClick={() => setSelectedIndex(index)}
-                className="break-inside-avoid bg-card/50 border-2 border-accent rounded-xl overflow-hidden hover:border-accent hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all duration-300 cursor-pointer"
+                className="break-inside-avoid mb-2 sm:mb-3 bg-card/30 border-2 border-accent/60 rounded-lg overflow-hidden hover:border-accent hover:shadow-[0_0_25px_rgba(168,85,247,0.4)] transition-all duration-300 cursor-pointer hover:scale-[1.02]"
               >
                 <img 
                   src={`/lovable-uploads/${proof.src}`} 
                   alt={proof.alt} 
                   className="w-full h-auto block" 
-                  loading={index < 8 ? "eager" : "lazy"} 
+                  loading={index < 6 ? "eager" : "lazy"} 
                 />
               </div>
             ))}
