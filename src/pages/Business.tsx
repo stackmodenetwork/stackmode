@@ -162,11 +162,11 @@ const Business = () => {
           <div className="mt-8 flex flex-wrap justify-center items-center gap-4 sm:gap-6">
             <div className="flex items-center gap-2 bg-card/50 border border-border/50 rounded-full px-4 py-2">
               <Check className="w-4 h-4 text-green-500" />
-              <span className="text-sm text-muted-foreground">100+ Success Stories</span>
+              <span className="text-sm text-muted-foreground">Multiple Success Stories</span>
             </div>
             <div className="flex items-center gap-2 bg-card/50 border border-border/50 rounded-full px-4 py-2">
               <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-              <span className="text-sm text-muted-foreground">$500K+ Client Revenue</span>
+              <span className="text-sm text-muted-foreground">Increased Customer Revenue</span>
             </div>
             <div className="flex items-center gap-2 bg-card/50 border border-border/50 rounded-full px-4 py-2">
               <Shield className="w-4 h-4 text-accent" />
