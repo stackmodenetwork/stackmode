@@ -4,7 +4,8 @@ import { AnimatedBlock } from '@/components/AnimatedBlock';
 import { CookieConsent } from '@/components/CookieConsent';
 import { SocialShareButtons } from '@/components/SocialShareButtons';
 import { MainHeader } from '@/components/MainHeader';
-import { Briefcase, Check, Rocket, Target, Users, DollarSign, Lightbulb, Megaphone, Globe, Phone, Calendar, Youtube, Instagram, Linkedin, Facebook, PlayCircle, BookOpen, X, ChevronLeft, ChevronRight, Star, Shield } from 'lucide-react';
+import { Briefcase, Check, Rocket, Target, Users, DollarSign, Lightbulb, Megaphone, Globe, Phone, Calendar, PlayCircle, BookOpen, X, ChevronLeft, ChevronRight, Star, Shield } from 'lucide-react';
+import { ConnectWithMe } from '@/components/ConnectWithMe';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Dialog, DialogContent } from '@/components/ui/dialog';
@@ -494,40 +495,7 @@ const Business = () => {
         </div>
 
         {/* Social Links */}
-        <div className="max-w-4xl mx-auto mb-16 px-4">
-          <h4 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
-            Connect With Me
-          </h4>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            <a href="https://www.youtube.com/@stackmodechris" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center gap-3 bg-card/50 border border-border hover:border-red-500/50 rounded-xl p-5 transition-all hover:bg-card/80 hover:scale-105 group">
-              <div className="w-12 h-12 rounded-full bg-red-500/10 flex items-center justify-center group-hover:bg-red-500/20 transition-colors">
-                <Youtube size={24} className="text-red-500" />
-              </div>
-              <span className="text-foreground font-medium text-sm">YouTube</span>
-            </a>
-            
-            <a href="https://www.instagram.com/stackmodechris_" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center gap-3 bg-card/50 border border-border hover:border-pink-500/50 rounded-xl p-5 transition-all hover:bg-card/80 hover:scale-105 group">
-              <div className="w-12 h-12 rounded-full bg-pink-500/10 flex items-center justify-center group-hover:bg-pink-500/20 transition-colors">
-                <Instagram size={24} className="text-pink-500" />
-              </div>
-              <span className="text-foreground font-medium text-sm">Instagram</span>
-            </a>
-            
-            <a href="https://www.linkedin.com/in/christopher-robinson-119a01234/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center gap-3 bg-card/50 border border-border hover:border-blue-500/50 rounded-xl p-5 transition-all hover:bg-card/80 hover:scale-105 group">
-              <div className="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center group-hover:bg-blue-500/20 transition-colors">
-                <Linkedin size={24} className="text-blue-500" />
-              </div>
-              <span className="text-foreground font-medium text-sm">LinkedIn</span>
-            </a>
-            
-            <a href="https://www.facebook.com/share/17cn4N587n/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center gap-3 bg-card/50 border border-border hover:border-blue-600/50 rounded-xl p-5 transition-all hover:bg-card/80 hover:scale-105 group">
-              <div className="w-12 h-12 rounded-full bg-blue-600/10 flex items-center justify-center group-hover:bg-blue-600/20 transition-colors">
-                <Facebook size={24} className="text-blue-600" />
-              </div>
-              <span className="text-foreground font-medium text-sm">Facebook</span>
-            </a>
-          </div>
-        </div>
+        <ConnectWithMe />
 
         <div className="h-8 md:h-12"></div>
       </section>

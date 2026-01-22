@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Youtube, Calendar, Instagram, Facebook, Linkedin, TrendingUp, Users, Briefcase, Award, Mail, Send, ArrowLeft, Zap, BookOpen } from 'lucide-react';
+import { Calendar, TrendingUp, Users, Briefcase, Award, Mail, Send, ArrowLeft, Zap, BookOpen, Youtube } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import TikTokIcon from '@/components/TikTokIcon';
+import { ConnectWithMe } from '@/components/ConnectWithMe';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -230,35 +230,9 @@ const About = () => {
         {/* Connect Section */}
         <section className="py-16 md:py-20">
           <div className="container mx-auto px-4">
+            <ConnectWithMe />
+            
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-                Connect With Me
-              </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                Follow my journey and get trading insights across all platforms
-              </p>
-              
-              <div className="flex flex-wrap justify-center gap-4 mb-12">
-                {[
-                  { icon: Youtube, href: 'https://www.youtube.com/@Stackmodechris', label: 'YouTube' },
-                  { icon: Instagram, href: 'https://www.instagram.com/stackmodechris_/', label: 'Instagram' },
-                  { icon: Facebook, href: 'https://www.facebook.com/share/17cn4N587n/?mibextid=wwXIfr', label: 'Facebook' },
-                  { icon: Linkedin, href: 'https://www.linkedin.com/in/christopher-robinson-119a01234/', label: 'LinkedIn' },
-                  { icon: TikTokIcon, href: 'https://www.tiktok.com/@stackmodechris_?is_from_webapp=1&sender_device=pc', label: 'TikTok' }
-                ].map((social, i) => (
-                  <a 
-                    key={i} 
-                    href={social.href} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="flex items-center gap-2 bg-foreground/5 hover:bg-primary/10 text-foreground hover:text-primary px-5 py-3 rounded-lg font-medium transition-colors"
-                  >
-                    <social.icon size={20} />
-                    {social.label}
-                  </a>
-                ))}
-              </div>
-
               <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 rounded-2xl p-8 border border-primary/20">
                 <h3 className="text-2xl font-bold text-foreground mb-4">
                   Ready to Start Your Trading Journey?
