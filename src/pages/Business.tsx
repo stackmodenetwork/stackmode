@@ -4,7 +4,7 @@ import { AnimatedBlock } from '@/components/AnimatedBlock';
 import { CookieConsent } from '@/components/CookieConsent';
 import { SocialShareButtons } from '@/components/SocialShareButtons';
 import { MainHeader } from '@/components/MainHeader';
-import { Briefcase, Check, Rocket, Target, Users, DollarSign, Lightbulb, Megaphone, Globe, Phone, Calendar, Youtube, Instagram, Linkedin, Facebook, PlayCircle, BookOpen, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Briefcase, Check, Rocket, Target, Users, DollarSign, Lightbulb, Megaphone, Globe, Phone, Calendar, Youtube, Instagram, Linkedin, Facebook, PlayCircle, BookOpen, X, ChevronLeft, ChevronRight, Star, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Dialog, DialogContent } from '@/components/ui/dialog';
@@ -156,6 +156,22 @@ const Business = () => {
                 />
               </div>
             ))}
+          </div>
+
+          {/* Trust Badge */}
+          <div className="mt-8 flex flex-wrap justify-center items-center gap-4 sm:gap-6">
+            <div className="flex items-center gap-2 bg-card/50 border border-border/50 rounded-full px-4 py-2">
+              <Check className="w-4 h-4 text-green-500" />
+              <span className="text-sm text-muted-foreground">100+ Success Stories</span>
+            </div>
+            <div className="flex items-center gap-2 bg-card/50 border border-border/50 rounded-full px-4 py-2">
+              <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
+              <span className="text-sm text-muted-foreground">$500K+ Client Revenue</span>
+            </div>
+            <div className="flex items-center gap-2 bg-card/50 border border-border/50 rounded-full px-4 py-2">
+              <Shield className="w-4 h-4 text-accent" />
+              <span className="text-sm text-muted-foreground">Verified Results</span>
+            </div>
           </div>
         </section>
 
