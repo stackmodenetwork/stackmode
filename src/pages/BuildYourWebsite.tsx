@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { ArrowLeft, Globe, Zap, Palette, Code, Smartphone, CheckCircle } from 'lucide-react';
+import { ArrowLeft, Globe, Zap, Palette, Code, Smartphone, CheckCircle, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { MainHeader } from '@/components/MainHeader';
@@ -16,6 +16,17 @@ const BuildYourWebsite = () => {
       </Helmet>
 
       <div className="min-h-screen bg-background flex flex-col">
+        {/* Phone Call Banner */}
+        <div className="bg-gradient-to-r from-purple-600 via-purple-500 to-purple-600 py-3 px-4">
+          <a 
+            href="tel:+16787758532" 
+            className="flex items-center justify-center gap-2 text-white font-medium hover:opacity-90 transition-opacity"
+          >
+            <Phone size={18} className="animate-pulse" />
+            <span>Call <span className="font-bold">(678) 775-8532</span> to get your website built today!</span>
+          </a>
+        </div>
+        
         <MainHeader />
 
         {/* Back Button */}
