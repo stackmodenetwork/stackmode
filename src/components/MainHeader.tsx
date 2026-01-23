@@ -82,6 +82,7 @@ export const MainHeader = memo(() => {
 
   const isLibraryActive = location.pathname === '/library';
   const isAboutActive = location.pathname === '/about';
+  const isBuildWebsiteActive = location.pathname === '/buildyourwebsite';
 
   return (
     <>
@@ -105,6 +106,9 @@ export const MainHeader = memo(() => {
               </ExternalNavLink>
               <NavLink to="/business" isActive={location.pathname === '/business'}>
                 Grow Your Business
+              </NavLink>
+              <NavLink to="/buildyourwebsite" isActive={isBuildWebsiteActive}>
+                Build Your Website
               </NavLink>
               <NavLink to="/library" isActive={isLibraryActive}>
                 Library
@@ -194,6 +198,14 @@ export const MainHeader = memo(() => {
                 style={{ animationDelay: '100ms' }}
               >
                 Grow Your Business
+              </Link>
+              <Link 
+                to="/buildyourwebsite" 
+                onClick={handleMenuItemClick} 
+                className={`block px-4 py-3 rounded-lg font-medium border transition-all duration-300 active:scale-[0.98] animate-fade-in ${isBuildWebsiteActive ? 'text-purple-400 bg-purple-500/15 border-purple-500/30' : 'text-foreground bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10'}`}
+                style={{ animationDelay: '125ms' }}
+              >
+                Build Your Website
               </Link>
               <Link 
                 to="/library" 
