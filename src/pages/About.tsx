@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Calendar, TrendingUp, Users, Briefcase, Award, Mail, Send, ArrowLeft, Zap, BookOpen, Youtube } from 'lucide-react';
+import { Calendar, TrendingUp, Users, Briefcase, Award, Mail, Send, ArrowLeft, Zap, BookOpen, Youtube, Globe } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ConnectWithMe } from '@/components/ConnectWithMe';
 import { Button } from '@/components/ui/button';
@@ -142,8 +142,14 @@ const About = () => {
                   <Button asChild className="gap-2 bg-accent hover:bg-accent/90">
                     <a target="_blank" rel="noopener noreferrer" href="https://calendly.com/stackmodechris/businessconsulting">
                       <Briefcase size={18} />
-                      Free Business Call
+                      Grow Your Business
                     </a>
+                  </Button>
+                  <Button asChild className="gap-2 bg-purple-500 hover:bg-purple-500/90 text-white">
+                    <Link to="/buildyourwebsite">
+                      <Globe size={18} />
+                      Build Your Website
+                    </Link>
                   </Button>
                   <Button asChild className="gap-2 bg-cyan-500 hover:bg-cyan-500/90 text-background">
                     <a target="_blank" rel="noopener noreferrer" href="https://whop.com/stackmode-network-llc">
