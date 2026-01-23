@@ -13,6 +13,7 @@ const Trading = lazy(() => import("./pages/Trading"));
 const Business = lazy(() => import("./pages/Business"));
 const Library = lazy(() => import("./pages/Learn"));
 const About = lazy(() => import("./pages/About"));
+const BuildYourWebsite = lazy(() => import("./pages/BuildYourWebsite"));
 const DMCAPolicy = lazy(() => import("./pages/DMCAPolicy"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
@@ -72,6 +73,7 @@ const AnimatedRoutes = memo(() => {
           <Route path="/business" element={<Business />} />
           <Route path="/library" element={<Library />} />
           <Route path="/about" element={<About />} />
+          <Route path="/buildyourwebsite" element={<BuildYourWebsite />} />
           <Route path="/dmca" element={<DMCAPolicy />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsAndConditions />} />
