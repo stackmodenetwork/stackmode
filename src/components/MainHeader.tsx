@@ -10,54 +10,50 @@ const triggerHaptic = (style: 'light' | 'medium' = 'light') => {
 };
 
 // Memoized nav link for desktop with icon
-const NavLink = memo(({ to, isActive, children, icon: Icon }: { to: string; isActive: boolean; children: React.ReactNode; icon: LucideIcon }) => (
-  <Link 
-    to={to} 
-    className={`group relative flex items-center gap-1.5 text-sm font-medium px-3 py-1.5 rounded-full transition-all duration-300 whitespace-nowrap hover:scale-105 ${
-      isActive 
-        ? 'text-primary-foreground bg-primary shadow-lg shadow-primary/40' 
-        : 'text-foreground/70 hover:text-primary hover:bg-primary/10'
-    }`}
-  >
+const NavLink = memo(({
+  to,
+  isActive,
+  children,
+  icon: Icon
+}: {
+  to: string;
+  isActive: boolean;
+  children: React.ReactNode;
+  icon: LucideIcon;
+}) => <Link to={to} className={`group relative flex items-center gap-1.5 text-sm font-medium px-3 py-1.5 rounded-full transition-all duration-300 whitespace-nowrap hover:scale-105 ${isActive ? 'text-primary-foreground bg-primary shadow-lg shadow-primary/40' : 'text-foreground/70 hover:text-primary hover:bg-primary/10'}`}>
     <Icon size={14} className={`transition-transform duration-300 group-hover:rotate-12 ${isActive ? 'text-primary-foreground' : 'text-primary'}`} />
     {children}
-    {isActive && (
-      <span className="absolute inset-0 rounded-full bg-primary/20 animate-pulse -z-10" />
-    )}
-  </Link>
-));
+    {isActive && <span className="absolute inset-0 rounded-full bg-primary/20 animate-pulse -z-10" />}
+  </Link>);
 NavLink.displayName = 'NavLink';
 
 // Memoized external link for desktop with icon
-const ExternalNavLink = memo(({ href, children, icon: Icon }: { href: string; children: React.ReactNode; icon: LucideIcon }) => (
-  <a 
-    href={href} 
-    target="_blank" 
-    rel="noopener noreferrer" 
-    className="group flex items-center gap-1.5 text-sm font-medium px-3 py-1.5 rounded-full transition-all duration-300 whitespace-nowrap text-foreground/70 hover:text-primary hover:bg-primary/10 hover:scale-105"
-  >
+const ExternalNavLink = memo(({
+  href,
+  children,
+  icon: Icon
+}: {
+  href: string;
+  children: React.ReactNode;
+  icon: LucideIcon;
+}) => <a href={href} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-1.5 text-sm font-medium px-3 py-1.5 rounded-full transition-all duration-300 whitespace-nowrap text-foreground/70 hover:text-primary hover:bg-primary/10 hover:scale-105">
     <Icon size={14} className="text-primary transition-transform duration-300 group-hover:rotate-12" />
     {children}
-  </a>
-));
+  </a>);
 ExternalNavLink.displayName = 'ExternalNavLink';
-
 export const MainHeader = memo(() => {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const touchStartY = useRef<number | null>(null);
   const touchStartX = useRef<number | null>(null);
-  
   const closeMenu = useCallback(() => {
     triggerHaptic('light');
     setMenuOpen(false);
   }, []);
-
   const handleMenuToggle = useCallback(() => {
     triggerHaptic('medium');
     setMenuOpen(prev => !prev);
   }, []);
-
   const handleMenuItemClick = useCallback(() => {
     triggerHaptic('light');
     setMenuOpen(false);
@@ -68,29 +64,22 @@ export const MainHeader = memo(() => {
     touchStartY.current = e.touches[0].clientY;
     touchStartX.current = e.touches[0].clientX;
   }, []);
-
   const handleTouchEnd = useCallback((e: React.TouchEvent) => {
     if (touchStartY.current === null || touchStartX.current === null) return;
-    
     const touchEndY = e.changedTouches[0].clientY;
     const touchEndX = e.changedTouches[0].clientX;
     const deltaY = touchEndY - touchStartY.current;
     const deltaX = Math.abs(touchEndX - touchStartX.current);
-    
     if (deltaY > 50 && deltaY > deltaX) {
       closeMenu();
     }
-    
     touchStartY.current = null;
     touchStartX.current = null;
   }, [closeMenu]);
-
   const isLibraryActive = location.pathname === '/library';
   const isAboutActive = location.pathname === '/about';
   const isBuildWebsiteActive = location.pathname === '/buildyourwebsite';
-
-  return (
-    <>
+  return <>
       {/* Top Navigation Bar */}
       <header className="bg-card border-b border-border sticky top-0 z-40">
         <div className="max-w-[1600px] mx-auto px-2 lg:px-4">
@@ -98,7 +87,7 @@ export const MainHeader = memo(() => {
             {/* Logo - Fixed width, won't shrink */}
             <Link to="/" className="flex items-center shrink-0">
               <img src="/images/sm-logo.png" alt="Stackmode Logo" className="w-12 h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 object-contain" />
-              <span className="text-base lg:text-lg xl:text-xl font-bold text-foreground hidden lg:block xl:hidden whitespace-nowrap">SM</span>
+              <span className="text-base lg:text-lg xl:text-xl font-bold text-foreground hidden lg:block xl:hidden whitespace-nowrap">STACKMODE.NET</span>
               <span className="text-base lg:text-lg xl:text-xl font-bold text-foreground hidden xl:block whitespace-nowrap">STACKMODE.NET</span>
             </Link>
             
@@ -140,11 +129,7 @@ export const MainHeader = memo(() => {
             </nav>
 
             {/* Mobile Menu Button */}
-            <button 
-              onClick={handleMenuToggle} 
-              className="md:hidden flex items-center gap-2 px-3 py-2 rounded-lg bg-muted/50 border border-border hover:border-primary transition-colors" 
-              aria-label={menuOpen ? "Close menu" : "Open menu"}
-            >
+            <button onClick={handleMenuToggle} className="md:hidden flex items-center gap-2 px-3 py-2 rounded-lg bg-muted/50 border border-border hover:border-primary transition-colors" aria-label={menuOpen ? "Close menu" : "Open menu"}>
               {menuOpen ? <X size={20} className="text-primary" /> : <Menu size={20} className="text-primary" />}
             </button>
           </div>
@@ -152,12 +137,7 @@ export const MainHeader = memo(() => {
       </header>
 
       {/* Mobile Dropdown Menu - Only render content when open for performance */}
-      {menuOpen && (
-        <div 
-          className="fixed inset-x-0 top-16 sm:top-20 z-50 md:hidden animate-fade-in"
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-        >
+      {menuOpen && <div className="fixed inset-x-0 top-16 sm:top-20 z-50 md:hidden animate-fade-in" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
           {/* Glassmorphism container with gradient */}
           <div className="relative overflow-hidden border-b border-white/10 shadow-2xl">
             {/* Swipe indicator */}
@@ -178,90 +158,58 @@ export const MainHeader = memo(() => {
                 <img src="/images/sm-logo.png" alt="Stackmode Logo" className="w-12 h-12 object-contain" />
                 <span className="text-lg font-bold text-foreground">STACKMODE.NET</span>
               </Link>
-              <button 
-                onClick={closeMenu}
-                className="p-2 rounded-lg bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-white/10 transition-all duration-200 active:scale-95"
-                aria-label="Close menu"
-              >
+              <button onClick={closeMenu} className="p-2 rounded-lg bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-white/10 transition-all duration-200 active:scale-95" aria-label="Close menu">
                 <X size={20} className="text-primary" />
               </button>
             </div>
 
             <div className="space-y-1 mb-4">
-              <Link 
-                to="/trading" 
-                onClick={handleMenuItemClick} 
-                className={`block px-4 py-3 rounded-lg font-medium border transition-all duration-300 active:scale-[0.98] animate-fade-in ${location.pathname === '/trading' ? 'text-primary bg-primary/15 border-primary/30' : 'text-foreground bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10'}`}
-                style={{ animationDelay: '50ms' }}
-              >
+              <Link to="/trading" onClick={handleMenuItemClick} className={`block px-4 py-3 rounded-lg font-medium border transition-all duration-300 active:scale-[0.98] animate-fade-in ${location.pathname === '/trading' ? 'text-primary bg-primary/15 border-primary/30' : 'text-foreground bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10'}`} style={{
+              animationDelay: '50ms'
+            }}>
                 Learn How To Trade
               </Link>
-              <a 
-                href="https://whop.com/stackmode-network-llc" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                onClick={handleMenuItemClick} 
-                className="block px-4 py-3 rounded-lg text-foreground font-medium bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-300 active:scale-[0.98] animate-fade-in"
-                style={{ animationDelay: '75ms' }}
-              >
+              <a href="https://whop.com/stackmode-network-llc" target="_blank" rel="noopener noreferrer" onClick={handleMenuItemClick} className="block px-4 py-3 rounded-lg text-foreground font-medium bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-300 active:scale-[0.98] animate-fade-in" style={{
+              animationDelay: '75ms'
+            }}>
                 Catch My Trades
               </a>
-              <Link 
-                to="/business" 
-                onClick={handleMenuItemClick} 
-                className={`block px-4 py-3 rounded-lg font-medium border transition-all duration-300 active:scale-[0.98] animate-fade-in ${location.pathname === '/business' ? 'text-accent bg-accent/15 border-accent/30' : 'text-foreground bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10'}`}
-                style={{ animationDelay: '100ms' }}
-              >
+              <Link to="/business" onClick={handleMenuItemClick} className={`block px-4 py-3 rounded-lg font-medium border transition-all duration-300 active:scale-[0.98] animate-fade-in ${location.pathname === '/business' ? 'text-accent bg-accent/15 border-accent/30' : 'text-foreground bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10'}`} style={{
+              animationDelay: '100ms'
+            }}>
                 Grow Your Business
               </Link>
-              <Link 
-                to="/buildyourwebsite" 
-                onClick={handleMenuItemClick} 
-                className={`block px-4 py-3 rounded-lg font-medium border transition-all duration-300 active:scale-[0.98] animate-fade-in ${isBuildWebsiteActive ? 'text-purple-400 bg-purple-500/15 border-purple-500/30' : 'text-foreground bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10'}`}
-                style={{ animationDelay: '125ms' }}
-              >
+              <Link to="/buildyourwebsite" onClick={handleMenuItemClick} className={`block px-4 py-3 rounded-lg font-medium border transition-all duration-300 active:scale-[0.98] animate-fade-in ${isBuildWebsiteActive ? 'text-purple-400 bg-purple-500/15 border-purple-500/30' : 'text-foreground bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10'}`} style={{
+              animationDelay: '125ms'
+            }}>
                 Build Your Website
               </Link>
-              <Link 
-                to="/library" 
-                onClick={handleMenuItemClick} 
-                className={`block px-4 py-3 rounded-lg font-medium border transition-all duration-300 active:scale-[0.98] animate-fade-in ${isLibraryActive ? 'text-primary bg-primary/15 border-primary/30' : 'text-foreground bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10'}`}
-                style={{ animationDelay: '150ms' }}
-              >
+              <Link to="/library" onClick={handleMenuItemClick} className={`block px-4 py-3 rounded-lg font-medium border transition-all duration-300 active:scale-[0.98] animate-fade-in ${isLibraryActive ? 'text-primary bg-primary/15 border-primary/30' : 'text-foreground bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10'}`} style={{
+              animationDelay: '150ms'
+            }}>
                 Library
               </Link>
-              <Link 
-                to="/about" 
-                onClick={handleMenuItemClick} 
-                className={`block px-4 py-3 rounded-lg font-medium border transition-all duration-300 active:scale-[0.98] animate-fade-in ${isAboutActive ? 'text-primary bg-primary/15 border-primary/30' : 'text-foreground bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10'}`}
-                style={{ animationDelay: '175ms' }}
-              >
+              <Link to="/about" onClick={handleMenuItemClick} className={`block px-4 py-3 rounded-lg font-medium border transition-all duration-300 active:scale-[0.98] animate-fade-in ${isAboutActive ? 'text-primary bg-primary/15 border-primary/30' : 'text-foreground bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10'}`} style={{
+              animationDelay: '175ms'
+            }}>
                 About
               </Link>
-              <a 
-                href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                onClick={handleMenuItemClick} 
-                className="block px-4 py-3 rounded-lg text-foreground font-medium bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-300 active:scale-[0.98] animate-fade-in"
-                style={{ animationDelay: '200ms' }}
-              >
+              <a href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true" target="_blank" rel="noopener noreferrer" onClick={handleMenuItemClick} className="block px-4 py-3 rounded-lg text-foreground font-medium bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-300 active:scale-[0.98] animate-fade-in" style={{
+              animationDelay: '200ms'
+            }}>
                 Podcast
               </a>
-              <a 
-                href="https://discord.gg/5zYWSWGMYm" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                onClick={handleMenuItemClick} 
-                className="block px-4 py-3 rounded-lg text-foreground font-medium bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-300 active:scale-[0.98] animate-fade-in"
-                style={{ animationDelay: '225ms' }}
-              >
+              <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" onClick={handleMenuItemClick} className="block px-4 py-3 rounded-lg text-foreground font-medium bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-300 active:scale-[0.98] animate-fade-in" style={{
+              animationDelay: '225ms'
+            }}>
                 Discord
               </a>
             </div>
             
             {/* Social Links */}
-            <div className="border-t border-white/10 pt-4 animate-fade-in" style={{ animationDelay: '250ms' }}>
+            <div className="border-t border-white/10 pt-4 animate-fade-in" style={{
+            animationDelay: '250ms'
+          }}>
               <p className="text-xs text-muted-foreground mb-3 px-4">Follow Us</p>
               <div className="grid grid-cols-4 gap-2">
                 <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" onClick={handleMenuItemClick} className="flex flex-col items-center gap-1 p-3 rounded-lg bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-200 active:scale-95">
@@ -286,12 +234,8 @@ export const MainHeader = memo(() => {
         </div>
         {/* Backdrop with blur */}
         <div className="fixed inset-0 bg-background/70 backdrop-blur-sm -z-10" onClick={closeMenu} />
-      </div>
-      )}
-    </>
-  );
+      </div>}
+    </>;
 });
-
 MainHeader.displayName = 'MainHeader';
-
 export default MainHeader;
