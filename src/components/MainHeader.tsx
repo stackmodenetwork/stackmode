@@ -1,6 +1,6 @@
 import { useState, useCallback, useRef, memo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Youtube, Instagram, Mic } from 'lucide-react';
+import { Menu, X, Youtube, Instagram, Mic, TrendingUp, Target, Briefcase, Globe, BookOpen, User, Headphones, MessageCircle, type LucideIcon } from 'lucide-react';
 
 // Haptic feedback utility - memoized to prevent recreation
 const triggerHaptic = (style: 'light' | 'medium' = 'light') => {
@@ -9,29 +9,34 @@ const triggerHaptic = (style: 'light' | 'medium' = 'light') => {
   }
 };
 
-// Memoized nav link for desktop
-const NavLink = memo(({ to, isActive, children }: { to: string; isActive: boolean; children: React.ReactNode }) => (
+// Memoized nav link for desktop with icon
+const NavLink = memo(({ to, isActive, children, icon: Icon }: { to: string; isActive: boolean; children: React.ReactNode; icon: LucideIcon }) => (
   <Link 
     to={to} 
-    className={`text-sm font-medium px-3 py-1.5 rounded-full transition-all duration-200 whitespace-nowrap ${
+    className={`group relative flex items-center gap-1.5 text-sm font-medium px-3 py-1.5 rounded-full transition-all duration-300 whitespace-nowrap hover:scale-105 ${
       isActive 
-        ? 'text-primary-foreground bg-primary shadow-sm' 
-        : 'text-foreground/70 hover:text-foreground hover:bg-muted/50'
+        ? 'text-primary-foreground bg-primary shadow-lg shadow-primary/40' 
+        : 'text-foreground/70 hover:text-primary hover:bg-primary/10'
     }`}
   >
+    <Icon size={14} className={`transition-transform duration-300 group-hover:rotate-12 ${isActive ? 'text-primary-foreground' : 'text-primary'}`} />
     {children}
+    {isActive && (
+      <span className="absolute inset-0 rounded-full bg-primary/20 animate-pulse -z-10" />
+    )}
   </Link>
 ));
 NavLink.displayName = 'NavLink';
 
-// Memoized external link for desktop
-const ExternalNavLink = memo(({ href, children }: { href: string; children: React.ReactNode }) => (
+// Memoized external link for desktop with icon
+const ExternalNavLink = memo(({ href, children, icon: Icon }: { href: string; children: React.ReactNode; icon: LucideIcon }) => (
   <a 
     href={href} 
     target="_blank" 
     rel="noopener noreferrer" 
-    className="text-sm font-medium px-3 py-1.5 rounded-full transition-all duration-200 whitespace-nowrap text-foreground/70 hover:text-foreground hover:bg-muted/50"
+    className="group flex items-center gap-1.5 text-sm font-medium px-3 py-1.5 rounded-full transition-all duration-300 whitespace-nowrap text-foreground/70 hover:text-primary hover:bg-primary/10 hover:scale-105"
   >
+    <Icon size={14} className="text-primary transition-transform duration-300 group-hover:rotate-12" />
     {children}
   </a>
 ));
@@ -98,36 +103,36 @@ export const MainHeader = memo(() => {
             
             {/* Desktop Navigation - Centered */}
             <nav className="hidden lg:flex items-center justify-center flex-1 mx-4">
-              <div className="flex items-center bg-muted/30 rounded-full px-2 py-1.5 border border-border/50">
-                <NavLink to="/trading" isActive={location.pathname === '/trading'}>
-                  Trading
+              <div className="flex items-center bg-muted/30 rounded-full px-2 py-1.5 border border-border/50 backdrop-blur-sm">
+                <NavLink to="/trading" isActive={location.pathname === '/trading'} icon={TrendingUp}>
+                  Learn How To Trade
                 </NavLink>
-                <span className="w-px h-4 bg-border/60 mx-2" />
-                <ExternalNavLink href="https://whop.com/stackmode-network-llc">
-                  Signals
+                <span className="w-px h-4 bg-gradient-to-b from-transparent via-primary/40 to-transparent mx-1" />
+                <ExternalNavLink href="https://whop.com/stackmode-network-llc" icon={Target}>
+                  Catch My Trades
                 </ExternalNavLink>
-                <span className="w-px h-4 bg-border/60 mx-2" />
-                <NavLink to="/business" isActive={location.pathname === '/business'}>
-                  Business
+                <span className="w-px h-4 bg-gradient-to-b from-transparent via-primary/40 to-transparent mx-1" />
+                <NavLink to="/business" isActive={location.pathname === '/business'} icon={Briefcase}>
+                  Grow Your Business
                 </NavLink>
-                <span className="w-px h-4 bg-border/60 mx-2" />
-                <NavLink to="/buildyourwebsite" isActive={isBuildWebsiteActive}>
-                  Websites
+                <span className="w-px h-4 bg-gradient-to-b from-transparent via-primary/40 to-transparent mx-1" />
+                <NavLink to="/buildyourwebsite" isActive={isBuildWebsiteActive} icon={Globe}>
+                  Build Your Website
                 </NavLink>
-                <span className="w-px h-4 bg-border/60 mx-2" />
-                <NavLink to="/library" isActive={isLibraryActive}>
+                <span className="w-px h-4 bg-gradient-to-b from-transparent via-primary/40 to-transparent mx-1" />
+                <NavLink to="/library" isActive={isLibraryActive} icon={BookOpen}>
                   Library
                 </NavLink>
-                <span className="w-px h-4 bg-border/60 mx-2" />
-                <NavLink to="/about" isActive={isAboutActive}>
+                <span className="w-px h-4 bg-gradient-to-b from-transparent via-primary/40 to-transparent mx-1" />
+                <NavLink to="/about" isActive={isAboutActive} icon={User}>
                   About
                 </NavLink>
-                <span className="w-px h-4 bg-border/60 mx-2" />
-                <ExternalNavLink href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true">
+                <span className="w-px h-4 bg-gradient-to-b from-transparent via-primary/40 to-transparent mx-1" />
+                <ExternalNavLink href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true" icon={Headphones}>
                   Podcast
                 </ExternalNavLink>
-                <span className="w-px h-4 bg-border/60 mx-2" />
-                <ExternalNavLink href="https://discord.gg/5zYWSWGMYm">
+                <span className="w-px h-4 bg-gradient-to-b from-transparent via-primary/40 to-transparent mx-1" />
+                <ExternalNavLink href="https://discord.gg/5zYWSWGMYm" icon={MessageCircle}>
                   Discord
                 </ExternalNavLink>
               </div>
