@@ -93,45 +93,46 @@ export const MainHeader = memo(() => {
     <>
       {/* Top Navigation Bar */}
       <header className="bg-card border-b border-border sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center justify-between h-16 sm:h-20 md:h-24">
-            {/* Logo */}
-            <Link to="/" className="flex items-center">
-              <img src="/images/sm-logo.png" alt="Stackmode Logo" className="w-14 h-14 sm:w-18 sm:h-18 md:w-20 md:h-20 object-contain" />
-              <span className="text-lg sm:text-xl md:text-2xl font-bold text-foreground hidden sm:block -ml-1">STACKMODE.NET</span>
+        <div className="max-w-[1600px] mx-auto px-2 lg:px-4">
+          <div className="flex items-center h-16 sm:h-20 md:h-24 gap-2 lg:gap-4">
+            {/* Logo - Fixed width, won't shrink */}
+            <Link to="/" className="flex items-center shrink-0">
+              <img src="/images/sm-logo.png" alt="Stackmode Logo" className="w-12 h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 object-contain" />
+              <span className="text-base lg:text-lg xl:text-xl font-bold text-foreground hidden lg:block xl:hidden whitespace-nowrap">SM</span>
+              <span className="text-base lg:text-lg xl:text-xl font-bold text-foreground hidden xl:block whitespace-nowrap">STACKMODE.NET</span>
             </Link>
             
-            {/* Desktop Navigation - Centered */}
-            <nav className="hidden lg:flex items-center justify-center flex-1 mx-4">
-              <div className="flex items-center bg-muted/30 rounded-full px-2 py-1.5 border border-border/50 backdrop-blur-sm">
+            {/* Desktop Navigation - Takes remaining space */}
+            <nav className="hidden lg:flex items-center justify-center flex-1 min-w-0">
+              <div className="flex items-center bg-muted/30 rounded-full px-1.5 xl:px-2 py-1 xl:py-1.5 border border-border/50 backdrop-blur-sm overflow-hidden">
                 <NavLink to="/trading" isActive={location.pathname === '/trading'} icon={TrendingUp}>
-                  Learn How To Trade
+                  <span className="hidden xl:inline">Learn How To </span>Trade
                 </NavLink>
-                <span className="w-px h-4 bg-gradient-to-b from-transparent via-primary/40 to-transparent mx-1" />
+                <span className="w-px h-4 bg-gradient-to-b from-transparent via-primary/40 to-transparent mx-0.5 xl:mx-1 shrink-0" />
                 <ExternalNavLink href="https://whop.com/stackmode-network-llc" icon={Target}>
-                  Catch My Trades
+                  <span className="hidden xl:inline">Catch My </span>Trades
                 </ExternalNavLink>
-                <span className="w-px h-4 bg-gradient-to-b from-transparent via-primary/40 to-transparent mx-1" />
+                <span className="w-px h-4 bg-gradient-to-b from-transparent via-primary/40 to-transparent mx-0.5 xl:mx-1 shrink-0" />
                 <NavLink to="/business" isActive={location.pathname === '/business'} icon={Briefcase}>
-                  Grow Your Business
+                  <span className="hidden xl:inline">Grow Your </span>Business
                 </NavLink>
-                <span className="w-px h-4 bg-gradient-to-b from-transparent via-primary/40 to-transparent mx-1" />
+                <span className="w-px h-4 bg-gradient-to-b from-transparent via-primary/40 to-transparent mx-0.5 xl:mx-1 shrink-0" />
                 <NavLink to="/buildyourwebsite" isActive={isBuildWebsiteActive} icon={Globe}>
-                  Build Your Website
+                  <span className="hidden xl:inline">Build Your </span>Website
                 </NavLink>
-                <span className="w-px h-4 bg-gradient-to-b from-transparent via-primary/40 to-transparent mx-1" />
+                <span className="w-px h-4 bg-gradient-to-b from-transparent via-primary/40 to-transparent mx-0.5 xl:mx-1 shrink-0" />
                 <NavLink to="/library" isActive={isLibraryActive} icon={BookOpen}>
                   Library
                 </NavLink>
-                <span className="w-px h-4 bg-gradient-to-b from-transparent via-primary/40 to-transparent mx-1" />
+                <span className="w-px h-4 bg-gradient-to-b from-transparent via-primary/40 to-transparent mx-0.5 xl:mx-1 shrink-0" />
                 <NavLink to="/about" isActive={isAboutActive} icon={User}>
                   About
                 </NavLink>
-                <span className="w-px h-4 bg-gradient-to-b from-transparent via-primary/40 to-transparent mx-1" />
+                <span className="w-px h-4 bg-gradient-to-b from-transparent via-primary/40 to-transparent mx-0.5 xl:mx-1 shrink-0" />
                 <ExternalNavLink href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true" icon={Headphones}>
                   Podcast
                 </ExternalNavLink>
-                <span className="w-px h-4 bg-gradient-to-b from-transparent via-primary/40 to-transparent mx-1" />
+                <span className="w-px h-4 bg-gradient-to-b from-transparent via-primary/40 to-transparent mx-0.5 xl:mx-1 shrink-0" />
                 <ExternalNavLink href="https://discord.gg/5zYWSWGMYm" icon={MessageCircle}>
                   Discord
                 </ExternalNavLink>
