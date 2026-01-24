@@ -95,19 +95,19 @@ export const MainHeader = memo(() => {
             <nav className="hidden lg:flex items-center justify-center flex-1 min-w-0">
               <div className="flex items-center bg-muted/30 rounded-full px-1.5 xl:px-2 py-1 xl:py-1.5 border border-border/50 backdrop-blur-sm overflow-hidden">
                 <NavLink to="/trading" isActive={location.pathname === '/trading'} icon={TrendingUp}>
-                  <span className="hidden xl:inline">Trading </span><span className="xl:hidden">Trading</span><span className="hidden xl:inline">Education</span>
+                  Trading Education
                 </NavLink>
                 <span className="w-px h-4 bg-gradient-to-b from-transparent via-primary/40 to-transparent mx-0.5 xl:mx-1 shrink-0" />
                 <ExternalNavLink href="https://whop.com/stackmode-network-llc" icon={Target}>
-                  <span className="hidden xl:inline">Catch My </span>Trades
+                  Catch My Trades
                 </ExternalNavLink>
                 <span className="w-px h-4 bg-gradient-to-b from-transparent via-primary/40 to-transparent mx-0.5 xl:mx-1 shrink-0" />
                 <NavLink to="/business" isActive={location.pathname === '/business'} icon={Briefcase}>
-                  <span className="hidden xl:inline">Grow Your </span>Business
+                  Grow Your Business
                 </NavLink>
                 <span className="w-px h-4 bg-gradient-to-b from-transparent via-primary/40 to-transparent mx-0.5 xl:mx-1 shrink-0" />
                 <NavLink to="/buildyourwebsite" isActive={isBuildWebsiteActive} icon={Globe}>
-                  <span className="hidden xl:inline">Build Your </span>Website
+                  Build Your Website
                 </NavLink>
                 <span className="w-px h-4 bg-gradient-to-b from-transparent via-primary/40 to-transparent mx-0.5 xl:mx-1 shrink-0" />
                 <NavLink to="/library" isActive={isLibraryActive} icon={BookOpen}>
