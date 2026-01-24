@@ -13,10 +13,10 @@ const triggerHaptic = (style: 'light' | 'medium' = 'light') => {
 const NavLink = memo(({ to, isActive, children }: { to: string; isActive: boolean; children: React.ReactNode }) => (
   <Link 
     to={to} 
-    className={`text-base font-semibold transition-colors relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:transition-transform after:duration-300 ${
+    className={`text-sm font-medium px-3 py-1.5 rounded-full transition-all duration-200 whitespace-nowrap ${
       isActive 
-        ? 'text-primary after:scale-x-100' 
-        : 'text-foreground/80 hover:text-primary after:scale-x-0 after:origin-bottom-right hover:after:scale-x-100 hover:after:origin-bottom-left'
+        ? 'text-primary-foreground bg-primary shadow-sm' 
+        : 'text-foreground/70 hover:text-foreground hover:bg-muted/50'
     }`}
   >
     {children}
@@ -30,7 +30,7 @@ const ExternalNavLink = memo(({ href, children }: { href: string; children: Reac
     href={href} 
     target="_blank" 
     rel="noopener noreferrer" 
-    className="text-base font-semibold text-foreground/80 hover:text-primary transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+    className="text-sm font-medium px-3 py-1.5 rounded-full transition-all duration-200 whitespace-nowrap text-foreground/70 hover:text-foreground hover:bg-muted/50"
   >
     {children}
   </a>
@@ -97,31 +97,40 @@ export const MainHeader = memo(() => {
             </Link>
             
             {/* Desktop Navigation - Centered */}
-            <nav className="hidden md:flex items-center justify-center flex-1 gap-8 mx-8">
-              <NavLink to="/trading" isActive={location.pathname === '/trading'}>
-                Learn How To Trade
-              </NavLink>
-              <ExternalNavLink href="https://whop.com/stackmode-network-llc">
-                Catch My Trades
-              </ExternalNavLink>
-              <NavLink to="/business" isActive={location.pathname === '/business'}>
-                Grow Your Business
-              </NavLink>
-              <NavLink to="/buildyourwebsite" isActive={isBuildWebsiteActive}>
-                Build Your Website
-              </NavLink>
-              <NavLink to="/library" isActive={isLibraryActive}>
-                Library
-              </NavLink>
-              <NavLink to="/about" isActive={isAboutActive}>
-                About
-              </NavLink>
-              <ExternalNavLink href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true">
-                Podcast
-              </ExternalNavLink>
-              <ExternalNavLink href="https://discord.gg/5zYWSWGMYm">
-                Discord
-              </ExternalNavLink>
+            <nav className="hidden lg:flex items-center justify-center flex-1 mx-4">
+              <div className="flex items-center bg-muted/30 rounded-full px-2 py-1.5 border border-border/50">
+                <NavLink to="/trading" isActive={location.pathname === '/trading'}>
+                  Trading
+                </NavLink>
+                <span className="w-px h-4 bg-border/60 mx-2" />
+                <ExternalNavLink href="https://whop.com/stackmode-network-llc">
+                  Signals
+                </ExternalNavLink>
+                <span className="w-px h-4 bg-border/60 mx-2" />
+                <NavLink to="/business" isActive={location.pathname === '/business'}>
+                  Business
+                </NavLink>
+                <span className="w-px h-4 bg-border/60 mx-2" />
+                <NavLink to="/buildyourwebsite" isActive={isBuildWebsiteActive}>
+                  Websites
+                </NavLink>
+                <span className="w-px h-4 bg-border/60 mx-2" />
+                <NavLink to="/library" isActive={isLibraryActive}>
+                  Library
+                </NavLink>
+                <span className="w-px h-4 bg-border/60 mx-2" />
+                <NavLink to="/about" isActive={isAboutActive}>
+                  About
+                </NavLink>
+                <span className="w-px h-4 bg-border/60 mx-2" />
+                <ExternalNavLink href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true">
+                  Podcast
+                </ExternalNavLink>
+                <span className="w-px h-4 bg-border/60 mx-2" />
+                <ExternalNavLink href="https://discord.gg/5zYWSWGMYm">
+                  Discord
+                </ExternalNavLink>
+              </div>
             </nav>
 
             {/* Mobile Menu Button */}
