@@ -95,7 +95,7 @@ export const MainHeader = memo(() => {
             <nav className="hidden lg:flex items-center justify-center flex-1 min-w-0">
               <div className="flex items-center bg-muted/30 rounded-full px-1.5 xl:px-2 py-1 xl:py-1.5 border border-border/50 backdrop-blur-sm overflow-hidden">
                 <NavLink to="/trading" isActive={location.pathname === '/trading'} icon={TrendingUp}>
-                  <span className="hidden xl:inline">Learn How To </span>Trade
+                  <span className="hidden xl:inline">Trading </span><span className="xl:hidden">Trading</span><span className="hidden xl:inline">Education</span>
                 </NavLink>
                 <span className="w-px h-4 bg-gradient-to-b from-transparent via-primary/40 to-transparent mx-0.5 xl:mx-1 shrink-0" />
                 <ExternalNavLink href="https://whop.com/stackmode-network-llc" icon={Target}>
