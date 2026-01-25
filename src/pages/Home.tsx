@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { TrendingUp, Briefcase, ArrowRight, Zap, Play, Phone, Award, Users, Globe, Youtube, BookOpen } from 'lucide-react';
+import { TrendingUp, Briefcase, ArrowRight, Zap, Play, Phone, ChevronRight } from 'lucide-react';
 import { CookieConsent } from '@/components/CookieConsent';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
 import { useState } from 'react';
@@ -23,244 +23,188 @@ const Home = () => {
             </div>
             <div className="text-center sm:text-left">
               <span className="text-foreground font-semibold text-sm sm:text-base">
-                Have Questions? Call Now: <span className="text-primary">(678) 775-8532</span>
-              </span>
-              <span className="hidden sm:inline text-muted-foreground text-sm ml-2">
-                — Get instant answers & book your session
+                Call Now: <span className="text-primary">(678) 775-8532</span>
               </span>
             </div>
-            <span className="hidden md:inline-flex items-center gap-1 bg-primary/20 border border-primary/40 text-primary text-xs font-medium px-3 py-1 rounded-full group-hover:bg-primary/30 transition-colors">
+            <span className="hidden sm:inline-flex items-center gap-1 bg-primary/20 border border-primary/40 text-primary text-xs font-medium px-3 py-1 rounded-full">
               <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
-              Available Now
+              Available
             </span>
           </a>
         </div>
       </div>
 
-      {/* Hero Section - VSL Style */}
-      <section className="relative pt-8 sm:pt-12 pb-16 sm:pb-20 px-4">
-        {/* Background effects */}
+      {/* Hero Section - Simplified */}
+      <section className="relative pt-8 sm:pt-12 pb-8 px-4">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
         </div>
 
-        <div className="relative z-10 max-w-6xl mx-auto text-center">
+        <div className="relative z-10 max-w-5xl mx-auto text-center">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-2 mb-6">
+          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-2 mb-4">
             <Zap size={16} className="text-primary" />
-            <span className="text-primary text-sm font-semibold">Clients In Training</span>
+            <span className="text-primary text-sm font-semibold">Learn. Earn. Stack.</span>
           </div>
 
-          {/* VSL Headline */}
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight max-w-5xl mx-auto">
-            Stackmode is the <span className="text-destructive-foreground">ULTIMATE</span> system to stack to multi 6 or 7-figure trading profits <span className="text-accent">AND</span> business revenue simultaneously.
+          {/* Headline */}
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 leading-tight">
+            Master <span className="text-primary">Trading</span> & Build Your <span className="text-accent">Business</span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Trade smarter. Build faster. Live freely.
+          <p className="text-base sm:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Choose your path to financial freedom
           </p>
 
-          {/* Path Selection Cards with CTAs - Primary Action */}
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-8">
+          {/* Choose Your Path - Large Interactive Cards */}
+          <div className="grid md:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto mb-8">
             {/* Trading Path */}
-            <Link to="/trading" className="group relative bg-gradient-to-br from-card via-card/80 to-card border-2 border-primary/30 rounded-3xl p-6 sm:p-8 overflow-hidden transition-all duration-500 hover:border-primary hover:shadow-[0_0_60px_rgba(var(--primary-rgb),0.3)] cursor-pointer block">
-              {/* Glow effect */}
-              <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 rounded-full blur-3xl transition-opacity group-hover:opacity-100 opacity-50" />
+            <Link 
+              to="/trading" 
+              className="group relative bg-gradient-to-br from-primary/20 via-primary/10 to-transparent border-2 border-primary/40 rounded-2xl sm:rounded-3xl p-5 sm:p-8 overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-[0_0_40px_rgba(var(--primary-rgb),0.4)] hover:scale-[1.02] block"
+            >
+              {/* Animated background glow */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
-              <div className="relative z-10">
-                <div className="w-14 h-14 bg-primary/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <TrendingUp size={28} className="text-primary" />
+              <div className="relative z-10 flex flex-col items-center text-center">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-primary/20 border-2 border-primary/50 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-primary/30 transition-all duration-300">
+                  <TrendingUp size={32} className="text-primary sm:w-10 sm:h-10" />
                 </div>
 
-                <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2 text-left">
+                <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
                   Trading Education
                 </h2>
 
-                <p className="text-muted-foreground text-left text-sm mb-4 leading-relaxed">
-                  Master stocks, options, futures, forex & crypto with 1-on-1 mentorship and proven strategies.
+                <p className="text-muted-foreground text-sm mb-4">
+                  Stocks • Options • Futures • Forex • Crypto
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="text-xs bg-primary/10 text-primary px-2.5 py-1 rounded-full">Mentorship</span>
-                  <span className="text-xs bg-primary/10 text-primary px-2.5 py-1 rounded-full">Signals</span>
-                  <span className="text-xs bg-primary/10 text-primary px-2.5 py-1 rounded-full">Courses</span>
+                <div className="flex items-center gap-2 text-primary font-semibold group-hover:gap-3 transition-all">
+                  <span>Start Learning</span>
+                  <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </div>
-
-                <div className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold px-5 py-3 rounded-full transition-all group-hover:scale-105 mb-3">
-                  <TrendingUp size={18} />
-                  <span>Learn How To Trade</span>
-                </div>
-
-                <span onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open('https://calendly.com/stackmodechris/tradingmastermindcoaching', '_blank'); }} className="flex items-center justify-center gap-2 text-primary/80 hover:text-primary text-sm font-medium transition-colors">
-                  <span>FREE Trading Mentorship Call</span>
-                  <ArrowRight size={16} />
-                </span>
               </div>
             </Link>
 
             {/* Business Path */}
-            <Link to="/business" className="group relative bg-gradient-to-br from-card via-card/80 to-card border-2 border-accent/30 rounded-3xl p-6 sm:p-8 overflow-hidden transition-all duration-500 hover:border-accent hover:shadow-[0_0_60px_rgba(168,85,247,0.3)] cursor-pointer block">
-              {/* Glow effect */}
-              <div className="absolute top-0 right-0 w-40 h-40 bg-accent/10 rounded-full blur-3xl transition-opacity group-hover:opacity-100 opacity-50" />
+            <Link 
+              to="/business" 
+              className="group relative bg-gradient-to-br from-accent/20 via-accent/10 to-transparent border-2 border-accent/40 rounded-2xl sm:rounded-3xl p-5 sm:p-8 overflow-hidden transition-all duration-300 hover:border-accent hover:shadow-[0_0_40px_rgba(168,85,247,0.4)] hover:scale-[1.02] block"
+            >
+              {/* Animated background glow */}
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
-              <div className="relative z-10">
-                <div className="w-14 h-14 bg-accent/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <Briefcase size={28} className="text-accent" />
+              <div className="relative z-10 flex flex-col items-center text-center">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-accent/20 border-2 border-accent/50 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-accent/30 transition-all duration-300">
+                  <Briefcase size={32} className="text-accent sm:w-10 sm:h-10" />
                 </div>
 
-                <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2 text-left">
+                <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
                   Business Education
                 </h2>
 
-                <p className="text-muted-foreground text-left text-sm mb-4 leading-relaxed">
-                  Build & scale your online business with digital marketing, sales funnels, and multiple income streams.
+                <p className="text-muted-foreground text-sm mb-4">
+                  Marketing • Sales • Branding • Scaling
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="text-xs bg-accent/10 text-accent px-2.5 py-1 rounded-full">Marketing</span>
-                  <span className="text-xs bg-accent/10 text-accent px-2.5 py-1 rounded-full">Sales</span>
-                  <span className="text-xs bg-accent/10 text-accent px-2.5 py-1 rounded-full">Branding</span>
+                <div className="flex items-center gap-2 text-accent font-semibold group-hover:gap-3 transition-all">
+                  <span>Grow Your Business</span>
+                  <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </div>
-
-                <div className="w-full inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground font-bold px-5 py-3 rounded-full transition-all group-hover:scale-105 mb-3">
-                  <Briefcase size={18} />
-                  <span>Learn How To Grow Your Business</span>
-                </div>
-
-                <span onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open('https://calendly.com/stackmodechris/businessscaling', '_blank'); }} className="flex items-center justify-center gap-2 text-accent/80 hover:text-accent text-sm font-medium transition-colors">
-                  <span>FREE Business Scaling Call</span>
-                  <ArrowRight size={16} />
-                </span>
               </div>
             </Link>
           </div>
 
-          {/* Urgency Banner */}
-          <div className="inline-flex items-center gap-2 bg-red-500/20 border border-red-500/40 text-red-400 text-xs font-semibold px-4 py-2 rounded-full mb-8 animate-pulse">
-            <span className="w-2 h-2 bg-red-500 rounded-full"></span>
-            Limited Spots Available — Book Your Free Call Now
-          </div>
-
-          {/* Trust indicators */}
-          <div className="flex flex-wrap justify-center gap-6 sm:gap-10 text-muted-foreground text-sm mb-10">
-            <div className="flex items-center gap-2">
-              <span className="text-primary font-bold">Proven</span>
-              <span>Results</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-primary font-bold">Full</span>
-              <span>Educational Library</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-primary font-bold">Free</span>
-              <span>Strategy Calls</span>
-            </div>
-          </div>
-
-          {/* Reviews Section - Right after trust indicators */}
-          <div className="max-w-6xl mx-auto mb-12">
-            <ReviewsGallery />
-          </div>
-
-          {/* Video Introduction */}
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-center text-white">
-              This Is How You Turn Business Profits Into Trading <span className="text-primary">Income</span>
-            </h2>
-            <p className="text-muted-foreground text-sm mb-4">👇 Watch to learn how I can help you</p>
-            <div className="relative rounded-2xl overflow-hidden border-2 border-primary/30 shadow-[0_0_60px_rgba(var(--primary-rgb),0.2)]">
-              {!videoPlaying ? <button onClick={() => setVideoPlaying(true)} className="relative w-full aspect-video group cursor-pointer" aria-label="Play video">
-                  {/* YouTube Thumbnail */}
-                  <img src="https://img.youtube.com/vi/beRKDGUDcdU/maxresdefault.jpg" alt="Meet Your Mentor - Stackmodechris" className="w-full h-full object-cover" />
-                  
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors" />
-                  
-                  {/* Branded Play Button */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <div className="w-20 h-20 sm:w-24 sm:h-24 bg-primary rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(var(--primary-rgb),0.6)] group-hover:scale-110 transition-transform">
-                      <Play size={40} className="text-primary-foreground ml-1" fill="currentColor" />
-                    </div>
-                    <span className="mt-4 text-white font-bold text-base sm:text-lg opacity-90">
-                      Watch Now
-                    </span>
-                  </div>
-
-                  {/* Logo Watermark */}
-                  <div className="absolute top-4 left-4 flex items-center gap-2 bg-black/50 rounded-full px-3 py-1.5">
-                    <img src="/images/sm-logo.png" alt="Stackmode" className="w-6 h-6 object-contain" />
-                    <span className="text-white text-xs font-semibold">STACKMODE</span>
-                  </div>
-                </button> : <div className="aspect-video">
-                  <iframe src="https://www.youtube.com/embed/beRKDGUDcdU?autoplay=1" title="Meet Your Mentor - Stackmodechris" className="w-full h-full" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
-                </div>}
-            </div>
+          {/* Quick Action Buttons */}
+          <div className="flex flex-wrap justify-center gap-3 mb-6">
+            <a 
+              href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 text-primary text-sm font-medium px-4 py-2 rounded-full hover:bg-primary/20 transition-colors"
+            >
+              Free Trading Call
+              <ArrowRight size={14} />
+            </a>
+            <a 
+              href="https://calendly.com/stackmodechris/businessscaling" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 text-accent text-sm font-medium px-4 py-2 rounded-full hover:bg-accent/20 transition-colors"
+            >
+              Free Business Call
+              <ArrowRight size={14} />
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Areas of Expertise */}
-      <section className="py-16 px-4 border-t border-border">
+      {/* Reviews Section - Right after path selection */}
+      <section className="py-10 px-4 border-t border-border/50">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-6 text-center">
-            Areas of Expertise
+          <div className="text-center mb-6">
+            <span className="inline-block bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-2">
+              Real Results
+            </span>
+            <h2 className="text-xl sm:text-2xl font-bold text-foreground">
+              What My Clients Are Achieving
+            </h2>
+          </div>
+          <ReviewsGallery />
+        </div>
+      </section>
+
+      {/* Video Section - Below reviews */}
+      <section className="py-12 px-4 bg-card/30 border-y border-border/50">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 text-foreground">
+            Turn Business Profits Into Trading <span className="text-primary">Income</span>
           </h2>
+          <p className="text-muted-foreground text-sm mb-6">Watch how I can help you stack both</p>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { icon: TrendingUp, title: 'Trading Education', desc: 'Master technical analysis and trading strategies', link: '/trading', internal: true },
-              { icon: Briefcase, title: 'Grow Your Business', desc: 'Scale your business with proven methods', link: '/business', internal: true },
-              { icon: Award, title: 'Catch My Trades', desc: 'Get real-time trade signals and alerts', link: 'https://whop.com/stackmode-network-llc', internal: false },
-              { icon: Globe, title: 'Build Your Website', desc: 'Professional websites that convert visitors', link: '/buildyourwebsite', internal: true },
-              { icon: Zap, title: 'Business Scaling', desc: 'Strategies for sustainable growth', link: '/business', internal: true },
-              { icon: Youtube, title: 'Content Monetization', desc: 'Turn content into multiple income streams', link: '/business', internal: true },
-              { icon: Users, title: 'Community Building', desc: 'Build and engage your audience', link: '/business', internal: true },
-              { icon: BookOpen, title: 'Ad Creation', desc: 'Compelling ads that drive results', link: '/business', internal: true }
-            ].map((item, i) => (
-              item.internal ? (
-                <Link
-                  key={i}
-                  to={item.link}
-                  className="bg-card/50 border border-border/50 rounded-xl p-4 hover:border-primary/30 hover:bg-card/80 transition-all text-left group"
-                >
-                  <item.icon className="w-8 h-8 text-primary mb-2 group-hover:scale-110 transition-transform" />
-                  <h3 className="font-semibold text-foreground text-sm mb-1">{item.title}</h3>
-                  <p className="text-muted-foreground text-xs">{item.desc}</p>
-                </Link>
-              ) : (
-                <a
-                  key={i}
-                  href={item.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-card/50 border border-border/50 rounded-xl p-4 hover:border-primary/30 hover:bg-card/80 transition-all text-left group"
-                >
-                  <item.icon className="w-8 h-8 text-primary mb-2 group-hover:scale-110 transition-transform" />
-                  <h3 className="font-semibold text-foreground text-sm mb-1">{item.title}</h3>
-                  <p className="text-muted-foreground text-xs">{item.desc}</p>
-                </a>
-              )
-            ))}
+          <div className="relative rounded-2xl overflow-hidden border-2 border-primary/30 shadow-[0_0_40px_rgba(var(--primary-rgb),0.15)]">
+            {!videoPlaying ? (
+              <button onClick={() => setVideoPlaying(true)} className="relative w-full aspect-video group cursor-pointer" aria-label="Play video">
+                <img src="https://img.youtube.com/vi/beRKDGUDcdU/maxresdefault.jpg" alt="Meet Your Mentor" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors" />
+                <div className="absolute inset-0 flex flex-col items-center justify-center">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-primary rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(var(--primary-rgb),0.6)] group-hover:scale-110 transition-transform">
+                    <Play size={32} className="text-primary-foreground ml-1" fill="currentColor" />
+                  </div>
+                  <span className="mt-3 text-white font-semibold text-sm sm:text-base">Watch Now</span>
+                </div>
+                <div className="absolute top-3 left-3 flex items-center gap-2 bg-black/60 rounded-full px-2.5 py-1">
+                  <img src="/images/sm-logo.png" alt="Stackmode" className="w-5 h-5 object-contain" />
+                  <span className="text-white text-xs font-medium">STACKMODE</span>
+                </div>
+              </button>
+            ) : (
+              <div className="aspect-video">
+                <iframe src="https://www.youtube.com/embed/beRKDGUDcdU?autoplay=1" title="Meet Your Mentor" className="w-full h-full" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+              </div>
+            )}
           </div>
         </div>
       </section>
 
-      {/* About Preview */}
-      <section className="py-16 px-4 border-t border-border">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="flex-shrink-0">
-              <img src="/images/stackmodechris-about-new.png" alt="Stackmodechris" className="w-32 h-32 md:w-40 md:h-40 rounded-2xl object-cover border-4 border-primary/30" />
-            </div>
-            <div className="text-center md:text-left">
-              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-2">Meet Stackmodechris</h3>
-              <p className="text-muted-foreground mb-4">
-                Trading mentor, business strategist, and founder of Stackmode Network. Helping people build wealth through trading and entrepreneurship.
+      {/* About Preview - Compact */}
+      <section className="py-12 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex flex-col sm:flex-row items-center gap-6 bg-card/50 border border-border/50 rounded-2xl p-6">
+            <img 
+              src="/images/stackmodechris-about-new.png" 
+              alt="Stackmodechris" 
+              className="w-24 h-24 sm:w-28 sm:h-28 rounded-xl object-cover border-2 border-primary/30" 
+            />
+            <div className="text-center sm:text-left flex-1">
+              <h3 className="text-lg sm:text-xl font-bold text-foreground mb-1">Stackmodechris</h3>
+              <p className="text-muted-foreground text-sm mb-3">
+                Trading mentor & business strategist helping people build wealth through multiple income streams.
               </p>
-              <Link to="/about" className="inline-flex items-center gap-2 text-primary hover:gap-3 transition-all font-medium">
-                <span>Learn more about me</span>
-                <ArrowRight size={18} />
+              <Link to="/about" className="inline-flex items-center gap-2 text-primary text-sm font-medium hover:gap-3 transition-all">
+                <span>Learn more</span>
+                <ArrowRight size={16} />
               </Link>
             </div>
           </div>
@@ -268,32 +212,26 @@ const Home = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-background border-t border-border py-8 px-4">
-        <div className="max-w-4xl mx-auto text-center space-y-6">
-          <div className="flex flex-wrap justify-center gap-4 text-sm">
-            <a href="/terms" className="text-muted-foreground hover:text-primary transition-colors">
-              Terms & Conditions
-            </a>
-            <span className="text-border hidden sm:inline">|</span>
-            <a href="/privacy" className="text-muted-foreground hover:text-primary transition-colors">
-              Privacy Policy
-            </a>
-            <span className="text-border hidden sm:inline">|</span>
-            <a href="/dmca" className="text-muted-foreground hover:text-primary transition-colors">
-              DMCA Policy
-            </a>
+      <footer className="bg-background border-t border-border py-6 px-4">
+        <div className="max-w-4xl mx-auto text-center space-y-4">
+          <div className="flex flex-wrap justify-center gap-4 text-xs sm:text-sm">
+            <a href="/terms" className="text-muted-foreground hover:text-primary transition-colors">Terms</a>
+            <span className="text-border">|</span>
+            <a href="/privacy" className="text-muted-foreground hover:text-primary transition-colors">Privacy</a>
+            <span className="text-border">|</span>
+            <a href="/dmca" className="text-muted-foreground hover:text-primary transition-colors">DMCA</a>
           </div>
-          
           <p className="text-xs text-muted-foreground">
-            © 2026 Stackmode Network LLC. All Rights Reserved.
+            © 2026 Stackmode Network LLC
           </p>
         </div>
       </footer>
 
-      {/* Spacer for mobile bottom navigation */}
-      <div className="h-28 md:hidden" />
+      {/* Mobile spacer */}
+      <div className="h-24 md:hidden" />
 
       <CookieConsent />
     </main>;
 };
+
 export default Home;
