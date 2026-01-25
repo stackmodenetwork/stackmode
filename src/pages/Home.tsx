@@ -136,35 +136,6 @@ const Home = () => {
             </Link>
           </div>
 
-          {/* Areas of Expertise */}
-          <div className="max-w-6xl mx-auto mb-10">
-            <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-6">
-              Areas of Expertise
-            </h2>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {[
-                { icon: TrendingUp, title: 'Trading Education', desc: 'Master technical analysis and trading strategies' },
-                { icon: Briefcase, title: 'Grow Your Business', desc: 'Scale your business with proven methods' },
-                { icon: Award, title: 'Catch My Trades', desc: 'Get real-time trade signals and alerts' },
-                { icon: Globe, title: 'Build Your Website', desc: 'Professional websites that convert visitors' },
-                { icon: Zap, title: 'Business Scaling', desc: 'Strategies for sustainable growth' },
-                { icon: Youtube, title: 'Content Monetization', desc: 'Turn content into multiple income streams' },
-                { icon: Users, title: 'Community Building', desc: 'Build and engage your audience' },
-                { icon: BookOpen, title: 'Ad Creation', desc: 'Compelling ads that drive results' }
-              ].map((item, i) => (
-                <div 
-                  key={i} 
-                  className="bg-card/50 border border-border/50 rounded-xl p-4 hover:border-primary/30 transition-colors text-left"
-                >
-                  <item.icon className="w-8 h-8 text-primary mb-2" />
-                  <h3 className="font-semibold text-foreground text-sm mb-1">{item.title}</h3>
-                  <p className="text-muted-foreground text-xs">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
           {/* Urgency Banner */}
           <div className="inline-flex items-center gap-2 bg-red-500/20 border border-red-500/40 text-red-400 text-xs font-semibold px-4 py-2 rounded-full mb-8 animate-pulse">
             <span className="w-2 h-2 bg-red-500 rounded-full"></span>
@@ -227,6 +198,52 @@ const Home = () => {
       {/* Reviews Section */}
       <section className="py-16 px-4 border-t border-border">
         <ReviewsGallery />
+      </section>
+
+      {/* Areas of Expertise */}
+      <section className="py-16 px-4 border-t border-border">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-6 text-center">
+            Areas of Expertise
+          </h2>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { icon: TrendingUp, title: 'Trading Education', desc: 'Master technical analysis and trading strategies', link: '/trading', internal: true },
+              { icon: Briefcase, title: 'Grow Your Business', desc: 'Scale your business with proven methods', link: '/business', internal: true },
+              { icon: Award, title: 'Catch My Trades', desc: 'Get real-time trade signals and alerts', link: 'https://whop.com/stackmode-network-llc', internal: false },
+              { icon: Globe, title: 'Build Your Website', desc: 'Professional websites that convert visitors', link: '/buildyourwebsite', internal: true },
+              { icon: Zap, title: 'Business Scaling', desc: 'Strategies for sustainable growth', link: '/business', internal: true },
+              { icon: Youtube, title: 'Content Monetization', desc: 'Turn content into multiple income streams', link: '/business', internal: true },
+              { icon: Users, title: 'Community Building', desc: 'Build and engage your audience', link: '/business', internal: true },
+              { icon: BookOpen, title: 'Ad Creation', desc: 'Compelling ads that drive results', link: '/business', internal: true }
+            ].map((item, i) => (
+              item.internal ? (
+                <Link
+                  key={i}
+                  to={item.link}
+                  className="bg-card/50 border border-border/50 rounded-xl p-4 hover:border-primary/30 hover:bg-card/80 transition-all text-left group"
+                >
+                  <item.icon className="w-8 h-8 text-primary mb-2 group-hover:scale-110 transition-transform" />
+                  <h3 className="font-semibold text-foreground text-sm mb-1">{item.title}</h3>
+                  <p className="text-muted-foreground text-xs">{item.desc}</p>
+                </Link>
+              ) : (
+                <a
+                  key={i}
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-card/50 border border-border/50 rounded-xl p-4 hover:border-primary/30 hover:bg-card/80 transition-all text-left group"
+                >
+                  <item.icon className="w-8 h-8 text-primary mb-2 group-hover:scale-110 transition-transform" />
+                  <h3 className="font-semibold text-foreground text-sm mb-1">{item.title}</h3>
+                  <p className="text-muted-foreground text-xs">{item.desc}</p>
+                </a>
+              )
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* About Preview */}
