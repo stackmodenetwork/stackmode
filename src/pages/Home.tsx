@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { TrendingUp, Briefcase, ArrowRight, Zap, Play, Phone } from 'lucide-react';
+import { TrendingUp, Briefcase, ArrowRight, Zap, Play, Phone, Award, Users, Globe, Youtube, BookOpen } from 'lucide-react';
 import { CookieConsent } from '@/components/CookieConsent';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
 import { useState } from 'react';
@@ -134,6 +134,35 @@ const Home = () => {
                 </span>
               </div>
             </Link>
+          </div>
+
+          {/* Areas of Expertise */}
+          <div className="max-w-6xl mx-auto mb-10">
+            <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-6">
+              Areas of Expertise
+            </h2>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[
+                { icon: TrendingUp, title: 'Trading Education', desc: 'Master technical analysis and trading strategies' },
+                { icon: Briefcase, title: 'Grow Your Business', desc: 'Scale your business with proven methods' },
+                { icon: Award, title: 'Catch My Trades', desc: 'Get real-time trade signals and alerts' },
+                { icon: Globe, title: 'Build Your Website', desc: 'Professional websites that convert visitors' },
+                { icon: Zap, title: 'Business Scaling', desc: 'Strategies for sustainable growth' },
+                { icon: Youtube, title: 'Content Monetization', desc: 'Turn content into multiple income streams' },
+                { icon: Users, title: 'Community Building', desc: 'Build and engage your audience' },
+                { icon: BookOpen, title: 'Ad Creation', desc: 'Compelling ads that drive results' }
+              ].map((item, i) => (
+                <div 
+                  key={i} 
+                  className="bg-card/50 border border-border/50 rounded-xl p-4 hover:border-primary/30 transition-colors text-left"
+                >
+                  <item.icon className="w-8 h-8 text-primary mb-2" />
+                  <h3 className="font-semibold text-foreground text-sm mb-1">{item.title}</h3>
+                  <p className="text-muted-foreground text-xs">{item.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Urgency Banner */}
