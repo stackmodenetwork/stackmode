@@ -158,6 +158,11 @@ const Home = () => {
             </div>
           </div>
 
+          {/* Reviews Section - Right after trust indicators */}
+          <div className="max-w-6xl mx-auto mb-12">
+            <ReviewsGallery />
+          </div>
+
           {/* Video Introduction */}
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-center text-white">
@@ -193,11 +198,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Reviews Section */}
-      <section className="py-16 px-4 border-t border-border">
-        <ReviewsGallery />
       </section>
 
       {/* Areas of Expertise */}
