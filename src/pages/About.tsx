@@ -211,11 +211,15 @@ const About = () => {
               </h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {[
+{[
                   { icon: TrendingUp, title: 'Stock Trading', desc: 'Master technical analysis, chart patterns, and swing trading strategies to capture profitable moves in equity markets' },
                   { icon: Briefcase, title: 'Options Trading', desc: 'Learn high-probability options setups including credit spreads, iron condors, and directional plays for consistent income' },
                   { icon: Award, title: 'Futures & Forex', desc: 'Swing trading strategy using price action, support/resistance levels, and market structure analysis' },
-                  { icon: Users, title: 'Crypto Trading', desc: 'Navigate volatile digital asset markets with risk management, trend analysis, and strategic position sizing' }
+                  { icon: Users, title: 'Crypto Trading', desc: 'Navigate volatile digital asset markets with risk management, trend analysis, and strategic position sizing' },
+                  { icon: Zap, title: 'Business Scaling', desc: 'Learn proven strategies to grow your business, increase revenue streams, and build sustainable long-term success' },
+                  { icon: Globe, title: 'Website Creation', desc: 'Get a professional, mobile-responsive website built to convert visitors into customers and establish your online presence' },
+                  { icon: Youtube, title: 'Content Monetization', desc: 'Turn your content into income through strategic platform growth, audience building, and multiple revenue channels' },
+                  { icon: BookOpen, title: 'Ad Creation', desc: 'Create compelling advertisements that capture attention, drive engagement, and convert prospects into paying customers' }
                 ].map((item, i) => (
                   <div 
                     key={i} 
