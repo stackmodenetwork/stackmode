@@ -41,19 +41,19 @@ const Home = () => {
         </div>
 
         <div className="relative z-10 max-w-5xl mx-auto text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-2 mb-2">
-            <Zap size={16} className="text-primary" />
-            <span className="text-primary text-sm font-semibold">Learn. Earn. Stack.</span>
-          </div>
-          
           {/* Active Clients Indicator */}
-          <div className="inline-flex items-center gap-2 mb-4 ml-4">
+          <div className="inline-flex items-center gap-2 mb-2">
             <span className="relative flex h-3 w-3">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
               <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
             </span>
             <span className="text-muted-foreground text-sm">Clients in training</span>
+          </div>
+          
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-2 mb-4">
+            <Zap size={16} className="text-primary" />
+            <span className="text-primary text-sm font-semibold">Learn. Earn. Stack.</span>
           </div>
 
           {/* Headline */}
