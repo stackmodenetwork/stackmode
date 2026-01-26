@@ -177,26 +177,47 @@ const Home = () => {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { icon: TrendingUp, title: 'Stock Trading', desc: 'Technical analysis & swing trading', color: 'primary' },
-              { icon: Briefcase, title: 'Options Trading', desc: 'High-probability setups', color: 'primary' },
-              { icon: Award, title: 'Futures & Forex', desc: 'Price action strategies', color: 'primary' },
-              { icon: Users, title: 'Crypto Trading', desc: 'Digital asset analysis', color: 'primary' },
-              { icon: Zap, title: 'Business Scaling', desc: 'Grow your revenue', color: 'accent' },
-              { icon: Globe, title: 'Website Creation', desc: 'Professional web presence', color: 'accent' },
-              { icon: Youtube, title: 'Content Monetization', desc: 'Turn content to income', color: 'accent' },
-              { icon: BookOpen, title: 'Ad Creation', desc: 'High-converting ads', color: 'accent' }
+              { icon: TrendingUp, title: 'Stock Trading', desc: 'Technical analysis & swing trading', color: 'primary', link: '/trading' },
+              { icon: Briefcase, title: 'Options Trading', desc: 'High-probability setups', color: 'primary', link: '/trading' },
+              { icon: Award, title: 'Futures & Forex', desc: 'Price action strategies', color: 'primary', link: '/trading' },
+              { icon: Users, title: 'Crypto Trading', desc: 'Digital asset analysis', color: 'primary', link: '/trading' },
+              { icon: Zap, title: 'Business Scaling', desc: 'Grow your revenue', color: 'accent', link: '/business' },
+              { icon: Globe, title: 'Website Creation', desc: 'Professional web presence', color: 'accent', link: '/buildyourwebsite' },
+              { icon: Youtube, title: 'Content Monetization', desc: 'Turn content to income', color: 'accent', link: '/business' },
+              { icon: BookOpen, title: 'Ad Creation', desc: 'High-converting ads', color: 'accent', link: '/business' }
             ].map((item, i) => (
-              <div 
+              <Link 
+                to={item.link}
                 key={i} 
-                className="bg-background rounded-xl p-4 border border-border/50 text-center hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1 group"
+                className="bg-background rounded-xl p-4 border border-border/50 text-center hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1 group block"
               >
                 <div className={`w-10 h-10 rounded-full bg-${item.color}/10 flex items-center justify-center mx-auto mb-3 transition-transform duration-300 group-hover:scale-110`}>
                   <item.icon className={`w-5 h-5 text-${item.color}`} />
                 </div>
                 <h3 className="text-sm font-semibold text-foreground mb-1">{item.title}</h3>
                 <p className="text-xs text-muted-foreground">{item.desc}</p>
-              </div>
+              </Link>
             ))}
+          </div>
+
+          {/* Library Button */}
+          <div className="mt-8 text-center">
+            <Link 
+              to="/library" 
+              className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 border-2 border-primary/40 rounded-2xl px-8 py-4 overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-[0_0_30px_rgba(var(--primary-rgb),0.3)] hover:scale-[1.02]"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative z-10 flex items-center gap-3">
+                <div className="w-10 h-10 bg-primary/20 border border-primary/50 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <BookOpen size={20} className="text-primary" />
+                </div>
+                <div className="text-left">
+                  <h3 className="text-lg font-bold text-foreground">Free Resources & Courses</h3>
+                  <p className="text-sm text-muted-foreground">Browse the full library</p>
+                </div>
+                <ChevronRight size={20} className="text-primary group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
           </div>
         </div>
       </section>
