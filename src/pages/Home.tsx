@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom';
-import { TrendingUp, Briefcase, ArrowRight, Zap, Play, Phone, ChevronRight } from 'lucide-react';
+import { TrendingUp, Briefcase, ArrowRight, Zap, Play, Phone, ChevronRight, Award, Users, Globe, Youtube, BookOpen } from 'lucide-react';
 import { CookieConsent } from '@/components/CookieConsent';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
 import { useState } from 'react';
 import { MainHeader } from '@/components/MainHeader';
-
 const Home = () => {
   const [videoPlaying, setVideoPlaying] = useState(false);
   
@@ -49,7 +48,7 @@ const Home = () => {
           </div>
           
           {/* Active Clients Indicator */}
-          <div className="inline-flex items-center gap-2 mb-4">
+          <div className="inline-flex items-center gap-2 mb-4 ml-4">
             <span className="relative flex h-3 w-3">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
               <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
@@ -164,7 +163,45 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Video Section - Below reviews */}
+      {/* Areas of Expertise */}
+      <section className="py-12 px-4 bg-muted/30">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-8">
+            <span className="inline-block bg-accent/10 text-accent text-xs font-semibold px-3 py-1 rounded-full mb-2">
+              What I Offer
+            </span>
+            <h2 className="text-xl sm:text-2xl font-bold text-foreground">
+              Areas of Expertise
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { icon: TrendingUp, title: 'Stock Trading', desc: 'Technical analysis & swing trading', color: 'primary' },
+              { icon: Briefcase, title: 'Options Trading', desc: 'High-probability setups', color: 'primary' },
+              { icon: Award, title: 'Futures & Forex', desc: 'Price action strategies', color: 'primary' },
+              { icon: Users, title: 'Crypto Trading', desc: 'Digital asset analysis', color: 'primary' },
+              { icon: Zap, title: 'Business Scaling', desc: 'Grow your revenue', color: 'accent' },
+              { icon: Globe, title: 'Website Creation', desc: 'Professional web presence', color: 'accent' },
+              { icon: Youtube, title: 'Content Monetization', desc: 'Turn content to income', color: 'accent' },
+              { icon: BookOpen, title: 'Ad Creation', desc: 'High-converting ads', color: 'accent' }
+            ].map((item, i) => (
+              <div 
+                key={i} 
+                className="bg-background rounded-xl p-4 border border-border/50 text-center hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1 group"
+              >
+                <div className={`w-10 h-10 rounded-full bg-${item.color}/10 flex items-center justify-center mx-auto mb-3 transition-transform duration-300 group-hover:scale-110`}>
+                  <item.icon className={`w-5 h-5 text-${item.color}`} />
+                </div>
+                <h3 className="text-sm font-semibold text-foreground mb-1">{item.title}</h3>
+                <p className="text-xs text-muted-foreground">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Video Section - Below expertise */}
       <section className="py-12 px-4 bg-card/30 border-y border-border/50">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 text-foreground">
