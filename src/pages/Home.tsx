@@ -124,27 +124,6 @@ const Home = () => {
             </Link>
           </div>
 
-          {/* Quick Action Buttons */}
-          <div className="flex flex-wrap justify-center gap-3 mb-6">
-            <a 
-              href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 text-primary text-sm font-medium px-4 py-2 rounded-full hover:bg-primary/20 transition-colors"
-            >
-              BOOK A FREE TRADING CALL HERE
-              <ArrowRight size={14} />
-            </a>
-            <a 
-              href="https://calendly.com/stackmodechris/businessscaling" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 text-accent text-sm font-medium px-4 py-2 rounded-full hover:bg-accent/20 transition-colors"
-            >
-              BOOK YOUR FREE BUSINESS GROWTH CALL HERE
-              <ArrowRight size={14} />
-            </a>
-          </div>
         </div>
       </section>
 
