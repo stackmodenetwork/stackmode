@@ -204,6 +204,13 @@ const Learn = () => {
               <Briefcase size={18} />
               Business Education
             </button>
+            <button 
+              onClick={() => scrollToSection('books-section')}
+              className="inline-flex items-center gap-2 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 text-amber-500 px-5 py-2.5 rounded-xl font-medium transition-colors"
+            >
+              <BookOpen size={18} />
+              Books
+            </button>
           </div>
 
           <div className="flex flex-wrap items-center gap-4 md:gap-6 text-sm text-muted-foreground">
@@ -693,6 +700,143 @@ const Learn = () => {
                 </div>
               </article>;
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== BOOKS SECTION ==================== */}
+      <section id="books-section" className="px-4 py-12 md:py-16 scroll-mt-20">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center">
+              <BookOpen size={24} className="text-amber-500" />
+            </div>
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground">Books by Stackmodechris</h2>
+              <p className="text-muted-foreground text-sm">Available on Amazon Kindle</p>
+            </div>
+          </div>
+
+          <div className="w-full h-px bg-gradient-to-r from-amber-500/50 via-amber-500/20 to-transparent my-6" />
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Neuro Trading Book */}
+            <a 
+              href="https://www.amazon.com/dp/B0GJRBW4SQ"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-card border border-border rounded-2xl overflow-hidden hover:border-amber-500/50 hover:shadow-[0_0_30px_rgba(245,158,11,0.15)] transition-all duration-300"
+            >
+              <div className="aspect-[3/4] overflow-hidden bg-muted">
+                <img 
+                  src="/images/books/neuro-trading.jpg" 
+                  alt="Neuro Trading Book Cover" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <Brain size={16} className="text-primary" />
+                  <span className="text-xs font-medium text-muted-foreground">Trading Psychology</span>
+                </div>
+                <h3 className="font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
+                  Neuro Trading
+                </h3>
+                <p className="text-sm text-muted-foreground mb-3">
+                  Master the mental game of trading. Learn to control emotions and make better decisions.
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="inline-flex items-center gap-1.5 text-amber-500 font-semibold text-sm">
+                    <ShoppingCart size={14} />
+                    Buy on Amazon
+                  </span>
+                  <ArrowRight size={16} className="text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                </div>
+              </div>
+            </a>
+
+            {/* Before The Hype Book */}
+            <a 
+              href="https://www.amazon.com/Before-HYPE-Investors-Spotting-Timing-ebook/dp/B0GJQWWH7X/ref=tmm_kin_swatch_0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-card border border-border rounded-2xl overflow-hidden hover:border-amber-500/50 hover:shadow-[0_0_30px_rgba(245,158,11,0.15)] transition-all duration-300"
+            >
+              <div className="aspect-[3/4] overflow-hidden bg-muted">
+                <img 
+                  src="/images/books/before-the-hype.png" 
+                  alt="Before The Hype Book Cover" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <TrendingUp size={16} className="text-primary" />
+                  <span className="text-xs font-medium text-muted-foreground">Investment Strategy</span>
+                </div>
+                <h3 className="font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
+                  Before The Hype
+                </h3>
+                <p className="text-sm text-muted-foreground mb-3">
+                  Learn how to buy low & sell high. Spot opportunities before the crowd.
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="inline-flex items-center gap-1.5 text-amber-500 font-semibold text-sm">
+                    <ShoppingCart size={14} />
+                    Buy on Amazon
+                  </span>
+                  <ArrowRight size={16} className="text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                </div>
+              </div>
+            </a>
+
+            {/* Freedom Money Book */}
+            <a 
+              href="https://www.amazon.com/dp/B0GJRMVRGR"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-card border border-border rounded-2xl overflow-hidden hover:border-amber-500/50 hover:shadow-[0_0_30px_rgba(245,158,11,0.15)] transition-all duration-300"
+            >
+              <div className="aspect-[3/4] overflow-hidden bg-muted">
+                <img 
+                  src="/images/books/freedom-money.jpg" 
+                  alt="Freedom Money Book Cover" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <Bitcoin size={16} className="text-amber-500" />
+                  <span className="text-xs font-medium text-muted-foreground">Crypto & Finance</span>
+                </div>
+                <h3 className="font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
+                  Freedom Money
+                </h3>
+                <p className="text-sm text-muted-foreground mb-3">
+                  Understand Bitcoin and cryptocurrency. Build financial freedom with digital assets.
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="inline-flex items-center gap-1.5 text-amber-500 font-semibold text-sm">
+                    <ShoppingCart size={14} />
+                    Buy on Amazon
+                  </span>
+                  <ArrowRight size={16} className="text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                </div>
+              </div>
+            </a>
+          </div>
+
+          {/* Amazon Trust Badge */}
+          <div className="mt-8 flex items-center justify-center gap-3 text-sm text-muted-foreground">
+            <span className="flex items-center gap-1.5">
+              <Shield size={14} className="text-amber-500" />
+              Available on Amazon Kindle
+            </span>
+            <span className="text-border">•</span>
+            <span className="flex items-center gap-1.5">
+              <Zap size={14} className="text-amber-500" />
+              Instant Download
+            </span>
           </div>
         </div>
       </section>
