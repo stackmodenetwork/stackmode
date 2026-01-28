@@ -12,6 +12,9 @@ import { ConnectWithMe } from '@/components/ConnectWithMe';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { TradingBackground } from '@/components/TradingBackground';
+import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
+import { motion } from 'framer-motion';
 
 const Index = () => {
   const [showStickyHeader, setShowStickyHeader] = useState(false);
@@ -27,11 +30,19 @@ const Index = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return <main className="min-h-screen bg-background relative overflow-x-hidden scroll-smooth animate-page-load">
+  return <main className="min-h-screen bg-background relative overflow-x-hidden scroll-smooth">
       <MainHeader />
+      
+      {/* Dynamic Trading Background */}
+      <TradingBackground />
 
       {/* Phone Call CTA Banner */}
-      <div className="bg-gradient-to-r from-primary/20 via-accent/10 to-primary/20 border-y border-primary/30">
+      <motion.div 
+        className="bg-gradient-to-r from-primary/20 via-accent/10 to-primary/20 border-y border-primary/30 relative z-10"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
         <div className="max-w-7xl mx-auto px-4 py-3">
           <a 
             href="tel:6787758532" 
@@ -57,7 +68,7 @@ const Index = () => {
             </span>
           </a>
         </div>
-      </div>
+      </motion.div>
 
       {/* Sticky Mobile Header CTA */}
       <div className={`fixed top-16 left-0 right-0 z-35 md:hidden transition-all duration-300 pointer-events-none ${showStickyHeader ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
@@ -100,19 +111,50 @@ const Index = () => {
         {/* Headline - Above the Fold */}
         <header id="intro" className="text-center mb-6 sm:mb-8 max-w-5xl mx-auto">
           {/* Live Activity Badge */}
-          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-2 mb-4 animate-pulse">
+          <motion.div 
+            className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-2 mb-4"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
             <div className="w-2 h-2 bg-primary rounded-full animate-ping"></div>
             <span className="text-primary text-sm font-semibold">Traders Currently in Training</span>
-          </div>
+          </motion.div>
           
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
-            Learn How To Trade Profitably
-          </h1>
+          <motion.h1 
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            Learn How To Trade <motion.span 
+              className="text-primary inline-block"
+              animate={{ 
+                textShadow: [
+                  '0 0 0px hsl(var(--primary))',
+                  '0 0 20px hsl(var(--primary))',
+                  '0 0 0px hsl(var(--primary))'
+                ]
+              }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >Profitably</motion.span>
+          </motion.h1>
           
-          <p className="text-base sm:text-lg text-muted-foreground mb-4 max-w-2xl mx-auto leading-relaxed">
+          <motion.p 
+            className="text-base sm:text-lg text-muted-foreground mb-4 max-w-2xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
             Watch how I mentor traders to consistent profits, then book your free strategy call to get started. Inshallah
-          </p>
-          <div className="relative w-full max-w-xl mx-auto mb-6 px-4 sm:px-0">
+          </motion.p>
+          
+          <motion.div 
+            className="relative w-full max-w-xl mx-auto mb-6 px-4 sm:px-0"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
             {/* Subtle glow effect */}
             <div className="absolute -inset-3 bg-gradient-to-r from-primary/20 via-accent/15 to-primary/20 rounded-2xl blur-xl opacity-60" />
             
@@ -120,10 +162,15 @@ const Index = () => {
             <div className="relative bg-background rounded-xl overflow-hidden border-2 border-primary/40 shadow-lg shadow-primary/10">
               <OptimizedVideo mobileSrc="/videos/mentor-intro-mobile.mp4" desktopSrc="/videos/mentor-intro.mp4" poster="/images/video-thumbnail.png" className="w-full h-auto" />
             </div>
-          </div>
+          </motion.div>
           
           {/* Value Props */}
-          <div className="flex flex-wrap justify-center gap-3 sm:gap-6 text-sm sm:text-base">
+          <motion.div 
+            className="flex flex-wrap justify-center gap-3 sm:gap-6 text-sm sm:text-base"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.7 }}
+          >
             <div className="flex items-center gap-2 text-accent">
               <Check size={18} className="text-primary" />
               <span>1-on-1 Mentorship</span>
@@ -136,7 +183,7 @@ const Index = () => {
               <Check size={18} className="text-primary" />
               <span>Proven Strategy</span>
             </div>
-          </div>
+          </motion.div>
         </header>
 
         {/* Main CTAs - Optimized for Conversions */}

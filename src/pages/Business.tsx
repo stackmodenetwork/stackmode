@@ -9,6 +9,9 @@ import { ConnectWithMe } from '@/components/ConnectWithMe';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { BusinessBackground } from '@/components/BusinessBackground';
+import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
+import { motion } from 'framer-motion';
 const businessProofImages = [
   { src: "business-proof-1.png", alt: "Watch page ads revenue" },
   { src: "business-proof-3.png", alt: "Ad results and leads" },
@@ -63,11 +66,19 @@ const Business = () => {
   }, [isLightboxOpen, goNext, goPrev]);
 
   return (
-    <main className="min-h-screen bg-background relative overflow-x-hidden scroll-smooth animate-page-load">
+    <main className="min-h-screen bg-background relative overflow-x-hidden scroll-smooth">
       <MainHeader />
+      
+      {/* Dynamic Business Background */}
+      <BusinessBackground variant="purple" />
 
       {/* Phone Call CTA Banner */}
-      <div className="bg-gradient-to-r from-accent/20 via-primary/10 to-accent/20 border-y border-accent/30">
+      <motion.div 
+        className="bg-gradient-to-r from-accent/20 via-primary/10 to-accent/20 border-y border-accent/30 relative z-10"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
         <div className="max-w-7xl mx-auto px-4 py-3">
           <a href="tel:6787758532" className="flex items-center justify-center gap-3 group">
             <div className="relative">
@@ -83,7 +94,7 @@ const Business = () => {
             </div>
           </a>
         </div>
-      </div>
+      </motion.div>
 
       {/* Sticky Mobile Header CTA */}
       <div className={`fixed top-16 left-0 right-0 z-35 md:hidden transition-all duration-300 pointer-events-none ${showStickyHeader ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
@@ -101,21 +112,51 @@ const Business = () => {
       <section className="relative z-10 min-h-screen px-4 py-6 sm:py-8">
         {/* Hero Section */}
         <header className="text-center mb-8 sm:mb-12 max-w-5xl mx-auto">
-          <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-2 mb-4 animate-pulse">
+          <motion.div 
+            className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-2 mb-4"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
             <div className="w-2 h-2 bg-accent rounded-full animate-ping"></div>
             <span className="text-accent text-sm font-semibold">Business Education Hub</span>
-          </div>
+          </motion.div>
           
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
-            Build Your <span className="text-accent">Empire</span>
-          </h1>
+          <motion.h1 
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            Build Your <motion.span 
+              className="text-accent inline-block"
+              animate={{ 
+                textShadow: [
+                  '0 0 0px hsl(var(--accent))',
+                  '0 0 20px hsl(var(--accent))',
+                  '0 0 0px hsl(var(--accent))'
+                ]
+              }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >Empire</motion.span>
+          </motion.h1>
           
-          <p className="text-base sm:text-lg text-muted-foreground mb-6 max-w-2xl mx-auto leading-relaxed">
+          <motion.p 
+            className="text-base sm:text-lg text-muted-foreground mb-6 max-w-2xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
             Learn how to start, grow, and scale a profitable online business. From idea to execution — we'll guide you every step of the way.
-          </p>
+          </motion.p>
 
           {/* Value Props */}
-          <div className="flex flex-wrap justify-center gap-3 sm:gap-6 text-sm sm:text-base">
+          <motion.div 
+            className="flex flex-wrap justify-center gap-3 sm:gap-6 text-sm sm:text-base"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+          >
             <div className="flex items-center gap-2 text-accent">
               <Check size={18} className="text-accent" />
               <span>1-on-1 Consulting</span>
@@ -128,18 +169,20 @@ const Business = () => {
               <Check size={18} className="text-accent" />
               <span>Real Results</span>
             </div>
-          </div>
+          </motion.div>
         </header>
 
         {/* Proof/Reviews Section */}
         <section className="max-w-7xl mx-auto mb-12 px-2">
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-2 mb-3">
-              <Check size={16} className="text-accent" />
-              <span className="text-accent text-sm font-semibold">Real Results</span>
+          <ScrollReveal>
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-2 mb-3">
+                <Check size={16} className="text-accent" />
+                <span className="text-accent text-sm font-semibold">Real Results</span>
+              </div>
+              <h2 className="text-xl sm:text-2xl font-semibold text-foreground">Verified Success</h2>
             </div>
-            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">Verified Success</h2>
-          </div>
+          </ScrollReveal>
           
           {/* Masonry Layout - No Dead Space */}
           <div className="columns-2 sm:columns-3 lg:columns-4 gap-2 sm:gap-3">
@@ -214,63 +257,36 @@ const Business = () => {
 
         {/* Services Grid */}
         <section className="max-w-6xl mx-auto mb-12">
-          <h2 className="text-xl sm:text-2xl font-semibold text-foreground text-center mb-8">What You'll Learn</h2>
+          <ScrollReveal>
+            <h2 className="text-xl sm:text-2xl font-semibold text-foreground text-center mb-8">What You'll Learn</h2>
+          </ScrollReveal>
           
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {/* Digital Marketing */}
-            <div className="bg-card/50 border border-border rounded-2xl p-6 hover:border-accent/50 transition-all">
-              <div className="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center mb-4">
-                <Megaphone size={24} className="text-accent" />
-              </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">Digital Marketing</h3>
-              <p className="text-muted-foreground text-sm">Master social media, content creation, and paid advertising to attract customers.</p>
-            </div>
-
-            {/* Sales Funnels */}
-            <div className="bg-card/50 border border-border rounded-2xl p-6 hover:border-accent/50 transition-all">
-              <div className="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center mb-4">
-                <Target size={24} className="text-accent" />
-              </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">Sales Funnels</h3>
-              <p className="text-muted-foreground text-sm">Build high-converting funnels that turn visitors into paying customers.</p>
-            </div>
-
-            {/* Brand Building */}
-            <div className="bg-card/50 border border-border rounded-2xl p-6 hover:border-accent/50 transition-all">
-              <div className="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center mb-4">
-                <Lightbulb size={24} className="text-accent" />
-              </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">Brand Building</h3>
-              <p className="text-muted-foreground text-sm">Create a memorable brand that stands out and builds trust with your audience.</p>
-            </div>
-
-            {/* Online Business */}
-            <div className="bg-card/50 border border-border rounded-2xl p-6 hover:border-accent/50 transition-all">
-              <div className="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center mb-4">
-                <Globe size={24} className="text-accent" />
-              </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">Online Business</h3>
-              <p className="text-muted-foreground text-sm">Launch and scale e-commerce, coaching, or service-based businesses.</p>
-            </div>
-
-            {/* Revenue Streams */}
-            <div className="bg-card/50 border border-border rounded-2xl p-6 hover:border-accent/50 transition-all">
-              <div className="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center mb-4">
-                <DollarSign size={24} className="text-accent" />
-              </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">Multiple Income Streams</h3>
-              <p className="text-muted-foreground text-sm">Diversify your income with affiliate marketing, digital products, and more.</p>
-            </div>
-
-            {/* Community Building */}
-            <div className="bg-card/50 border border-border rounded-2xl p-6 hover:border-accent/50 transition-all">
-              <div className="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center mb-4">
-                <Users size={24} className="text-accent" />
-              </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">Community Building</h3>
-              <p className="text-muted-foreground text-sm">Build a loyal audience and community around your brand.</p>
-            </div>
-          </div>
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" staggerDelay={0.1}>
+            {[
+              { icon: Megaphone, title: 'Digital Marketing', desc: 'Master social media, content creation, and paid advertising to attract customers.' },
+              { icon: Target, title: 'Sales Funnels', desc: 'Build high-converting funnels that turn visitors into paying customers.' },
+              { icon: Lightbulb, title: 'Brand Building', desc: 'Create a memorable brand that stands out and builds trust with your audience.' },
+              { icon: Globe, title: 'Online Business', desc: 'Launch and scale e-commerce, coaching, or service-based businesses.' },
+              { icon: DollarSign, title: 'Multiple Income Streams', desc: 'Diversify your income with affiliate marketing, digital products, and more.' },
+              { icon: Users, title: 'Community Building', desc: 'Build a loyal audience and community around your brand.' }
+            ].map((item, i) => (
+              <StaggerItem key={i}>
+                <motion.div 
+                  className="bg-card/50 border border-border rounded-2xl p-6 hover:border-accent/50 transition-all h-full"
+                  whileHover={{ y: -5, boxShadow: '0 10px 40px rgba(168,85,247,0.15)' }}
+                >
+                  <motion.div 
+                    className="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center mb-4"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                  >
+                    <item.icon size={24} className="text-accent" />
+                  </motion.div>
+                  <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm">{item.desc}</p>
+                </motion.div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
         </section>
 
         {/* Main CTA */}
