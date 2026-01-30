@@ -41,9 +41,10 @@ const businessProducts = [{
   color: "text-secondary",
   bgColor: "bg-secondary/10",
   isAvailable: true,
-  comboPrice: 250,
-  comboOriginalPrice: 497,
-  comboLink: "https://stackmodechris.lemonsqueezy.com/checkout/buy/business-scale-combo",
+  comboPrice: 50,
+  comboOriginalPrice: 250,
+  comboLink: "https://whop.com/stackmode-network-llc",
+  isBundle: true,
   features: [
     "Facebook & Instagram Ads Mastery",
     "YouTube Monetization Blueprint", 
@@ -824,7 +825,7 @@ const Learn = () => {
 
                   {/* Purchase CTA */}
                   <motion.a 
-                    href="https://stackmodechris.lemonsqueezy.com/checkout/buy/triple-trading-bundle" 
+                    href="https://whop.com/stackmode-network-llc" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.01 }}
@@ -832,7 +833,7 @@ const Learn = () => {
                     className="group relative overflow-hidden block w-full bg-gradient-to-r from-accent via-accent to-accent/80 hover:from-accent/90 hover:via-accent/90 hover:to-accent/70 text-accent-foreground rounded-xl p-4 sm:p-5 transition-all border-2 border-accent/30 shadow-[0_0_25px_rgba(var(--accent-rgb),0.4)] hover:shadow-[0_0_35px_rgba(var(--accent-rgb),0.6)]"
                   >
                     <div className="absolute top-0 right-0 bg-yellow-400 text-black text-[10px] font-bold px-2 sm:px-3 py-1 rounded-bl-lg">
-                      SAVE $247
+                      $50/MONTH
                     </div>
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                       <div className="flex items-center gap-3 sm:gap-4">
@@ -848,24 +849,24 @@ const Learn = () => {
                           </div>
                         </div>
                         <div className="min-w-0">
-                          <div className="font-bold text-base sm:text-lg">Get the Triple Bundle</div>
+                          <div className="font-bold text-base sm:text-lg">Join Stackmode Network</div>
                           <div className="text-[10px] sm:text-xs opacity-90">
-                            All 3 Courses + eBooks + Trading Signals
+                            All Courses + Tools + Live Signals
                           </div>
                         </div>
                       </div>
                       <div className="flex items-center justify-between sm:justify-end gap-2 sm:gap-3 pl-11 sm:pl-0">
                         <div className="text-left sm:text-right">
-                          <span className="line-through opacity-60 text-xs sm:text-sm block">$497</span>
-                          <span className="text-2xl sm:text-3xl font-bold">$250</span>
+                          <span className="line-through opacity-60 text-xs sm:text-sm block">$100/mo</span>
+                          <span className="text-2xl sm:text-3xl font-bold">$50/mo</span>
                         </div>
                         <ArrowRight size={18} className="sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
                       </div>
                     </div>
                     <div className="mt-3 pt-3 border-t border-accent-foreground/20 text-[10px] sm:text-xs opacity-90 flex items-center justify-center gap-2 sm:gap-4 flex-wrap">
-                      <span>✓ Instant Access</span>
-                      <span>✓ Lifetime Updates</span>
-                      <span>✓ Signals Included</span>
+                      <span>✓ Always Updated</span>
+                      <span>✓ Cancel Anytime</span>
+                      <span>✓ $1000+ Value</span>
                     </div>
                   </motion.a>
 
@@ -1029,7 +1030,7 @@ const Learn = () => {
                         className="group relative overflow-hidden block w-full bg-gradient-to-r from-secondary via-secondary to-secondary/80 hover:from-secondary/90 hover:via-secondary/90 hover:to-secondary/70 text-secondary-foreground rounded-xl p-4 sm:p-5 transition-all border-2 border-secondary/30 shadow-[0_0_25px_rgba(var(--secondary-rgb),0.4)] hover:shadow-[0_0_35px_rgba(var(--secondary-rgb),0.6)]"
                       >
                         <div className="absolute top-0 right-0 bg-yellow-400 text-black text-[10px] font-bold px-2 sm:px-3 py-1 rounded-bl-lg">
-                          SAVE $247
+                          $50/MONTH
                         </div>
                         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                           <div className="flex items-center gap-3 sm:gap-4">
@@ -1042,24 +1043,24 @@ const Learn = () => {
                               </div>
                             </div>
                             <div className="min-w-0">
-                              <div className="font-bold text-base sm:text-lg">Get the Business Bundle</div>
+                              <div className="font-bold text-base sm:text-lg">Join Stackmode Network</div>
                               <div className="text-[10px] sm:text-xs opacity-90">
-                                All Courses + eBooks + Templates
+                                All Business Courses + Updates
                               </div>
                             </div>
                           </div>
                           <div className="flex items-center justify-between sm:justify-end gap-2 sm:gap-3 pl-11 sm:pl-0">
                             <div className="text-left sm:text-right">
-                              <span className="line-through opacity-60 text-xs sm:text-sm block">${product.comboOriginalPrice}</span>
-                              <span className="text-2xl sm:text-3xl font-bold">${product.comboPrice}</span>
+                              <span className="line-through opacity-60 text-xs sm:text-sm block">$100/mo</span>
+                              <span className="text-2xl sm:text-3xl font-bold">$50/mo</span>
                             </div>
                             <ArrowRight size={18} className="sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
                           </div>
                         </div>
                         <div className="mt-3 pt-3 border-t border-secondary-foreground/20 text-[10px] sm:text-xs opacity-90 flex items-center justify-center gap-2 sm:gap-4 flex-wrap">
-                          <span>✓ Instant Access</span>
-                          <span>✓ Lifetime Updates</span>
-                          <span>✓ Revenue Templates</span>
+                          <span>✓ Always Updated</span>
+                          <span>✓ Cancel Anytime</span>
+                          <span>✓ $1000+ Value</span>
                         </div>
                       </motion.a>
 

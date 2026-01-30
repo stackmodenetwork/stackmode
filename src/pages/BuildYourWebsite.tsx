@@ -57,6 +57,13 @@ const BuildYourWebsite = () => {
           </Link>
         </div>
 
+        {/* Stackmode Network Group - TOP PLACEMENT */}
+        <section className="max-w-5xl mx-auto pt-8 px-4 relative z-10">
+          <ScrollReveal>
+            <StackmodeGroupPromo variant="website" />
+          </ScrollReveal>
+        </section>
+
         {/* Hero Section */}
         <section className="py-16 md:py-24 bg-gradient-to-b from-purple-500/10 to-transparent relative z-10">
           <div className="container mx-auto px-4 text-center">
@@ -156,24 +163,6 @@ const BuildYourWebsite = () => {
           </div>
         </section>
 
-        {/* DIY Option - Learn in the Group */}
-        <section className="py-12 md:py-16 relative z-10">
-          <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto">
-              <ScrollReveal>
-                <div className="text-center mb-8">
-                  <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-                    Want to Build It Yourself?
-                  </h2>
-                  <p className="text-muted-foreground max-w-2xl mx-auto">
-                    Learn how to create professional websites using AI tools — no coding required
-                  </p>
-                </div>
-              </ScrollReveal>
-              <StackmodeGroupPromo variant="website" />
-            </div>
-          </div>
-        </section>
 
         {/* CTA Section */}
         <section className="py-16 md:py-20 bg-muted/30 relative z-10">

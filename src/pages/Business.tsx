@@ -173,6 +173,13 @@ const Business = () => {
           </motion.div>
         </header>
 
+        {/* Stackmode Network Group - TOP PLACEMENT */}
+        <section className="max-w-5xl mx-auto mb-12 px-4">
+          <ScrollReveal>
+            <StackmodeGroupPromo variant="business" />
+          </ScrollReveal>
+        </section>
+
         {/* Proof/Reviews Section */}
         <section className="max-w-7xl mx-auto mb-12 px-2">
           <ScrollReveal>
@@ -290,12 +297,6 @@ const Business = () => {
           </StaggerContainer>
         </section>
 
-        {/* Stackmode Network Group - AI Business Models */}
-        <section className="max-w-5xl mx-auto mb-12 px-4">
-          <ScrollReveal>
-            <StackmodeGroupPromo variant="business" />
-          </ScrollReveal>
-        </section>
 
         {/* Main CTA */}
         <section className="max-w-3xl mx-auto mb-12">
