@@ -7,6 +7,7 @@ import { MainFooter } from '@/components/MainFooter';
 import { ConnectWithMe } from '@/components/ConnectWithMe';
 import { BusinessBackground } from '@/components/BusinessBackground';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
+import { StackmodeGroupPromo } from '@/components/StackmodeGroupPromo';
 import { motion } from 'framer-motion';
 
 const BuildYourWebsite = () => {
@@ -151,6 +152,25 @@ const BuildYourWebsite = () => {
                   </StaggerItem>
                 ))}
               </StaggerContainer>
+            </div>
+          </div>
+        </section>
+
+        {/* DIY Option - Learn in the Group */}
+        <section className="py-12 md:py-16 relative z-10">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto">
+              <ScrollReveal>
+                <div className="text-center mb-8">
+                  <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+                    Want to Build It Yourself?
+                  </h2>
+                  <p className="text-muted-foreground max-w-2xl mx-auto">
+                    Learn how to create professional websites using AI tools — no coding required
+                  </p>
+                </div>
+              </ScrollReveal>
+              <StackmodeGroupPromo variant="website" />
             </div>
           </div>
         </section>

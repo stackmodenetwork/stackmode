@@ -14,6 +14,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { TradingBackground } from '@/components/TradingBackground';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
+import { StackmodeGroupPromo } from '@/components/StackmodeGroupPromo';
 import { motion } from 'framer-motion';
 
 const Index = () => {
@@ -367,6 +368,13 @@ const Index = () => {
               </div>
             </Link>
           </div>
+        </section>
+
+        {/* Stackmode Network Group - Stack Scanner Benefits */}
+        <section className="max-w-5xl mx-auto mb-12 px-4">
+          <ScrollReveal>
+            <StackmodeGroupPromo variant="trading" />
+          </ScrollReveal>
         </section>
 
         {/* Divider */}
