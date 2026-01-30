@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { MainHeader } from '@/components/MainHeader';
 import { TradingBackground } from '@/components/TradingBackground';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
+import { StackmodeGroupPromo } from '@/components/StackmodeGroupPromo';
 import { motion } from 'framer-motion';
 
 const Home = () => {
@@ -222,6 +223,13 @@ const Home = () => {
               </Link>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Stackmode Network Group Promo */}
+      <section className="py-8 px-4 relative z-10">
+        <div className="max-w-4xl mx-auto">
+          <StackmodeGroupPromo variant="home" />
         </div>
       </section>
 

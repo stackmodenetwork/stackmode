@@ -11,6 +11,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { BusinessBackground } from '@/components/BusinessBackground';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
+import { StackmodeGroupPromo } from '@/components/StackmodeGroupPromo';
 import { motion } from 'framer-motion';
 const businessProofImages = [
   { src: "business-proof-1.png", alt: "Watch page ads revenue" },
@@ -287,6 +288,13 @@ const Business = () => {
               </StaggerItem>
             ))}
           </StaggerContainer>
+        </section>
+
+        {/* Stackmode Network Group - AI Business Models */}
+        <section className="max-w-5xl mx-auto mb-12 px-4">
+          <ScrollReveal>
+            <StackmodeGroupPromo variant="business" />
+          </ScrollReveal>
         </section>
 
         {/* Main CTA */}

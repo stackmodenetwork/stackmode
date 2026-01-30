@@ -7,6 +7,7 @@ import { ReviewsGallery } from '@/components/ReviewsGallery';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { TradingBackground } from '@/components/TradingBackground';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
+import { StackmodeGroupPromo } from '@/components/StackmodeGroupPromo';
 import { motion } from 'framer-motion';
 
 // Trading Products - Empty array since individual products are removed, only bundle remains
@@ -413,6 +414,23 @@ const Learn = () => {
               </div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* ==================== STACKMODE NETWORK GROUP PROMO ==================== */}
+      <section className="px-4 py-12 md:py-16 bg-gradient-to-b from-background via-primary/5 to-background">
+        <div className="max-w-5xl mx-auto">
+          <ScrollReveal>
+            <div className="text-center mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+                Better Than Individual Courses
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Why buy outdated courses when you can get constantly updated education for less?
+              </p>
+            </div>
+          </ScrollReveal>
+          <StackmodeGroupPromo variant="library" />
         </div>
       </section>
 
