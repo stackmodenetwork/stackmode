@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Zap, Check, Users, TrendingUp, Youtube, Briefcase, Globe, Sparkles, Bot, ArrowRight } from 'lucide-react';
+import { Zap, Check, Users, TrendingUp, Youtube, Briefcase, Globe, Sparkles, Bot, ArrowRight, BarChart3, Target, Rocket } from 'lucide-react';
 
 interface StackmodeGroupPromoProps {
   variant?: 'home' | 'trading' | 'business' | 'library' | 'website';
@@ -12,7 +12,7 @@ export const StackmodeGroupPromo = ({ variant = 'home' }: StackmodeGroupPromoPro
         return {
           badge: 'THE STACKFINDER',
           title: 'AI-Powered Trading Tools',
-          subtitle: 'Master The Markets with The Stack Scanner',
+          subtitle: 'Master The Markets with Smart Technology',
           description: 'Get access to the Stackfinder — our Market Intelligence System with live volume tracking, smart strike solver, accurate share calculators, and the Stackmode Scout AI assistant.',
           features: [
             'Live Volume Scanner & Stock Alerts',
@@ -22,20 +22,13 @@ export const StackmodeGroupPromo = ({ variant = 'home' }: StackmodeGroupPromoPro
             'Trading Courses Worth $1000+',
             'Always Updated Strategies'
           ],
-          accentColor: 'primary',
-          gradientFrom: 'from-primary/20',
-          gradientTo: 'to-cyan-500/20',
-          borderColor: 'border-primary/40',
-          hoverBorder: 'hover:border-primary',
-          glowColor: 'rgba(var(--primary-rgb),0.4)',
-          badgeBg: 'bg-primary/20',
-          badgeText: 'text-primary',
+          icon: BarChart3,
         };
       case 'business':
         return {
           badge: 'AI BUSINESS MODELS',
           title: 'Build Income With AI',
-          subtitle: 'The Stackmode System',
+          subtitle: 'The Stackmode System for Financial Freedom',
           description: 'Learn how to generate income by creating AI-powered businesses, get monetized on YouTube and other platforms, and follow the proven Stackmode System to financial freedom.',
           features: [
             'AI Business Model Training',
@@ -45,14 +38,7 @@ export const StackmodeGroupPromo = ({ variant = 'home' }: StackmodeGroupPromoPro
             'Business Courses Worth $1000+',
             'Always Updated to Current Trends'
           ],
-          accentColor: 'accent',
-          gradientFrom: 'from-accent/20',
-          gradientTo: 'to-purple-500/20',
-          borderColor: 'border-accent/40',
-          hoverBorder: 'hover:border-accent',
-          glowColor: 'rgba(168,85,247,0.4)',
-          badgeBg: 'bg-accent/20',
-          badgeText: 'text-accent',
+          icon: Youtube,
         };
       case 'library':
         return {
@@ -68,20 +54,13 @@ export const StackmodeGroupPromo = ({ variant = 'home' }: StackmodeGroupPromoPro
             'Community of Active Traders',
             'Cancel Anytime — No Lock-in'
           ],
-          accentColor: 'primary',
-          gradientFrom: 'from-primary/20',
-          gradientTo: 'to-accent/20',
-          borderColor: 'border-primary/40',
-          hoverBorder: 'hover:border-primary',
-          glowColor: 'rgba(var(--primary-rgb),0.4)',
-          badgeBg: 'bg-gradient-to-r from-primary/20 to-accent/20',
-          badgeText: 'text-primary',
+          icon: Target,
         };
       case 'website':
         return {
           badge: 'DIY OPTION',
           title: 'Learn to Build Your Own Website',
-          subtitle: 'Website Training Included',
+          subtitle: 'Website Training Included in Membership',
           description: "Want to build your own website? Inside the Stackmode Network, you'll learn how to create professional websites using AI tools — no coding required.",
           features: [
             'AI Website Building Training',
@@ -91,20 +70,13 @@ export const StackmodeGroupPromo = ({ variant = 'home' }: StackmodeGroupPromoPro
             'Plus All Trading & Business Content',
             'Just $50/month — Cancel Anytime'
           ],
-          accentColor: 'purple-400',
-          gradientFrom: 'from-purple-500/20',
-          gradientTo: 'to-accent/20',
-          borderColor: 'border-purple-500/40',
-          hoverBorder: 'hover:border-purple-500',
-          glowColor: 'rgba(168,85,247,0.4)',
-          badgeBg: 'bg-purple-500/20',
-          badgeText: 'text-purple-400',
+          icon: Globe,
         };
       default: // home
         return {
           badge: 'STACKMODE NETWORK',
           title: 'The Blueprint to Financial Freedom',
-          subtitle: 'AI Business Models & Trading',
+          subtitle: 'AI Business Models & Trading Education',
           description: 'Join the Stackmode Network and learn AI business models and trading strategies. For just $50/month, get access to everything you need to build multiple income streams.',
           features: [
             'AI Business & Trading Education',
@@ -112,20 +84,14 @@ export const StackmodeGroupPromo = ({ variant = 'home' }: StackmodeGroupPromoPro
             'The Stackfinder Trading Tools',
             'Community of Entrepreneurs'
           ],
-          accentColor: 'primary',
-          gradientFrom: 'from-primary/20',
-          gradientTo: 'to-accent/20',
-          borderColor: 'border-primary/40',
-          hoverBorder: 'hover:border-primary',
-          glowColor: 'rgba(var(--primary-rgb),0.4)',
-          badgeBg: 'bg-gradient-to-r from-primary/20 to-accent/20',
-          badgeText: 'text-primary',
+          icon: Rocket,
         };
     }
   };
 
   const content = getContent();
   const isCompact = variant === 'home';
+  const IconComponent = content.icon;
 
   return (
     <motion.section 
@@ -141,28 +107,43 @@ export const StackmodeGroupPromo = ({ variant = 'home' }: StackmodeGroupPromoPro
         rel="noopener noreferrer"
         className="block group"
       >
-        <div className={`relative bg-gradient-to-br ${content.gradientFrom} via-card/60 ${content.gradientTo} border-2 ${content.borderColor} rounded-2xl sm:rounded-3xl p-6 sm:p-8 overflow-hidden transition-all duration-500 ${content.hoverBorder} hover:shadow-[0_0_60px_${content.glowColor}] group-hover:scale-[1.01]`}>
+        <div className="relative bg-gradient-to-br from-cyan-500/10 via-card/80 to-cyan-400/10 border-2 border-cyan-500/40 rounded-2xl sm:rounded-3xl p-6 sm:p-8 overflow-hidden transition-all duration-500 hover:border-cyan-400 hover:shadow-[0_0_80px_rgba(34,211,238,0.3)] group-hover:scale-[1.01]">
           {/* Animated background elements */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-primary/10 to-transparent rounded-full blur-3xl opacity-50" />
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-accent/10 to-transparent rounded-full blur-3xl opacity-50" />
+          <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-cyan-500/15 to-transparent rounded-full blur-3xl opacity-60" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-cyan-400/10 to-transparent rounded-full blur-3xl opacity-50" />
           
-          {/* Floating icons */}
+          {/* Animated corner accent */}
           <motion.div
-            className="absolute top-4 right-4 opacity-20"
-            animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
+            className="absolute top-0 right-0 w-32 h-32 overflow-hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+          >
+            <div className="absolute top-4 right-4 w-20 h-20 border-t-2 border-r-2 border-cyan-400/50 rounded-tr-2xl" />
+          </motion.div>
+          
+          {/* Floating icon */}
+          <motion.div
+            className="absolute top-6 right-6 opacity-30"
+            animate={{ y: [0, -8, 0], rotate: [0, 5, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
           >
-            <Bot size={40} className={content.badgeText} />
+            <IconComponent size={48} className="text-cyan-400" />
           </motion.div>
           
           <div className="relative z-10">
-            {/* Badge */}
+            {/* Badge with glow */}
             <motion.div 
-              className={`inline-flex items-center gap-2 ${content.badgeBg} border ${content.borderColor} rounded-full px-4 py-2 mb-4`}
+              className="inline-flex items-center gap-2 bg-cyan-500/20 border border-cyan-400/50 rounded-full px-4 py-2 mb-4"
               whileHover={{ scale: 1.05 }}
             >
-              <Sparkles size={16} className={content.badgeText} />
-              <span className={`${content.badgeText} text-sm font-bold tracking-wide`}>{content.badge}</span>
+              <motion.div
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                <Sparkles size={16} className="text-cyan-400" />
+              </motion.div>
+              <span className="text-cyan-400 text-sm font-bold tracking-wide">{content.badge}</span>
             </motion.div>
 
             <div className={`${isCompact ? 'lg:flex lg:items-center lg:gap-8' : ''}`}>
@@ -170,7 +151,7 @@ export const StackmodeGroupPromo = ({ variant = 'home' }: StackmodeGroupPromoPro
                 <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
                   {content.title}
                 </h3>
-                <p className={`text-lg sm:text-xl ${content.badgeText} font-semibold mb-3`}>
+                <p className="text-lg sm:text-xl text-cyan-400 font-semibold mb-3">
                   {content.subtitle}
                 </p>
                 <p className="text-muted-foreground mb-6 max-w-2xl">
@@ -188,7 +169,7 @@ export const StackmodeGroupPromo = ({ variant = 'home' }: StackmodeGroupPromoPro
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.1 }}
                     >
-                      <Check size={16} className={content.badgeText + ' flex-shrink-0'} />
+                      <Check size={16} className="text-cyan-400 flex-shrink-0" />
                       <span>{feature}</span>
                     </motion.div>
                   ))}
@@ -197,22 +178,38 @@ export const StackmodeGroupPromo = ({ variant = 'home' }: StackmodeGroupPromoPro
 
               {/* CTA Section */}
               <div className={`${isCompact ? 'lg:text-center lg:min-w-[280px]' : ''}`}>
-                {/* Pricing */}
+                {/* Pricing with emphasis */}
                 <div className={`flex items-center gap-3 mb-4 ${isCompact ? 'lg:justify-center' : ''}`}>
                   <span className="text-muted-foreground line-through text-lg">$100/mo</span>
                   <span className="text-foreground font-bold text-3xl sm:text-4xl">$50/mo</span>
-                  <span className={`${content.badgeBg} ${content.badgeText} text-xs font-bold px-2 py-1 rounded-full`}>50% OFF</span>
+                  <motion.span 
+                    className="bg-cyan-500/20 text-cyan-400 text-xs font-bold px-2 py-1 rounded-full border border-cyan-400/30"
+                    animate={{ scale: [1, 1.05, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    50% OFF
+                  </motion.span>
                 </div>
 
-                {/* Button */}
+                {/* Enhanced CTA Button */}
                 <motion.div 
-                  className={`inline-flex items-center gap-3 bg-gradient-to-r ${content.gradientFrom.replace('/20', '')} ${content.gradientTo.replace('/20', '')} text-white font-bold text-lg px-8 py-4 rounded-xl shadow-lg transition-all group-hover:shadow-xl`}
-                  whileHover={{ scale: 1.05 }}
+                  className="relative inline-flex"
+                  whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <Users size={20} />
-                  <span>Join Stackmode Network</span>
-                  <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                  {/* Button glow */}
+                  <div className="absolute inset-0 bg-cyan-500 rounded-xl blur-lg opacity-40 group-hover:opacity-60 transition-opacity" />
+                  
+                  <div className="relative flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-cyan-400 text-background font-bold text-lg px-8 py-4 rounded-xl shadow-xl shadow-cyan-500/25 transition-all">
+                    <Users size={20} />
+                    <span>Join Stackmode Network</span>
+                    <motion.div
+                      animate={{ x: [0, 5, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                    >
+                      <ArrowRight size={20} />
+                    </motion.div>
+                  </div>
                 </motion.div>
 
                 <p className="text-xs text-muted-foreground mt-3">

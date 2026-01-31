@@ -7,7 +7,7 @@ import { OptimizedVideo } from '@/components/OptimizedVideo';
 import { CookieConsent } from '@/components/CookieConsent';
 import { SocialShareButtons } from '@/components/SocialShareButtons';
 import { MainHeader } from '@/components/MainHeader';
-import { Briefcase, Check, Users, TrendingUp, HelpCircle, Calendar, BookOpen, PlayCircle, Phone, Zap, Youtube } from 'lucide-react';
+import { Briefcase, Check, Users, TrendingUp, HelpCircle, Calendar, BookOpen, PlayCircle, Phone, Zap, Youtube, ArrowRight } from 'lucide-react';
 import { ConnectWithMe } from '@/components/ConnectWithMe';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -83,7 +83,7 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Floating Catch My Trades Button */}
+      {/* Floating Stackmode Network Button */}
       <a
         href="https://whop.com/stackmode-network-llc"
         target="_blank"
@@ -96,13 +96,13 @@ const Index = () => {
           
           {/* Button */}
           <div className="relative flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-cyan-400 hover:from-cyan-400 hover:to-cyan-300 text-background font-bold px-5 py-3 rounded-full shadow-xl shadow-cyan-500/30 transition-all group-hover:scale-105 group-hover:shadow-cyan-500/50">
-            <Zap size={18} className="animate-pulse" />
-            <span className="text-sm whitespace-nowrap">Catch My Trades</span>
+            <Users size={18} />
+            <span className="text-sm whitespace-nowrap">Join The Network</span>
           </div>
           
           {/* Notification dot */}
-          <span className="absolute -top-1 -right-1 w-3 h-3 bg-accent rounded-full animate-ping" />
-          <span className="absolute -top-1 -right-1 w-3 h-3 bg-accent rounded-full" />
+          <span className="absolute -top-1 -right-1 w-3 h-3 bg-cyan-400 rounded-full animate-ping" />
+          <span className="absolute -top-1 -right-1 w-3 h-3 bg-cyan-400 rounded-full" />
         </div>
       </a>
 
@@ -251,58 +251,76 @@ const Index = () => {
               </article>
             </a>
 
-            {/* Secondary CTA: Catch My Trades - Paid offer */}
-            <a href="https://whop.com/stackmode-network-llc" target="_blank" rel="noopener noreferrer" aria-label="Subscribe to Live Trading Signals" className="block group h-full order-2">
-              <article className="relative h-full bg-gradient-to-br from-card/80 via-card/60 to-card/80 border-2 border-cyan-400/50 rounded-2xl p-5 sm:p-6 md:p-8 pt-8 sm:pt-10 overflow-visible transition-all duration-500 hover:border-cyan-400 hover:shadow-[0_0_60px_rgba(34,211,238,0.4)] group-hover:scale-[1.02]">
+            {/* Secondary CTA: Stackmode Network - Full Access */}
+            <a href="https://whop.com/stackmode-network-llc" target="_blank" rel="noopener noreferrer" aria-label="Join Stackmode Network" className="block group h-full order-2">
+              <article className="relative h-full bg-gradient-to-br from-cyan-500/10 via-card/80 to-cyan-400/10 border-2 border-cyan-500/50 rounded-2xl p-5 sm:p-6 md:p-8 pt-8 sm:pt-10 overflow-visible transition-all duration-500 hover:border-cyan-400 hover:shadow-[0_0_60px_rgba(34,211,238,0.4)] group-hover:scale-[1.02]">
                 {/* Best Value Badge */}
-                <div className="absolute top-0 right-4 -translate-y-1/2 z-20">
-                  <div className="bg-cyan-500 text-background text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded-md shadow-sm whitespace-nowrap">
-                    Consistent Trades
+                <motion.div 
+                  className="absolute top-0 right-4 -translate-y-1/2 z-20"
+                  animate={{ scale: [1, 1.05, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <div className="bg-gradient-to-r from-cyan-500 to-cyan-400 text-background text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded-md shadow-lg shadow-cyan-500/30 whitespace-nowrap">
+                    BEST VALUE
                   </div>
-                </div>
+                </motion.div>
                 
-                {/* Subtle background accent */}
-                <div className="absolute top-0 left-0 w-32 h-32 bg-cyan-400/5 rounded-full blur-3xl"></div>
+                {/* Animated background accents */}
+                <div className="absolute top-0 left-0 w-40 h-40 bg-cyan-400/10 rounded-full blur-3xl" />
+                <div className="absolute bottom-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl" />
                 
                 <div className="relative z-10">
                   <div className="flex items-center justify-center gap-3 mb-4">
-                    <TrendingUp size={24} className="text-cyan-400" />
-                    <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-foreground">Trade Signals</h3>
+                    <motion.div
+                      animate={{ rotate: [0, 10, 0] }}
+                      transition={{ duration: 3, repeat: Infinity }}
+                    >
+                      <Users size={24} className="text-cyan-400" />
+                    </motion.div>
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-foreground">Stackmode Network</h3>
                   </div>
+                  
                   {/* Pricing - prominent */}
                   <div className="flex items-center justify-center gap-3 mb-4">
                     <span className="text-muted-foreground line-through text-lg">$100/mo</span>
                     <span className="text-foreground font-bold text-2xl sm:text-3xl">$50/mo</span>
-                    <span className="bg-cyan-500/10 text-cyan-400 text-xs font-medium px-2 py-1 rounded">50% OFF</span>
+                    <span className="bg-cyan-500/20 text-cyan-400 text-xs font-bold px-2 py-1 rounded-full border border-cyan-400/30">50% OFF</span>
                   </div>
                   
-                  <p className="text-muted-foreground mb-4 text-center text-sm sm:text-base">Copy my trades and stack wins alongside me</p>
+                  <p className="text-muted-foreground mb-4 text-center text-sm sm:text-base">Full access to trading tools, signals & education</p>
                   
                   {/* Benefits list */}
                   <div className="flex flex-col gap-2 mb-4 sm:mb-5">
                     <div className="flex items-center gap-2 text-sm text-foreground/80">
                       <Check size={16} className="text-cyan-400 flex-shrink-0" />
-                      <span>Real-time trade alerts & key levels</span>
+                      <span>The Stackfinder AI Trading Tools</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-foreground/80">
                       <Check size={16} className="text-cyan-400 flex-shrink-0" />
-                      <span>Weekly group calls (Sundays @ 5PM EST)</span>
+                      <span>Real-time trade alerts & signals</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-foreground/80">
                       <Check size={16} className="text-cyan-400 flex-shrink-0" />
-                      <span>Copy my exact strategy and trades</span>
+                      <span>$1000+ worth of trading courses</span>
                     </div>
                   </div>
                   
-                  <div className="bg-cyan-500 hover:bg-cyan-500/90 text-background font-semibold text-base sm:text-lg px-6 py-4 rounded-lg text-center transition-colors">
-                    Get Trade Signals →
-                  </div>
+                  <motion.div 
+                    className="relative"
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <div className="absolute inset-0 bg-cyan-500 rounded-lg blur-md opacity-30" />
+                    <div className="relative bg-gradient-to-r from-cyan-500 to-cyan-400 hover:from-cyan-400 hover:to-cyan-300 text-background font-semibold text-base sm:text-lg px-6 py-4 rounded-lg text-center transition-all flex items-center justify-center gap-2">
+                      <span>Join Stackmode Network</span>
+                      <ArrowRight size={18} />
+                    </div>
+                  </motion.div>
                   
                   {/* Trust signal */}
                   <div className="mt-4 flex justify-center">
                     <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                      <Check size={14} className="text-green-500" />
-                      <span>Cancel anytime</span>
+                      <Check size={14} className="text-cyan-400" />
+                      <span>Cancel anytime • Instant access</span>
                     </div>
                   </div>
                 </div>
