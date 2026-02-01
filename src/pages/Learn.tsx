@@ -252,6 +252,17 @@ const Learn = () => {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="flex flex-wrap gap-3 mb-8"
               >
+                {/* Amazon Books - First for credibility */}
+                <motion.button 
+                  onClick={() => scrollToSection('books-section')}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center gap-2 bg-[#232F3E] hover:bg-[#1a242f] text-white px-5 py-3 rounded-xl font-semibold transition-all shadow-lg shadow-amber-500/20"
+                >
+                  <BookOpen size={18} className="text-[#FF9900]" />
+                  <span>Amazon Books</span>
+                  <span className="text-[#FF9900] font-bold text-xs">★</span>
+                </motion.button>
                 <motion.button 
                   onClick={() => scrollToSection('free-section')}
                   whileHover={{ scale: 1.05 }}
@@ -278,15 +289,6 @@ const Learn = () => {
                 >
                   <Briefcase size={18} className="text-secondary" />
                   Business
-                </motion.button>
-                <motion.button 
-                  onClick={() => scrollToSection('books-section')}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center gap-2 bg-card border border-amber-500/30 hover:border-amber-500/60 text-foreground px-5 py-3 rounded-xl font-medium transition-all"
-                >
-                  <BookOpen size={18} className="text-amber-500" />
-                  Books
                 </motion.button>
               </motion.div>
 
@@ -442,7 +444,7 @@ const Learn = () => {
             <div className="text-center mb-10">
               <motion.div 
                 className="inline-flex items-center gap-2 bg-gradient-to-r from-accent/20 to-primary/20 text-accent px-4 py-2 rounded-full text-sm font-semibold mb-4 border border-accent/30"
-                animate={{ boxShadow: ['0 0 0px hsl(var(--accent))', '0 0 20px hsl(var(--accent) / 0.3)', '0 0 0px hsl(var(--accent))'] }}
+                animate={{ scale: [1, 1.02, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
                 <Gift size={16} className="animate-bounce" />
