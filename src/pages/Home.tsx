@@ -438,10 +438,9 @@ const Home = () => {
       <section className="py-12 px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal direction="left">
-            <motion.div 
-              className="flex flex-col sm:flex-row items-center gap-6 bg-card/50 border border-border/50 rounded-2xl p-6"
-              whileHover={{ borderColor: 'hsl(var(--primary) / 0.5)' }}
-            >
+              <motion.div 
+                className="flex flex-col sm:flex-row items-center gap-6 bg-card/50 border border-border/50 rounded-2xl p-6 hover:border-primary/50 transition-colors"
+              >
               <motion.img 
                 src="/images/stackmodechris-about-new.png" 
                 alt="Stackmodechris" 
