@@ -7,7 +7,7 @@ import { OptimizedVideo } from '@/components/OptimizedVideo';
 import { CookieConsent } from '@/components/CookieConsent';
 import { SocialShareButtons } from '@/components/SocialShareButtons';
 import { MainHeader } from '@/components/MainHeader';
-import { Briefcase, Check, Users, TrendingUp, HelpCircle, Calendar, BookOpen, PlayCircle, Phone, Zap, Youtube, ArrowRight } from 'lucide-react';
+import { Briefcase, Check, Users, TrendingUp, HelpCircle, Calendar, BookOpen, PlayCircle, Phone, Zap, Youtube, ArrowRight, Target, Shield, BarChart3, Sparkles, Activity } from 'lucide-react';
 import { ConnectWithMe } from '@/components/ConnectWithMe';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -15,6 +15,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { TradingBackground } from '@/components/TradingBackground';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
 import { StackmodeGroupPromo } from '@/components/StackmodeGroupPromo';
+import { StackFinderPromo } from '@/components/StackFinderPromo';
 import { motion } from 'framer-motion';
 
 const Index = () => {
@@ -386,6 +387,11 @@ const Index = () => {
               </div>
             </Link>
           </div>
+        </section>
+
+        {/* StackFinder AI Tool Section */}
+        <section className="max-w-5xl mx-auto mb-12 px-4">
+          <StackFinderPromo variant="trading" />
         </section>
 
         {/* Stackmode Network Group - Stack Scanner Benefits */}
