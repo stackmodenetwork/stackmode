@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { TrendingUp, Briefcase, ArrowRight, Zap, Play, Phone, ChevronRight, Award, Users, Globe, Youtube, BookOpen } from 'lucide-react';
+import { TrendingUp, Briefcase, ArrowRight, Zap, Play, Phone, ChevronRight, Award, Users, Globe, Youtube, BookOpen, Gift } from 'lucide-react';
 import { CookieConsent } from '@/components/CookieConsent';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
 import { useState } from 'react';
@@ -7,8 +7,8 @@ import { MainHeader } from '@/components/MainHeader';
 import { TradingBackground } from '@/components/TradingBackground';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
 import { StackmodeGroupPromo } from '@/components/StackmodeGroupPromo';
+import { StackFinderPromo } from '@/components/StackFinderPromo';
 import { motion } from 'framer-motion';
-
 const Home = () => {
   const [videoPlaying, setVideoPlaying] = useState(false);
   
@@ -120,7 +120,7 @@ const Home = () => {
           </motion.p>
 
           {/* Choose Your Path - Large Interactive Cards */}
-          <div className="grid md:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto mb-8">
+          <div className="grid md:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto mb-6">
             {/* Trading Path */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -223,6 +223,47 @@ const Home = () => {
               </Link>
             </motion.div>
           </div>
+
+          {/* Free Resources Button - Prominent in Hero */}
+          <motion.div 
+            className="flex justify-center mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.9 }}
+          >
+            <Link 
+              to="/library" 
+              className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-accent/20 via-primary/20 to-accent/20 border-2 border-accent/50 rounded-2xl px-6 sm:px-8 py-4 overflow-hidden transition-all duration-300 hover:border-accent hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] hover:scale-[1.02]"
+            >
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-r from-accent/10 via-primary/10 to-accent/10"
+                animate={{
+                  x: ['-100%', '100%'],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: 'linear',
+                }}
+                style={{ width: '200%' }}
+              />
+              <div className="relative z-10 flex items-center gap-3">
+                <motion.div 
+                  className="w-10 h-10 sm:w-12 sm:h-12 bg-accent/20 border border-accent/50 rounded-xl flex items-center justify-center"
+                  whileHover={{ scale: 1.1 }}
+                  animate={{ rotate: [0, 5, -5, 0] }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                >
+                  <Gift size={20} className="text-accent sm:w-6 sm:h-6" />
+                </motion.div>
+                <div className="text-left">
+                  <h3 className="text-base sm:text-lg font-bold text-foreground">Free Resources & Courses</h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground">Start learning today — no cost</p>
+                </div>
+                <ChevronRight size={20} className="text-accent group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+          </motion.div>
         </div>
       </section>
 
@@ -230,6 +271,13 @@ const Home = () => {
       <section className="py-8 px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
           <StackmodeGroupPromo variant="home" />
+        </div>
+      </section>
+
+      {/* Stack Finder AI Tool Promo */}
+      <section className="py-8 px-4 relative z-10">
+        <div className="max-w-5xl mx-auto">
+          <StackFinderPromo variant="home" />
         </div>
       </section>
 
