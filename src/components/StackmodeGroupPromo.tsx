@@ -209,16 +209,16 @@ export const StackmodeGroupPromo = ({ variant = 'home' }: StackmodeGroupPromoPro
 
               {/* CTA Section */}
               <div className={`${isCompact ? 'lg:text-center lg:min-w-[280px]' : ''}`}>
-                {/* Pricing with emphasis */}
+              {/* Pricing with emphasis */}
                 <div className={`flex items-center gap-3 mb-4 ${isCompact ? 'lg:justify-center' : ''}`}>
-                  <span className="text-muted-foreground line-through text-lg">$100/mo</span>
+                  <span className="text-muted-foreground line-through text-lg">$200/mo</span>
                   <span className="text-foreground font-bold text-3xl sm:text-4xl">$50/mo</span>
                   <motion.span 
-                    className="bg-cyan-500/20 text-cyan-400 text-xs font-bold px-2 py-1 rounded-full border border-cyan-400/30"
+                    className="bg-green-500/20 text-green-400 text-xs font-bold px-2 py-1 rounded-full border border-green-400/30"
                     animate={{ scale: [1, 1.05, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   >
-                    50% OFF
+                    75% OFF
                   </motion.span>
                 </div>
 
