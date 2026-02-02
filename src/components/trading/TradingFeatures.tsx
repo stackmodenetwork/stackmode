@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Check, TrendingUp, BarChart3, BookOpen, Users, Zap, Shield, Target, Brain } from 'lucide-react';
+import { Check, TrendingUp, BarChart3, BookOpen, Users, Zap, Shield, Brain, ArrowRight } from 'lucide-react';
 
 export const TradingFeatures = () => {
   const features = [
@@ -127,6 +127,38 @@ export const TradingFeatures = () => {
                   </motion.div>
                 ))}
               </div>
+
+              {/* CTA Button */}
+              <motion.div 
+                className="flex flex-col items-center mt-8 pt-6 border-t border-primary/20"
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+              >
+                <p className="text-foreground font-bold text-lg sm:text-xl mb-3">
+                  DON'T WAIT! <span className="text-primary">JOIN THE STACKMODE NETWORK</span>
+                </p>
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-muted-foreground line-through text-sm">$200/mo</span>
+                  <span className="text-2xl sm:text-3xl font-bold text-primary">$50/mo</span>
+                  <span className="bg-primary/20 text-primary text-xs font-bold px-2 py-1 rounded-full">75% OFF</span>
+                </div>
+                <div className="relative">
+                  <div className="absolute inset-0 bg-primary rounded-xl blur-lg opacity-40 group-hover:opacity-60 transition-opacity" />
+                  <div className="relative flex items-center gap-3 bg-gradient-to-r from-primary to-emerald-400 group-hover:from-emerald-400 group-hover:to-primary text-background font-bold text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-xl shadow-xl shadow-primary/25 transition-all">
+                    <Users size={20} />
+                    <span>Start Stacking Wins Now</span>
+                    <motion.div
+                      animate={{ x: [0, 5, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                    >
+                      <ArrowRight size={20} />
+                    </motion.div>
+                  </div>
+                </div>
+                <p className="text-xs text-muted-foreground mt-3">Cancel anytime • Instant access • No contracts</p>
+              </motion.div>
             </div>
           </div>
         </a>
