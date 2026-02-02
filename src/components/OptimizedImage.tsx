@@ -8,6 +8,7 @@ interface OptimizedImageProps {
   height?: number;
   priority?: boolean;
   onClick?: () => void;
+  sizes?: string;
 }
 
 export const OptimizedImage = memo(({ 
@@ -17,7 +18,8 @@ export const OptimizedImage = memo(({
   width,
   height,
   priority = false,
-  onClick
+  onClick,
+  sizes = '100vw'
 }: OptimizedImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(priority);
@@ -40,9 +42,9 @@ export const OptimizedImage = memo(({
         });
       },
       { 
-        // Much larger margin for earlier loading - prevents late image pop-in
-        rootMargin: '300px',
-        threshold: 0.01
+        // Large margin for earlier loading
+        rootMargin: '400px',
+        threshold: 0
       }
     );
 
@@ -61,19 +63,19 @@ export const OptimizedImage = memo(({
   return (
     <div 
       ref={imgRef}
-      className={`relative overflow-hidden ${className}`}
+      className={`relative overflow-hidden bg-muted/30 ${className}`}
       style={{ width, height }}
       onClick={onClick}
     >
-      {/* Placeholder skeleton - shows immediately */}
-      {!isLoaded && (
-        <div className="absolute inset-0 bg-muted/50" />
+      {/* Lightweight placeholder - just a colored background */}
+      {!isLoaded && !hasError && (
+        <div className="absolute inset-0 bg-gradient-to-br from-muted/40 to-muted/20" />
       )}
       
       {/* Error state */}
       {hasError && (
-        <div className="absolute inset-0 bg-muted/30 flex items-center justify-center">
-          <span className="text-muted-foreground text-xs">Image unavailable</span>
+        <div className="absolute inset-0 bg-muted/20 flex items-center justify-center">
+          <span className="text-muted-foreground text-xs">Unavailable</span>
         </div>
       )}
       
@@ -86,11 +88,16 @@ export const OptimizedImage = memo(({
           loading={priority ? 'eager' : 'lazy'}
           decoding="async"
           fetchPriority={priority ? 'high' : 'auto'}
+          sizes={sizes}
           onLoad={() => setIsLoaded(true)}
           onError={handleError}
-          className={`w-full h-full object-cover transition-opacity duration-200 ${
+          className={`w-full h-full object-cover transition-opacity duration-150 ${
             isLoaded ? 'opacity-100' : 'opacity-0'
           }`}
+          style={{
+            // GPU acceleration for smoother transitions
+            willChange: isLoaded ? 'auto' : 'opacity',
+          }}
         />
       )}
     </div>
