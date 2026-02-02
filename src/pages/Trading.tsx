@@ -85,21 +85,6 @@ const Index = () => {
         {/* FREE 1-on-1 Trading Audit CTA */}
         <TradingAuditCTA />
 
-        {/* Video Section */}
-        <section className="max-w-xl mx-auto px-4 py-6">
-          <motion.div
-            className="relative"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-          >
-            <div className="absolute -inset-3 bg-gradient-to-r from-primary/20 via-emerald-500/15 to-primary/20 rounded-2xl blur-xl opacity-60" />
-            <div className="relative bg-background rounded-xl overflow-hidden border-2 border-primary/40 shadow-lg shadow-primary/10">
-              <OptimizedVideo mobileSrc="/videos/mentor-intro-mobile.mp4" desktopSrc="/videos/mentor-intro.mp4" poster="/images/video-thumbnail.png" className="w-full h-auto" />
-            </div>
-          </motion.div>
-          <p className="text-center text-sm text-muted-foreground mt-4">Watch how I mentor traders to consistent profits</p>
-        </section>
 
         {/* FEATURES GRID */}
         <TradingFeatures />
