@@ -8,6 +8,7 @@ import { TradingBackground } from '@/components/TradingBackground';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
 import { StackmodeGroupPromo } from '@/components/StackmodeGroupPromo';
 import { StackFinderPromo } from '@/components/StackFinderPromo';
+import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
 import { motion } from 'framer-motion';
 const Home = () => {
   const [videoPlaying, setVideoPlaying] = useState(false);
@@ -433,6 +434,9 @@ const Home = () => {
           </ScrollReveal>
         </div>
       </section>
+
+      {/* Books Credibility Section */}
+      <BooksCredibilityPromo variant="compact" showHeading={true} />
 
       {/* About Preview */}
       <section className="py-12 px-4 relative z-10">

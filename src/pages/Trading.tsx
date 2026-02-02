@@ -16,6 +16,7 @@ import { TradingBackground } from '@/components/TradingBackground';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
 import { StackmodeGroupPromo } from '@/components/StackmodeGroupPromo';
 import { StackFinderPromo } from '@/components/StackFinderPromo';
+import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
 import { motion } from 'framer-motion';
 
 const Index = () => {
@@ -617,6 +618,9 @@ const Index = () => {
             </div>
           </div>
         </AnimatedBlock>
+
+        {/* Books Credibility Section */}
+        <BooksCredibilityPromo variant="compact" showHeading={true} className="mb-12" />
 
         <AnimatedBlock delay={1.4} className="mb-16">
           <div className="text-center max-w-4xl mx-auto">
