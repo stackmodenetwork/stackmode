@@ -333,8 +333,8 @@ const Home = () => {
                   {/* Main image container */}
                   <div className="relative rounded-2xl overflow-hidden border-2 border-primary/50 shadow-2xl shadow-primary/20 bg-background/50 backdrop-blur-sm">
                     <OptimizedImage 
-                      src="/images/trading-pixel-art.jpg" 
-                      alt="Smart Trading - Pixel Art"
+                      src="/images/trading-pixel-art.png" 
+                      alt="Grow Your Trading Account"
                       className="w-full aspect-square"
                     />
                     
@@ -360,7 +360,7 @@ const Home = () => {
                     animate={{ y: [0, -5, 0] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   >
-                    8-BIT GAINS 🎮
+                    📈 GROW YOUR ACCOUNT
                   </motion.div>
                 </motion.div>
               </div>
