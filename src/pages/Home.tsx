@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { TrendingUp, Briefcase, ArrowRight, Zap, Play, Phone, ChevronRight, Globe, BookOpen, Gift, BarChart3, Users, Rocket, Shield, Target, Code, Youtube } from 'lucide-react';
+import { TrendingUp, Briefcase, ArrowRight, Zap, Play, Phone, ChevronRight, Globe, BookOpen, Gift, BarChart3, Users, Rocket, Shield, Target, Code, Youtube, Sparkles } from 'lucide-react';
 import { CookieConsent } from '@/components/CookieConsent';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
 import { useState } from 'react';
@@ -203,73 +203,117 @@ const Home = () => {
             </motion.div>
           </div>
 
-          {/* Quick Access Links */}
-          <motion.div 
-            className="flex flex-wrap justify-center gap-3 mb-4"
-            initial={{ opacity: 0, y: 20 }}
+          {/* Stackmode Network - Premium All-In-One Offer */}
+          <motion.div
+            className="mt-8 relative"
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.9 }}
+            transition={{ duration: 0.6, delay: 1 }}
+          >
+            {/* Glowing border effect */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/30 via-cyan-400/20 to-cyan-500/30 rounded-3xl blur-lg opacity-60" />
+            
+            <div className="relative bg-gradient-to-br from-background/95 via-background/90 to-cyan-950/30 border-2 border-cyan-500/40 rounded-2xl p-6 sm:p-8 overflow-hidden">
+              {/* Background pattern */}
+              <div className="absolute inset-0 opacity-5">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.3),transparent_70%)]" />
+              </div>
+              
+              <div className="relative z-10">
+                {/* Header */}
+                <div className="text-center mb-6">
+                  <motion.div 
+                    className="inline-flex items-center gap-2 bg-cyan-500/20 border border-cyan-500/40 rounded-full px-4 py-1.5 mb-4"
+                    animate={{ scale: [1, 1.02, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    <Sparkles size={14} className="text-cyan-400" />
+                    <span className="text-cyan-400 text-xs font-bold">ALL-IN-ONE MEMBERSHIP</span>
+                  </motion.div>
+                  
+                  <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
+                    Get <span className="text-cyan-400">Everything</span> For Just $50/Month
+                  </h3>
+                  <p className="text-muted-foreground max-w-xl mx-auto">
+                    Stop paying for courses separately. Get unlimited access to all trading tools, business training, AI resources, and live coaching.
+                  </p>
+                </div>
+
+                {/* What's Included Grid */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+                  {[
+                    { icon: TrendingUp, label: "Trading Tools", desc: "StackFinder + More" },
+                    { icon: Briefcase, label: "Business Training", desc: "Full Course Library" },
+                    { icon: Sparkles, label: "AI Resources", desc: "Templates & Guides" },
+                    { icon: Users, label: "Live Coaching", desc: "Weekly Sessions" }
+                  ].map((item, i) => (
+                    <motion.div
+                      key={item.label}
+                      className="bg-cyan-500/5 border border-cyan-500/20 rounded-xl p-3 text-center hover:border-cyan-400/40 transition-all"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 1.2 + i * 0.1 }}
+                    >
+                      <item.icon size={20} className="text-cyan-400 mx-auto mb-1" />
+                      <div className="text-xs font-semibold text-foreground">{item.label}</div>
+                      <div className="text-[10px] text-muted-foreground">{item.desc}</div>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* CTA */}
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <motion.a
+                    href="https://whop.com/stackmode-network-llc"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-cyan-500 to-cyan-400 hover:from-cyan-400 hover:to-cyan-300 text-background font-bold text-lg px-8 py-4 rounded-xl transition-all shadow-lg shadow-cyan-500/30 hover:shadow-cyan-400/40 hover:scale-105"
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <Users size={22} />
+                    <span>Join Stackmode Network</span>
+                    <ArrowRight size={20} />
+                  </motion.a>
+                  
+                  <div className="flex items-center gap-3 text-sm">
+                    <span className="text-muted-foreground">Only</span>
+                    <span className="text-2xl font-bold text-cyan-400">$50</span>
+                    <span className="text-muted-foreground">/month</span>
+                  </div>
+                </div>
+
+                {/* Trust badges */}
+                <div className="flex flex-wrap justify-center items-center gap-4 mt-5 text-xs text-muted-foreground">
+                  <span className="flex items-center gap-1">
+                    <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" />
+                    Cancel Anytime
+                  </span>
+                  <span className="hidden sm:inline text-border">•</span>
+                  <span>Always Updated</span>
+                  <span className="hidden sm:inline text-border">•</span>
+                  <span>Private Community</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Quick Access to Free Resources */}
+          <motion.div 
+            className="flex justify-center mt-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 1.3 }}
           >
             <Link 
               to="/library" 
-              className="group inline-flex items-center gap-2 bg-gradient-to-r from-accent/10 to-primary/10 border border-accent/40 rounded-xl px-4 py-3 hover:border-accent hover:shadow-lg transition-all"
+              className="group inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
             >
-              <Gift size={18} className="text-accent" />
-              <span className="text-foreground font-semibold text-sm">Free Resources</span>
-              <ChevronRight size={16} className="text-muted-foreground group-hover:translate-x-1 transition-transform" />
+              <Gift size={16} className="text-accent" />
+              <span className="text-sm">Or start with free resources</span>
+              <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </Link>
-            
-            <a 
-              href="https://whop.com/stackmode-network-llc"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500/10 to-cyan-400/10 border border-cyan-500/40 rounded-xl px-4 py-3 hover:border-cyan-400 hover:shadow-lg transition-all"
-            >
-              <Users size={18} className="text-cyan-400" />
-              <span className="text-foreground font-semibold text-sm">Join Stackmode Network</span>
-              <span className="text-cyan-400 text-xs font-bold">$50/mo</span>
-            </a>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Social Proof Section */}
-      <section className="py-8 px-4 relative z-10">
-        <div className="max-w-6xl mx-auto">
-          <ScrollReveal>
-            <div className="text-center mb-6">
-              <span className="inline-block bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-2">
-                Real Results
-              </span>
-              <h2 className="text-xl sm:text-2xl font-bold text-foreground">
-                What My Clients Are Achieving
-              </h2>
-              <p className="text-muted-foreground text-sm mt-1">Verified testimonials from real students</p>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={0.2}>
-            <ReviewsGallery />
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Stackmode Network Section */}
-      <section className="py-8 px-4 relative z-10 bg-muted/20">
-        <div className="max-w-5xl mx-auto">
-          <ScrollReveal>
-            <div className="text-center mb-6">
-              <span className="inline-block bg-cyan-500/10 text-cyan-400 text-xs font-semibold px-3 py-1 rounded-full mb-2">
-                All-In-One Membership
-              </span>
-              <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
-                Everything You Need in One Place
-              </h2>
-              <p className="text-muted-foreground text-sm max-w-lg mx-auto">
-                Get access to trading tools, business training, AI resources, and live coaching for just $50/month
-              </p>
-            </div>
-          </ScrollReveal>
-          <StackmodeGroupPromo variant="home" />
         </div>
       </section>
 
