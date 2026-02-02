@@ -180,28 +180,49 @@ const BuildYourWebsite = () => {
         {/* Books Credibility Section */}
         <BooksCredibilityPromo variant="compact" showHeading={true} className="py-8" />
 
-        {/* Start Learning for Free Section */}
+        {/* Free Resources Section - Purple Theme */}
         <section className="py-10 px-4 bg-muted/20 relative z-10">
           <div className="max-w-6xl mx-auto">
             <Link to="/library" className="block group">
-              <div className="bg-gradient-to-br from-background/95 via-background/90 to-accent/10 border-2 border-border/50 hover:border-accent/50 rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:shadow-[0_0_40px_rgba(168,85,247,0.15)]">
+              <motion.div 
+                className="bg-gradient-to-br from-background/95 via-background/90 to-purple-500/10 border-2 border-border/50 hover:border-purple-500/50 rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:shadow-[0_0_40px_rgba(168,85,247,0.15)]"
+                whileHover={{ scale: 1.01 }}
+              >
                 <div className="text-center">
-                  <span className="inline-block bg-accent/10 text-accent text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                  <span className="inline-block bg-purple-500/10 text-purple-400 text-xs font-semibold px-3 py-1 rounded-full mb-3">
                     Free Resources
                   </span>
-                  <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2 group-hover:text-accent transition-colors">
+                  <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2 group-hover:text-purple-400 transition-colors">
                     Start Learning for Free
                   </h2>
-                  <p className="text-muted-foreground text-sm max-w-lg mx-auto mb-6">
+                  <p className="text-muted-foreground text-sm max-w-lg mx-auto mb-8">
                     Access free trading strategies, business guides, and educational content in our resource library
                   </p>
-                  <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-accent group-hover:from-accent group-hover:to-primary text-white font-semibold px-8 py-3 rounded-xl transition-all shadow-lg group-hover:shadow-accent/30">
+
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                    {[
+                      { icon: Globe, title: 'Website Tips', desc: 'Build better' },
+                      { icon: Palette, title: 'Design Guides', desc: 'Look great' },
+                      { icon: BookOpen, title: 'eBooks', desc: 'Deep dives' },
+                      { icon: Zap, title: 'Video Lessons', desc: 'Visual learning' }
+                    ].map((item, i) => (
+                      <div key={i} className="bg-background rounded-xl p-4 border border-border/50 text-center group-hover:border-purple-500/30 transition-all duration-300 h-full">
+                        <div className="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center mx-auto mb-3">
+                          <item.icon className="w-5 h-5 text-purple-400" />
+                        </div>
+                        <h3 className="text-sm font-semibold text-foreground mb-1">{item.title}</h3>
+                        <p className="text-xs text-muted-foreground">{item.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 to-purple-400 group-hover:from-purple-400 group-hover:to-purple-500 text-white font-semibold px-8 py-3 rounded-xl transition-all shadow-lg group-hover:shadow-purple-500/30">
                     <BookOpen size={18} />
                     <span>Get FREE Resources Here</span>
                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </Link>
           </div>
         </section>
