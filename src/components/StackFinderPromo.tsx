@@ -7,24 +7,33 @@ interface StackFinderPromoProps {
 }
 
 export const StackFinderPromo = ({ variant = 'home' }: StackFinderPromoProps) => {
-  const isHome = variant === 'home';
+  const isTrading = variant === 'trading';
+  
+  // Theme colors based on variant
+  const accentColor = isTrading ? 'emerald' : 'cyan';
+  const accentClass = isTrading ? 'text-emerald-400' : 'text-cyan-400';
+  const borderClass = isTrading ? 'border-emerald-500/30' : 'border-cyan-500/30';
+  const bgClass = isTrading ? 'bg-emerald-500/10' : 'bg-cyan-500/10';
+  const gradientFrom = isTrading ? 'from-emerald-500/20' : 'from-cyan-500/20';
+  const gradientBorder = isTrading ? 'border-emerald-500/40' : 'border-cyan-500/40';
+  const hoverBorder = isTrading ? 'hsl(142, 76%, 36%)' : 'hsl(185, 100%, 50%)';
   
   return (
     <ScrollReveal>
       <div className="relative overflow-hidden">
         {/* Premium gradient border effect */}
-        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 via-primary/20 to-purple-500/20 rounded-3xl blur-xl opacity-60" />
+        <div className={`absolute inset-0 bg-gradient-to-r ${gradientFrom} via-primary/20 to-primary/20 rounded-3xl blur-xl opacity-60`} />
         
         <motion.div 
-          className="relative bg-gradient-to-br from-card via-background to-card border-2 border-cyan-500/30 rounded-3xl p-6 sm:p-8 lg:p-10 overflow-hidden"
+          className={`relative bg-gradient-to-br from-card via-background to-card border-2 ${borderClass} rounded-3xl p-6 sm:p-8 lg:p-10 overflow-hidden`}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          whileHover={{ borderColor: 'hsl(185, 100%, 50%)' }}
+          whileHover={{ borderColor: hoverBorder }}
         >
           {/* Animated background elements */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl" />
+          <div className={`absolute top-0 right-0 w-64 h-64 ${bgClass} rounded-full blur-3xl`} />
           <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary/10 rounded-full blur-2xl" />
           
           {/* Floating chart lines - decorative */}
@@ -46,7 +55,7 @@ export const StackFinderPromo = ({ variant = 'home' }: StackFinderPromoProps) =>
             <div>
               {/* Badge */}
               <motion.div 
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500/20 to-primary/20 border border-cyan-500/40 rounded-full px-4 py-2 mb-4"
+                className={`inline-flex items-center gap-2 bg-gradient-to-r ${gradientFrom} to-primary/20 border ${gradientBorder} rounded-full px-4 py-2 mb-4`}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -56,9 +65,9 @@ export const StackFinderPromo = ({ variant = 'home' }: StackFinderPromoProps) =>
                   animate={{ rotate: [0, 360] }}
                   transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
                 >
-                  <Sparkles size={14} className="text-cyan-400" />
+                  <Sparkles size={14} className={accentClass} />
                 </motion.div>
-                <span className="text-cyan-400 text-xs sm:text-sm font-semibold uppercase tracking-wide">AI-Powered Trading Tool</span>
+                <span className={`${accentClass} text-xs sm:text-sm font-semibold uppercase tracking-wide`}>AI-Powered Trading Tool</span>
               </motion.div>
               
               {/* Headline */}
@@ -70,7 +79,7 @@ export const StackFinderPromo = ({ variant = 'home' }: StackFinderPromoProps) =>
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
                 Discover Winning Strategies with{' '}
-                <span className="bg-gradient-to-r from-cyan-400 via-primary to-purple-400 bg-clip-text text-transparent">
+                <span className={isTrading ? "bg-gradient-to-r from-emerald-400 via-primary to-emerald-300 bg-clip-text text-transparent" : "bg-gradient-to-r from-cyan-400 via-primary to-purple-400 bg-clip-text text-transparent"}>
                   The StackFinder
                 </span>
               </motion.h2>
@@ -104,11 +113,11 @@ export const StackFinderPromo = ({ variant = 'home' }: StackFinderPromoProps) =>
                 ].map((feature, i) => (
                   <motion.div
                     key={i}
-                    className="flex items-center gap-2 bg-background/60 border border-border/50 rounded-full px-3 py-1.5"
-                    whileHover={{ scale: 1.05, borderColor: 'hsl(185, 100%, 50%)' }}
+                    className={`flex items-center gap-2 bg-background/60 border ${isTrading ? 'border-emerald-500/30' : 'border-border/50'} rounded-full px-3 py-1.5`}
+                    whileHover={{ scale: 1.05, borderColor: hoverBorder }}
                     transition={{ type: 'spring', stiffness: 400 }}
                   >
-                    <feature.icon size={14} className="text-cyan-400" />
+                    <feature.icon size={14} className={accentClass} />
                     <span className="text-xs sm:text-sm text-foreground/80">{feature.label}</span>
                   </motion.div>
                 ))}
@@ -127,9 +136,9 @@ export const StackFinderPromo = ({ variant = 'home' }: StackFinderPromoProps) =>
                 whileHover={{ scale: 1.02 }}
               >
                 {/* Glow */}
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-primary rounded-xl blur-lg opacity-40 group-hover:opacity-60 transition-opacity" />
+                <div className={`absolute inset-0 bg-gradient-to-r ${isTrading ? 'from-emerald-500' : 'from-cyan-500'} to-primary rounded-xl blur-lg opacity-40 group-hover:opacity-60 transition-opacity`} />
                 
-                <div className="relative flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-cyan-400 hover:from-cyan-400 hover:to-cyan-300 text-background font-bold text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-xl shadow-xl shadow-cyan-500/30 transition-all">
+                <div className={`relative flex items-center gap-3 bg-gradient-to-r ${isTrading ? 'from-emerald-500 to-emerald-400 hover:from-emerald-400 hover:to-emerald-300 shadow-emerald-500/30' : 'from-cyan-500 to-cyan-400 hover:from-cyan-400 hover:to-cyan-300 shadow-cyan-500/30'} text-background font-bold text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-xl shadow-xl transition-all`}>
                   <Zap size={20} />
                   <span>Launch StackFinder</span>
                   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -161,7 +170,7 @@ export const StackFinderPromo = ({ variant = 'home' }: StackFinderPromoProps) =>
                 {/* Header */}
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <h3 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent tracking-tight">
+                    <h3 className={`text-lg sm:text-xl font-bold ${isTrading ? 'bg-gradient-to-r from-emerald-400 to-primary' : 'bg-gradient-to-r from-cyan-400 to-purple-400'} bg-clip-text text-transparent tracking-tight`}>
                       THE STACKFINDER
                     </h3>
                     <p className="text-xs text-muted-foreground">Market Intelligence System</p>
@@ -184,7 +193,7 @@ export const StackFinderPromo = ({ variant = 'home' }: StackFinderPromoProps) =>
                     transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
                   >
                     <div className="flex items-center gap-2 mb-2">
-                      <Target size={14} className="text-cyan-400" />
+                      <Target size={14} className={accentClass} />
                       <span className="text-xs font-semibold text-foreground">SMART STRIKE</span>
                     </div>
                     <div className="bg-primary/10 border border-primary/30 rounded-lg p-2 mb-2">
@@ -208,7 +217,7 @@ export const StackFinderPromo = ({ variant = 'home' }: StackFinderPromoProps) =>
                     transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
                   >
                     <div className="flex items-center gap-2 mb-2">
-                      <BarChart3 size={14} className="text-cyan-400" />
+                      <BarChart3 size={14} className={accentClass} />
                       <span className="text-xs font-semibold text-foreground">NET PROFIT</span>
                     </div>
                     <div className="bg-primary/10 border border-primary/30 rounded-lg p-3">
@@ -254,7 +263,7 @@ export const StackFinderPromo = ({ variant = 'home' }: StackFinderPromoProps) =>
               
               {/* Floating accent elements */}
               <motion.div 
-                className="absolute -top-4 -right-4 w-20 h-20 bg-cyan-500/20 rounded-full blur-xl"
+                className={`absolute -top-4 -right-4 w-20 h-20 ${bgClass} rounded-full blur-xl`}
                 animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
                 transition={{ duration: 3, repeat: Infinity }}
               />
