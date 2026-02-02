@@ -709,7 +709,7 @@ const Home = () => {
                 <ScrollReveal delay={0.3}>
                   <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-accent group-hover:from-accent group-hover:to-primary text-white font-semibold px-8 py-3 rounded-xl transition-all shadow-lg group-hover:shadow-accent/30">
                     <Gift size={18} />
-                    <span>Get FREE Courses & Ebooks</span>
+                    <span>Get FREE Resources Here</span>
                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                   </div>
                 </ScrollReveal>
