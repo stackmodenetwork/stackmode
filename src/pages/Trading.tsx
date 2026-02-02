@@ -20,20 +20,18 @@ import { motion } from 'framer-motion';
 
 // New modular trading components
 import { TradingHero, TradingStackmodePromo, TradingFeatures, TradingCTASection, TradingAuditCTA } from '@/components/trading';
-
 const Index = () => {
   const [showStickyHeader, setShowStickyHeader] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => {
       setShowStickyHeader(window.scrollY > 400);
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll, {
+      passive: true
+    });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  return (
-    <main className="min-h-screen bg-background relative overflow-x-hidden scroll-smooth">
+  return <main className="min-h-screen bg-background relative overflow-x-hidden scroll-smooth">
       <MainHeader />
       <TradingBackground />
       <FreeResourcesCTA variant="banner" />
@@ -51,12 +49,7 @@ const Index = () => {
       </div>
 
       {/* Floating Stackmode Network Button */}
-      <a
-        href="https://whop.com/stackmode-network-llc"
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`fixed bottom-24 right-4 md:bottom-8 md:right-8 z-40 group transition-all duration-500 ${showStickyHeader ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-4 opacity-0 scale-95 pointer-events-none'}`}
-      >
+      <a href="https://whop.com/stackmode-network-llc" target="_blank" rel="noopener noreferrer" className={`fixed bottom-24 right-4 md:bottom-8 md:right-8 z-40 group transition-all duration-500 ${showStickyHeader ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-4 opacity-0 scale-95 pointer-events-none'}`}>
         <div className="relative">
           <div className="absolute inset-0 bg-primary rounded-full blur-lg opacity-50 group-hover:opacity-75 transition-opacity animate-pulse" />
           <div className="relative flex items-center gap-2 bg-gradient-to-r from-primary to-emerald-400 hover:from-emerald-400 hover:to-primary text-background font-bold px-5 py-3 rounded-full shadow-xl shadow-primary/30 transition-all group-hover:scale-105">
@@ -90,7 +83,7 @@ const Index = () => {
         <TradingFeatures />
 
         {/* CTA OPTIONS - Mentorship vs Network */}
-        <TradingCTASection />
+        
 
         {/* Divider */}
         <div className="max-w-2xl mx-auto my-8 px-4">
@@ -148,11 +141,15 @@ const Index = () => {
 
         {/* SOCIAL PROOF */}
         <section id="results" className="mb-8 sm:mb-12 text-center max-w-5xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }}>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-foreground mb-3">
               Proven Results from <span className="text-primary">Real Traders</span>
             </h2>
@@ -208,7 +205,9 @@ const Index = () => {
         <AnimatedBlock delay={0.5} className="mb-12">
           <div className="max-w-4xl mx-auto px-4">
             <h3 className="text-2xl md:text-3xl font-semibold text-foreground mb-6 text-center">Watch: <span className="text-primary">$100 Profit in 15 Minutes</span></h3>
-            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+            <div className="relative w-full" style={{
+            paddingBottom: '56.25%'
+          }}>
               <iframe className="absolute top-0 left-0 w-full h-full rounded-lg border-2 border-primary/50" src="https://www.youtube.com/embed/Ay6AYak6sXE" title="How I Made $100 in 15 Minutes" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen loading="lazy" />
             </div>
           </div>
@@ -330,25 +329,26 @@ const Index = () => {
         {/* Bottom CTA */}
         <section className="py-12 px-4 mb-8">
           <div className="max-w-3xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
+            <motion.div initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }}>
               <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
                 Ready to <span className="text-primary">Stop Gambling</span> and Start Trading?
               </h2>
               <p className="text-muted-foreground mb-6">
                 Join the Stackmode Network today and get access to live trades, AI tools, and constantly-updated education.
               </p>
-              <motion.a
-                href="https://whop.com/stackmode-network-llc"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-gradient-to-r from-primary to-emerald-400 hover:from-emerald-400 hover:to-primary text-background font-bold text-lg px-10 py-5 rounded-xl shadow-xl shadow-primary/30 transition-all"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-              >
+              <motion.a href="https://whop.com/stackmode-network-llc" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-gradient-to-r from-primary to-emerald-400 hover:from-emerald-400 hover:to-primary text-background font-bold text-lg px-10 py-5 rounded-xl shadow-xl shadow-primary/30 transition-all" whileHover={{
+              scale: 1.03
+            }} whileTap={{
+              scale: 0.98
+            }}>
                 <Users size={22} />
                 <span>Join Stackmode Network — $50/mo</span>
                 <ArrowRight size={22} />
@@ -382,8 +382,6 @@ const Index = () => {
       </footer>
 
       <CookieConsent />
-    </main>
-  );
+    </main>;
 };
-
 export default Index;
