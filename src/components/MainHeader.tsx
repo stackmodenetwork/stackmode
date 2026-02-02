@@ -1,6 +1,6 @@
 import { useState, useCallback, useRef, memo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Youtube, Instagram, Mic, TrendingUp, Target, Briefcase, Globe, BookOpen, User, Headphones, MessageCircle, type LucideIcon } from 'lucide-react';
+import { Menu, X, Youtube, Instagram, Mic, TrendingUp, Target, Briefcase, Globe, BookOpen, User, Headphones, MessageCircle, Phone, type LucideIcon } from 'lucide-react';
 
 // Haptic feedback utility - memoized to prevent recreation
 const triggerHaptic = (style: 'light' | 'medium' = 'light') => {
@@ -125,6 +125,11 @@ export const MainHeader = memo(() => {
                 <ExternalNavLink href="https://discord.gg/5zYWSWGMYm" icon={MessageCircle}>
                   Discord
                 </ExternalNavLink>
+                <span className="w-px h-4 bg-gradient-to-b from-transparent via-primary/40 to-transparent mx-0.5 xl:mx-1 shrink-0" />
+                <a href="tel:6787758532" className="group flex items-center gap-1.5 text-sm font-medium px-3 py-1.5 rounded-full transition-all duration-300 whitespace-nowrap text-primary-foreground bg-primary shadow-lg shadow-primary/40 hover:scale-105">
+                  <Phone size={14} className="transition-transform duration-300 group-hover:rotate-12" />
+                  Call Me
+                </a>
               </div>
             </nav>
 
@@ -164,45 +169,59 @@ export const MainHeader = memo(() => {
             </div>
 
             <div className="space-y-1 mb-4">
-              <Link to="/trading" onClick={handleMenuItemClick} className={`block px-4 py-3 rounded-lg font-medium border transition-all duration-300 active:scale-[0.98] animate-fade-in ${location.pathname === '/trading' ? 'text-primary bg-primary/15 border-primary/30' : 'text-foreground bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10'}`} style={{
+              <Link to="/trading" onClick={handleMenuItemClick} className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium border transition-all duration-300 active:scale-[0.98] animate-fade-in ${location.pathname === '/trading' ? 'text-primary bg-primary/15 border-primary/30' : 'text-foreground bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10'}`} style={{
               animationDelay: '50ms'
             }}>
+                <TrendingUp size={18} className="text-primary" />
                 Learn How To Trade
               </Link>
-              <a href="https://whop.com/stackmode-network-llc" target="_blank" rel="noopener noreferrer" onClick={handleMenuItemClick} className="block px-4 py-3 rounded-lg text-foreground font-medium bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-300 active:scale-[0.98] animate-fade-in" style={{
+              <a href="https://whop.com/stackmode-network-llc" target="_blank" rel="noopener noreferrer" onClick={handleMenuItemClick} className="flex items-center gap-3 px-4 py-3 rounded-lg text-foreground font-medium bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-300 active:scale-[0.98] animate-fade-in" style={{
               animationDelay: '75ms'
             }}>
+                <Target size={18} className="text-primary" />
                 Catch My Trades
               </a>
-              <Link to="/business" onClick={handleMenuItemClick} className={`block px-4 py-3 rounded-lg font-medium border transition-all duration-300 active:scale-[0.98] animate-fade-in ${location.pathname === '/business' ? 'text-accent bg-accent/15 border-accent/30' : 'text-foreground bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10'}`} style={{
+              <Link to="/business" onClick={handleMenuItemClick} className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium border transition-all duration-300 active:scale-[0.98] animate-fade-in ${location.pathname === '/business' ? 'text-accent bg-accent/15 border-accent/30' : 'text-foreground bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10'}`} style={{
               animationDelay: '100ms'
             }}>
+                <Briefcase size={18} className="text-accent" />
                 Grow Your Business
               </Link>
-              <Link to="/buildyourwebsite" onClick={handleMenuItemClick} className={`block px-4 py-3 rounded-lg font-medium border transition-all duration-300 active:scale-[0.98] animate-fade-in ${isBuildWebsiteActive ? 'text-purple-400 bg-purple-500/15 border-purple-500/30' : 'text-foreground bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10'}`} style={{
+              <Link to="/buildyourwebsite" onClick={handleMenuItemClick} className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium border transition-all duration-300 active:scale-[0.98] animate-fade-in ${isBuildWebsiteActive ? 'text-purple-400 bg-purple-500/15 border-purple-500/30' : 'text-foreground bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10'}`} style={{
               animationDelay: '125ms'
             }}>
+                <Globe size={18} className="text-purple-400" />
                 Build Your Website
               </Link>
-              <Link to="/library" onClick={handleMenuItemClick} className={`block px-4 py-3 rounded-lg font-medium border transition-all duration-300 active:scale-[0.98] animate-fade-in ${isLibraryActive ? 'text-primary bg-primary/15 border-primary/30' : 'text-foreground bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10'}`} style={{
+              <Link to="/library" onClick={handleMenuItemClick} className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium border transition-all duration-300 active:scale-[0.98] animate-fade-in ${isLibraryActive ? 'text-primary bg-primary/15 border-primary/30' : 'text-foreground bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10'}`} style={{
               animationDelay: '150ms'
             }}>
+                <BookOpen size={18} className="text-primary" />
                 Library
               </Link>
-              <Link to="/about" onClick={handleMenuItemClick} className={`block px-4 py-3 rounded-lg font-medium border transition-all duration-300 active:scale-[0.98] animate-fade-in ${isAboutActive ? 'text-primary bg-primary/15 border-primary/30' : 'text-foreground bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10'}`} style={{
+              <Link to="/about" onClick={handleMenuItemClick} className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium border transition-all duration-300 active:scale-[0.98] animate-fade-in ${isAboutActive ? 'text-primary bg-primary/15 border-primary/30' : 'text-foreground bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10'}`} style={{
               animationDelay: '175ms'
             }}>
+                <User size={18} className="text-primary" />
                 About
               </Link>
-              <a href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true" target="_blank" rel="noopener noreferrer" onClick={handleMenuItemClick} className="block px-4 py-3 rounded-lg text-foreground font-medium bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-300 active:scale-[0.98] animate-fade-in" style={{
+              <a href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true" target="_blank" rel="noopener noreferrer" onClick={handleMenuItemClick} className="flex items-center gap-3 px-4 py-3 rounded-lg text-foreground font-medium bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-300 active:scale-[0.98] animate-fade-in" style={{
               animationDelay: '200ms'
             }}>
+                <Headphones size={18} className="text-green-500" />
                 Podcast
               </a>
-              <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" onClick={handleMenuItemClick} className="block px-4 py-3 rounded-lg text-foreground font-medium bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-300 active:scale-[0.98] animate-fade-in" style={{
+              <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" onClick={handleMenuItemClick} className="flex items-center gap-3 px-4 py-3 rounded-lg text-foreground font-medium bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-300 active:scale-[0.98] animate-fade-in" style={{
               animationDelay: '225ms'
             }}>
+                <MessageCircle size={18} className="text-primary" />
                 Discord
+              </a>
+              <a href="tel:6787758532" onClick={handleMenuItemClick} className="flex items-center gap-3 px-4 py-3 rounded-lg text-primary-foreground font-medium bg-primary hover:bg-primary/90 border border-primary/30 transition-all duration-300 active:scale-[0.98] animate-fade-in shadow-lg shadow-primary/30" style={{
+              animationDelay: '250ms'
+            }}>
+                <Phone size={18} />
+                Call Me
               </a>
             </div>
             

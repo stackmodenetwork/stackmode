@@ -11,15 +11,11 @@ import { StackmodeGroupPromo } from '@/components/StackmodeGroupPromo';
 import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
 import { BlueprintPromo } from '@/components/BlueprintPromo';
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
-import { FloatingPhoneButton } from '@/components/FloatingPhoneButton';
 import { motion } from 'framer-motion';
 
 const BuildYourWebsite = () => {
   return (
     <>
-      {/* Floating Phone Button - Desktop Only - Outside div for proper fixed positioning */}
-      <FloatingPhoneButton />
-      
       <Helmet>
         <title>Build Your Website | Stackmode Network</title>
         <meta name="description" content="Get a professional website built for your business. Custom web development services by Stackmode Network." />

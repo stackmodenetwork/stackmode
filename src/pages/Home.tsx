@@ -11,7 +11,6 @@ import { StackFinderPromo } from '@/components/StackFinderPromo';
 import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
 import { BlueprintPromo } from '@/components/BlueprintPromo';
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
-import { FloatingPhoneButton } from '@/components/FloatingPhoneButton';
 import { motion } from 'framer-motion';
 import { OptimizedImage } from '@/components/OptimizedImage';
 
@@ -19,11 +18,7 @@ const Home = () => {
   const [videoPlaying, setVideoPlaying] = useState(false);
   
   return (
-    <>
-      {/* Floating Phone Button - Desktop Only - Outside main for proper fixed positioning */}
-      <FloatingPhoneButton />
-      
-      <main className="min-h-screen bg-background relative overflow-x-hidden">
+    <main className="min-h-screen bg-background relative overflow-x-hidden">
         <MainHeader />
         
         {/* Dynamic Trading Background */}
@@ -736,7 +731,6 @@ const Home = () => {
 
         <CookieConsent />
       </main>
-    </>
   );
 };
 

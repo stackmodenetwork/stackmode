@@ -12,7 +12,6 @@ import { MainFooter } from '@/components/MainFooter';
 import { OptimizedImage } from '@/components/OptimizedImage';
 import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
-import { FloatingPhoneButton } from '@/components/FloatingPhoneButton';
 
 const About = () => {
   const { toast } = useToast();
@@ -61,9 +60,6 @@ const About = () => {
 
   return (
     <>
-      {/* Floating Phone Button - Desktop Only - Outside div for proper fixed positioning */}
-      <FloatingPhoneButton />
-      
       <Helmet>
         <title>About Stackmodechris | Trading Mentor & Founder of Stackmode Network</title>
         <meta name="description" content="Meet Christopher Robinson (Stackmodechris) - a passionate trader and mentor helping everyday people achieve financial freedom through stocks, options, futures, forex, and crypto trading." />

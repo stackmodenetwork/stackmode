@@ -16,7 +16,6 @@ import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
 import { BlueprintPromo } from '@/components/BlueprintPromo';
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
-import { FloatingPhoneButton } from '@/components/FloatingPhoneButton';
 import { motion } from 'framer-motion';
 const businessProofImages = [
   { src: "business-proof-1.png", alt: "Watch page ads revenue" },
@@ -72,10 +71,6 @@ const Business = () => {
   }, [isLightboxOpen, goNext, goPrev]);
 
   return (
-    <>
-      {/* Floating Phone Button - Desktop Only - Outside main for proper fixed positioning */}
-      <FloatingPhoneButton />
-      
       <main className="min-h-screen bg-background relative overflow-x-hidden scroll-smooth">
         <MainHeader />
         
@@ -563,11 +558,9 @@ const Business = () => {
           </p>
         </div>
       </footer>
-      
       <div className="h-28 md:hidden" />
       <CookieConsent />
       </main>
-    </>
   );
 };
 
