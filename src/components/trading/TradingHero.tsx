@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { TrendingDown, AlertTriangle, Zap } from 'lucide-react';
 export const TradingHero = () => {
-  return <section className="relative z-10 px-4 pt-8 pb-12 sm:pt-12 sm:pb-16">
+  return <section className="relative z-10 px-4 pt-6 pb-6 sm:pt-8 sm:pb-8">
       <div className="max-w-4xl mx-auto text-center">
         {/* Warning Badge */}
         <motion.div className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/30 rounded-full px-4 py-2 mb-6" initial={{
