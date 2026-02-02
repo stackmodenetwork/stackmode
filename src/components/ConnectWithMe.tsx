@@ -66,6 +66,16 @@ const socialLinks = [
     color: 'indigo-500',
   },
   {
+    name: 'Snapchat',
+    href: 'https://www.snapchat.com/@stackmodechris?sender_web_id=0f0a0675-51d4-4c57-8b1b-8952e934eb8f&device_type=desktop&is_copy_url=true',
+    customIcon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-yellow-400">
+        <path d="M12.166 3c.796 0 3.495.223 4.769 3.073.426.954.323 2.582.239 3.896l-.012.18c-.022.332-.043.647-.043.876 0 .259.1.448.297.562.418.24.893.363 1.058.408.428.116.727.263.915.449.26.258.324.563.277.82-.108.586-.792.857-1.106.956-.066.021-.127.04-.179.058-.437.145-.544.246-.57.348-.033.125.008.27.066.455.32.94.86 1.94 1.682 2.678.45.404.984.735 1.585.985.21.087.401.208.455.463.073.347-.176.68-.746.998-.705.393-1.595.583-2.108.687a1.633 1.633 0 0 0-.196.05c-.222.083-.255.227-.3.42-.024.1-.05.21-.095.335-.093.257-.24.377-.566.377a3.502 3.502 0 0 1-.62-.082c-.52-.097-1.166-.22-1.96-.22-.754 0-1.352.108-1.83.204-.328.066-.611.122-.864.122-.324 0-.474-.115-.56-.351-.048-.13-.075-.243-.099-.347-.044-.194-.078-.335-.295-.416a1.86 1.86 0 0 0-.213-.055c-.509-.105-1.39-.293-2.088-.68-.576-.321-.833-.654-.766-.993.05-.253.237-.375.445-.461.604-.252 1.14-.585 1.594-.992.82-.734 1.362-1.737 1.681-2.677.06-.186.1-.33.067-.456-.027-.102-.134-.203-.571-.348a4.15 4.15 0 0 1-.18-.058c-.303-.097-.982-.362-1.099-.941-.05-.249.012-.558.276-.821.19-.19.491-.337.918-.454.164-.044.638-.168 1.057-.407.187-.109.286-.292.29-.551.003-.238-.02-.563-.044-.903l-.011-.173c-.08-1.253-.182-2.882.244-3.838C8.63 3.256 11.302 3 12.166 3z" />
+      </svg>
+    ),
+    color: 'yellow-400',
+  },
+  {
     name: 'Podcast',
     href: 'https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true',
     icon: Mic,
@@ -95,6 +105,7 @@ export const ConnectWithMe = ({ showBlessing = false }: ConnectWithMeProps) => {
             'red-600': 'hover:border-red-600/50 bg-red-600/10 group-hover:bg-red-600/20 text-red-600',
             'indigo-500': 'hover:border-indigo-500/50 bg-indigo-500/10 group-hover:bg-indigo-500/20 text-indigo-500',
             'green-500': 'hover:border-green-500/50 bg-green-500/10 group-hover:bg-green-500/20 text-green-500',
+            'yellow-400': 'hover:border-yellow-400/50 bg-yellow-400/10 group-hover:bg-yellow-400/20 text-yellow-400',
             'foreground': 'hover:border-foreground/50 bg-foreground/10 group-hover:bg-foreground/20 text-foreground',
           };
           
