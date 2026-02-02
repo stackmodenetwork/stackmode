@@ -10,6 +10,7 @@ import { StackmodeGroupPromo } from '@/components/StackmodeGroupPromo';
 import { StackFinderPromo } from '@/components/StackFinderPromo';
 import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
 import { BlueprintPromo } from '@/components/BlueprintPromo';
+import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
 import { motion } from 'framer-motion';
 import { OptimizedImage } from '@/components/OptimizedImage';
 
@@ -50,6 +51,9 @@ const Home = () => {
           </a>
         </div>
       </motion.div>
+
+      {/* Free Resources Banner */}
+      <FreeResourcesCTA variant="banner" />
 
       {/* Hero Section */}
       <section className="relative pt-8 sm:pt-12 pb-6 px-4 z-10">
