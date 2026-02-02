@@ -7,7 +7,7 @@ import { OptimizedVideo } from '@/components/OptimizedVideo';
 import { CookieConsent } from '@/components/CookieConsent';
 import { SocialShareButtons } from '@/components/SocialShareButtons';
 import { MainHeader } from '@/components/MainHeader';
-import { Check, Users, HelpCircle, Calendar, BookOpen, PlayCircle, Youtube, ArrowRight } from 'lucide-react';
+import { Check, Users, HelpCircle, Calendar, BookOpen, PlayCircle, Youtube, ArrowRight, TrendingUp, Gift } from 'lucide-react';
 import { ConnectWithMe } from '@/components/ConnectWithMe';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -90,53 +90,51 @@ const Index = () => {
           <div className="h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
         </div>
 
-        {/* Courses & Books Section */}
-        <section className="max-w-5xl mx-auto px-4 mb-12">
-          <div className="text-center mb-6">
-            <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-2">Prefer Self-Paced Learning?</h3>
-            <p className="text-sm text-muted-foreground">Master trading on your own schedule with our courses and eBooks</p>
+        {/* Free Resources Section - Green Trading Theme */}
+        <section className="py-10 px-4 bg-muted/20 relative z-10">
+          <div className="max-w-6xl mx-auto">
+            <Link to="/library" className="block group">
+              <motion.div 
+                className="bg-gradient-to-br from-background/95 via-background/90 to-primary/10 border-2 border-border/50 hover:border-primary/50 rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:shadow-[0_0_40px_rgba(34,197,94,0.15)]"
+                whileHover={{ scale: 1.01 }}
+              >
+                <div className="text-center">
+                  <span className="inline-block bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                    Free Resources
+                  </span>
+                  <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                    Start Learning for Free
+                  </h2>
+                  <p className="text-muted-foreground text-sm max-w-lg mx-auto mb-8">
+                    Access free trading strategies, business guides, and educational content in our resource library
+                  </p>
+
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                    {[
+                      { icon: TrendingUp, title: 'Trading Guides', desc: 'Free strategies' },
+                      { icon: Users, title: 'Community Tips', desc: 'Growth tactics' },
+                      { icon: BookOpen, title: 'eBooks', desc: 'Deep dives' },
+                      { icon: Youtube, title: 'Video Lessons', desc: 'Visual learning' }
+                    ].map((item, i) => (
+                      <div key={i} className="bg-background rounded-xl p-4 border border-border/50 text-center group-hover:border-primary/30 transition-all duration-300 h-full">
+                        <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-3">
+                          <item.icon className="w-5 h-5 text-primary" />
+                        </div>
+                        <h3 className="text-sm font-semibold text-foreground mb-1">{item.title}</h3>
+                        <p className="text-xs text-muted-foreground">{item.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-emerald-400 group-hover:from-emerald-400 group-hover:to-primary text-background font-semibold px-8 py-3 rounded-xl transition-all shadow-lg group-hover:shadow-primary/30">
+                    <Gift size={18} />
+                    <span>Get FREE Resources Here</span>
+                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </motion.div>
+            </Link>
           </div>
-          
-          <Link to="/library" className="block group">
-            <div className="relative bg-gradient-to-r from-primary/5 via-card to-emerald-500/5 border border-primary/20 rounded-2xl p-5 sm:p-6 overflow-hidden transition-all duration-500 hover:border-primary/50 hover:shadow-[0_0_30px_rgba(34,197,94,0.1)] group-hover:scale-[1.01]">
-              <div className="absolute top-0 left-1/4 w-40 h-40 bg-primary/5 rounded-full blur-3xl" />
-              <div className="absolute bottom-0 right-1/4 w-32 h-32 bg-emerald-400/5 rounded-full blur-2xl" />
-              
-              <div className="relative z-10 flex flex-col sm:flex-row items-center gap-5">
-                <div className="flex items-center gap-3">
-                  <div className="w-20 h-24 sm:w-24 sm:h-28 bg-gradient-to-br from-primary/20 to-emerald-900/30 rounded-xl border border-primary/30 flex flex-col items-center justify-center gap-2 shadow-lg">
-                    <PlayCircle className="w-8 h-8 sm:w-10 sm:h-10 text-primary" />
-                    <span className="text-[10px] sm:text-xs text-primary font-medium">Courses</span>
-                  </div>
-                  <div className="w-20 h-24 sm:w-24 sm:h-28 bg-gradient-to-br from-primary/20 to-emerald-900/30 rounded-xl border border-primary/30 flex flex-col items-center justify-center gap-2 shadow-lg -ml-2 transform rotate-3">
-                    <BookOpen className="w-8 h-8 sm:w-10 sm:h-10 text-primary" />
-                    <span className="text-[10px] sm:text-xs text-primary font-medium">eBooks</span>
-                  </div>
-                </div>
-                
-                <div className="flex-1 text-center sm:text-left">
-                  <h4 className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground mb-1 flex items-center justify-center sm:justify-start gap-2">
-                    <span>Courses & Books</span>
-                    <span className="text-xs bg-primary/20 text-primary px-2 py-0.5 rounded-full">Popular</span>
-                  </h4>
-                  <p className="text-muted-foreground text-sm sm:text-base mb-3">Learn proven strategies at your own pace with video courses and comprehensive trading guides</p>
-                  
-                  <div className="flex flex-wrap justify-center sm:justify-start gap-x-4 gap-y-1 text-xs sm:text-sm text-foreground/70">
-                    <span className="flex items-center gap-1"><Check size={14} className="text-primary" /> Instant Access</span>
-                    <span className="flex items-center gap-1"><Check size={14} className="text-primary" /> Lifetime Updates</span>
-                    <span className="flex items-center gap-1"><Check size={14} className="text-primary" /> Beginner Friendly</span>
-                  </div>
-                </div>
-                
-                <div className="flex-shrink-0">
-                  <div className="bg-gradient-to-r from-primary to-emerald-500 hover:from-emerald-500 hover:to-primary text-background font-semibold text-sm sm:text-base px-5 py-3 rounded-lg text-center transition-all flex items-center gap-2 group-hover:gap-3 shadow-lg shadow-primary/20">
-                    <span>Browse FREE Content</span>
-                    <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Link>
         </section>
 
         {/* SOCIAL PROOF */}

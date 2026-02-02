@@ -4,7 +4,7 @@ import { AnimatedBlock } from '@/components/AnimatedBlock';
 import { CookieConsent } from '@/components/CookieConsent';
 import { SocialShareButtons } from '@/components/SocialShareButtons';
 import { MainHeader } from '@/components/MainHeader';
-import { Briefcase, Check, Rocket, Target, Users, DollarSign, Lightbulb, Megaphone, Globe, Calendar, PlayCircle, BookOpen, X, ChevronLeft, ChevronRight, Star, Shield } from 'lucide-react';
+import { Briefcase, Check, Rocket, Target, Users, DollarSign, Lightbulb, Megaphone, Globe, Calendar, PlayCircle, BookOpen, X, ChevronLeft, ChevronRight, Star, Shield, Gift, ArrowRight, TrendingUp, Youtube } from 'lucide-react';
 import { ConnectWithMe } from '@/components/ConnectWithMe';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -524,6 +524,53 @@ const Business = () => {
 
         {/* Social Links */}
         <ConnectWithMe />
+
+        {/* Free Resources Section - Purple Business Theme */}
+        <section className="py-10 px-4 bg-muted/20 relative z-10 mt-8">
+          <div className="max-w-6xl mx-auto">
+            <Link to="/library" className="block group">
+              <motion.div 
+                className="bg-gradient-to-br from-background/95 via-background/90 to-accent/10 border-2 border-border/50 hover:border-accent/50 rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:shadow-[0_0_40px_rgba(168,85,247,0.15)]"
+                whileHover={{ scale: 1.01 }}
+              >
+                <div className="text-center">
+                  <span className="inline-block bg-accent/10 text-accent text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                    Free Resources
+                  </span>
+                  <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2 group-hover:text-accent transition-colors">
+                    Start Learning for Free
+                  </h2>
+                  <p className="text-muted-foreground text-sm max-w-lg mx-auto mb-8">
+                    Access free trading strategies, business guides, and educational content in our resource library
+                  </p>
+
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                    {[
+                      { icon: TrendingUp, title: 'Trading Guides', desc: 'Free strategies' },
+                      { icon: Briefcase, title: 'Business Tips', desc: 'Growth tactics' },
+                      { icon: BookOpen, title: 'eBooks', desc: 'Deep dives' },
+                      { icon: Youtube, title: 'Video Lessons', desc: 'Visual learning' }
+                    ].map((item, i) => (
+                      <div key={i} className="bg-background rounded-xl p-4 border border-border/50 text-center group-hover:border-accent/30 transition-all duration-300 h-full">
+                        <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-3">
+                          <item.icon className="w-5 h-5 text-accent" />
+                        </div>
+                        <h3 className="text-sm font-semibold text-foreground mb-1">{item.title}</h3>
+                        <p className="text-xs text-muted-foreground">{item.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="inline-flex items-center gap-2 bg-gradient-to-r from-accent to-purple-400 group-hover:from-purple-400 group-hover:to-accent text-white font-semibold px-8 py-3 rounded-xl transition-all shadow-lg group-hover:shadow-accent/30">
+                    <Gift size={18} />
+                    <span>Get FREE Resources Here</span>
+                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </motion.div>
+            </Link>
+          </div>
+        </section>
 
         <div className="h-8 md:h-12"></div>
       </section>
