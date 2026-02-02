@@ -187,15 +187,6 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.9 }}
           >
-            <motion.div 
-              className="inline-flex items-center gap-2 bg-cyan-500/20 border border-cyan-500/40 rounded-full px-4 py-1.5 mb-3"
-              animate={{ scale: [1, 1.02, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              <Sparkles size={14} className="text-cyan-400" />
-              <span className="text-cyan-400 text-xs font-bold">ALL-IN-ONE MEMBERSHIP</span>
-            </motion.div>
-            
             <h3 className="text-2xl sm:text-3xl font-bold text-foreground">
               Get <span className="text-cyan-400">Everything</span> For Just $50/Month
             </h3>
@@ -226,6 +217,18 @@ const Home = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               <div className="relative z-10">
+                {/* Badge inside box */}
+                <div className="text-center mb-4">
+                  <motion.div 
+                    className="inline-flex items-center gap-2 bg-cyan-500/20 border border-cyan-500/40 rounded-full px-4 py-1.5"
+                    animate={{ scale: [1, 1.02, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    <Sparkles size={14} className="text-cyan-400" />
+                    <span className="text-cyan-400 text-xs font-bold">ALL-IN-ONE MEMBERSHIP</span>
+                  </motion.div>
+                </div>
+
                 {/* Description */}
                 <p className="text-muted-foreground max-w-xl mx-auto text-center mb-6">
                   Stop paying for courses separately. Get unlimited access to all trading tools, business training, AI resources, and live coaching.
