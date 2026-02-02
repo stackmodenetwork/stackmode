@@ -10,6 +10,9 @@ interface Book {
   audiobookLink: string;
   description: string;
   features: string[];
+  ebookPrice: string;
+  audiobookPrice: string;
+  paperbackPrice: string;
 }
 
 const books: Book[] = [
@@ -20,7 +23,10 @@ const books: Book[] = [
     amazonLink: "https://www.amazon.com/dp/B0CL38VBQ3",
     audiobookLink: "https://play.google.com/store/audiobooks/details?id=AQAAAEAaGWdZbM",
     description: "Unlock the mental edge that separates winning traders from the rest. Master your emotions, build discipline, and trade with confidence.",
-    features: ["Trading Psychology", "Emotional Control", "Mental Framework"]
+    features: ["Trading Psychology", "Emotional Control", "Mental Framework"],
+    ebookPrice: "$9.99",
+    audiobookPrice: "$9.99",
+    paperbackPrice: "$19.99"
   },
   {
     title: "Freedom Money",
@@ -29,7 +35,10 @@ const books: Book[] = [
     amazonLink: "https://www.amazon.com/dp/B0CPTHWQ1K",
     audiobookLink: "https://play.google.com/store/audiobooks/details?id=AQAAAEAaqV_pVM",
     description: "Your complete guide to building wealth through multiple income streams. Learn the money management strategies that create lasting freedom.",
-    features: ["Wealth Building", "Multiple Income Streams", "Financial Freedom"]
+    features: ["Wealth Building", "Multiple Income Streams", "Financial Freedom"],
+    ebookPrice: "$9.99",
+    audiobookPrice: "$9.99",
+    paperbackPrice: "$19.99"
   },
   {
     title: "Before The HYPE",
@@ -38,7 +47,10 @@ const books: Book[] = [
     amazonLink: "https://www.amazon.com/dp/B0DQ4K2J5X",
     audiobookLink: "https://play.google.com/store/audiobooks/details?id=AQAAAEAaaVspUM",
     description: "Learn to identify winning trades and opportunities before they go mainstream. Get in early, get out profitable.",
-    features: ["Early Entry Strategies", "Trend Spotting", "Market Timing"]
+    features: ["Early Entry Strategies", "Trend Spotting", "Market Timing"],
+    ebookPrice: "$9.99",
+    audiobookPrice: "$9.99",
+    paperbackPrice: "$19.99"
   }
 ];
 
@@ -156,10 +168,17 @@ export const BooksCredibilityPromo = ({
 
                   {/* Book Info */}
                   <h3 className="font-bold text-foreground text-center mb-1">{book.title}</h3>
-                  <div className="flex justify-center mb-3">
+                  <div className="flex justify-center mb-2">
                     {[1,2,3,4,5].map(i => (
                       <Star key={i} size={12} className="text-amber-500 fill-amber-500" />
                     ))}
+                  </div>
+                  
+                  {/* Pricing */}
+                  <div className="flex justify-center gap-3 text-xs mb-3">
+                    <span className="text-muted-foreground">eBook <span className="text-amber-500 font-bold">{book.ebookPrice}</span></span>
+                    <span className="text-border">|</span>
+                    <span className="text-muted-foreground">Paperback <span className="text-amber-500 font-bold">{book.paperbackPrice}</span></span>
                   </div>
 
                   {/* Action Buttons */}
@@ -168,19 +187,23 @@ export const BooksCredibilityPromo = ({
                       href={book.amazonLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 bg-[#FF9900] hover:bg-[#FF9900]/90 text-black font-semibold py-2.5 rounded-lg transition-colors text-sm"
+                      className="flex-1 flex flex-col items-center justify-center gap-0.5 bg-[#FF9900] hover:bg-[#FF9900]/90 text-black font-semibold py-2 rounded-lg transition-colors"
                     >
-                      <ShoppingCart size={14} />
-                      Amazon
+                      <div className="flex items-center gap-1">
+                        <ShoppingCart size={14} />
+                        <span className="text-sm">Amazon</span>
+                      </div>
                     </a>
                     <a
                       href={book.audiobookLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-semibold py-2.5 rounded-lg transition-colors text-sm"
+                      className="flex-1 flex flex-col items-center justify-center gap-0.5 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-semibold py-2 rounded-lg transition-colors"
                     >
-                      <Headphones size={14} />
-                      Audio
+                      <div className="flex items-center gap-1">
+                        <Headphones size={14} />
+                        <span className="text-sm">Audio {book.audiobookPrice}</span>
+                      </div>
                     </a>
                   </div>
                 </div>
@@ -267,6 +290,24 @@ export const BooksCredibilityPromo = ({
                   </p>
                 </div>
 
+                {/* Pricing Display */}
+                <div className="flex justify-center gap-4 text-sm mb-4">
+                  <div className="text-center">
+                    <span className="text-muted-foreground block text-xs">eBook</span>
+                    <span className="text-amber-500 font-bold">{book.ebookPrice}</span>
+                  </div>
+                  <div className="w-px bg-border" />
+                  <div className="text-center">
+                    <span className="text-muted-foreground block text-xs">Paperback</span>
+                    <span className="text-amber-500 font-bold">{book.paperbackPrice}</span>
+                  </div>
+                  <div className="w-px bg-border" />
+                  <div className="text-center">
+                    <span className="text-muted-foreground block text-xs">Audiobook</span>
+                    <span className="text-purple-400 font-bold">{book.audiobookPrice}</span>
+                  </div>
+                </div>
+
                 {/* Features */}
                 <div className="flex flex-wrap justify-center gap-2 mb-5">
                   {book.features.map((feature) => (
@@ -302,7 +343,7 @@ export const BooksCredibilityPromo = ({
                     whileTap={{ scale: 0.98 }}
                   >
                     <Headphones size={18} />
-                    <span>Listen on Google Play</span>
+                    <span>Listen on Google Play — {book.audiobookPrice}</span>
                   </motion.a>
                 </div>
               </div>
