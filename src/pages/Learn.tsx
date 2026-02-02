@@ -178,42 +178,32 @@ const Learn = () => {
                 Your Education Hub
               </motion.div>
               
-              <motion.h1 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight"
-              >
-                Master{' '}
-                <motion.span 
-                  className="text-primary inline-block"
-                  animate={{ 
-                    textShadow: ['0 0 0px hsl(var(--primary))', '0 0 20px hsl(var(--primary))', '0 0 0px hsl(var(--primary))']
-                  }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
-                  Trading
-                </motion.span>{' '}
-                &{' '}
-                <motion.span 
-                  className="text-secondary inline-block"
-                  animate={{ 
-                    textShadow: ['0 0 0px hsl(var(--secondary))', '0 0 20px hsl(var(--secondary))', '0 0 0px hsl(var(--secondary))']
-                  }}
-                  transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-                >
-                  Business
-                </motion.span>
-              </motion.h1>
-              
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-lg md:text-xl text-muted-foreground max-w-xl mb-8"
-              >
-                Premium courses, eBooks, and resources to help you build wealth through the markets and scale your business.
-              </motion.p>
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight"
+          >
+            Learn How To{' '}
+            <motion.span 
+              className="text-primary inline-block"
+              animate={{ 
+                textShadow: ['0 0 0px hsl(var(--primary))', '0 0 20px hsl(var(--primary))', '0 0 0px hsl(var(--primary))']
+              }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              Make Money
+            </motion.span>
+          </motion.h1>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-lg md:text-xl text-muted-foreground max-w-xl mb-8"
+          >
+            The Ultimate Educational Library — courses, eBooks, audiobooks, and tools to build real wealth.
+          </motion.p>
               
               {/* Category Navigation */}
               <motion.div 
@@ -370,20 +360,20 @@ const Learn = () => {
                   </div>
                 </motion.div>
 
-                {/* Floating Stats */}
-                <motion.div
-                  animate={{ y: [0, -8, 0], x: [0, 5, 0] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute bottom-0 right-10 bg-card/80 backdrop-blur border border-border rounded-lg px-4 py-3 shadow-lg"
-                >
-                  <div className="flex items-center gap-3">
-                    <Users size={20} className="text-primary" />
-                    <div>
-                      <div className="font-bold text-lg">500+</div>
-                      <div className="text-xs text-muted-foreground">Students</div>
-                    </div>
+              {/* Floating Stats */}
+              <motion.div
+                animate={{ y: [0, -8, 0], x: [0, 5, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute bottom-0 right-10 bg-card/80 backdrop-blur border border-primary/30 rounded-lg px-4 py-3 shadow-lg"
+              >
+                <div className="flex items-center gap-3">
+                  <DollarSign size={20} className="text-primary" />
+                  <div>
+                    <div className="font-bold text-lg text-primary">Real Results</div>
+                    <div className="text-xs text-muted-foreground">Proven Success</div>
                   </div>
-                </motion.div>
+                </div>
+              </motion.div>
               </div>
             </motion.div>
           </div>
@@ -406,6 +396,9 @@ const Learn = () => {
           <StackmodeGroupPromo variant="library" />
         </div>
       </section>
+
+      {/* ==================== AMAZON BOOKS SECTION - MOVED UP ==================== */}
+      <BooksCredibilityPromo variant="full" showHeading={true} className="bg-gradient-to-b from-amber-500/5 via-background to-background scroll-mt-20" />
 
       {/* ==================== FREE RESOURCES - HERO SECTION ==================== */}
       <section id="free-section" className="px-4 py-12 md:py-20 bg-gradient-to-b from-accent/5 via-primary/5 to-background scroll-mt-20">
@@ -675,33 +668,33 @@ const Learn = () => {
               );
             })}
 
-            {/* Ultimate Trading Bundle */}
-            <ScrollReveal delay={0.2}>
-              <motion.article 
-                whileHover={{ scale: 1.005 }}
-                className="bg-card border-2 border-accent/40 rounded-2xl overflow-hidden hover:border-accent/60 transition-colors shadow-[0_0_30px_rgba(var(--accent-rgb),0.2)]"
-              >
+          {/* Ultimate Trading Bundle - GREEN THEME */}
+          <ScrollReveal delay={0.2}>
+            <motion.article 
+              whileHover={{ scale: 1.005 }}
+              className="bg-card border-2 border-emerald-500/40 rounded-2xl overflow-hidden hover:border-emerald-500/60 transition-colors shadow-[0_0_30px_rgba(16,185,129,0.2)]"
+            >
                 <div className="p-6 md:p-8">
                   {/* Bundle Header */}
                   <div className="flex items-start gap-4 mb-6">
                     <motion.div 
                       animate={{ rotate: [0, 5, -5, 0] }}
                       transition={{ duration: 4, repeat: Infinity }}
-                      className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center flex-shrink-0"
+                      className="w-14 h-14 rounded-xl bg-gradient-to-br from-emerald-500/20 to-green-500/20 flex items-center justify-center flex-shrink-0"
                     >
-                      <Sparkles size={28} className="text-accent" />
+                      <Sparkles size={28} className="text-emerald-500" />
                     </motion.div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 flex-wrap mb-1">
                         <span className="text-xs font-medium text-muted-foreground">Complete Trading System</span>
-                        <motion.span 
-                          animate={{ scale: [1, 1.05, 1] }}
-                          transition={{ duration: 2, repeat: Infinity }}
-                          className="inline-flex items-center gap-1 text-xs font-semibold text-accent bg-accent/10 px-2 py-0.5 rounded-full"
-                        >
-                          <Star size={10} />
-                          ULTIMATE VALUE
-                        </motion.span>
+                      <motion.span 
+                        animate={{ scale: [1, 1.05, 1] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-500 bg-emerald-500/10 px-2 py-0.5 rounded-full"
+                      >
+                        <Star size={10} />
+                        ULTIMATE VALUE
+                      </motion.span>
                       </div>
                       <h3 className="text-xl md:text-2xl font-bold text-foreground">
                         Triple Threat Trading Bundle
@@ -715,9 +708,9 @@ const Learn = () => {
                   </p>
 
                   {/* What's Included - 4 Products */}
-                  <div className="bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/5 border border-accent/20 rounded-xl p-4 mb-6">
+                  <div className="bg-gradient-to-br from-emerald-500/5 via-green-500/5 to-emerald-500/5 border border-emerald-500/20 rounded-xl p-4 mb-6">
                     <h4 className="font-semibold text-foreground mb-4 flex items-center gap-2">
-                      <Gift size={16} className="text-accent" />
+                      <Gift size={16} className="text-emerald-500" />
                       Everything Included in This Bundle
                     </h4>
                     <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -778,19 +771,19 @@ const Learn = () => {
                   {/* Key Benefits */}
                   <div className="grid grid-cols-2 gap-2 mb-6">
                     <div className="flex items-center gap-2 text-sm text-foreground/80">
-                      <Check size={14} className="text-accent flex-shrink-0" />
+                      <Check size={14} className="text-emerald-500 flex-shrink-0" />
                       <span>3 Complete Courses</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-foreground/80">
-                      <Check size={14} className="text-accent flex-shrink-0" />
+                      <Check size={14} className="text-emerald-500 flex-shrink-0" />
                       <span>3 In-Depth eBooks</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-foreground/80">
-                      <Check size={14} className="text-accent flex-shrink-0" />
+                      <Check size={14} className="text-emerald-500 flex-shrink-0" />
                       <span>Live Trading Signals</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-foreground/80">
-                      <Check size={14} className="text-accent flex-shrink-0" />
+                      <Check size={14} className="text-emerald-500 flex-shrink-0" />
                       <span>Lifetime Access</span>
                     </div>
                   </div>
@@ -802,7 +795,7 @@ const Learn = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.99 }}
-                    className="group relative overflow-hidden block w-full bg-gradient-to-r from-accent via-accent to-accent/80 hover:from-accent/90 hover:via-accent/90 hover:to-accent/70 text-accent-foreground rounded-xl p-4 sm:p-5 transition-all border-2 border-accent/30 shadow-[0_0_25px_rgba(var(--accent-rgb),0.4)] hover:shadow-[0_0_35px_rgba(var(--accent-rgb),0.6)]"
+                    className="group relative overflow-hidden block w-full bg-gradient-to-r from-emerald-600 via-emerald-500 to-green-500 hover:from-emerald-500 hover:via-emerald-400 hover:to-green-400 text-white rounded-xl p-4 sm:p-5 transition-all border-2 border-emerald-500/30 shadow-[0_0_25px_rgba(16,185,129,0.4)] hover:shadow-[0_0_35px_rgba(16,185,129,0.6)]"
                   >
                     <div className="absolute top-0 right-0 bg-yellow-400 text-black text-[10px] font-bold px-2 sm:px-3 py-1 rounded-bl-lg">
                       $50/MONTH
@@ -810,13 +803,13 @@ const Learn = () => {
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                       <div className="flex items-center gap-3 sm:gap-4">
                         <div className="flex -space-x-2 flex-shrink-0">
-                          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-accent-foreground/20 flex items-center justify-center border-2 border-accent-foreground/30">
+                          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/20 flex items-center justify-center border-2 border-white/30">
                             <TrendingUp size={14} className="sm:w-[18px] sm:h-[18px]" />
                           </div>
-                          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-accent-foreground/20 flex items-center justify-center border-2 border-accent-foreground/30">
+                          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/20 flex items-center justify-center border-2 border-white/30">
                             <Brain size={14} className="sm:w-[18px] sm:h-[18px]" />
                           </div>
-                          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-accent-foreground/20 flex items-center justify-center border-2 border-accent-foreground/30">
+                          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/20 flex items-center justify-center border-2 border-white/30">
                             <Bitcoin size={14} className="sm:w-[18px] sm:h-[18px]" />
                           </div>
                         </div>
@@ -835,7 +828,7 @@ const Learn = () => {
                         <ArrowRight size={18} className="sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
                       </div>
                     </div>
-                    <div className="mt-3 pt-3 border-t border-accent-foreground/20 text-[10px] sm:text-xs opacity-90 flex items-center justify-center gap-2 sm:gap-4 flex-wrap">
+                    <div className="mt-3 pt-3 border-t border-white/20 text-[10px] sm:text-xs opacity-90 flex items-center justify-center gap-2 sm:gap-4 flex-wrap">
                       <span>✓ Always Updated</span>
                       <span>✓ Cancel Anytime</span>
                       <span>✓ $1000+ Value</span>
@@ -845,10 +838,10 @@ const Learn = () => {
                   {/* Trust Signals */}
                   <div className="flex items-center justify-center gap-6 mt-4 pt-4 border-t border-border">
                     <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                      <Shield size={12} className="text-accent" /> Secure Checkout
+                      <Shield size={12} className="text-emerald-500" /> Secure Checkout
                     </span>
                     <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                      <Star size={12} className="text-secondary" /> Best Value
+                      <Star size={12} className="text-emerald-500" /> Best Value
                     </span>
                   </div>
                 </div>
@@ -884,16 +877,16 @@ const Learn = () => {
         </div>
       </section>
 
-      {/* ==================== BUSINESS SECTION ==================== */}
-      <section id="business-section" className="px-4 py-12 md:py-16 bg-gradient-to-b from-secondary/5 to-background scroll-mt-20">
+      {/* ==================== BUSINESS SECTION - PURPLE THEME ==================== */}
+      <section id="business-section" className="px-4 py-12 md:py-16 bg-gradient-to-b from-purple-500/5 to-background scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal>
             <div className="flex items-center gap-3 mb-2">
               <motion.div 
                 whileHover={{ rotate: -10, scale: 1.1 }}
-                className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center"
+                className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center"
               >
-                <Briefcase size={24} className="text-secondary" />
+                <Briefcase size={24} className="text-purple-500" />
               </motion.div>
               <div>
                 <h2 className="text-2xl md:text-3xl font-bold text-foreground">Business Education</h2>
@@ -901,7 +894,7 @@ const Learn = () => {
               </div>
             </div>
 
-            <div className="w-full h-px bg-gradient-to-r from-secondary/50 via-secondary/20 to-transparent my-6" />
+            <div className="w-full h-px bg-gradient-to-r from-purple-500/50 via-purple-500/20 to-transparent my-6" />
           </ScrollReveal>
 
           <div className="space-y-6">
@@ -909,34 +902,34 @@ const Learn = () => {
             {businessProducts.filter(p => p.isAvailable).map((product, index) => {
               const IconComponent = product.icon;
               return (
-                <ScrollReveal key={product.id} delay={index * 0.1}>
-                  <motion.article 
-                    whileHover={{ scale: 1.005 }}
-                    className="bg-card border-2 border-secondary/30 rounded-2xl overflow-hidden hover:border-secondary/50 transition-colors shadow-[0_0_30px_rgba(var(--secondary-rgb),0.15)]"
-                  >
-                    <div className="p-6 md:p-8">
-                      {/* Premium Badge */}
-                      <div className="flex items-center justify-between mb-6">
-                        <div className="flex items-center gap-2">
-                          <motion.div 
-                            animate={{ rotate: [0, 5, -5, 0] }}
-                            transition={{ duration: 4, repeat: Infinity }}
-                            className={`w-14 h-14 rounded-xl ${product.bgColor} flex items-center justify-center ${product.color} flex-shrink-0`}
-                          >
-                            <IconComponent size={28} />
-                          </motion.div>
-                          <div>
-                            <div className="flex items-center gap-2 flex-wrap mb-1">
-                              <span className="text-xs font-medium text-muted-foreground">{product.category}</span>
-                              <motion.span 
-                                animate={{ scale: [1, 1.05, 1] }}
-                                transition={{ duration: 2, repeat: Infinity }}
-                                className="inline-flex items-center gap-1 text-xs font-semibold text-secondary bg-secondary/10 px-2 py-0.5 rounded-full"
-                              >
-                                <DollarSign size={10} />
-                                Premium Bundle
-                              </motion.span>
-                            </div>
+              <ScrollReveal key={product.id} delay={index * 0.1}>
+                <motion.article 
+                  whileHover={{ scale: 1.005 }}
+                  className="bg-card border-2 border-purple-500/30 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-colors shadow-[0_0_30px_rgba(168,85,247,0.15)]"
+                >
+                  <div className="p-6 md:p-8">
+                    {/* Premium Badge */}
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="flex items-center gap-2">
+                        <motion.div 
+                          animate={{ rotate: [0, 5, -5, 0] }}
+                          transition={{ duration: 4, repeat: Infinity }}
+                          className="w-14 h-14 rounded-xl bg-purple-500/10 flex items-center justify-center flex-shrink-0"
+                        >
+                          <IconComponent size={28} className="text-purple-500" />
+                        </motion.div>
+                        <div>
+                          <div className="flex items-center gap-2 flex-wrap mb-1">
+                            <span className="text-xs font-medium text-muted-foreground">{product.category}</span>
+                            <motion.span 
+                              animate={{ scale: [1, 1.05, 1] }}
+                              transition={{ duration: 2, repeat: Infinity }}
+                              className="inline-flex items-center gap-1 text-xs font-semibold text-purple-500 bg-purple-500/10 px-2 py-0.5 rounded-full"
+                            >
+                              <DollarSign size={10} />
+                              Premium Bundle
+                            </motion.span>
+                          </div>
                             <h3 className="text-xl md:text-2xl font-bold text-foreground">
                               {product.title}
                             </h3>
@@ -950,16 +943,16 @@ const Learn = () => {
                       </p>
 
                       {/* What's Included - Highlighted */}
-                      <div className="bg-secondary/5 border border-secondary/20 rounded-xl p-4 mb-6">
+                      <div className="bg-purple-500/5 border border-purple-500/20 rounded-xl p-4 mb-6">
                         <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
-                          <Sparkles size={16} className="text-secondary" />
+                          <Sparkles size={16} className="text-purple-500" />
                           What's Inside This Bundle
                         </h4>
                         <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                           {product.features?.map((feature, i) => (
                             <StaggerItem key={i}>
                               <div className="flex items-start gap-2 text-sm text-foreground/80">
-                                <Check size={16} className="text-secondary flex-shrink-0 mt-0.5" />
+                                <Check size={16} className="text-purple-500 flex-shrink-0 mt-0.5" />
                                 <span>{feature}</span>
                               </div>
                             </StaggerItem>
@@ -973,7 +966,7 @@ const Learn = () => {
                           whileHover={{ scale: 1.05 }}
                           className="flex items-center gap-2 bg-muted/50 px-3 py-2 rounded-lg"
                         >
-                          <Megaphone size={16} className="text-secondary" />
+                          <Megaphone size={16} className="text-purple-500" />
                           <span className="text-sm text-muted-foreground">Paid Ads</span>
                         </motion.div>
                         <motion.div 
@@ -987,7 +980,7 @@ const Learn = () => {
                           whileHover={{ scale: 1.05 }}
                           className="flex items-center gap-2 bg-muted/50 px-3 py-2 rounded-lg"
                         >
-                          <Target size={16} className="text-secondary" />
+                          <Target size={16} className="text-purple-500" />
                           <span className="text-sm text-muted-foreground">Client Acquisition</span>
                         </motion.div>
                       </div>
@@ -999,7 +992,7 @@ const Learn = () => {
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.01 }}
                         whileTap={{ scale: 0.99 }}
-                        className="group relative overflow-hidden block w-full bg-gradient-to-r from-secondary via-secondary to-secondary/80 hover:from-secondary/90 hover:via-secondary/90 hover:to-secondary/70 text-secondary-foreground rounded-xl p-4 sm:p-5 transition-all border-2 border-secondary/30 shadow-[0_0_25px_rgba(var(--secondary-rgb),0.4)] hover:shadow-[0_0_35px_rgba(var(--secondary-rgb),0.6)]"
+                        className="group relative overflow-hidden block w-full bg-gradient-to-r from-purple-600 via-purple-500 to-fuchsia-500 hover:from-purple-500 hover:via-purple-400 hover:to-fuchsia-400 text-white rounded-xl p-4 sm:p-5 transition-all border-2 border-purple-500/30 shadow-[0_0_25px_rgba(168,85,247,0.4)] hover:shadow-[0_0_35px_rgba(168,85,247,0.6)]"
                       >
                         <div className="absolute top-0 right-0 bg-yellow-400 text-black text-[10px] font-bold px-2 sm:px-3 py-1 rounded-bl-lg">
                           $50/MONTH
@@ -1007,10 +1000,10 @@ const Learn = () => {
                         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                           <div className="flex items-center gap-3 sm:gap-4">
                             <div className="flex -space-x-2 flex-shrink-0">
-                              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-secondary-foreground/20 flex items-center justify-center border-2 border-secondary-foreground/30">
+                              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/20 flex items-center justify-center border-2 border-white/30">
                                 <Video size={14} className="sm:w-[18px] sm:h-[18px]" />
                               </div>
-                              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-secondary-foreground/20 flex items-center justify-center border-2 border-secondary-foreground/30">
+                              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/20 flex items-center justify-center border-2 border-white/30">
                                 <BookOpen size={14} className="sm:w-[18px] sm:h-[18px]" />
                               </div>
                             </div>
@@ -1029,7 +1022,7 @@ const Learn = () => {
                             <ArrowRight size={18} className="sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
                           </div>
                         </div>
-                        <div className="mt-3 pt-3 border-t border-secondary-foreground/20 text-[10px] sm:text-xs opacity-90 flex items-center justify-center gap-2 sm:gap-4 flex-wrap">
+                        <div className="mt-3 pt-3 border-t border-white/20 text-[10px] sm:text-xs opacity-90 flex items-center justify-center gap-2 sm:gap-4 flex-wrap">
                           <span>✓ Always Updated</span>
                           <span>✓ Cancel Anytime</span>
                           <span>✓ $1000+ Value</span>
@@ -1039,10 +1032,10 @@ const Learn = () => {
                       {/* Trust Signals */}
                       <div className="flex items-center justify-center gap-6 mt-4 pt-4 border-t border-border">
                         <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                          <Shield size={12} className="text-secondary" /> Secure Checkout
+                          <Shield size={12} className="text-purple-500" /> Secure Checkout
                         </span>
                         <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                          <Star size={12} className="text-secondary" /> Premium Content
+                          <Star size={12} className="text-purple-500" /> Premium Content
                         </span>
                       </div>
                     </div>
@@ -1054,8 +1047,7 @@ const Learn = () => {
         </div>
       </section>
 
-      {/* ==================== AMAZON BOOKS SECTION ==================== */}
-      <BooksCredibilityPromo variant="full" showHeading={true} className="bg-gradient-to-b from-amber-500/5 via-background to-background scroll-mt-20" />
+      {/* AMAZON BOOKS SECTION NOW MOVED UP AFTER STACKMODE PROMO */}
 
       {/* Social Proof */}
       <section className="py-12 md:py-16 px-4 bg-muted/20">
