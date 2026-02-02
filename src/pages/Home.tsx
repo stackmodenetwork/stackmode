@@ -653,6 +653,72 @@ const Home = () => {
       {/* Books Credibility Section */}
       <BooksCredibilityPromo variant="compact" showHeading={true} />
 
+      {/* Library Preview - Clickable Block */}
+      <section className="py-10 px-4 bg-muted/20 relative z-10">
+        <div className="max-w-6xl mx-auto">
+          <Link to="/library" className="block group">
+            <motion.div 
+              className="bg-gradient-to-br from-background/95 via-background/90 to-accent/10 border-2 border-border/50 hover:border-accent/50 rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:shadow-[0_0_40px_rgba(168,85,247,0.15)]"
+              whileHover={{ scale: 1.01 }}
+            >
+              <div className="text-center">
+                <ScrollReveal>
+                  <span className="inline-block bg-accent/10 text-accent text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                    Free Resources
+                  </span>
+                  <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2 group-hover:text-accent transition-colors">
+                    Start Learning for Free
+                  </h2>
+                  <p className="text-muted-foreground text-sm max-w-lg mx-auto mb-8">
+                    Access free trading strategies, business guides, and educational content in our resource library
+                  </p>
+                </ScrollReveal>
+
+                <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8" staggerDelay={0.08}>
+                  {[{
+                  icon: TrendingUp,
+                  title: 'Trading Guides',
+                  desc: 'Free strategies',
+                  color: 'primary'
+                }, {
+                  icon: Briefcase,
+                  title: 'Business Tips',
+                  desc: 'Growth tactics',
+                  color: 'accent'
+                }, {
+                  icon: BookOpen,
+                  title: 'eBooks',
+                  desc: 'Deep dives',
+                  color: 'amber-500'
+                }, {
+                  icon: Youtube,
+                  title: 'Video Lessons',
+                  desc: 'Visual learning',
+                  color: 'red-500'
+                }].map((item, i) => <StaggerItem key={i}>
+                      <div className="bg-background rounded-xl p-4 border border-border/50 text-center group-hover:border-accent/30 transition-all duration-300 h-full">
+                        <div className={`w-10 h-10 rounded-full bg-${item.color}/10 flex items-center justify-center mx-auto mb-3`}>
+                          <item.icon className={`w-5 h-5 text-${item.color}`} />
+                        </div>
+                        <h3 className="text-sm font-semibold text-foreground mb-1">{item.title}</h3>
+                        <p className="text-xs text-muted-foreground">{item.desc}</p>
+                      </div>
+                    </StaggerItem>)}
+                </StaggerContainer>
+
+                <ScrollReveal delay={0.3}>
+                  <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-accent group-hover:from-accent group-hover:to-primary text-white font-semibold px-8 py-3 rounded-xl transition-all shadow-lg group-hover:shadow-accent/30">
+                    <Gift size={18} />
+                    <span>Get FREE Courses & Ebooks</span>
+                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </ScrollReveal>
+              </div>
+            </motion.div>
+          </Link>
+        </div>
+      </section>
+
       {/* Video Introduction */}
       <section className="py-10 px-4 border-t border-border/50 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
@@ -692,63 +758,6 @@ const Home = () => {
                   <iframe src="https://www.youtube.com/embed/beRKDGUDcdU?autoplay=1" title="Meet Your Mentor" className="w-full h-full" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
                 </div>}
             </motion.div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Library Preview */}
-      <section className="py-10 px-4 bg-muted/20 relative z-10">
-        <div className="max-w-6xl mx-auto text-center">
-          <ScrollReveal>
-            <span className="inline-block bg-accent/10 text-accent text-xs font-semibold px-3 py-1 rounded-full mb-3">
-              Free Resources
-            </span>
-            <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
-              Start Learning for Free
-            </h2>
-            <p className="text-muted-foreground text-sm max-w-lg mx-auto mb-8">
-              Access free trading strategies, business guides, and educational content in our resource library
-            </p>
-          </ScrollReveal>
-
-          <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8" staggerDelay={0.08}>
-            {[{
-            icon: TrendingUp,
-            title: 'Trading Guides',
-            desc: 'Free strategies',
-            color: 'primary'
-          }, {
-            icon: Briefcase,
-            title: 'Business Tips',
-            desc: 'Growth tactics',
-            color: 'accent'
-          }, {
-            icon: BookOpen,
-            title: 'eBooks',
-            desc: 'Deep dives',
-            color: 'amber-500'
-          }, {
-            icon: Youtube,
-            title: 'Video Lessons',
-            desc: 'Visual learning',
-            color: 'red-500'
-          }].map((item, i) => <StaggerItem key={i}>
-                <div className="bg-background rounded-xl p-4 border border-border/50 text-center hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 h-full">
-                  <div className={`w-10 h-10 rounded-full bg-${item.color}/10 flex items-center justify-center mx-auto mb-3`}>
-                    <item.icon className={`w-5 h-5 text-${item.color}`} />
-                  </div>
-                  <h3 className="text-sm font-semibold text-foreground mb-1">{item.title}</h3>
-                  <p className="text-xs text-muted-foreground">{item.desc}</p>
-                </div>
-              </StaggerItem>)}
-          </StaggerContainer>
-
-          <ScrollReveal delay={0.3}>
-            <Link to="/library" className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white font-semibold px-8 py-3 rounded-xl transition-all hover:shadow-lg">
-              <Gift size={18} />
-              <span>Browse Full Library</span>
-              <ArrowRight size={18} />
-            </Link>
           </ScrollReveal>
         </div>
       </section>
