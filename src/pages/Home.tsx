@@ -212,7 +212,7 @@ const Home = () => {
             </motion.div>
           </div>
 
-          {/* Headline above the box */}
+          {/* Guru Comparison Header - Outside the box */}
           <motion.div className="mt-8 text-center" initial={{
           opacity: 0,
           y: 20
@@ -223,9 +223,45 @@ const Home = () => {
           duration: 0.5,
           delay: 0.9
         }}>
-            <h3 className="text-2xl sm:text-3xl font-bold text-foreground">
-              Get <span className="text-cyan-400">Everything</span> For Just $50/Month
+            {/* Badge */}
+            <motion.div 
+              className="inline-flex items-center gap-2 bg-cyan-500/20 border border-cyan-400/50 rounded-full px-4 py-2 mb-4"
+              whileHover={{ scale: 1.05 }}
+            >
+              <motion.div
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                <Sparkles size={16} className="text-cyan-400" />
+              </motion.div>
+              <span className="text-cyan-400 text-sm font-bold tracking-wide">THE GURU ERA IS OVER</span>
+            </motion.div>
+
+            {/* Main headline */}
+            <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
+              Stop Paying $5,000 for <span className="text-cyan-400">"Mentorship"</span>
             </h3>
+            <p className="text-base text-muted-foreground mb-4 max-w-xl mx-auto">
+              Same signals. Same blueprints. Same AI tools. One network.
+            </p>
+
+            {/* Price Comparison Visual */}
+            <div className="flex flex-wrap items-center justify-center gap-3 mb-4">
+              <div className="flex items-center gap-2 bg-red-500/10 border border-red-500/30 rounded-lg px-4 py-2">
+                <span className="text-red-400 text-sm font-medium">Guru Course</span>
+                <span className="text-red-400 font-bold text-lg line-through">$4,997</span>
+              </div>
+              <motion.div
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                <ArrowRight size={24} className="text-cyan-400" />
+              </motion.div>
+              <div className="flex items-center gap-2 bg-cyan-500/20 border border-cyan-400/50 rounded-lg px-4 py-2">
+                <span className="text-cyan-400 text-sm font-medium">Stackmode</span>
+                <span className="text-cyan-400 font-bold text-xl">$50/mo</span>
+              </div>
+            </div>
           </motion.div>
 
           {/* Stackmode Network - Premium All-In-One Offer - Clickable Card */}
@@ -252,22 +288,9 @@ const Home = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               <div className="relative z-10">
-                {/* Badge inside box */}
-                <div className="text-center mb-4">
-                  <motion.div className="inline-flex items-center gap-2 bg-cyan-500/20 border border-cyan-500/40 rounded-full px-4 py-1.5" animate={{
-                  scale: [1, 1.02, 1]
-                }} transition={{
-                  duration: 2,
-                  repeat: Infinity
-                }}>
-                    <Sparkles size={14} className="text-cyan-400" />
-                    <span className="text-cyan-400 text-xs font-bold">ALL-IN-ONE MEMBERSHIP</span>
-                  </motion.div>
-                </div>
-
                 {/* Description */}
                 <p className="text-muted-foreground max-w-xl mx-auto text-center mb-6">
-                  Stop paying for courses separately. Get unlimited access to all trading tools, business training, AI resources, and live coaching.
+                  We took the same trading signals, business blueprints, and AI tools that "gurus" charge thousands for... and put them all in one place. No gatekeeping. No upsells.
                 </p>
 
                 {/* What's Included Grid */}
@@ -303,19 +326,39 @@ const Home = () => {
                     </motion.div>)}
                 </div>
 
-                {/* CTA */}
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <div className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-cyan-500 to-cyan-400 group-hover:from-cyan-400 group-hover:to-cyan-300 text-background font-bold text-lg px-8 py-4 rounded-xl transition-all shadow-lg shadow-cyan-500/30 group-hover:shadow-cyan-400/40">
-                    <Users size={22} />
-                    <span>Join Stackmode Network</span>
-                    <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                {/* CTA with discount */}
+                <div className="flex flex-col items-center gap-4">
+                  {/* Pricing row */}
+                  <div className="flex items-center gap-3">
+                    <span className="text-muted-foreground line-through text-lg">$200/mo</span>
+                    <span className="text-foreground font-bold text-3xl sm:text-4xl">$50/mo</span>
+                    <motion.span 
+                      className="bg-green-500/20 text-green-400 text-xs font-bold px-2 py-1 rounded-full border border-green-400/30"
+                      animate={{ scale: [1, 1.05, 1] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    >
+                      75% OFF
+                    </motion.span>
                   </div>
                   
-                  <div className="flex items-center gap-3 text-sm">
-                    <span className="text-muted-foreground">Only</span>
-                    <span className="text-2xl font-bold text-cyan-400">$50</span>
-                    <span className="text-muted-foreground">/month</span>
-                  </div>
+                  {/* Button */}
+                  <motion.div 
+                    className="relative inline-flex"
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <div className="absolute inset-0 bg-cyan-500 rounded-xl blur-lg opacity-40 group-hover:opacity-60 transition-opacity" />
+                    <div className="relative w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-cyan-500 to-cyan-400 text-background font-bold text-lg px-8 py-4 rounded-xl shadow-xl shadow-cyan-500/25 transition-all">
+                      <Users size={22} />
+                      <span>Join Stackmode Network</span>
+                      <motion.div
+                        animate={{ x: [0, 5, 0] }}
+                        transition={{ duration: 1.5, repeat: Infinity }}
+                      >
+                        <ChevronRight size={20} />
+                      </motion.div>
+                    </div>
+                  </motion.div>
                 </div>
 
                 {/* Trust badges */}
@@ -325,9 +368,9 @@ const Home = () => {
                     Cancel Anytime
                   </span>
                   <span className="hidden sm:inline text-border">•</span>
-                  <span>Always Updated</span>
+                  <span>Instant Access</span>
                   <span className="hidden sm:inline text-border">•</span>
-                  <span>Private Community</span>
+                  <span>No Contracts</span>
                 </div>
               </div>
             </a>
