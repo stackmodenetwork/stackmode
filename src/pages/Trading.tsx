@@ -130,7 +130,7 @@ const Index = () => {
                 
                 <div className="flex-shrink-0">
                   <div className="bg-gradient-to-r from-primary to-emerald-500 hover:from-emerald-500 hover:to-primary text-background font-semibold text-sm sm:text-base px-5 py-3 rounded-lg text-center transition-all flex items-center gap-2 group-hover:gap-3 shadow-lg shadow-primary/20">
-                    <span>Browse Library</span>
+                    <span>Browse FREE Content</span>
                     <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                   </div>
                 </div>
