@@ -19,7 +19,7 @@ import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
 import { motion } from 'framer-motion';
 
 // New modular trading components
-import { TradingHero, TradingStackmodePromo, TradingFeatures, TradingCTASection } from '@/components/trading';
+import { TradingHero, TradingStackmodePromo, TradingFeatures, TradingCTASection, TradingAuditCTA } from '@/components/trading';
 
 const Index = () => {
   const [showStickyHeader, setShowStickyHeader] = useState(false);
@@ -77,8 +77,11 @@ const Index = () => {
         {/* STACKMODE NETWORK PROMO - Primary CTA (First as requested) */}
         <TradingStackmodePromo />
 
+        {/* FREE 1-on-1 Trading Audit CTA */}
+        <TradingAuditCTA />
+
         {/* Video Section */}
-        <section className="max-w-xl mx-auto px-4 py-8">
+        <section className="max-w-xl mx-auto px-4 py-6">
           <motion.div
             className="relative"
             initial={{ opacity: 0, scale: 0.95 }}
