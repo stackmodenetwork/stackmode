@@ -26,7 +26,7 @@ export const StackFinderPromo = ({ variant = 'home' }: StackFinderPromoProps) =>
         rel="noopener noreferrer"
         className="block group"
       >
-        <div className={`relative bg-gradient-to-br ${isTrading ? 'from-primary/10 via-card/90 to-emerald-500/10' : 'from-cyan-500/10 via-card/90 to-purple-500/10'} border-2 ${isTrading ? 'border-primary/40' : 'border-cyan-500/40'} rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 overflow-hidden transition-all duration-500 ${isTrading ? 'hover:border-primary hover:shadow-[0_0_80px_rgba(34,197,94,0.3)]' : 'hover:border-cyan-400 hover:shadow-[0_0_80px_rgba(6,182,212,0.3)]'} group-hover:scale-[1.01]`}>
+        <div className={`relative bg-gradient-to-br ${isTrading ? 'from-primary/10 via-card/90 to-emerald-500/10' : 'from-cyan-500/10 via-card/90 to-purple-500/10'} border-2 ${isTrading ? 'border-primary/40' : 'border-cyan-500/40'} rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 overflow-hidden transition-all duration-300 ${isTrading ? 'group-hover:border-primary group-hover:shadow-[0_0_60px_rgba(34,197,94,0.5)]' : 'group-hover:border-cyan-400 group-hover:shadow-[0_0_60px_rgba(6,182,212,0.5)]'} group-hover:scale-[1.02]`}>
           {/* Animated background elements */}
           <div className={`absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl ${isTrading ? 'from-primary/15' : 'from-cyan-500/15'} to-transparent rounded-full blur-3xl opacity-60`} />
           <div className={`absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr ${isTrading ? 'from-emerald-400/10' : 'from-purple-400/10'} to-transparent rounded-full blur-3xl opacity-50`} />
