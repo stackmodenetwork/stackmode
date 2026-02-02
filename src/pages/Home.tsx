@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { TrendingUp, Briefcase, ArrowRight, Zap, Play, Phone, ChevronRight, Award, Users, Globe, Youtube, BookOpen, Gift } from 'lucide-react';
+import { TrendingUp, Briefcase, ArrowRight, Zap, Play, Phone, ChevronRight, Globe, BookOpen, Gift, BarChart3, Users, Rocket, Shield, Target, Code, Youtube } from 'lucide-react';
 import { CookieConsent } from '@/components/CookieConsent';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
 import { useState } from 'react';
@@ -10,6 +10,8 @@ import { StackmodeGroupPromo } from '@/components/StackmodeGroupPromo';
 import { StackFinderPromo } from '@/components/StackFinderPromo';
 import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
 import { motion } from 'framer-motion';
+import { OptimizedImage } from '@/components/OptimizedImage';
+
 const Home = () => {
   const [videoPlaying, setVideoPlaying] = useState(false);
   
@@ -49,7 +51,7 @@ const Home = () => {
       </motion.div>
 
       {/* Hero Section */}
-      <section className="relative pt-8 sm:pt-12 pb-8 px-4 z-10">
+      <section className="relative pt-8 sm:pt-12 pb-6 px-4 z-10">
         <div className="relative z-10 max-w-5xl mx-auto text-center">
           {/* Badge */}
           <motion.div 
@@ -88,36 +90,16 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            Master <motion.span 
-              className="text-primary inline-block"
-              animate={{ 
-                textShadow: [
-                  '0 0 0px hsl(var(--primary))',
-                  '0 0 20px hsl(var(--primary))',
-                  '0 0 0px hsl(var(--primary))'
-                ]
-              }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >Trading</motion.span> & Build Your <motion.span 
-              className="text-accent inline-block"
-              animate={{ 
-                textShadow: [
-                  '0 0 0px hsl(var(--accent))',
-                  '0 0 20px hsl(var(--accent))',
-                  '0 0 0px hsl(var(--accent))'
-                ]
-              }}
-              transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-            >Business</motion.span>
+            Master <span className="text-primary">Trading</span> & Build Your <span className="text-accent">Business</span>
           </motion.h1>
 
           <motion.p 
-            className="text-base sm:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto"
+            className="text-base sm:text-lg text-muted-foreground mb-6 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
           >
-            Choose your path to financial freedom
+            Choose your path to financial freedom — Learn from a proven mentor with real results
           </motion.p>
 
           {/* Choose Your Path - Large Interactive Cards */}
@@ -132,10 +114,8 @@ const Home = () => {
                 to="/trading" 
                 className="group relative bg-gradient-to-br from-primary/20 via-primary/10 to-transparent border-2 border-primary/40 rounded-2xl sm:rounded-3xl p-5 sm:p-8 overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-[0_0_40px_rgba(var(--primary-rgb),0.4)] hover:scale-[1.02] block"
               >
-                {/* Animated background glow */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
-                {/* Animated chart line */}
                 <svg className="absolute bottom-0 left-0 w-full h-16 opacity-20">
                   <motion.path
                     d="M0,40 Q50,20 100,35 T200,25 T300,40 T400,20"
@@ -183,10 +163,8 @@ const Home = () => {
                 to="/business" 
                 className="group relative bg-gradient-to-br from-accent/20 via-accent/10 to-transparent border-2 border-accent/40 rounded-2xl sm:rounded-3xl p-5 sm:p-8 overflow-hidden transition-all duration-300 hover:border-accent hover:shadow-[0_0_40px_rgba(168,85,247,0.4)] hover:scale-[1.02] block"
               >
-                {/* Animated background glow */}
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
-                {/* Animated growth bars */}
                 <div className="absolute bottom-4 left-4 right-4 flex items-end justify-around gap-1 opacity-20">
                   {[0.3, 0.5, 0.4, 0.7, 0.6, 0.9, 0.8].map((height, i) => (
                     <motion.div
@@ -225,65 +203,38 @@ const Home = () => {
             </motion.div>
           </div>
 
-          {/* Free Resources Button - Prominent in Hero */}
+          {/* Quick Access Links */}
           <motion.div 
-            className="flex justify-center mb-4"
+            className="flex flex-wrap justify-center gap-3 mb-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.9 }}
           >
             <Link 
               to="/library" 
-              className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-accent/20 via-primary/20 to-accent/20 border-2 border-accent/50 rounded-2xl px-6 sm:px-8 py-4 overflow-hidden transition-all duration-300 hover:border-accent hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] hover:scale-[1.02]"
+              className="group inline-flex items-center gap-2 bg-gradient-to-r from-accent/10 to-primary/10 border border-accent/40 rounded-xl px-4 py-3 hover:border-accent hover:shadow-lg transition-all"
             >
-              <motion.div 
-                className="absolute inset-0 bg-gradient-to-r from-accent/10 via-primary/10 to-accent/10"
-                animate={{
-                  x: ['-100%', '100%'],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: 'linear',
-                }}
-                style={{ width: '200%' }}
-              />
-              <div className="relative z-10 flex items-center gap-3">
-                <motion.div 
-                  className="w-10 h-10 sm:w-12 sm:h-12 bg-accent/20 border border-accent/50 rounded-xl flex items-center justify-center"
-                  whileHover={{ scale: 1.1 }}
-                  animate={{ rotate: [0, 5, -5, 0] }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                >
-                  <Gift size={20} className="text-accent sm:w-6 sm:h-6" />
-                </motion.div>
-                <div className="text-left">
-                  <h3 className="text-base sm:text-lg font-bold text-foreground">Free Resources & Courses</h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground">Start learning today — no cost</p>
-                </div>
-                <ChevronRight size={20} className="text-accent group-hover:translate-x-1 transition-transform" />
-              </div>
+              <Gift size={18} className="text-accent" />
+              <span className="text-foreground font-semibold text-sm">Free Resources</span>
+              <ChevronRight size={16} className="text-muted-foreground group-hover:translate-x-1 transition-transform" />
             </Link>
+            
+            <a 
+              href="https://whop.com/stackmode-network-llc"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500/10 to-cyan-400/10 border border-cyan-500/40 rounded-xl px-4 py-3 hover:border-cyan-400 hover:shadow-lg transition-all"
+            >
+              <Users size={18} className="text-cyan-400" />
+              <span className="text-foreground font-semibold text-sm">Join Stackmode Network</span>
+              <span className="text-cyan-400 text-xs font-bold">$50/mo</span>
+            </a>
           </motion.div>
         </div>
       </section>
 
-      {/* Stackmode Network Group Promo */}
+      {/* Social Proof Section */}
       <section className="py-8 px-4 relative z-10">
-        <div className="max-w-4xl mx-auto">
-          <StackmodeGroupPromo variant="home" />
-        </div>
-      </section>
-
-      {/* Stack Finder AI Tool Promo */}
-      <section className="py-8 px-4 relative z-10">
-        <div className="max-w-5xl mx-auto">
-          <StackFinderPromo variant="home" />
-        </div>
-      </section>
-
-      {/* Reviews Section */}
-      <section className="py-10 px-4 border-t border-border/50 relative z-10">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-6">
@@ -293,6 +244,7 @@ const Home = () => {
               <h2 className="text-xl sm:text-2xl font-bold text-foreground">
                 What My Clients Are Achieving
               </h2>
+              <p className="text-muted-foreground text-sm mt-1">Verified testimonials from real students</p>
             </div>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
@@ -301,92 +253,234 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Areas of Expertise */}
-      <section className="py-12 px-4 bg-muted/30 relative z-10">
-        <div className="max-w-6xl mx-auto">
+      {/* Stackmode Network Section */}
+      <section className="py-8 px-4 relative z-10 bg-muted/20">
+        <div className="max-w-5xl mx-auto">
           <ScrollReveal>
-            <div className="text-center mb-8">
-              <span className="inline-block bg-accent/10 text-accent text-xs font-semibold px-3 py-1 rounded-full mb-2">
-                What I Offer
+            <div className="text-center mb-6">
+              <span className="inline-block bg-cyan-500/10 text-cyan-400 text-xs font-semibold px-3 py-1 rounded-full mb-2">
+                All-In-One Membership
               </span>
-              <h2 className="text-xl sm:text-2xl font-bold text-foreground">
-                Areas of Expertise
+              <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
+                Everything You Need in One Place
               </h2>
+              <p className="text-muted-foreground text-sm max-w-lg mx-auto">
+                Get access to trading tools, business training, AI resources, and live coaching for just $50/month
+              </p>
             </div>
           </ScrollReveal>
-          
-          <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-4" staggerDelay={0.08}>
-            {[
-              { icon: TrendingUp, title: 'Stock Trading', desc: 'Technical analysis & swing trading', color: 'primary', link: '/trading' },
-              { icon: Briefcase, title: 'Options Trading', desc: 'High-probability setups', color: 'primary', link: '/trading' },
-              { icon: Award, title: 'Futures & Forex', desc: 'Price action strategies', color: 'primary', link: '/trading' },
-              { icon: Users, title: 'Crypto Trading', desc: 'Digital asset analysis', color: 'primary', link: '/trading' },
-              { icon: Zap, title: 'Business Scaling', desc: 'Grow your revenue', color: 'accent', link: '/business' },
-              { icon: Globe, title: 'Website Creation', desc: 'Professional web presence', color: 'accent', link: '/buildyourwebsite' },
-              { icon: Youtube, title: 'Content Monetization', desc: 'Turn content to income', color: 'accent', link: '/business' },
-              { icon: BookOpen, title: 'Ad Creation', desc: 'High-converting ads', color: 'accent', link: '/business' }
-            ].map((item, i) => (
-              <StaggerItem key={i}>
-                <Link 
-                  to={item.link}
-                  className="bg-background rounded-xl p-4 border border-border/50 text-center hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1 group block h-full"
-                >
-                  <motion.div 
-                    className={`w-10 h-10 rounded-full bg-${item.color}/10 flex items-center justify-center mx-auto mb-3`}
-                    whileHover={{ scale: 1.2, rotate: 10 }}
-                    transition={{ type: 'spring', stiffness: 400 }}
-                  >
-                    <item.icon className={`w-5 h-5 text-${item.color}`} />
-                  </motion.div>
-                  <h3 className="text-sm font-semibold text-foreground mb-1">{item.title}</h3>
-                  <p className="text-xs text-muted-foreground">{item.desc}</p>
-                </Link>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
+          <StackmodeGroupPromo variant="home" />
+        </div>
+      </section>
 
-          {/* Library Button */}
-          <ScrollReveal delay={0.4}>
-            <div className="mt-8 text-center">
-              <Link 
-                to="/library" 
-                className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 border-2 border-primary/40 rounded-2xl px-8 py-4 overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-[0_0_30px_rgba(var(--primary-rgb),0.3)] hover:scale-[1.02]"
-              >
-                <motion.div 
-                  className="absolute inset-0 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10"
-                  animate={{
-                    x: ['-100%', '100%'],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: 'linear',
-                  }}
-                  style={{ width: '200%' }}
-                />
-                <div className="relative z-10 flex items-center gap-3">
-                  <motion.div 
-                    className="w-10 h-10 bg-primary/20 border border-primary/50 rounded-xl flex items-center justify-center"
-                    whileHover={{ scale: 1.1 }}
-                  >
-                    <BookOpen size={20} className="text-primary" />
-                  </motion.div>
-                  <div className="text-left">
-                    <h3 className="text-lg font-bold text-foreground">Free Resources & Courses</h3>
-                    <p className="text-sm text-muted-foreground">Browse the full library</p>
-                  </div>
-                  <ChevronRight size={20} className="text-primary group-hover:translate-x-1 transition-transform" />
+      {/* Trading Section Preview */}
+      <section className="py-10 px-4 relative z-10">
+        <div className="max-w-6xl mx-auto">
+          <ScrollReveal>
+            <div className="flex flex-col lg:flex-row items-center gap-8">
+              {/* Content */}
+              <div className="flex-1 text-center lg:text-left">
+                <span className="inline-block bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                  Trading Education
+                </span>
+                <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
+                  Learn to Trade the <span className="text-primary">Smart Way</span>
+                </h2>
+                <p className="text-muted-foreground mb-6">
+                  Master stocks, options, futures, forex, and crypto with proven strategies. Get access to the StackFinder trading tools and learn from live market analysis.
+                </p>
+                
+                <div className="grid grid-cols-2 gap-3 mb-6">
+                  {[
+                    { icon: BarChart3, text: "Technical Analysis" },
+                    { icon: Target, text: "Entry & Exit Strategies" },
+                    { icon: Shield, text: "Risk Management" },
+                    { icon: Rocket, text: "Live Trading Calls" }
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-2 text-sm">
+                      <item.icon size={16} className="text-primary" />
+                      <span className="text-foreground">{item.text}</span>
+                    </div>
+                  ))}
                 </div>
-              </Link>
+
+                <Link 
+                  to="/trading"
+                  className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 py-3 rounded-xl transition-all hover:shadow-lg"
+                >
+                  <span>Explore Trading</span>
+                  <ArrowRight size={18} />
+                </Link>
+              </div>
+
+              {/* Image */}
+              <div className="flex-1 w-full max-w-md">
+                <motion.div 
+                  className="relative rounded-2xl overflow-hidden border-2 border-primary/30 shadow-xl"
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <OptimizedImage 
+                    src="/images/stackfinder/stackfinder-main.png" 
+                    alt="StackFinder Trading Tool"
+                    className="w-full aspect-video"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <span className="text-xs text-primary font-semibold">STACKFINDER AI</span>
+                    <p className="text-sm text-foreground font-medium">Smart trading tools included</p>
+                  </div>
+                </motion.div>
+              </div>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Video Section */}
-      <section className="py-12 px-4 bg-card/30 border-y border-border/50 relative z-10">
+      {/* Stack Finder Promo */}
+      <section className="py-8 px-4 relative z-10 bg-muted/20">
+        <div className="max-w-5xl mx-auto">
+          <StackFinderPromo variant="home" />
+        </div>
+      </section>
+
+      {/* Business Section Preview */}
+      <section className="py-10 px-4 relative z-10">
+        <div className="max-w-6xl mx-auto">
+          <ScrollReveal direction="right">
+            <div className="flex flex-col lg:flex-row-reverse items-center gap-8">
+              {/* Content */}
+              <div className="flex-1 text-center lg:text-left">
+                <span className="inline-block bg-accent/10 text-accent text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                  Business Education
+                </span>
+                <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
+                  Build Your <span className="text-accent">Empire</span> with AI
+                </h2>
+                <p className="text-muted-foreground mb-6">
+                  Learn to create AI-powered businesses, monetize on YouTube, and build multiple income streams. Turn your ideas into profitable ventures.
+                </p>
+                
+                <div className="grid grid-cols-2 gap-3 mb-6">
+                  {[
+                    { icon: Youtube, text: "YouTube Monetization" },
+                    { icon: Rocket, text: "AI Business Models" },
+                    { icon: Globe, text: "Social Media Growth" },
+                    { icon: Target, text: "Content Strategy" }
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-2 text-sm">
+                      <item.icon size={16} className="text-accent" />
+                      <span className="text-foreground">{item.text}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <Link 
+                  to="/business"
+                  className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-6 py-3 rounded-xl transition-all hover:shadow-lg"
+                >
+                  <span>Explore Business</span>
+                  <ArrowRight size={18} />
+                </Link>
+              </div>
+
+              {/* Image */}
+              <div className="flex-1 w-full max-w-md">
+                <motion.div 
+                  className="relative rounded-2xl overflow-hidden border-2 border-accent/30 shadow-xl"
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <OptimizedImage 
+                    src="/lovable-uploads/business-proof-1.png" 
+                    alt="Business Success"
+                    className="w-full aspect-video"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <span className="text-xs text-accent font-semibold">REAL RESULTS</span>
+                    <p className="text-sm text-foreground font-medium">Learn from proven success</p>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Website Building Section */}
+      <section className="py-10 px-4 relative z-10 bg-muted/20">
+        <div className="max-w-6xl mx-auto">
+          <ScrollReveal>
+            <div className="flex flex-col lg:flex-row items-center gap-8">
+              {/* Content */}
+              <div className="flex-1 text-center lg:text-left">
+                <span className="inline-block bg-cyan-500/10 text-cyan-400 text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                  Professional Services
+                </span>
+                <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
+                  Need a <span className="text-cyan-400">Website</span>?
+                </h2>
+                <p className="text-muted-foreground mb-6">
+                  Get a professional, high-converting website built for your business. Or learn to build it yourself with our DIY training inside the Stackmode Network.
+                </p>
+                
+                <div className="grid grid-cols-2 gap-3 mb-6">
+                  {[
+                    { icon: Code, text: "Custom Development" },
+                    { icon: Globe, text: "Mobile Responsive" },
+                    { icon: Target, text: "SEO Optimized" },
+                    { icon: Rocket, text: "Fast Loading" }
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-2 text-sm">
+                      <item.icon size={16} className="text-cyan-400" />
+                      <span className="text-foreground">{item.text}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap gap-3">
+                  <Link 
+                    to="/buildyourwebsite"
+                    className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-600 text-background font-semibold px-6 py-3 rounded-xl transition-all hover:shadow-lg"
+                  >
+                    <span>Get a Website</span>
+                    <ArrowRight size={18} />
+                  </Link>
+                  <a 
+                    href="https://whop.com/stackmode-network-llc"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 border border-cyan-500/50 text-cyan-400 font-semibold px-6 py-3 rounded-xl transition-all hover:bg-cyan-500/10"
+                  >
+                    <span>DIY Training</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Image */}
+              <div className="flex-1 w-full max-w-md">
+                <motion.div 
+                  className="relative rounded-2xl overflow-hidden border-2 border-cyan-500/30 shadow-xl"
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <OptimizedImage 
+                    src="/images/stackfinder/stackmode-5.png" 
+                    alt="Website Development"
+                    className="w-full aspect-video"
+                  />
+                </motion.div>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Video Introduction */}
+      <section className="py-10 px-4 border-t border-border/50 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal>
+            <span className="inline-block bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-3">
+              Meet Your Mentor
+            </span>
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 text-foreground">
               Turn Business Profits Into Trading <span className="text-primary">Income</span>
             </h2>
@@ -405,16 +499,8 @@ const Home = () => {
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors" />
                   <div className="absolute inset-0 flex flex-col items-center justify-center">
                     <motion.div 
-                      className="w-16 h-16 sm:w-20 sm:h-20 bg-primary rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(var(--primary-rgb),0.6)]"
+                      className="w-16 h-16 sm:w-20 sm:h-20 bg-primary rounded-full flex items-center justify-center shadow-lg"
                       whileHover={{ scale: 1.1 }}
-                      animate={{ 
-                        boxShadow: [
-                          '0 0 30px rgba(var(--primary-rgb),0.6)',
-                          '0 0 50px rgba(var(--primary-rgb),0.8)',
-                          '0 0 30px rgba(var(--primary-rgb),0.6)',
-                        ]
-                      }}
-                      transition={{ duration: 2, repeat: Infinity }}
                     >
                       <Play size={32} className="text-primary-foreground ml-1" fill="currentColor" />
                     </motion.div>
@@ -435,16 +521,63 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Library Preview */}
+      <section className="py-10 px-4 bg-muted/20 relative z-10">
+        <div className="max-w-6xl mx-auto text-center">
+          <ScrollReveal>
+            <span className="inline-block bg-accent/10 text-accent text-xs font-semibold px-3 py-1 rounded-full mb-3">
+              Free Resources
+            </span>
+            <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
+              Start Learning for Free
+            </h2>
+            <p className="text-muted-foreground text-sm max-w-lg mx-auto mb-8">
+              Access free trading strategies, business guides, and educational content in our resource library
+            </p>
+          </ScrollReveal>
+
+          <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8" staggerDelay={0.08}>
+            {[
+              { icon: TrendingUp, title: 'Trading Guides', desc: 'Free strategies', color: 'primary' },
+              { icon: Briefcase, title: 'Business Tips', desc: 'Growth tactics', color: 'accent' },
+              { icon: BookOpen, title: 'eBooks', desc: 'Deep dives', color: 'amber-500' },
+              { icon: Youtube, title: 'Video Lessons', desc: 'Visual learning', color: 'red-500' }
+            ].map((item, i) => (
+              <StaggerItem key={i}>
+                <div className="bg-background rounded-xl p-4 border border-border/50 text-center hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 h-full">
+                  <div className={`w-10 h-10 rounded-full bg-${item.color}/10 flex items-center justify-center mx-auto mb-3`}>
+                    <item.icon className={`w-5 h-5 text-${item.color}`} />
+                  </div>
+                  <h3 className="text-sm font-semibold text-foreground mb-1">{item.title}</h3>
+                  <p className="text-xs text-muted-foreground">{item.desc}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+
+          <ScrollReveal delay={0.3}>
+            <Link 
+              to="/library" 
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white font-semibold px-8 py-3 rounded-xl transition-all hover:shadow-lg"
+            >
+              <Gift size={18} />
+              <span>Browse Full Library</span>
+              <ArrowRight size={18} />
+            </Link>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* Books Credibility Section */}
       <BooksCredibilityPromo variant="compact" showHeading={true} />
 
       {/* About Preview */}
-      <section className="py-12 px-4 relative z-10">
+      <section className="py-10 px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal direction="left">
-              <motion.div 
-                className="flex flex-col sm:flex-row items-center gap-6 bg-card/50 border border-border/50 rounded-2xl p-6 hover:border-primary/50 transition-colors"
-              >
+            <motion.div 
+              className="flex flex-col sm:flex-row items-center gap-6 bg-card/50 border border-border/50 rounded-2xl p-6 hover:border-primary/50 transition-colors"
+            >
               <motion.img 
                 src="/images/stackmodechris-about-new.png" 
                 alt="Stackmodechris" 
@@ -458,7 +591,7 @@ const Home = () => {
                   Trading mentor & business strategist helping people build wealth through multiple income streams.
                 </p>
                 <Link to="/about" className="inline-flex items-center gap-2 text-primary text-sm font-medium hover:gap-3 transition-all">
-                  <span>Learn more</span>
+                  <span>Learn more about me</span>
                   <ArrowRight size={16} />
                 </Link>
               </div>
