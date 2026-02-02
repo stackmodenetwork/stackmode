@@ -164,7 +164,7 @@ export const BooksCredibilityPromo = ({
 
                   {/* Action Buttons */}
                   <div className="flex gap-2">
-                    <a href={book.amazonLink} target="_blank" rel="noopener noreferrer" className="flex-1 flex flex-col items-center justify-center gap-0.5 bg-[#FF9900] hover:bg-[#FF9900]/90 text-black font-semibold py-2 rounded-lg transition-colors">
+                    <a href={book.amazonLink} target="_blank" rel="noopener noreferrer" className="flex-1 flex flex-col items-center justify-center gap-0.5 bg-[#FF9900] hover:bg-[#FF9900]/90 text-black font-semibold py-2 transition-colors rounded border-none">
                       <div className="flex items-center gap-1">
                         <ShoppingCart size={14} />
                         <span className="text-sm">Amazon</span>
