@@ -142,7 +142,7 @@ export const TradingStackmodePromo = () => {
                     <div className="absolute inset-0 bg-primary rounded-xl blur-lg opacity-40 group-hover:opacity-60 transition-opacity" />
                     <div className="relative flex items-center gap-3 bg-gradient-to-r from-primary to-emerald-400 text-background font-bold text-lg px-8 py-4 rounded-xl shadow-xl shadow-primary/25 transition-all">
                       <Users size={20} />
-                      <span>Stop Learning History. Start Stacking Wins.</span>
+                      <span>START STACKING WINS! JOIN THE STACKMODE NETWORK</span>
                       <motion.div
                         animate={{ x: [0, 5, 0] }}
                         transition={{ duration: 1.5, repeat: Infinity }}
