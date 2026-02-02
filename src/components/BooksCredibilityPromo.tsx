@@ -158,12 +158,19 @@ export const BooksCredibilityPromo = ({
                 <div className="relative bg-card/60 border border-border hover:border-amber-500/50 rounded-2xl p-4 transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/10">
                   {/* Book Cover */}
                   <div className="relative mb-4 flex justify-center">
-                    <motion.img 
-                      src={book.image} 
-                      alt={book.title}
-                      className="w-28 h-40 object-cover rounded-lg shadow-xl group-hover:shadow-amber-500/20 transition-shadow"
-                      whileHover={{ scale: 1.05, rotateY: 10 }}
-                    />
+                    <a 
+                      href={book.amazonLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cursor-pointer"
+                    >
+                      <motion.img 
+                        src={book.image} 
+                        alt={book.title}
+                        className="w-28 h-40 object-cover rounded-lg shadow-xl group-hover:shadow-amber-500/20 transition-shadow hover:shadow-amber-500/40"
+                        whileHover={{ scale: 1.08, rotateY: 10 }}
+                      />
+                    </a>
                   </div>
 
                   {/* Book Info */}
@@ -263,17 +270,22 @@ export const BooksCredibilityPromo = ({
                 
                 {/* Book Cover */}
                 <div className="relative mb-6 flex justify-center">
-                  <div className="relative">
+                  <a 
+                    href={book.amazonLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative cursor-pointer"
+                  >
                     <motion.img 
                       src={book.image} 
                       alt={book.title}
-                      className="w-36 h-52 object-cover rounded-lg shadow-2xl border border-white/10"
-                      whileHover={{ scale: 1.05, rotateY: 15 }}
+                      className="w-36 h-52 object-cover rounded-lg shadow-2xl border border-white/10 hover:shadow-amber-500/30"
+                      whileHover={{ scale: 1.08, rotateY: 15 }}
                       transition={{ type: 'spring', stiffness: 300 }}
                     />
                     {/* Shine effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
-                  </div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 pointer-events-none" />
+                  </a>
                 </div>
 
                 {/* Book Info */}
