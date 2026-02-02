@@ -79,7 +79,16 @@ const Home = () => {
           duration: 0.6,
           delay: 0.5
         }}>
-            Master <span className="text-primary">Trading</span> & Build Your <span className="text-accent">Business</span>
+            Master <span className="text-primary">Trading</span> & Build Your{' '}
+            <motion.span 
+              className="text-purple-500 inline-block"
+              animate={{ 
+                textShadow: ['0 0 0px rgb(168,85,247)', '0 0 25px rgb(168,85,247)', '0 0 0px rgb(168,85,247)']
+              }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              Business
+            </motion.span>
           </motion.h1>
 
           <motion.p className="text-base sm:text-lg text-muted-foreground mb-6 max-w-2xl mx-auto" initial={{
