@@ -180,41 +180,56 @@ const Home = () => {
             </motion.div>
           </div>
 
-          {/* Stackmode Network - Premium All-In-One Offer */}
+          {/* Headline above the box */}
           <motion.div
-            className="mt-8 relative"
+            className="mt-8 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.9 }}
+          >
+            <motion.div 
+              className="inline-flex items-center gap-2 bg-cyan-500/20 border border-cyan-500/40 rounded-full px-4 py-1.5 mb-3"
+              animate={{ scale: [1, 1.02, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              <Sparkles size={14} className="text-cyan-400" />
+              <span className="text-cyan-400 text-xs font-bold">ALL-IN-ONE MEMBERSHIP</span>
+            </motion.div>
+            
+            <h3 className="text-2xl sm:text-3xl font-bold text-foreground">
+              Get <span className="text-cyan-400">Everything</span> For Just $50/Month
+            </h3>
+          </motion.div>
+
+          {/* Stackmode Network - Premium All-In-One Offer - Clickable Card */}
+          <motion.div
+            className="mt-4 relative"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1 }}
           >
             {/* Glowing border effect */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/30 via-cyan-400/20 to-cyan-500/30 rounded-3xl blur-lg opacity-60" />
+            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/30 via-cyan-400/20 to-cyan-500/30 rounded-3xl blur-lg opacity-60 group-hover:opacity-100 transition-opacity" />
             
-            <div className="relative bg-gradient-to-br from-background/95 via-background/90 to-cyan-950/30 border-2 border-cyan-500/40 rounded-2xl p-6 sm:p-8 overflow-hidden">
+            <a
+              href="https://whop.com/stackmode-network-llc"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative block bg-gradient-to-br from-background/95 via-background/90 to-cyan-950/30 border-2 border-cyan-500/40 rounded-2xl p-6 sm:p-8 overflow-hidden transition-all duration-300 hover:border-cyan-400 hover:shadow-[0_0_40px_rgba(6,182,212,0.4)] hover:scale-[1.02]"
+            >
               {/* Background pattern */}
-              <div className="absolute inset-0 opacity-5">
+              <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.3),transparent_70%)]" />
               </div>
               
+              {/* Hover overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
               <div className="relative z-10">
-                {/* Header */}
-                <div className="text-center mb-6">
-                  <motion.div 
-                    className="inline-flex items-center gap-2 bg-cyan-500/20 border border-cyan-500/40 rounded-full px-4 py-1.5 mb-4"
-                    animate={{ scale: [1, 1.02, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    <Sparkles size={14} className="text-cyan-400" />
-                    <span className="text-cyan-400 text-xs font-bold">ALL-IN-ONE MEMBERSHIP</span>
-                  </motion.div>
-                  
-                  <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
-                    Get <span className="text-cyan-400">Everything</span> For Just $50/Month
-                  </h3>
-                  <p className="text-muted-foreground max-w-xl mx-auto">
-                    Stop paying for courses separately. Get unlimited access to all trading tools, business training, AI resources, and live coaching.
-                  </p>
-                </div>
+                {/* Description */}
+                <p className="text-muted-foreground max-w-xl mx-auto text-center mb-6">
+                  Stop paying for courses separately. Get unlimited access to all trading tools, business training, AI resources, and live coaching.
+                </p>
 
                 {/* What's Included Grid */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
@@ -224,38 +239,27 @@ const Home = () => {
                     { icon: Sparkles, label: "AI Resources", desc: "Templates & Guides" },
                     { icon: Users, label: "Live Coaching", desc: "Weekly Sessions" }
                   ].map((item, i) => (
-                    <motion.a
+                    <motion.div
                       key={item.label}
-                      href="https://whop.com/stackmode-network-llc"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-cyan-500/5 border border-cyan-500/20 rounded-xl p-3 text-center hover:border-cyan-400/40 hover:bg-cyan-500/10 transition-all cursor-pointer"
+                      className="bg-cyan-500/5 border border-cyan-500/20 rounded-xl p-3 text-center group-hover:border-cyan-400/40 group-hover:bg-cyan-500/10 transition-all"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 1.2 + i * 0.1 }}
-                      whileHover={{ scale: 1.05 }}
                     >
-                      <item.icon size={20} className="text-cyan-400 mx-auto mb-1" />
+                      <item.icon size={20} className="text-cyan-400 mx-auto mb-1 group-hover:scale-110 transition-transform" />
                       <div className="text-xs font-semibold text-foreground">{item.label}</div>
                       <div className="text-[10px] text-muted-foreground">{item.desc}</div>
-                    </motion.a>
+                    </motion.div>
                   ))}
                 </div>
 
                 {/* CTA */}
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <motion.a
-                    href="https://whop.com/stackmode-network-llc"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-cyan-500 to-cyan-400 hover:from-cyan-400 hover:to-cyan-300 text-background font-bold text-lg px-8 py-4 rounded-xl transition-all shadow-lg shadow-cyan-500/30 hover:shadow-cyan-400/40 hover:scale-105"
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
+                  <div className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-cyan-500 to-cyan-400 group-hover:from-cyan-400 group-hover:to-cyan-300 text-background font-bold text-lg px-8 py-4 rounded-xl transition-all shadow-lg shadow-cyan-500/30 group-hover:shadow-cyan-400/40">
                     <Users size={22} />
                     <span>Join Stackmode Network</span>
-                    <ArrowRight size={20} />
-                  </motion.a>
+                    <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                  </div>
                   
                   <div className="flex items-center gap-3 text-sm">
                     <span className="text-muted-foreground">Only</span>
@@ -276,7 +280,7 @@ const Home = () => {
                   <span>Private Community</span>
                 </div>
               </div>
-            </div>
+            </a>
           </motion.div>
 
           {/* Quick Access to Free Resources */}
