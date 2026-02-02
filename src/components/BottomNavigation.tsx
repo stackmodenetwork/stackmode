@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Home, BookOpen, TrendingUp, Briefcase, DollarSign, Globe } from 'lucide-react';
+import { Home, TrendingUp, Briefcase, Phone, Globe } from 'lucide-react';
 import { useEffect, useState, useCallback, memo, useMemo } from 'react';
 
 // Haptic feedback utility
@@ -15,6 +15,7 @@ interface NavItem {
   icon: typeof Home;
   isExternal?: boolean;
   isHighlighted?: boolean;
+  isPhone?: boolean;
 }
 
 const navItems: NavItem[] = [
@@ -23,11 +24,12 @@ const navItems: NavItem[] = [
   { path: '/business', label: 'Business', icon: Briefcase },
   { path: '/buildyourwebsite', label: 'Website', icon: Globe },
   { 
-    path: 'https://whop.com/stackmode-network-llc', 
-    label: 'Stackmode', 
-    icon: DollarSign,
+    path: 'tel:6787758532', 
+    label: 'Call Me', 
+    icon: Phone,
     isExternal: true,
-    isHighlighted: true
+    isHighlighted: true,
+    isPhone: true
   },
 ];
 
