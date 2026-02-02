@@ -11,6 +11,8 @@ import { MainHeader } from '@/components/MainHeader';
 import { MainFooter } from '@/components/MainFooter';
 import { OptimizedImage } from '@/components/OptimizedImage';
 import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
+import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
+import { FloatingPhoneButton } from '@/components/FloatingPhoneButton';
 
 const About = () => {
   const { toast } = useToast();
@@ -100,7 +102,11 @@ const About = () => {
       <div className="min-h-screen bg-background flex flex-col">
         <MainHeader />
 
-        {/* Back Button */}
+        {/* Free Resources Banner */}
+        <FreeResourcesCTA variant="banner" />
+
+        {/* Floating Phone Button - Desktop Only */}
+        <FloatingPhoneButton />
         <div className="max-w-5xl mx-auto w-full px-4 pt-6">
           <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
             <ArrowLeft size={20} />

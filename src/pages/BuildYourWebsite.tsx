@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { ArrowLeft, Globe, Zap, Palette, Code, Smartphone, CheckCircle, Phone } from 'lucide-react';
+import { ArrowLeft, Globe, Zap, Palette, Code, Smartphone, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { MainHeader } from '@/components/MainHeader';
@@ -10,6 +10,8 @@ import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/Scroll
 import { StackmodeGroupPromo } from '@/components/StackmodeGroupPromo';
 import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
 import { BlueprintPromo } from '@/components/BlueprintPromo';
+import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
+import { FloatingPhoneButton } from '@/components/FloatingPhoneButton';
 import { motion } from 'framer-motion';
 
 const BuildYourWebsite = () => {
@@ -27,29 +29,11 @@ const BuildYourWebsite = () => {
         {/* Dynamic Background */}
         <BusinessBackground variant="purple" />
 
-        {/* Phone Call CTA Banner */}
-        <motion.div 
-          className="bg-gradient-to-r from-purple-500/20 via-primary/10 to-purple-500/20 border-y border-purple-500/30 relative z-10"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          <div className="max-w-7xl mx-auto px-4 py-3">
-            <a href="tel:6787758532" className="flex items-center justify-center gap-3 group">
-              <div className="relative">
-                <div className="absolute inset-0 bg-purple-500 rounded-full animate-ping opacity-30" />
-                <div className="relative bg-purple-500/20 border border-purple-500/50 rounded-full p-2 group-hover:bg-purple-500/30 transition-colors">
-                  <Phone size={18} className="text-purple-400" />
-                </div>
-              </div>
-              <div className="text-center sm:text-left">
-                <span className="text-foreground font-semibold text-sm sm:text-base">
-                  Get Your Website Built: <span className="text-purple-400">(678) 775-8532</span>
-                </span>
-              </div>
-            </a>
-          </div>
-        </motion.div>
+        {/* Free Resources Banner */}
+        <FreeResourcesCTA variant="banner" />
+
+        {/* Floating Phone Button - Desktop Only */}
+        <FloatingPhoneButton />
 
         {/* Back Button */}
         <div className="max-w-5xl mx-auto w-full px-4 pt-6 relative z-10">

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { TrendingUp, Briefcase, ArrowRight, Zap, Play, Phone, ChevronRight, Globe, BookOpen, Gift, BarChart3, Users, Rocket, Shield, Target, Code, Youtube, Sparkles } from 'lucide-react';
+import { TrendingUp, Briefcase, ArrowRight, Zap, Play, ChevronRight, Globe, BookOpen, Gift, BarChart3, Users, Rocket, Shield, Target, Code, Youtube, Sparkles } from 'lucide-react';
 import { CookieConsent } from '@/components/CookieConsent';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
 import { useState } from 'react';
@@ -11,6 +11,7 @@ import { StackFinderPromo } from '@/components/StackFinderPromo';
 import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
 import { BlueprintPromo } from '@/components/BlueprintPromo';
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
+import { FloatingPhoneButton } from '@/components/FloatingPhoneButton';
 import { motion } from 'framer-motion';
 import { OptimizedImage } from '@/components/OptimizedImage';
 
@@ -24,36 +25,11 @@ const Home = () => {
       {/* Dynamic Trading Background */}
       <TradingBackground />
 
-      {/* Phone Call CTA Banner */}
-      <motion.div 
-        className="bg-gradient-to-r from-primary/20 via-accent/10 to-primary/20 border-y border-primary/30 relative z-10"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-      >
-        <div className="max-w-7xl mx-auto px-4 py-3">
-          <a href="tel:6787758532" className="flex items-center justify-center gap-3 group">
-            <div className="relative">
-              <div className="absolute inset-0 bg-primary rounded-full animate-ping opacity-30" />
-              <div className="relative bg-primary/20 border border-primary/50 rounded-full p-2 group-hover:bg-primary/30 transition-colors">
-                <Phone size={18} className="text-primary" />
-              </div>
-            </div>
-            <div className="text-center sm:text-left">
-              <span className="text-foreground font-semibold text-sm sm:text-base">
-                Call Now: <span className="text-primary">(678) 775-8532</span>
-              </span>
-            </div>
-            <span className="hidden sm:inline-flex items-center gap-1 bg-primary/20 border border-primary/40 text-primary text-xs font-medium px-3 py-1 rounded-full">
-              <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
-              Available
-            </span>
-          </a>
-        </div>
-      </motion.div>
-
       {/* Free Resources Banner */}
       <FreeResourcesCTA variant="banner" />
+
+      {/* Floating Phone Button - Desktop Only */}
+      <FloatingPhoneButton />
 
       {/* Hero Section */}
       <section className="relative pt-8 sm:pt-12 pb-6 px-4 z-10">

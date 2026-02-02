@@ -4,7 +4,7 @@ import { AnimatedBlock } from '@/components/AnimatedBlock';
 import { CookieConsent } from '@/components/CookieConsent';
 import { SocialShareButtons } from '@/components/SocialShareButtons';
 import { MainHeader } from '@/components/MainHeader';
-import { Briefcase, Check, Rocket, Target, Users, DollarSign, Lightbulb, Megaphone, Globe, Phone, Calendar, PlayCircle, BookOpen, X, ChevronLeft, ChevronRight, Star, Shield } from 'lucide-react';
+import { Briefcase, Check, Rocket, Target, Users, DollarSign, Lightbulb, Megaphone, Globe, Calendar, PlayCircle, BookOpen, X, ChevronLeft, ChevronRight, Star, Shield } from 'lucide-react';
 import { ConnectWithMe } from '@/components/ConnectWithMe';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -16,6 +16,7 @@ import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
 import { BlueprintPromo } from '@/components/BlueprintPromo';
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
+import { FloatingPhoneButton } from '@/components/FloatingPhoneButton';
 import { motion } from 'framer-motion';
 const businessProofImages = [
   { src: "business-proof-1.png", alt: "Watch page ads revenue" },
@@ -77,32 +78,11 @@ const Business = () => {
       {/* Dynamic Business Background */}
       <BusinessBackground variant="purple" />
 
-      {/* Phone Call CTA Banner */}
-      <motion.div 
-        className="bg-gradient-to-r from-accent/20 via-primary/10 to-accent/20 border-y border-accent/30 relative z-10"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-      >
-        <div className="max-w-7xl mx-auto px-4 py-3">
-          <a href="tel:6787758532" className="flex items-center justify-center gap-3 group">
-            <div className="relative">
-              <div className="absolute inset-0 bg-accent rounded-full animate-ping opacity-30" />
-              <div className="relative bg-accent/20 border border-accent/50 rounded-full p-2 group-hover:bg-accent/30 transition-colors">
-                <Phone size={18} className="text-accent" />
-              </div>
-            </div>
-            <div className="text-center sm:text-left">
-              <span className="text-foreground font-semibold text-sm sm:text-base">
-                Ready to Scale? Call Now: <span className="text-accent">(678) 775-8532</span>
-              </span>
-            </div>
-          </a>
-        </div>
-      </motion.div>
-
       {/* Free Resources Banner */}
       <FreeResourcesCTA variant="banner" />
+
+      {/* Floating Phone Button - Desktop Only */}
+      <FloatingPhoneButton />
 
       {/* Sticky Mobile Header CTA */}
       <div className={`fixed top-16 left-0 right-0 z-35 md:hidden transition-all duration-300 pointer-events-none ${showStickyHeader ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
