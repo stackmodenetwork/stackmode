@@ -8,7 +8,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { TradingBackground } from '@/components/TradingBackground';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
 import { StackmodeGroupPromo } from '@/components/StackmodeGroupPromo';
-import { ConnectWithMe } from '@/components/ConnectWithMe';
 import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
 import { motion } from 'framer-motion';
 
@@ -1125,16 +1124,6 @@ const Learn = () => {
           </ScrollReveal>
         </div>
       </section>
-
-      {/* Connect With Me */}
-      <section className="py-12 px-4 border-t border-border">
-        <div className="container mx-auto">
-          <ScrollReveal>
-            <ConnectWithMe />
-          </ScrollReveal>
-        </div>
-      </section>
-
       {/* Final CTA */}
       <section className="py-12 px-4 border-t border-border">
         <ScrollReveal>

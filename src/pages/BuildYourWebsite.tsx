@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { MainHeader } from '@/components/MainHeader';
 import { MainFooter } from '@/components/MainFooter';
-import { ConnectWithMe } from '@/components/ConnectWithMe';
+
 import { BusinessBackground } from '@/components/BusinessBackground';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
 import { StackmodeGroupPromo } from '@/components/StackmodeGroupPromo';
@@ -206,14 +206,6 @@ const BuildYourWebsite = () => {
           </div>
         </section>
 
-        {/* Connect Section */}
-        <section className="py-16 md:py-20 relative z-10">
-          <div className="container mx-auto px-4">
-            <ScrollReveal>
-              <ConnectWithMe />
-            </ScrollReveal>
-          </div>
-        </section>
 
         <MainFooter />
       </div>
