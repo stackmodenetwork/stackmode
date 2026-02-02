@@ -13,12 +13,9 @@ import { BlueprintPromo } from '@/components/BlueprintPromo';
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
 import { motion } from 'framer-motion';
 import { OptimizedImage } from '@/components/OptimizedImage';
-
 const Home = () => {
   const [videoPlaying, setVideoPlaying] = useState(false);
-  
-  return (
-    <main className="min-h-screen bg-background relative overflow-x-hidden">
+  return <main className="min-h-screen bg-background relative overflow-x-hidden">
         <MainHeader />
         
         {/* Dynamic Trading Background */}
@@ -31,28 +28,39 @@ const Home = () => {
       <section className="relative pt-8 sm:pt-12 pb-6 px-4 z-10">
         <div className="relative z-10 max-w-5xl mx-auto text-center">
           {/* Badge */}
-          <motion.div 
-            className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-2 mb-2"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            <motion.div
-              animate={{ rotate: [0, 15, -15, 0] }}
-              transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-            >
+          <motion.div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-2 mb-2" initial={{
+          opacity: 0,
+          scale: 0.8
+        }} animate={{
+          opacity: 1,
+          scale: 1
+        }} transition={{
+          duration: 0.5,
+          delay: 0.3
+        }}>
+            <motion.div animate={{
+            rotate: [0, 15, -15, 0]
+          }} transition={{
+            duration: 2,
+            repeat: Infinity,
+            repeatDelay: 3
+          }}>
               <Zap size={16} className="text-primary" />
             </motion.div>
             <span className="text-primary text-sm font-semibold">Learn. Earn. Stack.</span>
           </motion.div>
           
           {/* Active Clients Indicator */}
-          <motion.div 
-            className="inline-flex items-center gap-2 mb-4 ml-4"
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
+          <motion.div className="inline-flex items-center gap-2 mb-4 ml-4" initial={{
+          opacity: 0,
+          x: 20
+        }} animate={{
+          opacity: 1,
+          x: 0
+        }} transition={{
+          duration: 0.5,
+          delay: 0.4
+        }}>
             <span className="relative flex h-3 w-3">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
               <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
@@ -61,56 +69,68 @@ const Home = () => {
           </motion.div>
 
           {/* Headline */}
-          <motion.h1 
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 leading-tight"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-          >
+          <motion.h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 leading-tight" initial={{
+          opacity: 0,
+          y: 30
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.6,
+          delay: 0.5
+        }}>
             Master <span className="text-primary">Trading</span> & Build Your <span className="text-accent">Business</span>
           </motion.h1>
 
-          <motion.p 
-            className="text-base sm:text-lg text-muted-foreground mb-6 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-          >
+          <motion.p className="text-base sm:text-lg text-muted-foreground mb-6 max-w-2xl mx-auto" initial={{
+          opacity: 0,
+          y: 20
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.5,
+          delay: 0.6
+        }}>
             Choose your path to financial freedom — Learn from a proven mentor with real results
           </motion.p>
 
           {/* Choose Your Path - Large Interactive Cards */}
           <div className="grid md:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto mb-6">
             {/* Trading Path */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-            >
-              <Link 
-                to="/trading" 
-                className="group relative bg-gradient-to-br from-primary/20 via-primary/10 to-transparent border-2 border-primary/40 rounded-2xl sm:rounded-3xl p-5 sm:p-8 overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-[0_0_40px_rgba(var(--primary-rgb),0.4)] hover:scale-[1.02] block"
-              >
+            <motion.div initial={{
+            opacity: 0,
+            x: -50
+          }} animate={{
+            opacity: 1,
+            x: 0
+          }} transition={{
+            duration: 0.6,
+            delay: 0.7
+          }}>
+              <Link to="/trading" className="group relative bg-gradient-to-br from-primary/20 via-primary/10 to-transparent border-2 border-primary/40 rounded-2xl sm:rounded-3xl p-5 sm:p-8 overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-[0_0_40px_rgba(var(--primary-rgb),0.4)] hover:scale-[1.02] block">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 <svg className="absolute bottom-0 left-0 w-full h-16 opacity-20">
-                  <motion.path
-                    d="M0,40 Q50,20 100,35 T200,25 T300,40 T400,20"
-                    stroke="hsl(var(--primary))"
-                    strokeWidth="2"
-                    fill="none"
-                    initial={{ pathLength: 0 }}
-                    animate={{ pathLength: 1 }}
-                    transition={{ duration: 2, repeat: Infinity, repeatType: 'loop' }}
-                  />
+                  <motion.path d="M0,40 Q50,20 100,35 T200,25 T300,40 T400,20" stroke="hsl(var(--primary))" strokeWidth="2" fill="none" initial={{
+                  pathLength: 0
+                }} animate={{
+                  pathLength: 1
+                }} transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  repeatType: 'loop'
+                }} />
                 </svg>
                 
                 <div className="relative z-10 flex flex-col items-center text-center">
-                  <motion.div 
-                    className="w-16 h-16 sm:w-20 sm:h-20 bg-primary/20 border-2 border-primary/50 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-all duration-300"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    transition={{ type: 'spring', stiffness: 400 }}
-                  >
+                  <motion.div className="w-16 h-16 sm:w-20 sm:h-20 bg-primary/20 border-2 border-primary/50 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-all duration-300" whileHover={{
+                  scale: 1.1,
+                  rotate: 5
+                }} transition={{
+                  type: 'spring',
+                  stiffness: 400
+                }}>
                     <TrendingUp size={32} className="text-primary sm:w-10 sm:h-10" />
                   </motion.div>
 
@@ -131,35 +151,38 @@ const Home = () => {
             </motion.div>
 
             {/* Business Path */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-            >
-              <Link 
-                to="/business" 
-                className="group relative bg-gradient-to-br from-accent/20 via-accent/10 to-transparent border-2 border-accent/40 rounded-2xl sm:rounded-3xl p-5 sm:p-8 overflow-hidden transition-all duration-300 hover:border-accent hover:shadow-[0_0_40px_rgba(168,85,247,0.4)] hover:scale-[1.02] block"
-              >
+            <motion.div initial={{
+            opacity: 0,
+            x: 50
+          }} animate={{
+            opacity: 1,
+            x: 0
+          }} transition={{
+            duration: 0.6,
+            delay: 0.8
+          }}>
+              <Link to="/business" className="group relative bg-gradient-to-br from-accent/20 via-accent/10 to-transparent border-2 border-accent/40 rounded-2xl sm:rounded-3xl p-5 sm:p-8 overflow-hidden transition-all duration-300 hover:border-accent hover:shadow-[0_0_40px_rgba(168,85,247,0.4)] hover:scale-[1.02] block">
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 <div className="absolute bottom-4 left-4 right-4 flex items-end justify-around gap-1 opacity-20">
-                  {[0.3, 0.5, 0.4, 0.7, 0.6, 0.9, 0.8].map((height, i) => (
-                    <motion.div
-                      key={i}
-                      className="w-2 bg-accent rounded-t"
-                      initial={{ height: 0 }}
-                      animate={{ height: `${height * 40}px` }}
-                      transition={{ duration: 0.5, delay: 0.9 + i * 0.1 }}
-                    />
-                  ))}
+                  {[0.3, 0.5, 0.4, 0.7, 0.6, 0.9, 0.8].map((height, i) => <motion.div key={i} className="w-2 bg-accent rounded-t" initial={{
+                  height: 0
+                }} animate={{
+                  height: `${height * 40}px`
+                }} transition={{
+                  duration: 0.5,
+                  delay: 0.9 + i * 0.1
+                }} />)}
                 </div>
                 
                 <div className="relative z-10 flex flex-col items-center text-center">
-                  <motion.div 
-                    className="w-16 h-16 sm:w-20 sm:h-20 bg-accent/20 border-2 border-accent/50 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-accent/30 transition-all duration-300"
-                    whileHover={{ scale: 1.1, rotate: -5 }}
-                    transition={{ type: 'spring', stiffness: 400 }}
-                  >
+                  <motion.div className="w-16 h-16 sm:w-20 sm:h-20 bg-accent/20 border-2 border-accent/50 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-accent/30 transition-all duration-300" whileHover={{
+                  scale: 1.1,
+                  rotate: -5
+                }} transition={{
+                  type: 'spring',
+                  stiffness: 400
+                }}>
                     <Briefcase size={32} className="text-accent sm:w-10 sm:h-10" />
                   </motion.div>
 
@@ -181,33 +204,36 @@ const Home = () => {
           </div>
 
           {/* Headline above the box */}
-          <motion.div
-            className="mt-8 text-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.9 }}
-          >
+          <motion.div className="mt-8 text-center" initial={{
+          opacity: 0,
+          y: 20
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.5,
+          delay: 0.9
+        }}>
             <h3 className="text-2xl sm:text-3xl font-bold text-foreground">
               Get <span className="text-cyan-400">Everything</span> For Just $50/Month
             </h3>
           </motion.div>
 
           {/* Stackmode Network - Premium All-In-One Offer - Clickable Card */}
-          <motion.div
-            className="mt-4 relative"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1 }}
-          >
+          <motion.div className="mt-4 relative" initial={{
+          opacity: 0,
+          y: 30
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.6,
+          delay: 1
+        }}>
             {/* Glowing border effect */}
             <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/30 via-cyan-400/20 to-cyan-500/30 rounded-3xl blur-lg opacity-60 group-hover:opacity-100 transition-opacity" />
             
-            <a
-              href="https://whop.com/stackmode-network-llc"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative block bg-gradient-to-br from-background/95 via-background/90 to-cyan-950/30 border-2 border-cyan-500/40 rounded-2xl p-6 sm:p-8 overflow-hidden transition-all duration-300 hover:border-cyan-400 hover:shadow-[0_0_40px_rgba(6,182,212,0.4)] hover:scale-[1.02]"
-            >
+            <a href="https://whop.com/stackmode-network-llc" target="_blank" rel="noopener noreferrer" className="group relative block bg-gradient-to-br from-background/95 via-background/90 to-cyan-950/30 border-2 border-cyan-500/40 rounded-2xl p-6 sm:p-8 overflow-hidden transition-all duration-300 hover:border-cyan-400 hover:shadow-[0_0_40px_rgba(6,182,212,0.4)] hover:scale-[1.02]">
               {/* Background pattern */}
               <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.3),transparent_70%)]" />
@@ -219,11 +245,12 @@ const Home = () => {
               <div className="relative z-10">
                 {/* Badge inside box */}
                 <div className="text-center mb-4">
-                  <motion.div 
-                    className="inline-flex items-center gap-2 bg-cyan-500/20 border border-cyan-500/40 rounded-full px-4 py-1.5"
-                    animate={{ scale: [1, 1.02, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
+                  <motion.div className="inline-flex items-center gap-2 bg-cyan-500/20 border border-cyan-500/40 rounded-full px-4 py-1.5" animate={{
+                  scale: [1, 1.02, 1]
+                }} transition={{
+                  duration: 2,
+                  repeat: Infinity
+                }}>
                     <Sparkles size={14} className="text-cyan-400" />
                     <span className="text-cyan-400 text-xs font-bold">ALL-IN-ONE MEMBERSHIP</span>
                   </motion.div>
@@ -236,24 +263,35 @@ const Home = () => {
 
                 {/* What's Included Grid */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
-                  {[
-                    { icon: TrendingUp, label: "Trading Tools", desc: "StackFinder + More" },
-                    { icon: Briefcase, label: "Business Training", desc: "Full Course Library" },
-                    { icon: Sparkles, label: "AI Resources", desc: "Templates & Guides" },
-                    { icon: Users, label: "Live Coaching", desc: "Weekly Sessions" }
-                  ].map((item, i) => (
-                    <motion.div
-                      key={item.label}
-                      className="bg-cyan-500/5 border border-cyan-500/20 rounded-xl p-3 text-center group-hover:border-cyan-400/40 group-hover:bg-cyan-500/10 transition-all"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 1.2 + i * 0.1 }}
-                    >
+                  {[{
+                  icon: TrendingUp,
+                  label: "Trading Tools",
+                  desc: "StackFinder + More"
+                }, {
+                  icon: Briefcase,
+                  label: "Business Training",
+                  desc: "Full Course Library"
+                }, {
+                  icon: Sparkles,
+                  label: "AI Resources",
+                  desc: "Templates & Guides"
+                }, {
+                  icon: Users,
+                  label: "Live Coaching",
+                  desc: "Weekly Sessions"
+                }].map((item, i) => <motion.div key={item.label} className="bg-cyan-500/5 border border-cyan-500/20 rounded-xl p-3 text-center group-hover:border-cyan-400/40 group-hover:bg-cyan-500/10 transition-all" initial={{
+                  opacity: 0,
+                  y: 20
+                }} animate={{
+                  opacity: 1,
+                  y: 0
+                }} transition={{
+                  delay: 1.2 + i * 0.1
+                }}>
                       <item.icon size={20} className="text-cyan-400 mx-auto mb-1 group-hover:scale-110 transition-transform" />
                       <div className="text-xs font-semibold text-foreground">{item.label}</div>
                       <div className="text-[10px] text-muted-foreground">{item.desc}</div>
-                    </motion.div>
-                  ))}
+                    </motion.div>)}
                 </div>
 
                 {/* CTA */}
@@ -287,21 +325,7 @@ const Home = () => {
           </motion.div>
 
           {/* Quick Access to Free Resources */}
-          <motion.div 
-            className="flex justify-center mt-6"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 1.3 }}
-          >
-            <Link 
-              to="/library" 
-              className="group inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <Gift size={16} className="text-accent" />
-              <span className="text-sm">Or start with free resources</span>
-              <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </motion.div>
+          
         </div>
       </section>
 
@@ -350,23 +374,25 @@ const Home = () => {
                 </p>
                 
                 <div className="grid grid-cols-2 gap-3 mb-6">
-                  {[
-                    { icon: BarChart3, text: "Technical Analysis" },
-                    { icon: Target, text: "Entry & Exit Strategies" },
-                    { icon: Shield, text: "Risk Management" },
-                    { icon: Rocket, text: "Live Trading Calls" }
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-2 text-sm">
+                  {[{
+                  icon: BarChart3,
+                  text: "Technical Analysis"
+                }, {
+                  icon: Target,
+                  text: "Entry & Exit Strategies"
+                }, {
+                  icon: Shield,
+                  text: "Risk Management"
+                }, {
+                  icon: Rocket,
+                  text: "Live Trading Calls"
+                }].map((item, i) => <div key={i} className="flex items-center gap-2 text-sm">
                       <item.icon size={16} className="text-primary" />
                       <span className="text-foreground">{item.text}</span>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
 
-                <Link 
-                  to="/trading"
-                  className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 py-3 rounded-xl transition-all hover:shadow-lg"
-                >
+                <Link to="/trading" className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 py-3 rounded-xl transition-all hover:shadow-lg">
                   <span>Explore Trading</span>
                   <ArrowRight size={18} />
                 </Link>
@@ -374,28 +400,25 @@ const Home = () => {
 
               {/* Pixel Art Trading Image */}
               <div className="flex-1 w-full max-w-md">
-                <motion.div 
-                  className="relative group"
-                  whileHover={{ scale: 1.03, rotate: 1 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
+                <motion.div className="relative group" whileHover={{
+                scale: 1.03,
+                rotate: 1
+              }} transition={{
+                type: "spring",
+                stiffness: 300
+              }}>
                   {/* Animated glow background */}
-                  <motion.div 
-                    className="absolute -inset-4 bg-gradient-to-r from-primary/40 via-cyan-500/30 to-primary/40 rounded-3xl blur-xl opacity-60"
-                    animate={{ 
-                      scale: [1, 1.05, 1],
-                      opacity: [0.4, 0.7, 0.4]
-                    }}
-                    transition={{ duration: 3, repeat: Infinity }}
-                  />
+                  <motion.div className="absolute -inset-4 bg-gradient-to-r from-primary/40 via-cyan-500/30 to-primary/40 rounded-3xl blur-xl opacity-60" animate={{
+                  scale: [1, 1.05, 1],
+                  opacity: [0.4, 0.7, 0.4]
+                }} transition={{
+                  duration: 3,
+                  repeat: Infinity
+                }} />
                   
                   {/* Main image container */}
                   <div className="relative rounded-2xl overflow-hidden border-2 border-primary/50 shadow-2xl shadow-primary/20 bg-background/50 backdrop-blur-sm">
-                    <OptimizedImage 
-                      src="/images/trading-pixel-art.png" 
-                      alt="Grow Your Trading Account"
-                      className="w-full aspect-square"
-                    />
+                    <OptimizedImage src="/images/trading-pixel-art.png" alt="Grow Your Trading Account" className="w-full aspect-square" />
                     
                     {/* Retro scan line effect */}
                     <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.1)_50%)] bg-[length:100%_4px]" />
@@ -403,22 +426,24 @@ const Home = () => {
                     {/* Bottom label */}
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background via-background/90 to-transparent p-4">
                       <div className="flex items-center gap-2">
-                        <motion.div 
-                          className="w-2 h-2 bg-primary rounded-full"
-                          animate={{ scale: [1, 1.3, 1] }}
-                          transition={{ duration: 1.5, repeat: Infinity }}
-                        />
+                        <motion.div className="w-2 h-2 bg-primary rounded-full" animate={{
+                        scale: [1, 1.3, 1]
+                      }} transition={{
+                        duration: 1.5,
+                        repeat: Infinity
+                      }} />
                         <span className="text-xs text-primary font-bold tracking-wider">STACK SMART • TRADE SMART</span>
                       </div>
                     </div>
                   </div>
                   
                   {/* Floating badge */}
-                  <motion.div 
-                    className="absolute -top-3 -right-3 bg-primary text-primary-foreground text-xs font-bold px-3 py-1.5 rounded-full shadow-lg"
-                    animate={{ y: [0, -5, 0] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
+                  <motion.div className="absolute -top-3 -right-3 bg-primary text-primary-foreground text-xs font-bold px-3 py-1.5 rounded-full shadow-lg" animate={{
+                  y: [0, -5, 0]
+                }} transition={{
+                  duration: 2,
+                  repeat: Infinity
+                }}>
                     📈 GROW YOUR ACCOUNT
                   </motion.div>
                 </motion.div>
@@ -447,23 +472,25 @@ const Home = () => {
                 </p>
                 
                 <div className="grid grid-cols-2 gap-3 mb-6">
-                  {[
-                    { icon: Youtube, text: "YouTube Monetization" },
-                    { icon: Rocket, text: "AI Business Models" },
-                    { icon: Globe, text: "Social Media Growth" },
-                    { icon: Target, text: "Content Strategy" }
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-2 text-sm">
+                  {[{
+                  icon: Youtube,
+                  text: "YouTube Monetization"
+                }, {
+                  icon: Rocket,
+                  text: "AI Business Models"
+                }, {
+                  icon: Globe,
+                  text: "Social Media Growth"
+                }, {
+                  icon: Target,
+                  text: "Content Strategy"
+                }].map((item, i) => <div key={i} className="flex items-center gap-2 text-sm">
                       <item.icon size={16} className="text-accent" />
                       <span className="text-foreground">{item.text}</span>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
 
-                <Link 
-                  to="/business"
-                  className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-6 py-3 rounded-xl transition-all hover:shadow-lg"
-                >
+                <Link to="/business" className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-6 py-3 rounded-xl transition-all hover:shadow-lg">
                   <span>Explore Business</span>
                   <ArrowRight size={18} />
                 </Link>
@@ -471,27 +498,24 @@ const Home = () => {
 
               {/* Blueprint Image */}
               <div className="flex-1 w-full max-w-md">
-                <motion.div 
-                  className="relative group"
-                  whileHover={{ scale: 1.03, rotate: 1 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
+                <motion.div className="relative group" whileHover={{
+                scale: 1.03,
+                rotate: 1
+              }} transition={{
+                type: "spring",
+                stiffness: 300
+              }}>
                   {/* Animated glow - purple for business */}
-                  <motion.div 
-                    className="absolute -inset-4 bg-gradient-to-r from-purple-500/40 via-accent/30 to-purple-500/40 rounded-3xl blur-xl opacity-60"
-                    animate={{ 
-                      scale: [1, 1.05, 1],
-                      opacity: [0.4, 0.7, 0.4]
-                    }}
-                    transition={{ duration: 3, repeat: Infinity }}
-                  />
+                  <motion.div className="absolute -inset-4 bg-gradient-to-r from-purple-500/40 via-accent/30 to-purple-500/40 rounded-3xl blur-xl opacity-60" animate={{
+                  scale: [1, 1.05, 1],
+                  opacity: [0.4, 0.7, 0.4]
+                }} transition={{
+                  duration: 3,
+                  repeat: Infinity
+                }} />
                   
                   <div className="relative rounded-2xl overflow-hidden border-2 border-purple-500/50 shadow-2xl shadow-purple-500/20 bg-background/50 backdrop-blur-sm">
-                    <OptimizedImage 
-                      src="/images/stackmode-blueprint.png" 
-                      alt="The Stackmode Blueprint - Business Success Course"
-                      className="w-full aspect-video"
-                    />
+                    <OptimizedImage src="/images/stackmode-blueprint.png" alt="The Stackmode Blueprint - Business Success Course" className="w-full aspect-video" />
                     
                     {/* Scan line effect */}
                     <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.1)_50%)] bg-[length:100%_4px]" />
@@ -499,25 +523,25 @@ const Home = () => {
                     {/* Bottom label */}
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background via-background/90 to-transparent p-4">
                       <div className="flex items-center gap-2">
-                        <motion.div 
-                          className="w-2 h-2 bg-purple-400 rounded-full"
-                          animate={{ scale: [1, 1.3, 1] }}
-                          transition={{ duration: 1.5, repeat: Infinity }}
-                        />
+                        <motion.div className="w-2 h-2 bg-purple-400 rounded-full" animate={{
+                        scale: [1, 1.3, 1]
+                      }} transition={{
+                        duration: 1.5,
+                        repeat: Infinity
+                      }} />
                         <span className="text-xs text-purple-400 font-bold tracking-wider">THE STACKMODE BLUEPRINT</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Floating badge - purple glow */}
-                  <motion.a
-                    href="https://whop.com/stackmode-network-llc"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute -top-3 -right-3 bg-purple-500 hover:bg-purple-400 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg shadow-purple-500/50 cursor-pointer transition-colors"
-                    animate={{ y: [0, -5, 0], boxShadow: ['0 0 10px rgba(168,85,247,0.5)', '0 0 20px rgba(168,85,247,0.8)', '0 0 10px rgba(168,85,247,0.5)'] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
+                  <motion.a href="https://whop.com/stackmode-network-llc" target="_blank" rel="noopener noreferrer" className="absolute -top-3 -right-3 bg-purple-500 hover:bg-purple-400 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg shadow-purple-500/50 cursor-pointer transition-colors" animate={{
+                  y: [0, -5, 0],
+                  boxShadow: ['0 0 10px rgba(168,85,247,0.5)', '0 0 20px rgba(168,85,247,0.8)', '0 0 10px rgba(168,85,247,0.5)']
+                }} transition={{
+                  duration: 2,
+                  repeat: Infinity
+                }}>
                     📚 GET THE BLUEPRINT
                   </motion.a>
                 </motion.div>
@@ -545,33 +569,30 @@ const Home = () => {
                 </p>
                 
                 <div className="grid grid-cols-2 gap-3 mb-6">
-                  {[
-                    { icon: Code, text: "Custom Development" },
-                    { icon: Globe, text: "Mobile Responsive" },
-                    { icon: Target, text: "SEO Optimized" },
-                    { icon: Rocket, text: "Fast Loading" }
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-2 text-sm">
+                  {[{
+                  icon: Code,
+                  text: "Custom Development"
+                }, {
+                  icon: Globe,
+                  text: "Mobile Responsive"
+                }, {
+                  icon: Target,
+                  text: "SEO Optimized"
+                }, {
+                  icon: Rocket,
+                  text: "Fast Loading"
+                }].map((item, i) => <div key={i} className="flex items-center gap-2 text-sm">
                       <item.icon size={16} className="text-cyan-400" />
                       <span className="text-foreground">{item.text}</span>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
 
                 <div className="flex flex-wrap gap-3">
-                  <Link 
-                    to="/buildyourwebsite"
-                    className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-600 text-background font-semibold px-6 py-3 rounded-xl transition-all hover:shadow-lg"
-                  >
+                  <Link to="/buildyourwebsite" className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-600 text-background font-semibold px-6 py-3 rounded-xl transition-all hover:shadow-lg">
                     <span>Get a Website</span>
                     <ArrowRight size={18} />
                   </Link>
-                  <a 
-                    href="https://whop.com/stackmode-network-llc"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 border border-cyan-500/50 text-cyan-400 font-semibold px-6 py-3 rounded-xl transition-all hover:bg-cyan-500/10"
-                  >
+                  <a href="https://whop.com/stackmode-network-llc" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-cyan-500/50 text-cyan-400 font-semibold px-6 py-3 rounded-xl transition-all hover:bg-cyan-500/10">
                     <span>DIY Training</span>
                   </a>
                 </div>
@@ -579,15 +600,10 @@ const Home = () => {
 
               {/* Image */}
               <div className="flex-1 w-full max-w-md">
-                <motion.div 
-                  className="relative rounded-2xl overflow-hidden border-2 border-cyan-500/30 shadow-xl"
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <OptimizedImage 
-                    src="/images/stackfinder/stackmode-5.png" 
-                    alt="Website Development"
-                    className="w-full aspect-video"
-                  />
+                <motion.div className="relative rounded-2xl overflow-hidden border-2 border-cyan-500/30 shadow-xl" whileHover={{
+                scale: 1.02
+              }}>
+                  <OptimizedImage src="/images/stackfinder/stackmode-5.png" alt="Website Development" className="w-full aspect-video" />
                 </motion.div>
               </div>
             </div>
@@ -609,20 +625,19 @@ const Home = () => {
           </ScrollReveal>
           
           <ScrollReveal delay={0.2} scale={0.95}>
-            <motion.div 
-              className="relative rounded-2xl overflow-hidden border-2 border-primary/30 shadow-[0_0_40px_rgba(var(--primary-rgb),0.15)]"
-              whileHover={{ scale: 1.01 }}
-              transition={{ type: 'spring', stiffness: 300 }}
-            >
-              {!videoPlaying ? (
-                <button onClick={() => setVideoPlaying(true)} className="relative w-full aspect-video group cursor-pointer" aria-label="Play video">
+            <motion.div className="relative rounded-2xl overflow-hidden border-2 border-primary/30 shadow-[0_0_40px_rgba(var(--primary-rgb),0.15)]" whileHover={{
+            scale: 1.01
+          }} transition={{
+            type: 'spring',
+            stiffness: 300
+          }}>
+              {!videoPlaying ? <button onClick={() => setVideoPlaying(true)} className="relative w-full aspect-video group cursor-pointer" aria-label="Play video">
                   <img src="https://img.youtube.com/vi/beRKDGUDcdU/maxresdefault.jpg" alt="Meet Your Mentor" className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors" />
                   <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <motion.div 
-                      className="w-16 h-16 sm:w-20 sm:h-20 bg-primary rounded-full flex items-center justify-center shadow-lg"
-                      whileHover={{ scale: 1.1 }}
-                    >
+                    <motion.div className="w-16 h-16 sm:w-20 sm:h-20 bg-primary rounded-full flex items-center justify-center shadow-lg" whileHover={{
+                  scale: 1.1
+                }}>
                       <Play size={32} className="text-primary-foreground ml-1" fill="currentColor" />
                     </motion.div>
                     <span className="mt-3 text-white font-semibold text-sm sm:text-base">Watch Now</span>
@@ -631,12 +646,9 @@ const Home = () => {
                     <img src="/images/sm-logo.png" alt="Stackmode" className="w-5 h-5 object-contain" />
                     <span className="text-white text-xs font-medium">STACKMODE</span>
                   </div>
-                </button>
-              ) : (
-                <div className="aspect-video">
+                </button> : <div className="aspect-video">
                   <iframe src="https://www.youtube.com/embed/beRKDGUDcdU?autoplay=1" title="Meet Your Mentor" className="w-full h-full" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
-                </div>
-              )}
+                </div>}
             </motion.div>
           </ScrollReveal>
         </div>
@@ -658,13 +670,27 @@ const Home = () => {
           </ScrollReveal>
 
           <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8" staggerDelay={0.08}>
-            {[
-              { icon: TrendingUp, title: 'Trading Guides', desc: 'Free strategies', color: 'primary' },
-              { icon: Briefcase, title: 'Business Tips', desc: 'Growth tactics', color: 'accent' },
-              { icon: BookOpen, title: 'eBooks', desc: 'Deep dives', color: 'amber-500' },
-              { icon: Youtube, title: 'Video Lessons', desc: 'Visual learning', color: 'red-500' }
-            ].map((item, i) => (
-              <StaggerItem key={i}>
+            {[{
+            icon: TrendingUp,
+            title: 'Trading Guides',
+            desc: 'Free strategies',
+            color: 'primary'
+          }, {
+            icon: Briefcase,
+            title: 'Business Tips',
+            desc: 'Growth tactics',
+            color: 'accent'
+          }, {
+            icon: BookOpen,
+            title: 'eBooks',
+            desc: 'Deep dives',
+            color: 'amber-500'
+          }, {
+            icon: Youtube,
+            title: 'Video Lessons',
+            desc: 'Visual learning',
+            color: 'red-500'
+          }].map((item, i) => <StaggerItem key={i}>
                 <div className="bg-background rounded-xl p-4 border border-border/50 text-center hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 h-full">
                   <div className={`w-10 h-10 rounded-full bg-${item.color}/10 flex items-center justify-center mx-auto mb-3`}>
                     <item.icon className={`w-5 h-5 text-${item.color}`} />
@@ -672,15 +698,11 @@ const Home = () => {
                   <h3 className="text-sm font-semibold text-foreground mb-1">{item.title}</h3>
                   <p className="text-xs text-muted-foreground">{item.desc}</p>
                 </div>
-              </StaggerItem>
-            ))}
+              </StaggerItem>)}
           </StaggerContainer>
 
           <ScrollReveal delay={0.3}>
-            <Link 
-              to="/library" 
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white font-semibold px-8 py-3 rounded-xl transition-all hover:shadow-lg"
-            >
+            <Link to="/library" className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white font-semibold px-8 py-3 rounded-xl transition-all hover:shadow-lg">
               <Gift size={18} />
               <span>Browse Full Library</span>
               <ArrowRight size={18} />
@@ -696,16 +718,14 @@ const Home = () => {
       <section className="py-10 px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal direction="left">
-            <motion.div 
-              className="flex flex-col sm:flex-row items-center gap-6 bg-card/50 border border-border/50 rounded-2xl p-6 hover:border-primary/50 transition-colors"
-            >
-              <motion.img 
-                src="/images/stackmodechris-about-new.png" 
-                alt="Stackmodechris" 
-                className="w-24 h-24 sm:w-28 sm:h-28 rounded-xl object-cover border-2 border-primary/30"
-                whileHover={{ scale: 1.05, rotate: 2 }}
-                transition={{ type: 'spring', stiffness: 300 }}
-              />
+            <motion.div className="flex flex-col sm:flex-row items-center gap-6 bg-card/50 border border-border/50 rounded-2xl p-6 hover:border-primary/50 transition-colors">
+              <motion.img src="/images/stackmodechris-about-new.png" alt="Stackmodechris" className="w-24 h-24 sm:w-28 sm:h-28 rounded-xl object-cover border-2 border-primary/30" whileHover={{
+              scale: 1.05,
+              rotate: 2
+            }} transition={{
+              type: 'spring',
+              stiffness: 300
+            }} />
               <div className="text-center sm:text-left flex-1">
                 <h3 className="text-lg sm:text-xl font-bold text-foreground mb-1">Stackmodechris</h3>
                 <p className="text-muted-foreground text-sm mb-3">
@@ -741,8 +761,6 @@ const Home = () => {
         <div className="h-24 md:hidden" />
 
         <CookieConsent />
-      </main>
-  );
+      </main>;
 };
-
 export default Home;
