@@ -77,6 +77,11 @@ const Index = () => {
         {/* STACKMODE NETWORK PROMO - Primary CTA (First as requested) */}
         <TradingStackmodePromo />
 
+        {/* StackFinder AI Tool Section - Right after Stackmode promo */}
+        <section className="max-w-5xl mx-auto mb-8 px-4">
+          <StackFinderPromo variant="trading" />
+        </section>
+
         {/* FREE 1-on-1 Trading Audit CTA */}
         <TradingAuditCTA />
 
@@ -101,11 +106,6 @@ const Index = () => {
 
         {/* CTA OPTIONS - Mentorship vs Network */}
         <TradingCTASection />
-
-        {/* StackFinder AI Tool Section */}
-        <section className="max-w-5xl mx-auto mb-12 px-4">
-          <StackFinderPromo variant="trading" />
-        </section>
 
         {/* Divider */}
         <div className="max-w-2xl mx-auto my-8 px-4">
