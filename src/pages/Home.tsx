@@ -224,17 +224,21 @@ const Home = () => {
                     { icon: Sparkles, label: "AI Resources", desc: "Templates & Guides" },
                     { icon: Users, label: "Live Coaching", desc: "Weekly Sessions" }
                   ].map((item, i) => (
-                    <motion.div
+                    <motion.a
                       key={item.label}
-                      className="bg-cyan-500/5 border border-cyan-500/20 rounded-xl p-3 text-center hover:border-cyan-400/40 transition-all"
+                      href="https://whop.com/stackmode-network-llc"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-cyan-500/5 border border-cyan-500/20 rounded-xl p-3 text-center hover:border-cyan-400/40 hover:bg-cyan-500/10 transition-all cursor-pointer"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 1.2 + i * 0.1 }}
+                      whileHover={{ scale: 1.05 }}
                     >
                       <item.icon size={20} className="text-cyan-400 mx-auto mb-1" />
                       <div className="text-xs font-semibold text-foreground">{item.label}</div>
                       <div className="text-[10px] text-muted-foreground">{item.desc}</div>
-                    </motion.div>
+                    </motion.a>
                   ))}
                 </div>
 
