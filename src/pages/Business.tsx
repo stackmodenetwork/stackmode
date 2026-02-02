@@ -15,6 +15,7 @@ import { StackmodeGroupPromo } from '@/components/StackmodeGroupPromo';
 import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
 import { BlueprintPromo } from '@/components/BlueprintPromo';
+import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
 import { motion } from 'framer-motion';
 const businessProofImages = [
   { src: "business-proof-1.png", alt: "Watch page ads revenue" },
@@ -99,6 +100,9 @@ const Business = () => {
           </a>
         </div>
       </motion.div>
+
+      {/* Free Resources Banner */}
+      <FreeResourcesCTA variant="banner" />
 
       {/* Sticky Mobile Header CTA */}
       <div className={`fixed top-16 left-0 right-0 z-35 md:hidden transition-all duration-300 pointer-events-none ${showStickyHeader ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>

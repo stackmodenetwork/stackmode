@@ -17,6 +17,7 @@ import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/Scroll
 import { StackmodeGroupPromo } from '@/components/StackmodeGroupPromo';
 import { StackFinderPromo } from '@/components/StackFinderPromo';
 import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
+import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
 import { motion } from 'framer-motion';
 
 const Index = () => {
@@ -72,6 +73,9 @@ const Index = () => {
           </a>
         </div>
       </motion.div>
+
+      {/* Free Resources Banner */}
+      <FreeResourcesCTA variant="banner" />
 
       {/* Sticky Mobile Header CTA */}
       <div className={`fixed top-16 left-0 right-0 z-35 md:hidden transition-all duration-300 pointer-events-none ${showStickyHeader ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
