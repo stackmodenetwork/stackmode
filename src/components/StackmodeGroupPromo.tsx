@@ -10,81 +10,91 @@ export const StackmodeGroupPromo = ({ variant = 'home' }: StackmodeGroupPromoPro
     switch (variant) {
       case 'trading':
         return {
-          badge: 'THE STACKFINDER',
-          title: 'AI-Powered Trading Tools',
-          subtitle: 'Master The Markets with Smart Technology',
-          description: 'Get access to the Stackfinder — our Market Intelligence System with live volume tracking, smart strike solver, accurate share calculators, and the Stackmode Scout AI assistant.',
+          badge: 'STOP OVERPAYING FOR SIGNALS',
+          title: "Trading 'Gurus' Charge $5,000+",
+          subtitle: 'You Get The Same Tools for $50/month',
+          headline: 'Same signals. Same scanners. Fraction of the cost.',
+          description: "While others charge thousands for trading signals and outdated courses, we give you live scanners, AI-powered analysis, and weekly coaching — updated constantly.",
           features: [
-            'Live Volume Scanner & Stock Alerts',
+            'Live Volume Scanner & Alerts',
             'Smart Strike Solver for Options',
-            'AI Market Analysis with Stackmode Scout',
+            'AI Market Analysis Tools',
             'Weekly Live Trading Calls',
-            'Trading Courses Worth $1000+',
-            'Always Updated Strategies'
+            '$1000+ Worth of Courses',
+            'Cancel Anytime'
           ],
           icon: BarChart3,
+          comparison: { guru: '$4,997', us: '$50/mo' }
         };
       case 'business':
         return {
-          badge: 'AI BUSINESS MODELS',
-          title: 'Build Income With AI',
-          subtitle: 'The Stackmode System for Financial Freedom',
-          description: 'Learn how to generate income by creating AI-powered businesses, get monetized on YouTube and other platforms, and follow the proven Stackmode System to financial freedom.',
+          badge: 'THE GURU ERA IS OVER',
+          title: "Stop Paying $5,000 for 'Mentorship'",
+          subtitle: 'Get The Same Blueprints for $50/month',
+          headline: 'Same AI tools. Same business models. No gatekeeping.',
+          description: "High-ticket gurus sell you a PDF and disappear. We give you constantly updated AI business training, YouTube monetization strategies, and a real community — for less than a Netflix subscription.",
           features: [
             'AI Business Model Training',
             'YouTube Monetization Strategies',
             'Content Creation with AI',
             'Social Media Growth Systems',
-            'Business Courses Worth $1000+',
-            'Always Updated to Current Trends'
+            '$1000+ Worth of Courses',
+            'Cancel Anytime'
           ],
           icon: Youtube,
+          comparison: { guru: '$4,997', us: '$50/mo' }
         };
       case 'library':
         return {
-          badge: 'BETTER THAN COURSES',
-          title: 'Always Updated Education',
-          subtitle: '$1000+ Worth of Courses for $50/mo',
-          description: "Unlike pre-recorded courses that become outdated, the Stackmode Network gives you constantly updated trading and business education that evolves with the market.",
+          badge: 'WHY PAY THOUSANDS?',
+          title: "Courses Become Outdated. We Don't.",
+          subtitle: 'Always-Updated Education for $50/month',
+          headline: 'Live training beats pre-recorded courses.',
+          description: "That $2,000 course you bought last year? Already outdated. The Stackmode Network evolves with the market — new strategies, new tools, new content weekly.",
           features: [
-            'Trading & Business Courses Worth $1000+',
-            'Updated to Current Market Trends',
-            'Live Weekly Coaching Calls',
-            'AI Tools & Resources Included',
-            'Community of Active Traders',
-            'Cancel Anytime — No Lock-in'
+            '$1000+ Worth of Courses',
+            'Updated to Current Trends',
+            'Live Weekly Coaching',
+            'AI Tools Included',
+            'Active Community',
+            'Cancel Anytime'
           ],
           icon: Target,
+          comparison: { guru: '$2,000+', us: '$50/mo' }
         };
       case 'website':
         return {
-          badge: 'DIY OPTION',
-          title: 'Learn to Build Your Own Website',
-          subtitle: 'Website Training Included in Membership',
-          description: "Want to build your own website? Inside the Stackmode Network, you'll learn how to create professional websites using AI tools — no coding required.",
+          badge: 'SKIP THE $3K WEB AGENCY',
+          title: 'Learn to Build Websites Yourself',
+          subtitle: 'AI Website Training Included for $50/month',
+          headline: 'Why pay thousands when you can learn for $50?',
+          description: "Web agencies charge $3,000+ for a simple site. Inside the Stackmode Network, you'll learn to build professional websites with AI — plus get all our trading and business content.",
           features: [
             'AI Website Building Training',
             'No Coding Required',
-            'Professional Design Templates',
+            'Professional Templates',
             'SEO & Marketing Included',
-            'Plus All Trading & Business Content',
-            'Just $50/month — Cancel Anytime'
+            'Plus All Trading Content',
+            'Cancel Anytime'
           ],
           icon: Globe,
+          comparison: { guru: '$3,000+', us: '$50/mo' }
         };
       default: // home
         return {
-          badge: 'STACKMODE NETWORK',
-          title: 'The Blueprint to Financial Freedom',
-          subtitle: 'AI Business Models & Trading Education',
-          description: 'Join the Stackmode Network and learn AI business models and trading strategies. For just $50/month, get access to everything you need to build multiple income streams.',
+          badge: 'THE GURU ERA IS OVER',
+          title: "Stop Paying $5,000 for 'Mentorship'",
+          subtitle: 'Everything You Need to Stack Income. One Network.',
+          headline: 'Same signals. Same blueprints. Same AI tools. $50.',
+          description: "We took the same trading signals, business blueprints, and AI tools that 'gurus' charge thousands for... and put them all in one place. No gatekeeping. No upsells. Just results.",
           features: [
-            'AI Business & Trading Education',
+            'Trading Signals & AI Scanners',
+            'Business Blueprints & AI Tools',
             'Live Weekly Coaching Calls',
-            'The Stackfinder Trading Tools',
             'Community of Entrepreneurs'
           ],
           icon: Rocket,
+          comparison: { guru: '$4,997', us: '$50/mo' }
         };
     }
   };
@@ -146,13 +156,34 @@ export const StackmodeGroupPromo = ({ variant = 'home' }: StackmodeGroupPromoPro
               <span className="text-cyan-400 text-sm font-bold tracking-wide">{content.badge}</span>
             </motion.div>
 
+            {/* Price Comparison Visual */}
+            <div className="flex flex-wrap items-center gap-3 mb-4">
+              <div className="flex items-center gap-2 bg-red-500/10 border border-red-500/30 rounded-lg px-3 py-2">
+                <span className="text-red-400 text-xs font-medium">Guru Course</span>
+                <span className="text-red-400 font-bold line-through">{content.comparison.guru}</span>
+              </div>
+              <motion.div
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                <ArrowRight size={20} className="text-cyan-400" />
+              </motion.div>
+              <div className="flex items-center gap-2 bg-cyan-500/20 border border-cyan-400/50 rounded-lg px-3 py-2">
+                <span className="text-cyan-400 text-xs font-medium">Stackmode</span>
+                <span className="text-cyan-400 font-bold text-lg">{content.comparison.us}</span>
+              </div>
+            </div>
+
             <div className={`${isCompact ? 'lg:flex lg:items-center lg:gap-8' : ''}`}>
               <div className={`${isCompact ? 'lg:flex-1' : ''}`}>
                 <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
                   {content.title}
                 </h3>
-                <p className="text-lg sm:text-xl text-cyan-400 font-semibold mb-3">
+                <p className="text-lg sm:text-xl text-cyan-400 font-semibold mb-2">
                   {content.subtitle}
+                </p>
+                <p className="text-base font-medium text-foreground/90 mb-3 italic">
+                  "{content.headline}"
                 </p>
                 <p className="text-muted-foreground mb-6 max-w-2xl">
                   {content.description}
