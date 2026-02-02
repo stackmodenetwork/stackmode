@@ -650,6 +650,9 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Books Credibility Section */}
+      <BooksCredibilityPromo variant="compact" showHeading={true} />
+
       {/* Video Introduction */}
       <section className="py-10 px-4 border-t border-border/50 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
@@ -750,8 +753,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Books Credibility Section */}
-      <BooksCredibilityPromo variant="compact" showHeading={true} />
+
+      {/* About Preview */}
 
       {/* About Preview */}
       <section className="py-10 px-4 relative z-10">
