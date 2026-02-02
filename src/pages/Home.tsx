@@ -558,11 +558,11 @@ const Home = () => {
             <div className="flex flex-col lg:flex-row items-center gap-8">
               {/* Content */}
               <div className="flex-1 text-center lg:text-left">
-                <span className="inline-block bg-cyan-500/10 text-cyan-400 text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                <span className="inline-block bg-purple-500/10 text-purple-400 text-xs font-semibold px-3 py-1 rounded-full mb-3">
                   Professional Services
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
-                  Need a <span className="text-cyan-400">Website</span>?
+                  Need a <span className="text-purple-400">Website</span>?
                 </h2>
                 <p className="text-muted-foreground mb-6">
                   Get a professional, high-converting website built for your business. Or learn to build it yourself with our DIY training inside the Stackmode Network.
@@ -582,17 +582,17 @@ const Home = () => {
                   icon: Rocket,
                   text: "Fast Loading"
                 }].map((item, i) => <div key={i} className="flex items-center gap-2 text-sm">
-                      <item.icon size={16} className="text-cyan-400" />
+                      <item.icon size={16} className="text-purple-400" />
                       <span className="text-foreground">{item.text}</span>
                     </div>)}
                 </div>
 
                 <div className="flex flex-wrap gap-3">
-                  <Link to="/buildyourwebsite" className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-600 text-background font-semibold px-6 py-3 rounded-xl transition-all hover:shadow-lg">
+                  <Link to="/buildyourwebsite" className="inline-flex items-center gap-2 bg-purple-500 hover:bg-purple-600 text-white font-semibold px-6 py-3 rounded-xl transition-all hover:shadow-lg hover:shadow-purple-500/30">
                     <span>Get a Website</span>
                     <ArrowRight size={18} />
                   </Link>
-                  <a href="https://whop.com/stackmode-network-llc" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-cyan-500/50 text-cyan-400 font-semibold px-6 py-3 rounded-xl transition-all hover:bg-cyan-500/10">
+                  <a href="https://whop.com/stackmode-network-llc" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-purple-500/50 text-purple-400 font-semibold px-6 py-3 rounded-xl transition-all hover:bg-purple-500/10">
                     <span>DIY Training</span>
                   </a>
                 </div>
@@ -600,10 +600,49 @@ const Home = () => {
 
               {/* Image */}
               <div className="flex-1 w-full max-w-md">
-                <motion.div className="relative rounded-2xl overflow-hidden border-2 border-cyan-500/30 shadow-xl" whileHover={{
-                scale: 1.02
-              }}>
-                  <OptimizedImage src="/images/stackfinder/stackmode-5.png" alt="Website Development" className="w-full aspect-video" />
+                <motion.div className="relative group" whileHover={{
+                  scale: 1.03,
+                  rotate: 1
+                }} transition={{
+                  type: "spring",
+                  stiffness: 300
+                }}>
+                  {/* Animated purple glow */}
+                  <motion.div 
+                    className="absolute -inset-4 bg-gradient-to-r from-purple-500/40 via-purple-400/30 to-purple-500/40 rounded-3xl blur-xl opacity-60"
+                    animate={{
+                      scale: [1, 1.05, 1],
+                      opacity: [0.4, 0.7, 0.4]
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity
+                    }}
+                  />
+                  
+                  <div className="relative rounded-2xl overflow-hidden border-2 border-purple-500/50 shadow-2xl shadow-purple-500/20 bg-background/50 backdrop-blur-sm">
+                    <OptimizedImage src="/images/website-ai-pixel-art.png" alt="Website Development & AI" className="w-full aspect-square" />
+                    
+                    {/* Scan line effect */}
+                    <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.1)_50%)] bg-[length:100%_4px]" />
+                    
+                    {/* Bottom label */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background via-background/90 to-transparent p-4">
+                      <div className="flex items-center gap-2">
+                        <motion.div 
+                          className="w-2 h-2 bg-purple-400 rounded-full"
+                          animate={{
+                            scale: [1, 1.3, 1]
+                          }}
+                          transition={{
+                            duration: 1.5,
+                            repeat: Infinity
+                          }}
+                        />
+                        <span className="text-xs text-purple-400 font-bold tracking-wider">BUILD YOUR ONLINE PRESENCE</span>
+                      </div>
+                    </div>
+                  </div>
                 </motion.div>
               </div>
             </div>
