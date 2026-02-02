@@ -18,7 +18,6 @@ import { StackmodeGroupPromo } from '@/components/StackmodeGroupPromo';
 import { StackFinderPromo } from '@/components/StackFinderPromo';
 import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
-import { FloatingPhoneButton } from '@/components/FloatingPhoneButton';
 import { motion } from 'framer-motion';
 
 const Index = () => {
@@ -35,11 +34,8 @@ const Index = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return <>
-      {/* Floating Phone Button - Desktop Only - Outside main for proper fixed positioning */}
-      <FloatingPhoneButton />
-      
-      <main className="min-h-screen bg-background relative overflow-x-hidden scroll-smooth">
+  return (
+    <main className="min-h-screen bg-background relative overflow-x-hidden scroll-smooth">
       <MainHeader />
       
       {/* Dynamic Trading Background */}
@@ -721,6 +717,6 @@ const Index = () => {
       {/* Cookie Consent Banner */}
       <CookieConsent />
     </main>
-  </>;
+  );
 };
 export default Index;
