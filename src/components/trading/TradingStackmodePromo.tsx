@@ -21,9 +21,9 @@ export const TradingStackmodePromo = () => {
   ];
 
   return (
-    <section className="relative z-10 px-4 py-12 sm:py-16">
+    <section className="relative z-10 px-4 py-6 sm:py-8">
       {/* External Header - Outside the box */}
-      <div className="max-w-4xl mx-auto text-center mb-8">
+      <div className="max-w-4xl mx-auto text-center mb-4 sm:mb-6">
         <motion.div
           className="inline-flex items-center gap-2 bg-primary/10 border border-primary/40 rounded-full px-4 py-2 mb-4"
           initial={{ opacity: 0, scale: 0.9 }}
