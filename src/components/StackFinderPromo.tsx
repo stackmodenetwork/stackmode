@@ -26,22 +26,15 @@ export const StackFinderPromo = ({ variant = 'home' }: StackFinderPromoProps) =>
         rel="noopener noreferrer"
         className="block group"
       >
-        <div className="relative overflow-hidden">
-          {/* Premium gradient border effect - Enhanced glow on hover */}
-          <div className={`absolute -inset-4 bg-gradient-to-r ${isTrading ? 'from-emerald-500/50 via-primary/60 to-emerald-500/50' : 'from-cyan-500/50 via-primary/60 to-cyan-500/50'} rounded-[2rem] blur-2xl opacity-0 group-hover:opacity-100 transition-all duration-500`} />
-          <div className={`absolute inset-0 bg-gradient-to-r ${gradientFrom} via-primary/20 to-primary/20 rounded-3xl blur-xl opacity-60 group-hover:opacity-100 transition-opacity duration-300`} />
-          
-          <motion.div 
-            className={`relative bg-gradient-to-br from-card via-background to-card border-2 ${isTrading ? 'border-emerald-500/40 group-hover:border-emerald-400' : 'border-cyan-500/40 group-hover:border-cyan-400'} rounded-3xl p-6 sm:p-8 lg:p-10 overflow-hidden transition-all duration-300 ${isTrading ? 'group-hover:shadow-[0_0_80px_rgba(16,185,129,0.4)]' : 'group-hover:shadow-[0_0_80px_rgba(6,182,212,0.4)]'}`}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            whileHover={{ scale: 1.01 }}
-          >
+        <div className={`relative bg-gradient-to-br ${isTrading ? 'from-primary/10 via-card/90 to-emerald-500/10' : 'from-cyan-500/10 via-card/90 to-purple-500/10'} border-2 ${isTrading ? 'border-primary/40' : 'border-cyan-500/40'} rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 overflow-hidden transition-all duration-500 ${isTrading ? 'hover:border-primary hover:shadow-[0_0_80px_rgba(34,197,94,0.3)]' : 'hover:border-cyan-400 hover:shadow-[0_0_80px_rgba(6,182,212,0.3)]'} group-hover:scale-[1.01]`}>
           {/* Animated background elements */}
-          <div className={`absolute top-0 right-0 w-64 h-64 ${bgClass} rounded-full blur-3xl`} />
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary/10 rounded-full blur-2xl" />
+          <div className={`absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl ${isTrading ? 'from-primary/15' : 'from-cyan-500/15'} to-transparent rounded-full blur-3xl opacity-60`} />
+          <div className={`absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr ${isTrading ? 'from-emerald-400/10' : 'from-purple-400/10'} to-transparent rounded-full blur-3xl opacity-50`} />
+          
+          {/* Corner accent */}
+          <div className="absolute top-0 right-0 w-32 h-32 overflow-hidden">
+            <div className={`absolute top-4 right-4 w-20 h-20 border-t-2 border-r-2 ${isTrading ? 'border-primary/50' : 'border-cyan-500/50'} rounded-tr-2xl`} />
+          </div>
           
           {/* Floating chart lines - decorative */}
           <svg className="absolute top-10 right-10 w-32 h-20 opacity-20" viewBox="0 0 100 50">
@@ -272,7 +265,6 @@ export const StackFinderPromo = ({ variant = 'home' }: StackFinderPromoProps) =>
               />
             </motion.div>
           </div>
-        </motion.div>
         </div>
       </a>
     </ScrollReveal>
