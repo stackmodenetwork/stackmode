@@ -80,17 +80,32 @@ export const TradingHero = () => {
             <Zap size={28} className="text-primary" />
           </motion.div>
 
-          {/* New Way */}
-          <div className="flex items-center gap-3 bg-primary/10 border border-primary/30 rounded-xl px-5 py-3">
-            <motion.div
-              animate={{ rotate: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              <TrendingDown size={24} className="text-primary rotate-180" />
-            </motion.div>
-            <div className="text-left">
-              <p className="text-xs text-primary/70 uppercase tracking-wide">Stackmode</p>
-              <p className="text-primary font-bold">$50/mo Live Updates</p>
+          {/* New Way - Two Options */}
+          <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex items-center gap-3 bg-primary/10 border border-primary/30 rounded-xl px-5 py-3">
+              <motion.div
+                animate={{ rotate: [0, 10, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                <TrendingDown size={24} className="text-primary rotate-180" />
+              </motion.div>
+              <div className="text-left">
+                <p className="text-xs text-primary/70 uppercase tracking-wide">Stackmode</p>
+                <p className="text-primary font-bold">$50/mo Live Updates</p>
+              </div>
+            </div>
+            
+            <div className="flex items-center gap-3 bg-emerald-500/10 border border-emerald-500/30 rounded-xl px-5 py-3">
+              <motion.div
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                <Zap size={24} className="text-emerald-400" />
+              </motion.div>
+              <div className="text-left">
+                <p className="text-xs text-emerald-400/70 uppercase tracking-wide">1-on-1 Call</p>
+                <p className="text-emerald-400 font-bold">FREE Mentorship</p>
+              </div>
             </div>
           </div>
         </motion.div>
