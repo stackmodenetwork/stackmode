@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Calendar, TrendingUp, Users, Briefcase, Award, Mail, Send, ArrowLeft, Zap, BookOpen, Youtube, Globe, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { ConnectWithMe } from '@/components/ConnectWithMe';
+
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -241,11 +241,9 @@ const About = () => {
           </div>
         </section>
 
-        {/* Connect Section */}
+        {/* CTA Section */}
         <section className="py-16 md:py-20">
           <div className="container mx-auto px-4">
-            <ConnectWithMe />
-            
             <div className="max-w-3xl mx-auto text-center">
               <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 rounded-2xl p-8 border border-primary/20">
                 <h3 className="text-2xl font-bold text-foreground mb-4">
