@@ -27,7 +27,7 @@ const books: Book[] = [{
 }, {
   title: "Before The HYPE",
   subtitle: "Spot Opportunities Before the Crowd",
-  image: "/images/books/before-the-hype-v2.png",
+  image: "/images/books/before-the-hype-2026.jpg",
   amazonLink: "https://a.co/d/eSgONXa",
   audiobookLink: "https://play.google.com/store/audiobooks/details?id=AQAAAEAaaVspUM",
   description: "Learn to identify winning trades and opportunities before they go mainstream. Get in early, get out profitable.",
