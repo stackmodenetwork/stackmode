@@ -313,22 +313,55 @@ const Home = () => {
                 </Link>
               </div>
 
-              {/* Image */}
+              {/* Pixel Art Trading Image */}
               <div className="flex-1 w-full max-w-md">
                 <motion.div 
-                  className="relative rounded-2xl overflow-hidden border-2 border-primary/30 shadow-xl"
-                  whileHover={{ scale: 1.02 }}
+                  className="relative group"
+                  whileHover={{ scale: 1.03, rotate: 1 }}
+                  transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <OptimizedImage 
-                    src="/images/stackfinder/stackfinder-main.png" 
-                    alt="StackFinder Trading Tool"
-                    className="w-full aspect-video"
+                  {/* Animated glow background */}
+                  <motion.div 
+                    className="absolute -inset-4 bg-gradient-to-r from-primary/40 via-cyan-500/30 to-primary/40 rounded-3xl blur-xl opacity-60"
+                    animate={{ 
+                      scale: [1, 1.05, 1],
+                      opacity: [0.4, 0.7, 0.4]
+                    }}
+                    transition={{ duration: 3, repeat: Infinity }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <span className="text-xs text-primary font-semibold">STACKFINDER AI</span>
-                    <p className="text-sm text-foreground font-medium">Smart trading tools included</p>
+                  
+                  {/* Main image container */}
+                  <div className="relative rounded-2xl overflow-hidden border-2 border-primary/50 shadow-2xl shadow-primary/20 bg-background/50 backdrop-blur-sm">
+                    <OptimizedImage 
+                      src="/images/trading-pixel-art.jpg" 
+                      alt="Smart Trading - Pixel Art"
+                      className="w-full aspect-square"
+                    />
+                    
+                    {/* Retro scan line effect */}
+                    <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.1)_50%)] bg-[length:100%_4px]" />
+                    
+                    {/* Bottom label */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background via-background/90 to-transparent p-4">
+                      <div className="flex items-center gap-2">
+                        <motion.div 
+                          className="w-2 h-2 bg-primary rounded-full"
+                          animate={{ scale: [1, 1.3, 1] }}
+                          transition={{ duration: 1.5, repeat: Infinity }}
+                        />
+                        <span className="text-xs text-primary font-bold tracking-wider">STACK SMART • TRADE SMART</span>
+                      </div>
+                    </div>
                   </div>
+                  
+                  {/* Floating badge */}
+                  <motion.div 
+                    className="absolute -top-3 -right-3 bg-primary text-primary-foreground text-xs font-bold px-3 py-1.5 rounded-full shadow-lg"
+                    animate={{ y: [0, -5, 0] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    8-BIT GAINS 🎮
+                  </motion.div>
                 </motion.div>
               </div>
             </div>
