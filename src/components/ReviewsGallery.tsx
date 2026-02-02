@@ -4,17 +4,33 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 
 const allReviews = [
-  "review-51.png", "review-52.png", "review-57.png", "review-59.png", "review-61.png",
-  "review-48.png", "review-47.png", "review-44.png", "review-49.png", "review-50.png",
-  "review-1.png", "review-2.png", "review-3.png", "review-4.png", "review-5.png",
-  "review-6.png", "review-7.png", "review-8.png", "review-9.png", "review-10.png",
-  "review-11.png", "review-12.png", "review-46.png", "review-13.png", "review-14.png",
-  "review-15.png", "review-16.png", "review-17.png", "review-18.png", "review-19.png",
-  "review-20.png", "review-21.png", "review-22.png", "review-23.png", "review-24.png",
-  "review-25.png", "review-26.png", "review-27.png", "review-28.png", "review-29.png",
-  "review-30.png", "review-31.png", "review-32.png", "review-33.png", "review-34.png",
-  "review-35.png", "review-53.png", "review-55.png", "review-58.png"
+  "review-51", "review-52", "review-57", "review-59", "review-61",
+  "review-48", "review-47", "review-44", "review-49", "review-50",
+  "review-1", "review-2", "review-3", "review-4", "review-5",
+  "review-6", "review-7", "review-8", "review-9", "review-10",
+  "review-11", "review-12", "review-46", "review-13", "review-14",
+  "review-15", "review-16", "review-17", "review-18", "review-19",
+  "review-20", "review-21", "review-22", "review-23", "review-24",
+  "review-25", "review-26", "review-27", "review-28", "review-29",
+  "review-30", "review-31", "review-32", "review-33", "review-34",
+  "review-35", "review-53", "review-55", "review-58"
 ];
+
+// Check WebP support once
+const supportsWebP = (() => {
+  if (typeof document === 'undefined') return false;
+  const canvas = document.createElement('canvas');
+  canvas.width = 1;
+  canvas.height = 1;
+  return canvas.toDataURL('image/webp').startsWith('data:image/webp');
+})();
+
+// Get optimal image source - WebP if supported, PNG fallback
+const getImageSrc = (name: string) => {
+  // Currently using PNG - when WebP versions are uploaded, uncomment the line below
+  // if (supportsWebP) return `/lovable-uploads/${name}.webp`;
+  return `/lovable-uploads/${name}.png`;
+};
 
 // Memoized review card for performance
 const ReviewCard = memo(({ 
@@ -34,8 +50,8 @@ const ReviewCard = memo(({
   useEffect(() => {
     if (priority) return;
     
-    const img = document.querySelector(`[data-review="${index}"]`);
-    if (!img) return;
+    const element = document.querySelector(`[data-review="${index}"]`);
+    if (!element) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -47,7 +63,7 @@ const ReviewCard = memo(({
       { rootMargin: '300px', threshold: 0 }
     );
 
-    observer.observe(img);
+    observer.observe(element);
     return () => observer.disconnect();
   }, [index, priority]);
 
@@ -66,17 +82,21 @@ const ReviewCard = memo(({
         )}
         
         {(isInView || priority) && (
-          <img 
-            src={`/lovable-uploads/${img}`} 
-            alt={`Student success ${index + 1}`} 
-            className={`w-full h-auto block transition-opacity duration-150 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-            loading={priority ? 'eager' : 'lazy'}
-            decoding="async"
-            fetchPriority={priority ? 'high' : 'auto'}
-            onLoad={() => setIsLoaded(true)}
-            // Responsive sizing hints for browser optimization
-            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-          />
+          <picture>
+            {/* WebP source - browser will use if supported and file exists */}
+            <source srcSet={`/lovable-uploads/${img}.webp`} type="image/webp" />
+            {/* PNG fallback */}
+            <img 
+              src={getImageSrc(img)} 
+              alt={`Student success ${index + 1}`} 
+              className={`w-full h-auto block transition-opacity duration-150 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+              loading={priority ? 'eager' : 'lazy'}
+              decoding="async"
+              fetchPriority={priority ? 'high' : 'auto'}
+              onLoad={() => setIsLoaded(true)}
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            />
+          </picture>
         )}
       </div>
     </div>
@@ -139,7 +159,7 @@ export function ReviewsGallery() {
             key={img}
             img={img}
             index={index}
-            priority={index < 2} // Only first 2 are priority
+            priority={index < 2}
             onClick={() => setSelectedIndex(allReviews.indexOf(img))}
           />
         ))}
@@ -204,12 +224,15 @@ export function ReviewsGallery() {
                 <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-foreground" />
               </button>
 
-              <img 
-                src={`/lovable-uploads/${allReviews[selectedIndex]}`} 
-                alt={`Student success ${selectedIndex + 1}`} 
-                className="max-w-[90%] sm:max-w-full max-h-[80vh] sm:max-h-[85vh] object-contain rounded-lg"
-                loading="eager"
-              />
+              <picture>
+                <source srcSet={`/lovable-uploads/${allReviews[selectedIndex]}.webp`} type="image/webp" />
+                <img 
+                  src={getImageSrc(allReviews[selectedIndex])} 
+                  alt={`Student success ${selectedIndex + 1}`} 
+                  className="max-w-[90%] sm:max-w-full max-h-[80vh] sm:max-h-[85vh] object-contain rounded-lg"
+                  loading="eager"
+                />
+              </picture>
 
               <button 
                 onClick={goNext} 
