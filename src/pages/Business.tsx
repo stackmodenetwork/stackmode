@@ -72,17 +72,18 @@ const Business = () => {
   }, [isLightboxOpen, goNext, goPrev]);
 
   return (
-    <main className="min-h-screen bg-background relative overflow-x-hidden scroll-smooth">
-      <MainHeader />
-      
-      {/* Dynamic Business Background */}
-      <BusinessBackground variant="purple" />
-
-      {/* Free Resources Banner */}
-      <FreeResourcesCTA variant="banner" />
-
-      {/* Floating Phone Button - Desktop Only */}
+    <>
+      {/* Floating Phone Button - Desktop Only - Outside main for proper fixed positioning */}
       <FloatingPhoneButton />
+      
+      <main className="min-h-screen bg-background relative overflow-x-hidden scroll-smooth">
+        <MainHeader />
+        
+        {/* Dynamic Business Background */}
+        <BusinessBackground variant="purple" />
+
+        {/* Free Resources Banner */}
+        <FreeResourcesCTA variant="banner" />
 
       {/* Sticky Mobile Header CTA */}
       <div className={`fixed top-16 left-0 right-0 z-35 md:hidden transition-all duration-300 pointer-events-none ${showStickyHeader ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
@@ -565,7 +566,8 @@ const Business = () => {
       
       <div className="h-28 md:hidden" />
       <CookieConsent />
-    </main>
+      </main>
+    </>
   );
 };
 

@@ -17,6 +17,9 @@ import { motion } from 'framer-motion';
 const BuildYourWebsite = () => {
   return (
     <>
+      {/* Floating Phone Button - Desktop Only - Outside div for proper fixed positioning */}
+      <FloatingPhoneButton />
+      
       <Helmet>
         <title>Build Your Website | Stackmode Network</title>
         <meta name="description" content="Get a professional website built for your business. Custom web development services by Stackmode Network." />
@@ -31,9 +34,6 @@ const BuildYourWebsite = () => {
 
         {/* Free Resources Banner */}
         <FreeResourcesCTA variant="banner" />
-
-        {/* Floating Phone Button - Desktop Only */}
-        <FloatingPhoneButton />
 
         {/* Back Button */}
         <div className="max-w-5xl mx-auto w-full px-4 pt-6 relative z-10">
