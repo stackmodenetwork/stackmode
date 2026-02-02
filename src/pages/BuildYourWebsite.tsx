@@ -8,6 +8,7 @@ import { ConnectWithMe } from '@/components/ConnectWithMe';
 import { BusinessBackground } from '@/components/BusinessBackground';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
 import { StackmodeGroupPromo } from '@/components/StackmodeGroupPromo';
+import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
 import { motion } from 'framer-motion';
 
 const BuildYourWebsite = () => {
@@ -191,6 +192,9 @@ const BuildYourWebsite = () => {
             </ScrollReveal>
           </div>
         </section>
+
+        {/* Books Credibility Section */}
+        <BooksCredibilityPromo variant="minimal" showHeading={true} className="py-8" />
 
         {/* Connect Section */}
         <section className="py-16 md:py-20 relative z-10">

@@ -12,6 +12,7 @@ import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { BusinessBackground } from '@/components/BusinessBackground';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
 import { StackmodeGroupPromo } from '@/components/StackmodeGroupPromo';
+import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
 import { motion } from 'framer-motion';
 const businessProofImages = [
   { src: "business-proof-1.png", alt: "Watch page ads revenue" },
@@ -498,6 +499,9 @@ const Business = () => {
             </div>
           </div>
         </AnimatedBlock>
+
+        {/* Books Credibility Section */}
+        <BooksCredibilityPromo variant="compact" showHeading={true} className="mb-12" />
 
         {/* Social Share */}
         <AnimatedBlock delay={0.5} className="mb-16">

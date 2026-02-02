@@ -10,6 +10,7 @@ import { useToast } from '@/hooks/use-toast';
 import { MainHeader } from '@/components/MainHeader';
 import { MainFooter } from '@/components/MainFooter';
 import { OptimizedImage } from '@/components/OptimizedImage';
+import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
 
 const About = () => {
   const { toast } = useToast();
@@ -260,6 +261,9 @@ const About = () => {
             </div>
           </div>
         </section>
+
+        {/* Books Credibility Section */}
+        <BooksCredibilityPromo variant="minimal" showHeading={true} />
 
         {/* Contact Form Section */}
         <section className="py-16 md:py-20 bg-muted/30">
