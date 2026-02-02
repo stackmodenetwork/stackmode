@@ -9,6 +9,7 @@ import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/Scroll
 import { StackmodeGroupPromo } from '@/components/StackmodeGroupPromo';
 import { StackFinderPromo } from '@/components/StackFinderPromo';
 import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
+import { BlueprintPromo } from '@/components/BlueprintPromo';
 import { motion } from 'framer-motion';
 import { OptimizedImage } from '@/components/OptimizedImage';
 
@@ -481,22 +482,57 @@ const Home = () => {
                 </Link>
               </div>
 
-              {/* Image */}
+              {/* Blueprint Image */}
               <div className="flex-1 w-full max-w-md">
                 <motion.div 
-                  className="relative rounded-2xl overflow-hidden border-2 border-accent/30 shadow-xl"
-                  whileHover={{ scale: 1.02 }}
+                  className="relative group"
+                  whileHover={{ scale: 1.03, rotate: 1 }}
+                  transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <OptimizedImage 
-                    src="/lovable-uploads/business-proof-1.png" 
-                    alt="Business Success"
-                    className="w-full aspect-video"
+                  {/* Animated glow */}
+                  <motion.div 
+                    className="absolute -inset-4 bg-gradient-to-r from-emerald-500/40 via-accent/30 to-emerald-500/40 rounded-3xl blur-xl opacity-60"
+                    animate={{ 
+                      scale: [1, 1.05, 1],
+                      opacity: [0.4, 0.7, 0.4]
+                    }}
+                    transition={{ duration: 3, repeat: Infinity }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <span className="text-xs text-accent font-semibold">REAL RESULTS</span>
-                    <p className="text-sm text-foreground font-medium">Learn from proven success</p>
+                  
+                  <div className="relative rounded-2xl overflow-hidden border-2 border-emerald-500/50 shadow-2xl shadow-emerald-500/20 bg-background/50 backdrop-blur-sm">
+                    <OptimizedImage 
+                      src="/images/stackmode-blueprint.png" 
+                      alt="The Stackmode Blueprint - Business Success Course"
+                      className="w-full aspect-video"
+                    />
+                    
+                    {/* Scan line effect */}
+                    <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.1)_50%)] bg-[length:100%_4px]" />
+                    
+                    {/* Bottom label */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background via-background/90 to-transparent p-4">
+                      <div className="flex items-center gap-2">
+                        <motion.div 
+                          className="w-2 h-2 bg-emerald-400 rounded-full"
+                          animate={{ scale: [1, 1.3, 1] }}
+                          transition={{ duration: 1.5, repeat: Infinity }}
+                        />
+                        <span className="text-xs text-emerald-400 font-bold tracking-wider">THE STACKMODE BLUEPRINT</span>
+                      </div>
+                    </div>
                   </div>
+
+                  {/* Floating badge */}
+                  <motion.a
+                    href="https://whop.com/stackmode-network-llc"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute -top-3 -right-3 bg-emerald-500 hover:bg-emerald-400 text-background text-xs font-bold px-3 py-1.5 rounded-full shadow-lg cursor-pointer transition-colors"
+                    animate={{ y: [0, -5, 0] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    📚 GET THE BLUEPRINT
+                  </motion.a>
                 </motion.div>
               </div>
             </div>

@@ -14,6 +14,7 @@ import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/Scroll
 import { StackmodeGroupPromo } from '@/components/StackmodeGroupPromo';
 import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
+import { BlueprintPromo } from '@/components/BlueprintPromo';
 import { motion } from 'framer-motion';
 const businessProofImages = [
   { src: "business-proof-1.png", alt: "Watch page ads revenue" },
@@ -500,6 +501,9 @@ const Business = () => {
             </div>
           </div>
         </AnimatedBlock>
+
+        {/* Blueprint Promo - Full Featured */}
+        <BlueprintPromo variant="full" className="mb-8" />
 
         {/* Books Credibility Section */}
         <BooksCredibilityPromo variant="compact" showHeading={true} className="mb-12" />

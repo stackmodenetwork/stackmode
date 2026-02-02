@@ -9,6 +9,7 @@ import { BusinessBackground } from '@/components/BusinessBackground';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
 import { StackmodeGroupPromo } from '@/components/StackmodeGroupPromo';
 import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
+import { BlueprintPromo } from '@/components/BlueprintPromo';
 import { motion } from 'framer-motion';
 
 const BuildYourWebsite = () => {
@@ -192,6 +193,9 @@ const BuildYourWebsite = () => {
             </ScrollReveal>
           </div>
         </section>
+
+        {/* Blueprint Promo */}
+        <BlueprintPromo variant="compact" />
 
         {/* Books Credibility Section */}
         <BooksCredibilityPromo variant="minimal" showHeading={true} className="py-8" />
