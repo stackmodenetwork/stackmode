@@ -27,16 +27,17 @@ export const StackFinderPromo = ({ variant = 'home' }: StackFinderPromoProps) =>
         className="block group"
       >
         <div className="relative overflow-hidden">
-          {/* Premium gradient border effect */}
-          <div className={`absolute inset-0 bg-gradient-to-r ${gradientFrom} via-primary/20 to-primary/20 rounded-3xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity`} />
+          {/* Premium gradient border effect - Enhanced glow on hover */}
+          <div className={`absolute -inset-4 bg-gradient-to-r ${isTrading ? 'from-emerald-500/50 via-primary/60 to-emerald-500/50' : 'from-cyan-500/50 via-primary/60 to-cyan-500/50'} rounded-[2rem] blur-2xl opacity-0 group-hover:opacity-100 transition-all duration-500`} />
+          <div className={`absolute inset-0 bg-gradient-to-r ${gradientFrom} via-primary/20 to-primary/20 rounded-3xl blur-xl opacity-60 group-hover:opacity-100 transition-opacity duration-300`} />
           
           <motion.div 
-            className={`relative bg-gradient-to-br from-card via-background to-card border-2 ${borderClass} rounded-3xl p-6 sm:p-8 lg:p-10 overflow-hidden transition-all duration-300 group-hover:border-opacity-100 group-hover:shadow-[0_0_40px_rgba(34,197,94,0.2)]`}
+            className={`relative bg-gradient-to-br from-card via-background to-card border-2 ${isTrading ? 'border-emerald-500/40 group-hover:border-emerald-400' : 'border-cyan-500/40 group-hover:border-cyan-400'} rounded-3xl p-6 sm:p-8 lg:p-10 overflow-hidden transition-all duration-300 ${isTrading ? 'group-hover:shadow-[0_0_80px_rgba(16,185,129,0.4)]' : 'group-hover:shadow-[0_0_80px_rgba(6,182,212,0.4)]'}`}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            whileHover={{ borderColor: hoverBorder, scale: 1.01 }}
+            whileHover={{ scale: 1.01 }}
           >
           {/* Animated background elements */}
           <div className={`absolute top-0 right-0 w-64 h-64 ${bgClass} rounded-full blur-3xl`} />
