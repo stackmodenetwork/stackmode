@@ -489,9 +489,9 @@ const Home = () => {
                   whileHover={{ scale: 1.03, rotate: 1 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  {/* Animated glow */}
+                  {/* Animated glow - purple for business */}
                   <motion.div 
-                    className="absolute -inset-4 bg-gradient-to-r from-emerald-500/40 via-accent/30 to-emerald-500/40 rounded-3xl blur-xl opacity-60"
+                    className="absolute -inset-4 bg-gradient-to-r from-purple-500/40 via-accent/30 to-purple-500/40 rounded-3xl blur-xl opacity-60"
                     animate={{ 
                       scale: [1, 1.05, 1],
                       opacity: [0.4, 0.7, 0.4]
@@ -499,7 +499,7 @@ const Home = () => {
                     transition={{ duration: 3, repeat: Infinity }}
                   />
                   
-                  <div className="relative rounded-2xl overflow-hidden border-2 border-emerald-500/50 shadow-2xl shadow-emerald-500/20 bg-background/50 backdrop-blur-sm">
+                  <div className="relative rounded-2xl overflow-hidden border-2 border-purple-500/50 shadow-2xl shadow-purple-500/20 bg-background/50 backdrop-blur-sm">
                     <OptimizedImage 
                       src="/images/stackmode-blueprint.png" 
                       alt="The Stackmode Blueprint - Business Success Course"
@@ -513,22 +513,22 @@ const Home = () => {
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background via-background/90 to-transparent p-4">
                       <div className="flex items-center gap-2">
                         <motion.div 
-                          className="w-2 h-2 bg-emerald-400 rounded-full"
+                          className="w-2 h-2 bg-purple-400 rounded-full"
                           animate={{ scale: [1, 1.3, 1] }}
                           transition={{ duration: 1.5, repeat: Infinity }}
                         />
-                        <span className="text-xs text-emerald-400 font-bold tracking-wider">THE STACKMODE BLUEPRINT</span>
+                        <span className="text-xs text-purple-400 font-bold tracking-wider">THE STACKMODE BLUEPRINT</span>
                       </div>
                     </div>
                   </div>
 
-                  {/* Floating badge */}
+                  {/* Floating badge - purple glow */}
                   <motion.a
                     href="https://whop.com/stackmode-network-llc"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="absolute -top-3 -right-3 bg-emerald-500 hover:bg-emerald-400 text-background text-xs font-bold px-3 py-1.5 rounded-full shadow-lg cursor-pointer transition-colors"
-                    animate={{ y: [0, -5, 0] }}
+                    className="absolute -top-3 -right-3 bg-purple-500 hover:bg-purple-400 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg shadow-purple-500/50 cursor-pointer transition-colors"
+                    animate={{ y: [0, -5, 0], boxShadow: ['0 0 10px rgba(168,85,247,0.5)', '0 0 20px rgba(168,85,247,0.8)', '0 0 10px rgba(168,85,247,0.5)'] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   >
                     📚 GET THE BLUEPRINT
