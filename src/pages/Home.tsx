@@ -19,17 +19,18 @@ const Home = () => {
   const [videoPlaying, setVideoPlaying] = useState(false);
   
   return (
-    <main className="min-h-screen bg-background relative overflow-x-hidden">
-      <MainHeader />
-      
-      {/* Dynamic Trading Background */}
-      <TradingBackground />
-
-      {/* Free Resources Banner */}
-      <FreeResourcesCTA variant="banner" />
-
-      {/* Floating Phone Button - Desktop Only */}
+    <>
+      {/* Floating Phone Button - Desktop Only - Outside main for proper fixed positioning */}
       <FloatingPhoneButton />
+      
+      <main className="min-h-screen bg-background relative overflow-x-hidden">
+        <MainHeader />
+        
+        {/* Dynamic Trading Background */}
+        <TradingBackground />
+
+        {/* Free Resources Banner */}
+        <FreeResourcesCTA variant="banner" />
 
       {/* Hero Section */}
       <section className="relative pt-8 sm:pt-12 pb-6 px-4 z-10">
@@ -731,10 +732,11 @@ const Home = () => {
       </footer>
 
       {/* Mobile spacer */}
-      <div className="h-24 md:hidden" />
+        <div className="h-24 md:hidden" />
 
-      <CookieConsent />
-    </main>
+        <CookieConsent />
+      </main>
+    </>
   );
 };
 

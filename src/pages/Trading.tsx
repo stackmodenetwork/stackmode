@@ -35,7 +35,11 @@ const Index = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return <main className="min-h-screen bg-background relative overflow-x-hidden scroll-smooth">
+  return <>
+      {/* Floating Phone Button - Desktop Only - Outside main for proper fixed positioning */}
+      <FloatingPhoneButton />
+      
+      <main className="min-h-screen bg-background relative overflow-x-hidden scroll-smooth">
       <MainHeader />
       
       {/* Dynamic Trading Background */}
@@ -43,9 +47,6 @@ const Index = () => {
 
       {/* Free Resources Banner */}
       <FreeResourcesCTA variant="banner" />
-
-      {/* Floating Phone Button - Desktop Only */}
-      <FloatingPhoneButton />
 
       {/* Sticky Mobile Header CTA */}
       <div className={`fixed top-16 left-0 right-0 z-35 md:hidden transition-all duration-300 pointer-events-none ${showStickyHeader ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
@@ -719,6 +720,7 @@ const Index = () => {
 
       {/* Cookie Consent Banner */}
       <CookieConsent />
-    </main>;
+    </main>
+  </>;
 };
 export default Index;

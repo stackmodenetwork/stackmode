@@ -61,6 +61,9 @@ const About = () => {
 
   return (
     <>
+      {/* Floating Phone Button - Desktop Only - Outside div for proper fixed positioning */}
+      <FloatingPhoneButton />
+      
       <Helmet>
         <title>About Stackmodechris | Trading Mentor & Founder of Stackmode Network</title>
         <meta name="description" content="Meet Christopher Robinson (Stackmodechris) - a passionate trader and mentor helping everyday people achieve financial freedom through stocks, options, futures, forex, and crypto trading." />
@@ -105,8 +108,6 @@ const About = () => {
         {/* Free Resources Banner */}
         <FreeResourcesCTA variant="banner" />
 
-        {/* Floating Phone Button - Desktop Only */}
-        <FloatingPhoneButton />
         <div className="max-w-5xl mx-auto w-full px-4 pt-6">
           <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
             <ArrowLeft size={20} />
