@@ -317,6 +317,13 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Stack Finder Promo - Right after hero */}
+      <section className="py-8 px-4 relative z-10 bg-muted/20">
+        <div className="max-w-5xl mx-auto">
+          <StackFinderPromo variant="home" />
+        </div>
+      </section>
+
       {/* Trading Section Preview */}
       <section className="py-10 px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
@@ -413,12 +420,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Stack Finder Promo */}
-      <section className="py-8 px-4 relative z-10 bg-muted/20">
-        <div className="max-w-5xl mx-auto">
-          <StackFinderPromo variant="home" />
-        </div>
-      </section>
 
       {/* Business Section Preview */}
       <section className="py-10 px-4 relative z-10">
