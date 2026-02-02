@@ -117,7 +117,7 @@ export const TradingAuditCTA = () => {
                 <div className="absolute inset-0 bg-emerald-500 rounded-xl blur-lg opacity-40 group-hover:opacity-60 transition-opacity" />
                 <div className="relative flex items-center gap-3 bg-gradient-to-r from-emerald-500 to-emerald-400 text-background font-bold text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-xl shadow-xl shadow-emerald-500/25 transition-all">
                   <Calendar size={20} />
-                  <span>Book Your Free Audit</span>
+                  <span>Book Your FREE Call</span>
                   <motion.div
                     animate={{ x: [0, 5, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
