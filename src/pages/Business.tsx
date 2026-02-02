@@ -13,6 +13,7 @@ import { BusinessBackground } from '@/components/BusinessBackground';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
 import { StackmodeGroupPromo } from '@/components/StackmodeGroupPromo';
 import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
+import { ReviewsGallery } from '@/components/ReviewsGallery';
 import { motion } from 'framer-motion';
 const businessProofImages = [
   { src: "business-proof-1.png", alt: "Watch page ads revenue" },
@@ -502,6 +503,20 @@ const Business = () => {
 
         {/* Books Credibility Section */}
         <BooksCredibilityPromo variant="compact" showHeading={true} className="mb-12" />
+
+        {/* Reviews Gallery - Social Proof */}
+        <AnimatedBlock delay={0.6} className="mb-12">
+          <div className="text-center mb-6">
+            <span className="inline-block bg-accent/10 text-accent text-xs font-semibold px-3 py-1 rounded-full mb-2">
+              Client Success
+            </span>
+            <h2 className="text-xl sm:text-2xl font-bold text-foreground">
+              Real Results From Real Students
+            </h2>
+            <p className="text-muted-foreground text-sm mt-1">Join our community of successful entrepreneurs</p>
+          </div>
+          <ReviewsGallery />
+        </AnimatedBlock>
 
         {/* Social Share */}
         <AnimatedBlock delay={0.5} className="mb-16">

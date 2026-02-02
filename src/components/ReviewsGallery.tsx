@@ -1,24 +1,105 @@
-import { useState, useEffect, useCallback, memo } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { ChevronDown, ChevronUp, X, ChevronLeft, ChevronRight, BadgeCheck, Users, Camera } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { OptimizedImage } from '@/components/OptimizedImage';
-const allReviews = ["review-51.png", "review-52.png", "review-57.png", "review-59.png", "review-61.png", "review-48.png", "review-47.png", "review-44.png", "review-49.png", "review-50.png", "review-1.png", "review-2.png", "review-3.png", "review-4.png", "review-5.png", "review-6.png", "review-7.png", "review-8.png", "review-9.png", "review-10.png", "review-11.png", "review-12.png", "review-46.png", "review-13.png", "review-14.png", "review-15.png", "review-16.png", "review-17.png", "review-18.png", "review-19.png", "review-20.png", "review-21.png", "review-22.png", "review-23.png", "review-24.png", "review-25.png", "review-26.png", "review-27.png", "review-28.png", "review-29.png", "review-30.png", "review-31.png", "review-32.png", "review-33.png", "review-34.png", "review-35.png", "review-53.png", "review-55.png", "review-58.png"];
+import { motion } from 'framer-motion';
+
+const allReviews = [
+  "review-51.png", "review-52.png", "review-57.png", "review-59.png", "review-61.png",
+  "review-48.png", "review-47.png", "review-44.png", "review-49.png", "review-50.png",
+  "review-1.png", "review-2.png", "review-3.png", "review-4.png", "review-5.png",
+  "review-6.png", "review-7.png", "review-8.png", "review-9.png", "review-10.png",
+  "review-11.png", "review-12.png", "review-46.png", "review-13.png", "review-14.png",
+  "review-15.png", "review-16.png", "review-17.png", "review-18.png", "review-19.png",
+  "review-20.png", "review-21.png", "review-22.png", "review-23.png", "review-24.png",
+  "review-25.png", "review-26.png", "review-27.png", "review-28.png", "review-29.png",
+  "review-30.png", "review-31.png", "review-32.png", "review-33.png", "review-34.png",
+  "review-35.png", "review-53.png", "review-55.png", "review-58.png"
+];
+
+// Individual review card with scroll animation
+const ReviewCard = ({ 
+  img, 
+  index, 
+  onClick 
+}: { 
+  img: string; 
+  index: number; 
+  onClick: () => void;
+}) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '50px', threshold: 0.1 }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <motion.div
+      ref={cardRef}
+      onClick={onClick}
+      initial={{ opacity: 0, y: 30, scale: 0.95 }}
+      animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : {}}
+      transition={{ 
+        duration: 0.5, 
+        delay: Math.min(index * 0.05, 0.3),
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }}
+      whileHover={{ scale: 1.03, y: -5 }}
+      className="break-inside-avoid bg-card/50 border-2 border-primary/40 rounded-xl overflow-hidden 
+                 hover:border-primary hover:shadow-[0_0_25px_rgba(var(--primary-rgb),0.25)] 
+                 transition-all duration-300 cursor-pointer group"
+    >
+      <div className="relative overflow-hidden">
+        <OptimizedImage 
+          src={`/lovable-uploads/${img}`} 
+          alt={`Student success story ${index + 1}`} 
+          className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" 
+          priority={index < 4} 
+        />
+        {/* Hover overlay */}
+        <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-300" />
+      </div>
+    </motion.div>
+  );
+};
+
 export function ReviewsGallery() {
   const [showAll, setShowAll] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const displayedReviews = showAll ? allReviews : allReviews.slice(0, 12);
+  
+  // Show fewer items on mobile initially
+  const initialCount = typeof window !== 'undefined' && window.innerWidth < 640 ? 8 : 12;
+  const displayedReviews = showAll ? allReviews : allReviews.slice(0, initialCount);
   const isOpen = selectedIndex !== null;
+
   const goNext = useCallback(() => {
     if (selectedIndex !== null) {
       setSelectedIndex((selectedIndex + 1) % allReviews.length);
     }
   }, [selectedIndex]);
+
   const goPrev = useCallback(() => {
     if (selectedIndex !== null) {
       setSelectedIndex((selectedIndex - 1 + allReviews.length) % allReviews.length);
     }
   }, [selectedIndex]);
+
   const handleClose = () => setSelectedIndex(null);
 
   // Keyboard navigation
@@ -32,95 +113,140 @@ export function ReviewsGallery() {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, goNext, goPrev]);
-  return <div className="max-w-7xl mx-auto px-4 relative">
-      {/* Header */}
-      <div className="text-center mb-8">
-        <h3 className="text-2xl md:text-3xl font-semibold text-foreground mb-2">
-          Real Results from The Stackmode Network & Real Clients
+
+  return (
+    <div className="max-w-7xl mx-auto px-2 sm:px-4 relative">
+      {/* Header - optimized for mobile */}
+      <div className="text-center mb-6 sm:mb-8">
+        <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-foreground mb-2 px-2">
+          Real Results from The Stackmode Network
         </h3>
-        <p className="text-muted-foreground max-w-lg mx-auto">Join successful traders who transformed their results</p>
+        <p className="text-muted-foreground text-sm sm:text-base max-w-lg mx-auto px-4">
+          Join successful traders who transformed their results
+        </p>
       </div>
 
-      
-      {/* Masonry Grid */}
-      <div className="columns-2 sm:columns-3 lg:columns-4 gap-3 sm:gap-4 space-y-3 sm:space-y-4">
+      {/* Masonry Grid - responsive columns */}
+      <div className="columns-2 sm:columns-3 lg:columns-4 gap-2 sm:gap-3 lg:gap-4 space-y-2 sm:space-y-3 lg:space-y-4">
         {displayedReviews.map((img, index) => (
-          <div 
-            key={img} 
-            onClick={() => setSelectedIndex(allReviews.indexOf(img))} 
-            className="break-inside-avoid bg-card/50 border-2 border-primary rounded-xl overflow-hidden hover:border-primary hover:shadow-[0_0_20px_rgba(var(--primary-rgb),0.3)] transition-all duration-300 cursor-pointer"
-          >
-            <OptimizedImage 
-              src={`/lovable-uploads/${img}`} 
-              alt={`Student success story ${index + 1}`} 
-              className="w-full h-auto block" 
-              priority={index < 4} 
-            />
-          </div>
+          <ReviewCard
+            key={img}
+            img={img}
+            index={index}
+            onClick={() => setSelectedIndex(allReviews.indexOf(img))}
+          />
         ))}
       </div>
 
       {/* Show More / Less Button */}
-      {allReviews.length > 12 && <div className="text-center mt-10">
-          <Button variant="outline" onClick={() => setShowAll(!showAll)} className="group border-primary/40 hover:border-primary hover:bg-primary/10 text-primary px-8 py-6 rounded-xl font-semibold transition-all duration-300">
-            {showAll ? <>
+      {allReviews.length > initialCount && (
+        <motion.div 
+          className="text-center mt-8 sm:mt-10"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+        >
+          <Button 
+            variant="outline" 
+            onClick={() => setShowAll(!showAll)} 
+            className="group border-primary/40 hover:border-primary hover:bg-primary/10 text-primary 
+                       px-6 sm:px-8 py-5 sm:py-6 rounded-xl font-semibold transition-all duration-300
+                       text-sm sm:text-base"
+          >
+            {showAll ? (
+              <>
                 Show Less
-                <ChevronUp className="ml-2 w-5 h-5 group-hover:-translate-y-1 transition-transform" />
-              </> : <>
+                <ChevronUp className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:-translate-y-1 transition-transform" />
+              </>
+            ) : (
+              <>
                 View All {allReviews.length} Reviews
-                <ChevronDown className="ml-2 w-5 h-5 group-hover:translate-y-1 transition-transform" />
-              </>}
+                <ChevronDown className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-y-1 transition-transform" />
+              </>
+            )}
           </Button>
-        </div>}
+        </motion.div>
+      )}
 
-      {/* Trust Badge */}
-      <div className="text-center mt-8 px-2">
-        <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-xs sm:text-sm bg-card/80 backdrop-blur-sm border border-primary/30 rounded-2xl sm:rounded-full px-4 sm:px-6 py-3 shadow-lg shadow-primary/10 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/30 hover:border-primary/60 cursor-default">
+      {/* Trust Badge - mobile optimized */}
+      <motion.div 
+        className="text-center mt-6 sm:mt-8 px-2"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.4 }}
+      >
+        <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 
+                        text-xs sm:text-sm bg-card/80 backdrop-blur-sm border border-primary/30 
+                        rounded-xl sm:rounded-full px-4 sm:px-6 py-3 shadow-lg shadow-primary/10 
+                        transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/20 
+                        hover:border-primary/50 cursor-default">
           <span className="flex items-center gap-2 text-foreground font-medium">
             <BadgeCheck className="w-4 h-4 text-green-500" />
-            Verified Results
+            <span className="whitespace-nowrap">Verified Results</span>
           </span>
           <span className="text-primary/50 hidden sm:inline">|</span>
           <span className="flex items-center gap-2 text-foreground font-medium">
-            <Users className="w-4 h-4 text-secondary" />
-            Multiple Success Stories
+            <Users className="w-4 h-4 text-cyan-400" />
+            <span className="whitespace-nowrap">Multiple Success Stories</span>
           </span>
           <span className="text-primary/50 hidden sm:inline">|</span>
           <span className="flex items-center gap-2 text-foreground font-medium">
             <Camera className="w-4 h-4 text-primary" />
-            100% Real Screenshots
+            <span className="whitespace-nowrap">100% Real Screenshots</span>
           </span>
         </div>
-      </div>
+      </motion.div>
 
-      {/* Lightbox Modal */}
+      {/* Lightbox Modal - mobile optimized */}
       <Dialog open={isOpen} onOpenChange={open => !open && handleClose()}>
-        <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-background/95 backdrop-blur-xl border-primary/20 overflow-hidden">
-          {selectedIndex !== null && <div className="relative flex items-center justify-center min-h-[50vh]">
+        <DialogContent className="max-w-[98vw] sm:max-w-[95vw] max-h-[95vh] p-0 bg-background/95 backdrop-blur-xl border-primary/20 overflow-hidden">
+          {selectedIndex !== null && (
+            <div className="relative flex items-center justify-center min-h-[50vh]">
               {/* Close Button */}
-              <button onClick={handleClose} className="absolute top-4 right-4 z-50 p-2 rounded-full bg-background/80 hover:bg-background border border-border/50 transition-colors">
-                <X className="w-5 h-5 text-foreground" />
+              <button 
+                onClick={handleClose} 
+                className="absolute top-2 right-2 sm:top-4 sm:right-4 z-50 p-2 rounded-full bg-background/80 hover:bg-background border border-border/50 transition-colors"
+              >
+                <X className="w-4 h-4 sm:w-5 sm:h-5 text-foreground" />
               </button>
 
               {/* Previous Button */}
-              <button onClick={goPrev} className="absolute left-4 top-1/2 -translate-y-1/2 z-50 p-3 rounded-full bg-background/80 hover:bg-background border border-border/50 transition-all hover:scale-110">
-                <ChevronLeft className="w-6 h-6 text-foreground" />
+              <button 
+                onClick={goPrev} 
+                className="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 z-50 p-2 sm:p-3 rounded-full bg-background/80 hover:bg-background border border-border/50 transition-all hover:scale-110"
+              >
+                <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-foreground" />
               </button>
 
               {/* Image */}
-              <img src={`/lovable-uploads/${allReviews[selectedIndex]}`} alt={`Student success story ${selectedIndex + 1}`} className="max-w-full max-h-[85vh] object-contain rounded-lg" />
+              <motion.img 
+                key={selectedIndex}
+                src={`/lovable-uploads/${allReviews[selectedIndex]}`} 
+                alt={`Student success story ${selectedIndex + 1}`} 
+                className="max-w-[90%] sm:max-w-full max-h-[80vh] sm:max-h-[85vh] object-contain rounded-lg"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3 }}
+              />
 
               {/* Next Button */}
-              <button onClick={goNext} className="absolute right-4 top-1/2 -translate-y-1/2 z-50 p-3 rounded-full bg-background/80 hover:bg-background border border-border/50 transition-all hover:scale-110">
-                <ChevronRight className="w-6 h-6 text-foreground" />
+              <button 
+                onClick={goNext} 
+                className="absolute right-1 sm:right-4 top-1/2 -translate-y-1/2 z-50 p-2 sm:p-3 rounded-full bg-background/80 hover:bg-background border border-border/50 transition-all hover:scale-110"
+              >
+                <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-foreground" />
               </button>
 
               {/* Image Counter */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-background/80 border border-border/50 text-sm text-muted-foreground">
+              <div className="absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-background/80 border border-border/50 text-xs sm:text-sm text-muted-foreground">
                 {selectedIndex + 1} / {allReviews.length}
               </div>
-            </div>}
+            </div>
+          )}
         </DialogContent>
       </Dialog>
-    </div>;
+    </div>
+  );
 }

@@ -324,6 +324,26 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Reviews Gallery - Social Proof */}
+      <section className="py-10 px-4 relative z-10">
+        <div className="max-w-6xl mx-auto">
+          <ScrollReveal>
+            <div className="text-center mb-6">
+              <span className="inline-block bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-2">
+                Real Results
+              </span>
+              <h2 className="text-xl sm:text-2xl font-bold text-foreground">
+                What My Clients Are Achieving
+              </h2>
+              <p className="text-muted-foreground text-sm mt-1">Verified testimonials from real students</p>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal delay={0.2}>
+            <ReviewsGallery />
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* Trading Section Preview */}
       <section className="py-10 px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
