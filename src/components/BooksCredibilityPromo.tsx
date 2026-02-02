@@ -142,7 +142,7 @@ export const BooksCredibilityPromo = ({
                   {/* Book Cover */}
                   <div className="relative mb-4 flex justify-center">
                     <a href={book.amazonLink} target="_blank" rel="noopener noreferrer" className="cursor-pointer">
-                      <motion.img src={book.image} alt={book.title} className="w-28 h-40 rounded-lg shadow-xl group-hover:shadow-amber-500/20 transition-shadow hover:shadow-amber-500/40 object-scale-down" whileHover={{
+                      <motion.img src={book.image} alt={book.title} className="w-28 h-40 rounded-lg shadow-xl group-hover:shadow-amber-500/20 transition-shadow hover:shadow-amber-500/40 object-fill" whileHover={{
                     scale: 1.08,
                     rotateY: 10
                   }} />
