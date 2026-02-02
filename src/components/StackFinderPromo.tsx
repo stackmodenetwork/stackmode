@@ -20,18 +20,24 @@ export const StackFinderPromo = ({ variant = 'home' }: StackFinderPromoProps) =>
   
   return (
     <ScrollReveal>
-      <div className="relative overflow-hidden">
-        {/* Premium gradient border effect */}
-        <div className={`absolute inset-0 bg-gradient-to-r ${gradientFrom} via-primary/20 to-primary/20 rounded-3xl blur-xl opacity-60`} />
-        
-        <motion.div 
-          className={`relative bg-gradient-to-br from-card via-background to-card border-2 ${borderClass} rounded-3xl p-6 sm:p-8 lg:p-10 overflow-hidden`}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          whileHover={{ borderColor: hoverBorder }}
-        >
+      <a 
+        href="https://whop.com/stackmode-network-llc"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block group"
+      >
+        <div className="relative overflow-hidden">
+          {/* Premium gradient border effect */}
+          <div className={`absolute inset-0 bg-gradient-to-r ${gradientFrom} via-primary/20 to-primary/20 rounded-3xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity`} />
+          
+          <motion.div 
+            className={`relative bg-gradient-to-br from-card via-background to-card border-2 ${borderClass} rounded-3xl p-6 sm:p-8 lg:p-10 overflow-hidden transition-all duration-300 group-hover:border-opacity-100 group-hover:shadow-[0_0_40px_rgba(34,197,94,0.2)]`}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            whileHover={{ borderColor: hoverBorder, scale: 1.01 }}
+          >
           {/* Animated background elements */}
           <div className={`absolute top-0 right-0 w-64 h-64 ${bgClass} rounded-full blur-3xl`} />
           <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary/10 rounded-full blur-2xl" />
@@ -124,26 +130,22 @@ export const StackFinderPromo = ({ variant = 'home' }: StackFinderPromoProps) =>
               </motion.div>
               
               {/* CTA Button */}
-              <motion.a
-                href="https://whop.com/stackmode-network-llc"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative inline-flex items-center gap-3"
+              <motion.div
+                className="relative inline-flex items-center gap-3"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.6 }}
-                whileHover={{ scale: 1.02 }}
               >
                 {/* Glow */}
                 <div className={`absolute inset-0 bg-gradient-to-r ${isTrading ? 'from-emerald-500' : 'from-cyan-500'} to-primary rounded-xl blur-lg opacity-40 group-hover:opacity-60 transition-opacity`} />
                 
-                <div className={`relative flex items-center gap-3 bg-gradient-to-r ${isTrading ? 'from-emerald-500 to-emerald-400 hover:from-emerald-400 hover:to-emerald-300 shadow-emerald-500/30' : 'from-cyan-500 to-cyan-400 hover:from-cyan-400 hover:to-cyan-300 shadow-cyan-500/30'} text-background font-bold text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-xl shadow-xl transition-all`}>
+                <div className={`relative flex items-center gap-3 bg-gradient-to-r ${isTrading ? 'from-emerald-500 to-emerald-400 group-hover:from-emerald-400 group-hover:to-emerald-300 shadow-emerald-500/30' : 'from-cyan-500 to-cyan-400 group-hover:from-cyan-400 group-hover:to-cyan-300 shadow-cyan-500/30'} text-background font-bold text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-xl shadow-xl transition-all`}>
                   <Zap size={20} />
                   <span>Launch StackFinder</span>
                   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                 </div>
-              </motion.a>
+              </motion.div>
               
               {/* Access Note */}
               <motion.p 
@@ -270,7 +272,8 @@ export const StackFinderPromo = ({ variant = 'home' }: StackFinderPromoProps) =>
             </motion.div>
           </div>
         </motion.div>
-      </div>
+        </div>
+      </a>
     </ScrollReveal>
   );
 };
