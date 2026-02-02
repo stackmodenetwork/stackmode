@@ -1141,17 +1141,30 @@ const Learn = () => {
             <p className="text-muted-foreground mb-5 text-sm">
               Book a free strategy call to discuss your goals.
             </p>
-            <motion.a 
-              href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-6 py-3 rounded-xl transition-all hover:shadow-lg hover:shadow-accent/25"
-            >
-              Book Free Call
-              <ArrowRight size={18} />
-            </motion.a>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <motion.a 
+                href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-500/90 text-white font-semibold px-6 py-3 rounded-xl transition-all hover:shadow-lg hover:shadow-emerald-500/25"
+              >
+                FREE Trading Mentorship Call
+                <ArrowRight size={18} />
+              </motion.a>
+              <motion.a 
+                href="https://calendly.com/stackmodechris/businessconsulting" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center justify-center gap-2 bg-purple-500 hover:bg-purple-500/90 text-white font-semibold px-6 py-3 rounded-xl transition-all hover:shadow-lg hover:shadow-purple-500/25"
+              >
+                FREE Business Growth Call
+                <ArrowRight size={18} />
+              </motion.a>
+            </div>
           </div>
         </ScrollReveal>
       </section>
