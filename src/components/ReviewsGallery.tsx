@@ -1,9 +1,7 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { ChevronDown, ChevronUp, X, ChevronLeft, ChevronRight, BadgeCheck, Users, Camera } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
-import { OptimizedImage } from '@/components/OptimizedImage';
-import { motion } from 'framer-motion';
 
 const allReviews = [
   "review-51.png", "review-52.png", "review-57.png", "review-59.png", "review-61.png",
@@ -18,64 +16,42 @@ const allReviews = [
   "review-35.png", "review-53.png", "review-55.png", "review-58.png"
 ];
 
-// Individual review card with scroll animation
+// Simple review card without complex animations
 const ReviewCard = ({ 
   img, 
   index, 
-  onClick 
+  onClick,
+  priority 
 }: { 
   img: string; 
   index: number; 
   onClick: () => void;
+  priority: boolean;
 }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: '50px', threshold: 0.1 }
-    );
-
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   return (
-    <motion.div
-      ref={cardRef}
+    <div
       onClick={onClick}
-      initial={{ opacity: 0, y: 30, scale: 0.95 }}
-      animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : {}}
-      transition={{ 
-        duration: 0.5, 
-        delay: Math.min(index * 0.05, 0.3),
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }}
-      whileHover={{ scale: 1.03, y: -5 }}
       className="break-inside-avoid bg-card/50 border-2 border-primary/40 rounded-xl overflow-hidden 
-                 hover:border-primary hover:shadow-[0_0_25px_rgba(var(--primary-rgb),0.25)] 
-                 transition-all duration-300 cursor-pointer group"
+                 hover:border-primary hover:shadow-[0_0_20px_rgba(34,197,94,0.2)] 
+                 transition-all duration-200 cursor-pointer group"
     >
       <div className="relative overflow-hidden">
-        <OptimizedImage 
+        {/* Placeholder */}
+        {!isLoaded && (
+          <div className="absolute inset-0 bg-muted/50 animate-pulse" />
+        )}
+        <img 
           src={`/lovable-uploads/${img}`} 
           alt={`Student success story ${index + 1}`} 
-          className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" 
-          priority={index < 4} 
+          className={`w-full h-auto block transition-opacity duration-200 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+          loading={priority ? 'eager' : 'lazy'}
+          decoding="async"
+          onLoad={() => setIsLoaded(true)}
         />
-        {/* Hover overlay */}
-        <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-300" />
       </div>
-    </motion.div>
+    </div>
   );
 };
 
@@ -83,8 +59,8 @@ export function ReviewsGallery() {
   const [showAll, setShowAll] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   
-  // Show fewer items on mobile initially
-  const initialCount = typeof window !== 'undefined' && window.innerWidth < 640 ? 8 : 12;
+  // Show fewer items initially for faster load
+  const initialCount = typeof window !== 'undefined' && window.innerWidth < 640 ? 6 : 8;
   const displayedReviews = showAll ? allReviews : allReviews.slice(0, initialCount);
   const isOpen = selectedIndex !== null;
 
@@ -116,7 +92,7 @@ export function ReviewsGallery() {
 
   return (
     <div className="max-w-7xl mx-auto px-2 sm:px-4 relative">
-      {/* Header - optimized for mobile */}
+      {/* Header */}
       <div className="text-center mb-6 sm:mb-8">
         <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-foreground mb-2 px-2">
           Real Results from The Stackmode Network
@@ -126,13 +102,14 @@ export function ReviewsGallery() {
         </p>
       </div>
 
-      {/* Masonry Grid - responsive columns */}
+      {/* Masonry Grid - simple CSS, no animation */}
       <div className="columns-2 sm:columns-3 lg:columns-4 gap-2 sm:gap-3 lg:gap-4 space-y-2 sm:space-y-3 lg:space-y-4">
         {displayedReviews.map((img, index) => (
           <ReviewCard
             key={img}
             img={img}
             index={index}
+            priority={index < 4}
             onClick={() => setSelectedIndex(allReviews.indexOf(img))}
           />
         ))}
@@ -140,48 +117,34 @@ export function ReviewsGallery() {
 
       {/* Show More / Less Button */}
       {allReviews.length > initialCount && (
-        <motion.div 
-          className="text-center mt-8 sm:mt-10"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-        >
+        <div className="text-center mt-8 sm:mt-10">
           <Button 
             variant="outline" 
             onClick={() => setShowAll(!showAll)} 
             className="group border-primary/40 hover:border-primary hover:bg-primary/10 text-primary 
-                       px-6 sm:px-8 py-5 sm:py-6 rounded-xl font-semibold transition-all duration-300
+                       px-6 sm:px-8 py-5 sm:py-6 rounded-xl font-semibold transition-all duration-200
                        text-sm sm:text-base"
           >
             {showAll ? (
               <>
                 Show Less
-                <ChevronUp className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:-translate-y-1 transition-transform" />
+                <ChevronUp className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
               </>
             ) : (
               <>
                 View All {allReviews.length} Reviews
-                <ChevronDown className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-y-1 transition-transform" />
+                <ChevronDown className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
               </>
             )}
           </Button>
-        </motion.div>
+        </div>
       )}
 
-      {/* Trust Badge - mobile optimized */}
-      <motion.div 
-        className="text-center mt-6 sm:mt-8 px-2"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.4 }}
-      >
+      {/* Trust Badge */}
+      <div className="text-center mt-6 sm:mt-8 px-2">
         <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 
-                        text-xs sm:text-sm bg-card/80 backdrop-blur-sm border border-primary/30 
-                        rounded-xl sm:rounded-full px-4 sm:px-6 py-3 shadow-lg shadow-primary/10 
-                        transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/20 
-                        hover:border-primary/50 cursor-default">
+                        text-xs sm:text-sm bg-card/80 border border-primary/30 
+                        rounded-xl sm:rounded-full px-4 sm:px-6 py-3 shadow-lg shadow-primary/10">
           <span className="flex items-center gap-2 text-foreground font-medium">
             <BadgeCheck className="w-4 h-4 text-green-500" />
             <span className="whitespace-nowrap">Verified Results</span>
@@ -197,11 +160,11 @@ export function ReviewsGallery() {
             <span className="whitespace-nowrap">100% Real Screenshots</span>
           </span>
         </div>
-      </motion.div>
+      </div>
 
-      {/* Lightbox Modal - mobile optimized */}
+      {/* Lightbox Modal */}
       <Dialog open={isOpen} onOpenChange={open => !open && handleClose()}>
-        <DialogContent className="max-w-[98vw] sm:max-w-[95vw] max-h-[95vh] p-0 bg-background/95 backdrop-blur-xl border-primary/20 overflow-hidden">
+        <DialogContent className="max-w-[98vw] sm:max-w-[95vw] max-h-[95vh] p-0 bg-background/95 backdrop-blur-sm border-primary/20 overflow-hidden">
           {selectedIndex !== null && (
             <div className="relative flex items-center justify-center min-h-[50vh]">
               {/* Close Button */}
@@ -215,26 +178,22 @@ export function ReviewsGallery() {
               {/* Previous Button */}
               <button 
                 onClick={goPrev} 
-                className="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 z-50 p-2 sm:p-3 rounded-full bg-background/80 hover:bg-background border border-border/50 transition-all hover:scale-110"
+                className="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 z-50 p-2 sm:p-3 rounded-full bg-background/80 hover:bg-background border border-border/50 transition-colors"
               >
                 <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-foreground" />
               </button>
 
               {/* Image */}
-              <motion.img 
-                key={selectedIndex}
+              <img 
                 src={`/lovable-uploads/${allReviews[selectedIndex]}`} 
                 alt={`Student success story ${selectedIndex + 1}`} 
                 className="max-w-[90%] sm:max-w-full max-h-[80vh] sm:max-h-[85vh] object-contain rounded-lg"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3 }}
               />
 
               {/* Next Button */}
               <button 
                 onClick={goNext} 
-                className="absolute right-1 sm:right-4 top-1/2 -translate-y-1/2 z-50 p-2 sm:p-3 rounded-full bg-background/80 hover:bg-background border border-border/50 transition-all hover:scale-110"
+                className="absolute right-1 sm:right-4 top-1/2 -translate-y-1/2 z-50 p-2 sm:p-3 rounded-full bg-background/80 hover:bg-background border border-border/50 transition-colors"
               >
                 <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-foreground" />
               </button>

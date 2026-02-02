@@ -21,7 +21,8 @@ export const OptimizedImage = memo(({
 }: OptimizedImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(priority);
-  const imgRef = useRef<HTMLImageElement>(null);
+  const [hasError, setHasError] = useState(false);
+  const imgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (priority) {
@@ -39,7 +40,8 @@ export const OptimizedImage = memo(({
         });
       },
       { 
-        rootMargin: '50px',
+        // Much larger margin for earlier loading - prevents late image pop-in
+        rootMargin: '300px',
         threshold: 0.01
       }
     );
@@ -51,6 +53,11 @@ export const OptimizedImage = memo(({
     return () => observer.disconnect();
   }, [priority]);
 
+  const handleError = () => {
+    setHasError(true);
+    setIsLoaded(true);
+  };
+
   return (
     <div 
       ref={imgRef}
@@ -58,12 +65,19 @@ export const OptimizedImage = memo(({
       style={{ width, height }}
       onClick={onClick}
     >
-      {/* Placeholder skeleton */}
+      {/* Placeholder skeleton - shows immediately */}
       {!isLoaded && (
-        <div className="absolute inset-0 bg-muted animate-pulse" />
+        <div className="absolute inset-0 bg-muted/50" />
       )}
       
-      {isInView && (
+      {/* Error state */}
+      {hasError && (
+        <div className="absolute inset-0 bg-muted/30 flex items-center justify-center">
+          <span className="text-muted-foreground text-xs">Image unavailable</span>
+        </div>
+      )}
+      
+      {isInView && !hasError && (
         <img
           src={src}
           alt={alt}
@@ -71,8 +85,10 @@ export const OptimizedImage = memo(({
           height={height}
           loading={priority ? 'eager' : 'lazy'}
           decoding="async"
+          fetchPriority={priority ? 'high' : 'auto'}
           onLoad={() => setIsLoaded(true)}
-          className={`w-full h-full object-cover transition-opacity duration-300 ${
+          onError={handleError}
+          className={`w-full h-full object-cover transition-opacity duration-200 ${
             isLoaded ? 'opacity-100' : 'opacity-0'
           }`}
         />

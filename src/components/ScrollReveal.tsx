@@ -11,15 +11,25 @@ interface ScrollRevealProps {
   scale?: number;
 }
 
+// Check for reduced motion preference
+const prefersReducedMotion = typeof window !== 'undefined' 
+  ? window.matchMedia('(prefers-reduced-motion: reduce)').matches 
+  : false;
+
 export const ScrollReveal = ({
   children,
   className = '',
   delay = 0,
-  duration = 0.6,
+  duration = 0.4, // Faster duration
   direction = 'up',
-  distance = 30,
+  distance = 15, // Reduced distance for subtler animation
   scale = 1,
 }: ScrollRevealProps) => {
+  // Skip animation entirely if user prefers reduced motion
+  if (prefersReducedMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
   const getInitialPosition = () => {
     switch (direction) {
       case 'up':
@@ -48,8 +58,8 @@ export const ScrollReveal = ({
       scale: 1,
       transition: {
         duration,
-        delay,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        delay: Math.min(delay, 0.3), // Cap max delay
+        ease: 'easeOut',
       },
     },
   };
@@ -59,7 +69,7 @@ export const ScrollReveal = ({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: '-50px' }}
+      viewport={{ once: true, margin: '-20px' }}
       variants={variants}
     >
       {children}
@@ -78,15 +88,19 @@ interface StaggerContainerProps {
 export const StaggerContainer = ({
   children,
   className = '',
-  staggerDelay = 0.1,
+  staggerDelay = 0.05, // Faster stagger
   delayChildren = 0,
 }: StaggerContainerProps) => {
+  if (prefersReducedMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: '-50px' }}
+      viewport={{ once: true, margin: '-20px' }}
       variants={{
         hidden: {},
         visible: {
@@ -109,18 +123,21 @@ interface StaggerItemProps {
 }
 
 export const StaggerItem = ({ children, className = '' }: StaggerItemProps) => {
+  if (prefersReducedMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
       className={className}
       variants={{
-        hidden: { opacity: 0, y: 20, scale: 0.95 },
+        hidden: { opacity: 0, y: 10 }, // Reduced movement
         visible: {
           opacity: 1,
           y: 0,
-          scale: 1,
           transition: {
-            duration: 0.5,
-            ease: [0.25, 0.46, 0.45, 0.94],
+            duration: 0.3, // Faster
+            ease: 'easeOut',
           },
         },
       }}
