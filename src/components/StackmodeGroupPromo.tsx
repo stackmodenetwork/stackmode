@@ -24,7 +24,8 @@ export const StackmodeGroupPromo = ({ variant = 'home' }: StackmodeGroupPromoPro
             'Cancel Anytime'
           ],
           icon: BarChart3,
-          comparison: { guru: '$4,997', us: '$50/mo' }
+          comparison: { guru: '$4,997', us: '$50/mo' },
+          theme: 'emerald' as const
         };
       case 'business':
         return {
@@ -42,7 +43,8 @@ export const StackmodeGroupPromo = ({ variant = 'home' }: StackmodeGroupPromoPro
             'Cancel Anytime'
           ],
           icon: Youtube,
-          comparison: { guru: '$4,997', us: '$50/mo' }
+          comparison: { guru: '$4,997', us: '$50/mo' },
+          theme: 'purple' as const
         };
       case 'library':
         return {
@@ -60,7 +62,8 @@ export const StackmodeGroupPromo = ({ variant = 'home' }: StackmodeGroupPromoPro
             'Cancel Anytime'
           ],
           icon: Target,
-          comparison: { guru: '$2,000+', us: '$50/mo' }
+          comparison: { guru: '$2,000+', us: '$50/mo' },
+          theme: 'purple' as const
         };
       case 'website':
         return {
@@ -78,7 +81,8 @@ export const StackmodeGroupPromo = ({ variant = 'home' }: StackmodeGroupPromoPro
             'Cancel Anytime'
           ],
           icon: Globe,
-          comparison: { guru: '$3,000+', us: '$50/mo' }
+          comparison: { guru: '$3,000+', us: '$50/mo' },
+          theme: 'purple' as const
         };
       default: // home
         return {
@@ -94,7 +98,8 @@ export const StackmodeGroupPromo = ({ variant = 'home' }: StackmodeGroupPromoPro
             'Community of Entrepreneurs'
           ],
           icon: Rocket,
-          comparison: { guru: '$4,997', us: '$50/mo' }
+          comparison: { guru: '$4,997', us: '$50/mo' },
+          theme: 'cyan' as const
         };
     }
   };
@@ -102,6 +107,63 @@ export const StackmodeGroupPromo = ({ variant = 'home' }: StackmodeGroupPromoPro
   const content = getContent();
   const isCompact = variant === 'home';
   const IconComponent = content.icon;
+  const isPurple = content.theme === 'purple';
+  const isEmerald = content.theme === 'emerald';
+
+  // Dynamic theme colors
+  const themeColors = isPurple 
+    ? {
+        border: 'border-purple-500/40',
+        borderHover: 'hover:border-purple-400',
+        shadow: 'hover:shadow-[0_0_80px_rgba(168,85,247,0.3)]',
+        bgGradient: 'from-purple-500/10 via-card/80 to-purple-400/10',
+        glowFrom: 'from-purple-500/15',
+        glowTo: 'from-purple-400/10',
+        badge: 'bg-purple-500/20 border-purple-400/50',
+        badgeText: 'text-purple-400',
+        cornerBorder: 'border-purple-400/50',
+        iconText: 'text-purple-400',
+        checkText: 'text-purple-400',
+        saveText: 'text-purple-400',
+        buttonBg: 'from-purple-500 to-purple-400',
+        buttonShadow: 'shadow-purple-500/25',
+        arrowText: 'text-purple-400'
+      }
+    : isEmerald
+    ? {
+        border: 'border-emerald-500/40',
+        borderHover: 'hover:border-emerald-400',
+        shadow: 'hover:shadow-[0_0_80px_rgba(16,185,129,0.3)]',
+        bgGradient: 'from-emerald-500/10 via-card/80 to-emerald-400/10',
+        glowFrom: 'from-emerald-500/15',
+        glowTo: 'from-emerald-400/10',
+        badge: 'bg-emerald-500/20 border-emerald-400/50',
+        badgeText: 'text-emerald-400',
+        cornerBorder: 'border-emerald-400/50',
+        iconText: 'text-emerald-400',
+        checkText: 'text-emerald-400',
+        saveText: 'text-emerald-400',
+        buttonBg: 'from-emerald-500 to-emerald-400',
+        buttonShadow: 'shadow-emerald-500/25',
+        arrowText: 'text-emerald-400'
+      }
+    : {
+        border: 'border-cyan-500/40',
+        borderHover: 'hover:border-cyan-400',
+        shadow: 'hover:shadow-[0_0_80px_rgba(34,211,238,0.3)]',
+        bgGradient: 'from-cyan-500/10 via-card/80 to-cyan-400/10',
+        glowFrom: 'from-cyan-500/15',
+        glowTo: 'from-cyan-400/10',
+        badge: 'bg-cyan-500/20 border-cyan-400/50',
+        badgeText: 'text-cyan-400',
+        cornerBorder: 'border-cyan-400/50',
+        iconText: 'text-cyan-400',
+        checkText: 'text-cyan-400',
+        saveText: 'text-cyan-400',
+        buttonBg: 'from-cyan-500 to-cyan-400',
+        buttonShadow: 'shadow-cyan-500/25',
+        arrowText: 'text-cyan-400'
+      };
 
   return (
     <motion.section 
@@ -117,10 +179,10 @@ export const StackmodeGroupPromo = ({ variant = 'home' }: StackmodeGroupPromoPro
         rel="noopener noreferrer"
         className="block group"
       >
-        <div className="relative bg-gradient-to-br from-cyan-500/10 via-card/80 to-cyan-400/10 border-2 border-cyan-500/40 rounded-2xl sm:rounded-3xl p-6 sm:p-8 overflow-hidden transition-all duration-500 hover:border-cyan-400 hover:shadow-[0_0_80px_rgba(34,211,238,0.3)] group-hover:scale-[1.01]">
+        <div className={`relative bg-gradient-to-br ${themeColors.bgGradient} border-2 ${themeColors.border} rounded-2xl sm:rounded-3xl p-6 sm:p-8 overflow-hidden transition-all duration-500 ${themeColors.borderHover} ${themeColors.shadow} group-hover:scale-[1.01]`}>
           {/* Animated background elements */}
-          <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-cyan-500/15 to-transparent rounded-full blur-3xl opacity-60" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-cyan-400/10 to-transparent rounded-full blur-3xl opacity-50" />
+          <div className={`absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl ${themeColors.glowFrom} to-transparent rounded-full blur-3xl opacity-60`} />
+          <div className={`absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr ${themeColors.glowTo} to-transparent rounded-full blur-3xl opacity-50`} />
           
           {/* Animated corner accent */}
           <motion.div
@@ -129,7 +191,7 @@ export const StackmodeGroupPromo = ({ variant = 'home' }: StackmodeGroupPromoPro
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            <div className="absolute top-4 right-4 w-20 h-20 border-t-2 border-r-2 border-cyan-400/50 rounded-tr-2xl" />
+            <div className={`absolute top-4 right-4 w-20 h-20 border-t-2 border-r-2 ${themeColors.cornerBorder} rounded-tr-2xl`} />
           </motion.div>
           
           {/* Floating icon */}
@@ -138,22 +200,22 @@ export const StackmodeGroupPromo = ({ variant = 'home' }: StackmodeGroupPromoPro
             animate={{ y: [0, -8, 0], rotate: [0, 5, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
           >
-            <IconComponent size={48} className="text-cyan-400" />
+            <IconComponent size={48} className={themeColors.iconText} />
           </motion.div>
           
           <div className="relative z-10">
             {/* Badge with glow */}
             <motion.div 
-              className="inline-flex items-center gap-2 bg-cyan-500/20 border border-cyan-400/50 rounded-full px-4 py-2 mb-4"
+              className={`inline-flex items-center gap-2 ${themeColors.badge} border rounded-full px-4 py-2 mb-4`}
               whileHover={{ scale: 1.05 }}
             >
               <motion.div
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                <Sparkles size={16} className="text-cyan-400" />
+                <Sparkles size={16} className={themeColors.badgeText} />
               </motion.div>
-              <span className="text-cyan-400 text-sm font-bold tracking-wide">{content.badge}</span>
+              <span className={`${themeColors.badgeText} text-sm font-bold tracking-wide`}>{content.badge}</span>
             </motion.div>
 
             {/* Price Comparison Visual */}
@@ -166,11 +228,11 @@ export const StackmodeGroupPromo = ({ variant = 'home' }: StackmodeGroupPromoPro
                 animate={{ scale: [1, 1.05, 1] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
               >
-                <ArrowRight size={20} className="text-cyan-400" />
+                <ArrowRight size={20} className={themeColors.arrowText} />
               </motion.div>
-              <div className="flex items-center gap-2 bg-cyan-500/20 border border-cyan-400/50 rounded-lg px-3 py-2">
-                <span className="text-cyan-400 text-xs font-medium">Stackmode</span>
-                <span className="text-cyan-400 font-bold text-lg">{content.comparison.us}</span>
+              <div className={`flex items-center gap-2 ${themeColors.badge} border rounded-lg px-3 py-2`}>
+                <span className={`${themeColors.badgeText} text-xs font-medium`}>Stackmode</span>
+                <span className={`${themeColors.badgeText} font-bold text-lg`}>{content.comparison.us}</span>
               </div>
             </div>
 
@@ -179,7 +241,7 @@ export const StackmodeGroupPromo = ({ variant = 'home' }: StackmodeGroupPromoPro
                 <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
                   {content.title}
                 </h3>
-                <p className="text-lg sm:text-xl text-cyan-400 font-semibold mb-2">
+                <p className={`text-lg sm:text-xl ${themeColors.badgeText} font-semibold mb-2`}>
                   {content.subtitle}
                 </p>
                 <p className="text-base font-medium text-foreground/90 mb-3 italic">
@@ -200,7 +262,7 @@ export const StackmodeGroupPromo = ({ variant = 'home' }: StackmodeGroupPromoPro
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.1 }}
                     >
-                      <Check size={16} className="text-cyan-400 flex-shrink-0" />
+                      <Check size={16} className={`${themeColors.checkText} flex-shrink-0`} />
                       <span>{feature}</span>
                     </motion.div>
                   ))}
@@ -229,9 +291,9 @@ export const StackmodeGroupPromo = ({ variant = 'home' }: StackmodeGroupPromoPro
                   whileTap={{ scale: 0.98 }}
                 >
                   {/* Button glow */}
-                  <div className="absolute inset-0 bg-cyan-500 rounded-xl blur-lg opacity-40 group-hover:opacity-60 transition-opacity" />
+                  <div className={`absolute inset-0 bg-gradient-to-r ${themeColors.buttonBg} rounded-xl blur-lg opacity-40 group-hover:opacity-60 transition-opacity`} />
                   
-                  <div className="relative flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-cyan-400 text-background font-bold text-lg px-8 py-4 rounded-xl shadow-xl shadow-cyan-500/25 transition-all">
+                  <div className={`relative flex items-center gap-3 bg-gradient-to-r ${themeColors.buttonBg} text-background font-bold text-lg px-8 py-4 rounded-xl shadow-xl ${themeColors.buttonShadow} transition-all`}>
                     <Users size={20} />
                     <span>Join Stackmode Network</span>
                     <motion.div
