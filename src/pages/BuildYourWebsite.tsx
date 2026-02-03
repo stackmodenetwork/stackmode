@@ -1,16 +1,14 @@
 import { Helmet } from 'react-helmet-async';
-import { ArrowLeft, Globe, Zap, Palette, Code, Smartphone, CheckCircle, BookOpen, ArrowRight } from 'lucide-react';
+import { ArrowLeft, Globe, Zap, Palette, Code, Smartphone, CheckCircle, BookOpen, ArrowRight, Calendar, Phone, Users, Check, Star, Gift, TrendingUp, Briefcase, Youtube, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
 import { MainHeader } from '@/components/MainHeader';
 import { MainFooter } from '@/components/MainFooter';
-
 import { BusinessBackground } from '@/components/BusinessBackground';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
 import { StackmodeGroupPromo } from '@/components/StackmodeGroupPromo';
 import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
-import { BlueprintPromo } from '@/components/BlueprintPromo';
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
+import { ReviewsGallery } from '@/components/ReviewsGallery';
 import { motion } from 'framer-motion';
 
 const BuildYourWebsite = () => {
@@ -33,21 +31,14 @@ const BuildYourWebsite = () => {
 
         {/* Back Button */}
         <div className="max-w-5xl mx-auto w-full px-4 pt-6 relative z-10">
-          <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+          <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-purple-400 transition-colors">
             <ArrowLeft size={20} />
             <span>Back to Home</span>
           </Link>
         </div>
 
-        {/* Stackmode Network Group - TOP PLACEMENT */}
-        <section className="max-w-5xl mx-auto pt-8 px-4 relative z-10">
-          <ScrollReveal>
-            <StackmodeGroupPromo variant="website" />
-          </ScrollReveal>
-        </section>
-
         {/* Hero Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-b from-purple-500/10 to-transparent relative z-10">
+        <section className="py-10 md:py-16 bg-gradient-to-b from-purple-500/10 to-transparent relative z-10">
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-3xl mx-auto">
               <motion.div 
@@ -80,36 +71,154 @@ const BuildYourWebsite = () => {
               </motion.h1>
               
               <motion.p 
-                className="text-xl text-muted-foreground mb-8"
+                className="text-xl text-muted-foreground mb-6"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
               >
-                Get a professional, modern website that converts visitors into customers
+                Stop paying web agencies $3,000+ for a simple website. Learn to build it yourself with AI — or let us handle it for you.
               </motion.p>
               
-              <motion.div
+              <motion.div 
+                className="flex flex-wrap justify-center gap-3 sm:gap-6 text-sm sm:text-base"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
-                <Button size="lg" asChild className="gap-2 bg-purple-500 hover:bg-purple-500/90">
-                  <a href="https://calendly.com/stackmodechris/businessconsulting" target="_blank" rel="noopener noreferrer">
-                    <Zap size={20} />
-                    Schedule a Free Consultation
-                  </a>
-                </Button>
+                <div className="flex items-center gap-2 text-purple-400">
+                  <Check size={18} className="text-purple-400" />
+                  <span>AI-Powered</span>
+                </div>
+                <div className="flex items-center gap-2 text-purple-400">
+                  <Check size={18} className="text-purple-400" />
+                  <span>No Coding Required</span>
+                </div>
+                <div className="flex items-center gap-2 text-purple-400">
+                  <Check size={18} className="text-purple-400" />
+                  <span>SEO Included</span>
+                </div>
               </motion.div>
             </div>
           </div>
         </section>
 
+        {/* ========== STACKMODE NETWORK - TOP PRIORITY ========== */}
+        <section className="max-w-5xl mx-auto py-8 px-4 relative z-10">
+          <ScrollReveal>
+            <div className="text-center mb-6">
+              <motion.div
+                className="inline-flex items-center gap-2 bg-purple-500/10 text-purple-400 text-sm font-semibold px-4 py-2 rounded-full border border-purple-500/30 mb-3"
+                animate={{ scale: [1, 1.02, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                <Sparkles size={16} />
+                Learn to Build Websites Yourself
+              </motion.div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
+                Website Training <span className="text-purple-400">Included</span>
+              </h2>
+              <p className="text-muted-foreground max-w-xl mx-auto">
+                Inside the Stackmode Network, you'll learn to build professional websites with AI — plus get all our trading and business content for just $50/month.
+              </p>
+            </div>
+            <StackmodeGroupPromo variant="website" />
+          </ScrollReveal>
+        </section>
+
+        {/* ========== FREE CONSULTATION CTA ========== */}
+        <section className="max-w-3xl mx-auto py-6 px-4 relative z-10">
+          <ScrollReveal>
+            <div className="text-center mb-4">
+              <span className="inline-block bg-purple-500/10 text-purple-400 text-xs font-semibold px-3 py-1 rounded-full mb-2">
+                Want It Done For You?
+              </span>
+              <h3 className="text-xl sm:text-2xl font-bold text-foreground">
+                Professional Website Services
+              </h3>
+            </div>
+            <a 
+              href="https://calendly.com/stackmodechris/businessconsulting" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="block group"
+            >
+              <motion.div 
+                className="relative bg-gradient-to-br from-card/80 via-card/60 to-purple-500/10 border-2 border-purple-500/30 rounded-2xl p-6 sm:p-8 overflow-hidden transition-all duration-500 hover:border-purple-500 hover:shadow-[0_0_60px_rgba(168,85,247,0.3)] group-hover:scale-[1.02]"
+                whileHover={{ scale: 1.01 }}
+              >
+                <div className="absolute top-0 left-4 -translate-y-1/2 z-20">
+                  <motion.div 
+                    className="bg-purple-500 text-white text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded-md shadow-sm whitespace-nowrap"
+                    animate={{ scale: [1, 1.05, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    FREE Consultation
+                  </motion.div>
+                </div>
+                
+                <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/5 rounded-full blur-3xl"></div>
+                
+                <div className="relative z-10 text-center pt-2">
+                  <div className="flex items-center justify-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center">
+                      <Phone size={24} className="text-purple-400" />
+                    </div>
+                    <div className="text-left">
+                      <h4 className="text-lg sm:text-xl font-bold text-foreground">Book a Free Website Consultation</h4>
+                      <p className="text-sm text-muted-foreground">Let's discuss your project</p>
+                    </div>
+                  </div>
+                  
+                  <p className="text-muted-foreground mb-6 text-sm sm:text-base max-w-xl mx-auto">
+                    Need a professional website but don't want to build it yourself? Let's talk about your needs. I'll create a custom quote — no obligation.
+                  </p>
+                  
+                  <div className="flex flex-col sm:flex-row gap-3 justify-center mb-4">
+                    <div className="flex items-center gap-2 text-sm text-foreground/80">
+                      <Check size={16} className="text-purple-400 flex-shrink-0" />
+                      <span>Custom design</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-foreground/80">
+                      <Check size={16} className="text-purple-400 flex-shrink-0" />
+                      <span>Mobile responsive</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-foreground/80">
+                      <Check size={16} className="text-purple-400 flex-shrink-0" />
+                      <span>SEO optimized</span>
+                    </div>
+                  </div>
+                  
+                  <div className="inline-flex items-center gap-2 bg-purple-500 hover:bg-purple-500/90 text-white font-semibold text-base sm:text-lg px-8 py-4 rounded-xl transition-colors shadow-lg shadow-purple-500/25">
+                    <Calendar size={20} />
+                    <span>Schedule Free Consultation</span>
+                    <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </motion.div>
+            </a>
+          </ScrollReveal>
+        </section>
+
+        {/* ========== REVIEWS SECTION ========== */}
+        <section className="py-8 px-4 relative z-10">
+          <ScrollReveal>
+            <div className="text-center mb-6">
+              <div className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/30 rounded-full px-4 py-2 mb-3">
+                <Star size={16} className="text-yellow-500 fill-yellow-500" />
+                <span className="text-purple-400 text-sm font-semibold">Proven Results</span>
+              </div>
+              <h2 className="text-xl sm:text-2xl font-semibold text-foreground">Happy Clients & Students</h2>
+            </div>
+          </ScrollReveal>
+          <ReviewsGallery />
+        </section>
+
         {/* Features Section */}
-        <section className="py-16 md:py-20 relative z-10">
+        <section className="py-10 md:py-12 relative z-10">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
               <ScrollReveal>
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
                   What You Get
                 </h2>
               </ScrollReveal>
@@ -145,43 +254,13 @@ const BuildYourWebsite = () => {
           </div>
         </section>
 
-
-        {/* CTA Section */}
-        <section className="py-16 md:py-20 bg-muted/30 relative z-10">
-          <div className="container mx-auto px-4">
-            <ScrollReveal>
-              <div className="max-w-3xl mx-auto text-center">
-                <motion.div 
-                  className="bg-gradient-to-r from-purple-500/10 via-purple-500/5 to-purple-500/10 rounded-2xl p-8 border border-purple-500/20"
-                  whileHover={{ scale: 1.02, borderColor: 'rgba(168,85,247,0.5)' }}
-                  transition={{ type: 'spring', stiffness: 300 }}
-                >
-                  <h3 className="text-2xl font-bold text-foreground mb-4">
-                    Ready to Build Your Online Presence?
-                  </h3>
-                  <p className="text-muted-foreground mb-6">
-                    Book a free consultation call and let's discuss your website project
-                  </p>
-                  <Button size="lg" asChild className="gap-2 bg-purple-500 hover:bg-purple-500/90">
-                    <a href="https://calendly.com/stackmodechris/businessconsulting" target="_blank" rel="noopener noreferrer">
-                      <Globe size={20} />
-                      Get Started Today
-                    </a>
-                  </Button>
-                </motion.div>
-              </div>
-            </ScrollReveal>
-          </div>
-        </section>
-
-        {/* Blueprint Promo */}
-        <BlueprintPromo variant="compact" />
+        {/* ========== FOOTER SECTIONS ========== */}
 
         {/* Books Credibility Section */}
         <BooksCredibilityPromo variant="compact" showHeading={true} className="py-8" />
 
-        {/* Free Resources Section - Purple Theme */}
-        <section className="py-10 px-4 bg-muted/20 relative z-10">
+        {/* Free Resources Section */}
+        <section className="py-8 px-4 bg-muted/20 relative z-10">
           <div className="max-w-6xl mx-auto">
             <Link to="/library" className="block group">
               <motion.div 
@@ -195,11 +274,11 @@ const BuildYourWebsite = () => {
                   <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2 group-hover:text-purple-400 transition-colors">
                     Start Learning for Free
                   </h2>
-                  <p className="text-muted-foreground text-sm max-w-lg mx-auto mb-8">
+                  <p className="text-muted-foreground text-sm max-w-lg mx-auto mb-6">
                     Access free trading strategies, business guides, and educational content in our resource library
                   </p>
 
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                     {[
                       { icon: Globe, title: 'Website Tips', desc: 'Build better' },
                       { icon: Palette, title: 'Design Guides', desc: 'Look great' },
@@ -217,7 +296,7 @@ const BuildYourWebsite = () => {
                   </div>
 
                   <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 to-purple-400 group-hover:from-purple-400 group-hover:to-purple-500 text-white font-semibold px-8 py-3 rounded-xl transition-all shadow-lg group-hover:shadow-purple-500/30">
-                    <BookOpen size={18} />
+                    <Gift size={18} />
                     <span>Get FREE Resources Here</span>
                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -226,7 +305,6 @@ const BuildYourWebsite = () => {
             </Link>
           </div>
         </section>
-
 
         <MainFooter />
       </div>

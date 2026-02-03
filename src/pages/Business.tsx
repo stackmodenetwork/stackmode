@@ -2,10 +2,9 @@ import { useEffect, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { AnimatedBlock } from '@/components/AnimatedBlock';
 import { CookieConsent } from '@/components/CookieConsent';
-import { SocialShareButtons } from '@/components/SocialShareButtons';
 import { MainHeader } from '@/components/MainHeader';
-import { Briefcase, Check, Rocket, Target, Users, DollarSign, Lightbulb, Megaphone, Globe, Calendar, PlayCircle, BookOpen, X, ChevronLeft, ChevronRight, Star, Shield, Gift, ArrowRight, TrendingUp, Youtube } from 'lucide-react';
-import { ConnectWithMe } from '@/components/ConnectWithMe';
+import { MainFooter } from '@/components/MainFooter';
+import { Briefcase, Check, Rocket, Target, Users, DollarSign, Lightbulb, Megaphone, Globe, Calendar, PlayCircle, BookOpen, X, ChevronLeft, ChevronRight, Star, Shield, Gift, ArrowRight, TrendingUp, Youtube, Zap, Phone, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Dialog, DialogContent } from '@/components/ui/dialog';
@@ -14,9 +13,9 @@ import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/Scroll
 import { StackmodeGroupPromo } from '@/components/StackmodeGroupPromo';
 import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
-import { BlueprintPromo } from '@/components/BlueprintPromo';
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
 import { motion } from 'framer-motion';
+
 const businessProofImages = [
   { src: "business-proof-1.png", alt: "Watch page ads revenue" },
   { src: "business-proof-3.png", alt: "Ad results and leads" },
@@ -82,11 +81,11 @@ const Business = () => {
 
       {/* Sticky Mobile Header CTA */}
       <div className={`fixed top-16 left-0 right-0 z-35 md:hidden transition-all duration-300 pointer-events-none ${showStickyHeader ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
-        <div className="bg-background/98 backdrop-blur-lg border-b border-accent/20 shadow-lg pointer-events-auto">
+        <div className="bg-background/98 backdrop-blur-lg border-b border-purple-500/20 shadow-lg pointer-events-auto">
           <div className="px-4 py-2.5 flex items-center justify-between gap-3">
             <span className="text-xs font-medium text-foreground/80">Ready to grow?</span>
-            <a href="https://calendly.com/stackmodechris/businessconsulting" target="_blank" rel="noopener noreferrer" className="bg-accent hover:bg-accent/90 text-background font-bold text-xs px-5 py-2.5 rounded-lg transition-all shadow-md shadow-accent/20 flex-shrink-0">
-              Book FREE Call →
+            <a href="https://whop.com/stackmode-network-llc" target="_blank" rel="noopener noreferrer" className="bg-purple-500 hover:bg-purple-500/90 text-white font-bold text-xs px-5 py-2.5 rounded-lg transition-all shadow-md shadow-purple-500/20 flex-shrink-0">
+              Join Network →
             </a>
           </div>
         </div>
@@ -95,15 +94,15 @@ const Business = () => {
       {/* Main Content */}
       <section className="relative z-10 min-h-screen px-4 py-6 sm:py-8">
         {/* Hero Section */}
-        <header className="text-center mb-8 sm:mb-12 max-w-5xl mx-auto">
+        <header className="text-center mb-8 sm:mb-10 max-w-5xl mx-auto">
           <motion.div 
-            className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-2 mb-4"
+            className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/30 rounded-full px-4 py-2 mb-4"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <div className="w-2 h-2 bg-accent rounded-full animate-ping"></div>
-            <span className="text-accent text-sm font-semibold">Business Education Hub</span>
+            <div className="w-2 h-2 bg-purple-500 rounded-full animate-ping"></div>
+            <span className="text-purple-400 text-sm font-semibold">Business Education Hub</span>
           </motion.div>
           
           <motion.h1 
@@ -113,12 +112,12 @@ const Business = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             Build Your <motion.span 
-              className="text-accent inline-block"
+              className="text-purple-400 inline-block"
               animate={{ 
                 textShadow: [
-                  '0 0 0px hsl(var(--accent))',
-                  '0 0 20px hsl(var(--accent))',
-                  '0 0 0px hsl(var(--accent))'
+                  '0 0 0px rgb(168, 85, 247)',
+                  '0 0 20px rgb(168, 85, 247)',
+                  '0 0 0px rgb(168, 85, 247)'
                 ]
               }}
               transition={{ duration: 2, repeat: Infinity }}
@@ -131,7 +130,7 @@ const Business = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
-            Learn how to start, grow, and scale a profitable online business. From idea to execution — we'll guide you every step of the way.
+            Stop grinding. Start building. Learn the exact systems I use to generate multiple income streams — from YouTube monetization to AI-powered business models.
           </motion.p>
 
           {/* Value Props */}
@@ -141,47 +140,137 @@ const Business = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
           >
-            <div className="flex items-center gap-2 text-accent">
-              <Check size={18} className="text-accent" />
-              <span>1-on-1 Consulting</span>
+            <div className="flex items-center gap-2 text-purple-400">
+              <Check size={18} className="text-purple-400" />
+              <span>AI-Powered Training</span>
             </div>
-            <div className="flex items-center gap-2 text-accent">
-              <Check size={18} className="text-accent" />
-              <span>Proven Strategies</span>
+            <div className="flex items-center gap-2 text-purple-400">
+              <Check size={18} className="text-purple-400" />
+              <span>Always Updated</span>
             </div>
-            <div className="flex items-center gap-2 text-accent">
-              <Check size={18} className="text-accent" />
+            <div className="flex items-center gap-2 text-purple-400">
+              <Check size={18} className="text-purple-400" />
               <span>Real Results</span>
             </div>
           </motion.div>
         </header>
 
-        {/* Stackmode Network Group - TOP PLACEMENT */}
-        <section className="max-w-5xl mx-auto mb-12 px-4">
+        {/* ========== STACKMODE NETWORK - TOP PRIORITY ========== */}
+        <section className="max-w-5xl mx-auto mb-10 px-4">
           <ScrollReveal>
+            <div className="text-center mb-6">
+              <motion.div
+                className="inline-flex items-center gap-2 bg-purple-500/10 text-purple-400 text-sm font-semibold px-4 py-2 rounded-full border border-purple-500/30 mb-3"
+                animate={{ scale: [1, 1.02, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                <Sparkles size={16} />
+                Most Popular Choice
+              </motion.div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
+                Everything You Need in <span className="text-purple-400">One Place</span>
+              </h2>
+              <p className="text-muted-foreground max-w-xl mx-auto">
+                Why buy outdated courses when you can get constantly updated business training, AI tools, and a community for just $50/month?
+              </p>
+            </div>
             <StackmodeGroupPromo variant="business" />
           </ScrollReveal>
         </section>
 
-        {/* Proof/Reviews Section */}
-        <section className="max-w-7xl mx-auto mb-12 px-2">
+        {/* ========== FREE CONSULTATION CTA ========== */}
+        <section className="max-w-3xl mx-auto mb-10 px-4">
           <ScrollReveal>
-            <div className="text-center mb-8">
-              <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-2 mb-3">
-                <Check size={16} className="text-accent" />
-                <span className="text-accent text-sm font-semibold">Real Results</span>
+            <div className="text-center mb-4">
+              <span className="inline-block bg-purple-500/10 text-purple-400 text-xs font-semibold px-3 py-1 rounded-full mb-2">
+                Prefer 1-on-1 Guidance?
+              </span>
+              <h3 className="text-xl sm:text-2xl font-bold text-foreground">
+                Let's Build Your Roadmap Together
+              </h3>
+            </div>
+            <a 
+              href="https://calendly.com/stackmodechris/businessconsulting" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="block group"
+            >
+              <motion.div 
+                className="relative bg-gradient-to-br from-card/80 via-card/60 to-purple-500/10 border-2 border-purple-500/30 rounded-2xl p-6 sm:p-8 overflow-hidden transition-all duration-500 hover:border-purple-500 hover:shadow-[0_0_60px_rgba(168,85,247,0.3)] group-hover:scale-[1.02]"
+                whileHover={{ scale: 1.01 }}
+              >
+                <div className="absolute top-0 left-4 -translate-y-1/2 z-20">
+                  <motion.div 
+                    className="bg-purple-500 text-white text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded-md shadow-sm whitespace-nowrap"
+                    animate={{ scale: [1, 1.05, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    100% FREE — No Obligation
+                  </motion.div>
+                </div>
+                
+                <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/5 rounded-full blur-3xl"></div>
+                
+                <div className="relative z-10 text-center pt-2">
+                  <div className="flex items-center justify-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center">
+                      <Phone size={24} className="text-purple-400" />
+                    </div>
+                    <div className="text-left">
+                      <h4 className="text-lg sm:text-xl font-bold text-foreground">Free Business Strategy Call</h4>
+                      <p className="text-sm text-muted-foreground">30-min personalized consultation</p>
+                    </div>
+                  </div>
+                  
+                  <p className="text-muted-foreground mb-6 text-sm sm:text-base max-w-xl mx-auto">
+                    Not sure where to start? Let's talk about your goals. I'll help you create a custom roadmap — whether you join the network or not.
+                  </p>
+                  
+                  <div className="flex flex-col sm:flex-row gap-3 justify-center mb-4">
+                    <div className="flex items-center gap-2 text-sm text-foreground/80">
+                      <Check size={16} className="text-purple-400 flex-shrink-0" />
+                      <span>Custom business strategy</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-foreground/80">
+                      <Check size={16} className="text-purple-400 flex-shrink-0" />
+                      <span>Marketing & growth advice</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-foreground/80">
+                      <Check size={16} className="text-purple-400 flex-shrink-0" />
+                      <span>Zero pressure</span>
+                    </div>
+                  </div>
+                  
+                  <div className="inline-flex items-center gap-2 bg-purple-500 hover:bg-purple-500/90 text-white font-semibold text-base sm:text-lg px-8 py-4 rounded-xl transition-colors shadow-lg shadow-purple-500/25">
+                    <Calendar size={20} />
+                    <span>Book Your Free Call</span>
+                    <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </motion.div>
+            </a>
+          </ScrollReveal>
+        </section>
+
+        {/* ========== REVIEWS/PROOF SECTION ========== */}
+        <section className="max-w-7xl mx-auto mb-10 px-2">
+          <ScrollReveal>
+            <div className="text-center mb-6">
+              <div className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/30 rounded-full px-4 py-2 mb-3">
+                <Star size={16} className="text-yellow-500 fill-yellow-500" />
+                <span className="text-purple-400 text-sm font-semibold">Real Results</span>
               </div>
-              <h2 className="text-xl sm:text-2xl font-semibold text-foreground">Verified Success</h2>
+              <h2 className="text-xl sm:text-2xl font-semibold text-foreground">Verified Success From Our Community</h2>
             </div>
           </ScrollReveal>
           
-          {/* Masonry Layout - No Dead Space */}
+          {/* Masonry Layout */}
           <div className="columns-2 sm:columns-3 lg:columns-4 gap-2 sm:gap-3">
             {businessProofImages.map((proof, index) => (
               <div 
                 key={proof.src}
                 onClick={() => setSelectedIndex(index)}
-                className="break-inside-avoid mb-2 sm:mb-3 bg-card/30 border-2 border-accent/60 rounded-lg overflow-hidden hover:border-accent hover:shadow-[0_0_25px_rgba(168,85,247,0.4)] transition-all duration-300 cursor-pointer hover:scale-[1.02]"
+                className="break-inside-avoid mb-2 sm:mb-3 bg-card/30 border-2 border-purple-500/40 rounded-lg overflow-hidden hover:border-purple-400 hover:shadow-[0_0_25px_rgba(168,85,247,0.4)] transition-all duration-300 cursor-pointer hover:scale-[1.02]"
               >
                 <img 
                   src={`/lovable-uploads/${proof.src}`} 
@@ -194,17 +283,17 @@ const Business = () => {
           </div>
 
           {/* Trust Badge */}
-          <div className="mt-8 flex flex-wrap justify-center items-center gap-4 sm:gap-6">
+          <div className="mt-6 flex flex-wrap justify-center items-center gap-4 sm:gap-6">
             <div className="flex items-center gap-2 bg-card/50 border border-border/50 rounded-full px-4 py-2">
               <Check className="w-4 h-4 text-green-500" />
               <span className="text-sm text-muted-foreground">Multiple Success Stories</span>
             </div>
             <div className="flex items-center gap-2 bg-card/50 border border-border/50 rounded-full px-4 py-2">
               <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-              <span className="text-sm text-muted-foreground">Increased Customer Revenue</span>
+              <span className="text-sm text-muted-foreground">Increased Revenue</span>
             </div>
             <div className="flex items-center gap-2 bg-card/50 border border-border/50 rounded-full px-4 py-2">
-              <Shield className="w-4 h-4 text-accent" />
+              <Shield className="w-4 h-4 text-purple-400" />
               <span className="text-sm text-muted-foreground">Verified Results</span>
             </div>
           </div>
@@ -212,32 +301,23 @@ const Business = () => {
 
         {/* Lightbox Modal */}
         <Dialog open={isLightboxOpen} onOpenChange={open => !open && handleCloseLightbox()}>
-          <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-background/95 backdrop-blur-xl border-accent/20 overflow-hidden">
+          <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-background/95 backdrop-blur-xl border-purple-500/20 overflow-hidden">
             {selectedIndex !== null && (
               <div className="relative flex items-center justify-center min-h-[50vh]">
-                {/* Close Button */}
                 <button onClick={handleCloseLightbox} className="absolute top-4 right-4 z-50 p-2 rounded-full bg-background/80 hover:bg-background border border-border/50 transition-colors">
                   <X className="w-5 h-5 text-foreground" />
                 </button>
-
-                {/* Previous Button */}
                 <button onClick={goPrev} className="absolute left-4 top-1/2 -translate-y-1/2 z-50 p-3 rounded-full bg-background/80 hover:bg-background border border-border/50 transition-all hover:scale-110">
                   <ChevronLeft className="w-6 h-6 text-foreground" />
                 </button>
-
-                {/* Image */}
                 <img 
                   src={`/lovable-uploads/${businessProofImages[selectedIndex].src}`} 
                   alt={businessProofImages[selectedIndex].alt} 
                   className="max-w-full max-h-[85vh] object-contain rounded-lg" 
                 />
-
-                {/* Next Button */}
                 <button onClick={goNext} className="absolute right-4 top-1/2 -translate-y-1/2 z-50 p-3 rounded-full bg-background/80 hover:bg-background border border-border/50 transition-all hover:scale-110">
                   <ChevronRight className="w-6 h-6 text-foreground" />
                 </button>
-
-                {/* Image Counter */}
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-background/80 border border-border/50 text-sm text-muted-foreground">
                   {selectedIndex + 1} / {businessProofImages.length}
                 </div>
@@ -247,9 +327,9 @@ const Business = () => {
         </Dialog>
 
         {/* Services Grid */}
-        <section className="max-w-6xl mx-auto mb-12">
+        <section className="max-w-6xl mx-auto mb-10">
           <ScrollReveal>
-            <h2 className="text-xl sm:text-2xl font-semibold text-foreground text-center mb-8">What You'll Learn</h2>
+            <h2 className="text-xl sm:text-2xl font-semibold text-foreground text-center mb-6">What You'll Learn Inside</h2>
           </ScrollReveal>
           
           <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" staggerDelay={0.1}>
@@ -263,14 +343,14 @@ const Business = () => {
             ].map((item, i) => (
               <StaggerItem key={i}>
                 <motion.div 
-                  className="bg-card/50 border border-border rounded-2xl p-6 hover:border-accent/50 transition-all h-full"
+                  className="bg-card/50 border border-border rounded-2xl p-6 hover:border-purple-500/50 transition-all h-full"
                   whileHover={{ y: -5, boxShadow: '0 10px 40px rgba(168,85,247,0.15)' }}
                 >
                   <motion.div 
-                    className="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center mb-4"
+                    className="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mb-4"
                     whileHover={{ scale: 1.1, rotate: 5 }}
                   >
-                    <item.icon size={24} className="text-accent" />
+                    <item.icon size={24} className="text-purple-400" />
                   </motion.div>
                   <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
                   <p className="text-muted-foreground text-sm">{item.desc}</p>
@@ -280,109 +360,46 @@ const Business = () => {
           </StaggerContainer>
         </section>
 
-
-        {/* Main CTA */}
-        <section className="max-w-3xl mx-auto mb-12">
-          <a 
-            href="https://calendly.com/stackmodechris/businessconsulting" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="block group"
-          >
-            <div className="relative bg-gradient-to-br from-card/80 via-card/60 to-card/80 border-2 border-accent/50 rounded-2xl p-6 sm:p-8 overflow-hidden transition-all duration-500 hover:border-accent hover:shadow-[0_0_60px_rgba(168,85,247,0.4)] group-hover:scale-[1.02]">
-              <div className="absolute top-0 left-4 -translate-y-1/2 z-20">
-                <div className="bg-accent text-background text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded-md shadow-sm whitespace-nowrap">
-                  Free Strategy Session
-                </div>
-              </div>
-              
-              <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl"></div>
-              
-              <div className="relative z-10 text-center">
-                <div className="flex items-center justify-center gap-3 mb-4">
-                  <Rocket size={28} className="text-accent" />
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-foreground">1-on-1 Business Consulting</h3>
-                </div>
-                
-                <p className="text-muted-foreground mb-6 text-sm sm:text-base max-w-xl mx-auto">
-                  Get personalized guidance on starting or scaling your business. Let's create a custom roadmap for your success.
-                </p>
-                
-                <div className="flex flex-col sm:flex-row gap-3 justify-center mb-4">
-                  <div className="flex items-center gap-2 text-sm text-foreground/80">
-                    <Check size={16} className="text-accent flex-shrink-0" />
-                    <span>Custom business strategy</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-foreground/80">
-                    <Check size={16} className="text-accent flex-shrink-0" />
-                    <span>Marketing & sales advice</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-foreground/80">
-                    <Check size={16} className="text-accent flex-shrink-0" />
-                    <span>No obligation</span>
-                  </div>
-                </div>
-                
-                <div className="bg-accent hover:bg-accent/90 text-background font-semibold text-base sm:text-lg px-8 py-4 rounded-lg inline-block transition-colors">
-                  Book Your Free Call →
-                </div>
-              </div>
-            </div>
-          </a>
-        </section>
-
         {/* Self-Paced Learning Section */}
-        <section className="max-w-3xl mx-auto mb-12">
-          <div className="text-center mb-6">
+        <section className="max-w-3xl mx-auto mb-10">
+          <div className="text-center mb-4">
             <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-2">Prefer Self-Paced Learning?</h3>
-            <p className="text-sm text-muted-foreground">Master business growth on your own schedule with our courses and eBooks</p>
+            <p className="text-sm text-muted-foreground">Check out our courses and eBooks in the library</p>
           </div>
           
           <Link to="/library" className="block group">
             <div className="relative bg-gradient-to-r from-orange-950/60 via-card to-orange-950/60 border border-orange-500/20 rounded-2xl p-5 sm:p-6 overflow-hidden transition-all duration-500 hover:border-orange-500/50 hover:shadow-[0_0_30px_rgba(249,115,22,0.1)] group-hover:scale-[1.01]">
-              {/* Background glow effects */}
               <div className="absolute top-0 left-1/4 w-40 h-40 bg-orange-500/5 rounded-full blur-3xl"></div>
-              <div className="absolute bottom-0 right-1/4 w-32 h-32 bg-orange-400/5 rounded-full blur-2xl"></div>
               
               <div className="relative z-10 flex flex-col sm:flex-row items-center gap-5">
-                {/* Cards Preview */}
                 <div className="flex items-center gap-3">
-                  {/* Video Course Card */}
                   <div className="w-20 h-24 sm:w-24 sm:h-28 bg-gradient-to-br from-orange-600/20 to-orange-900/30 rounded-xl border border-orange-500/30 flex flex-col items-center justify-center gap-2 shadow-lg">
                     <PlayCircle className="w-8 h-8 sm:w-10 sm:h-10 text-orange-400" />
                     <span className="text-[10px] sm:text-xs text-orange-300 font-medium">Courses</span>
                   </div>
-                  
-                  {/* Book Card */}
                   <div className="w-20 h-24 sm:w-24 sm:h-28 bg-gradient-to-br from-orange-600/20 to-orange-900/30 rounded-xl border border-orange-500/30 flex flex-col items-center justify-center gap-2 shadow-lg -ml-2 transform rotate-3">
                     <BookOpen className="w-8 h-8 sm:w-10 sm:h-10 text-orange-400" />
                     <span className="text-[10px] sm:text-xs text-orange-300 font-medium">eBooks</span>
                   </div>
                 </div>
                 
-                {/* Content */}
                 <div className="flex-1 text-center sm:text-left">
-                  <h4 className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground mb-1 flex items-center justify-center sm:justify-start gap-2">
+                  <h4 className="text-lg sm:text-xl font-semibold text-foreground mb-1 flex items-center justify-center sm:justify-start gap-2">
                     <span>Courses & Books</span>
                     <span className="text-xs bg-orange-500/20 text-orange-400 px-2 py-0.5 rounded-full">Popular</span>
                   </h4>
-                  <p className="text-muted-foreground text-sm sm:text-base mb-3">Learn proven business strategies at your own pace with video courses and comprehensive guides</p>
+                  <p className="text-muted-foreground text-sm sm:text-base mb-3">Learn at your own pace with video courses and comprehensive guides</p>
                   
-                  {/* Features */}
                   <div className="flex flex-wrap justify-center sm:justify-start gap-x-4 gap-y-1 text-xs sm:text-sm text-foreground/70">
                     <span className="flex items-center gap-1"><Check size={14} className="text-orange-400" /> Instant Access</span>
                     <span className="flex items-center gap-1"><Check size={14} className="text-orange-400" /> Lifetime Updates</span>
-                    <span className="flex items-center gap-1"><Check size={14} className="text-orange-400" /> Beginner Friendly</span>
                   </div>
                 </div>
                 
-                {/* CTA */}
                 <div className="flex-shrink-0">
                   <div className="bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 text-white font-semibold text-sm sm:text-base px-5 py-3 rounded-lg text-center transition-all flex items-center gap-2 group-hover:gap-3 shadow-lg shadow-orange-500/20">
                     <span>Browse Library</span>
-                    <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </div>
                 </div>
               </div>
@@ -391,17 +408,15 @@ const Business = () => {
         </section>
 
         {/* FAQ Section */}
-        <AnimatedBlock delay={0.3} className="mb-16">
+        <AnimatedBlock delay={0.3} className="mb-10">
           <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl sm:text-3xl font-semibold text-foreground mb-2">
-                Frequently Asked Questions
-              </h2>
+            <div className="text-center mb-6">
+              <h2 className="text-xl sm:text-2xl font-semibold text-foreground">Frequently Asked Questions</h2>
             </div>
 
             <Accordion type="single" collapsible className="space-y-3">
-              <AccordionItem value="item-1" className="bg-card/50 border border-accent/20 rounded-xl px-4 overflow-hidden">
-                <AccordionTrigger className="text-left text-foreground hover:text-accent hover:no-underline py-4">
+              <AccordionItem value="item-1" className="bg-card/50 border border-purple-500/20 rounded-xl px-4 overflow-hidden">
+                <AccordionTrigger className="text-left text-foreground hover:text-purple-400 hover:no-underline py-4">
                   What kind of businesses can you help with?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-4">
@@ -409,26 +424,26 @@ const Business = () => {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-2" className="bg-card/50 border border-accent/20 rounded-xl px-4 overflow-hidden">
-                <AccordionTrigger className="text-left text-foreground hover:text-accent hover:no-underline py-4">
+              <AccordionItem value="item-2" className="bg-card/50 border border-purple-500/20 rounded-xl px-4 overflow-hidden">
+                <AccordionTrigger className="text-left text-foreground hover:text-purple-400 hover:no-underline py-4">
                   Do I need experience to get started?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-4">
-                  Not at all! I work with complete beginners to experienced entrepreneurs. The consulting is tailored to YOUR level and goals. I'll meet you where you are and help you build from there.
+                  Not at all! I work with complete beginners to experienced entrepreneurs. The training is tailored to YOUR level and goals. I'll meet you where you are and help you build from there.
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-3" className="bg-card/50 border border-accent/20 rounded-xl px-4 overflow-hidden">
-                <AccordionTrigger className="text-left text-foreground hover:text-accent hover:no-underline py-4">
-                  How much capital do I need to start?
+              <AccordionItem value="item-3" className="bg-card/50 border border-purple-500/20 rounded-xl px-4 overflow-hidden">
+                <AccordionTrigger className="text-left text-foreground hover:text-purple-400 hover:no-underline py-4">
+                  What's included in the Stackmode Network?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-4">
-                  Many online businesses can be started with minimal investment. During our call, we'll discuss your budget and find the best approach for your situation. Some strategies require almost no upfront cost.
+                  The network includes all our business courses, AI tools training, YouTube monetization strategies, social media growth systems, live coaching calls, and a private community — all for $50/month. Cancel anytime.
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-4" className="bg-card/50 border border-accent/20 rounded-xl px-4 overflow-hidden">
-                <AccordionTrigger className="text-left text-foreground hover:text-accent hover:no-underline py-4">
+              <AccordionItem value="item-4" className="bg-card/50 border border-purple-500/20 rounded-xl px-4 overflow-hidden">
+                <AccordionTrigger className="text-left text-foreground hover:text-purple-400 hover:no-underline py-4">
                   What happens on the free consultation call?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-4">
@@ -436,175 +451,76 @@ const Business = () => {
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
-
-            <div className="text-center mt-8">
-              <Button asChild className="bg-accent hover:bg-accent/90 text-background font-bold px-8 py-4">
-                <a href="https://calendly.com/stackmodechris/businessconsulting" target="_blank" rel="noopener noreferrer">
-                  Book Your Free Call →
-                </a>
-              </Button>
-            </div>
           </div>
         </AnimatedBlock>
 
-        {/* About Section */}
-        <AnimatedBlock delay={0.4} className="mb-16">
-          <div className="max-w-5xl mx-auto">
-            <div className="bg-gradient-to-br from-card/80 via-card/60 to-card/80 border-2 border-accent/30 rounded-2xl p-6 md:p-10 overflow-hidden">
-              <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
-                <div className="flex-shrink-0">
-                  <div className="w-56 h-56 md:w-72 md:h-72 rounded-2xl overflow-hidden border-4 border-accent/40 shadow-lg shadow-accent/20">
-                    <img src="/images/stackmodechris-about-new.png" alt="Stackmodechris - Business Mentor" className="w-full h-full object-cover" loading="lazy" />
-                  </div>
-                </div>
-                
-                <div className="flex-1 text-center md:text-left">
-                  <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
-                    About Stackmodechris
-                  </h2>
-                  <p className="text-accent font-medium mb-4">Business Strategist & Founder of Stackmode Network</p>
-                  <p className="text-muted-foreground leading-relaxed mb-4">
-                    Beyond trading, I'm passionate about helping entrepreneurs build and scale their businesses. With experience in digital marketing, content creation, and brand building, I've helped clients create multiple streams of income.
-                  </p>
-                  <div className="flex flex-wrap justify-center md:justify-start gap-3">
-                    <a target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-foreground/10 hover:bg-foreground/20 text-foreground px-4 py-2 rounded-lg text-sm font-medium transition-colors" href="https://calendly.com/stackmodechris/businessconsulting">
-                      <Calendar className="w-4 h-4" />
-                      Book Free Consultation
-                    </a>
-                    <Link to="/trading" className="inline-flex items-center gap-2 bg-foreground/10 hover:bg-foreground/20 text-foreground px-4 py-2 rounded-lg text-sm font-medium transition-colors">
-                      <Briefcase size={16} />
-                      View Trading Education
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </AnimatedBlock>
-
-        {/* Blueprint Promo - Full Featured */}
-        <BlueprintPromo variant="full" className="mb-8" />
-
-        {/* Books Credibility Section */}
-        <BooksCredibilityPromo variant="compact" showHeading={true} className="mb-12" />
-
-        {/* Reviews Gallery - Social Proof */}
-        <AnimatedBlock delay={0.6} className="mb-12">
+        {/* Reviews Gallery - More Trading Focused */}
+        <AnimatedBlock delay={0.4} className="mb-10">
           <div className="text-center mb-6">
-            <span className="inline-block bg-accent/10 text-accent text-xs font-semibold px-3 py-1 rounded-full mb-2">
-              Client Success
+            <span className="inline-block bg-purple-500/10 text-purple-400 text-xs font-semibold px-3 py-1 rounded-full mb-2">
+              Student Results
             </span>
             <h2 className="text-xl sm:text-2xl font-bold text-foreground">
               Real Results From Real Students
             </h2>
-            <p className="text-muted-foreground text-sm mt-1">Join our community of successful entrepreneurs</p>
           </div>
           <ReviewsGallery />
         </AnimatedBlock>
-
-        {/* Social Share */}
-        <AnimatedBlock delay={0.5} className="mb-16">
-          <div className="text-center max-w-4xl mx-auto">
-            <p className="text-2xl md:text-3xl font-bold text-foreground leading-relaxed mb-6">
-              Ready to Build Your Business Empire? Let's Make It Happen.
-            </p>
-            <SocialShareButtons className="justify-center" />
-          </div>
-        </AnimatedBlock>
-
-        {/* Final CTA */}
-        <div className="text-center mb-16 max-w-3xl mx-auto px-4">
-          <Button asChild className="bg-accent hover:bg-accent/90 text-background font-bold text-base md:text-xl px-6 py-6 md:px-12 md:py-8 rounded-lg w-full transform hover:scale-105 transition-all shadow-2xl">
-            <a href="https://calendly.com/stackmodechris/businessconsulting" target="_blank" rel="noopener noreferrer">
-              🚀 BOOK YOUR FREE BUSINESS CONSULTATION
-            </a>
-          </Button>
-          <p className="text-sm text-muted-foreground mt-4 font-mono">⚡ Limited Slots Available - Don't Miss Out</p>
-        </div>
-
-        {/* Social Links */}
-        <ConnectWithMe />
-
-        {/* Free Resources Section - Purple Business Theme */}
-        <section className="py-10 px-4 bg-muted/20 relative z-10 mt-8">
-          <div className="max-w-6xl mx-auto">
-            <Link to="/library" className="block group">
-              <motion.div 
-                className="bg-gradient-to-br from-background/95 via-background/90 to-accent/10 border-2 border-border/50 hover:border-accent/50 rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:shadow-[0_0_40px_rgba(168,85,247,0.15)]"
-                whileHover={{ scale: 1.01 }}
-              >
-                <div className="text-center">
-                  <span className="inline-block bg-accent/10 text-accent text-xs font-semibold px-3 py-1 rounded-full mb-3">
-                    Free Resources
-                  </span>
-                  <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2 group-hover:text-accent transition-colors">
-                    Start Learning for Free
-                  </h2>
-                  <p className="text-muted-foreground text-sm max-w-lg mx-auto mb-8">
-                    Access free trading strategies, business guides, and educational content in our resource library
-                  </p>
-
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                    {[
-                      { icon: TrendingUp, title: 'Trading Guides', desc: 'Free strategies' },
-                      { icon: Briefcase, title: 'Business Tips', desc: 'Growth tactics' },
-                      { icon: BookOpen, title: 'eBooks', desc: 'Deep dives' },
-                      { icon: Youtube, title: 'Video Lessons', desc: 'Visual learning' }
-                    ].map((item, i) => (
-                      <div key={i} className="bg-background rounded-xl p-4 border border-border/50 text-center group-hover:border-accent/30 transition-all duration-300 h-full">
-                        <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-3">
-                          <item.icon className="w-5 h-5 text-accent" />
-                        </div>
-                        <h3 className="text-sm font-semibold text-foreground mb-1">{item.title}</h3>
-                        <p className="text-xs text-muted-foreground">{item.desc}</p>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="inline-flex items-center gap-2 bg-gradient-to-r from-accent to-purple-400 group-hover:from-purple-400 group-hover:to-accent text-white font-semibold px-8 py-3 rounded-xl transition-all shadow-lg group-hover:shadow-accent/30">
-                    <Gift size={18} />
-                    <span>Get FREE Resources Here</span>
-                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </motion.div>
-            </Link>
-          </div>
-        </section>
-
-        <div className="h-8 md:h-12"></div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-background border-t border-border py-8 px-4">
-        <div className="max-w-4xl mx-auto text-center space-y-6">
-          <div className="flex flex-wrap justify-center gap-4 text-sm">
-            <a href="/terms" className="text-muted-foreground hover:text-accent transition-colors">
-              Terms & Conditions
-            </a>
-            <span className="text-border hidden sm:inline">|</span>
-            <a href="/privacy" className="text-muted-foreground hover:text-accent transition-colors">
-              Privacy Policy
-            </a>
-            <span className="text-border hidden sm:inline">|</span>
-            <a href="/dmca" className="text-muted-foreground hover:text-accent transition-colors">
-              DMCA Policy
-            </a>
-          </div>
-          
-          <div className="border border-border rounded-lg p-4 bg-muted/20">
-            <h4 className="text-xs text-muted-foreground mb-2">Earnings Disclaimer</h4>
-            <p className="text-xs text-muted-foreground leading-relaxed">
-              Business success involves substantial effort and risk. Past results are not indicative of future performance. 
-              The information provided is for educational purposes only. Individual results will vary based on effort, market conditions, and other factors.
-            </p>
-          </div>
-          
-          <p className="text-xs text-muted-foreground">
-            © 2026 Stackmode Network LLC. All Rights Reserved.
-          </p>
+      {/* ========== FOOTER SECTIONS ========== */}
+      
+      {/* Books Credibility Section */}
+      <BooksCredibilityPromo variant="compact" showHeading={true} className="py-8" />
+
+      {/* Free Resources Section */}
+      <section className="py-8 px-4 bg-muted/20 relative z-10">
+        <div className="max-w-6xl mx-auto">
+          <Link to="/library" className="block group">
+            <motion.div 
+              className="bg-gradient-to-br from-background/95 via-background/90 to-purple-500/10 border-2 border-border/50 hover:border-purple-500/50 rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:shadow-[0_0_40px_rgba(168,85,247,0.15)]"
+              whileHover={{ scale: 1.01 }}
+            >
+              <div className="text-center">
+                <span className="inline-block bg-purple-500/10 text-purple-400 text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                  Free Resources
+                </span>
+                <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2 group-hover:text-purple-400 transition-colors">
+                  Start Learning for Free
+                </h2>
+                <p className="text-muted-foreground text-sm max-w-lg mx-auto mb-6">
+                  Access free business guides, trading strategies, and educational content in our resource library
+                </p>
+
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                  {[
+                    { icon: TrendingUp, title: 'Trading Guides', desc: 'Free strategies' },
+                    { icon: Briefcase, title: 'Business Tips', desc: 'Growth tactics' },
+                    { icon: BookOpen, title: 'eBooks', desc: 'Deep dives' },
+                    { icon: Youtube, title: 'Video Lessons', desc: 'Visual learning' }
+                  ].map((item, i) => (
+                    <div key={i} className="bg-background rounded-xl p-4 border border-border/50 text-center group-hover:border-purple-500/30 transition-all duration-300 h-full">
+                      <div className="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center mx-auto mb-3">
+                        <item.icon className="w-5 h-5 text-purple-400" />
+                      </div>
+                      <h3 className="text-sm font-semibold text-foreground mb-1">{item.title}</h3>
+                      <p className="text-xs text-muted-foreground">{item.desc}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 to-purple-400 group-hover:from-purple-400 group-hover:to-purple-500 text-white font-semibold px-8 py-3 rounded-xl transition-all shadow-lg group-hover:shadow-purple-500/30">
+                  <Gift size={18} />
+                  <span>Get FREE Resources Here</span>
+                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </motion.div>
+          </Link>
         </div>
-      </footer>
+      </section>
+
+      <MainFooter />
       <div className="h-28 md:hidden" />
       <CookieConsent />
       </main>
