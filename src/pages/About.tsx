@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Calendar, TrendingUp, Users, Briefcase, Award, Mail, Send, ArrowLeft, Zap, BookOpen, Youtube, Globe, ArrowRight } from 'lucide-react';
+import { Calendar, TrendingUp, Users, Briefcase, Award, Mail, Send, ArrowLeft, Zap, BookOpen, Youtube, Globe, ArrowRight, ArrowDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 import { Button } from '@/components/ui/button';
@@ -224,31 +224,49 @@ const About = () => {
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {/* AI Business Models */}
-                <div className="bg-background rounded-2xl p-8 border border-purple-500/30 text-center hover:border-purple-500/60 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10 hover:-translate-y-2 group">
-                  <div className="w-16 h-16 rounded-full bg-purple-500/10 flex items-center justify-center mx-auto mb-6 transition-transform duration-300 group-hover:scale-110">
+                <a 
+                  href="https://whop.com/stackmode-network-llc" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-background rounded-2xl p-8 border-2 border-purple-500/30 text-center hover:border-purple-500 transition-all duration-500 hover:shadow-[0_0_40px_rgba(168,85,247,0.25)] hover:bg-purple-500/5 hover:-translate-y-2 group cursor-pointer block"
+                >
+                  <div className="w-16 h-16 rounded-full bg-purple-500/10 group-hover:bg-purple-500/20 flex items-center justify-center mx-auto mb-2 transition-all duration-300 group-hover:scale-110">
                     <Zap className="w-8 h-8 text-purple-500" />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-3">AI Business Models</h3>
-                  <p className="text-muted-foreground">How to build scalable, AI-driven businesses that generate passive and active cash flow.</p>
-                </div>
+                  <ArrowDown className="w-5 h-5 text-purple-500/50 mx-auto mb-4 group-hover:text-purple-500 group-hover:translate-y-1 transition-all duration-300" />
+                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-purple-400 transition-colors">AI Business Models</h3>
+                  <p className="text-muted-foreground text-sm">How to build scalable, AI-driven businesses that generate passive and active cash flow.</p>
+                </a>
 
                 {/* Swing Trading & Price Action */}
-                <div className="bg-background rounded-2xl p-8 border border-emerald-500/30 text-center hover:border-emerald-500/60 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 hover:-translate-y-2 group">
-                  <div className="w-16 h-16 rounded-full bg-emerald-500/10 flex items-center justify-center mx-auto mb-6 transition-transform duration-300 group-hover:scale-110">
+                <a 
+                  href="https://whop.com/stackmode-network-llc" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-background rounded-2xl p-8 border-2 border-emerald-500/30 text-center hover:border-emerald-500 transition-all duration-500 hover:shadow-[0_0_40px_rgba(16,185,129,0.25)] hover:bg-emerald-500/5 hover:-translate-y-2 group cursor-pointer block"
+                >
+                  <div className="w-16 h-16 rounded-full bg-emerald-500/10 group-hover:bg-emerald-500/20 flex items-center justify-center mx-auto mb-2 transition-all duration-300 group-hover:scale-110">
                     <TrendingUp className="w-8 h-8 text-emerald-500" />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-3">Swing Trading & Price Action</h3>
-                  <p className="text-muted-foreground">Master stocks, stock options, futures, crypto, and forex using proven trading systems.</p>
-                </div>
+                  <ArrowDown className="w-5 h-5 text-emerald-500/50 mx-auto mb-4 group-hover:text-emerald-500 group-hover:translate-y-1 transition-all duration-300" />
+                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-emerald-400 transition-colors">Swing Trading & Price Action</h3>
+                  <p className="text-muted-foreground text-sm">Master stocks, stock options, futures, crypto, and forex using proven trading systems.</p>
+                </a>
 
                 {/* The Stackmode Philosophy */}
-                <div className="bg-background rounded-2xl p-8 border border-cyan-500/30 text-center hover:border-cyan-500/60 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/10 hover:-translate-y-2 group">
-                  <div className="w-16 h-16 rounded-full bg-cyan-500/10 flex items-center justify-center mx-auto mb-6 transition-transform duration-300 group-hover:scale-110">
+                <a 
+                  href="https://whop.com/stackmode-network-llc" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-background rounded-2xl p-8 border-2 border-cyan-500/30 text-center hover:border-cyan-500 transition-all duration-500 hover:shadow-[0_0_40px_rgba(6,182,212,0.25)] hover:bg-cyan-500/5 hover:-translate-y-2 group cursor-pointer block"
+                >
+                  <div className="w-16 h-16 rounded-full bg-cyan-500/10 group-hover:bg-cyan-500/20 flex items-center justify-center mx-auto mb-2 transition-all duration-300 group-hover:scale-110">
                     <Award className="w-8 h-8 text-cyan-500" />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-3">The Stackmode Philosophy</h3>
-                  <p className="text-muted-foreground">The exact blueprint I use to scale businesses while building trading income.</p>
-                </div>
+                  <ArrowDown className="w-5 h-5 text-cyan-500/50 mx-auto mb-4 group-hover:text-cyan-500 group-hover:translate-y-1 transition-all duration-300" />
+                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-cyan-400 transition-colors">The Stackmode Philosophy</h3>
+                  <p className="text-muted-foreground text-sm">The exact blueprint I use to scale businesses while building trading income.</p>
+                </a>
               </div>
             </div>
           </div>
