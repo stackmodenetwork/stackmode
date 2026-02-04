@@ -136,7 +136,10 @@ const About = () => {
                   aka Stackmodechris
                 </p>
                 <p className="text-lg text-muted-foreground mb-6">
-                  Trading Mentor & Founder of Stackmode Network
+                  Founder of Stackmode Network | AI Business & Trading Mentor
+                </p>
+                <p className="text-base text-muted-foreground mb-6 max-w-xl">
+                  Unlinking time from money. It's time to own your life.
                 </p>
                 <div className="flex flex-wrap justify-center md:justify-start gap-3">
                   <Button asChild className="gap-2 bg-primary hover:bg-primary/90">
@@ -160,17 +163,17 @@ const About = () => {
                   <Button asChild className="gap-2 bg-cyan-500 hover:bg-cyan-500/90 text-background">
                     <a target="_blank" rel="noopener noreferrer" href="https://whop.com/stackmode-network-llc">
                       <Zap size={18} />
-                      Catch My Trades
+                      Join The Network
                     </a>
-                  </Button>
-                  <Button variant="outline" asChild className="gap-2 border-orange-500/50 text-orange-400 hover:bg-orange-500/10">
-                    <Link to="/library">
-                      <BookOpen size={18} />
-                      Library
-                    </Link>
                   </Button>
                 </div>
                 <div className="flex flex-wrap justify-center md:justify-start gap-3 mt-3">
+                  <Button variant="outline" asChild className="gap-2 border-orange-500/50 text-orange-400 hover:bg-orange-500/10">
+                    <Link to="/library">
+                      <BookOpen size={18} />
+                      Free Resources
+                    </Link>
+                  </Button>
                   <Button variant="outline" asChild className="gap-2">
                     <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@Stackmodechris">
                       <Youtube size={18} />
@@ -193,51 +196,59 @@ const About = () => {
               
               <div className="prose prose-lg max-w-none text-muted-foreground space-y-6">
                 <p className="text-lg leading-relaxed">
-                  I'm Christopher Robinson, known online as <strong className="text-foreground">Stackmodechris</strong>. I'm a passionate trader and mentor dedicated to helping everyday people achieve financial freedom through the markets.
+                  I'm Christopher Robinson, known online as <strong className="text-foreground">Stackmodechris</strong>. I spent 4 years in Finance before realizing the traditional path wasn't for me. I left to build something different—a <strong className="text-foreground">Business Network</strong> that teaches my clients how to use AI Tools & Software, Business Growth Strategies, and Trading.
                 </p>
                 
                 <p className="text-lg leading-relaxed">
-                  With expertise spanning <strong className="text-foreground">stocks, options, futures, forex, and crypto</strong>, I've built a thriving community of traders who learn to read price action and execute high-probability setups. Through proven strategies and hands-on mentorship, I've helped clients generate thousands of dollars in profits.
+                  With my education, you will understand <strong className="text-foreground">The Stackmode Philosophy</strong>: unlinking time from money. It's time to own your life.
                 </p>
                 
                 <p className="text-lg leading-relaxed">
-                  Beyond trading, I'm an IT specialist and content creator who shares my journey through my podcast, YouTube channel, and social media. My mission is simple: <strong className="text-foreground">teach real trading skills that work, without the hype or empty promises.</strong>
+                  My mission is to show people that financial freedom isn't about climbing a corporate ladder—it's about <strong className="text-foreground">building a Business with AI systems that work for you</strong>, then using that cash flow to master the markets.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Expertise Section */}
+        {/* What I Teach Section */}
         <section className="py-16 md:py-20 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
-                Areas of Expertise
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-center">
+                What I Teach
               </h2>
+              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+                Three pillars to unlock financial freedom and own your life
+              </p>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-{[
-                  { icon: TrendingUp, title: 'Stock Trading', desc: 'Master technical analysis, chart patterns, and swing trading strategies to capture profitable moves in equity markets' },
-                  { icon: Briefcase, title: 'Options Trading', desc: 'Learn high-probability options setups including credit spreads, iron condors, and directional plays for consistent income' },
-                  { icon: Award, title: 'Futures & Forex', desc: 'Swing trading strategy using price action, support/resistance levels, and market structure analysis' },
-                  { icon: Users, title: 'Crypto Trading', desc: 'Navigate volatile digital asset markets with risk management, trend analysis, and strategic position sizing' },
-                  { icon: Zap, title: 'Business Scaling', desc: 'Learn proven strategies to grow your business, increase revenue streams, and build sustainable long-term success' },
-                  { icon: Globe, title: 'Website Creation', desc: 'Get a professional, mobile-responsive website built to convert visitors into customers and establish your online presence' },
-                  { icon: Youtube, title: 'Content Monetization', desc: 'Turn your content into income through strategic platform growth, audience building, and multiple revenue channels' },
-                  { icon: BookOpen, title: 'Ad Creation', desc: 'Create compelling advertisements that capture attention, drive engagement, and convert prospects into paying customers' }
-                ].map((item, i) => (
-                  <div 
-                    key={i} 
-                    className="bg-background rounded-xl p-6 border border-border/50 text-center hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1 group"
-                  >
-                    <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 transition-transform duration-300 group-hover:scale-110">
-                      <item.icon className="w-7 h-7 text-primary transition-colors duration-300 group-hover:text-primary" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground">{item.desc}</p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {/* AI Business Models */}
+                <div className="bg-background rounded-2xl p-8 border border-purple-500/30 text-center hover:border-purple-500/60 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10 hover:-translate-y-2 group">
+                  <div className="w-16 h-16 rounded-full bg-purple-500/10 flex items-center justify-center mx-auto mb-6 transition-transform duration-300 group-hover:scale-110">
+                    <Zap className="w-8 h-8 text-purple-500" />
                   </div>
-                ))}
+                  <h3 className="text-xl font-bold text-foreground mb-3">AI Business Models</h3>
+                  <p className="text-muted-foreground">How to build scalable, AI-driven businesses that generate passive and active cash flow.</p>
+                </div>
+
+                {/* Swing Trading & Price Action */}
+                <div className="bg-background rounded-2xl p-8 border border-emerald-500/30 text-center hover:border-emerald-500/60 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 hover:-translate-y-2 group">
+                  <div className="w-16 h-16 rounded-full bg-emerald-500/10 flex items-center justify-center mx-auto mb-6 transition-transform duration-300 group-hover:scale-110">
+                    <TrendingUp className="w-8 h-8 text-emerald-500" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground mb-3">Swing Trading & Price Action</h3>
+                  <p className="text-muted-foreground">Master stocks, stock options, futures, crypto, and forex using proven trading systems.</p>
+                </div>
+
+                {/* The Stackmode Philosophy */}
+                <div className="bg-background rounded-2xl p-8 border border-cyan-500/30 text-center hover:border-cyan-500/60 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/10 hover:-translate-y-2 group">
+                  <div className="w-16 h-16 rounded-full bg-cyan-500/10 flex items-center justify-center mx-auto mb-6 transition-transform duration-300 group-hover:scale-110">
+                    <Award className="w-8 h-8 text-cyan-500" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground mb-3">The Stackmode Philosophy</h3>
+                  <p className="text-muted-foreground">The exact blueprint I use to scale businesses while building trading income.</p>
+                </div>
               </div>
             </div>
           </div>
