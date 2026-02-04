@@ -254,24 +254,55 @@ const About = () => {
           </div>
         </section>
 
-        {/* CTA Section */}
+        {/* Stackmode Network Promo */}
         <section className="py-16 md:py-20">
           <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 rounded-2xl p-8 border border-primary/20">
-                <h3 className="text-2xl font-bold text-foreground mb-4">
-                  Ready to Start Your Trading Journey?
-                </h3>
-                <p className="text-muted-foreground mb-6">
-                  Book a free 1-on-1 mentorship call and let's discuss your trading goals
-                </p>
-                <Button size="lg" asChild className="gap-2">
-                  <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer">
-                    <Calendar size={20} />
-                    Schedule Your FREE Call
-                  </a>
-                </Button>
-              </div>
+            <div className="max-w-4xl mx-auto">
+              <a 
+                href="https://whop.com/stackmode-network-llc" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block group"
+              >
+                <div className="relative bg-gradient-to-br from-background via-cyan-950/20 to-background rounded-2xl p-8 md:p-10 border-2 border-cyan-500/30 hover:border-cyan-400/60 transition-all duration-500 hover:shadow-[0_0_60px_rgba(6,182,212,0.3)] hover:scale-[1.02] overflow-hidden">
+                  {/* Background glow */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-transparent to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  {/* Badge */}
+                  <div className="flex justify-center mb-6">
+                    <span className="bg-gradient-to-r from-cyan-500 to-cyan-400 text-background text-xs font-bold px-4 py-1.5 rounded-full animate-pulse">
+                      75% OFF — LIMITED TIME
+                    </span>
+                  </div>
+                  
+                  {/* Main content */}
+                  <div className="relative text-center space-y-4">
+                    <h3 className="text-2xl md:text-3xl font-bold text-foreground">
+                      Stop Paying <span className="text-red-400 line-through opacity-70">$5,000</span> for Outdated Courses
+                    </h3>
+                    <p className="text-lg md:text-xl text-cyan-400 font-semibold">
+                      Get Everything I Know for <span className="text-2xl md:text-3xl font-black">$50/mo</span>
+                    </p>
+                    <p className="text-muted-foreground max-w-2xl mx-auto">
+                      AI Business Models. Swing Trading Systems. The Stackmode Philosophy. 
+                      One network. One price. Unlimited access.
+                    </p>
+                    
+                    {/* CTA Button */}
+                    <div className="pt-4">
+                      <span className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-cyan-400 text-background font-bold px-8 py-4 rounded-xl text-lg group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all">
+                        <Zap size={20} className="animate-pulse" />
+                        Join The Stackmode Network
+                        <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                      </span>
+                    </div>
+                    
+                    <p className="text-xs text-muted-foreground pt-2">
+                      Cancel anytime • Instant access • New content weekly
+                    </p>
+                  </div>
+                </div>
+              </a>
             </div>
           </div>
         </section>
