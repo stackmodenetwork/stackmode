@@ -89,7 +89,7 @@ const Learn = () => {
       <MainHeader />
 
       {/* ==================== ANIMATED HERO SECTION ==================== */}
-      <section className="relative py-12 md:py-16 px-4 overflow-hidden">
+      <section className="relative pt-6 pb-4 md:pt-8 md:pb-6 px-4 overflow-hidden">
         {/* Animated Background */}
         <TradingBackground />
         
@@ -99,7 +99,7 @@ const Learn = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm mb-6">
+            <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm mb-4">
               <ArrowLeft size={16} />
               Back to Home
             </Link>
@@ -110,7 +110,7 @@ const Learn = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/20 to-accent/20 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6 border border-primary/30"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/20 to-accent/20 text-primary px-4 py-1.5 rounded-full text-sm font-medium mb-4 border border-primary/30"
             >
               <Sparkles size={16} className="animate-pulse" />
               Your Complete Education Hub
@@ -120,9 +120,8 @@ const Learn = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight"
+              className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 leading-tight"
             >
-              Learn How To{' '}
               <motion.span 
                 className="text-primary inline-block"
                 animate={{ 
@@ -132,13 +131,14 @@ const Learn = () => {
               >
                 Make Money
               </motion.span>
+              {' '}The Smart Way
             </motion.h1>
             
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8"
+              className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-4"
             >
               Stop buying outdated courses. Get constantly updated education, live coaching, AI tools, and a real community — all for $50/month.
             </motion.p>
@@ -148,23 +148,23 @@ const Learn = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-wrap justify-center items-center gap-6 text-sm text-muted-foreground"
+              className="flex flex-wrap justify-center items-center gap-4 text-sm text-muted-foreground"
             >
               <span className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Check size={14} className="text-primary" />
+                <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Check size={12} className="text-primary" />
                 </div>
-                Free Resources Available
+                Free Resources
               </span>
               <span className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center">
-                  <Zap size={14} className="text-accent" />
+                <div className="w-7 h-7 rounded-full bg-accent/10 flex items-center justify-center">
+                  <Zap size={12} className="text-accent" />
                 </div>
                 Instant Access
               </span>
               <span className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center">
-                  <Star size={14} className="text-secondary" />
+                <div className="w-7 h-7 rounded-full bg-secondary/10 flex items-center justify-center">
+                  <Star size={12} className="text-secondary" />
                 </div>
                 Always Updated
               </span>
@@ -174,23 +174,23 @@ const Learn = () => {
       </section>
 
       {/* ==================== STACKMODE NETWORK - TOP PRIORITY ==================== */}
-      <section className="px-4 py-10 md:py-12 bg-gradient-to-b from-background via-purple-500/5 to-background">
+      <section className="px-4 py-6 md:py-8 bg-gradient-to-b from-background via-purple-500/5 to-background">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
-            <div className="text-center mb-6">
+            <div className="text-center mb-4">
               <motion.div
-                className="inline-flex items-center gap-2 bg-purple-500/10 text-purple-400 text-sm font-semibold px-4 py-2 rounded-full border border-purple-500/30 mb-3"
+                className="inline-flex items-center gap-2 bg-purple-500/10 text-purple-400 text-sm font-semibold px-3 py-1.5 rounded-full border border-purple-500/30 mb-2"
                 animate={{ scale: [1, 1.02, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                <Sparkles size={16} />
+                <Sparkles size={14} />
                 Most Popular Choice
               </motion.div>
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+              <h2 className="text-xl md:text-2xl font-bold text-foreground mb-1">
                 Everything in <span className="text-purple-400">One Membership</span>
               </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Why buy individual courses when you can get ALL our trading education, business training, AI tools, and live coaching for just $50/month? Cancel anytime.
+              <p className="text-sm text-muted-foreground max-w-xl mx-auto">
+                Get ALL trading education, business training, AI tools, and live coaching for just $50/month.
               </p>
             </div>
           </ScrollReveal>
@@ -202,23 +202,23 @@ const Learn = () => {
       <BooksCredibilityPromo variant="full" showHeading={true} className="bg-gradient-to-b from-amber-500/5 via-background to-background scroll-mt-20" />
 
       {/* ==================== FREE RESOURCES SECTION ==================== */}
-      <section id="free-section" className="px-4 py-10 md:py-14 bg-gradient-to-b from-accent/5 via-primary/5 to-background scroll-mt-20">
+      <section id="free-section" className="px-4 py-6 md:py-10 bg-gradient-to-b from-accent/5 via-primary/5 to-background scroll-mt-20">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
-            <div className="text-center mb-8">
+            <div className="text-center mb-5">
               <motion.div 
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-accent/20 to-primary/20 text-accent px-4 py-2 rounded-full text-sm font-semibold mb-4 border border-accent/30"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-accent/20 to-primary/20 text-accent px-3 py-1.5 rounded-full text-sm font-semibold mb-3 border border-accent/30"
                 animate={{ scale: [1, 1.02, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                <Gift size={16} className="animate-bounce" />
+                <Gift size={14} className="animate-bounce" />
                 100% FREE — No Credit Card Required
               </motion.div>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
                 Start Your Journey <span className="text-accent">Today</span>
               </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Get instant access to proven strategies that cover both trading AND business fundamentals — completely free.
+              <p className="text-sm md:text-base text-muted-foreground max-w-xl mx-auto">
+                Get instant access to proven strategies covering both trading AND business fundamentals — completely free.
               </p>
             </div>
           </ScrollReveal>
@@ -227,52 +227,52 @@ const Learn = () => {
           <ScrollReveal delay={0.2}>
             <motion.div 
               whileHover={{ scale: 1.01 }}
-              className="relative bg-gradient-to-br from-card via-card to-accent/5 border-2 border-accent/30 rounded-3xl p-8 md:p-10 overflow-hidden shadow-[0_0_50px_rgba(var(--accent-rgb),0.15)]"
+              className="relative bg-gradient-to-br from-card via-card to-accent/5 border-2 border-accent/30 rounded-2xl p-6 md:p-8 overflow-hidden shadow-[0_0_50px_rgba(var(--accent-rgb),0.15)]"
             >
               {/* Background Pattern */}
               <div className="absolute inset-0 opacity-5">
-                <div className="absolute top-0 right-0 w-96 h-96 bg-accent rounded-full blur-3xl" />
-                <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary rounded-full blur-3xl" />
+                <div className="absolute top-0 right-0 w-64 h-64 bg-accent rounded-full blur-3xl" />
+                <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary rounded-full blur-3xl" />
               </div>
 
               {/* Floating Badge */}
               <motion.div
                 animate={{ rotate: [0, 5, 0, -5, 0] }}
                 transition={{ duration: 4, repeat: Infinity }}
-                className="absolute -top-3 -right-3 md:top-4 md:right-4 bg-gradient-to-r from-accent to-primary text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg"
+                className="absolute -top-2 -right-2 md:top-3 md:right-3 bg-gradient-to-r from-accent to-primary text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-lg"
               >
                 ⚡ Instant Access
               </motion.div>
 
               <div className="relative z-10">
-                <div className="flex items-center gap-3 mb-6">
+                <div className="flex items-center gap-3 mb-4">
                   <motion.div 
                     animate={{ scale: [1, 1.1, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
-                    className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent to-primary flex items-center justify-center shadow-lg"
+                    className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-primary flex items-center justify-center shadow-lg"
                   >
-                    <GraduationCap size={32} className="text-white" />
+                    <GraduationCap size={24} className="text-white" />
                   </motion.div>
                   <div>
-                    <div className="flex items-center gap-2 mb-1">
-                      <TrendingUp size={14} className="text-primary" />
+                    <div className="flex items-center gap-2 mb-0.5">
+                      <TrendingUp size={12} className="text-primary" />
                       <span className="text-xs font-medium text-primary">Trading</span>
                       <span className="text-xs text-muted-foreground">+</span>
-                      <Briefcase size={14} className="text-secondary" />
+                      <Briefcase size={12} className="text-secondary" />
                       <span className="text-xs font-medium text-secondary">Business</span>
                     </div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-foreground">
+                    <h3 className="text-xl md:text-2xl font-bold text-foreground">
                       {freeResource.title}
                     </h3>
                   </div>
                 </div>
                 
-                <p className="text-lg text-muted-foreground mb-8 max-w-2xl">
+                <p className="text-sm md:text-base text-muted-foreground mb-5 max-w-2xl">
                   {freeResource.excerpt}
                 </p>
 
                 {/* What You'll Learn */}
-                <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-5">
                   {[
                     { icon: Target, text: "Risk Management", color: "text-primary" },
                     { icon: TrendingUp, text: "Strategy Development", color: "text-accent" },
@@ -285,26 +285,26 @@ const Learn = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ delay: i * 0.1 }}
                       viewport={{ once: true }}
-                      className="flex items-center gap-3 bg-muted/50 rounded-xl px-4 py-3"
+                      className="flex items-center gap-2 bg-muted/50 rounded-lg px-3 py-2"
                     >
-                      <item.icon size={18} className={item.color} />
-                      <span className="text-sm font-medium text-foreground">{item.text}</span>
+                      <item.icon size={14} className={item.color} />
+                      <span className="text-xs font-medium text-foreground">{item.text}</span>
                     </motion.div>
                   ))}
                 </div>
                 
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-col sm:flex-row gap-3">
                   <motion.a 
                     href={freeResource.courseLink} 
                     target="_blank" 
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
-                    className="group inline-flex items-center justify-center gap-3 bg-gradient-to-r from-accent to-primary hover:from-accent/90 hover:to-primary/90 text-white font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-primary/25 hover:shadow-primary/40"
+                    className="group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-accent to-primary hover:from-accent/90 hover:to-primary/90 text-white font-bold px-6 py-3 rounded-xl transition-all shadow-lg shadow-primary/25 hover:shadow-primary/40"
                   >
-                    <Play size={20} className="group-hover:scale-110 transition-transform" />
-                    <span className="text-lg">Get Free Course</span>
-                    <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                    <Play size={18} className="group-hover:scale-110 transition-transform" />
+                    <span>Get Free Course</span>
+                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                   </motion.a>
                   <motion.a 
                     href={freeResource.ebookLink} 
@@ -312,26 +312,26 @@ const Learn = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
-                    className="group inline-flex items-center justify-center gap-3 bg-card border-2 border-accent/40 hover:border-accent text-foreground font-semibold px-8 py-4 rounded-xl transition-all"
+                    className="group inline-flex items-center justify-center gap-2 bg-card border-2 border-accent/40 hover:border-accent text-foreground font-semibold px-6 py-3 rounded-xl transition-all"
                   >
-                    <Download size={20} className="group-hover:scale-110 transition-transform" />
-                    <span className="text-lg">Download Free eBook</span>
+                    <Download size={18} className="group-hover:scale-110 transition-transform" />
+                    <span>Download Free eBook</span>
                   </motion.a>
                 </div>
 
                 {/* Trust Signals */}
-                <div className="flex flex-wrap items-center gap-6 mt-8 pt-6 border-t border-border/50">
-                  <span className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Check size={16} className="text-accent" /> No Credit Card
+                <div className="flex flex-wrap items-center gap-4 mt-5 pt-4 border-t border-border/50">
+                  <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                    <Check size={14} className="text-accent" /> No Credit Card
                   </span>
-                  <span className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Check size={16} className="text-accent" /> Instant Download
+                  <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                    <Check size={14} className="text-accent" /> Instant Download
                   </span>
-                  <span className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Check size={16} className="text-accent" /> Beginner Friendly
+                  <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                    <Check size={14} className="text-accent" /> Beginner Friendly
                   </span>
-                  <span className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Check size={16} className="text-accent" /> Trading + Business
+                  <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                    <Check size={14} className="text-accent" /> Trading + Business
                   </span>
                 </div>
               </div>
@@ -341,14 +341,14 @@ const Learn = () => {
       </section>
 
       {/* Social Proof */}
-      <section className="py-10 md:py-12 px-4 bg-muted/20">
+      <section className="py-6 md:py-8 px-4 bg-muted/20">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal>
-            <div className="text-center mb-6">
-              <div className="flex items-center justify-center gap-0.5 mb-3">
-                {[1, 2, 3, 4, 5].map(i => <Star key={i} size={18} className="text-secondary fill-secondary" />)}
+            <div className="text-center mb-4">
+              <div className="flex items-center justify-center gap-0.5 mb-2">
+                {[1, 2, 3, 4, 5].map(i => <Star key={i} size={16} className="text-secondary fill-secondary" />)}
               </div>
-              <h2 className="text-2xl font-bold text-foreground">What Students Say</h2>
+              <h2 className="text-xl md:text-2xl font-bold text-foreground">What Students Say</h2>
             </div>
           </ScrollReveal>
           <ReviewsGallery />
