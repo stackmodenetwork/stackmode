@@ -12,6 +12,7 @@ import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
 import { BlueprintPromo } from '@/components/BlueprintPromo';
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
 import { DualCallCTA } from '@/components/DualCallCTA';
+import { TrustpilotWidget } from '@/components/TrustpilotWidget';
 import { motion } from 'framer-motion';
 import { OptimizedImage } from '@/components/OptimizedImage';
 const Home = () => {
@@ -846,6 +847,13 @@ const Home = () => {
       </section>
 
       {/* Dual Call CTA */}
+      {/* Trustpilot Widget */}
+      <section className="py-6 px-4 relative z-10">
+        <div className="max-w-4xl mx-auto">
+          <TrustpilotWidget />
+        </div>
+      </section>
+
       <DualCallCTA />
 
       {/* Footer */}

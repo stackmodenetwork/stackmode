@@ -10,6 +10,7 @@ import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/Scroll
 import { StackmodeGroupPromo } from '@/components/StackmodeGroupPromo';
 import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
 import { DualCallCTA } from '@/components/DualCallCTA';
+import { TrustpilotWidget } from '@/components/TrustpilotWidget';
 import { motion } from 'framer-motion';
 
 // Free Resources
@@ -414,6 +415,13 @@ const Learn = () => {
               </AccordionItem>
             </Accordion>
           </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Trustpilot Widget */}
+      <section className="py-6 px-4 relative z-10">
+        <div className="max-w-4xl mx-auto">
+          <TrustpilotWidget />
         </div>
       </section>
 

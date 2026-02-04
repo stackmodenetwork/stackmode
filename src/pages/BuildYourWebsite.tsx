@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { MainHeader } from '@/components/MainHeader';
 import { MainFooter } from '@/components/MainFooter';
 import { DualCallCTA } from '@/components/DualCallCTA';
+import { TrustpilotWidget } from '@/components/TrustpilotWidget';
 import { BusinessBackground } from '@/components/BusinessBackground';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
 import { StackmodeGroupPromo } from '@/components/StackmodeGroupPromo';
@@ -304,6 +305,13 @@ const BuildYourWebsite = () => {
                 </div>
               </motion.div>
             </Link>
+          </div>
+        </section>
+
+        {/* Trustpilot Widget */}
+        <section className="py-6 px-4 relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <TrustpilotWidget />
           </div>
         </section>
 
