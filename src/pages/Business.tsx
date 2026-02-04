@@ -432,14 +432,7 @@ const Business = () => {
 
         {/* Reviews Gallery - More Trading Focused */}
         <AnimatedBlock delay={0.4} className="mb-10">
-          <div className="text-center mb-6">
-            <span className="inline-block bg-purple-500/10 text-purple-400 text-xs font-semibold px-3 py-1 rounded-full mb-2">
-              Student Results
-            </span>
-            <h2 className="text-xl sm:text-2xl font-bold text-foreground">
-              Real Results From Real Students
-            </h2>
-          </div>
+          
           
         </AnimatedBlock>
       </section>
