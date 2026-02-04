@@ -496,15 +496,15 @@ const Business = () => {
         </div>
       </section>
 
+      {/* Dual Call CTA */}
+      <DualCallCTA />
+
       {/* Trustpilot Widget */}
       <section className="py-6 px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
           <TrustpilotWidget />
         </div>
       </section>
-
-      {/* Dual Call CTA */}
-      <DualCallCTA />
 
       <MainFooter />
       <div className="h-28 md:hidden" />

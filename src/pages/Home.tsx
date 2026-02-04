@@ -847,14 +847,14 @@ const Home = () => {
       </section>
 
       {/* Dual Call CTA */}
+      <DualCallCTA />
+
       {/* Trustpilot Widget */}
       <section className="py-6 px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
           <TrustpilotWidget />
         </div>
       </section>
-
-      <DualCallCTA />
 
       {/* Footer */}
       <footer className="bg-background border-t border-border py-6 px-4 relative z-10">

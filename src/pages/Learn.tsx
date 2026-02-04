@@ -418,15 +418,15 @@ const Learn = () => {
         </div>
       </section>
 
+      {/* Final CTA - Personalized Guidance */}
+      <DualCallCTA />
+
       {/* Trustpilot Widget */}
       <section className="py-6 px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
           <TrustpilotWidget />
         </div>
       </section>
-
-      {/* Final CTA - Personalized Guidance */}
-      <DualCallCTA />
 
       <MainFooter />
     </main>;
