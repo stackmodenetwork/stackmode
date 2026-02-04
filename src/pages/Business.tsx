@@ -440,7 +440,7 @@ const Business = () => {
               Real Results From Real Students
             </h2>
           </div>
-          <ReviewsGallery />
+          
         </AnimatedBlock>
       </section>
 
