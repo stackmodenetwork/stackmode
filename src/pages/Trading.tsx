@@ -358,13 +358,6 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Trustpilot Widget */}
-        <section className="py-6 px-4 relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <TrustpilotWidget />
-          </div>
-        </section>
-
         {/* Dual Call CTA */}
         <DualCallCTA />
 
@@ -372,6 +365,13 @@ const Index = () => {
         <ScrollReveal delay={0.2}>
           <ConnectWithMe />
         </ScrollReveal>
+      </section>
+
+      {/* Trustpilot Widget */}
+      <section className="py-6 px-4 relative z-10">
+        <div className="max-w-4xl mx-auto">
+          <TrustpilotWidget />
+        </div>
       </section>
 
       {/* Footer */}
