@@ -11,6 +11,7 @@ import { StackFinderPromo } from '@/components/StackFinderPromo';
 import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
 import { BlueprintPromo } from '@/components/BlueprintPromo';
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
+import { DualCallCTA } from '@/components/DualCallCTA';
 import { motion } from 'framer-motion';
 import { OptimizedImage } from '@/components/OptimizedImage';
 const Home = () => {
@@ -843,6 +844,9 @@ const Home = () => {
           </ScrollReveal>
         </div>
       </section>
+
+      {/* Dual Call CTA */}
+      <DualCallCTA />
 
       {/* Footer */}
       <footer className="bg-background border-t border-border py-6 px-4 relative z-10">

@@ -9,6 +9,7 @@ import { SocialShareButtons } from '@/components/SocialShareButtons';
 import { MainHeader } from '@/components/MainHeader';
 import { Check, Users, HelpCircle, Calendar, BookOpen, PlayCircle, Youtube, ArrowRight, TrendingUp, Gift } from 'lucide-react';
 import { ConnectWithMe } from '@/components/ConnectWithMe';
+import { DualCallCTA } from '@/components/DualCallCTA';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { TradingBackground } from '@/components/TradingBackground';
@@ -355,6 +356,9 @@ const Index = () => {
             </motion.div>
           </div>
         </section>
+
+        {/* Dual Call CTA */}
+        <DualCallCTA />
 
         {/* Social Connect */}
         <ScrollReveal delay={0.2}>

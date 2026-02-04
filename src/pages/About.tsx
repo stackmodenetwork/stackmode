@@ -9,6 +9,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { MainHeader } from '@/components/MainHeader';
 import { MainFooter } from '@/components/MainFooter';
+import { DualCallCTA } from '@/components/DualCallCTA';
 import { OptimizedImage } from '@/components/OptimizedImage';
 import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
@@ -381,6 +382,9 @@ const About = () => {
             </div>
           </div>
         </section>
+
+        {/* Dual Call CTA */}
+        <DualCallCTA />
 
         <MainFooter />
       </div>

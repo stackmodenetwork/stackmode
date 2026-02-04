@@ -4,6 +4,7 @@ import { AnimatedBlock } from '@/components/AnimatedBlock';
 import { CookieConsent } from '@/components/CookieConsent';
 import { MainHeader } from '@/components/MainHeader';
 import { MainFooter } from '@/components/MainFooter';
+import { DualCallCTA } from '@/components/DualCallCTA';
 import { Briefcase, Check, Rocket, Target, Users, DollarSign, Lightbulb, Megaphone, Globe, Calendar, PlayCircle, BookOpen, X, ChevronLeft, ChevronRight, Star, Shield, Gift, ArrowRight, TrendingUp, Youtube, Zap, Phone, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -493,6 +494,9 @@ const Business = () => {
           </Link>
         </div>
       </section>
+
+      {/* Dual Call CTA */}
+      <DualCallCTA />
 
       <MainFooter />
       <div className="h-28 md:hidden" />

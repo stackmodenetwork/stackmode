@@ -3,6 +3,7 @@ import { ArrowLeft, Globe, Zap, Palette, Code, Smartphone, CheckCircle, BookOpen
 import { Link } from 'react-router-dom';
 import { MainHeader } from '@/components/MainHeader';
 import { MainFooter } from '@/components/MainFooter';
+import { DualCallCTA } from '@/components/DualCallCTA';
 import { BusinessBackground } from '@/components/BusinessBackground';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
 import { StackmodeGroupPromo } from '@/components/StackmodeGroupPromo';
@@ -305,6 +306,9 @@ const BuildYourWebsite = () => {
             </Link>
           </div>
         </section>
+
+        {/* Dual Call CTA */}
+        <DualCallCTA />
 
         <MainFooter />
       </div>
