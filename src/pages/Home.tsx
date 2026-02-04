@@ -81,7 +81,15 @@ const Home = () => {
           duration: 0.6,
           delay: 0.5
         }}>
-            Master <span className="text-primary">Trading</span> & Build Your{' '}
+            Master <motion.span 
+              className="text-primary inline-block"
+              animate={{ 
+                textShadow: ['0 0 0px rgb(34,197,94)', '0 0 25px rgb(34,197,94)', '0 0 0px rgb(34,197,94)']
+              }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              Trading
+            </motion.span> & Build Your{' '}
             <motion.span 
               className="text-purple-500 inline-block"
               animate={{ 
