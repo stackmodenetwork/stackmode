@@ -26,31 +26,27 @@ export const StackFinderPromo = ({ variant = 'home' }: StackFinderPromoProps) =>
         rel="noopener noreferrer"
         className="block group"
       >
-        <div className={`relative bg-gradient-to-br ${isTrading ? 'from-primary/10 via-card/90 to-emerald-500/10' : 'from-cyan-500/10 via-card/90 to-purple-500/10'} border-2 ${isTrading ? 'border-primary/40' : 'border-cyan-500/40'} rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 overflow-hidden transition-all duration-300 ${isTrading ? 'group-hover:border-primary group-hover:shadow-[0_0_60px_rgba(34,197,94,0.5)]' : 'group-hover:border-cyan-400 group-hover:shadow-[0_0_60px_rgba(6,182,212,0.5)]'} group-hover:scale-[1.02]`}>
-          {/* Animated background elements */}
-          <div className={`absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl ${isTrading ? 'from-primary/15' : 'from-cyan-500/15'} to-transparent rounded-full blur-3xl opacity-60`} />
-          <div className={`absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr ${isTrading ? 'from-emerald-400/10' : 'from-purple-400/10'} to-transparent rounded-full blur-3xl opacity-50`} />
+        <div className={`relative bg-gradient-to-br ${isTrading ? 'from-primary/10 via-card/90 to-emerald-500/10' : 'from-cyan-500/10 via-card/90 to-purple-500/10'} border-2 ${isTrading ? 'border-primary/40' : 'border-cyan-500/40'} rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-10 overflow-hidden transition-all duration-300 ${isTrading ? 'group-hover:border-primary group-hover:shadow-[0_0_60px_rgba(34,197,94,0.5)]' : 'group-hover:border-cyan-400 group-hover:shadow-[0_0_60px_rgba(6,182,212,0.5)]'} group-hover:scale-[1.02]`}>
+          {/* Animated background elements - hidden on mobile for performance */}
+          <div className={`absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl ${isTrading ? 'from-primary/15' : 'from-cyan-500/15'} to-transparent rounded-full blur-3xl opacity-60 hidden sm:block`} />
+          <div className={`absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr ${isTrading ? 'from-emerald-400/10' : 'from-purple-400/10'} to-transparent rounded-full blur-3xl opacity-50 hidden sm:block`} />
           
-          {/* Corner accent */}
-          <div className="absolute top-0 right-0 w-32 h-32 overflow-hidden">
+          {/* Corner accent - hidden on mobile */}
+          <div className="absolute top-0 right-0 w-32 h-32 overflow-hidden hidden sm:block">
             <div className={`absolute top-4 right-4 w-20 h-20 border-t-2 border-r-2 ${isTrading ? 'border-primary/50' : 'border-cyan-500/50'} rounded-tr-2xl`} />
           </div>
           
-          {/* Floating chart lines - decorative */}
-          <svg className="absolute top-10 right-10 w-32 h-20 opacity-20" viewBox="0 0 100 50">
-            <motion.path
+          {/* Floating chart lines - decorative, hidden on mobile */}
+          <svg className="absolute top-10 right-10 w-32 h-20 opacity-20 hidden sm:block" viewBox="0 0 100 50">
+            <path
               d="M0,40 Q20,10 40,25 T80,15 T100,30"
               stroke="hsl(var(--primary))"
               strokeWidth="2"
               fill="none"
-              initial={{ pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 2, delay: 0.5 }}
             />
           </svg>
           
-          <div className="relative z-10 grid lg:grid-cols-2 gap-8 items-center">
+          <div className="relative z-10 grid lg:grid-cols-2 gap-6 lg:gap-8 items-center">
             {/* Left: Value Proposition */}
             <div>
               {/* Badge */}
@@ -72,7 +68,7 @@ export const StackFinderPromo = ({ variant = 'home' }: StackFinderPromoProps) =>
               
               {/* Headline */}
               <motion.h2 
-                className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4 leading-tight"
+                className="text-xl sm:text-2xl lg:text-4xl font-bold text-foreground mb-3 sm:mb-4 leading-tight"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -86,7 +82,7 @@ export const StackFinderPromo = ({ variant = 'home' }: StackFinderPromoProps) =>
               
               {/* Body Text */}
               <motion.p 
-                className="text-muted-foreground text-base sm:text-lg mb-6 leading-relaxed"
+                className="text-muted-foreground text-sm sm:text-base lg:text-lg mb-4 sm:mb-6 leading-relaxed"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -153,9 +149,9 @@ export const StackFinderPromo = ({ variant = 'home' }: StackFinderPromoProps) =>
               </motion.p>
             </div>
             
-            {/* Right: Visual Preview */}
+            {/* Right: Visual Preview - Hidden on small mobile to prevent overlap */}
             <motion.div 
-              className="relative"
+              className="relative hidden sm:block"
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
