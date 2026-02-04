@@ -120,8 +120,8 @@ const About = () => {
               <div className="flex-shrink-0">
                 <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/40 shadow-2xl shadow-primary/20">
                   <OptimizedImage 
-                    src="/images/stackmodechris-about-new.png" 
-                    alt="Stackmodechris - Christopher Robinson, Trading Mentor" 
+                    src="/images/stackmodechris-about-new.png?v=2" 
+                    alt="Stackmodechris - Founder of Stackmode Network" 
                     className="w-full h-full"
                     priority
                   />
