@@ -10,6 +10,7 @@ import { useToast } from '@/hooks/use-toast';
 import { MainHeader } from '@/components/MainHeader';
 import { MainFooter } from '@/components/MainFooter';
 import { DualCallCTA } from '@/components/DualCallCTA';
+import { TrustpilotWidget } from '@/components/TrustpilotWidget';
 import { OptimizedImage } from '@/components/OptimizedImage';
 import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
@@ -380,6 +381,13 @@ const About = () => {
                 </p>
               </form>
             </div>
+          </div>
+        </section>
+
+        {/* Trustpilot Widget */}
+        <section className="py-6 px-4 relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <TrustpilotWidget />
           </div>
         </section>
 

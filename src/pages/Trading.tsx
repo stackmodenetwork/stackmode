@@ -10,6 +10,7 @@ import { MainHeader } from '@/components/MainHeader';
 import { Check, Users, HelpCircle, Calendar, BookOpen, PlayCircle, Youtube, ArrowRight, TrendingUp, Gift } from 'lucide-react';
 import { ConnectWithMe } from '@/components/ConnectWithMe';
 import { DualCallCTA } from '@/components/DualCallCTA';
+import { TrustpilotWidget } from '@/components/TrustpilotWidget';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { TradingBackground } from '@/components/TradingBackground';
@@ -354,6 +355,13 @@ const Index = () => {
               </motion.a>
               <p className="text-xs text-muted-foreground mt-4">75% OFF • Cancel anytime • Instant access</p>
             </motion.div>
+          </div>
+        </section>
+
+        {/* Trustpilot Widget */}
+        <section className="py-6 px-4 relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <TrustpilotWidget />
           </div>
         </section>
 

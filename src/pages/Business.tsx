@@ -5,6 +5,7 @@ import { CookieConsent } from '@/components/CookieConsent';
 import { MainHeader } from '@/components/MainHeader';
 import { MainFooter } from '@/components/MainFooter';
 import { DualCallCTA } from '@/components/DualCallCTA';
+import { TrustpilotWidget } from '@/components/TrustpilotWidget';
 import { Briefcase, Check, Rocket, Target, Users, DollarSign, Lightbulb, Megaphone, Globe, Calendar, PlayCircle, BookOpen, X, ChevronLeft, ChevronRight, Star, Shield, Gift, ArrowRight, TrendingUp, Youtube, Zap, Phone, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -492,6 +493,13 @@ const Business = () => {
               </div>
             </motion.div>
           </Link>
+        </div>
+      </section>
+
+      {/* Trustpilot Widget */}
+      <section className="py-6 px-4 relative z-10">
+        <div className="max-w-4xl mx-auto">
+          <TrustpilotWidget />
         </div>
       </section>
 
