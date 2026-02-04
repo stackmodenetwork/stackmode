@@ -430,11 +430,8 @@ const Business = () => {
           </div>
         </AnimatedBlock>
 
-        {/* Reviews Gallery - More Trading Focused */}
-        <AnimatedBlock delay={0.4} className="mb-10">
-          
-          
-        </AnimatedBlock>
+        {/* Reviews Gallery */}
+        <ReviewsGallery />
       </section>
 
       {/* ========== FOOTER SECTIONS ========== */}
