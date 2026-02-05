@@ -21,7 +21,7 @@ export const StackFinderPromo = ({ variant = 'home' }: StackFinderPromoProps) =>
   return (
     <ScrollReveal>
       <a 
-        href="https://whop.com/stackmode-network-llc"
+        href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/"
         target="_blank"
         rel="noopener noreferrer"
         className="block group"

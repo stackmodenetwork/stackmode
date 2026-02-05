@@ -19,7 +19,7 @@ export const BlueprintPromo = ({ variant = 'full', className = '' }: BlueprintPr
   if (variant === 'inline') {
     return (
       <motion.a
-        href="https://whop.com/stackmode-network-llc"
+        href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/"
         target="_blank"
         rel="noopener noreferrer"
         className={`group block bg-gradient-to-r from-emerald-500/10 via-cyan-500/10 to-emerald-500/10 border-2 border-emerald-500/30 hover:border-emerald-400/60 rounded-2xl p-4 sm:p-6 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/10 ${className}`}
@@ -103,7 +103,7 @@ export const BlueprintPromo = ({ variant = 'full', className = '' }: BlueprintPr
                   </p>
 
                   <motion.a
-                    href="https://whop.com/stackmode-network-llc"
+                    href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-background font-bold px-6 py-3 rounded-xl transition-all shadow-lg shadow-emerald-500/30 hover:shadow-emerald-400/40"
@@ -216,7 +216,7 @@ export const BlueprintPromo = ({ variant = 'full', className = '' }: BlueprintPr
                   {/* CTA */}
                   <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                     <motion.a
-                      href="https://whop.com/stackmode-network-llc"
+                      href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-background font-bold text-lg px-8 py-4 rounded-xl transition-all shadow-xl shadow-emerald-500/30 hover:shadow-emerald-400/40"

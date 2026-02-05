@@ -161,7 +161,7 @@ const About = () => {
                     </Link>
                   </Button>
                   <Button asChild className="gap-2 bg-cyan-500 hover:bg-cyan-500/90 text-background">
-                    <a target="_blank" rel="noopener noreferrer" href="https://whop.com/stackmode-network-llc">
+                    <a target="_blank" rel="noopener noreferrer" href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/">
                       <Zap size={18} />
                       Join The Network
                     </a>
@@ -225,7 +225,7 @@ const About = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {/* AI Business Models */}
                 <a 
-                  href="https://whop.com/stackmode-network-llc" 
+                  href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="bg-background rounded-2xl p-8 border-2 border-purple-500/30 text-center hover:border-purple-500 transition-all duration-500 hover:shadow-[0_0_40px_rgba(168,85,247,0.25)] hover:bg-purple-500/5 hover:-translate-y-2 group cursor-pointer block"
@@ -240,7 +240,7 @@ const About = () => {
 
                 {/* Swing Trading & Price Action */}
                 <a 
-                  href="https://whop.com/stackmode-network-llc" 
+                  href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="bg-background rounded-2xl p-8 border-2 border-emerald-500/30 text-center hover:border-emerald-500 transition-all duration-500 hover:shadow-[0_0_40px_rgba(16,185,129,0.25)] hover:bg-emerald-500/5 hover:-translate-y-2 group cursor-pointer block"
@@ -255,7 +255,7 @@ const About = () => {
 
                 {/* The Stackmode Philosophy */}
                 <a 
-                  href="https://whop.com/stackmode-network-llc" 
+                  href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="bg-background rounded-2xl p-8 border-2 border-cyan-500/30 text-center hover:border-cyan-500 transition-all duration-500 hover:shadow-[0_0_40px_rgba(6,182,212,0.25)] hover:bg-cyan-500/5 hover:-translate-y-2 group cursor-pointer block"
@@ -277,7 +277,7 @@ const About = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <a 
-                href="https://whop.com/stackmode-network-llc" 
+                href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="block group"

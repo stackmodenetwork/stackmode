@@ -64,7 +64,7 @@ export const TradingStackmodePromo = () => {
         transition={{ duration: 0.6 }}
       >
         <a
-          href="https://whop.com/stackmode-network-llc"
+          href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/"
           target="_blank"
           rel="noopener noreferrer"
           className="block group"
