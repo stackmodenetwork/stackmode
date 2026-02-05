@@ -126,7 +126,7 @@ export const MainHeader = memo(() => {
                   Discord
                 </ExternalNavLink>
                 <span className="w-px h-4 bg-gradient-to-b from-transparent via-primary/40 to-transparent mx-0.5 xl:mx-1 shrink-0" />
-                <a href="tel:6787758532" className="group flex items-center gap-1.5 text-sm font-medium px-3 py-1.5 rounded-full transition-all duration-300 whitespace-nowrap text-primary-foreground bg-primary shadow-lg shadow-primary/40 hover:scale-105">
+                <a href="tel:+16787758532" className="group flex items-center gap-1.5 text-sm font-medium px-3 py-1.5 rounded-full transition-all duration-300 whitespace-nowrap text-primary-foreground bg-primary shadow-lg shadow-primary/40 hover:scale-105">
                   <Phone size={14} className="transition-transform duration-300 group-hover:rotate-12" />
                   Call Me
                 </a>
@@ -217,7 +217,7 @@ export const MainHeader = memo(() => {
                 <MessageCircle size={18} className="text-primary" />
                 Discord
               </a>
-              <a href="tel:6787758532" onClick={handleMenuItemClick} className="flex items-center gap-3 px-4 py-3 rounded-lg text-primary-foreground font-medium bg-primary hover:bg-primary/90 border border-primary/30 transition-all duration-300 active:scale-[0.98] animate-fade-in shadow-lg shadow-primary/30" style={{
+              <a href="tel:+16787758532" onClick={handleMenuItemClick} className="flex items-center gap-3 px-4 py-3 rounded-lg text-primary-foreground font-medium bg-primary hover:bg-primary/90 border border-primary/30 transition-all duration-300 active:scale-[0.98] animate-fade-in shadow-lg shadow-primary/30" style={{
               animationDelay: '250ms'
             }}>
                 <Phone size={18} />
