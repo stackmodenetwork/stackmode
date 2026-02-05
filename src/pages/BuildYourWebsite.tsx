@@ -104,7 +104,56 @@ const BuildYourWebsite = () => {
           </div>
         </section>
 
-        {/* ========== STACKMODE NETWORK - TOP PRIORITY ========== */}
+        {/* ========== WHAT'S INCLUDED - TOP PRIORITY ========== */}
+        <section className="py-10 md:py-12 relative z-10">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto">
+              <ScrollReveal>
+                <div className="text-center mb-8">
+                  <span className="inline-block bg-purple-500/10 text-purple-400 text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                    Full-Service Package
+                  </span>
+                  <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+                    Everything You Need to <span className="text-purple-400">Launch & Grow</span>
+                  </h2>
+                  <p className="text-muted-foreground max-w-2xl mx-auto">
+                    No hidden fees. No surprise charges. Every website includes these essentials to help your business succeed online.
+                  </p>
+                </div>
+              </ScrollReveal>
+              
+              <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.1}>
+                {[
+                  { icon: Palette, title: 'Custom Brand Design', desc: 'Your unique look — not a template. Designed specifically for your brand, audience, and goals.' },
+                  { icon: Smartphone, title: 'Mobile-First Build', desc: 'Flawless on every screen. Over 60% of traffic is mobile — your site will look perfect everywhere.' },
+                  { icon: Code, title: 'Modern Tech Stack', desc: 'Built with React & Tailwind. Fast, secure, and future-proof — no outdated WordPress plugins.' },
+                  { icon: Zap, title: 'Lightning Fast Speed', desc: 'Sub-2-second load times. Slow sites lose customers — yours won\'t be one of them.' },
+                  { icon: Globe, title: 'SEO Built-In', desc: 'Rank higher on Google from day one. Proper meta tags, structure, and speed optimization included.' },
+                  { icon: CheckCircle, title: '30-Day Support', desc: 'Launch with confidence. Post-launch tweaks and questions handled — you\'re never left hanging.' }
+                ].map((item, i) => (
+                  <StaggerItem key={i}>
+                    <motion.div 
+                      className="bg-muted/30 rounded-xl p-6 border border-border/50 text-center hover:border-purple-500/50 transition-all duration-300 group h-full"
+                      whileHover={{ y: -5, boxShadow: '0 10px 40px rgba(168,85,247,0.15)' }}
+                    >
+                      <motion.div 
+                        className="w-14 h-14 rounded-full bg-purple-500/10 flex items-center justify-center mx-auto mb-4"
+                        whileHover={{ scale: 1.15, rotate: 10 }}
+                        transition={{ type: 'spring', stiffness: 400 }}
+                      >
+                        <item.icon className="w-7 h-7 text-purple-400" />
+                      </motion.div>
+                      <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground">{item.desc}</p>
+                    </motion.div>
+                  </StaggerItem>
+                ))}
+              </StaggerContainer>
+            </div>
+          </div>
+        </section>
+
+        {/* ========== STACKMODE NETWORK ========== */}
         <section className="max-w-5xl mx-auto py-8 px-4 relative z-10">
           <ScrollReveal>
             <div className="text-center mb-6">
@@ -213,47 +262,6 @@ const BuildYourWebsite = () => {
             </div>
           </ScrollReveal>
           <ReviewsGallery />
-        </section>
-
-        {/* Features Section */}
-        <section className="py-10 md:py-12 relative z-10">
-          <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto">
-              <ScrollReveal>
-                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
-                  What You Get
-                </h2>
-              </ScrollReveal>
-              
-              <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.1}>
-                {[
-                  { icon: Palette, title: 'Custom Design', desc: 'Unique, branded design tailored to your business and target audience' },
-                  { icon: Smartphone, title: 'Mobile Responsive', desc: 'Looks perfect on all devices - phones, tablets, and desktops' },
-                  { icon: Code, title: 'Modern Technology', desc: 'Built with the latest web technologies for speed and reliability' },
-                  { icon: Zap, title: 'Fast Loading', desc: 'Optimized for performance to keep your visitors engaged' },
-                  { icon: Globe, title: 'SEO Ready', desc: 'Built-in search engine optimization to help you rank higher' },
-                  { icon: CheckCircle, title: 'Ongoing Support', desc: 'Continued support and updates to keep your site running smoothly' }
-                ].map((item, i) => (
-                  <StaggerItem key={i}>
-                    <motion.div 
-                      className="bg-muted/30 rounded-xl p-6 border border-border/50 text-center hover:border-purple-500/50 transition-all duration-300 group h-full"
-                      whileHover={{ y: -5, boxShadow: '0 10px 40px rgba(168,85,247,0.15)' }}
-                    >
-                      <motion.div 
-                        className="w-14 h-14 rounded-full bg-purple-500/10 flex items-center justify-center mx-auto mb-4"
-                        whileHover={{ scale: 1.15, rotate: 10 }}
-                        transition={{ type: 'spring', stiffness: 400 }}
-                      >
-                        <item.icon className="w-7 h-7 text-purple-400" />
-                      </motion.div>
-                      <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
-                      <p className="text-sm text-muted-foreground">{item.desc}</p>
-                    </motion.div>
-                  </StaggerItem>
-                ))}
-              </StaggerContainer>
-            </div>
-          </div>
         </section>
 
         {/* ========== FOOTER SECTIONS ========== */}
