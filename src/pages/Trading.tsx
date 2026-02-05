@@ -97,10 +97,9 @@ const Index = () => {
         <section className="py-10 px-4 bg-muted/20 relative z-10">
           <div className="max-w-6xl mx-auto">
             <Link to="/library" className="block group">
-              <motion.div 
-                className="bg-gradient-to-br from-background/95 via-background/90 to-primary/10 border-2 border-border/50 hover:border-primary/50 rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:shadow-[0_0_40px_rgba(34,197,94,0.15)]"
-                whileHover={{ scale: 1.01 }}
-              >
+              <motion.div className="bg-gradient-to-br from-background/95 via-background/90 to-primary/10 border-2 border-border/50 hover:border-primary/50 rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:shadow-[0_0_40px_rgba(34,197,94,0.15)]" whileHover={{
+              scale: 1.01
+            }}>
                 <div className="text-center">
                   <span className="inline-block bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-3">
                     Free Resources
@@ -113,20 +112,29 @@ const Index = () => {
                   </p>
 
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                    {[
-                      { icon: TrendingUp, title: 'Trading Guides', desc: 'Free strategies' },
-                      { icon: Users, title: 'Community Tips', desc: 'Growth tactics' },
-                      { icon: BookOpen, title: 'eBooks', desc: 'Deep dives' },
-                      { icon: Youtube, title: 'Video Lessons', desc: 'Visual learning' }
-                    ].map((item, i) => (
-                      <div key={i} className="bg-background rounded-xl p-4 border border-border/50 text-center group-hover:border-primary/30 transition-all duration-300 h-full">
+                    {[{
+                    icon: TrendingUp,
+                    title: 'Trading Guides',
+                    desc: 'Free strategies'
+                  }, {
+                    icon: Users,
+                    title: 'Community Tips',
+                    desc: 'Growth tactics'
+                  }, {
+                    icon: BookOpen,
+                    title: 'eBooks',
+                    desc: 'Deep dives'
+                  }, {
+                    icon: Youtube,
+                    title: 'Video Lessons',
+                    desc: 'Visual learning'
+                  }].map((item, i) => <div key={i} className="bg-background rounded-xl p-4 border border-border/50 text-center group-hover:border-primary/30 transition-all duration-300 h-full">
                         <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-3">
                           <item.icon className="w-5 h-5 text-primary" />
                         </div>
                         <h3 className="text-sm font-semibold text-foreground mb-1">{item.title}</h3>
                         <p className="text-xs text-muted-foreground">{item.desc}</p>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
 
                   <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-emerald-400 group-hover:from-emerald-400 group-hover:to-primary text-background font-semibold px-8 py-3 rounded-xl transition-all shadow-lg group-hover:shadow-primary/30">
@@ -364,7 +372,7 @@ const Index = () => {
 
         {/* Social Connect */}
         <ScrollReveal delay={0.2}>
-          <ConnectWithMe />
+          
         </ScrollReveal>
       </section>
 
