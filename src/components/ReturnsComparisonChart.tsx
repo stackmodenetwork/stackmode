@@ -1,45 +1,18 @@
-import { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { TrendingUp, TrendingDown, DollarSign, CreditCard, PiggyBank, Zap, Bot, BarChart3, ArrowRight, Check, Briefcase, Laptop, AlertTriangle, Sparkles, Trophy, Frown, Clock, ChartNoAxesColumnDecreasing, UserRound, Smile, Palmtree, ChartNoAxesCombined, Target } from 'lucide-react';
-export const ReturnsComparisonChart = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { TrendingUp, TrendingDown, DollarSign, CreditCard, PiggyBank, Zap, Bot, BarChart3, ArrowRight, Check, Briefcase, Laptop, AlertTriangle, Sparkles, Trophy, Frown, Clock, ChartNoAxesColumnDecreasing, UserRound, Smile, Palmtree, ChartNoAxesCombined, Target, Flame, ShieldAlert, TrendingDown as TrendingDownIcon, Coins, Rocket, Crown, Heart } from 'lucide-react';
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    setMousePos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  };
+export const ReturnsComparisonChart = () => {
+  const [employeeHovered, setEmployeeHovered] = useState(false);
+  const [investorHovered, setInvestorHovered] = useState(false);
 
   return (
     <motion.div 
-      ref={containerRef}
-      className="relative bg-gradient-to-br from-card via-card/95 to-background border-2 border-primary/30 rounded-2xl overflow-hidden cursor-crosshair" 
+      className="relative bg-gradient-to-br from-card via-card/95 to-background border-2 border-primary/30 rounded-2xl overflow-hidden" 
       initial={{ opacity: 0, y: 20 }} 
       whileInView={{ opacity: 1, y: 0 }} 
       viewport={{ once: true }}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
     >
-      {/* Cursor glow effect */}
-      {isHovering && (
-        <motion.div
-          className="pointer-events-none absolute w-64 h-64 rounded-full opacity-30"
-          style={{
-            background: 'radial-gradient(circle, hsl(var(--primary)) 0%, transparent 70%)',
-          }}
-          animate={{
-            x: mousePos.x - 128,
-            y: mousePos.y - 128,
-          }}
-          transition={{ type: 'spring', stiffness: 150, damping: 15 }}
-        />
-      )}
 
       {/* Header */}
       <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-transparent p-4 sm:p-5 border-b border-border/30">
@@ -47,8 +20,8 @@ export const ReturnsComparisonChart = () => {
           <div className="flex items-center gap-3">
             <motion.div 
               className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center"
-              animate={isHovering ? { rotate: [0, 5, -5, 0] } : {}}
-              transition={{ duration: 0.5, repeat: isHovering ? Infinity : 0, repeatDelay: 2 }}
+              animate={{ rotate: [0, 5, -5, 0] }}
+              transition={{ duration: 3, repeat: Infinity, repeatDelay: 2 }}
             >
               <BarChart3 size={20} className="text-primary" />
             </motion.div>
@@ -75,8 +48,46 @@ export const ReturnsComparisonChart = () => {
             whileInView={{ opacity: 1, x: 0 }} 
             viewport={{ once: true }} 
             transition={{ delay: 0.1 }}
-            whileHover={{ scale: 1.01 }}
+            onMouseEnter={() => setEmployeeHovered(true)}
+            onMouseLeave={() => setEmployeeHovered(false)}
           >
+            {/* Animated warning pulse when hovered */}
+            <AnimatePresence>
+              {employeeHovered && (
+                <motion.div 
+                  className="absolute inset-0 bg-destructive/10 pointer-events-none"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: [0.1, 0.2, 0.1] }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                />
+              )}
+            </AnimatePresence>
+            
+            {/* Draining money animation */}
+            <div className="absolute top-0 right-0 w-full h-full pointer-events-none overflow-hidden">
+              {[...Array(3)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute text-destructive/20"
+                  initial={{ top: '-20%', right: `${20 + i * 25}%`, opacity: 0 }}
+                  animate={{ 
+                    top: '120%', 
+                    opacity: [0, 0.5, 0],
+                    rotate: [0, 180, 360]
+                  }}
+                  transition={{ 
+                    duration: 4 + i, 
+                    repeat: Infinity, 
+                    delay: i * 1.5,
+                    ease: 'linear'
+                  }}
+                >
+                  <DollarSign size={20} />
+                </motion.div>
+              ))}
+            </div>
+            
             {/* Pattern overlay */}
             <div className="absolute inset-0 opacity-5 bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,hsl(var(--destructive)/0.1)_10px,hsl(var(--destructive)/0.1)_20px)]" />
             
@@ -84,7 +95,8 @@ export const ReturnsComparisonChart = () => {
             <div className="relative flex items-center gap-3 mb-4 pb-3 border-b border-destructive/20">
               <motion.div 
                 className="w-12 h-12 rounded-full bg-destructive/20 flex items-center justify-center"
-                whileHover={{ rotate: -10 }}
+                animate={employeeHovered ? { scale: [1, 0.95, 1] } : {}}
+                transition={{ duration: 0.5, repeat: employeeHovered ? Infinity : 0 }}
               >
                 <Briefcase size={24} className="text-destructive" />
               </motion.div>
@@ -97,8 +109,8 @@ export const ReturnsComparisonChart = () => {
                 animate={{ scale: [1, 1.05, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                <Frown size={10} />
-                STRUGGLING
+                <ShieldAlert size={10} />
+                AT RISK
               </motion.div>
             </div>
 
@@ -213,22 +225,68 @@ export const ReturnsComparisonChart = () => {
             whileInView={{ opacity: 1, x: 0 }} 
             viewport={{ once: true }} 
             transition={{ delay: 0.2 }}
-            whileHover={{ scale: 1.01 }}
+            onMouseEnter={() => setInvestorHovered(true)}
+            onMouseLeave={() => setInvestorHovered(false)}
           >
+            {/* Animated success pulse when hovered */}
+            <AnimatePresence>
+              {investorHovered && (
+                <motion.div 
+                  className="absolute inset-0 bg-primary/5 pointer-events-none"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: [0.05, 0.15, 0.05] }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                />
+              )}
+            </AnimatePresence>
+            
+            {/* Rising money animation - money going UP */}
+            <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+              {[...Array(4)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute text-primary/30"
+                  initial={{ bottom: '-20%', left: `${15 + i * 20}%`, opacity: 0 }}
+                  animate={{ 
+                    bottom: '120%', 
+                    opacity: [0, 0.6, 0],
+                    scale: [0.8, 1.2, 0.8]
+                  }}
+                  transition={{ 
+                    duration: 3 + i * 0.5, 
+                    repeat: Infinity, 
+                    delay: i * 1,
+                    ease: 'easeOut'
+                  }}
+                >
+                  <Coins size={18} />
+                </motion.div>
+              ))}
+            </div>
+            
             {/* Success glow */}
             <motion.div 
               className="absolute -top-20 -right-20 w-40 h-40 bg-primary/20 rounded-full blur-3xl"
-              animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.3, 0.2] }}
-              transition={{ duration: 4, repeat: Infinity }}
+              animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.4, 0.2] }}
+              transition={{ duration: 3, repeat: Infinity }}
+            />
+            
+            {/* Bottom glow */}
+            <motion.div 
+              className="absolute -bottom-10 -left-10 w-32 h-32 bg-primary/15 rounded-full blur-2xl"
+              animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.3, 0.15] }}
+              transition={{ duration: 4, repeat: Infinity, delay: 1.5 }}
             />
             
             {/* Header */}
             <div className="relative flex items-center gap-3 mb-4 pb-3 border-b border-primary/20">
               <motion.div 
                 className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center"
-                whileHover={{ rotate: 10 }}
+                animate={investorHovered ? { scale: [1, 1.1, 1], rotate: [0, 5, 0] } : {}}
+                transition={{ duration: 0.8, repeat: investorHovered ? Infinity : 0 }}
               >
-                <Laptop size={24} className="text-primary" />
+                <Rocket size={24} className="text-primary" />
               </motion.div>
               <div>
                 <h4 className="text-foreground font-bold">Stackmode Investor</h4>
@@ -236,11 +294,11 @@ export const ReturnsComparisonChart = () => {
               </div>
               <motion.div 
                 className="absolute -top-2 -right-2 bg-primary/20 border border-primary/40 text-primary text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1" 
-                animate={{ scale: [1, 1.05, 1] }} 
+                animate={{ scale: [1, 1.08, 1], boxShadow: ['0 0 0px rgba(34,197,94,0)', '0 0 15px rgba(34,197,94,0.5)', '0 0 0px rgba(34,197,94,0)'] }} 
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                <Zap size={10} />
-                THRIVING
+                <Crown size={10} />
+                WINNING
               </motion.div>
             </div>
 
