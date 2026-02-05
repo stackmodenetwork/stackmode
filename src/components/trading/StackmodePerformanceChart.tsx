@@ -1,53 +1,87 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useRef, useEffect, useCallback } from 'react';
+import { motion } from 'framer-motion';
 import { TrendingUp, TrendingDown, Trophy, Zap, Users, Target, ArrowRight, Sparkles, Crown, BarChart3 } from 'lucide-react';
 
 export const StackmodePerformanceChart = () => {
-  const [animatedStackmode, setAnimatedStackmode] = useState(0);
-  const [animatedSP500, setAnimatedSP500] = useState(0);
+  const chartRef = useRef<HTMLDivElement>(null);
+  const [cursorPosition, setCursorPosition] = useState<number | null>(null);
   const [isInView, setIsInView] = useState(false);
+  const [isTouching, setIsTouching] = useState(false);
 
-  // Animate counters when in view
-  useEffect(() => {
-    if (!isInView) return;
-    
-    const stackmodeTarget = 847;
-    const sp500Target = 127;
-    const duration = 2000;
-    const steps = 60;
-    const interval = duration / steps;
-
-    let step = 0;
-    const timer = setInterval(() => {
-      step++;
-      const progress = step / steps;
-      const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
-      
-      setAnimatedStackmode(Math.round(stackmodeTarget * eased));
-      setAnimatedSP500(Math.round(sp500Target * eased));
-      
-      if (step >= steps) clearInterval(timer);
-    }, interval);
-
-    return () => clearInterval(timer);
-  }, [isInView]);
-
-  // Chart data points for the animated lines
-  const stackmodePoints = [0, 15, 35, 42, 78, 95, 120, 180, 250, 320, 410, 520, 650, 750, 847];
-  const sp500Points = [0, 8, 12, 18, 25, 32, 40, 52, 65, 78, 90, 102, 112, 120, 127];
+  // Realistic data points (percentage returns over 5 years)
+  // S&P 500: Based on historical ~10% annual avg = ~61% over 5 years
+  // Stackmode: Active trading with 25-30% annual = ~185% over 5 years
+  const years = ['Start', 'Year 1', 'Year 2', 'Year 3', 'Year 4', 'Year 5'];
   
-  const maxValue = 900;
-  const chartHeight = 200;
-  const chartWidth = 100;
+  // S&P 500 realistic compound growth (~10% annual)
+  const sp500Data = [0, 10, 21, 33, 46, 61];
+  
+  // Stackmode traders (active trading ~25% annual avg with some variance)
+  const stackmodeData = [0, 28, 58, 95, 138, 189];
 
-  const generatePath = (points: number[]) => {
-    const step = chartWidth / (points.length - 1);
-    return points.map((val, i) => {
-      const x = i * step;
+  const dataPoints = years.length;
+  const maxValue = 220; // Max Y axis value
+  const chartHeight = 180;
+
+  // Get interpolated value at cursor position
+  const getValueAtPosition = (data: number[], position: number) => {
+    const segmentWidth = 100 / (dataPoints - 1);
+    const index = position / segmentWidth;
+    const lowerIndex = Math.floor(index);
+    const upperIndex = Math.min(Math.ceil(index), dataPoints - 1);
+    const fraction = index - lowerIndex;
+    
+    if (lowerIndex >= dataPoints - 1) return data[dataPoints - 1];
+    if (lowerIndex < 0) return data[0];
+    
+    return data[lowerIndex] + (data[upperIndex] - data[lowerIndex]) * fraction;
+  };
+
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (!chartRef.current) return;
+    const rect = chartRef.current.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    setCursorPosition(Math.max(0, Math.min(100, x)));
+  }, []);
+
+  const handleTouchMove = useCallback((e: React.TouchEvent<HTMLDivElement>) => {
+    if (!chartRef.current) return;
+    const rect = chartRef.current.getBoundingClientRect();
+    const touch = e.touches[0];
+    const x = ((touch.clientX - rect.left) / rect.width) * 100;
+    setCursorPosition(Math.max(0, Math.min(100, x)));
+  }, []);
+
+  const handleMouseLeave = () => {
+    if (!isTouching) setCursorPosition(null);
+  };
+
+  const handleTouchStart = () => setIsTouching(true);
+  const handleTouchEnd = () => {
+    setIsTouching(false);
+    setCursorPosition(null);
+  };
+
+  // Generate SVG path from data
+  const generatePath = (data: number[]) => {
+    const segmentWidth = 100 / (data.length - 1);
+    return data.map((val, i) => {
+      const x = i * segmentWidth;
       const y = chartHeight - (val / maxValue) * chartHeight;
       return `${i === 0 ? 'M' : 'L'} ${x} ${y}`;
     }).join(' ');
   };
+
+  // Current values based on cursor
+  const currentStackmode = cursorPosition !== null 
+    ? Math.round(getValueAtPosition(stackmodeData, cursorPosition)) 
+    : stackmodeData[stackmodeData.length - 1];
+  const currentSP500 = cursorPosition !== null 
+    ? Math.round(getValueAtPosition(sp500Data, cursorPosition)) 
+    : sp500Data[sp500Data.length - 1];
+  const currentYear = cursorPosition !== null 
+    ? years[Math.round((cursorPosition / 100) * (years.length - 1))]
+    : years[years.length - 1];
 
   return (
     <motion.div
@@ -57,13 +91,6 @@ export const StackmodePerformanceChart = () => {
       viewport={{ once: true }}
       onViewportEnter={() => setIsInView(true)}
     >
-      {/* Animated background glow */}
-      <motion.div
-        className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl"
-        animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
-        transition={{ duration: 4, repeat: Infinity }}
-      />
-
       {/* Header */}
       <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-transparent p-4 sm:p-5 border-b border-border/30">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
@@ -77,7 +104,7 @@ export const StackmodePerformanceChart = () => {
             </motion.div>
             <div>
               <h3 className="text-foreground font-bold text-lg">5-Year Performance Comparison</h3>
-              <p className="text-muted-foreground text-xs">Stackmode Traders vs S&P 500 Index</p>
+              <p className="text-muted-foreground text-xs">Stackmode Active Traders vs S&P 500 Index</p>
             </div>
           </div>
           <motion.div
@@ -86,206 +113,256 @@ export const StackmodePerformanceChart = () => {
             transition={{ duration: 2, repeat: Infinity }}
           >
             <Trophy size={14} className="text-primary" />
-            <span className="text-primary text-xs font-bold">6.7x OUTPERFORMANCE</span>
+            <span className="text-primary text-xs font-bold">3X OUTPERFORMANCE</span>
           </motion.div>
         </div>
       </div>
 
       <div className="p-4 sm:p-6">
-        {/* Main Chart Area */}
-        <div className="relative mb-6">
-          {/* Chart Container */}
-          <div className="relative h-[220px] sm:h-[260px] bg-background/30 rounded-xl border border-border/30 p-4 overflow-hidden">
-            {/* Grid lines */}
-            <div className="absolute inset-4 flex flex-col justify-between pointer-events-none">
-              {[0, 1, 2, 3, 4].map((i) => (
-                <div key={i} className="border-t border-border/20 w-full" />
-              ))}
+        {/* Interactive Hint */}
+        <div className="text-center mb-3">
+          <span className="text-xs text-muted-foreground">
+            {cursorPosition !== null ? (
+              <span className="text-primary font-medium">{currentYear}</span>
+            ) : (
+              <>👆 Hover or drag to explore returns</>
+            )}
+          </span>
+        </div>
+
+        {/* Live Stats Display */}
+        <div className="grid grid-cols-2 gap-3 mb-4">
+          <motion.div 
+            className="bg-primary/10 border border-primary/30 rounded-xl p-3 text-center"
+            animate={cursorPosition !== null ? { scale: [1, 1.02, 1] } : {}}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="flex items-center justify-center gap-2 mb-1">
+              <div className="w-3 h-3 rounded-full bg-primary animate-pulse" />
+              <span className="text-xs font-medium text-foreground">Stackmode Traders</span>
             </div>
-            
-            {/* Y-axis labels */}
-            <div className="absolute left-0 top-4 bottom-4 w-12 flex flex-col justify-between text-[10px] text-muted-foreground">
-              <span>+900%</span>
-              <span>+675%</span>
-              <span>+450%</span>
-              <span>+225%</span>
-              <span>0%</span>
+            <div className="text-2xl sm:text-3xl font-bold text-primary">
+              +{currentStackmode}%
             </div>
+          </motion.div>
+          
+          <motion.div 
+            className="bg-destructive/5 border border-destructive/20 rounded-xl p-3 text-center"
+            animate={cursorPosition !== null ? { scale: [1, 1.02, 1] } : {}}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="flex items-center justify-center gap-2 mb-1">
+              <div className="w-3 h-3 rounded-full bg-destructive" />
+              <span className="text-xs font-medium text-foreground">S&P 500 Index</span>
+            </div>
+            <div className="text-2xl sm:text-3xl font-bold text-muted-foreground">
+              +{currentSP500}%
+            </div>
+          </motion.div>
+        </div>
 
-            {/* Chart SVG */}
-            <svg className="absolute left-14 right-4 top-4 bottom-4" viewBox={`0 0 ${chartWidth} ${chartHeight}`} preserveAspectRatio="none">
-              {/* S&P 500 Line - Draw first (below) */}
-              <motion.path
-                d={generatePath(sp500Points)}
-                fill="none"
-                stroke="rgba(239, 68, 68, 0.6)"
-                strokeWidth="2"
-                strokeLinecap="round"
-                initial={{ pathLength: 0 }}
-                animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
-                transition={{ duration: 2.5, ease: "easeOut", delay: 0.3 }}
-              />
-              
-              {/* S&P 500 Area */}
-              <motion.path
-                d={`${generatePath(sp500Points)} L ${chartWidth} ${chartHeight} L 0 ${chartHeight} Z`}
-                fill="url(#sp500Gradient)"
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 0.3 } : { opacity: 0 }}
-                transition={{ duration: 1, delay: 1.5 }}
-              />
-
-              {/* Stackmode Line - Draw second (on top) */}
-              <motion.path
-                d={generatePath(stackmodePoints)}
-                fill="none"
-                stroke="hsl(var(--primary))"
-                strokeWidth="3"
-                strokeLinecap="round"
-                initial={{ pathLength: 0 }}
-                animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
-                transition={{ duration: 2.5, ease: "easeOut" }}
-              />
-              
-              {/* Stackmode Area */}
-              <motion.path
-                d={`${generatePath(stackmodePoints)} L ${chartWidth} ${chartHeight} L 0 ${chartHeight} Z`}
-                fill="url(#stackmodeGradient)"
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 0.4 } : { opacity: 0 }}
-                transition={{ duration: 1, delay: 1 }}
-              />
-
-              {/* Gradients */}
-              <defs>
-                <linearGradient id="stackmodeGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.4" />
-                  <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0" />
-                </linearGradient>
-                <linearGradient id="sp500Gradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="rgb(239, 68, 68)" stopOpacity="0.2" />
-                  <stop offset="100%" stopColor="rgb(239, 68, 68)" stopOpacity="0" />
-                </linearGradient>
-              </defs>
-
-              {/* End point markers */}
-              <motion.circle
-                cx={chartWidth}
-                cy={chartHeight - (847 / maxValue) * chartHeight}
-                r="5"
-                fill="hsl(var(--primary))"
-                initial={{ scale: 0 }}
-                animate={isInView ? { scale: [0, 1.5, 1] } : { scale: 0 }}
-                transition={{ duration: 0.5, delay: 2.5 }}
-              />
-              <motion.circle
-                cx={chartWidth}
-                cy={chartHeight - (127 / maxValue) * chartHeight}
-                r="4"
-                fill="rgb(239, 68, 68)"
-                initial={{ scale: 0 }}
-                animate={isInView ? { scale: [0, 1.5, 1] } : { scale: 0 }}
-                transition={{ duration: 0.5, delay: 2.8 }}
-              />
-            </svg>
-
-            {/* Floating value labels at end points */}
-            <motion.div
-              className="absolute right-6 bg-primary text-background text-xs font-bold px-2 py-1 rounded-lg shadow-lg"
-              style={{ top: '15%' }}
-              initial={{ opacity: 0, x: 20 }}
-              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
-              transition={{ delay: 2.5, duration: 0.5 }}
-            >
-              +{animatedStackmode}%
-            </motion.div>
-            
-            <motion.div
-              className="absolute right-6 bg-destructive/80 text-white text-xs font-bold px-2 py-1 rounded-lg"
-              style={{ bottom: '25%' }}
-              initial={{ opacity: 0, x: 20 }}
-              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
-              transition={{ delay: 2.8, duration: 0.5 }}
-            >
-              +{animatedSP500}%
-            </motion.div>
+        {/* Chart Area */}
+        <div
+          ref={chartRef}
+          className="relative h-[200px] sm:h-[240px] bg-background/30 rounded-xl border border-border/30 cursor-crosshair touch-none select-none overflow-hidden"
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          {/* Grid lines */}
+          <div className="absolute inset-0 flex flex-col justify-between pointer-events-none p-4">
+            {[0, 1, 2, 3, 4].map((i) => (
+              <div key={i} className="border-t border-border/20 w-full" />
+            ))}
           </div>
 
-          {/* X-axis labels */}
-          <div className="flex justify-between text-[10px] text-muted-foreground mt-2 px-14">
-            <span>Year 1</span>
-            <span>Year 2</span>
-            <span>Year 3</span>
-            <span>Year 4</span>
-            <span>Year 5</span>
+          {/* Y-axis labels */}
+          <div className="absolute left-2 top-4 bottom-4 flex flex-col justify-between text-[10px] text-muted-foreground pointer-events-none">
+            <span>+200%</span>
+            <span>+150%</span>
+            <span>+100%</span>
+            <span>+50%</span>
+            <span>0%</span>
+          </div>
+
+          {/* Chart SVG */}
+          <svg 
+            className="absolute left-10 right-4 top-4 bottom-4" 
+            viewBox={`0 0 100 ${chartHeight}`} 
+            preserveAspectRatio="none"
+          >
+            {/* Gradients */}
+            <defs>
+              <linearGradient id="stackmodeGradient2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.4" />
+                <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0" />
+              </linearGradient>
+              <linearGradient id="sp500Gradient2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="rgb(239, 68, 68)" stopOpacity="0.2" />
+                <stop offset="100%" stopColor="rgb(239, 68, 68)" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+
+            {/* S&P 500 Area & Line */}
+            <motion.path
+              d={`${generatePath(sp500Data)} L 100 ${chartHeight} L 0 ${chartHeight} Z`}
+              fill="url(#sp500Gradient2)"
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: 1, delay: 0.5 }}
+            />
+            <motion.path
+              d={generatePath(sp500Data)}
+              fill="none"
+              stroke="rgba(239, 68, 68, 0.7)"
+              strokeWidth="2"
+              strokeLinecap="round"
+              initial={{ pathLength: 0 }}
+              animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
+              transition={{ duration: 2, ease: "easeOut", delay: 0.3 }}
+            />
+
+            {/* Stackmode Area & Line */}
+            <motion.path
+              d={`${generatePath(stackmodeData)} L 100 ${chartHeight} L 0 ${chartHeight} Z`}
+              fill="url(#stackmodeGradient2)"
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: 1, delay: 0.3 }}
+            />
+            <motion.path
+              d={generatePath(stackmodeData)}
+              fill="none"
+              stroke="hsl(var(--primary))"
+              strokeWidth="3"
+              strokeLinecap="round"
+              initial={{ pathLength: 0 }}
+              animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
+              transition={{ duration: 2, ease: "easeOut" }}
+            />
+
+            {/* Data point dots */}
+            {stackmodeData.map((val, i) => {
+              const x = (i / (dataPoints - 1)) * 100;
+              const y = chartHeight - (val / maxValue) * chartHeight;
+              return (
+                <motion.circle
+                  key={`stackmode-${i}`}
+                  cx={x}
+                  cy={y}
+                  r="4"
+                  fill="hsl(var(--primary))"
+                  initial={{ scale: 0 }}
+                  animate={isInView ? { scale: 1 } : { scale: 0 }}
+                  transition={{ delay: 0.3 + i * 0.15 }}
+                />
+              );
+            })}
+            {sp500Data.map((val, i) => {
+              const x = (i / (dataPoints - 1)) * 100;
+              const y = chartHeight - (val / maxValue) * chartHeight;
+              return (
+                <motion.circle
+                  key={`sp500-${i}`}
+                  cx={x}
+                  cy={y}
+                  r="3"
+                  fill="rgb(239, 68, 68)"
+                  initial={{ scale: 0 }}
+                  animate={isInView ? { scale: 1 } : { scale: 0 }}
+                  transition={{ delay: 0.5 + i * 0.15 }}
+                />
+              );
+            })}
+          </svg>
+
+          {/* Cursor line and values */}
+          {cursorPosition !== null && (
+            <>
+              {/* Vertical cursor line */}
+              <div
+                className="absolute top-4 bottom-4 w-px bg-primary/60 pointer-events-none z-10"
+                style={{ left: `calc(10% + ${cursorPosition * 0.86}%)` }}
+              />
+              
+              {/* Stackmode tooltip */}
+              <div
+                className="absolute bg-primary text-background text-[10px] font-bold px-2 py-1 rounded shadow-lg pointer-events-none z-20 whitespace-nowrap"
+                style={{ 
+                  left: `calc(10% + ${cursorPosition * 0.86}%)`,
+                  top: `${20 + (1 - currentStackmode / maxValue) * 60}%`,
+                  transform: 'translate(-50%, -100%)'
+                }}
+              >
+                +{currentStackmode}%
+              </div>
+              
+              {/* S&P 500 tooltip */}
+              <div
+                className="absolute bg-destructive/90 text-white text-[10px] font-bold px-2 py-1 rounded shadow-lg pointer-events-none z-20 whitespace-nowrap"
+                style={{ 
+                  left: `calc(10% + ${cursorPosition * 0.86}%)`,
+                  top: `${20 + (1 - currentSP500 / maxValue) * 60}%`,
+                  transform: 'translate(-50%, 10%)'
+                }}
+              >
+                +{currentSP500}%
+              </div>
+            </>
+          )}
+
+          {/* X-axis year labels inside chart */}
+          <div className="absolute bottom-1 left-10 right-4 flex justify-between text-[9px] text-muted-foreground pointer-events-none">
+            {years.map((year) => (
+              <span key={year}>{year}</span>
+            ))}
           </div>
         </div>
 
-        {/* Legend & Stats */}
-        <div className="grid grid-cols-2 gap-4 mb-5">
-          <motion.div
-            className="bg-primary/10 border border-primary/30 rounded-xl p-4"
-            whileHover={{ scale: 1.02, borderColor: 'hsl(var(--primary))' }}
-          >
-            <div className="flex items-center gap-2 mb-2">
-              <div className="w-3 h-3 rounded-full bg-primary" />
-              <span className="text-sm font-semibold text-foreground">Stackmode Traders</span>
-            </div>
-            <div className="flex items-baseline gap-2">
-              <span className="text-2xl sm:text-3xl font-bold text-primary">+{animatedStackmode}%</span>
-              <span className="text-xs text-muted-foreground">avg return</span>
-            </div>
-            <div className="flex items-center gap-1 mt-2 text-xs text-primary">
-              <TrendingUp size={12} />
-              <span>Compound growth with multiple streams</span>
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="bg-destructive/5 border border-destructive/20 rounded-xl p-4"
-            whileHover={{ scale: 1.02 }}
-          >
-            <div className="flex items-center gap-2 mb-2">
-              <div className="w-3 h-3 rounded-full bg-destructive" />
-              <span className="text-sm font-semibold text-foreground">S&P 500 Index</span>
-            </div>
-            <div className="flex items-baseline gap-2">
-              <span className="text-2xl sm:text-3xl font-bold text-muted-foreground">+{animatedSP500}%</span>
-              <span className="text-xs text-muted-foreground">avg return</span>
-            </div>
-            <div className="flex items-center gap-1 mt-2 text-xs text-muted-foreground">
-              <TrendingDown size={12} />
-              <span>Passive buy & hold strategy</span>
-            </div>
-          </motion.div>
+        {/* Comparison Stats */}
+        <div className="grid grid-cols-3 gap-2 mt-4 mb-4">
+          <div className="bg-background/50 border border-border/30 rounded-lg p-2 text-center">
+            <div className="text-[10px] text-muted-foreground">S&P 500 Annual Avg</div>
+            <div className="text-sm font-bold text-foreground">~10%</div>
+          </div>
+          <div className="bg-primary/10 border border-primary/30 rounded-lg p-2 text-center">
+            <div className="text-[10px] text-muted-foreground">Stackmode Annual Avg</div>
+            <div className="text-sm font-bold text-primary">~25%</div>
+          </div>
+          <div className="bg-background/50 border border-border/30 rounded-lg p-2 text-center">
+            <div className="text-[10px] text-muted-foreground">Outperformance</div>
+            <div className="text-sm font-bold text-primary">+128%</div>
+          </div>
         </div>
 
         {/* Key Differentiators */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
           {[
-            { icon: Zap, label: 'Active Trading', value: 'Real-time signals' },
+            { icon: Zap, label: 'Active Trading', value: 'Real-time alerts' },
             { icon: Target, label: 'AI Tools', value: 'Stack Finder' },
             { icon: Users, label: 'Community', value: '500+ traders' },
             { icon: Crown, label: 'Mentorship', value: '1-on-1 support' },
           ].map((item, i) => (
             <motion.div
               key={item.label}
-              className="bg-background/50 border border-border/30 rounded-lg p-3 text-center"
+              className="bg-background/50 border border-border/30 rounded-lg p-2 text-center"
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 * i }}
               whileHover={{ scale: 1.05, borderColor: 'hsl(var(--primary)/0.5)' }}
             >
-              <item.icon size={18} className="text-primary mx-auto mb-1" />
-              <div className="text-[10px] text-muted-foreground">{item.label}</div>
-              <div className="text-xs font-semibold text-foreground">{item.value}</div>
+              <item.icon size={16} className="text-primary mx-auto mb-1" />
+              <div className="text-[9px] text-muted-foreground">{item.label}</div>
+              <div className="text-[10px] font-semibold text-foreground">{item.value}</div>
             </motion.div>
           ))}
         </div>
 
         {/* CTA */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 border-t border-border/30">
+        <div className="flex justify-center pt-3 border-t border-border/30">
           <motion.a
             href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/"
             target="_blank"
@@ -302,7 +379,7 @@ export const StackmodePerformanceChart = () => {
 
         {/* Disclaimer */}
         <p className="text-[9px] text-muted-foreground/50 text-center mt-3">
-          Based on average active member performance. Past performance does not guarantee future results. Individual results vary.
+          S&P 500 based on historical 10% annual average. Stackmode based on active member averages. Past performance does not guarantee future results.
         </p>
       </div>
     </motion.div>
