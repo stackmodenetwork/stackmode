@@ -461,7 +461,7 @@ export const ReturnsComparisonChart = () => {
             whileTap={{ scale: 0.98 }}
           >
             <Zap size={18} />
-            <span>Become a Stackmode Investor</span>
+            <span>Learn How To Get In Stackmode</span>
             <ArrowRight size={18} />
           </motion.a>
         </div>
