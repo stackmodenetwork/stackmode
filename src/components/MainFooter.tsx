@@ -33,6 +33,11 @@ export const MainFooter = () => {
             DMCA Policy
           </Link>
         </div>
+        <div className="text-xs text-muted-foreground space-y-1">
+          <p>Stackmode Network LLC</p>
+          <p>8735 DUNWOODY PLACE # 12143</p>
+          <p>ATLANTA, GA 30350</p>
+        </div>
         <p className="text-xs text-muted-foreground">
           © {new Date().getFullYear()} Stackmode Network LLC. All Rights Reserved.
         </p>
