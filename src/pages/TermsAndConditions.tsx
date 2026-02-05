@@ -2,6 +2,7 @@ import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { MainHeader } from '@/components/MainHeader';
 import { MainFooter } from '@/components/MainFooter';
+import { TrustpilotWidget } from '@/components/TrustpilotWidget';
 
 const TermsAndConditions = () => {
   return (
@@ -136,6 +137,13 @@ const TermsAndConditions = () => {
           </section>
         </div>
       </div>
+
+      {/* Trustpilot Widget */}
+      <section className="py-6 px-4">
+        <div className="max-w-4xl mx-auto">
+          <TrustpilotWidget />
+        </div>
+      </section>
 
       <MainFooter />
     </main>

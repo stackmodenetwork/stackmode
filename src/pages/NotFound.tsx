@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { Home } from "lucide-react";
 import { MainHeader } from '@/components/MainHeader';
 import { MainFooter } from '@/components/MainFooter';
+import { TrustpilotWidget } from '@/components/TrustpilotWidget';
 
 const NotFound = () => {
   const location = useLocation();
@@ -35,6 +36,13 @@ const NotFound = () => {
           </Link>
         </div>
       </div>
+
+      {/* Trustpilot Widget */}
+      <section className="py-6 px-4">
+        <div className="max-w-4xl mx-auto">
+          <TrustpilotWidget />
+        </div>
+      </section>
 
       <MainFooter />
     </main>

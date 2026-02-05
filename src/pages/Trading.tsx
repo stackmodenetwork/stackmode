@@ -370,10 +370,6 @@ const Index = () => {
         {/* Dual Call CTA */}
         <DualCallCTA />
 
-        {/* Social Connect */}
-        <ScrollReveal delay={0.2}>
-          
-        </ScrollReveal>
       </section>
 
       {/* Trustpilot Widget */}
