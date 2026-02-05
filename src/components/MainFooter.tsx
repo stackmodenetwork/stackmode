@@ -1,9 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ConnectWithMe } from './ConnectWithMe';
-
 export const MainFooter = () => {
-  return (
-    <footer className="bg-background border-t border-border py-8 px-4 pb-bottom-nav md:pb-8">
+  return <footer className="bg-background border-t border-border py-8 px-4 pb-bottom-nav md:pb-8">
       <div className="max-w-4xl mx-auto text-center space-y-6">
         {/* Connect With Me Section */}
         <ConnectWithMe />
@@ -38,12 +36,8 @@ export const MainFooter = () => {
           <p>8735 DUNWOODY PLACE # 12143</p>
           <p>ATLANTA, GA 30350</p>
         </div>
-        <p className="text-xs text-muted-foreground">
-          © {new Date().getFullYear()} Stackmode Network LLC. All Rights Reserved.
-        </p>
+        
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default MainFooter;
