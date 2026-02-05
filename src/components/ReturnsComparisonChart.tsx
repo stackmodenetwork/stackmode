@@ -1,18 +1,15 @@
 import { motion } from 'framer-motion';
-import { 
-  TrendingUp, TrendingDown, DollarSign, CreditCard, PiggyBank, 
-  Zap, Bot, BarChart3, ArrowRight, Check, X, 
-  Briefcase, Laptop, AlertTriangle, Sparkles, Trophy
-} from 'lucide-react';
-
+import { TrendingUp, TrendingDown, DollarSign, CreditCard, PiggyBank, Zap, Bot, BarChart3, ArrowRight, Check, X, Briefcase, Laptop, AlertTriangle, Sparkles, Trophy } from 'lucide-react';
 export const ReturnsComparisonChart = () => {
-  return (
-    <motion.div
-      className="relative bg-gradient-to-br from-card via-card/95 to-background border-2 border-primary/30 rounded-2xl overflow-hidden"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-    >
+  return <motion.div className="relative bg-gradient-to-br from-card via-card/95 to-background border-2 border-primary/30 rounded-2xl overflow-hidden" initial={{
+    opacity: 0,
+    y: 20
+  }} whileInView={{
+    opacity: 1,
+    y: 0
+  }} viewport={{
+    once: true
+  }}>
       {/* Header */}
       <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-transparent p-4 sm:p-5 border-b border-border/30">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
@@ -27,7 +24,7 @@ export const ReturnsComparisonChart = () => {
           </div>
           <div className="flex items-center gap-2">
             <Trophy size={16} className="text-primary" />
-            <span className="text-sm text-muted-foreground">500+ members transformed</span>
+            <span className="text-sm text-muted-foreground"> Get Started Today!  </span>
           </div>
         </div>
       </div>
@@ -37,13 +34,17 @@ export const ReturnsComparisonChart = () => {
         <div className="grid md:grid-cols-2 gap-4 mb-5">
           
           {/* Employee Column */}
-          <motion.div 
-            className="relative bg-gradient-to-br from-red-500/5 to-red-500/10 border-2 border-red-500/30 rounded-xl p-4 overflow-hidden"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-          >
+          <motion.div className="relative bg-gradient-to-br from-red-500/5 to-red-500/10 border-2 border-red-500/30 rounded-xl p-4 overflow-hidden" initial={{
+          opacity: 0,
+          x: -20
+        }} whileInView={{
+          opacity: 1,
+          x: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          delay: 0.1
+        }}>
             {/* Sad overlay pattern */}
             <div className="absolute inset-0 opacity-5 bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,rgba(239,68,68,0.1)_10px,rgba(239,68,68,0.1)_20px)]" />
             
@@ -143,13 +144,17 @@ export const ReturnsComparisonChart = () => {
           </motion.div>
 
           {/* Stackmode Investor Column */}
-          <motion.div 
-            className="relative bg-gradient-to-br from-primary/5 to-primary/10 border-2 border-primary/40 rounded-xl p-4 overflow-hidden"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
+          <motion.div className="relative bg-gradient-to-br from-primary/5 to-primary/10 border-2 border-primary/40 rounded-xl p-4 overflow-hidden" initial={{
+          opacity: 0,
+          x: 20
+        }} whileInView={{
+          opacity: 1,
+          x: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          delay: 0.2
+        }}>
             {/* Success glow */}
             <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/20 rounded-full blur-3xl" />
             
@@ -162,11 +167,12 @@ export const ReturnsComparisonChart = () => {
                 <h4 className="text-foreground font-bold">Stackmode Investor</h4>
                 <p className="text-primary text-xs">AI Business + Trading • Money works for you</p>
               </div>
-              <motion.div 
-                className="absolute -top-2 -right-2 bg-primary/20 border border-primary/40 text-primary text-[10px] font-bold px-2 py-1 rounded-full"
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >
+              <motion.div className="absolute -top-2 -right-2 bg-primary/20 border border-primary/40 text-primary text-[10px] font-bold px-2 py-1 rounded-full" animate={{
+              scale: [1, 1.05, 1]
+            }} transition={{
+              duration: 2,
+              repeat: Infinity
+            }}>
                 🚀 THRIVING
               </motion.div>
             </div>
@@ -244,37 +250,53 @@ export const ReturnsComparisonChart = () => {
 
             {/* Income Sources */}
             <div className="relative mt-4 grid grid-cols-4 gap-2">
-              {[
-                { icon: Bot, label: 'AI Biz', value: '$4.5K' },
-                { icon: BarChart3, label: 'Trading', value: '$5K' },
-                { icon: Laptop, label: 'Affiliate', value: '$2K' },
-                { icon: DollarSign, label: 'Dividends', value: '$1K' },
-              ].map((source, i) => (
-                <motion.div
-                  key={source.label}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 + i * 0.1 }}
-                  className="bg-primary/10 border border-primary/30 rounded-lg p-2 text-center"
-                >
+              {[{
+              icon: Bot,
+              label: 'AI Biz',
+              value: '$4.5K'
+            }, {
+              icon: BarChart3,
+              label: 'Trading',
+              value: '$5K'
+            }, {
+              icon: Laptop,
+              label: 'Affiliate',
+              value: '$2K'
+            }, {
+              icon: DollarSign,
+              label: 'Dividends',
+              value: '$1K'
+            }].map((source, i) => <motion.div key={source.label} initial={{
+              opacity: 0,
+              y: 10
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.3 + i * 0.1
+            }} className="bg-primary/10 border border-primary/30 rounded-lg p-2 text-center">
                   <source.icon size={14} className="text-primary mx-auto mb-1" />
                   <div className="text-[9px] text-muted-foreground">{source.label}</div>
                   <div className="text-[10px] font-bold text-primary">{source.value}</div>
-                </motion.div>
-              ))}
+                </motion.div>)}
             </div>
           </motion.div>
         </div>
 
         {/* Comparison Badge */}
-        <motion.div 
-          className="flex justify-center mb-5"
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-        >
+        <motion.div className="flex justify-center mb-5" initial={{
+        opacity: 0,
+        scale: 0.8
+      }} whileInView={{
+        opacity: 1,
+        scale: 1
+      }} viewport={{
+        once: true
+      }} transition={{
+        delay: 0.4
+      }}>
           <div className="bg-gradient-to-r from-red-500/20 via-primary/30 to-primary/20 border border-primary/40 rounded-full px-6 py-3 flex items-center gap-4">
             <div className="text-center">
               <div className="text-xs text-muted-foreground">Employee</div>
@@ -297,14 +319,11 @@ export const ReturnsComparisonChart = () => {
 
         {/* Bottom CTA */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 border-t border-border/30">
-          <motion.a
-            href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-sm px-6 py-3 rounded-xl shadow-lg shadow-primary/25 transition-all"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-          >
+          <motion.a href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-sm px-6 py-3 rounded-xl shadow-lg shadow-primary/25 transition-all" whileHover={{
+          scale: 1.03
+        }} whileTap={{
+          scale: 0.98
+        }}>
             <Zap size={18} />
             <span>Become a Stackmode Investor</span>
             <ArrowRight size={18} />
@@ -316,8 +335,6 @@ export const ReturnsComparisonChart = () => {
           Results based on active member data. Individual results vary based on effort and market conditions.
         </p>
       </div>
-    </motion.div>
-  );
+    </motion.div>;
 };
-
 export default ReturnsComparisonChart;
