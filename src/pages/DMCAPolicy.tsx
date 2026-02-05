@@ -2,6 +2,7 @@ import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { MainHeader } from '@/components/MainHeader';
 import { MainFooter } from '@/components/MainFooter';
+import { TrustpilotWidget } from '@/components/TrustpilotWidget';
 
 const DMCAPolicy = () => {
   return (
@@ -101,6 +102,13 @@ const DMCAPolicy = () => {
           <p className="text-center text-sm text-muted-foreground">
             Last updated: January 2025
           </p>
+        </div>
+      </section>
+
+      {/* Trustpilot Widget */}
+      <section className="py-6 px-4">
+        <div className="max-w-4xl mx-auto">
+          <TrustpilotWidget />
         </div>
       </section>
 
