@@ -16,6 +16,7 @@ import { StackmodeGroupPromo } from '@/components/StackmodeGroupPromo';
 import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
+import { BusinessGrowthVisual } from '@/components/BusinessGrowthVisual';
 import { motion } from 'framer-motion';
 const businessProofImages = [{
   src: "business-proof-1.png",
@@ -204,6 +205,11 @@ const Business = () => {
               </p>
             </div>
             <StackmodeGroupPromo variant="business" />
+            
+            {/* Interactive Business Growth Visual */}
+            <div className="mt-6">
+              <BusinessGrowthVisual />
+            </div>
           </ScrollReveal>
         </section>
 
