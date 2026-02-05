@@ -14,6 +14,7 @@ import { BlueprintPromo } from '@/components/BlueprintPromo';
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
 import { DualCallCTA } from '@/components/DualCallCTA';
 import { TrustpilotWidget } from '@/components/TrustpilotWidget';
+import { ReturnsComparisonChart } from '@/components/ReturnsComparisonChart';
 import { motion } from 'framer-motion';
 import { OptimizedImage } from '@/components/OptimizedImage';
 const Home = () => {
@@ -394,8 +395,11 @@ const Home = () => {
 
       {/* Stack Finder Promo - Right after hero */}
       <section className="py-8 px-4 relative z-10 bg-muted/20">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto space-y-6">
           <StackFinderPromo variant="home" />
+          
+          {/* Interactive Returns Comparison Chart */}
+          <ReturnsComparisonChart />
         </div>
       </section>
 
