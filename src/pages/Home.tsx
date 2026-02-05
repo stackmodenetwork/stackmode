@@ -289,7 +289,7 @@ const Home = () => {
             {/* Glowing border effect */}
             <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/30 via-cyan-400/20 to-cyan-500/30 rounded-3xl blur-lg opacity-60 group-hover:opacity-100 transition-opacity" />
             
-            <a href="https://whop.com/stackmode-network-llc" target="_blank" rel="noopener noreferrer" className="group relative block bg-gradient-to-br from-background/95 via-background/90 to-cyan-950/30 border-2 border-cyan-500/40 rounded-2xl p-6 sm:p-8 overflow-hidden transition-all duration-300 hover:border-cyan-400 hover:shadow-[0_0_40px_rgba(6,182,212,0.4)] hover:scale-[1.02]">
+            <a href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/" target="_blank" rel="noopener noreferrer" className="group relative block bg-gradient-to-br from-background/95 via-background/90 to-cyan-950/30 border-2 border-cyan-500/40 rounded-2xl p-6 sm:p-8 overflow-hidden transition-all duration-300 hover:border-cyan-400 hover:shadow-[0_0_40px_rgba(6,182,212,0.4)] hover:scale-[1.02]">
               {/* Background pattern */}
               <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.3),transparent_70%)]" />
@@ -598,7 +598,7 @@ const Home = () => {
                   </div>
 
                   {/* Floating badge - purple glow */}
-                  <motion.a href="https://whop.com/stackmode-network-llc" target="_blank" rel="noopener noreferrer" className="absolute -top-3 -right-3 bg-purple-500 hover:bg-purple-400 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg shadow-purple-500/50 cursor-pointer transition-colors" animate={{
+                  <motion.a href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/" target="_blank" rel="noopener noreferrer" className="absolute -top-3 -right-3 bg-purple-500 hover:bg-purple-400 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg shadow-purple-500/50 cursor-pointer transition-colors" animate={{
                   y: [0, -5, 0],
                   boxShadow: ['0 0 10px rgba(168,85,247,0.5)', '0 0 20px rgba(168,85,247,0.8)', '0 0 10px rgba(168,85,247,0.5)']
                 }} transition={{
@@ -655,7 +655,7 @@ const Home = () => {
                     <span>Get a Website</span>
                     <ArrowRight size={18} />
                   </Link>
-                  <a href="https://whop.com/stackmode-network-llc" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-purple-500/50 text-purple-400 font-semibold px-6 py-3 rounded-xl transition-all hover:bg-purple-500/10">
+                  <a href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-purple-500/50 text-purple-400 font-semibold px-6 py-3 rounded-xl transition-all hover:bg-purple-500/10">
                     <span>DIY Training</span>
                   </a>
                 </div>

@@ -24,7 +24,7 @@ const navItems: NavItem[] = [
   { path: '/business', label: 'Business', icon: Briefcase },
   { path: '/buildyourwebsite', label: 'Website', icon: Globe },
   { 
-    path: 'https://whop.com/stackmode-network-llc', 
+    path: 'https://whop.com/stackmode-networkgroup/makemoneyonlinefast/', 
     label: 'Make $ Here', 
     icon: DollarSign,
     isExternal: true,

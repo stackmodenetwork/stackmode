@@ -101,7 +101,7 @@ const Business = () => {
         <div className="bg-background/98 backdrop-blur-lg border-b border-purple-500/20 shadow-lg pointer-events-auto">
           <div className="px-4 py-2.5 flex items-center justify-between gap-3">
             <span className="text-xs font-medium text-foreground/80">Ready to grow?</span>
-            <a href="https://whop.com/stackmode-network-llc" target="_blank" rel="noopener noreferrer" className="bg-purple-500 hover:bg-purple-500/90 text-white font-bold text-xs px-5 py-2.5 rounded-lg transition-all shadow-md shadow-purple-500/20 flex-shrink-0">
+            <a href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/" target="_blank" rel="noopener noreferrer" className="bg-purple-500 hover:bg-purple-500/90 text-white font-bold text-xs px-5 py-2.5 rounded-lg transition-all shadow-md shadow-purple-500/20 flex-shrink-0">
               Join Network →
             </a>
           </div>

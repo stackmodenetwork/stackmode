@@ -98,7 +98,7 @@ export const MainHeader = memo(() => {
                   Trading Education
                 </NavLink>
                 <span className="w-px h-4 bg-gradient-to-b from-transparent via-primary/40 to-transparent mx-0.5 xl:mx-1 shrink-0" />
-                <ExternalNavLink href="https://whop.com/stackmode-network-llc" icon={Target}>
+                <ExternalNavLink href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/" icon={Target}>
                   Catch My Trades
                 </ExternalNavLink>
                 <span className="w-px h-4 bg-gradient-to-b from-transparent via-primary/40 to-transparent mx-0.5 xl:mx-1 shrink-0" />
@@ -175,7 +175,7 @@ export const MainHeader = memo(() => {
                 <TrendingUp size={18} className="text-primary" />
                 Learn How To Trade
               </Link>
-              <a href="https://whop.com/stackmode-network-llc" target="_blank" rel="noopener noreferrer" onClick={handleMenuItemClick} className="flex items-center gap-3 px-4 py-3 rounded-lg text-foreground font-medium bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-300 active:scale-[0.98] animate-fade-in" style={{
+              <a href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/" target="_blank" rel="noopener noreferrer" onClick={handleMenuItemClick} className="flex items-center gap-3 px-4 py-3 rounded-lg text-foreground font-medium bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-300 active:scale-[0.98] animate-fade-in" style={{
               animationDelay: '75ms'
             }}>
                 <Target size={18} className="text-primary" />
