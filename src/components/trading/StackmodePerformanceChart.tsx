@@ -11,7 +11,7 @@ export const StackmodePerformanceChart = () => {
   // Realistic data points (percentage returns over 5 years)
   // S&P 500: Based on historical ~10% annual avg = ~61% over 5 years
   // Stackmode: Active trading with 25-30% annual = ~185% over 5 years
-  const years = ['Start', 'Year 1', 'Year 2', 'Year 3', 'Year 4', 'Year 5'];
+  const years = ['Start', 'Yr 1', 'Yr 2', 'Yr 3', 'Yr 4', 'Yr 5'];
   
   // S&P 500 realistic compound growth (~10% annual)
   const sp500Data = [0, 10, 21, 33, 46, 61];
@@ -79,9 +79,10 @@ export const StackmodePerformanceChart = () => {
   const currentSP500 = cursorPosition !== null 
     ? Math.round(getValueAtPosition(sp500Data, cursorPosition)) 
     : sp500Data[sp500Data.length - 1];
-  const currentYear = cursorPosition !== null 
-    ? years[Math.round((cursorPosition / 100) * (years.length - 1))]
-    : years[years.length - 1];
+  const yearIndex = cursorPosition !== null 
+    ? Math.round((cursorPosition / 100) * (years.length - 1))
+    : years.length - 1;
+  const currentYear = years[yearIndex];
 
   return (
     <motion.div
@@ -164,7 +165,7 @@ export const StackmodePerformanceChart = () => {
         {/* Chart Area */}
         <div
           ref={chartRef}
-          className="relative h-[200px] sm:h-[240px] bg-background/30 rounded-xl border border-border/30 cursor-crosshair touch-none select-none overflow-hidden"
+          className="relative h-[180px] sm:h-[220px] bg-background/30 rounded-xl border border-border/30 cursor-crosshair touch-none select-none overflow-hidden"
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           onTouchStart={handleTouchStart}
@@ -172,14 +173,14 @@ export const StackmodePerformanceChart = () => {
           onTouchEnd={handleTouchEnd}
         >
           {/* Grid lines */}
-          <div className="absolute inset-0 flex flex-col justify-between pointer-events-none p-4">
+          <div className="absolute inset-0 flex flex-col justify-between pointer-events-none py-6 px-4">
             {[0, 1, 2, 3, 4].map((i) => (
               <div key={i} className="border-t border-border/20 w-full" />
             ))}
           </div>
 
           {/* Y-axis labels */}
-          <div className="absolute left-2 top-4 bottom-4 flex flex-col justify-between text-[10px] text-muted-foreground pointer-events-none">
+          <div className="absolute left-1 sm:left-2 top-6 bottom-8 flex flex-col justify-between text-[8px] sm:text-[10px] text-muted-foreground pointer-events-none">
             <span>+200%</span>
             <span>+150%</span>
             <span>+100%</span>
@@ -189,7 +190,7 @@ export const StackmodePerformanceChart = () => {
 
           {/* Chart SVG */}
           <svg 
-            className="absolute left-10 right-4 top-4 bottom-4" 
+            className="absolute left-8 sm:left-10 right-2 sm:right-4 top-6 bottom-8" 
             viewBox={`0 0 100 ${chartHeight}`} 
             preserveAspectRatio="none"
           >
@@ -211,7 +212,7 @@ export const StackmodePerformanceChart = () => {
               fill="url(#sp500Gradient2)"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ duration: 1, delay: 0.5 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
             />
             <motion.path
               d={generatePath(sp500Data)}
@@ -221,7 +222,7 @@ export const StackmodePerformanceChart = () => {
               strokeLinecap="round"
               initial={{ pathLength: 0 }}
               animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
-              transition={{ duration: 2, ease: "easeOut", delay: 0.3 }}
+              transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
             />
 
             {/* Stackmode Area & Line */}
@@ -230,7 +231,7 @@ export const StackmodePerformanceChart = () => {
               fill="url(#stackmodeGradient2)"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ duration: 1, delay: 0.3 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
             />
             <motion.path
               d={generatePath(stackmodeData)}
@@ -240,11 +241,12 @@ export const StackmodePerformanceChart = () => {
               strokeLinecap="round"
               initial={{ pathLength: 0 }}
               animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
-              transition={{ duration: 2, ease: "easeOut" }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
             />
 
-            {/* Data point dots */}
-            {stackmodeData.map((val, i) => {
+            {/* Data point dots - reduced for performance */}
+            {stackmodeData.filter((_, i) => i === 0 || i === stackmodeData.length - 1).map((val, idx) => {
+              const i = idx === 0 ? 0 : stackmodeData.length - 1;
               const x = (i / (dataPoints - 1)) * 100;
               const y = chartHeight - (val / maxValue) * chartHeight;
               return (
@@ -256,11 +258,12 @@ export const StackmodePerformanceChart = () => {
                   fill="hsl(var(--primary))"
                   initial={{ scale: 0 }}
                   animate={isInView ? { scale: 1 } : { scale: 0 }}
-                  transition={{ delay: 0.3 + i * 0.15 }}
+                  transition={{ delay: 0.3 + idx * 0.5 }}
                 />
               );
             })}
-            {sp500Data.map((val, i) => {
+            {sp500Data.filter((_, i) => i === 0 || i === sp500Data.length - 1).map((val, idx) => {
+              const i = idx === 0 ? 0 : sp500Data.length - 1;
               const x = (i / (dataPoints - 1)) * 100;
               const y = chartHeight - (val / maxValue) * chartHeight;
               return (
@@ -272,7 +275,7 @@ export const StackmodePerformanceChart = () => {
                   fill="rgb(239, 68, 68)"
                   initial={{ scale: 0 }}
                   animate={isInView ? { scale: 1 } : { scale: 0 }}
-                  transition={{ delay: 0.5 + i * 0.15 }}
+                  transition={{ delay: 0.4 + idx * 0.5 }}
                 />
               );
             })}
@@ -283,16 +286,16 @@ export const StackmodePerformanceChart = () => {
             <>
               {/* Vertical cursor line */}
               <div
-                className="absolute top-4 bottom-4 w-px bg-primary/60 pointer-events-none z-10"
-                style={{ left: `calc(10% + ${cursorPosition * 0.86}%)` }}
+                className="absolute top-6 bottom-8 w-px bg-primary/60 pointer-events-none z-10"
+                style={{ left: `calc(8% + ${cursorPosition * 0.88}%)` }}
               />
               
               {/* Stackmode tooltip */}
               <div
                 className="absolute bg-primary text-background text-[10px] font-bold px-2 py-1 rounded shadow-lg pointer-events-none z-20 whitespace-nowrap"
                 style={{ 
-                  left: `calc(10% + ${cursorPosition * 0.86}%)`,
-                  top: `${20 + (1 - currentStackmode / maxValue) * 60}%`,
+                  left: `calc(8% + ${cursorPosition * 0.88}%)`,
+                  top: `${15 + (1 - currentStackmode / maxValue) * 55}%`,
                   transform: 'translate(-50%, -100%)'
                 }}
               >
@@ -303,8 +306,8 @@ export const StackmodePerformanceChart = () => {
               <div
                 className="absolute bg-destructive/90 text-white text-[10px] font-bold px-2 py-1 rounded shadow-lg pointer-events-none z-20 whitespace-nowrap"
                 style={{ 
-                  left: `calc(10% + ${cursorPosition * 0.86}%)`,
-                  top: `${20 + (1 - currentSP500 / maxValue) * 60}%`,
+                  left: `calc(8% + ${cursorPosition * 0.88}%)`,
+                  top: `${15 + (1 - currentSP500 / maxValue) * 55}%`,
                   transform: 'translate(-50%, 10%)'
                 }}
               >
@@ -314,9 +317,9 @@ export const StackmodePerformanceChart = () => {
           )}
 
           {/* X-axis year labels inside chart */}
-          <div className="absolute bottom-1 left-10 right-4 flex justify-between text-[9px] text-muted-foreground pointer-events-none">
+          <div className="absolute bottom-1 left-8 sm:left-10 right-2 sm:right-4 flex justify-between text-[8px] sm:text-[10px] text-muted-foreground pointer-events-none">
             {years.map((year) => (
-              <span key={year}>{year}</span>
+              <span key={year} className="text-center">{year}</span>
             ))}
           </div>
         </div>
