@@ -22,7 +22,7 @@ import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
 import { motion } from 'framer-motion';
 
 // New modular trading components
-import { TradingHero, TradingStackmodePromo, TradingFeatures, TradingCTASection, TradingAuditCTA } from '@/components/trading';
+import { TradingHero, TradingStackmodePromo, TradingFeatures, TradingCTASection, TradingAuditCTA, StackmodePerformanceChart } from '@/components/trading';
 const Index = () => {
   const [showStickyHeader, setShowStickyHeader] = useState(false);
   useEffect(() => {
@@ -72,6 +72,11 @@ const Index = () => {
 
         {/* STACKMODE NETWORK PROMO - Primary CTA (First as requested) */}
         <TradingStackmodePromo />
+
+        {/* Performance Comparison Chart - Shows Stackmode vs S&P 500 */}
+        <section className="max-w-5xl mx-auto mb-8 px-4">
+          <StackmodePerformanceChart />
+        </section>
 
         {/* StackFinder AI Tool Section - Right after Stackmode promo */}
         <section className="max-w-5xl mx-auto mb-8 px-4">
