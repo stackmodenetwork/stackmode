@@ -1,213 +1,375 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { TrendingUp, Zap, Target, Flame, ArrowRight, DollarSign } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { 
+  TrendingUp, TrendingDown, DollarSign, CreditCard, PiggyBank, 
+  Clock, Zap, Bot, BarChart3, ArrowRight, Check, X, 
+  Briefcase, Laptop, Coffee, AlertTriangle, Sparkles, Trophy
+} from 'lucide-react';
 
 export const ReturnsComparisonChart = () => {
-  const [selectedScenario, setSelectedScenario] = useState<'conservative' | 'average' | 'aggressive'>('average');
+  const [showStackmode, setShowStackmode] = useState(false);
+  const [animatedIncome, setAnimatedIncome] = useState(0);
 
-  // Different scenarios based on trading approach
-  const scenarios = {
-    conservative: { label: 'Part-Time Trader', annualReturn: 25, color: 'cyan' },
-    average: { label: 'Active Trader', annualReturn: 40, color: 'primary' },
-    aggressive: { label: 'Full-Time Trader', annualReturn: 60, color: 'emerald' },
+  // Auto-toggle between views for impact
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setShowStackmode(prev => !prev);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  // Animate income counter
+  useEffect(() => {
+    const targetIncome = showStackmode ? 12500 : 2800;
+    const duration = 1000;
+    const steps = 30;
+    const increment = (targetIncome - animatedIncome) / steps;
+    
+    let current = animatedIncome;
+    const interval = setInterval(() => {
+      current += increment;
+      if ((increment > 0 && current >= targetIncome) || (increment < 0 && current <= targetIncome)) {
+        setAnimatedIncome(targetIncome);
+        clearInterval(interval);
+      } else {
+        setAnimatedIncome(Math.round(current));
+      }
+    }, duration / steps);
+    
+    return () => clearInterval(interval);
+  }, [showStackmode]);
+
+  const employeeStats = {
+    title: "Average Employee",
+    subtitle: "$40K/year job",
+    monthlyIncome: 2800,
+    debt: 38000,
+    savings: 400,
+    monthlyLeft: -200,
+    stress: "High",
+    freedom: "None",
+    growth: "2% raises",
+    retirement: "67 years old",
+    color: "red",
+    icon: Briefcase,
   };
 
-  const currentScenario = scenarios[selectedScenario];
-  const sp500Return = 10;
-
-  // Calculate growth over time
-  const calculateGrowth = (initial: number, rate: number, years: number) => {
-    return initial * Math.pow(1 + rate / 100, years);
+  const stackmodeStats = {
+    title: "Stackmode Investor",
+    subtitle: "AI Business + Trading",
+    monthlyIncome: 12500,
+    debt: 0,
+    savings: 85000,
+    monthlyLeft: 7500,
+    stress: "Low",
+    freedom: "Full",
+    growth: "40%+ annually",
+    retirement: "Any time",
+    color: "primary",
+    icon: Laptop,
   };
 
-  const startingCapital = 5000;
-  const years = [1, 2, 3, 4, 5];
-  
-  const stackmodeValues = years.map(y => Math.round(calculateGrowth(startingCapital, currentScenario.annualReturn, y)));
-  const sp500Values = years.map(y => Math.round(calculateGrowth(startingCapital, sp500Return, y)));
-  
-  const finalStackmode = stackmodeValues[4];
-  const finalSP500 = sp500Values[4];
-  const multiplier = (finalStackmode / finalSP500).toFixed(1);
-  const difference = finalStackmode - finalSP500;
+  const currentStats = showStackmode ? stackmodeStats : employeeStats;
 
   return (
     <motion.div
-      className="relative bg-gradient-to-br from-card via-card/95 to-primary/5 border-2 border-primary/40 rounded-2xl overflow-hidden"
+      className="relative bg-gradient-to-br from-card via-card/95 to-background border-2 border-primary/30 rounded-2xl overflow-hidden"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
     >
-      {/* Top gradient bar */}
-      <div className="h-1 bg-gradient-to-r from-primary via-emerald-400 to-cyan-400" />
-      
-      <div className="p-5 sm:p-6">
-        {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
-          <div>
-            <div className="flex items-center gap-2 mb-2">
-              <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
-                <Flame size={18} className="text-primary" />
-              </div>
-              <div>
-                <h3 className="text-foreground font-bold text-lg">Real Returns Calculator</h3>
-                <p className="text-muted-foreground text-xs">$5,000 starting capital • 5 year projection</p>
-              </div>
+      {/* Header */}
+      <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-transparent p-4 sm:p-5 border-b border-border/30">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
+              <BarChart3 size={20} className="text-primary" />
+            </div>
+            <div>
+              <h3 className="text-foreground font-bold text-lg">The Financial Reality Check</h3>
+              <p className="text-muted-foreground text-xs">Same 5 years. Different decisions. Different life.</p>
             </div>
           </div>
-
-          {/* Scenario selector */}
-          <div className="flex gap-1.5 bg-background/50 rounded-lg p-1 border border-border/50">
-            {(Object.keys(scenarios) as Array<keyof typeof scenarios>).map((key) => (
-              <button
-                key={key}
-                onClick={() => setSelectedScenario(key)}
-                className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
-                  selectedScenario === key
-                    ? 'bg-primary text-primary-foreground shadow-sm'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
-                }`}
-              >
-                {scenarios[key].label}
-              </button>
-            ))}
+          
+          {/* Toggle */}
+          <div className="flex items-center gap-2 bg-background/60 rounded-lg p-1 border border-border/50">
+            <button
+              onClick={() => setShowStackmode(false)}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
+                !showStackmode 
+                  ? 'bg-red-500/20 text-red-400 border border-red-500/30' 
+                  : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              <Briefcase size={12} />
+              Employee
+            </button>
+            <button
+              onClick={() => setShowStackmode(true)}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
+                showStackmode 
+                  ? 'bg-primary/20 text-primary border border-primary/30' 
+                  : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              <Zap size={12} />
+              Stackmode
+            </button>
           </div>
         </div>
+      </div>
 
-        {/* Main comparison visual */}
-        <div className="grid grid-cols-2 gap-4 mb-6">
-          {/* S&P 500 side */}
-          <div className="bg-background/40 border border-border/30 rounded-xl p-4">
-            <div className="flex items-center gap-2 mb-3">
-              <div className="w-3 h-3 rounded-full bg-orange-400/80" />
-              <span className="text-sm text-muted-foreground">S&P 500 Index</span>
-            </div>
-            <div className="text-2xl sm:text-3xl font-bold text-foreground mb-1">
-              ${finalSP500.toLocaleString()}
-            </div>
-            <div className="flex items-center gap-1 text-orange-400 text-sm">
-              <TrendingUp size={14} />
-              <span>+{sp500Return}%/yr avg</span>
-            </div>
-            <p className="text-xs text-muted-foreground mt-2">Passive investing</p>
-          </div>
-
-          {/* Stackmode side */}
+      <div className="p-4 sm:p-5">
+        {/* Main Stats Grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-5">
+          {/* Monthly Income */}
           <motion.div 
-            className="relative bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/50 rounded-xl p-4 overflow-hidden"
-            animate={{ boxShadow: ['0 0 0px rgba(34,197,94,0)', '0 0 30px rgba(34,197,94,0.3)', '0 0 0px rgba(34,197,94,0)'] }}
-            transition={{ duration: 2, repeat: Infinity }}
+            className={`relative p-4 rounded-xl border-2 transition-all duration-500 ${
+              showStackmode 
+                ? 'bg-primary/5 border-primary/40' 
+                : 'bg-red-500/5 border-red-500/30'
+            }`}
+            layout
           >
-            <div className="absolute top-2 right-2">
-              <motion.div
-                className="bg-primary text-primary-foreground text-[10px] font-bold px-2 py-1 rounded-full"
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >
-                {multiplier}x MORE
-              </motion.div>
-            </div>
-            <div className="flex items-center gap-2 mb-3">
-              <div className="w-3 h-3 rounded-full bg-primary" />
-              <span className="text-sm text-primary font-medium">Stackmode Network</span>
+            <div className="flex items-center gap-2 mb-2">
+              <DollarSign size={14} className={showStackmode ? 'text-primary' : 'text-red-400'} />
+              <span className="text-xs text-muted-foreground">Monthly Income</span>
             </div>
             <motion.div 
-              className="text-2xl sm:text-3xl font-bold text-primary mb-1"
-              key={finalStackmode}
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ type: 'spring', stiffness: 200 }}
+              className={`text-2xl font-bold ${showStackmode ? 'text-primary' : 'text-foreground'}`}
+              key={animatedIncome}
             >
-              ${finalStackmode.toLocaleString()}
+              ${animatedIncome.toLocaleString()}
             </motion.div>
-            <div className="flex items-center gap-1 text-primary text-sm">
-              <Zap size={14} />
-              <span>+{currentScenario.annualReturn}%/yr avg</span>
+            <div className={`text-xs mt-1 ${showStackmode ? 'text-primary/70' : 'text-muted-foreground'}`}>
+              {showStackmode ? 'Multiple streams' : 'Single paycheck'}
             </div>
-            <p className="text-xs text-muted-foreground mt-2">{currentScenario.label}</p>
+            {showStackmode && (
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-[10px] font-bold px-2 py-0.5 rounded-full"
+              >
+                +346%
+              </motion.div>
+            )}
+          </motion.div>
+
+          {/* Debt */}
+          <motion.div 
+            className={`relative p-4 rounded-xl border-2 transition-all duration-500 ${
+              showStackmode 
+                ? 'bg-primary/5 border-primary/40' 
+                : 'bg-red-500/5 border-red-500/30'
+            }`}
+            layout
+          >
+            <div className="flex items-center gap-2 mb-2">
+              <CreditCard size={14} className={showStackmode ? 'text-primary' : 'text-red-400'} />
+              <span className="text-xs text-muted-foreground">Total Debt</span>
+            </div>
+            <AnimatePresence mode="wait">
+              <motion.div 
+                key={showStackmode ? 'no-debt' : 'debt'}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                className={`text-2xl font-bold ${showStackmode ? 'text-primary' : 'text-red-400'}`}
+              >
+                {showStackmode ? '$0' : '$38,000'}
+              </motion.div>
+            </AnimatePresence>
+            <div className={`text-xs mt-1 flex items-center gap-1 ${showStackmode ? 'text-primary/70' : 'text-red-400/70'}`}>
+              {showStackmode ? (
+                <><Check size={10} /> Debt free</>
+              ) : (
+                <><AlertTriangle size={10} /> Crushing debt</>
+              )}
+            </div>
+          </motion.div>
+
+          {/* Savings */}
+          <motion.div 
+            className={`relative p-4 rounded-xl border-2 transition-all duration-500 ${
+              showStackmode 
+                ? 'bg-primary/5 border-primary/40' 
+                : 'bg-red-500/5 border-red-500/30'
+            }`}
+            layout
+          >
+            <div className="flex items-center gap-2 mb-2">
+              <PiggyBank size={14} className={showStackmode ? 'text-primary' : 'text-red-400'} />
+              <span className="text-xs text-muted-foreground">Savings</span>
+            </div>
+            <AnimatePresence mode="wait">
+              <motion.div 
+                key={showStackmode ? 'high-savings' : 'low-savings'}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                className={`text-2xl font-bold ${showStackmode ? 'text-primary' : 'text-foreground'}`}
+              >
+                {showStackmode ? '$85,000' : '$400'}
+              </motion.div>
+            </AnimatePresence>
+            <div className={`text-xs mt-1 ${showStackmode ? 'text-primary/70' : 'text-muted-foreground'}`}>
+              {showStackmode ? '6+ months runway' : '1 week buffer'}
+            </div>
+          </motion.div>
+
+          {/* Monthly Surplus */}
+          <motion.div 
+            className={`relative p-4 rounded-xl border-2 transition-all duration-500 ${
+              showStackmode 
+                ? 'bg-primary/5 border-primary/40' 
+                : 'bg-red-500/5 border-red-500/30'
+            }`}
+            layout
+          >
+            <div className="flex items-center gap-2 mb-2">
+              {showStackmode ? (
+                <TrendingUp size={14} className="text-primary" />
+              ) : (
+                <TrendingDown size={14} className="text-red-400" />
+              )}
+              <span className="text-xs text-muted-foreground">Monthly Left</span>
+            </div>
+            <AnimatePresence mode="wait">
+              <motion.div 
+                key={showStackmode ? 'surplus' : 'deficit'}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                className={`text-2xl font-bold ${showStackmode ? 'text-primary' : 'text-red-400'}`}
+              >
+                {showStackmode ? '+$7,500' : '-$200'}
+              </motion.div>
+            </AnimatePresence>
+            <div className={`text-xs mt-1 ${showStackmode ? 'text-primary/70' : 'text-red-400/70'}`}>
+              {showStackmode ? 'Growing wealth' : 'Going backwards'}
+            </div>
           </motion.div>
         </div>
 
-        {/* Year-by-year comparison bars */}
-        <div className="space-y-2 mb-5">
-          <div className="flex items-center justify-between text-xs text-muted-foreground mb-2">
-            <span>Growth Timeline</span>
-            <span className="text-primary font-medium">+${difference.toLocaleString()} difference</span>
+        {/* Lifestyle Comparison */}
+        <div className={`rounded-xl p-4 mb-5 transition-all duration-500 ${
+          showStackmode ? 'bg-primary/5 border border-primary/20' : 'bg-red-500/5 border border-red-500/20'
+        }`}>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+            <div>
+              <div className={`text-xs mb-1 ${showStackmode ? 'text-primary' : 'text-muted-foreground'}`}>Stress Level</div>
+              <div className={`font-bold ${showStackmode ? 'text-primary' : 'text-red-400'}`}>
+                {showStackmode ? '😌 Low' : '😰 High'}
+              </div>
+            </div>
+            <div>
+              <div className={`text-xs mb-1 ${showStackmode ? 'text-primary' : 'text-muted-foreground'}`}>Time Freedom</div>
+              <div className={`font-bold ${showStackmode ? 'text-primary' : 'text-red-400'}`}>
+                {showStackmode ? '🏖️ Full' : '⏰ None'}
+              </div>
+            </div>
+            <div>
+              <div className={`text-xs mb-1 ${showStackmode ? 'text-primary' : 'text-muted-foreground'}`}>Annual Growth</div>
+              <div className={`font-bold ${showStackmode ? 'text-primary' : 'text-red-400'}`}>
+                {showStackmode ? '📈 40%+' : '📉 2%'}
+              </div>
+            </div>
+            <div>
+              <div className={`text-xs mb-1 ${showStackmode ? 'text-primary' : 'text-muted-foreground'}`}>Retire At</div>
+              <div className={`font-bold ${showStackmode ? 'text-primary' : 'text-red-400'}`}>
+                {showStackmode ? '🎯 Anytime' : '👴 67'}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Income Sources Visual */}
+        <div className="mb-5">
+          <div className="text-xs text-muted-foreground mb-3 flex items-center gap-2">
+            <Sparkles size={12} className="text-primary" />
+            Income Sources
           </div>
           
-          {years.map((year, index) => {
-            const stackmodeWidth = Math.min(100, (stackmodeValues[index] / stackmodeValues[4]) * 100);
-            const sp500Width = Math.min(100, (sp500Values[index] / stackmodeValues[4]) * 100);
-            
-            return (
-              <div key={year} className="relative">
-                <div className="flex items-center gap-2">
-                  <span className="text-[10px] text-muted-foreground w-10">Yr {year}</span>
-                  <div className="flex-1 relative h-6 bg-background/30 rounded overflow-hidden">
-                    {/* S&P bar */}
-                    <motion.div
-                      className="absolute inset-y-0 left-0 bg-orange-400/40 rounded-r"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${sp500Width}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: index * 0.1 }}
-                    />
-                    {/* Stackmode bar */}
-                    <motion.div
-                      className="absolute inset-y-0 left-0 bg-gradient-to-r from-primary to-emerald-400 rounded-r"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${stackmodeWidth}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.8, delay: index * 0.1 + 0.2 }}
-                    />
-                    {/* Value label */}
-                    <motion.span
-                      className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] font-bold text-white drop-shadow"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.1 + 0.5 }}
-                    >
-                      ${stackmodeValues[index].toLocaleString()}
-                    </motion.span>
-                  </div>
+          <AnimatePresence mode="wait">
+            {showStackmode ? (
+              <motion.div
+                key="stackmode-sources"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                className="grid grid-cols-2 sm:grid-cols-4 gap-2"
+              >
+                {[
+                  { icon: Bot, label: 'AI Business', value: '$4,500/mo' },
+                  { icon: BarChart3, label: 'Trading', value: '$5,000/mo' },
+                  { icon: Laptop, label: 'Affiliate', value: '$2,000/mo' },
+                  { icon: DollarSign, label: 'Dividends', value: '$1,000/mo' },
+                ].map((source, i) => (
+                  <motion.div
+                    key={source.label}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                    className="bg-primary/10 border border-primary/30 rounded-lg p-3 text-center"
+                  >
+                    <source.icon size={16} className="text-primary mx-auto mb-1" />
+                    <div className="text-[10px] text-muted-foreground">{source.label}</div>
+                    <div className="text-xs font-bold text-primary">{source.value}</div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            ) : (
+              <motion.div
+                key="employee-sources"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                className="flex items-center justify-center gap-4 py-4"
+              >
+                <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-4 text-center">
+                  <Briefcase size={20} className="text-red-400 mx-auto mb-2" />
+                  <div className="text-xs text-muted-foreground">9-5 Job</div>
+                  <div className="text-sm font-bold text-red-400">$2,800/mo</div>
+                  <div className="text-[10px] text-red-400/60 mt-1">Only income source</div>
                 </div>
-              </div>
-            );
-          })}
+                <div className="text-muted-foreground/50">
+                  <X size={24} />
+                </div>
+                <div className="bg-muted/30 border border-border/30 rounded-lg p-4 text-center opacity-50">
+                  <Coffee size={20} className="text-muted-foreground mx-auto mb-2" />
+                  <div className="text-xs text-muted-foreground">Side Hustle?</div>
+                  <div className="text-sm font-bold text-muted-foreground">$0</div>
+                  <div className="text-[10px] text-muted-foreground/60 mt-1">No time/energy</div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
         {/* Bottom CTA */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-border/30">
-          <div className="flex items-center gap-4 text-xs">
-            <div className="flex items-center gap-1.5">
-              <div className="w-3 h-2 bg-gradient-to-r from-primary to-emerald-400 rounded" />
-              <span className="text-muted-foreground">Stackmode</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <div className="w-3 h-2 bg-orange-400/60 rounded" />
-              <span className="text-muted-foreground">S&P 500</span>
-            </div>
+          <div className="flex items-center gap-2 text-sm">
+            <Trophy size={16} className="text-primary" />
+            <span className="text-muted-foreground">Join 500+ members who made the switch</span>
           </div>
           
           <motion.a
             href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-sm px-4 py-2 rounded-lg transition-all"
+            className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-sm px-5 py-2.5 rounded-xl shadow-lg shadow-primary/25 transition-all"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
           >
-            <Target size={14} />
-            <span>Start Trading Smarter</span>
-            <ArrowRight size={14} />
+            <Zap size={16} />
+            <span>Become a Stackmode Investor</span>
+            <ArrowRight size={16} />
           </motion.a>
         </div>
 
         {/* Disclaimer */}
-        <p className="text-[9px] text-muted-foreground/60 text-center mt-3">
-          Projections based on member performance data. Results vary. Trading involves risk. Not financial advice.
+        <p className="text-[9px] text-muted-foreground/50 text-center mt-3">
+          Results based on active member data. Individual results vary based on effort and market conditions.
         </p>
       </div>
     </motion.div>
