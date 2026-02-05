@@ -4,6 +4,7 @@ import { CookieConsent } from '@/components/CookieConsent';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
 import { useState } from 'react';
 import { MainHeader } from '@/components/MainHeader';
+import { MainFooter } from '@/components/MainFooter';
 import { TradingBackground } from '@/components/TradingBackground';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
 import { StackmodeGroupPromo } from '@/components/StackmodeGroupPromo';
@@ -864,31 +865,12 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-background border-t border-border py-6 px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center space-y-4">
-          <div className="flex flex-wrap justify-center gap-4 text-xs sm:text-sm">
-            <a href="/terms" className="text-muted-foreground hover:text-primary transition-colors">Terms</a>
-            <span className="text-border">|</span>
-            <a href="/privacy" className="text-muted-foreground hover:text-primary transition-colors">Privacy</a>
-            <span className="text-border">|</span>
-            <a href="/dmca" className="text-muted-foreground hover:text-primary transition-colors">DMCA</a>
-          </div>
-           <div className="text-xs text-muted-foreground space-y-1">
-             <p>Stackmode Network LLC</p>
-             <p>8735 DUNWOODY PLACE # 12143</p>
-             <p>ATLANTA, GA 30350</p>
-           </div>
-          <p className="text-xs text-muted-foreground">
-            © 2026 Stackmode Network LLC
-          </p>
-        </div>
-      </footer>
+      <MainFooter />
 
       {/* Mobile spacer */}
-        <div className="h-24 md:hidden" />
+      <div className="h-24 md:hidden" />
 
-        <CookieConsent />
-      </main>;
+      <CookieConsent />
+    </main>;
 };
 export default Home;
