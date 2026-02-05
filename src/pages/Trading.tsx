@@ -7,6 +7,7 @@ import { OptimizedVideo } from '@/components/OptimizedVideo';
 import { CookieConsent } from '@/components/CookieConsent';
 import { SocialShareButtons } from '@/components/SocialShareButtons';
 import { MainHeader } from '@/components/MainHeader';
+import { MainFooter } from '@/components/MainFooter';
 import { Check, Users, HelpCircle, Calendar, BookOpen, PlayCircle, Youtube, ArrowRight, TrendingUp, Gift } from 'lucide-react';
 import { ConnectWithMe } from '@/components/ConnectWithMe';
 import { DualCallCTA } from '@/components/DualCallCTA';
@@ -374,22 +375,9 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="max-w-6xl mx-auto px-4 pt-8 pb-28 md:pb-12">
-        <div className="border-t border-border pt-6">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-muted-foreground text-sm">
-              © {new Date().getFullYear()} Stackmode Network LLC. All rights reserved.
-            </p>
-            <SocialShareButtons title="Learn How To Trade Profitably with Stackmodechris" />
-          </div>
-          <div className="flex flex-wrap justify-center sm:justify-end gap-4 mt-4 text-xs text-muted-foreground">
-            <Link to="/privacy-policy" className="hover:text-foreground transition-colors">Privacy Policy</Link>
-            <Link to="/terms-and-conditions" className="hover:text-foreground transition-colors">Terms & Conditions</Link>
-            <Link to="/dmca-policy" className="hover:text-foreground transition-colors">DMCA Policy</Link>
-          </div>
-        </div>
-      </footer>
+      <MainFooter />
+
+      <div className="h-24 md:hidden" />
 
       <CookieConsent />
     </main>;
