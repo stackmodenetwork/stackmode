@@ -209,8 +209,9 @@
   }
 
   .animate-carousel-scroll {
-    animation: carousel-scroll 80s linear infinite;
+    animation: carousel-scroll 40s linear infinite;
     will-change: transform;
+    width: max-content;
   }
 
   @media (prefers-reduced-motion: reduce) {
