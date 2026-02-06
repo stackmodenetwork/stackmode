@@ -75,15 +75,16 @@ const Home = () => {
             Code. <span className="text-cyan-400">Build.</span> <span className="text-emerald-400">Invest.</span>
           </motion.h1>
 
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xs sm:text-lg text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-4"
+            className="text-xs sm:text-lg text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-4 flex flex-col items-center gap-1"
           >
-            Learn to market your business with ads, master investing, and build with AI.
-            <span className="text-foreground font-medium"> Everything for $50/month.</span>
-          </motion.p>
+            <span>Learn to market your business with ads,</span>
+            <span>master investing, and build with AI.</span>
+            <span className="text-foreground font-medium">Everything for $50/month.</span>
+          </motion.div>
 
           {/* Primary CTA */}
           <motion.div
