@@ -97,6 +97,16 @@ const Learn = () => {
       <section className="py-12 px-4 bg-gradient-to-b from-background to-cyan-500/5">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal>
+            <div className="text-center mb-6">
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
+                Get All The <span className="text-cyan-400">Premium</span> Education Here
+              </h2>
+              <p className="text-muted-foreground text-sm">
+                One membership. Every skill you need to build real income.
+              </p>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal>
             <a
               href="https://whop.com/stackmode-academy/educationalservice/"
               target="_blank"
