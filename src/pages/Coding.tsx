@@ -9,6 +9,7 @@ import { UniversalPageBottom } from '@/components/UniversalPageBottom';
 import { StackFinderPromo } from '@/components/StackFinderPromo';
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
 import { SoftwareProofSection } from '@/components/SoftwareProofSection';
+import { ReviewsBackgroundCarousel } from '@/components/ReviewsBackgroundCarousel';
 
 const techStack = [
   { name: 'Python', icon: '🐍' },
@@ -279,6 +280,11 @@ const Coding = () => {
             <StackFinderPromo variant="coding" />
           </ScrollReveal>
         </div>
+      </section>
+
+      {/* Reviews Carousel */}
+      <section className="py-8 px-4">
+        <ReviewsBackgroundCarousel />
       </section>
 
       {/* Universal Bottom CTA */}
