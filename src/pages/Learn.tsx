@@ -119,6 +119,9 @@ const Learn = () => {
                     <Zap size={12} />
                     BEST VALUE
                   </div>
+                  <p className="text-destructive text-sm font-bold mb-2">
+                    Stop paying $5,000 for outdated courses and mentorship.
+                  </p>
                   <h2 className="text-2xl font-bold text-foreground mb-2">
                     Stackmode Academy
                   </h2>
