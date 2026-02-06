@@ -65,61 +65,8 @@ const Business = () => {
       <section className="py-8 sm:py-16 px-5 sm:px-4">
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 gap-5 sm:gap-8">
-            {/* Done-For-You Path */}
+            {/* DIY Path - Academy (First) */}
             <ScrollReveal delay={0.1}>
-              <div className="bg-gradient-to-br from-violet-500/10 to-transparent border-2 border-violet-500/30 rounded-2xl p-5 sm:p-8 h-full">
-                <div className="bg-violet-500/20 border border-violet-500/40 rounded-full px-3 py-1 text-xs font-bold text-violet-400 inline-block mb-4">
-                  AGENCY SERVICES
-                </div>
-                
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-violet-500/20 border border-violet-500/50 rounded-xl flex items-center justify-center mb-4 sm:mb-6">
-                  <Rocket size={28} className="text-violet-400" />
-                </div>
-
-                <h2 className="text-2xl font-bold text-foreground mb-3">
-                  Done-For-You
-                </h2>
-                <p className="text-muted-foreground mb-4 sm:mb-6">
-                  We handle everything. You focus on your business. Professional websites, ad campaigns, and automation — delivered.
-                </p>
-
-                <div className="space-y-2 sm:space-y-3 mb-5 sm:mb-8">
-                  <div className="flex items-center gap-3">
-                    <Check size={18} className="text-violet-400 shrink-0" />
-                    <span className="text-foreground/80">Custom Website Design & Development</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Check size={18} className="text-violet-400 shrink-0" />
-                    <span className="text-foreground/80">Facebook & Google Ad Campaigns</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Check size={18} className="text-violet-400 shrink-0" />
-                    <span className="text-foreground/80">Marketing Automation Setup</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Check size={18} className="text-violet-400 shrink-0" />
-                    <span className="text-foreground/80">Ongoing Support & Optimization</span>
-                  </div>
-                </div>
-
-                <a
-                  href="https://calendly.com/stackmodechris/architecture"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-center justify-center gap-3 w-full bg-violet-500 hover:bg-violet-400 text-white font-bold text-lg px-6 py-4 rounded-lg transition-all"
-                >
-                  <Calendar size={20} />
-                  <span>Book a Free Consultation</span>
-                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                </a>
-                <p className="text-sm text-muted-foreground text-center mt-3">
-                  30-min call • No obligation • Custom quote
-                </p>
-              </div>
-            </ScrollReveal>
-
-            {/* DIY Path */}
-            <ScrollReveal delay={0.2}>
               <div className="bg-gradient-to-br from-cyan-500/10 to-transparent border-2 border-cyan-500/30 rounded-2xl p-5 sm:p-8 h-full">
                 <div className="bg-cyan-500/20 border border-cyan-500/40 rounded-full px-3 py-1 text-xs font-bold text-cyan-400 inline-block mb-4">
                   JOIN THE ACADEMY
@@ -167,6 +114,59 @@ const Business = () => {
                 </a>
                 <p className="text-sm text-muted-foreground text-center mt-3">
                   Cancel anytime • Instant access
+                </p>
+              </div>
+            </ScrollReveal>
+
+            {/* Done-For-You Path - Consultation (Second) */}
+            <ScrollReveal delay={0.2}>
+              <div className="bg-gradient-to-br from-violet-500/10 to-transparent border-2 border-violet-500/30 rounded-2xl p-5 sm:p-8 h-full">
+                <div className="bg-violet-500/20 border border-violet-500/40 rounded-full px-3 py-1 text-xs font-bold text-violet-400 inline-block mb-4">
+                  AGENCY SERVICES
+                </div>
+                
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-violet-500/20 border border-violet-500/50 rounded-xl flex items-center justify-center mb-4 sm:mb-6">
+                  <Rocket size={28} className="text-violet-400" />
+                </div>
+
+                <h2 className="text-2xl font-bold text-foreground mb-3">
+                  Done-For-You
+                </h2>
+                <p className="text-muted-foreground mb-4 sm:mb-6">
+                  We handle everything. You focus on your business. Professional websites, ad campaigns, and automation — delivered.
+                </p>
+
+                <div className="space-y-2 sm:space-y-3 mb-5 sm:mb-8">
+                  <div className="flex items-center gap-3">
+                    <Check size={18} className="text-violet-400 shrink-0" />
+                    <span className="text-foreground/80">Custom Website Design & Development</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Check size={18} className="text-violet-400 shrink-0" />
+                    <span className="text-foreground/80">Facebook & Google Ad Campaigns</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Check size={18} className="text-violet-400 shrink-0" />
+                    <span className="text-foreground/80">Marketing Automation Setup</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Check size={18} className="text-violet-400 shrink-0" />
+                    <span className="text-foreground/80">Ongoing Support & Optimization</span>
+                  </div>
+                </div>
+
+                <a
+                  href="https://calendly.com/stackmodechris/architecture"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center justify-center gap-3 w-full bg-violet-500 hover:bg-violet-400 text-white font-bold text-lg px-6 py-4 rounded-lg transition-all"
+                >
+                  <Calendar size={20} />
+                  <span>Book a Free Consultation</span>
+                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                </a>
+                <p className="text-sm text-muted-foreground text-center mt-3">
+                  30-min call • No obligation • Custom quote
                 </p>
               </div>
             </ScrollReveal>
