@@ -10,20 +10,20 @@ const reviews = [
 ];
 
 const ReviewImage = memo(({ img, onClick }: { img: string; onClick: () => void }) => (
-  <motion.div 
-    className="flex-shrink-0 w-44 sm:w-56 md:w-64 rounded-xl overflow-hidden bg-card border-2 border-primary/20 hover:border-primary/50 cursor-pointer shadow-lg shadow-primary/5 hover:shadow-primary/20 transition-all"
-    whileHover={{ scale: 1.03, y: -2 }}
+  <motion.button 
+    className="flex-shrink-0 rounded-lg overflow-hidden border border-border/40 hover:border-primary/60 cursor-pointer shadow-md hover:shadow-xl hover:shadow-primary/10 transition-all focus:outline-none focus:ring-2 focus:ring-primary/50"
+    whileHover={{ scale: 1.02 }}
     whileTap={{ scale: 0.98 }}
     onClick={onClick}
   >
     <img
       src={`/lovable-uploads/${img}`}
       alt="Member success story"
-      className="w-full h-auto object-cover"
+      className="h-24 sm:h-28 md:h-32 w-auto object-contain"
       loading="lazy"
       decoding="async"
     />
-  </motion.div>
+  </motion.button>
 ));
 
 ReviewImage.displayName = 'ReviewImage';
