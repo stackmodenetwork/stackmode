@@ -201,4 +201,21 @@
       padding-bottom: 0;
     }
   }
+
+  /* Reviews carousel - CSS animation for better perf than JS-driven framer-motion */
+  @keyframes carousel-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-carousel-scroll {
+    animation: carousel-scroll 80s linear infinite;
+    will-change: transform;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-carousel-scroll {
+      animation: none;
+    }
+  }
 }
