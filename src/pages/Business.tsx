@@ -5,7 +5,7 @@ import { MainFooter } from '@/components/MainFooter';
 import { Globe, Megaphone, Check, ArrowRight, Zap, Users, Calendar, ChevronRight, Code, Rocket, Sparkles, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { ScrollReveal } from '@/components/ScrollReveal';
-import { ReviewsGallery } from '@/components/ReviewsGallery';
+import { ReviewsBackgroundCarousel } from '@/components/ReviewsBackgroundCarousel';
 import { UniversalPageBottom } from '@/components/UniversalPageBottom';
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
 
@@ -208,13 +208,13 @@ const Business = () => {
 
       {/* Social Proof */}
       <section className="py-16 px-4">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <ScrollReveal>
-            <div className="text-center mb-8">
+            <div className="text-center mb-6">
               <h2 className="text-2xl font-bold text-foreground">Client Results</h2>
             </div>
           </ScrollReveal>
-          <ReviewsGallery />
+          <ReviewsBackgroundCarousel />
         </div>
       </section>
 

@@ -77,20 +77,26 @@ export const FreeResourcesCTA = ({ variant = 'banner', className = '' }: FreeRes
 
   // Banner variant (default)
   return (
-    <motion.div
-      className={`relative overflow-hidden ${className}`}
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <Link to="/library" className="block group">
-        <div className="relative bg-gradient-to-r from-amber-500/10 via-orange-500/5 to-amber-500/10 py-3 px-4">
+    <Link to="/library" className={`block group ${className}`}>
+      <motion.div
+        className="relative overflow-hidden cursor-pointer"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        whileHover={{ scale: 1.01 }}
+      >
+        <motion.div 
+          className="relative bg-gradient-to-r from-amber-500/10 via-orange-500/5 to-amber-500/10 py-3 px-4 transition-all duration-300 group-hover:from-amber-500/20 group-hover:via-orange-500/10 group-hover:to-amber-500/20"
+        >
           {/* Animated background pulse */}
           <motion.div
             className="absolute inset-0 bg-gradient-to-r from-amber-500/0 via-amber-500/10 to-amber-500/0"
             animate={{ x: ['-100%', '100%'] }}
             transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
           />
+          
+          {/* Hover glow effect */}
+          <div className="absolute inset-0 bg-amber-500/0 group-hover:bg-amber-500/5 transition-colors duration-300" />
           
           <div className="relative z-10 max-w-7xl mx-auto flex items-center justify-center gap-3 flex-wrap">
             <motion.div
@@ -100,32 +106,30 @@ export const FreeResourcesCTA = ({ variant = 'banner', className = '' }: FreeRes
             >
               <div className="relative">
                 <motion.div
-                  className="absolute inset-0 bg-amber-500 rounded-full blur-md opacity-50"
+                  className="absolute inset-0 bg-amber-500 rounded-full blur-md opacity-50 group-hover:opacity-80 transition-opacity"
                   animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.6, 0.3] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
                 />
-                <Gift size={20} className="text-amber-500 relative z-10" />
+                <Gift size={20} className="text-amber-500 relative z-10 group-hover:scale-110 transition-transform" />
               </div>
-              <span className="text-amber-500 font-bold text-sm sm:text-base">FREE COURSES & EBOOKS</span>
+              <span className="text-amber-500 font-bold text-sm sm:text-base group-hover:text-amber-400 transition-colors">FREE COURSES & EBOOKS</span>
             </motion.div>
             
-            <span className="text-muted-foreground text-xs sm:text-sm hidden sm:inline">
+            <span className="text-muted-foreground text-xs sm:text-sm hidden sm:inline group-hover:text-foreground/70 transition-colors">
               Start learning with no cost resources
             </span>
             
             <motion.div 
-              className="flex items-center gap-1 bg-amber-500 hover:bg-amber-400 text-background font-bold text-xs sm:text-sm px-3 py-1.5 rounded-full transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="flex items-center gap-1 bg-amber-500 text-background font-bold text-xs sm:text-sm px-3 py-1.5 rounded-full transition-all group-hover:bg-amber-400 group-hover:shadow-lg group-hover:shadow-amber-500/30"
             >
               <Sparkles size={14} />
               <span>Get Free Access</span>
               <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </motion.div>
           </div>
-        </div>
-      </Link>
-    </motion.div>
+        </motion.div>
+      </motion.div>
+    </Link>
   );
 };
 

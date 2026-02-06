@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ReviewsGallery } from '@/components/ReviewsGallery';
+import { ReviewsBackgroundCarousel } from '@/components/ReviewsBackgroundCarousel';
 import { LazyCalendly } from '@/components/LazyCalendly';
 import { MainHeader } from '@/components/MainHeader';
 import { MainFooter } from '@/components/MainFooter';
@@ -113,9 +113,9 @@ const Index = () => {
           <p className="text-sm text-muted-foreground mb-4">See what our community has achieved</p>
         </section>
 
-        {/* Reviews Gallery - Already compact with show more */}
+        {/* Reviews Carousel */}
         <div className="mb-8 px-4">
-          <ReviewsGallery />
+          <ReviewsBackgroundCarousel />
         </div>
 
         {/* Calendly Widget - Reduced height on mobile */}

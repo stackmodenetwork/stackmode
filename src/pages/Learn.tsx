@@ -3,10 +3,10 @@ import { Helmet } from 'react-helmet-async';
 import { MainHeader } from '@/components/MainHeader';
 import { MainFooter } from '@/components/MainFooter';
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
-import { BookOpen, Terminal, ArrowRight, Gift, Play, Download, Check, Star, Zap, Users, ArrowLeft } from 'lucide-react';
+import { BookOpen, Terminal, ArrowRight, Gift, Play, Download, Check, Zap, Users, ArrowLeft } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { ScrollReveal } from '@/components/ScrollReveal';
-import { ReviewsGallery } from '@/components/ReviewsGallery';
+import { ReviewsBackgroundCarousel } from '@/components/ReviewsBackgroundCarousel';
 import { UniversalPageBottom } from '@/components/UniversalPageBottom';
 
 const freeResource = {
@@ -248,18 +248,13 @@ const Learn = () => {
 
       {/* Reviews */}
       <section className="py-16 px-4">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <ScrollReveal>
-            <div className="text-center mb-8">
-              <div className="flex items-center justify-center gap-1 mb-2">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <Star key={i} size={16} className="text-amber-400 fill-amber-400" />
-                ))}
-              </div>
+            <div className="text-center mb-6">
               <h2 className="text-2xl font-bold text-foreground">What Students Say</h2>
             </div>
           </ScrollReveal>
-          <ReviewsGallery />
+          <ReviewsBackgroundCarousel />
         </div>
       </section>
 
