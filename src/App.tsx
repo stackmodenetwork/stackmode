@@ -9,11 +9,11 @@ import { useEffect, useState, useCallback, memo, lazy, Suspense } from "react";
 
 // Lazy load pages for better initial load performance
 const Home = lazy(() => import("./pages/Home"));
+const Coding = lazy(() => import("./pages/Coding"));
 const Trading = lazy(() => import("./pages/Trading"));
 const Business = lazy(() => import("./pages/Business"));
 const Library = lazy(() => import("./pages/Learn"));
 const About = lazy(() => import("./pages/About"));
-const BuildYourWebsite = lazy(() => import("./pages/BuildYourWebsite"));
 const DMCAPolicy = lazy(() => import("./pages/DMCAPolicy"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
@@ -69,11 +69,11 @@ const AnimatedRoutes = memo(() => {
       <Suspense fallback={<PageLoader />}>
         <Routes location={currentLocation}>
           <Route path="/" element={<Home />} />
+          <Route path="/coding" element={<Coding />} />
           <Route path="/trading" element={<Trading />} />
           <Route path="/business" element={<Business />} />
           <Route path="/library" element={<Library />} />
           <Route path="/about" element={<About />} />
-          <Route path="/buildyourwebsite" element={<BuildYourWebsite />} />
           <Route path="/dmca" element={<DMCAPolicy />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsAndConditions />} />
