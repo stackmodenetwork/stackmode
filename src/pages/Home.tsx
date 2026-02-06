@@ -79,7 +79,7 @@ const Home = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-sm sm:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-2"
+            className="text-xs sm:text-lg text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-4"
           >
             Learn to market your business with ads, master investing, and build with AI.
             <span className="text-foreground font-medium"> Everything for $50/month.</span>
