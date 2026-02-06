@@ -22,8 +22,8 @@ export const MainFooter = () => {
             Library
           </Link>
           <span className="text-border/50 hidden sm:inline">•</span>
-          <Link to="/trading" className="text-muted-foreground hover:text-foreground transition-colors">
-            Trading
+          <Link to="/investing" className="text-muted-foreground hover:text-foreground transition-colors">
+            Investing
           </Link>
         </div>
         

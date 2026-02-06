@@ -14,7 +14,7 @@ const navItems: NavItem[] = [
   { path: '/', label: 'Home', icon: Home },
   { path: '/coding', label: 'Coding', icon: Terminal },
   { path: '/business', label: 'Services', icon: Globe },
-  { path: '/trading', label: 'Trading', icon: DollarSign },
+  { path: '/investing', label: 'Investing', icon: DollarSign },
   { path: '/library', label: 'Library', icon: BookOpen },
 ];
 

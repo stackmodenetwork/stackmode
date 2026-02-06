@@ -96,7 +96,7 @@ const Index = () => {
                   <Gift size={18} className="text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-foreground">Free Trading Resources</h3>
+                  <h3 className="text-sm font-bold text-foreground">Free Investing Resources</h3>
                   <p className="text-xs text-muted-foreground">Guides, eBooks & video lessons</p>
                 </div>
               </div>
@@ -108,7 +108,7 @@ const Index = () => {
         {/* SOCIAL PROOF - Compact */}
         <section id="results" className="mb-6 text-center max-w-4xl mx-auto px-4">
           <h2 className="text-xl sm:text-2xl font-semibold text-foreground mb-2">
-            Proven Results from <span className="text-primary">Real Traders</span>
+            Proven Results from <span className="text-primary">Real Investors</span>
           </h2>
           <p className="text-sm text-muted-foreground mb-4">See what our community has achieved</p>
         </section>
@@ -167,13 +167,13 @@ const Index = () => {
                   What happens on the free strategy call?
                 </AccordionTrigger>
                 <AccordionContent className="text-sm text-muted-foreground pb-3">
-                  We review your trading situation, identify what's holding you back, and create a personalized roadmap. No pressure, no sales pitch.
+                  We review your investing situation, identify what's holding you back, and create a personalized roadmap. No pressure, no sales pitch.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-2" className="bg-card/50 border border-primary/20 rounded-lg px-3 overflow-hidden">
                 <AccordionTrigger className="text-left text-sm text-foreground hover:text-primary hover:no-underline py-3">
-                  Do I need trading experience?
+                  Do I need investing experience?
                 </AccordionTrigger>
                 <AccordionContent className="text-sm text-muted-foreground pb-3">
                   Not at all! The mentorship is tailored to YOUR level, from complete beginner to advanced.
@@ -185,7 +185,7 @@ const Index = () => {
                   Mentorship vs Stackmode Academy?
                 </AccordionTrigger>
                 <AccordionContent className="text-sm text-muted-foreground pb-3">
-                  <strong className="text-foreground">Academy ($50/mo):</strong> Real-time trades, AI tools, courses. <strong className="text-foreground">Mentorship:</strong> Deep 1-on-1 coaching to become independent.
+                  <strong className="text-foreground">Academy ($50/mo):</strong> Real-time positions, AI tools, courses. <strong className="text-foreground">Mentorship:</strong> Deep 1-on-1 coaching to become independent.
                 </AccordionContent>
               </AccordionItem>
 
@@ -226,7 +226,7 @@ const Index = () => {
                       About Stackmodechris
                     </h3>
                   </Link>
-                  <p className="text-xs text-primary font-medium mb-1">Trading Mentor & Founder</p>
+                  <p className="text-xs text-primary font-medium mb-1">Investing Mentor & Founder</p>
                   <p className="text-xs text-muted-foreground mb-2 line-clamp-2">
                     Helping everyday people achieve financial freedom through stocks, options, futures, forex, and crypto.
                   </p>

@@ -9,7 +9,7 @@ import { TrustpilotWidget } from '@/components/TrustpilotWidget';
 import { OptimizedImage } from '@/components/OptimizedImage';
 import { ReviewsBackgroundCarousel } from '@/components/ReviewsBackgroundCarousel';
 import { UniversalPageBottom } from '@/components/UniversalPageBottom';
-import { StackFinderPromo } from '@/components/StackFinderPromo';
+import { EmployeeVsStackmodeComparison } from '@/components/EmployeeVsStackmodeComparison';
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
 import { SoftwareProofSection } from '@/components/SoftwareProofSection';
 import { motion } from 'framer-motion';
@@ -72,7 +72,7 @@ const Home = () => {
             transition={{ delay: 0.1 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-[1.05] tracking-tight"
           >
-            Code. <span className="text-cyan-400">Build.</span> <span className="text-emerald-400">Trade.</span>
+            Code. <span className="text-cyan-400">Build.</span> <span className="text-emerald-400">Invest.</span>
           </motion.h1>
 
           <motion.p
@@ -81,7 +81,7 @@ const Home = () => {
             transition={{ delay: 0.2 }}
             className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed"
           >
-            Learn to market your business with ads, master trading, and build with AI.
+            Learn to market your business with ads, master investing, and build with AI.
             <span className="text-foreground font-medium"> Everything for $50/month.</span>
           </motion.p>
 
@@ -114,6 +114,9 @@ const Home = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* ==================== EMPLOYEE VS STACKMODE COMPARISON ==================== */}
+      <EmployeeVsStackmodeComparison />
 
       {/* ==================== CODING SECTION ==================== */}
       <section className="py-16 px-4 relative">
@@ -291,7 +294,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ==================== TRADING SECTION ==================== */}
+      {/* ==================== INVESTING SECTION ==================== */}
       <section className="py-16 px-4 relative">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
@@ -306,25 +309,29 @@ const Home = () => {
                 transition={{ duration: 3, repeat: Infinity, delay: 1 }}
               >
                 <TrendingUp size={16} className="text-emerald-400" />
-                <span className="text-emerald-400 text-sm font-bold">TRADING EDUCATION</span>
+                <span className="text-emerald-400 text-sm font-bold">INVESTING EDUCATION</span>
               </motion.div>
 
               <div className="relative z-10 grid lg:grid-cols-2 gap-8 items-center">
                 <div>
                   <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-                    Master the <span className="text-emerald-400">Markets</span>
+                    Smart <span className="text-emerald-400">Swing Investing</span>
                   </h2>
-                  <p className="text-muted-foreground mb-6 text-lg">
-                    Swing trading, options, crypto — learn battle-tested strategies with AI-powered tools like the StackFinder.
+                  <p className="text-muted-foreground mb-4 text-lg">
+                    We don't teach day trading. We focus on high-quality swing positions that let you 
+                    build wealth without staring at screens all day.
+                  </p>
+                  <p className="text-sm text-emerald-400/80 mb-6 border-l-2 border-emerald-500/40 pl-4">
+                    "Position for days to weeks, not minutes. Less stress, more profits."
                   </p>
 
                   {/* Features */}
                   <div className="space-y-3 mb-6">
                     {[
-                      'AI StackFinder Tool for Smart Entries',
-                      'Live Volume Scanner & Alerts',
-                      'Weekly Live Trading Calls',
-                      'Stocks, Options, Futures & Crypto'
+                      'AI StackFinder for High-Probability Entries',
+                      'Swing Positions (Days to Weeks)',
+                      'Weekly Live Investing Calls',
+                      'Stocks, Options & Crypto'
                     ].map((feature, i) => (
                       <motion.div 
                         key={feature}
@@ -343,27 +350,27 @@ const Home = () => {
                   </div>
 
                   <Link
-                    to="/trading"
+                    to="/investing"
                     className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-background font-bold px-6 py-3 rounded-xl transition-all"
                   >
                     <BarChart3 size={18} />
-                    <span>Explore Trading</span>
+                    <span>Explore Investing</span>
                     <ArrowRight size={18} />
                   </Link>
                 </div>
 
-                {/* Trading Visual */}
+                {/* Investing Visual - Simplified */}
                 <div className="relative">
                   <div className="bg-background/60 border border-emerald-500/20 rounded-xl p-6">
                     <div className="flex items-center justify-between mb-4">
-                      <span className="text-sm text-muted-foreground">StackFinder Results</span>
-                      <span className="text-xs bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded-full">LIVE</span>
+                      <span className="text-sm text-muted-foreground">Recent Swing Wins</span>
+                      <span className="text-xs bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded-full">SWING</span>
                     </div>
                     <div className="space-y-3">
                       {[
-                        { symbol: 'NVDA', gain: '+127%', time: '3 days' },
-                        { symbol: 'TSLA', gain: '+89%', time: '5 days' },
-                        { symbol: 'SPY', gain: '+45%', time: '2 days' },
+                        { symbol: 'NVDA', gain: '+127%', time: '12 days' },
+                        { symbol: 'TSLA', gain: '+89%', time: '8 days' },
+                        { symbol: 'SPY', gain: '+45%', time: '5 days' },
                       ].map((trade, i) => (
                         <motion.div
                           key={trade.symbol}
@@ -390,14 +397,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ==================== STACKFINDER PROMO ==================== */}
-      <section className="py-8 px-4">
-        <div className="max-w-5xl mx-auto">
-          <ScrollReveal>
-            <StackFinderPromo variant="home" />
-          </ScrollReveal>
-        </div>
-      </section>
 
       {/* ==================== LIBRARY SECTION ==================== */}
       <section className="py-16 px-4 relative">
@@ -422,12 +421,12 @@ const Home = () => {
                   Free Resources to <span className="text-orange-400">Get Started</span>
                 </h2>
                 <p className="text-muted-foreground mb-6 text-lg">
-                  Access free trading strategies, business guides, books, and educational content. No signup required.
+                  Access free investing strategies, business guides, books, and educational content. No signup required.
                 </p>
 
                 {/* Resource Types */}
                 <div className="flex flex-wrap justify-center gap-3 mb-6">
-                  {['Trading Guides', 'Business Templates', 'Free Books', 'Video Tutorials', 'Cheat Sheets'].map((resource) => (
+                  {['Investing Guides', 'Business Templates', 'Free Books', 'Video Tutorials', 'Cheat Sheets'].map((resource) => (
                     <span key={resource} className="bg-orange-500/10 border border-orange-500/20 text-orange-400 text-sm px-3 py-1.5 rounded-full">
                       {resource}
                     </span>
@@ -475,14 +474,14 @@ const Home = () => {
                     Everything for <span className="text-cyan-400">$50/month</span>
                   </h2>
                   <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-                    Coding school. Business training. Trading tools. AI resources. Live coaching. Community access. All in one membership.
+                    Coding school. Business training. Investing tools. AI resources. Live coaching. Community access. All in one membership.
                   </p>
 
                   <div className="grid sm:grid-cols-4 gap-4 mb-8">
                     {[
                       { icon: Terminal, label: 'Coding', desc: 'Full curriculum' },
                       { icon: Globe, label: 'Business', desc: 'AI models' },
-                      { icon: BarChart3, label: 'Trading', desc: 'Tools & signals' },
+                      { icon: BarChart3, label: 'Investing', desc: 'Tools & signals' },
                       { icon: Users, label: 'Community', desc: 'Live support' },
                     ].map((item) => (
                       <div key={item.label} className="bg-background/50 border border-border/50 rounded-xl p-4 text-center">

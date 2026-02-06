@@ -67,7 +67,7 @@ export const MainHeader = memo(() => {
   const isCodingActive = location.pathname === '/coding';
   const isBusinessActive = location.pathname === '/business';
   const isLibraryActive = location.pathname === '/library';
-  const isTradingActive = location.pathname === '/trading';
+  const isInvestingActive = location.pathname === '/investing';
 
   return (
     <>
@@ -91,8 +91,8 @@ export const MainHeader = memo(() => {
               <NavLink to="/business" isActive={isBusinessActive} icon={Globe}>
                 Business
               </NavLink>
-              <NavLink to="/trading" isActive={isTradingActive} icon={TrendingUp}>
-                Trading
+              <NavLink to="/investing" isActive={isInvestingActive} icon={TrendingUp}>
+                Investing
               </NavLink>
               <NavLink to="/library" isActive={isLibraryActive} icon={BookOpen}>
                 Library
@@ -157,14 +157,14 @@ export const MainHeader = memo(() => {
                 Business Services
               </Link>
               <Link
-                to="/trading"
+                to="/investing"
                 onClick={closeMenu}
                 className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors ${
-                  isTradingActive ? 'text-emerald-400 bg-emerald-500/10' : 'text-foreground hover:bg-card/50'
+                  isInvestingActive ? 'text-emerald-400 bg-emerald-500/10' : 'text-foreground hover:bg-card/50'
                 }`}
               >
                 <TrendingUp size={18} className="text-emerald-400" />
-                Trading
+                Investing
               </Link>
               <Link
                 to="/library"

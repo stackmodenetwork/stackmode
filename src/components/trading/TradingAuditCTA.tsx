@@ -36,7 +36,7 @@ export const TradingAuditCTA = () => {
           once: true
         }}>
             <Calendar size={16} className="text-emerald-400" />
-            <span className="text-emerald-400 text-sm font-bold tracking-wide">FREE 1-ON-1 TRADING CALL</span>
+            <span className="text-emerald-400 text-sm font-bold tracking-wide">FREE 1-ON-1 INVESTING CALL</span>
           </motion.div>
         </div>
 
@@ -68,7 +68,7 @@ export const TradingAuditCTA = () => {
       }} transition={{
         delay: 0.15
       }}>
-          Most traders are <span className="text-foreground font-medium">one or two bad habits</span> away from profitability. 
+          Most investors are <span className="text-foreground font-medium">one or two bad habits</span> away from profitability. 
           You don't need another "magic indicator"—you need a <span className="text-primary font-semibold">second set of eyes</span> on your execution.
         </motion.p>
 
@@ -82,7 +82,7 @@ export const TradingAuditCTA = () => {
             <div className="relative z-10">
               {/* What we cover */}
               <div className="mb-6">
-                <p className="text-sm text-emerald-400 font-semibold mb-4 uppercase tracking-wide">In Your Free Trading Audit, We'll:</p>
+                <p className="text-sm text-emerald-400 font-semibold mb-4 uppercase tracking-wide">In Your Free Investing Audit, We'll:</p>
                 <div className="grid sm:grid-cols-3 gap-4">
                   {auditPoints.map((point, i) => <motion.div key={i} className="flex items-start gap-3 bg-background/50 border border-emerald-500/20 rounded-xl p-4" initial={{
                   opacity: 0,
@@ -112,7 +112,7 @@ export const TradingAuditCTA = () => {
                   </div>
                   <div>
                     <p className="text-sm text-amber-400 font-semibold">Limited Spots</p>
-                    <p className="text-xs text-muted-foreground">This Is For Serious Traders Only</p>
+                    <p className="text-xs text-muted-foreground">This Is For Serious Investors Only</p>
                   </div>
                 </div>
 
@@ -140,7 +140,7 @@ export const TradingAuditCTA = () => {
 
               {/* Trust line */}
               <p className="text-center text-xs text-muted-foreground mt-5">
-                No sales pitch. No fluff. Just raw feedback on your trading game.
+                No sales pitch. No fluff. Just raw feedback on your investing game.
               </p>
             </div>
           </div>
