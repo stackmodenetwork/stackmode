@@ -130,7 +130,7 @@ const Home = () => {
 
              <a href="https://calendly.com/stackmodechris/architecture" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-background font-bold text-xs sm:text-lg px-4 sm:px-10 py-2.5 sm:py-4 rounded-xl transition-all shadow-lg shadow-emerald-500/20 hover:shadow-emerald-400/30 hover:scale-[1.02] max-w-[280px] sm:max-w-none mx-auto w-full sm:w-auto">
                <Calendar size={18} className="sm:w-[22px] sm:h-[22px] flex-shrink-0" />
-               <span>Free Architect Your Life Call</span>
+               <span>Start Stacking Wins — Free Call</span>
                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
              </a>
           </motion.div>
