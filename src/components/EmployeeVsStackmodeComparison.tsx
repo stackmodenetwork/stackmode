@@ -63,7 +63,7 @@ export const EmployeeVsStackmodeComparison = () => {
               BUILDING WEALTH
             </div>
             
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-3 mb-4 pr-24">
               <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center">
                 <TrendingUp size={20} className="text-emerald-400" />
               </div>
