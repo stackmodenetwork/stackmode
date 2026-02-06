@@ -62,9 +62,12 @@ export const StackmodePerformanceChart = () => {
     setCursorPosition(null);
   };
 
+  // Chart dimensions for viewBox (use wider ratio to avoid distortion)
+  const chartWidth = 400;
+
   // Generate smooth SVG path from data using cubic bezier curves
   const generatePath = (data: number[]) => {
-    const segmentWidth = 100 / (data.length - 1);
+    const segmentWidth = chartWidth / (data.length - 1);
     const points = data.map((val, i) => ({
       x: i * segmentWidth,
       y: chartHeight - (val / maxValue) * chartHeight,
@@ -79,7 +82,6 @@ export const StackmodePerformanceChart = () => {
       const next = points[i + 1];
       const tension = 0.3;
       
-      // Calculate control points for smooth curve
       const prevPoint = i > 0 ? points[i - 1] : current;
       const nextNext = i < points.length - 2 ? points[i + 2] : next;
       
@@ -97,8 +99,7 @@ export const StackmodePerformanceChart = () => {
   // Generate area path (smooth line + close to bottom)
   const generateAreaPath = (data: number[]) => {
     const linePath = generatePath(data);
-    const segmentWidth = 100 / (data.length - 1);
-    const lastX = (data.length - 1) * segmentWidth;
+    const lastX = (data.length - 1) * (chartWidth / (data.length - 1));
     return `${linePath} L ${lastX} ${chartHeight} L 0 ${chartHeight} Z`;
   };
 
@@ -221,7 +222,7 @@ export const StackmodePerformanceChart = () => {
           {/* Chart SVG */}
           <svg 
             className="absolute left-8 sm:left-10 right-2 sm:right-4 top-6 bottom-8" 
-            viewBox={`0 0 100 ${chartHeight}`} 
+            viewBox={`0 0 ${chartWidth} ${chartHeight}`} 
             preserveAspectRatio="none"
           >
             {/* Gradients */}
@@ -249,7 +250,9 @@ export const StackmodePerformanceChart = () => {
               fill="none"
               stroke="rgba(239, 68, 68, 0.7)"
               strokeWidth="2"
+              vectorEffect="non-scaling-stroke"
               strokeLinecap="round"
+              strokeLinejoin="round"
               initial={{ pathLength: 0 }}
               animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
               transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
@@ -268,24 +271,27 @@ export const StackmodePerformanceChart = () => {
               fill="none"
               stroke="hsl(var(--primary))"
               strokeWidth="3"
+              vectorEffect="non-scaling-stroke"
               strokeLinecap="round"
+              strokeLinejoin="round"
               initial={{ pathLength: 0 }}
               animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
               transition={{ duration: 1.5, ease: "easeOut" }}
             />
 
-            {/* Data point dots - reduced for performance */}
+            {/* Data point dots */}
             {stackmodeData.filter((_, i) => i === 0 || i === stackmodeData.length - 1).map((val, idx) => {
               const i = idx === 0 ? 0 : stackmodeData.length - 1;
-              const x = (i / (dataPoints - 1)) * 100;
+              const x = (i / (dataPoints - 1)) * chartWidth;
               const y = chartHeight - (val / maxValue) * chartHeight;
               return (
                 <motion.circle
                   key={`stackmode-${i}`}
                   cx={x}
                   cy={y}
-                  r="4"
+                  r="5"
                   fill="hsl(var(--primary))"
+                  vectorEffect="non-scaling-stroke"
                   initial={{ scale: 0 }}
                   animate={isInView ? { scale: 1 } : { scale: 0 }}
                   transition={{ delay: 0.3 + idx * 0.5 }}
@@ -294,15 +300,16 @@ export const StackmodePerformanceChart = () => {
             })}
             {sp500Data.filter((_, i) => i === 0 || i === sp500Data.length - 1).map((val, idx) => {
               const i = idx === 0 ? 0 : sp500Data.length - 1;
-              const x = (i / (dataPoints - 1)) * 100;
+              const x = (i / (dataPoints - 1)) * chartWidth;
               const y = chartHeight - (val / maxValue) * chartHeight;
               return (
                 <motion.circle
                   key={`sp500-${i}`}
                   cx={x}
                   cy={y}
-                  r="3"
+                  r="4"
                   fill="rgb(239, 68, 68)"
+                  vectorEffect="non-scaling-stroke"
                   initial={{ scale: 0 }}
                   animate={isInView ? { scale: 1 } : { scale: 0 }}
                   transition={{ delay: 0.4 + idx * 0.5 }}
