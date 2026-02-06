@@ -11,6 +11,7 @@ import { ReviewsBackgroundCarousel } from '@/components/ReviewsBackgroundCarouse
 import { UniversalPageBottom } from '@/components/UniversalPageBottom';
 import { StackFinderPromo } from '@/components/StackFinderPromo';
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
+import { SoftwareProofSection } from '@/components/SoftwareProofSection';
 import { motion } from 'framer-motion';
 
 const techStack = [
@@ -203,6 +204,9 @@ const Home = () => {
           </ScrollReveal>
         </div>
       </section>
+
+      {/* ==================== SOFTWARE PROOF SECTION ==================== */}
+      <SoftwareProofSection variant="home" />
 
       {/* ==================== BUSINESS SERVICES SECTION ==================== */}
       <section className="py-16 px-4 relative">

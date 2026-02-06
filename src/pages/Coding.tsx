@@ -8,6 +8,7 @@ import { ScrollReveal } from '@/components/ScrollReveal';
 import { UniversalPageBottom } from '@/components/UniversalPageBottom';
 import { StackFinderPromo } from '@/components/StackFinderPromo';
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
+import { SoftwareProofSection } from '@/components/SoftwareProofSection';
 
 const techStack = [
   { name: 'Python', icon: '🐍' },
@@ -155,6 +156,9 @@ const Coding = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Software Proof Section */}
+      <SoftwareProofSection variant="coding" />
 
       {/* Anti-Guru Section */}
       <section className="py-16 px-4 border-t border-border/30">
