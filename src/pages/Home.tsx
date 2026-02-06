@@ -70,21 +70,7 @@ const Home = () => {
       <section className="relative min-h-[50vh] sm:min-h-[70vh] flex items-center justify-center px-5 sm:px-4 pt-6 sm:pt-10 pb-4 sm:pb-6">
         <div className="relative z-10 max-w-5xl mx-auto text-center">
           {/* Badge */}
-          <motion.div initial={{
-          opacity: 0,
-          y: 20
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full px-4 py-2 mb-4">
-            <motion.div className="w-2 h-2 bg-cyan-400 rounded-full" animate={{
-            scale: [1, 1.2, 1]
-          }} transition={{
-            duration: 2,
-            repeat: Infinity
-          }} />
-            <span className="text-cyan-400 text-sm font-mono font-semibold tracking-wide">STACKMODE ACADEMY</span>
-          </motion.div>
+          
 
           {/* Main Headline */}
           <motion.h1 initial={{
@@ -149,7 +135,12 @@ const Home = () => {
           <div className="flex items-center justify-center gap-3 mt-3">
             <span className="text-cyan-400/80 text-xs font-mono">24/7 Support</span>
             <span className="text-cyan-400/50">•</span>
-            <motion.span className="text-emerald-400 text-xs font-mono font-bold flex items-center gap-1.5" animate={{ opacity: [1, 0.6, 1] }} transition={{ duration: 1.5, repeat: Infinity }}>
+            <motion.span className="text-emerald-400 text-xs font-mono font-bold flex items-center gap-1.5" animate={{
+            opacity: [1, 0.6, 1]
+          }} transition={{
+            duration: 1.5,
+            repeat: Infinity
+          }}>
               <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full inline-block" />
               Clients In Training
             </motion.span>
