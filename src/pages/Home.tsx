@@ -88,7 +88,7 @@ const Home = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
           >
             <a
-              href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/"
+              href="https://whop.com/stackmode-academy/educationalservice/"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center justify-center gap-3 bg-cyan-500 hover:bg-cyan-400 text-background font-bold text-lg px-10 py-5 rounded-xl transition-all shadow-lg shadow-cyan-500/20 hover:shadow-cyan-400/30 hover:scale-[1.02]"
@@ -436,7 +436,7 @@ const Home = () => {
         <div className="max-w-4xl mx-auto">
           <ScrollReveal>
             <a
-              href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/"
+              href="https://whop.com/stackmode-academy/educationalservice/"
               target="_blank"
               rel="noopener noreferrer"
               className="group block"

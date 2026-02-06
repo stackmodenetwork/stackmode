@@ -10,7 +10,7 @@ export const StackFinderPromo = ({ variant = 'home' }: StackFinderPromoProps) =>
   
   return (
     <a 
-      href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/"
+      href="https://whop.com/stackmode-academy/educationalservice/"
       target="_blank"
       rel="noopener noreferrer"
       className="block group"
@@ -77,7 +77,7 @@ export const StackFinderPromo = ({ variant = 'home' }: StackFinderPromoProps) =>
             
             <div className="flex items-center gap-2 text-xs">
               <span className="text-muted-foreground line-through">$200/mo</span>
-              <span className={`${isTrading ? 'text-primary' : 'text-cyan-400'} font-bold`}>FREE with Network</span>
+              <span className={`${isTrading ? 'text-primary' : 'text-cyan-400'} font-bold`}>FREE with Academy</span>
             </div>
           </div>
         </div>

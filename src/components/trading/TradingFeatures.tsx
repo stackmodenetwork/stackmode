@@ -46,7 +46,7 @@ export const TradingFeatures = () => {
       <div className="max-w-5xl mx-auto">
         {/* Clickable Card linking to Whop */}
         <a
-          href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/"
+          href="https://whop.com/stackmode-academy/educationalservice/"
           target="_blank"
           rel="noopener noreferrer"
           className="block group"

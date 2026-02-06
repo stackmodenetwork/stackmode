@@ -75,7 +75,7 @@ const Learn = () => {
         <div className="max-w-4xl mx-auto">
           <ScrollReveal>
             <a
-              href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/"
+              href="https://whop.com/stackmode-academy/educationalservice/"
               target="_blank"
               rel="noopener noreferrer"
               className="group block bg-card/50 border-2 border-cyan-500/30 rounded-2xl p-8 hover:border-cyan-400 transition-all"

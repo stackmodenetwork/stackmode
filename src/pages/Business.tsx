@@ -119,7 +119,7 @@ const Business = () => {
             <ScrollReveal delay={0.2}>
               <div className="bg-gradient-to-br from-cyan-500/10 to-transparent border-2 border-cyan-500/30 rounded-2xl p-8 h-full">
                 <div className="bg-cyan-500/20 border border-cyan-500/40 rounded-full px-3 py-1 text-xs font-bold text-cyan-400 inline-block mb-4">
-                  JOIN THE NETWORK
+                  JOIN THE ACADEMY
                 </div>
                 
                 <div className="w-14 h-14 bg-cyan-500/20 border border-cyan-500/50 rounded-xl flex items-center justify-center mb-6">
@@ -153,7 +153,7 @@ const Business = () => {
                 </div>
 
                 <a
-                  href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/"
+                  href="https://whop.com/stackmode-academy/educationalservice/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group inline-flex items-center justify-center gap-3 w-full bg-cyan-500 hover:bg-cyan-400 text-background font-bold text-lg px-6 py-4 rounded-lg transition-all"
@@ -236,13 +236,13 @@ const Business = () => {
                 <span>Free Consultation</span>
               </a>
               <a
-                href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/"
+                href="https://whop.com/stackmode-academy/educationalservice/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold px-8 py-4 rounded-lg transition-all"
               >
                 <Users size={20} />
-                <span>Join The Network</span>
+                <span>Join The Academy</span>
               </a>
             </div>
           </ScrollReveal>
