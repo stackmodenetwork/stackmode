@@ -150,10 +150,10 @@ const About = () => {
                     </a>
                   </Button>
                   <Button asChild className="gap-2 bg-accent hover:bg-accent/90">
-                    <a target="_blank" rel="noopener noreferrer" href="https://calendly.com/stackmodechris/architecture">
+                    <Link to="/business">
                       <Briefcase size={18} />
                       Grow Your Business
-                    </a>
+                    </Link>
                   </Button>
                   <Button asChild className="gap-2 bg-purple-500 hover:bg-purple-500/90 text-white">
                     <Link to="/buildyourwebsite">
