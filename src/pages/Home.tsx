@@ -49,13 +49,13 @@ const Home = () => {
       </div>
 
       {/* ==================== HERO SECTION ==================== */}
-      <section className="relative min-h-[60vh] sm:min-h-[80vh] flex items-center justify-center px-5 sm:px-4 pt-8 sm:pt-12 pb-6 sm:pb-8">
+      <section className="relative min-h-[50vh] sm:min-h-[70vh] flex items-center justify-center px-5 sm:px-4 pt-6 sm:pt-10 pb-4 sm:pb-6">
         <div className="relative z-10 max-w-5xl mx-auto text-center">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full px-4 py-2 mb-6"
+            className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full px-4 py-2 mb-4"
           >
             <motion.div 
               className="w-2 h-2 bg-cyan-400 rounded-full"
@@ -70,7 +70,7 @@ const Home = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-5 sm:mb-6 leading-[1.05] tracking-tight"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 leading-[1.05] tracking-tight"
           >
             Code. <span className="text-cyan-400">Build.</span> <span className="text-emerald-400">Invest.</span>
           </motion.h1>
@@ -79,11 +79,18 @@ const Home = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xs sm:text-lg text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-4 flex flex-col items-center gap-1"
+            className="text-xs sm:text-base text-muted-foreground mb-5 sm:mb-6 max-w-2xl mx-auto leading-relaxed px-2"
           >
-            <span>Learn to market your business with ads,</span>
-            <span>master investing, and build with AI.</span>
-            <span className="text-foreground font-medium">Everything for $50/month.</span>
+            <span className="block mb-1">
+              Learn how to use <span className="text-foreground font-medium">AI to code and build software</span>,
+            </span>
+            <span className="block mb-1">
+              promote your business with <span className="text-foreground font-medium">content monetization</span>,
+            </span>
+            <span className="block">
+              then invest that income into <span className="text-emerald-400 font-medium">stocks, crypto & real estate</span>.
+            </span>
+            <span className="block mt-2 text-foreground font-semibold text-sm sm:text-lg">All for $50/month.</span>
           </motion.div>
 
           {/* Primary CTA */}
@@ -91,7 +98,7 @@ const Home = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
+            className="flex flex-col sm:flex-row gap-3 justify-center mb-5"
           >
             <a
               href="https://whop.com/stackmode-academy/educationalservice/"
@@ -100,12 +107,12 @@ const Home = () => {
               className="group inline-flex items-center justify-center gap-2 sm:gap-3 bg-cyan-500 hover:bg-cyan-400 text-background font-bold text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 rounded-xl transition-all shadow-lg shadow-cyan-500/20 hover:shadow-cyan-400/30 hover:scale-[1.02]"
             >
               <Zap size={22} />
-              <span>Join Stackmode — $50/mo</span>
+              <span>Join The Stackmode Academy — $50/mo</span>
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </a>
           </motion.div>
 
-          {/* Reviews Carousel - Instant Trust */}
+          {/* Reviews Carousel */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -120,36 +127,39 @@ const Home = () => {
       <EmployeeVsStackmodeComparison />
 
       {/* ==================== CODING SECTION ==================== */}
-      <section className="py-8 sm:py-16 px-5 sm:px-4 relative">
+      <section className="py-6 sm:py-10 px-5 sm:px-4 relative">
         <div className="max-w-5xl mx-auto">
+          {/* Section intro */}
           <ScrollReveal>
-            <div className="relative bg-gradient-to-br from-cyan-500/10 via-card/80 to-cyan-400/5 border-2 border-cyan-500/30 rounded-2xl p-5 sm:p-10 overflow-hidden hover:border-cyan-400 hover:shadow-[0_0_60px_rgba(6,182,212,0.2)] transition-all duration-500">
-              {/* Background decoration */}
+            <p className="text-center text-muted-foreground text-sm sm:text-base mb-4 max-w-2xl mx-auto">
+              <span className="text-cyan-400 font-semibold">Build real software with AI</span> — no CS degree needed. Ship SaaS products that generate revenue.
+            </p>
+          </ScrollReveal>
+          <ScrollReveal>
+            <div className="relative bg-gradient-to-br from-cyan-500/10 via-card/80 to-cyan-400/5 border-2 border-cyan-500/30 rounded-2xl p-5 sm:p-8 overflow-hidden hover:border-cyan-400 hover:shadow-[0_0_60px_rgba(6,182,212,0.2)] transition-all duration-500">
               <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl" />
               <div className="absolute -bottom-20 -left-20 w-48 h-48 bg-cyan-400/5 rounded-full blur-2xl" />
               
-              {/* Badge */}
               <motion.div 
-                className="inline-flex items-center gap-2 bg-cyan-500/20 border border-cyan-500/40 rounded-full px-4 py-2 mb-6"
+                className="inline-flex items-center gap-2 bg-cyan-500/20 border border-cyan-500/40 rounded-full px-4 py-1.5 mb-4"
                 animate={{ scale: [1, 1.02, 1] }}
                 transition={{ duration: 3, repeat: Infinity }}
               >
-                <Terminal size={16} className="text-cyan-400" />
-                <span className="text-cyan-400 text-sm font-bold">CODING SCHOOL</span>
+                <Terminal size={14} className="text-cyan-400" />
+                <span className="text-cyan-400 text-xs font-bold">CODING SCHOOL</span>
               </motion.div>
 
-              <div className="relative z-10 grid lg:grid-cols-2 gap-8 items-center">
+              <div className="relative z-10 grid lg:grid-cols-2 gap-6 items-center">
                 <div>
-                  <h2 className="text-2xl sm:text-4xl font-bold text-foreground mb-4">
+                  <h2 className="text-xl sm:text-3xl font-bold text-foreground mb-3">
                     Learn to Build <span className="text-cyan-400">Real Software</span>
                   </h2>
-                  <p className="text-muted-foreground mb-6 text-sm sm:text-lg">
+                  <p className="text-muted-foreground mb-4 text-sm sm:text-base">
                     Stop consuming tutorials. Start building SaaS products with AI-powered tools. 
                     No CS degree required — just the will to create.
                   </p>
 
-                  {/* Features */}
-                  <div className="space-y-3 mb-6">
+                  <div className="space-y-2 mb-4">
                     {[
                       'AI-Powered Development with Cursor & Lovable',
                       'Build Healthcare, B2B, and Consumer SaaS',
@@ -158,30 +168,28 @@ const Home = () => {
                     ].map((feature, i) => (
                       <motion.div 
                         key={feature}
-                        className="flex items-center gap-3"
+                        className="flex items-center gap-2"
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.1 }}
                       >
-                        <div className="w-5 h-5 rounded-full bg-cyan-500/20 flex items-center justify-center flex-shrink-0">
-                          <Check size={12} className="text-cyan-400" />
+                        <div className="w-4 h-4 rounded-full bg-cyan-500/20 flex items-center justify-center flex-shrink-0">
+                          <Check size={10} className="text-cyan-400" />
                         </div>
-                        <span className="text-foreground/90 text-sm">{feature}</span>
+                        <span className="text-foreground/90 text-xs sm:text-sm">{feature}</span>
                       </motion.div>
                     ))}
                   </div>
 
-                  <div className="flex flex-wrap gap-3">
-                    <Link
-                      to="/coding"
-                      className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold px-6 py-3 rounded-xl transition-all"
-                    >
-                      <Rocket size={18} />
-                      <span>Explore Curriculum</span>
-                      <ArrowRight size={18} />
-                    </Link>
-                  </div>
+                  <Link
+                    to="/coding"
+                    className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold px-5 py-2.5 rounded-xl transition-all text-sm"
+                  >
+                    <Rocket size={16} />
+                    <span>Explore Curriculum</span>
+                    <ArrowRight size={16} />
+                  </Link>
                 </div>
 
                 {/* Tech Stack Pills */}
@@ -190,15 +198,15 @@ const Home = () => {
                     {techStack.map((tech, i) => (
                       <motion.div
                         key={tech.name}
-                        className="bg-background/60 border border-cyan-500/20 rounded-lg px-4 py-3 flex items-center gap-2 hover:border-cyan-400/50 transition-colors"
+                        className="bg-background/60 border border-cyan-500/20 rounded-lg px-3 py-2 flex items-center gap-2 hover:border-cyan-400/50 transition-colors"
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.05 }}
                         whileHover={{ scale: 1.02 }}
                       >
-                        <span className="text-lg">{tech.icon}</span>
-                        <span className="text-sm font-medium text-foreground">{tech.name}</span>
+                        <span className="text-base">{tech.icon}</span>
+                        <span className="text-xs font-medium text-foreground">{tech.name}</span>
                       </motion.div>
                     ))}
                   </div>
@@ -213,79 +221,82 @@ const Home = () => {
       <SoftwareProofSection variant="home" />
 
       {/* ==================== BUSINESS SERVICES SECTION ==================== */}
-      <section className="py-8 sm:py-16 px-5 sm:px-4 relative">
+      <section className="py-6 sm:py-10 px-5 sm:px-4 relative">
         <div className="max-w-5xl mx-auto">
+          {/* Section intro */}
           <ScrollReveal>
-            <div className="relative bg-gradient-to-br from-violet-500/10 via-card/80 to-violet-400/5 border-2 border-violet-500/30 rounded-2xl p-5 sm:p-10 overflow-hidden hover:border-violet-400 hover:shadow-[0_0_60px_rgba(139,92,246,0.2)] transition-all duration-500">
-              {/* Background decoration */}
+            <p className="text-center text-muted-foreground text-sm sm:text-base mb-4 max-w-2xl mx-auto">
+              <span className="text-violet-400 font-semibold">Grow and monetize your brand</span> — done-for-you services or learn to do it yourself inside the Academy.
+            </p>
+          </ScrollReveal>
+          <ScrollReveal>
+            <div className="relative bg-gradient-to-br from-violet-500/10 via-card/80 to-violet-400/5 border-2 border-violet-500/30 rounded-2xl p-5 sm:p-8 overflow-hidden hover:border-violet-400 hover:shadow-[0_0_60px_rgba(139,92,246,0.2)] transition-all duration-500">
               <div className="absolute top-0 left-0 w-64 h-64 bg-violet-500/10 rounded-full blur-3xl" />
               
-              {/* Badge */}
               <motion.div 
-                className="inline-flex items-center gap-2 bg-violet-500/20 border border-violet-500/40 rounded-full px-4 py-2 mb-6"
+                className="inline-flex items-center gap-2 bg-violet-500/20 border border-violet-500/40 rounded-full px-4 py-1.5 mb-4"
                 animate={{ scale: [1, 1.02, 1] }}
                 transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
               >
-                <Globe size={16} className="text-violet-400" />
-                <span className="text-violet-400 text-sm font-bold">BUSINESS SERVICES</span>
+                <Globe size={14} className="text-violet-400" />
+                <span className="text-violet-400 text-xs font-bold">BUSINESS SERVICES</span>
               </motion.div>
 
-              <div className="relative z-10 grid lg:grid-cols-2 gap-8 items-center">
+              <div className="relative z-10 grid lg:grid-cols-2 gap-6 items-center">
                 <div>
-                  <h2 className="text-2xl sm:text-4xl font-bold text-foreground mb-4">
+                  <h2 className="text-xl sm:text-3xl font-bold text-foreground mb-3">
                     Scale Your <span className="text-violet-400">Business</span>
                   </h2>
-                  <p className="text-muted-foreground mb-6 text-sm sm:text-lg">
+                  <p className="text-muted-foreground mb-4 text-sm sm:text-base">
                     Whether you need a done-for-you website or want to learn to build yourself — we've got you covered.
                   </p>
 
-                  {/* Two Paths */}
-                  <div className="grid sm:grid-cols-2 gap-4 mb-6">
-                    <div className="bg-background/50 border border-violet-500/20 rounded-xl p-4">
-                      <div className="w-10 h-10 rounded-lg bg-violet-500/20 flex items-center justify-center mb-3">
-                        <Briefcase size={20} className="text-violet-400" />
+                  <div className="grid sm:grid-cols-2 gap-3 mb-4">
+                    <div className="bg-background/50 border border-violet-500/20 rounded-xl p-3">
+                      <div className="w-8 h-8 rounded-lg bg-violet-500/20 flex items-center justify-center mb-2">
+                        <Briefcase size={16} className="text-violet-400" />
                       </div>
-                      <h4 className="font-bold text-foreground mb-1">Done-For-You</h4>
+                      <h4 className="font-bold text-foreground text-sm mb-1">Done-For-You</h4>
                       <p className="text-xs text-muted-foreground">Professional websites, ads, and scaling services</p>
                     </div>
-                    <div className="bg-background/50 border border-violet-500/20 rounded-xl p-4">
-                      <div className="w-10 h-10 rounded-lg bg-violet-500/20 flex items-center justify-center mb-3">
-                        <Brain size={20} className="text-violet-400" />
+                    <div className="bg-background/50 border border-violet-500/20 rounded-xl p-3">
+                      <div className="w-8 h-8 rounded-lg bg-violet-500/20 flex items-center justify-center mb-2">
+                        <Brain size={16} className="text-violet-400" />
                       </div>
-                      <h4 className="font-bold text-foreground mb-1">DIY Training</h4>
+                      <h4 className="font-bold text-foreground text-sm mb-1">DIY Training</h4>
                       <p className="text-xs text-muted-foreground">Learn AI business models inside the network</p>
                     </div>
                   </div>
 
                   <Link
                     to="/business"
-                    className="inline-flex items-center gap-2 bg-violet-500 hover:bg-violet-400 text-background font-bold px-6 py-3 rounded-xl transition-all"
+                    className="inline-flex items-center gap-2 bg-violet-500 hover:bg-violet-400 text-background font-bold px-5 py-2.5 rounded-xl transition-all text-sm"
                   >
-                    <Globe size={18} />
+                    <Globe size={16} />
                     <span>View Services</span>
-                    <ArrowRight size={18} />
+                    <ArrowRight size={16} />
                   </Link>
                 </div>
 
                 {/* Stats */}
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-3">
                   {[
                     { value: '3', label: 'Published Books', icon: BookOpen },
                     { value: '24/7', label: 'Community Access', icon: Users },
                     { value: '48hr', label: 'Avg Delivery', icon: Zap },
-                    { value: '5⭐', label: 'Client Rating', icon: Award },
+                    { value: '5★', label: 'Client Rating', icon: Award },
                   ].map((stat, i) => (
                     <motion.div
                       key={stat.label}
-                      className="bg-background/50 border border-violet-500/20 rounded-xl p-4 text-center"
+                      className="bg-background/50 border border-violet-500/20 rounded-xl p-3 text-center"
                       initial={{ opacity: 0, scale: 0.9 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.1 }}
                     >
-                      <stat.icon size={20} className="text-violet-400 mx-auto mb-2" />
-                      <div className="text-2xl font-bold text-foreground">{stat.value}</div>
-                      <div className="text-xs text-muted-foreground">{stat.label}</div>
+                      <stat.icon size={18} className="text-violet-400 mx-auto mb-1" />
+                      <div className="text-xl font-bold text-foreground">{stat.value}</div>
+                      <div className="text-[10px] text-muted-foreground">{stat.label}</div>
                     </motion.div>
                   ))}
                 </div>
@@ -296,38 +307,41 @@ const Home = () => {
       </section>
 
       {/* ==================== INVESTING SECTION ==================== */}
-      <section className="py-8 sm:py-16 px-5 sm:px-4 relative">
+      <section className="py-6 sm:py-10 px-5 sm:px-4 relative">
         <div className="max-w-5xl mx-auto">
+          {/* Section intro */}
           <ScrollReveal>
-            <div className="relative bg-gradient-to-br from-emerald-500/10 via-card/80 to-emerald-400/5 border-2 border-emerald-500/30 rounded-2xl p-5 sm:p-10 overflow-hidden hover:border-emerald-400 hover:shadow-[0_0_60px_rgba(16,185,129,0.2)] transition-all duration-500">
-              {/* Background decoration */}
+            <p className="text-center text-muted-foreground text-sm sm:text-base mb-4 max-w-2xl mx-auto">
+              <span className="text-emerald-400 font-semibold">Put your money to work</span> — smart swing investing in stocks, crypto & real estate. No day trading.
+            </p>
+          </ScrollReveal>
+          <ScrollReveal>
+            <div className="relative bg-gradient-to-br from-emerald-500/10 via-card/80 to-emerald-400/5 border-2 border-emerald-500/30 rounded-2xl p-5 sm:p-8 overflow-hidden hover:border-emerald-400 hover:shadow-[0_0_60px_rgba(16,185,129,0.2)] transition-all duration-500">
               <div className="absolute bottom-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl" />
               
-              {/* Badge */}
               <motion.div 
-                className="inline-flex items-center gap-2 bg-emerald-500/20 border border-emerald-500/40 rounded-full px-4 py-2 mb-6"
+                className="inline-flex items-center gap-2 bg-emerald-500/20 border border-emerald-500/40 rounded-full px-4 py-1.5 mb-4"
                 animate={{ scale: [1, 1.02, 1] }}
                 transition={{ duration: 3, repeat: Infinity, delay: 1 }}
               >
-                <TrendingUp size={16} className="text-emerald-400" />
-                <span className="text-emerald-400 text-sm font-bold">INVESTING EDUCATION</span>
+                <TrendingUp size={14} className="text-emerald-400" />
+                <span className="text-emerald-400 text-xs font-bold">INVESTING EDUCATION</span>
               </motion.div>
 
-              <div className="relative z-10 grid lg:grid-cols-2 gap-8 items-center">
+              <div className="relative z-10 grid lg:grid-cols-2 gap-6 items-center">
                 <div>
-                  <h2 className="text-2xl sm:text-4xl font-bold text-foreground mb-4">
+                  <h2 className="text-xl sm:text-3xl font-bold text-foreground mb-3">
                     Smart <span className="text-emerald-400">Swing Investing</span>
                   </h2>
-                  <p className="text-muted-foreground mb-4 text-sm sm:text-lg">
+                  <p className="text-muted-foreground mb-3 text-sm sm:text-base">
                     We don't teach day trading. We focus on high-quality swing positions that let you 
                     build wealth without staring at screens all day.
                   </p>
-                  <p className="text-sm text-emerald-400/80 mb-6 border-l-2 border-emerald-500/40 pl-4">
+                  <p className="text-xs text-emerald-400/80 mb-4 border-l-2 border-emerald-500/40 pl-3">
                     "Position for days to weeks, not minutes. Less stress, more profits."
                   </p>
 
-                  {/* Features */}
-                  <div className="space-y-3 mb-6">
+                  <div className="space-y-2 mb-4">
                     {[
                       'AI StackFinder for High-Probability Entries',
                       'Swing Positions (Days to Weeks)',
@@ -336,38 +350,38 @@ const Home = () => {
                     ].map((feature, i) => (
                       <motion.div 
                         key={feature}
-                        className="flex items-center gap-3"
+                        className="flex items-center gap-2"
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.1 }}
                       >
-                        <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                          <Check size={12} className="text-emerald-400" />
+                        <div className="w-4 h-4 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                          <Check size={10} className="text-emerald-400" />
                         </div>
-                        <span className="text-foreground/90 text-sm">{feature}</span>
+                        <span className="text-foreground/90 text-xs sm:text-sm">{feature}</span>
                       </motion.div>
                     ))}
                   </div>
 
                   <Link
                     to="/investing"
-                    className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-background font-bold px-6 py-3 rounded-xl transition-all"
+                    className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-background font-bold px-5 py-2.5 rounded-xl transition-all text-sm"
                   >
-                    <BarChart3 size={18} />
+                    <BarChart3 size={16} />
                     <span>Explore Investing</span>
-                    <ArrowRight size={18} />
+                    <ArrowRight size={16} />
                   </Link>
                 </div>
 
-                {/* Investing Visual - Simplified */}
+                {/* Investing Visual */}
                 <div className="relative">
-                  <div className="bg-background/60 border border-emerald-500/20 rounded-xl p-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="text-sm text-muted-foreground">Recent Swing Wins</span>
-                      <span className="text-xs bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded-full">SWING</span>
+                  <div className="bg-background/60 border border-emerald-500/20 rounded-xl p-4">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-xs text-muted-foreground">Recent Swing Wins</span>
+                      <span className="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full">SWING</span>
                     </div>
-                    <div className="space-y-3">
+                    <div className="space-y-2">
                       {[
                         { symbol: 'NVDA', gain: '+127%', time: '12 days' },
                         { symbol: 'TSLA', gain: '+89%', time: '8 days' },
@@ -375,19 +389,19 @@ const Home = () => {
                       ].map((trade, i) => (
                         <motion.div
                           key={trade.symbol}
-                          className="flex items-center justify-between bg-emerald-500/10 rounded-lg px-4 py-3"
+                          className="flex items-center justify-between bg-emerald-500/10 rounded-lg px-3 py-2"
                           initial={{ opacity: 0, x: 20 }}
                           whileInView={{ opacity: 1, x: 0 }}
                           viewport={{ once: true }}
                           transition={{ delay: i * 0.15 }}
                         >
-                          <span className="font-bold text-foreground">{trade.symbol}</span>
-                          <span className="text-emerald-400 font-bold">{trade.gain}</span>
-                          <span className="text-xs text-muted-foreground">{trade.time}</span>
+                          <span className="font-bold text-foreground text-sm">{trade.symbol}</span>
+                          <span className="text-emerald-400 font-bold text-sm">{trade.gain}</span>
+                          <span className="text-[10px] text-muted-foreground">{trade.time}</span>
                         </motion.div>
                       ))}
                     </div>
-                    <p className="text-[10px] text-muted-foreground/60 mt-3 text-center">
+                    <p className="text-[10px] text-muted-foreground/60 mt-2 text-center">
                       Results vary. Past performance ≠ future results.
                     </p>
                   </div>
@@ -398,9 +412,8 @@ const Home = () => {
         </div>
       </section>
 
-
       {/* ==================== ULTIMATE ACADEMY SECTION ==================== */}
-      <section className="py-8 sm:py-16 px-5 sm:px-4 relative">
+      <section className="py-6 sm:py-10 px-5 sm:px-4 relative">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
             <a
@@ -409,29 +422,29 @@ const Home = () => {
               rel="noopener noreferrer"
               className="group block"
             >
-              <div className="relative bg-gradient-to-br from-cyan-500/10 via-card/80 to-violet-500/10 border-2 border-cyan-500/30 rounded-2xl p-5 sm:p-10 overflow-hidden hover:border-cyan-400 hover:shadow-[0_0_60px_rgba(6,182,212,0.2)] transition-all duration-500">
+              <div className="relative bg-gradient-to-br from-cyan-500/10 via-card/80 to-violet-500/10 border-2 border-cyan-500/30 rounded-2xl p-5 sm:p-8 overflow-hidden hover:border-cyan-400 hover:shadow-[0_0_60px_rgba(6,182,212,0.2)] transition-all duration-500">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl" />
                 <div className="absolute bottom-0 left-0 w-48 h-48 bg-violet-500/10 rounded-full blur-3xl" />
 
                 <div className="relative z-10 text-center max-w-3xl mx-auto">
                   <motion.div
-                    className="inline-flex items-center gap-2 bg-cyan-500/20 border border-cyan-500/40 rounded-full px-5 py-2 mb-6"
+                    className="inline-flex items-center gap-2 bg-cyan-500/20 border border-cyan-500/40 rounded-full px-4 py-1.5 mb-4"
                     animate={{ scale: [1, 1.03, 1] }}
                     transition={{ duration: 3, repeat: Infinity }}
                   >
-                    <Sparkles size={16} className="text-cyan-400" />
-                    <span className="text-cyan-400 text-sm font-bold">THE ULTIMATE EDUCATION PLATFORM</span>
+                    <Sparkles size={14} className="text-cyan-400" />
+                    <span className="text-cyan-400 text-xs font-bold">THE ULTIMATE EDUCATION PLATFORM</span>
                   </motion.div>
 
-                  <h2 className="text-2xl sm:text-4xl font-bold text-foreground mb-4">
+                  <h2 className="text-xl sm:text-3xl font-bold text-foreground mb-3">
                     One Academy. <span className="text-cyan-400">Every Skill</span> You Need.
                   </h2>
-                  <p className="text-muted-foreground mb-6 text-sm sm:text-lg max-w-2xl mx-auto">
+                  <p className="text-muted-foreground mb-4 text-sm sm:text-base max-w-2xl mx-auto">
                     Coding. AI business. Investing. Real estate. Branding. Animations. 
                     Most people pay thousands across 10 different courses. You get it all — mentorship included — for the price of a dinner.
                   </p>
 
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 mb-6 sm:mb-8 max-w-xl mx-auto">
+                  <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 mb-5 max-w-xl mx-auto">
                     {[
                       { emoji: '💻', label: 'Build Software' },
                       { emoji: '📈', label: 'Swing Investing' },
@@ -440,20 +453,20 @@ const Home = () => {
                       { emoji: '🚀', label: 'Scale Business' },
                       { emoji: '🤖', label: 'AI Mastery' },
                     ].map((item) => (
-                      <div key={item.label} className="bg-background/50 border border-border/50 rounded-lg p-3 text-center group-hover:border-cyan-500/30 transition-colors">
-                        <span className="text-lg block mb-1">{item.emoji}</span>
-                        <span className="text-xs font-medium text-foreground">{item.label}</span>
+                      <div key={item.label} className="bg-background/50 border border-border/50 rounded-lg p-2 text-center group-hover:border-cyan-500/30 transition-colors">
+                        <span className="text-base block mb-0.5">{item.emoji}</span>
+                        <span className="text-[10px] font-medium text-foreground">{item.label}</span>
                       </div>
                     ))}
                   </div>
 
-                  <div className="inline-flex items-center gap-2 sm:gap-3 bg-cyan-500 text-background font-bold text-base sm:text-lg px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl group-hover:bg-cyan-400 transition-colors shadow-lg shadow-cyan-500/20">
-                    <Zap size={20} />
-                    <span>Join Stackmode — $50/mo</span>
-                    <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                  <div className="inline-flex items-center gap-2 bg-cyan-500 text-background font-bold text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl group-hover:bg-cyan-400 transition-colors shadow-lg shadow-cyan-500/20">
+                    <Zap size={18} />
+                    <span>Join The Stackmode Academy — $50/mo</span>
+                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                   </div>
-                  <p className="text-xs text-muted-foreground mt-3">
-                    Cancel anytime • Instant access to everything
+                  <p className="text-[10px] text-muted-foreground mt-2">
+                    Cancel anytime · Instant access to everything
                   </p>
                 </div>
               </div>
@@ -463,35 +476,38 @@ const Home = () => {
       </section>
 
       {/* ==================== LIBRARY SECTION ==================== */}
-      <section className="py-8 sm:py-16 px-5 sm:px-4 relative">
+      <section className="py-6 sm:py-10 px-5 sm:px-4 relative">
         <div className="max-w-5xl mx-auto">
+          {/* Section intro */}
           <ScrollReveal>
-            <div className="relative bg-gradient-to-br from-orange-500/10 via-card/80 to-orange-400/5 border-2 border-orange-500/30 rounded-2xl p-5 sm:p-10 overflow-hidden hover:border-orange-400 hover:shadow-[0_0_60px_rgba(249,115,22,0.2)] transition-all duration-500">
-              {/* Background decoration */}
+            <p className="text-center text-muted-foreground text-sm sm:text-base mb-4 max-w-2xl mx-auto">
+              <span className="text-orange-400 font-semibold">Not ready to commit?</span> — start with free guides, books, and video tutorials. Zero risk.
+            </p>
+          </ScrollReveal>
+          <ScrollReveal>
+            <div className="relative bg-gradient-to-br from-orange-500/10 via-card/80 to-orange-400/5 border-2 border-orange-500/30 rounded-2xl p-5 sm:p-8 overflow-hidden hover:border-orange-400 hover:shadow-[0_0_60px_rgba(249,115,22,0.2)] transition-all duration-500">
               <div className="absolute top-0 left-1/2 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl" />
               
-              {/* Badge */}
               <motion.div 
-                className="inline-flex items-center gap-2 bg-orange-500/20 border border-orange-500/40 rounded-full px-4 py-2 mb-6"
+                className="inline-flex items-center gap-2 bg-orange-500/20 border border-orange-500/40 rounded-full px-4 py-1.5 mb-4"
                 animate={{ scale: [1, 1.02, 1] }}
                 transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
               >
-                <BookOpen size={16} className="text-orange-400" />
-                <span className="text-orange-400 text-sm font-bold">FREE LIBRARY</span>
+                <BookOpen size={14} className="text-orange-400" />
+                <span className="text-orange-400 text-xs font-bold">FREE LIBRARY</span>
               </motion.div>
 
               <div className="relative z-10 text-center max-w-2xl mx-auto">
-                <h2 className="text-2xl sm:text-4xl font-bold text-foreground mb-4">
+                <h2 className="text-xl sm:text-3xl font-bold text-foreground mb-3">
                   Free Resources to <span className="text-orange-400">Get Started</span>
                 </h2>
-                <p className="text-muted-foreground mb-6 text-sm sm:text-lg">
+                <p className="text-muted-foreground mb-4 text-sm sm:text-base">
                   Access free investing strategies, business guides, books, and educational content. No signup required.
                 </p>
 
-                {/* Resource Types */}
-                <div className="flex flex-wrap justify-center gap-3 mb-6">
+                <div className="flex flex-wrap justify-center gap-2 mb-4">
                   {['Investing Guides', 'Business Templates', 'Free Books', 'Video Tutorials', 'Cheat Sheets'].map((resource) => (
-                    <span key={resource} className="bg-orange-500/10 border border-orange-500/20 text-orange-400 text-sm px-3 py-1.5 rounded-full">
+                    <span key={resource} className="bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs px-2.5 py-1 rounded-full">
                       {resource}
                     </span>
                   ))}
@@ -499,11 +515,11 @@ const Home = () => {
 
                 <Link
                   to="/library"
-                  className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-400 text-background font-bold px-6 py-3 rounded-xl transition-all"
+                  className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-400 text-background font-bold px-5 py-2.5 rounded-xl transition-all text-sm"
                 >
-                  <BookOpen size={18} />
+                  <BookOpen size={16} />
                   <span>Browse Free Resources</span>
-                  <ArrowRight size={18} />
+                  <ArrowRight size={16} />
                 </Link>
               </div>
             </div>
@@ -512,7 +528,7 @@ const Home = () => {
       </section>
 
       {/* ==================== NETWORK CTA SECTION ==================== */}
-      <section className="py-8 sm:py-16 px-5 sm:px-4 bg-gradient-to-b from-background to-cyan-500/5">
+      <section className="py-6 sm:py-10 px-5 sm:px-4 bg-gradient-to-b from-background to-cyan-500/5">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal>
             <a
@@ -521,45 +537,44 @@ const Home = () => {
               rel="noopener noreferrer"
               className="group block"
             >
-              <div className="relative bg-gradient-to-br from-cyan-500/10 via-card to-violet-500/10 border-2 border-cyan-500/40 rounded-2xl p-5 sm:p-10 overflow-hidden hover:border-cyan-400 hover:shadow-[0_0_80px_rgba(6,182,212,0.25)] transition-all duration-500">
-                {/* Glow */}
+              <div className="relative bg-gradient-to-br from-cyan-500/10 via-card to-violet-500/10 border-2 border-cyan-500/40 rounded-2xl p-5 sm:p-8 overflow-hidden hover:border-cyan-400 hover:shadow-[0_0_80px_rgba(6,182,212,0.25)] transition-all duration-500">
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-transparent to-violet-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 
                 <div className="relative z-10 text-center">
                   <motion.span 
-                    className="inline-block bg-gradient-to-r from-cyan-500 to-cyan-400 text-background text-xs font-bold px-4 py-1.5 rounded-full mb-6"
+                    className="inline-block bg-gradient-to-r from-cyan-500 to-cyan-400 text-background text-xs font-bold px-4 py-1 rounded-full mb-4"
                     animate={{ scale: [1, 1.05, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   >
                     75% OFF — JOIN NOW
                   </motion.span>
                   
-                  <h2 className="text-2xl sm:text-4xl font-bold text-foreground mb-4">
+                  <h2 className="text-xl sm:text-3xl font-bold text-foreground mb-3">
                     Everything for <span className="text-cyan-400">$50/month</span>
                   </h2>
-                  <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
+                  <p className="text-muted-foreground mb-5 text-sm sm:text-base max-w-xl mx-auto">
                     Coding school. Business training. Investing tools. AI resources. Live coaching. Community access. All in one membership.
                   </p>
 
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-8">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 mb-5">
                     {[
                       { icon: Terminal, label: 'Coding', desc: 'Full curriculum' },
                       { icon: Globe, label: 'Business', desc: 'AI models' },
                       { icon: BarChart3, label: 'Investing', desc: 'Tools & signals' },
                       { icon: Users, label: 'Community', desc: 'Live support' },
                     ].map((item) => (
-                      <div key={item.label} className="bg-background/50 border border-border/50 rounded-xl p-3 sm:p-4 text-center">
-                        <item.icon size={24} className="text-cyan-400 mx-auto mb-2" />
-                        <div className="text-sm font-semibold text-foreground">{item.label}</div>
-                        <div className="text-xs text-muted-foreground">{item.desc}</div>
+                      <div key={item.label} className="bg-background/50 border border-border/50 rounded-xl p-2.5 text-center">
+                        <item.icon size={20} className="text-cyan-400 mx-auto mb-1" />
+                        <div className="text-xs font-semibold text-foreground">{item.label}</div>
+                        <div className="text-[10px] text-muted-foreground">{item.desc}</div>
                       </div>
                     ))}
                   </div>
 
-                  <div className="inline-flex items-center gap-2 sm:gap-3 bg-cyan-500 text-background font-bold text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 rounded-xl group-hover:bg-cyan-400 transition-colors shadow-lg shadow-cyan-500/20">
-                    <Zap size={22} />
-                    <span>Join Stackmode Academy</span>
-                    <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
+                  <div className="inline-flex items-center gap-2 bg-cyan-500 text-background font-bold text-sm sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-xl group-hover:bg-cyan-400 transition-colors shadow-lg shadow-cyan-500/20">
+                    <Zap size={20} />
+                    <span>Join The Stackmode Academy</span>
+                    <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
               </div>
@@ -569,22 +584,22 @@ const Home = () => {
       </section>
 
       {/* ==================== ABOUT / CONNECT SECTION ==================== */}
-      <section className="py-10 sm:py-16 px-5 sm:px-4">
+      <section className="py-8 sm:py-12 px-5 sm:px-4">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
-            <div className="text-center mb-12">
-              <h2 className="text-2xl sm:text-4xl font-bold text-foreground mb-4">
+            <div className="text-center mb-8">
+              <h2 className="text-xl sm:text-3xl font-bold text-foreground mb-3">
                 Meet Your Mentor
               </h2>
-              <p className="text-muted-foreground max-w-xl mx-auto">
+              <p className="text-muted-foreground max-w-xl mx-auto text-sm">
                 I'm Christopher Robinson — Stackmodechris. I left a 4-year finance career to build this network and help others unlink time from money.
               </p>
             </div>
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
-            <div className="flex flex-col md:flex-row items-center gap-8 mb-12">
-              <div className="w-40 h-40 rounded-2xl overflow-hidden border-2 border-primary/40 flex-shrink-0">
+            <div className="flex flex-col md:flex-row items-center gap-6 mb-8">
+              <div className="w-32 h-32 rounded-2xl overflow-hidden border-2 border-primary/40 flex-shrink-0">
                 <OptimizedImage 
                   src="/images/stackmodechris-about-new.png" 
                   alt="Christopher Robinson - Stackmodechris"
@@ -592,9 +607,9 @@ const Home = () => {
                 />
               </div>
               <div className="text-center md:text-left">
-                <h3 className="text-2xl font-bold text-foreground mb-2">Christopher Robinson</h3>
-                <p className="text-primary font-medium mb-3">aka Stackmodechris</p>
-                <p className="text-muted-foreground max-w-xl">
+                <h3 className="text-xl font-bold text-foreground mb-1">Christopher Robinson</h3>
+                <p className="text-primary font-medium mb-2 text-sm">aka Stackmodechris</p>
+                <p className="text-muted-foreground max-w-xl text-sm">
                   Founder of Stackmode Academy | AI Business & Trading Mentor. My mission: show people that financial freedom isn't about climbing a corporate ladder — it's about building systems that work for you.
                 </p>
               </div>
@@ -609,7 +624,7 @@ const Home = () => {
       <UniversalPageBottom />
 
       {/* ==================== TRUSTPILOT SECTION ==================== */}
-      <section className="py-8 px-4 border-t border-border/30">
+      <section className="py-6 px-4 border-t border-border/30">
         <div className="max-w-4xl mx-auto">
           <TrustpilotWidget />
         </div>
