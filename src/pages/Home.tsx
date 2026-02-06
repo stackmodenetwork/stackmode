@@ -112,7 +112,7 @@ const Home = () => {
               Learn how to use <span className="text-foreground font-medium">AI to code and build software</span>,
             </span>
             <span className="block mb-1">
-              promote your business with <span className="text-foreground font-medium">content monetization</span>,
+              promote your <span className="text-cyan-400 font-medium">business with content monetization</span>,
             </span>
             <span className="block">
               then invest that income into <span className="text-emerald-400 font-medium">stocks, crypto & real estate</span>.
