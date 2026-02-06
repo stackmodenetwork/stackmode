@@ -3,7 +3,7 @@ import { Briefcase, TrendingUp, ArrowRight, Clock, DollarSign, Frown, Smile } fr
 
 export const EmployeeVsStackmodeComparison = () => {
   return (
-    <section className="py-12 px-4">
+    <section className="py-8 sm:py-12 px-5 sm:px-4">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">

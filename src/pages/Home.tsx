@@ -49,7 +49,7 @@ const Home = () => {
       </div>
 
       {/* ==================== HERO SECTION ==================== */}
-      <section className="relative min-h-[80vh] flex items-center justify-center px-4 pt-12 pb-8">
+      <section className="relative min-h-[60vh] sm:min-h-[80vh] flex items-center justify-center px-5 sm:px-4 pt-8 sm:pt-12 pb-6 sm:pb-8">
         <div className="relative z-10 max-w-5xl mx-auto text-center">
           {/* Badge */}
           <motion.div
@@ -70,7 +70,7 @@ const Home = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-[1.05] tracking-tight"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-5 sm:mb-6 leading-[1.05] tracking-tight"
           >
             Code. <span className="text-cyan-400">Build.</span> <span className="text-emerald-400">Invest.</span>
           </motion.h1>
@@ -79,7 +79,7 @@ const Home = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed"
+            className="text-base sm:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-1"
           >
             Learn to market your business with ads, master investing, and build with AI.
             <span className="text-foreground font-medium"> Everything for $50/month.</span>
@@ -96,7 +96,7 @@ const Home = () => {
               href="https://whop.com/stackmode-academy/educationalservice/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-3 bg-cyan-500 hover:bg-cyan-400 text-background font-bold text-lg px-10 py-5 rounded-xl transition-all shadow-lg shadow-cyan-500/20 hover:shadow-cyan-400/30 hover:scale-[1.02]"
+              className="group inline-flex items-center justify-center gap-2 sm:gap-3 bg-cyan-500 hover:bg-cyan-400 text-background font-bold text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 rounded-xl transition-all shadow-lg shadow-cyan-500/20 hover:shadow-cyan-400/30 hover:scale-[1.02]"
             >
               <Zap size={22} />
               <span>Join Stackmode — $50/mo</span>
@@ -119,10 +119,10 @@ const Home = () => {
       <EmployeeVsStackmodeComparison />
 
       {/* ==================== CODING SECTION ==================== */}
-      <section className="py-16 px-4 relative">
+      <section className="py-8 sm:py-16 px-5 sm:px-4 relative">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
-            <div className="relative bg-gradient-to-br from-cyan-500/10 via-card/80 to-cyan-400/5 border-2 border-cyan-500/30 rounded-2xl p-6 sm:p-10 overflow-hidden hover:border-cyan-400 hover:shadow-[0_0_60px_rgba(6,182,212,0.2)] transition-all duration-500">
+            <div className="relative bg-gradient-to-br from-cyan-500/10 via-card/80 to-cyan-400/5 border-2 border-cyan-500/30 rounded-2xl p-5 sm:p-10 overflow-hidden hover:border-cyan-400 hover:shadow-[0_0_60px_rgba(6,182,212,0.2)] transition-all duration-500">
               {/* Background decoration */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl" />
               <div className="absolute -bottom-20 -left-20 w-48 h-48 bg-cyan-400/5 rounded-full blur-2xl" />
@@ -212,10 +212,10 @@ const Home = () => {
       <SoftwareProofSection variant="home" />
 
       {/* ==================== BUSINESS SERVICES SECTION ==================== */}
-      <section className="py-16 px-4 relative">
+      <section className="py-8 sm:py-16 px-5 sm:px-4 relative">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
-            <div className="relative bg-gradient-to-br from-violet-500/10 via-card/80 to-violet-400/5 border-2 border-violet-500/30 rounded-2xl p-6 sm:p-10 overflow-hidden hover:border-violet-400 hover:shadow-[0_0_60px_rgba(139,92,246,0.2)] transition-all duration-500">
+            <div className="relative bg-gradient-to-br from-violet-500/10 via-card/80 to-violet-400/5 border-2 border-violet-500/30 rounded-2xl p-5 sm:p-10 overflow-hidden hover:border-violet-400 hover:shadow-[0_0_60px_rgba(139,92,246,0.2)] transition-all duration-500">
               {/* Background decoration */}
               <div className="absolute top-0 left-0 w-64 h-64 bg-violet-500/10 rounded-full blur-3xl" />
               
@@ -295,10 +295,10 @@ const Home = () => {
       </section>
 
       {/* ==================== INVESTING SECTION ==================== */}
-      <section className="py-16 px-4 relative">
+      <section className="py-8 sm:py-16 px-5 sm:px-4 relative">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
-            <div className="relative bg-gradient-to-br from-emerald-500/10 via-card/80 to-emerald-400/5 border-2 border-emerald-500/30 rounded-2xl p-6 sm:p-10 overflow-hidden hover:border-emerald-400 hover:shadow-[0_0_60px_rgba(16,185,129,0.2)] transition-all duration-500">
+            <div className="relative bg-gradient-to-br from-emerald-500/10 via-card/80 to-emerald-400/5 border-2 border-emerald-500/30 rounded-2xl p-5 sm:p-10 overflow-hidden hover:border-emerald-400 hover:shadow-[0_0_60px_rgba(16,185,129,0.2)] transition-all duration-500">
               {/* Background decoration */}
               <div className="absolute bottom-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl" />
               
@@ -399,7 +399,7 @@ const Home = () => {
 
 
       {/* ==================== ULTIMATE ACADEMY SECTION ==================== */}
-      <section className="py-16 px-4 relative">
+      <section className="py-8 sm:py-16 px-5 sm:px-4 relative">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
             <a
@@ -408,7 +408,7 @@ const Home = () => {
               rel="noopener noreferrer"
               className="group block"
             >
-              <div className="relative bg-gradient-to-br from-cyan-500/10 via-card/80 to-violet-500/10 border-2 border-cyan-500/30 rounded-2xl p-6 sm:p-10 overflow-hidden hover:border-cyan-400 hover:shadow-[0_0_60px_rgba(6,182,212,0.2)] transition-all duration-500">
+              <div className="relative bg-gradient-to-br from-cyan-500/10 via-card/80 to-violet-500/10 border-2 border-cyan-500/30 rounded-2xl p-5 sm:p-10 overflow-hidden hover:border-cyan-400 hover:shadow-[0_0_60px_rgba(6,182,212,0.2)] transition-all duration-500">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl" />
                 <div className="absolute bottom-0 left-0 w-48 h-48 bg-violet-500/10 rounded-full blur-3xl" />
 
@@ -430,7 +430,7 @@ const Home = () => {
                     Most people pay thousands across 10 different courses. You get it all — mentorship included — for the price of a dinner.
                   </p>
 
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8 max-w-xl mx-auto">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 mb-6 sm:mb-8 max-w-xl mx-auto">
                     {[
                       { emoji: '💻', label: 'Build Software' },
                       { emoji: '📈', label: 'Swing Investing' },
@@ -446,7 +446,7 @@ const Home = () => {
                     ))}
                   </div>
 
-                  <div className="inline-flex items-center gap-3 bg-cyan-500 text-background font-bold text-lg px-8 py-4 rounded-xl group-hover:bg-cyan-400 transition-colors shadow-lg shadow-cyan-500/20">
+                  <div className="inline-flex items-center gap-2 sm:gap-3 bg-cyan-500 text-background font-bold text-base sm:text-lg px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl group-hover:bg-cyan-400 transition-colors shadow-lg shadow-cyan-500/20">
                     <Zap size={20} />
                     <span>Join Stackmode — $50/mo</span>
                     <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -462,10 +462,10 @@ const Home = () => {
       </section>
 
       {/* ==================== LIBRARY SECTION ==================== */}
-      <section className="py-16 px-4 relative">
+      <section className="py-8 sm:py-16 px-5 sm:px-4 relative">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
-            <div className="relative bg-gradient-to-br from-orange-500/10 via-card/80 to-orange-400/5 border-2 border-orange-500/30 rounded-2xl p-6 sm:p-10 overflow-hidden hover:border-orange-400 hover:shadow-[0_0_60px_rgba(249,115,22,0.2)] transition-all duration-500">
+            <div className="relative bg-gradient-to-br from-orange-500/10 via-card/80 to-orange-400/5 border-2 border-orange-500/30 rounded-2xl p-5 sm:p-10 overflow-hidden hover:border-orange-400 hover:shadow-[0_0_60px_rgba(249,115,22,0.2)] transition-all duration-500">
               {/* Background decoration */}
               <div className="absolute top-0 left-1/2 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl" />
               
@@ -511,7 +511,7 @@ const Home = () => {
       </section>
 
       {/* ==================== NETWORK CTA SECTION ==================== */}
-      <section className="py-16 px-4 bg-gradient-to-b from-background to-cyan-500/5">
+      <section className="py-8 sm:py-16 px-5 sm:px-4 bg-gradient-to-b from-background to-cyan-500/5">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal>
             <a
@@ -520,7 +520,7 @@ const Home = () => {
               rel="noopener noreferrer"
               className="group block"
             >
-              <div className="relative bg-gradient-to-br from-cyan-500/10 via-card to-violet-500/10 border-2 border-cyan-500/40 rounded-2xl p-6 sm:p-10 overflow-hidden hover:border-cyan-400 hover:shadow-[0_0_80px_rgba(6,182,212,0.25)] transition-all duration-500">
+              <div className="relative bg-gradient-to-br from-cyan-500/10 via-card to-violet-500/10 border-2 border-cyan-500/40 rounded-2xl p-5 sm:p-10 overflow-hidden hover:border-cyan-400 hover:shadow-[0_0_80px_rgba(6,182,212,0.25)] transition-all duration-500">
                 {/* Glow */}
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-transparent to-violet-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 
@@ -540,14 +540,14 @@ const Home = () => {
                     Coding school. Business training. Investing tools. AI resources. Live coaching. Community access. All in one membership.
                   </p>
 
-                  <div className="grid sm:grid-cols-4 gap-4 mb-8">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-8">
                     {[
                       { icon: Terminal, label: 'Coding', desc: 'Full curriculum' },
                       { icon: Globe, label: 'Business', desc: 'AI models' },
                       { icon: BarChart3, label: 'Investing', desc: 'Tools & signals' },
                       { icon: Users, label: 'Community', desc: 'Live support' },
                     ].map((item) => (
-                      <div key={item.label} className="bg-background/50 border border-border/50 rounded-xl p-4 text-center">
+                      <div key={item.label} className="bg-background/50 border border-border/50 rounded-xl p-3 sm:p-4 text-center">
                         <item.icon size={24} className="text-cyan-400 mx-auto mb-2" />
                         <div className="text-sm font-semibold text-foreground">{item.label}</div>
                         <div className="text-xs text-muted-foreground">{item.desc}</div>
@@ -555,7 +555,7 @@ const Home = () => {
                     ))}
                   </div>
 
-                  <div className="inline-flex items-center gap-3 bg-cyan-500 text-background font-bold text-lg px-10 py-5 rounded-xl group-hover:bg-cyan-400 transition-colors shadow-lg shadow-cyan-500/20">
+                  <div className="inline-flex items-center gap-2 sm:gap-3 bg-cyan-500 text-background font-bold text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 rounded-xl group-hover:bg-cyan-400 transition-colors shadow-lg shadow-cyan-500/20">
                     <Zap size={22} />
                     <span>Join Stackmode Academy</span>
                     <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
@@ -568,7 +568,7 @@ const Home = () => {
       </section>
 
       {/* ==================== ABOUT / CONNECT SECTION ==================== */}
-      <section className="py-16 px-4">
+      <section className="py-10 sm:py-16 px-5 sm:px-4">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-12">
