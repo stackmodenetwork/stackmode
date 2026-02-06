@@ -44,9 +44,7 @@ const Home = () => {
       </div>
 
       {/* ==================== HERO SECTION ==================== */}
-      <section className="relative min-h-[85vh] flex items-center justify-center px-4 py-16">
-        {/* Background Reviews Carousel */}
-        <ReviewsBackgroundCarousel />
+      <section className="relative min-h-[80vh] flex items-center justify-center px-4 pt-12 pb-8">
         <div className="relative z-10 max-w-5xl mx-auto text-center">
           {/* Badge */}
           <motion.div
@@ -87,7 +85,7 @@ const Home = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-10"
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
           >
             <a
               href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/"
@@ -101,21 +99,13 @@ const Home = () => {
             </a>
           </motion.div>
 
-          {/* Scroll Indicator */}
+          {/* Reviews Carousel - Instant Trust */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="flex flex-col items-center gap-2"
+            transition={{ delay: 0.4 }}
           >
-            <span className="text-muted-foreground text-sm">Explore what's inside</span>
-            <motion.div 
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex items-start justify-center p-1"
-            >
-              <div className="w-1.5 h-3 bg-cyan-400 rounded-full" />
-            </motion.div>
+            <ReviewsBackgroundCarousel />
           </motion.div>
         </div>
       </section>
