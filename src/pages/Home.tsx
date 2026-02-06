@@ -76,7 +76,7 @@ const Home = () => {
             transition={{ delay: 0.2 }}
             className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed"
           >
-            The anti-guru network. Learn to code with AI, master trading, and build real businesses.
+            Learn to market your business with ads, master trading, and build with AI.
             <span className="text-foreground font-medium"> Everything for $50/month.</span>
           </motion.p>
 
