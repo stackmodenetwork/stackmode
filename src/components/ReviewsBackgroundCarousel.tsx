@@ -69,10 +69,10 @@ export const ReviewsBackgroundCarousel = memo(() => {
 
       {/* Lightbox Dialog */}
       <Dialog open={selectedIndex !== null} onOpenChange={() => setSelectedIndex(null)}>
-        <DialogContent className="max-w-3xl p-0 bg-transparent border-none shadow-none">
-          <div className="relative">
+        <DialogContent className="max-w-[90vw] max-h-[90vh] p-0 bg-transparent border-none shadow-none">
+          <div className="relative flex items-center justify-center max-h-[80vh]">
             {/* Close button */}
-            <button onClick={() => setSelectedIndex(null)} className="absolute -top-12 right-0 p-2 text-foreground/70 hover:text-foreground transition-colors">
+            <button onClick={() => setSelectedIndex(null)} className="absolute -top-10 right-2 p-2 text-foreground/70 hover:text-foreground transition-colors z-30">
               <X size={24} />
             </button>
 
@@ -85,7 +85,7 @@ export const ReviewsBackgroundCarousel = memo(() => {
             </button>
 
             {/* Image */}
-            {selectedIndex !== null && <motion.img key={selectedIndex} src={`/lovable-uploads/${reviews[selectedIndex]}`} alt="Member success story" className="w-full h-auto rounded-xl border-2 border-primary/30" initial={{
+            {selectedIndex !== null && <motion.img key={selectedIndex} src={`/lovable-uploads/${reviews[selectedIndex]}`} alt="Member success story" className="max-w-full max-h-[75vh] w-auto h-auto object-contain rounded-xl border-2 border-primary/30" initial={{
             opacity: 0,
             scale: 0.95
           }} animate={{
