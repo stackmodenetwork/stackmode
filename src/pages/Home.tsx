@@ -66,7 +66,7 @@ const Home = () => {
             transition={{ delay: 0.1 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-[1.05] tracking-tight"
           >
-            Build. <span className="text-cyan-400">Scale.</span> <span className="text-emerald-400">Trade.</span>
+            Code. <span className="text-cyan-400">Build.</span> <span className="text-emerald-400">Trade.</span>
           </motion.h1>
 
           <motion.p
