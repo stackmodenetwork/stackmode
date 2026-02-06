@@ -89,7 +89,7 @@ export const MainHeader = memo(() => {
                 Coding
               </NavLink>
               <NavLink to="/business" isActive={isBusinessActive} icon={Globe}>
-                Business Services
+                Business
               </NavLink>
               <NavLink to="/trading" isActive={isTradingActive} icon={TrendingUp}>
                 Trading
