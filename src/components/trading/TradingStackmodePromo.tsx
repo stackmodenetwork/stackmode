@@ -35,7 +35,7 @@ export const TradingStackmodePromo = () => {
         </motion.div>
 
         <motion.h2
-          className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3"
+          className="text-xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 px-2"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -45,7 +45,7 @@ export const TradingStackmodePromo = () => {
         </motion.h2>
 
         <motion.p
-          className="text-lg text-muted-foreground max-w-2xl mx-auto"
+          className="text-sm sm:text-lg text-muted-foreground max-w-2xl mx-auto px-2"
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -140,9 +140,9 @@ export const TradingStackmodePromo = () => {
                     whileTap={{ scale: 0.98 }}
                   >
                     <div className="absolute inset-0 bg-primary rounded-xl blur-lg opacity-40 group-hover:opacity-60 transition-opacity" />
-                    <div className="relative flex items-center gap-3 bg-gradient-to-r from-primary to-emerald-400 text-background font-bold text-lg px-8 py-4 rounded-xl shadow-xl shadow-primary/25 transition-all">
-                      <Users size={20} />
-                      <span>Start Stacking Wins! Join The Stackmode Academy</span>
+                    <div className="relative flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-primary to-emerald-400 text-background font-bold text-sm sm:text-lg px-5 sm:px-8 py-3 sm:py-4 rounded-xl shadow-xl shadow-primary/25 transition-all">
+                      <Users size={18} className="flex-shrink-0" />
+                      <span className="text-center">Join The Stackmode Academy</span>
                       <motion.div
                         animate={{ x: [0, 5, 0] }}
                         transition={{ duration: 1.5, repeat: Infinity }}

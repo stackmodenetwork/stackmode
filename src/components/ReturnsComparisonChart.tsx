@@ -26,8 +26,8 @@ export const ReturnsComparisonChart = () => {
               <BarChart3 size={20} className="text-primary" />
             </motion.div>
             <div>
-              <h3 className="text-foreground font-bold text-lg">The Financial Reality Check</h3>
-              <p className="text-muted-foreground text-xs">Same 5 years. Different decisions. Different life.</p>
+              <h3 className="text-foreground font-bold text-base sm:text-lg">The Financial Reality Check</h3>
+              <p className="text-muted-foreground text-[10px] sm:text-xs">Same 5 years. Different decisions. Different life.</p>
             </div>
           </div>
           <div className="flex items-center gap-2">
@@ -101,8 +101,8 @@ export const ReturnsComparisonChart = () => {
                 <Briefcase size={24} className="text-destructive" />
               </motion.div>
               <div>
-                <h4 className="text-foreground font-bold">Average Employee</h4>
-                <p className="text-destructive text-xs">$40K/year job • Trading time for money</p>
+                <h4 className="text-foreground font-bold text-sm sm:text-base">Average Employee</h4>
+                <p className="text-destructive text-[10px] sm:text-xs">$40K/year job • Trading time for money</p>
               </div>
               <motion.div 
                 className="absolute -top-2 -right-2 bg-destructive/20 border border-destructive/40 text-destructive text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1"
@@ -289,8 +289,8 @@ export const ReturnsComparisonChart = () => {
                 <Rocket size={24} className="text-primary" />
               </motion.div>
               <div>
-                <h4 className="text-foreground font-bold">Stackmode Investor</h4>
-                <p className="text-primary text-xs">AI Business + Trading • Money works for you</p>
+                <h4 className="text-foreground font-bold text-sm sm:text-base">Stackmode Investor</h4>
+                <p className="text-primary text-[10px] sm:text-xs">AI Business + Trading • Money works for you</p>
               </div>
               <motion.div 
                 className="absolute -top-2 -right-2 bg-primary/20 border border-primary/40 text-primary text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1" 
@@ -428,24 +428,24 @@ export const ReturnsComparisonChart = () => {
           transition={{ delay: 0.4 }}
         >
           <motion.div 
-            className="bg-gradient-to-r from-destructive/20 via-primary/30 to-primary/20 border border-primary/40 rounded-full px-6 py-3 flex items-center gap-4"
+            className="bg-gradient-to-r from-destructive/20 via-primary/30 to-primary/20 border border-primary/40 rounded-full px-3 sm:px-6 py-2 sm:py-3 flex items-center gap-2 sm:gap-4 flex-wrap justify-center"
             whileHover={{ scale: 1.03 }}
           >
             <div className="text-center">
-              <div className="text-xs text-muted-foreground">Employee</div>
-              <div className="text-lg font-bold text-destructive">-$200/mo</div>
+              <div className="text-[10px] sm:text-xs text-muted-foreground">Employee</div>
+              <div className="text-sm sm:text-lg font-bold text-destructive">-$200/mo</div>
             </div>
             <div className="flex flex-col items-center">
-              <Sparkles size={16} className="text-primary mb-1" />
-              <span className="text-xs text-primary font-bold">VS</span>
+              <Sparkles size={14} className="text-primary mb-0.5" />
+              <span className="text-[10px] sm:text-xs text-primary font-bold">VS</span>
             </div>
             <div className="text-center">
-              <div className="text-xs text-muted-foreground">Stackmode</div>
-              <div className="text-lg font-bold text-primary">+$7,500/mo</div>
+              <div className="text-[10px] sm:text-xs text-muted-foreground">Stackmode</div>
+              <div className="text-sm sm:text-lg font-bold text-primary">+$7,500/mo</div>
             </div>
-            <div className="border-l border-primary/30 pl-4">
-              <div className="text-xs text-muted-foreground">Difference</div>
-              <div className="text-lg font-bold text-primary">+$7,700</div>
+            <div className="border-l border-primary/30 pl-2 sm:pl-4">
+              <div className="text-[10px] sm:text-xs text-muted-foreground">Difference</div>
+              <div className="text-sm sm:text-lg font-bold text-primary">+$7,700</div>
             </div>
           </motion.div>
         </motion.div>
