@@ -9,6 +9,7 @@ import { TrustpilotWidget } from '@/components/TrustpilotWidget';
 import { OptimizedImage } from '@/components/OptimizedImage';
 import { ReviewsBackgroundCarousel } from '@/components/ReviewsBackgroundCarousel';
 import { UniversalPageBottom } from '@/components/UniversalPageBottom';
+import { StackFinderPromo } from '@/components/StackFinderPromo';
 import { motion } from 'framer-motion';
 
 const techStack = [
@@ -379,6 +380,15 @@ const Home = () => {
                 </div>
               </div>
             </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ==================== STACKFINDER PROMO ==================== */}
+      <section className="py-8 px-4">
+        <div className="max-w-5xl mx-auto">
+          <ScrollReveal>
+            <StackFinderPromo variant="home" />
           </ScrollReveal>
         </div>
       </section>

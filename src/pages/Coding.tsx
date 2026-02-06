@@ -6,6 +6,7 @@ import { Code, Terminal, Cpu, Sparkles, ArrowRight, Check, Zap, Users, Bot, Glob
 import { motion } from 'framer-motion';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { UniversalPageBottom } from '@/components/UniversalPageBottom';
+import { StackFinderPromo } from '@/components/StackFinderPromo';
 
 const techStack = [
   { name: 'Python', icon: '🐍' },
@@ -262,6 +263,15 @@ const Coding = () => {
               </ScrollReveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* StackFinder Promo - Example of what you can build */}
+      <section className="py-8 px-4">
+        <div className="max-w-5xl mx-auto">
+          <ScrollReveal>
+            <StackFinderPromo variant="coding" />
+          </ScrollReveal>
         </div>
       </section>
 
