@@ -58,7 +58,7 @@ const Learn = () => {
               transition={{ delay: 0.1 }}
               className="text-4xl sm:text-5xl font-bold text-foreground mb-4"
             >
-              Free Course + eBook <span className="text-cyan-400">Inside</span>
+              Learn How To Make More <span className="text-emerald-400">Income</span>
             </motion.h1>
 
             <motion.p
