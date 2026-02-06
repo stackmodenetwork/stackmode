@@ -98,7 +98,7 @@ const Home = () => {
               Learn how to use <span className="text-foreground font-medium">AI to code and build software</span>,
             </span>
             <span className="block mb-1">
-              promote your <span className="text-cyan-400 font-medium">business with content monetization</span>,
+              Promote your <span className="text-cyan-400 font-medium">business with content monetization</span>,
             </span>
             <span className="block">
               then invest that income into <span className="text-emerald-400 font-medium">stocks, crypto & real estate</span>.
@@ -197,16 +197,16 @@ const Home = () => {
 
                   <div className="inline-flex flex-col gap-2 mb-5 text-left">
                     {['AI-Powered Development with Cursor & Lovable', 'Build Healthcare, B2B, and Consumer SaaS', 'From Zero to Deployed Product', 'Live Coaching & Community Support'].map((feature, i) => <motion.div key={feature} className="flex items-center gap-2" initial={{
-                    opacity: 0,
-                    x: -20
-                  }} whileInView={{
-                    opacity: 1,
-                    x: 0
-                  }} viewport={{
-                    once: true
-                  }} transition={{
-                    delay: i * 0.1
-                  }}>
+                  opacity: 0,
+                  x: -20
+                }} whileInView={{
+                  opacity: 1,
+                  x: 0
+                }} viewport={{
+                  once: true
+                }} transition={{
+                  delay: i * 0.1
+                }}>
                         <div className="w-4 h-4 rounded-full bg-cyan-500/20 flex items-center justify-center flex-shrink-0">
                           <Check size={10} className="text-cyan-400" />
                         </div>
@@ -385,16 +385,16 @@ const Home = () => {
 
                   <div className="inline-flex flex-col gap-2 mb-5 text-left">
                     {['AI StackFinder for High-Probability Entries', 'Swing Positions (Days to Weeks)', 'Weekly Live Investing Calls', 'Stocks, Options & Crypto'].map((feature, i) => <motion.div key={feature} className="flex items-center gap-2" initial={{
-                    opacity: 0,
-                    x: -20
-                  }} whileInView={{
-                    opacity: 1,
-                    x: 0
-                  }} viewport={{
-                    once: true
-                  }} transition={{
-                    delay: i * 0.1
-                  }}>
+                  opacity: 0,
+                  x: -20
+                }} whileInView={{
+                  opacity: 1,
+                  x: 0
+                }} viewport={{
+                  once: true
+                }} transition={{
+                  delay: i * 0.1
+                }}>
                         <div className="w-4 h-4 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
                           <Check size={10} className="text-emerald-400" />
                         </div>
@@ -411,28 +411,28 @@ const Home = () => {
                       </div>
                       <div className="space-y-2">
                         {[{
-                        symbol: 'NVDA',
-                        gain: '+127%',
-                        time: '12 days'
-                      }, {
-                        symbol: 'TSLA',
-                        gain: '+89%',
-                        time: '8 days'
-                      }, {
-                        symbol: 'SPY',
-                        gain: '+45%',
-                        time: '5 days'
-                      }].map((trade, i) => <motion.div key={trade.symbol} className="flex items-center justify-between bg-emerald-500/10 rounded-lg px-3 py-2" initial={{
-                        opacity: 0,
-                        x: 20
-                      }} whileInView={{
-                        opacity: 1,
-                        x: 0
-                      }} viewport={{
-                        once: true
-                      }} transition={{
-                        delay: i * 0.15
-                      }}>
+                      symbol: 'NVDA',
+                      gain: '+127%',
+                      time: '12 days'
+                    }, {
+                      symbol: 'TSLA',
+                      gain: '+89%',
+                      time: '8 days'
+                    }, {
+                      symbol: 'SPY',
+                      gain: '+45%',
+                      time: '5 days'
+                    }].map((trade, i) => <motion.div key={trade.symbol} className="flex items-center justify-between bg-emerald-500/10 rounded-lg px-3 py-2" initial={{
+                      opacity: 0,
+                      x: 20
+                    }} whileInView={{
+                      opacity: 1,
+                      x: 0
+                    }} viewport={{
+                      once: true
+                    }} transition={{
+                      delay: i * 0.15
+                    }}>
                             <span className="font-bold text-foreground text-sm">{trade.symbol}</span>
                             <span className="text-emerald-400 font-bold text-sm">{trade.gain}</span>
                             <span className="text-[10px] text-muted-foreground">{trade.time}</span>
