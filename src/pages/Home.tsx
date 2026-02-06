@@ -112,15 +112,12 @@ const Home = () => {
             </a>
           </motion.div>
 
-          {/* Reviews Carousel */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-          >
-            <ReviewsBackgroundCarousel />
-          </motion.div>
         </div>
+      </section>
+
+      {/* ==================== REVIEWS CAROUSEL ==================== */}
+      <section className="py-4 sm:py-6 px-4">
+        <ReviewsBackgroundCarousel />
       </section>
 
       {/* ==================== EMPLOYEE VS STACKMODE COMPARISON ==================== */}
