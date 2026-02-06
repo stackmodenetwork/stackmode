@@ -67,20 +67,20 @@ const Index = () => {
       {/* Main Content */}
       <section id="home" className="relative z-10">
 
-        {/* HERO - The Hook */}
+        {/* StackFinder AI Tool - THE MAIN HOOK AT TOP */}
+        <section className="max-w-6xl mx-auto pt-8 sm:pt-12 mb-10 px-4">
+          <StackFinderPromo variant="trading" />
+        </section>
+
+        {/* HERO - Secondary */}
         <TradingHero />
 
-        {/* STACKMODE NETWORK PROMO - Primary CTA (First as requested) */}
+        {/* STACKMODE NETWORK PROMO - Primary CTA */}
         <TradingStackmodePromo />
 
         {/* Performance Comparison Chart - Shows Stackmode vs S&P 500 */}
         <section className="max-w-5xl mx-auto mb-8 px-4">
           <StackmodePerformanceChart />
-        </section>
-
-        {/* StackFinder AI Tool Section - Right after Stackmode promo */}
-        <section className="max-w-5xl mx-auto mb-8 px-4">
-          <StackFinderPromo variant="trading" />
         </section>
 
         {/* FREE 1-on-1 Trading Audit CTA */}
