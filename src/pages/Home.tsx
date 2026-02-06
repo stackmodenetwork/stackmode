@@ -269,8 +269,8 @@ const Home = () => {
                 {/* Stats */}
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    { value: '500+', label: 'Clients Served', icon: Users },
-                    { value: '$2M+', label: 'Revenue Generated', icon: DollarSign },
+                    { value: '3', label: 'Published Books', icon: BookOpen },
+                    { value: '24/7', label: 'Community Access', icon: Users },
                     { value: '48hr', label: 'Avg Delivery', icon: Zap },
                     { value: '5⭐', label: 'Client Rating', icon: Award },
                   ].map((stat, i) => (
