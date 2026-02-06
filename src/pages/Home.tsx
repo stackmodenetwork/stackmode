@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Code, Briefcase, ArrowRight, Zap, ChevronRight, Terminal, Rocket, Users, Check, Bot, Globe, Sparkles, TrendingUp, BookOpen, BarChart3, Target, Youtube, Cpu, Brain, Layers, Award, DollarSign } from 'lucide-react';
+import { Code, Briefcase, ArrowRight, Zap, ChevronRight, Terminal, Rocket, Users, Check, Bot, Globe, Sparkles, TrendingUp, BookOpen, BarChart3, Target, Youtube, Cpu, Brain, Layers, Award, DollarSign, Calendar } from 'lucide-react';
 import { CookieConsent } from '@/components/CookieConsent';
 import { MainHeader } from '@/components/MainHeader';
 import { MainFooter } from '@/components/MainFooter';
@@ -108,6 +108,19 @@ const Home = () => {
             >
               <Zap size={18} className="sm:w-[22px] sm:h-[22px] flex-shrink-0" />
               <span>Join Stackmode Academy — $50/mo</span>
+              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+            </a>
+            <p className="text-muted-foreground text-xs sm:text-sm text-center max-w-[300px] sm:max-w-none mx-auto">
+              Not sure where to start? Talk to us for free.
+            </p>
+            <a
+              href="https://calendly.com/stackmodechris/architecture"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-background font-bold text-xs sm:text-lg px-4 sm:px-10 py-2.5 sm:py-4 rounded-xl transition-all shadow-lg shadow-emerald-500/20 hover:shadow-emerald-400/30 hover:scale-[1.02] max-w-[280px] sm:max-w-none mx-auto"
+            >
+              <Calendar size={18} className="sm:w-[22px] sm:h-[22px] flex-shrink-0" />
+              <span>Free Business Strategy Call</span>
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </a>
           </motion.div>
