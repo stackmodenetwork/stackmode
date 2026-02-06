@@ -40,7 +40,7 @@ export const TradingStackmodePromo = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          We Built Stackmode Trading To{' '}
+          We Built Stackmode Investing To{' '}
           <span className="text-primary">Kill The "Guru" Model</span>
         </motion.h2>
 

@@ -10,7 +10,7 @@ import { useEffect, useState, useCallback, memo, lazy, Suspense } from "react";
 // Lazy load pages for better initial load performance
 const Home = lazy(() => import("./pages/Home"));
 const Coding = lazy(() => import("./pages/Coding"));
-const Trading = lazy(() => import("./pages/Trading"));
+const Investing = lazy(() => import("./pages/Trading"));
 const Business = lazy(() => import("./pages/Business"));
 const Library = lazy(() => import("./pages/Learn"));
 const About = lazy(() => import("./pages/About"));
@@ -70,7 +70,7 @@ const AnimatedRoutes = memo(() => {
         <Routes location={currentLocation}>
           <Route path="/" element={<Home />} />
           <Route path="/coding" element={<Coding />} />
-          <Route path="/trading" element={<Trading />} />
+          <Route path="/investing" element={<Investing />} />
           <Route path="/business" element={<Business />} />
           <Route path="/library" element={<Library />} />
           <Route path="/about" element={<About />} />

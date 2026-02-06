@@ -28,7 +28,7 @@ export const TradingHero = () => {
         duration: 0.6,
         delay: 0.1
       }}>
-          Most Trading Courses Are{' '}
+          Most Investing Courses Are{' '}
           <span className="relative">
             <span className="text-red-400 line-through opacity-60">Expired</span>
           </span>
@@ -56,7 +56,7 @@ export const TradingHero = () => {
       }}>
           Stop dropping <span className="text-red-400 font-semibold">$2,000</span> on a pre-recorded course filmed three years ago.
           The market changes <span className="text-primary font-semibold">every single day</span>. 
-          If your information isn't live, you aren't trading—<span className="text-foreground font-bold">you're gambling.</span>
+          If your information isn't live, you aren't investing—<span className="text-foreground font-bold">you're gambling.</span>
         </motion.p>
 
         {/* Visual Comparison */}

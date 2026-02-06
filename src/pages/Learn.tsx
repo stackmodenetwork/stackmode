@@ -11,7 +11,7 @@ import { UniversalPageBottom } from '@/components/UniversalPageBottom';
 
 const freeResource = {
   title: "The Key Steps To Profitability",
-  excerpt: "Complete roadmap covering trading AND business fundamentals. Risk management, strategy development, and consistent execution.",
+  excerpt: "Complete roadmap covering investing AND business fundamentals. Risk management, strategy development, and consistent execution.",
   courseLink: "https://stackmodechris.systeme.io/freecourse",
   ebookLink: "https://stackmodechris.systeme.io/freebook"
 };
