@@ -82,6 +82,49 @@ const Index = () => {
         {/* FEATURES GRID */}
         <TradingFeatures />
 
+        {/* Real Estate Investing Section */}
+        <section className="max-w-4xl mx-auto mb-6 px-4">
+          <div className="bg-gradient-to-br from-amber-500/10 via-card/80 to-amber-400/5 border border-amber-500/30 rounded-xl p-5 sm:p-6">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center flex-shrink-0">
+                <span className="text-2xl">🏠</span>
+              </div>
+              <div className="flex-1">
+                <div className="inline-flex items-center gap-2 bg-amber-500/20 border border-amber-500/30 rounded-full px-3 py-1 mb-3">
+                  <span className="text-amber-400 text-xs font-bold">REAL ESTATE</span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
+                  Real Estate <span className="text-amber-400">Investing</span>
+                </h3>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Stocks aren't the only way to build wealth. Inside the Academy, we also break down real estate 
+                  strategies — from rental properties and house flipping to REITs and creative financing. 
+                  Learn to diversify your portfolio with tangible assets that generate passive income.
+                </p>
+                <div className="grid sm:grid-cols-2 gap-2 mb-4">
+                  {['Rental Income Strategies', 'REITs & Real Estate ETFs', 'House Flipping Fundamentals', 'Creative Financing Methods'].map((item) => (
+                    <div key={item} className="flex items-center gap-2 text-sm">
+                      <div className="w-4 h-4 rounded-full bg-amber-500/20 flex items-center justify-center flex-shrink-0">
+                        <svg className="w-2.5 h-2.5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                      </div>
+                      <span className="text-foreground/80">{item}</span>
+                    </div>
+                  ))}
+                </div>
+                <a
+                  href="https://whop.com/stackmode-academy/educationalservice/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-background font-bold px-5 py-2.5 rounded-lg transition-all text-sm"
+                >
+                  <span>Learn Real Estate Inside The Academy</span>
+                  <ArrowRight size={16} />
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Divider */}
         <div className="max-w-2xl mx-auto my-6 px-4">
           <div className="h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />

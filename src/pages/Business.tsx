@@ -206,6 +206,81 @@ const Business = () => {
         </div>
       </section>
 
+      {/* AI Animations & Branding Section */}
+      <section className="py-16 px-4">
+        <div className="max-w-5xl mx-auto">
+          <ScrollReveal>
+            <div className="relative bg-gradient-to-br from-fuchsia-500/10 via-card/80 to-violet-500/5 border-2 border-fuchsia-500/30 rounded-2xl p-6 sm:p-10 overflow-hidden hover:border-fuchsia-400 hover:shadow-[0_0_60px_rgba(217,70,239,0.15)] transition-all duration-500">
+              <div className="absolute bottom-0 right-0 w-64 h-64 bg-fuchsia-500/10 rounded-full blur-3xl" />
+              
+              <div className="relative z-10 grid lg:grid-cols-2 gap-8 items-center">
+                <div>
+                  <div className="inline-flex items-center gap-2 bg-fuchsia-500/20 border border-fuchsia-500/40 rounded-full px-4 py-2 mb-5">
+                    <Sparkles size={16} className="text-fuchsia-400" />
+                    <span className="text-fuchsia-400 text-sm font-bold">AI CREATIVE STUDIO</span>
+                  </div>
+
+                  <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
+                    Turn AI Animations Into a <span className="text-fuchsia-400">Brand Empire</span>
+                  </h2>
+                  <p className="text-muted-foreground mb-4">
+                    Most people play with AI image generators. We teach you to weaponize them. Learn to create 
+                    scroll-stopping AI animations, build a visual identity around them, and turn that content into 
+                    a real business — with followers, clients, and revenue.
+                  </p>
+                  <p className="text-sm text-fuchsia-400/80 border-l-2 border-fuchsia-500/40 pl-4 mb-6">
+                    "Your content IS your brand. AI makes it scalable."
+                  </p>
+
+                  <div className="space-y-3 mb-6">
+                    {[
+                      'Create Viral AI Animations & Visual Content',
+                      'Build a Recognizable Brand Identity with AI',
+                      'Monetize Content Across Platforms',
+                      'From Zero Followers to Paid Clients'
+                    ].map((feature) => (
+                      <div key={feature} className="flex items-center gap-3">
+                        <div className="w-5 h-5 rounded-full bg-fuchsia-500/20 flex items-center justify-center flex-shrink-0">
+                          <Check size={12} className="text-fuchsia-400" />
+                        </div>
+                        <span className="text-foreground/80 text-sm">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <a
+                    href="https://whop.com/stackmode-academy/educationalservice/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-2 bg-fuchsia-500 hover:bg-fuchsia-400 text-white font-bold px-6 py-3 rounded-xl transition-all"
+                  >
+                    <Sparkles size={18} />
+                    <span>Learn AI Branding — $50/mo</span>
+                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </div>
+
+                {/* Visual Side */}
+                <div className="grid grid-cols-2 gap-3">
+                  {[
+                    { emoji: '🎬', title: 'AI Video', desc: 'Animations that stop the scroll' },
+                    { emoji: '🎨', title: 'Brand Identity', desc: 'Consistent visual language' },
+                    { emoji: '📱', title: 'Content System', desc: 'Post daily without burnout' },
+                    { emoji: '💰', title: 'Monetization', desc: 'Turn views into revenue' },
+                  ].map((item) => (
+                    <div key={item.title} className="bg-background/50 border border-fuchsia-500/20 rounded-xl p-4 text-center hover:border-fuchsia-500/40 transition-colors">
+                      <span className="text-2xl block mb-2">{item.emoji}</span>
+                      <div className="text-sm font-bold text-foreground">{item.title}</div>
+                      <div className="text-xs text-muted-foreground">{item.desc}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* Social Proof */}
       <section className="py-16 px-4">
         <div className="max-w-5xl mx-auto">
