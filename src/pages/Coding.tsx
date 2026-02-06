@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { UniversalPageBottom } from '@/components/UniversalPageBottom';
 import { StackFinderPromo } from '@/components/StackFinderPromo';
+import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
 
 const techStack = [
   { name: 'Python', icon: '🐍' },
@@ -62,6 +63,7 @@ const Coding = () => {
       </Helmet>
 
       <MainHeader />
+      <FreeResourcesCTA variant="banner" />
 
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center justify-center px-4 py-16 overflow-hidden">

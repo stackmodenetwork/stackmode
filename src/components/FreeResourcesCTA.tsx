@@ -84,7 +84,7 @@ export const FreeResourcesCTA = ({ variant = 'banner', className = '' }: FreeRes
       transition={{ duration: 0.5 }}
     >
       <Link to="/library" className="block group">
-        <div className="relative bg-gradient-to-r from-amber-500/10 via-orange-500/5 to-amber-500/10 border-y border-amber-500/30 py-3 px-4">
+        <div className="relative bg-gradient-to-r from-amber-500/10 via-orange-500/5 to-amber-500/10 py-3 px-4">
           {/* Animated background pulse */}
           <motion.div
             className="absolute inset-0 bg-gradient-to-r from-amber-500/0 via-amber-500/10 to-amber-500/0"
