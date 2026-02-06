@@ -33,12 +33,12 @@ export const ReviewsBackgroundCarousel = memo(() => {
   return <>
       <div className="w-full max-w-5xl mx-auto">
         {/* Trust Header */}
-        <div className="text-center mb-4">
-          <h3 className="text-lg sm:text-xl font-bold text-foreground mb-1">
-            At Stackmode, We Get <span className="text-primary">Real Results</span> From Real Clients
+        <div className="text-center mb-2">
+          <h3 className="text-sm sm:text-xl font-bold text-foreground mb-1 leading-tight px-2">
+            Real Results. <span className="text-primary">Real Clients.</span>
           </h3>
-          <div className="flex items-center justify-center gap-0.5 mt-2">
-            {[...Array(5)].map((_, i) => <Star key={i} size={16} className="text-amber-500 fill-amber-500" />)}
+          <div className="flex items-center justify-center gap-0.5 mt-1">
+            {[...Array(5)].map((_, i) => <Star key={i} size={14} className="text-amber-500 fill-amber-500" />)}
           </div>
         </div>
         
