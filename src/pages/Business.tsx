@@ -43,7 +43,7 @@ const Business = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-6 leading-[1.1] tracking-tight"
+            className="text-3xl sm:text-5xl md:text-6xl font-bold text-foreground mb-6 leading-[1.1] tracking-tight"
           >
             We Build.
             <br />
@@ -54,7 +54,7 @@ const Business = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-xl mx-auto"
+            className="text-sm sm:text-xl text-muted-foreground mb-8 max-w-xl mx-auto px-2"
           >
             Need a website? Ads that convert? Choose done-for-you or learn to do it yourself.
           </motion.p>
@@ -220,10 +220,10 @@ const Business = () => {
                     <span className="text-fuchsia-400 text-sm font-bold">AI CREATIVE STUDIO</span>
                   </div>
 
-                  <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
+                  <h2 className="text-xl sm:text-3xl font-bold text-foreground mb-4">
                     Turn AI Animations Into a <span className="text-fuchsia-400">Brand Empire</span>
                   </h2>
-                  <p className="text-muted-foreground mb-4">
+                  <p className="text-muted-foreground mb-4 text-sm sm:text-base">
                     Most people play with AI image generators. We teach you to weaponize them. Learn to create 
                     scroll-stopping AI animations, build a visual identity around them, and turn that content into 
                     a real business — with followers, clients, and revenue.

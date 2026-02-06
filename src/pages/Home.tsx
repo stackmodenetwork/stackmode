@@ -79,7 +79,7 @@ const Home = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-base sm:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-1"
+            className="text-sm sm:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-2"
           >
             Learn to market your business with ads, master investing, and build with AI.
             <span className="text-foreground font-medium"> Everything for $50/month.</span>
@@ -139,10 +139,10 @@ const Home = () => {
 
               <div className="relative z-10 grid lg:grid-cols-2 gap-8 items-center">
                 <div>
-                  <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+                  <h2 className="text-2xl sm:text-4xl font-bold text-foreground mb-4">
                     Learn to Build <span className="text-cyan-400">Real Software</span>
                   </h2>
-                  <p className="text-muted-foreground mb-6 text-lg">
+                  <p className="text-muted-foreground mb-6 text-sm sm:text-lg">
                     Stop consuming tutorials. Start building SaaS products with AI-powered tools. 
                     No CS degree required — just the will to create.
                   </p>
@@ -231,10 +231,10 @@ const Home = () => {
 
               <div className="relative z-10 grid lg:grid-cols-2 gap-8 items-center">
                 <div>
-                  <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+                  <h2 className="text-2xl sm:text-4xl font-bold text-foreground mb-4">
                     Scale Your <span className="text-violet-400">Business</span>
                   </h2>
-                  <p className="text-muted-foreground mb-6 text-lg">
+                  <p className="text-muted-foreground mb-6 text-sm sm:text-lg">
                     Whether you need a done-for-you website or want to learn to build yourself — we've got you covered.
                   </p>
 
@@ -314,10 +314,10 @@ const Home = () => {
 
               <div className="relative z-10 grid lg:grid-cols-2 gap-8 items-center">
                 <div>
-                  <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+                  <h2 className="text-2xl sm:text-4xl font-bold text-foreground mb-4">
                     Smart <span className="text-emerald-400">Swing Investing</span>
                   </h2>
-                  <p className="text-muted-foreground mb-4 text-lg">
+                  <p className="text-muted-foreground mb-4 text-sm sm:text-lg">
                     We don't teach day trading. We focus on high-quality swing positions that let you 
                     build wealth without staring at screens all day.
                   </p>
@@ -422,10 +422,10 @@ const Home = () => {
                     <span className="text-cyan-400 text-sm font-bold">THE ULTIMATE EDUCATION PLATFORM</span>
                   </motion.div>
 
-                  <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+                  <h2 className="text-2xl sm:text-4xl font-bold text-foreground mb-4">
                     One Academy. <span className="text-cyan-400">Every Skill</span> You Need.
                   </h2>
-                  <p className="text-muted-foreground mb-6 text-lg max-w-2xl mx-auto">
+                  <p className="text-muted-foreground mb-6 text-sm sm:text-lg max-w-2xl mx-auto">
                     Coding. AI business. Investing. Real estate. Branding. Animations. 
                     Most people pay thousands across 10 different courses. You get it all — mentorship included — for the price of a dinner.
                   </p>
@@ -480,10 +480,10 @@ const Home = () => {
               </motion.div>
 
               <div className="relative z-10 text-center max-w-2xl mx-auto">
-                <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+                <h2 className="text-2xl sm:text-4xl font-bold text-foreground mb-4">
                   Free Resources to <span className="text-orange-400">Get Started</span>
                 </h2>
-                <p className="text-muted-foreground mb-6 text-lg">
+                <p className="text-muted-foreground mb-6 text-sm sm:text-lg">
                   Access free investing strategies, business guides, books, and educational content. No signup required.
                 </p>
 
@@ -533,7 +533,7 @@ const Home = () => {
                     75% OFF — JOIN NOW
                   </motion.span>
                   
-                  <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+                  <h2 className="text-2xl sm:text-4xl font-bold text-foreground mb-4">
                     Everything for <span className="text-cyan-400">$50/month</span>
                   </h2>
                   <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
@@ -572,7 +572,7 @@ const Home = () => {
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+              <h2 className="text-2xl sm:text-4xl font-bold text-foreground mb-4">
                 Meet Your Mentor
               </h2>
               <p className="text-muted-foreground max-w-xl mx-auto">
