@@ -398,6 +398,69 @@ const Home = () => {
       </section>
 
 
+      {/* ==================== ULTIMATE ACADEMY SECTION ==================== */}
+      <section className="py-16 px-4 relative">
+        <div className="max-w-5xl mx-auto">
+          <ScrollReveal>
+            <a
+              href="https://whop.com/stackmode-academy/educationalservice/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block"
+            >
+              <div className="relative bg-gradient-to-br from-cyan-500/10 via-card/80 to-violet-500/10 border-2 border-cyan-500/30 rounded-2xl p-6 sm:p-10 overflow-hidden hover:border-cyan-400 hover:shadow-[0_0_60px_rgba(6,182,212,0.2)] transition-all duration-500">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl" />
+                <div className="absolute bottom-0 left-0 w-48 h-48 bg-violet-500/10 rounded-full blur-3xl" />
+
+                <div className="relative z-10 text-center max-w-3xl mx-auto">
+                  <motion.div
+                    className="inline-flex items-center gap-2 bg-cyan-500/20 border border-cyan-500/40 rounded-full px-5 py-2 mb-6"
+                    animate={{ scale: [1, 1.03, 1] }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                  >
+                    <Sparkles size={16} className="text-cyan-400" />
+                    <span className="text-cyan-400 text-sm font-bold">THE ULTIMATE EDUCATION PLATFORM</span>
+                  </motion.div>
+
+                  <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+                    One Academy. <span className="text-cyan-400">Every Skill</span> You Need.
+                  </h2>
+                  <p className="text-muted-foreground mb-6 text-lg max-w-2xl mx-auto">
+                    Coding. AI business. Investing. Real estate. Branding. Animations. 
+                    Most people pay thousands across 10 different courses. You get it all — mentorship included — for the price of a dinner.
+                  </p>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8 max-w-xl mx-auto">
+                    {[
+                      { emoji: '💻', label: 'Build Software' },
+                      { emoji: '📈', label: 'Swing Investing' },
+                      { emoji: '🏠', label: 'Real Estate' },
+                      { emoji: '🎬', label: 'AI Animations' },
+                      { emoji: '🚀', label: 'Scale Business' },
+                      { emoji: '🤖', label: 'AI Mastery' },
+                    ].map((item) => (
+                      <div key={item.label} className="bg-background/50 border border-border/50 rounded-lg p-3 text-center group-hover:border-cyan-500/30 transition-colors">
+                        <span className="text-lg block mb-1">{item.emoji}</span>
+                        <span className="text-xs font-medium text-foreground">{item.label}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="inline-flex items-center gap-3 bg-cyan-500 text-background font-bold text-lg px-8 py-4 rounded-xl group-hover:bg-cyan-400 transition-colors shadow-lg shadow-cyan-500/20">
+                    <Zap size={20} />
+                    <span>Join Stackmode — $50/mo</span>
+                    <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-3">
+                    Cancel anytime • Instant access to everything
+                  </p>
+                </div>
+              </div>
+            </a>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* ==================== LIBRARY SECTION ==================== */}
       <section className="py-16 px-4 relative">
         <div className="max-w-5xl mx-auto">
