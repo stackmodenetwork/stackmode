@@ -62,14 +62,44 @@ export const StackmodePerformanceChart = () => {
     setCursorPosition(null);
   };
 
-  // Generate SVG path from data
+  // Generate smooth SVG path from data using cubic bezier curves
   const generatePath = (data: number[]) => {
     const segmentWidth = 100 / (data.length - 1);
-    return data.map((val, i) => {
-      const x = i * segmentWidth;
-      const y = chartHeight - (val / maxValue) * chartHeight;
-      return `${i === 0 ? 'M' : 'L'} ${x} ${y}`;
-    }).join(' ');
+    const points = data.map((val, i) => ({
+      x: i * segmentWidth,
+      y: chartHeight - (val / maxValue) * chartHeight,
+    }));
+
+    if (points.length < 2) return '';
+
+    let path = `M ${points[0].x} ${points[0].y}`;
+    
+    for (let i = 0; i < points.length - 1; i++) {
+      const current = points[i];
+      const next = points[i + 1];
+      const tension = 0.3;
+      
+      // Calculate control points for smooth curve
+      const prevPoint = i > 0 ? points[i - 1] : current;
+      const nextNext = i < points.length - 2 ? points[i + 2] : next;
+      
+      const cp1x = current.x + (next.x - prevPoint.x) * tension;
+      const cp1y = current.y + (next.y - prevPoint.y) * tension;
+      const cp2x = next.x - (nextNext.x - current.x) * tension;
+      const cp2y = next.y - (nextNext.y - current.y) * tension;
+      
+      path += ` C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${next.x} ${next.y}`;
+    }
+    
+    return path;
+  };
+
+  // Generate area path (smooth line + close to bottom)
+  const generateAreaPath = (data: number[]) => {
+    const linePath = generatePath(data);
+    const segmentWidth = 100 / (data.length - 1);
+    const lastX = (data.length - 1) * segmentWidth;
+    return `${linePath} L ${lastX} ${chartHeight} L 0 ${chartHeight} Z`;
   };
 
   // Current values based on cursor
@@ -208,7 +238,7 @@ export const StackmodePerformanceChart = () => {
 
             {/* S&P 500 Area & Line */}
             <motion.path
-              d={`${generatePath(sp500Data)} L 100 ${chartHeight} L 0 ${chartHeight} Z`}
+              d={generateAreaPath(sp500Data)}
               fill="url(#sp500Gradient2)"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
@@ -227,7 +257,7 @@ export const StackmodePerformanceChart = () => {
 
             {/* Stackmode Area & Line */}
             <motion.path
-              d={`${generatePath(stackmodeData)} L 100 ${chartHeight} L 0 ${chartHeight} Z`}
+              d={generateAreaPath(stackmodeData)}
               fill="url(#stackmodeGradient2)"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
