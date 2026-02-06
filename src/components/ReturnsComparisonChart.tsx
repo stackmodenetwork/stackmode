@@ -453,7 +453,7 @@ export const ReturnsComparisonChart = () => {
         {/* Bottom CTA */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 border-t border-border/30">
           <motion.a 
-            href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/" 
+            href="https://whop.com/stackmode-academy/educationalservice/"
             target="_blank" 
             rel="noopener noreferrer" 
             className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-sm px-6 py-3 rounded-xl shadow-lg shadow-primary/25 transition-all" 

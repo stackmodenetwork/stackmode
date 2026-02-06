@@ -111,7 +111,7 @@ const Coding = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
           >
             <a
-              href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/"
+              href="https://whop.com/stackmode-academy/educationalservice/"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center justify-center gap-3 bg-cyan-500 hover:bg-cyan-400 text-background font-bold text-lg px-8 py-4 rounded-lg transition-all shadow-lg shadow-cyan-500/25"
@@ -276,7 +276,7 @@ const Coding = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/"
+                href="https://whop.com/stackmode-academy/educationalservice/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-3 bg-cyan-500 hover:bg-cyan-400 text-background font-bold text-lg px-10 py-5 rounded-lg transition-all shadow-lg shadow-cyan-500/25"

@@ -36,15 +36,15 @@ const Index = () => {
         <div className="bg-background/98 backdrop-blur-lg border-b border-primary/20 shadow-lg pointer-events-auto">
           <div className="px-4 py-2.5 flex items-center justify-between gap-3">
             <span className="text-xs font-medium text-foreground/80">Ready to profit?</span>
-            <a href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/" target="_blank" rel="noopener noreferrer" className="bg-primary hover:bg-primary/90 text-background font-bold text-xs px-5 py-2.5 rounded-lg transition-all shadow-md shadow-primary/20 flex-shrink-0">
-              Join Network →
+            <a href="https://whop.com/stackmode-academy/educationalservice/" target="_blank" rel="noopener noreferrer" className="bg-primary hover:bg-primary/90 text-background font-bold text-xs px-5 py-2.5 rounded-lg transition-all shadow-md shadow-primary/20 flex-shrink-0">
+              Join Academy →
             </a>
           </div>
         </div>
       </div>
 
       {/* Floating Stackmode Academy Button */}
-      <a href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/" target="_blank" rel="noopener noreferrer" className={`fixed bottom-24 right-4 md:bottom-8 md:right-8 z-40 group transition-all duration-500 ${showStickyHeader ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-4 opacity-0 scale-95 pointer-events-none'}`}>
+      <a href="https://whop.com/stackmode-academy/educationalservice/" target="_blank" rel="noopener noreferrer" className={`fixed bottom-24 right-4 md:bottom-8 md:right-8 z-40 group transition-all duration-500 ${showStickyHeader ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-4 opacity-0 scale-95 pointer-events-none'}`}>
         <div className="relative">
           <div className="absolute inset-0 bg-primary rounded-full blur-lg opacity-50 group-hover:opacity-75 transition-opacity animate-pulse" />
           <div className="relative flex items-center gap-2 bg-gradient-to-r from-primary to-emerald-400 hover:from-emerald-400 hover:to-primary text-background font-bold px-5 py-3 rounded-full shadow-xl shadow-primary/30 transition-all group-hover:scale-105">
@@ -258,7 +258,7 @@ const Index = () => {
               Join the Stackmode Academy — live trades, AI tools, and updated education.
             </p>
             <motion.a 
-              href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/" 
+              href="https://whop.com/stackmode-academy/educationalservice/"
               target="_blank" 
               rel="noopener noreferrer" 
               className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-emerald-400 text-background font-bold px-6 py-3 rounded-lg shadow-lg transition-all" 
