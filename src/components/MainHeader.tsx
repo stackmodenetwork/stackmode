@@ -1,6 +1,6 @@
 import { useState, useCallback, memo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Terminal, Globe, BookOpen, TrendingUp, Phone, MessageCircle, type LucideIcon } from 'lucide-react';
+import { Menu, X, Terminal, Globe, BookOpen, TrendingUp, Phone, MessageCircle, Home, type LucideIcon } from 'lucide-react';
 
 // Memoized nav link for desktop
 const NavLink = memo(({
@@ -63,6 +63,7 @@ export const MainHeader = memo(() => {
   const closeMenu = useCallback(() => setMenuOpen(false), []);
   const toggleMenu = useCallback(() => setMenuOpen(prev => !prev), []);
 
+  const isHomeActive = location.pathname === '/';
   const isCodingActive = location.pathname === '/coding';
   const isBusinessActive = location.pathname === '/business';
   const isLibraryActive = location.pathname === '/library';
@@ -81,17 +82,20 @@ export const MainHeader = memo(() => {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-1 bg-card/50 rounded-full px-2 py-1 border border-border/50">
+              <NavLink to="/" isActive={isHomeActive} icon={Home}>
+                Home
+              </NavLink>
               <NavLink to="/coding" isActive={isCodingActive} icon={Terminal}>
                 Coding
               </NavLink>
               <NavLink to="/business" isActive={isBusinessActive} icon={Globe}>
-                Services
-              </NavLink>
-              <NavLink to="/library" isActive={isLibraryActive} icon={BookOpen}>
-                Library
+                Business
               </NavLink>
               <NavLink to="/trading" isActive={isTradingActive} icon={TrendingUp}>
                 Trading
+              </NavLink>
+              <NavLink to="/library" isActive={isLibraryActive} icon={BookOpen}>
+                Library
               </NavLink>
               <span className="w-px h-4 bg-border mx-1" />
               <ExternalNavLink href="https://discord.gg/5zYWSWGMYm" icon={MessageCircle}>
@@ -120,6 +124,16 @@ export const MainHeader = memo(() => {
           <div className="bg-background/95 backdrop-blur-xl border-b border-border/50 px-4 py-4">
             <div className="space-y-1">
               <Link
+                to="/"
+                onClick={closeMenu}
+                className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors ${
+                  isHomeActive ? 'text-cyan-400 bg-cyan-500/10' : 'text-foreground hover:bg-card/50'
+                }`}
+              >
+                <Home size={18} className="text-cyan-400" />
+                Home
+              </Link>
+              <Link
                 to="/coding"
                 onClick={closeMenu}
                 className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors ${
@@ -140,16 +154,6 @@ export const MainHeader = memo(() => {
                 Business Services
               </Link>
               <Link
-                to="/library"
-                onClick={closeMenu}
-                className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors ${
-                  isLibraryActive ? 'text-cyan-400 bg-cyan-500/10' : 'text-foreground hover:bg-card/50'
-                }`}
-              >
-                <BookOpen size={18} className="text-cyan-400" />
-                Library
-              </Link>
-              <Link
                 to="/trading"
                 onClick={closeMenu}
                 className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors ${
@@ -158,6 +162,16 @@ export const MainHeader = memo(() => {
               >
                 <TrendingUp size={18} className="text-emerald-400" />
                 Trading
+              </Link>
+              <Link
+                to="/library"
+                onClick={closeMenu}
+                className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors ${
+                  isLibraryActive ? 'text-orange-400 bg-orange-500/10' : 'text-foreground hover:bg-card/50'
+                }`}
+              >
+                <BookOpen size={18} className="text-orange-400" />
+                Library
               </Link>
               <div className="pt-2 border-t border-border/50 mt-2">
                 <a
