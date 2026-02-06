@@ -10,6 +10,7 @@ import { OptimizedImage } from '@/components/OptimizedImage';
 import { ReviewsBackgroundCarousel } from '@/components/ReviewsBackgroundCarousel';
 import { UniversalPageBottom } from '@/components/UniversalPageBottom';
 import { StackFinderPromo } from '@/components/StackFinderPromo';
+import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
 import { motion } from 'framer-motion';
 
 const techStack = [
@@ -27,6 +28,7 @@ const Home = () => {
   return (
     <main className="min-h-screen bg-background relative overflow-x-hidden">
       <MainHeader />
+      <FreeResourcesCTA variant="banner" />
       
       {/* Animated Grid Background */}
       <div className="fixed inset-0 bg-[linear-gradient(rgba(6,182,212,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.03)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none" />

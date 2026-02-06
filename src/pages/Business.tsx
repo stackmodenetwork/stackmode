@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
 import { UniversalPageBottom } from '@/components/UniversalPageBottom';
+import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
 
 const Business = () => {
   return (
@@ -17,6 +18,7 @@ const Business = () => {
       </Helmet>
 
       <MainHeader />
+      <FreeResourcesCTA variant="banner" />
 
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center px-4 py-16 overflow-hidden">
