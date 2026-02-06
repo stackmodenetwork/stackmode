@@ -89,11 +89,11 @@ interface ConnectWithMeProps {
 
 export const ConnectWithMe = ({ showBlessing = false }: ConnectWithMeProps) => {
   return (
-    <div className="max-w-4xl mx-auto mb-16 px-4">
+    <div className="max-w-4xl mx-auto mb-16 px-1 sm:px-4">
       <h4 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
         Connect With Me
       </h4>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4">
         {socialLinks.map((social) => {
           const IconComponent = social.icon;
           const colorClasses = {
@@ -118,7 +118,7 @@ export const ConnectWithMe = ({ showBlessing = false }: ConnectWithMeProps) => {
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex flex-col items-center justify-center gap-3 bg-card/50 border border-border ${hoverBorder} rounded-xl p-5 transition-all hover:bg-card/80 hover:scale-105 group min-h-[120px]`}
+              className={`flex flex-col items-center justify-center gap-2 sm:gap-3 bg-card/50 border border-border ${hoverBorder} rounded-xl p-3 sm:p-5 transition-all hover:bg-card/80 hover:scale-105 group min-h-[100px] sm:min-h-[120px]`}
             >
               <div className={`w-12 h-12 rounded-full ${bgColor} ${hoverBg} flex items-center justify-center transition-colors`}>
                 {social.customIcon ? (
