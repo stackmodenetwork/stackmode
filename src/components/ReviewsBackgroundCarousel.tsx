@@ -9,14 +9,17 @@ const ReviewImage = memo(({
 }: {
   img: string;
   onClick: () => void;
-}) => <button className="flex-shrink-0 rounded-lg overflow-hidden border border-border/40 hover:border-primary/60 cursor-pointer shadow-md hover:shadow-xl hover:shadow-primary/10 transition-all focus:outline-none focus:ring-2 focus:ring-primary/50 active:scale-95" onClick={onClick}>
+}) => <motion.button className="flex-shrink-0 rounded-lg overflow-hidden border border-border/40 hover:border-primary/60 cursor-pointer shadow-md hover:shadow-xl hover:shadow-primary/10 transition-all focus:outline-none focus:ring-2 focus:ring-primary/50" whileHover={{
+  scale: 1.02
+}} whileTap={{
+  scale: 0.98
+}} onClick={onClick}>
     <img src={`/lovable-uploads/${img}`} alt="Member success story" className="h-24 sm:h-28 md:h-32 w-auto object-contain" loading="lazy" decoding="async" />
-  </button>);
+  </motion.button>);
 ReviewImage.displayName = 'ReviewImage';
 export const ReviewsBackgroundCarousel = memo(() => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  // Only duplicate once (2x) instead of 3x to reduce DOM nodes from 165 to 110
-  const allReviews = [...reviews, ...reviews];
+  const allReviews = [...reviews, ...reviews, ...reviews];
   const handlePrev = () => {
     if (selectedIndex !== null) {
       setSelectedIndex(selectedIndex === 0 ? reviews.length - 1 : selectedIndex - 1);
@@ -39,15 +42,23 @@ export const ReviewsBackgroundCarousel = memo(() => {
           </div>
         </div>
         
-        {/* Carousel - CSS animation instead of framer-motion for better perf */}
+        {/* Carousel */}
         <div className="relative overflow-hidden">
           {/* Fade edges */}
           <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background via-background/80 to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background via-background/80 to-transparent z-10 pointer-events-none" />
           
-          <div className="flex gap-4 py-3 animate-carousel-scroll">
+          <motion.div className="flex gap-4 py-3" animate={{
+          x: [0, -8800]
+        }} transition={{
+          x: {
+            duration: 120,
+            repeat: Infinity,
+            ease: 'linear'
+          }
+        }}>
             {allReviews.map((img, i) => <ReviewImage key={`review-${i}`} img={img} onClick={() => setSelectedIndex(i % reviews.length)} />)}
-          </div>
+          </motion.div>
         </div>
 
         {/* Tap to view hint */}

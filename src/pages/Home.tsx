@@ -46,10 +46,24 @@ const Home = () => {
       {/* Animated Grid Background */}
       <div className="fixed inset-0 bg-[linear-gradient(rgba(6,182,212,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.03)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none" />
       
-      {/* Floating Orbs - CSS only for better performance */}
+      {/* Floating Orbs */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-20 left-[10%] w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[100px]" />
-        <div className="absolute bottom-40 right-[10%] w-[350px] h-[350px] bg-violet-500/10 rounded-full blur-[100px]" />
+        <motion.div className="absolute top-20 left-[10%] w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[100px]" animate={{
+        x: [0, 50, 0],
+        y: [0, 30, 0]
+      }} transition={{
+        duration: 20,
+        repeat: Infinity,
+        ease: 'easeInOut'
+      }} />
+        <motion.div className="absolute bottom-40 right-[10%] w-[350px] h-[350px] bg-violet-500/10 rounded-full blur-[100px]" animate={{
+        x: [0, -40, 0],
+        y: [0, -20, 0]
+      }} transition={{
+        duration: 15,
+        repeat: Infinity,
+        ease: 'easeInOut'
+      }} />
       </div>
 
       {/* ==================== HERO SECTION ==================== */}
@@ -67,7 +81,8 @@ const Home = () => {
           y: 0
         }} transition={{
           delay: 0.1
-        }} className="sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 leading-[1.05] tracking-tight text-2xl">   Code. Build. Invest.<span className="text-cyan-400">Build.</span> <span className="text-emerald-400">Invest.</span>
+        }} className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 leading-[1.05] tracking-tight">
+            Code. <span className="text-cyan-400">Build.</span> <span className="text-emerald-400">Invest.</span>
           </motion.h1>
 
           <motion.div initial={{
