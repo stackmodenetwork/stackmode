@@ -146,19 +146,20 @@ const Home = () => {
             </a>
           </motion.div>
 
+          <div className="flex items-center justify-center gap-3 mt-3">
+            <span className="text-cyan-400/80 text-xs font-mono">24/7 Support</span>
+            <span className="text-cyan-400/50">•</span>
+            <motion.span className="text-emerald-400 text-xs font-mono font-bold flex items-center gap-1.5" animate={{ opacity: [1, 0.6, 1] }} transition={{ duration: 1.5, repeat: Infinity }}>
+              <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full inline-block" />
+              Clients In Training
+            </motion.span>
+          </div>
+
         </div>
       </section>
 
       {/* ==================== REVIEWS CAROUSEL ==================== */}
       <section className="py-4 sm:py-6 px-4">
-        <div className="flex items-center justify-center gap-3 mb-3">
-          <span className="text-cyan-400/80 text-xs font-mono">24/7 Support</span>
-          <span className="text-cyan-400/50">•</span>
-          <motion.span className="text-emerald-400 text-xs font-mono font-bold flex items-center gap-1.5" animate={{ opacity: [1, 0.6, 1] }} transition={{ duration: 1.5, repeat: Infinity }}>
-            <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full inline-block" />
-            Clients In Training
-          </motion.span>
-        </div>
         <ReviewsBackgroundCarousel />
       </section>
 
