@@ -13,15 +13,9 @@ interface NavItem {
 const navItems: NavItem[] = [
   { path: '/', label: 'Home', icon: Home },
   { path: '/coding', label: 'Coding', icon: Terminal },
-  { path: '/business', label: 'Services', icon: Globe },
+  { path: '/business', label: 'Business', icon: Globe },
+  { path: '/trading', label: 'Trading', icon: DollarSign },
   { path: '/library', label: 'Library', icon: BookOpen },
-  { 
-    path: 'https://whop.com/stackmode-networkgroup/makemoneyonlinefast/', 
-    label: 'Join', 
-    icon: DollarSign,
-    isExternal: true,
-    isHighlighted: true
-  },
 ];
 
 export const BottomNavigation = memo(() => {
