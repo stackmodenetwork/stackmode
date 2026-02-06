@@ -13,21 +13,33 @@ import { EmployeeVsStackmodeComparison } from '@/components/EmployeeVsStackmodeC
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
 import { SoftwareProofSection } from '@/components/SoftwareProofSection';
 import { motion } from 'framer-motion';
-
-const techStack = [
-  { name: 'Python', icon: '🐍' },
-  { name: 'Lovable', icon: '💜' },
-  { name: 'Cursor AI', icon: '⚡' },
-  { name: 'Claude AI', icon: '🤖' },
-  { name: 'Bolt.new', icon: '⚡' },
-  { name: 'Replit', icon: '💻' },
-  { name: 'v0.dev', icon: '▲' },
-  { name: 'Windsurf', icon: '🌊' },
-];
-
+const techStack = [{
+  name: 'Python',
+  icon: '🐍'
+}, {
+  name: 'Lovable',
+  icon: '💜'
+}, {
+  name: 'Cursor AI',
+  icon: '⚡'
+}, {
+  name: 'Claude AI',
+  icon: '🤖'
+}, {
+  name: 'Bolt.new',
+  icon: '⚡'
+}, {
+  name: 'Replit',
+  icon: '💻'
+}, {
+  name: 'v0.dev',
+  icon: '▲'
+}, {
+  name: 'Windsurf',
+  icon: '🌊'
+}];
 const Home = () => {
-  return (
-    <main className="min-h-screen bg-background relative overflow-x-hidden">
+  return <main className="min-h-screen bg-background relative overflow-x-hidden">
       <MainHeader />
       <FreeResourcesCTA variant="banner" />
       
@@ -36,51 +48,66 @@ const Home = () => {
       
       {/* Floating Orbs */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        <motion.div 
-          className="absolute top-20 left-[10%] w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[100px]"
-          animate={{ x: [0, 50, 0], y: [0, 30, 0] }}
-          transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div 
-          className="absolute bottom-40 right-[10%] w-[350px] h-[350px] bg-violet-500/10 rounded-full blur-[100px]"
-          animate={{ x: [0, -40, 0], y: [0, -20, 0] }}
-          transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
-        />
+        <motion.div className="absolute top-20 left-[10%] w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[100px]" animate={{
+        x: [0, 50, 0],
+        y: [0, 30, 0]
+      }} transition={{
+        duration: 20,
+        repeat: Infinity,
+        ease: 'easeInOut'
+      }} />
+        <motion.div className="absolute bottom-40 right-[10%] w-[350px] h-[350px] bg-violet-500/10 rounded-full blur-[100px]" animate={{
+        x: [0, -40, 0],
+        y: [0, -20, 0]
+      }} transition={{
+        duration: 15,
+        repeat: Infinity,
+        ease: 'easeInOut'
+      }} />
       </div>
 
       {/* ==================== HERO SECTION ==================== */}
       <section className="relative min-h-[50vh] sm:min-h-[70vh] flex items-center justify-center px-5 sm:px-4 pt-6 sm:pt-10 pb-4 sm:pb-6">
         <div className="relative z-10 max-w-5xl mx-auto text-center">
           {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full px-4 py-2 mb-4"
-          >
-            <motion.div 
-              className="w-2 h-2 bg-cyan-400 rounded-full"
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full px-4 py-2 mb-4">
+            <motion.div className="w-2 h-2 bg-cyan-400 rounded-full" animate={{
+            scale: [1, 1.2, 1]
+          }} transition={{
+            duration: 2,
+            repeat: Infinity
+          }} />
             <span className="text-cyan-400 text-sm font-mono font-semibold tracking-wide">STACKMODE ACADEMY</span>
           </motion.div>
 
           {/* Main Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 leading-[1.05] tracking-tight"
-          >
+          <motion.h1 initial={{
+          opacity: 0,
+          y: 30
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          delay: 0.1
+        }} className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 leading-[1.05] tracking-tight">
             Code. <span className="text-cyan-400">Build.</span> <span className="text-emerald-400">Invest.</span>
           </motion.h1>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-xs sm:text-base text-muted-foreground mb-5 sm:mb-6 max-w-2xl mx-auto leading-relaxed px-2"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          delay: 0.2
+        }} className="text-xs sm:text-base text-muted-foreground mb-5 sm:mb-6 max-w-2xl mx-auto leading-relaxed px-2">
             <span className="block mb-1">
               Learn how to use <span className="text-foreground font-medium">AI to code and build software</span>,
             </span>
@@ -90,22 +117,20 @@ const Home = () => {
             <span className="block">
               then invest that income into <span className="text-emerald-400 font-medium">stocks, crypto & real estate</span>.
             </span>
-            <span className="block mt-2 text-foreground font-semibold text-sm sm:text-lg">All for $50/month.</span>
+            
           </motion.div>
 
           {/* Primary CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-3 justify-center mb-5"
-          >
-            <a
-              href="https://whop.com/stackmode-academy/educationalservice/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold text-xs sm:text-lg px-4 sm:px-10 py-2.5 sm:py-4 rounded-xl transition-all shadow-lg shadow-cyan-500/20 hover:shadow-cyan-400/30 hover:scale-[1.02] max-w-[280px] sm:max-w-none mx-auto"
-            >
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          delay: 0.3
+        }} className="flex flex-col sm:flex-row gap-3 justify-center mb-5">
+            <a href="https://whop.com/stackmode-academy/educationalservice/" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold text-xs sm:text-lg px-4 sm:px-10 py-2.5 sm:py-4 rounded-xl transition-all shadow-lg shadow-cyan-500/20 hover:shadow-cyan-400/30 hover:scale-[1.02] max-w-[280px] sm:max-w-none mx-auto">
               <Zap size={18} className="sm:w-[22px] sm:h-[22px] flex-shrink-0" />
               <span>Join Stackmode Academy — $50/mo</span>
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -113,12 +138,7 @@ const Home = () => {
             <p className="text-muted-foreground text-xs sm:text-sm text-center max-w-[300px] sm:max-w-none mx-auto">
               Not sure where to start? Talk to us for free.
             </p>
-            <a
-              href="https://calendly.com/stackmodechris/architecture"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-background font-bold text-xs sm:text-lg px-4 sm:px-10 py-2.5 sm:py-4 rounded-xl transition-all shadow-lg shadow-emerald-500/20 hover:shadow-emerald-400/30 hover:scale-[1.02] max-w-[280px] sm:max-w-none mx-auto"
-            >
+            <a href="https://calendly.com/stackmodechris/architecture" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-background font-bold text-xs sm:text-lg px-4 sm:px-10 py-2.5 sm:py-4 rounded-xl transition-all shadow-lg shadow-emerald-500/20 hover:shadow-emerald-400/30 hover:scale-[1.02] max-w-[280px] sm:max-w-none mx-auto">
               <Calendar size={18} className="sm:w-[22px] sm:h-[22px] flex-shrink-0" />
               <span>Free Architect Your Life Call</span>
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -150,11 +170,12 @@ const Home = () => {
               <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl" />
               <div className="absolute -bottom-20 -left-20 w-48 h-48 bg-cyan-400/5 rounded-full blur-2xl" />
               
-              <motion.div 
-                className="inline-flex items-center gap-2 bg-cyan-500/20 border border-cyan-500/40 rounded-full px-4 py-1.5 mb-4"
-                animate={{ scale: [1, 1.02, 1] }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
+              <motion.div className="inline-flex items-center gap-2 bg-cyan-500/20 border border-cyan-500/40 rounded-full px-4 py-1.5 mb-4" animate={{
+              scale: [1, 1.02, 1]
+            }} transition={{
+              duration: 3,
+              repeat: Infinity
+            }}>
                 <Terminal size={14} className="text-cyan-400" />
                 <span className="text-cyan-400 text-xs font-bold">CODING SCHOOL</span>
               </motion.div>
@@ -170,32 +191,25 @@ const Home = () => {
                   </p>
 
                   <div className="space-y-2 mb-4">
-                    {[
-                      'AI-Powered Development with Cursor & Lovable',
-                      'Build Healthcare, B2B, and Consumer SaaS',
-                      'From Zero to Deployed Product',
-                      'Live Coaching & Community Support'
-                    ].map((feature, i) => (
-                      <motion.div 
-                        key={feature}
-                        className="flex items-center gap-2"
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: i * 0.1 }}
-                      >
+                    {['AI-Powered Development with Cursor & Lovable', 'Build Healthcare, B2B, and Consumer SaaS', 'From Zero to Deployed Product', 'Live Coaching & Community Support'].map((feature, i) => <motion.div key={feature} className="flex items-center gap-2" initial={{
+                    opacity: 0,
+                    x: -20
+                  }} whileInView={{
+                    opacity: 1,
+                    x: 0
+                  }} viewport={{
+                    once: true
+                  }} transition={{
+                    delay: i * 0.1
+                  }}>
                         <div className="w-4 h-4 rounded-full bg-cyan-500/20 flex items-center justify-center flex-shrink-0">
                           <Check size={10} className="text-cyan-400" />
                         </div>
                         <span className="text-foreground/90 text-xs sm:text-sm">{feature}</span>
-                      </motion.div>
-                    ))}
+                      </motion.div>)}
                   </div>
 
-                  <Link
-                    to="/coding"
-                    className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold px-5 py-2.5 rounded-xl transition-all text-sm"
-                  >
+                  <Link to="/coding" className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold px-5 py-2.5 rounded-xl transition-all text-sm">
                     <Rocket size={16} />
                     <span>Explore Curriculum</span>
                     <ArrowRight size={16} />
@@ -205,20 +219,22 @@ const Home = () => {
                 {/* Tech Stack Pills */}
                 <div className="relative">
                   <div className="grid grid-cols-2 gap-2">
-                    {techStack.map((tech, i) => (
-                      <motion.div
-                        key={tech.name}
-                        className="bg-background/60 border border-cyan-500/20 rounded-lg px-3 py-2 flex items-center gap-2 hover:border-cyan-400/50 transition-colors"
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: i * 0.05 }}
-                        whileHover={{ scale: 1.02 }}
-                      >
+                    {techStack.map((tech, i) => <motion.div key={tech.name} className="bg-background/60 border border-cyan-500/20 rounded-lg px-3 py-2 flex items-center gap-2 hover:border-cyan-400/50 transition-colors" initial={{
+                    opacity: 0,
+                    y: 10
+                  }} whileInView={{
+                    opacity: 1,
+                    y: 0
+                  }} viewport={{
+                    once: true
+                  }} transition={{
+                    delay: i * 0.05
+                  }} whileHover={{
+                    scale: 1.02
+                  }}>
                         <span className="text-base">{tech.icon}</span>
                         <span className="text-xs font-medium text-foreground">{tech.name}</span>
-                      </motion.div>
-                    ))}
+                      </motion.div>)}
                   </div>
                 </div>
               </div>
@@ -243,11 +259,13 @@ const Home = () => {
             <div className="relative bg-gradient-to-br from-violet-500/10 via-card/80 to-violet-400/5 border-2 border-violet-500/30 rounded-2xl p-5 sm:p-8 overflow-hidden hover:border-violet-400 hover:shadow-[0_0_60px_rgba(139,92,246,0.2)] transition-all duration-500">
               <div className="absolute top-0 left-0 w-64 h-64 bg-violet-500/10 rounded-full blur-3xl" />
               
-              <motion.div 
-                className="inline-flex items-center gap-2 bg-violet-500/20 border border-violet-500/40 rounded-full px-4 py-1.5 mb-4"
-                animate={{ scale: [1, 1.02, 1] }}
-                transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
-              >
+              <motion.div className="inline-flex items-center gap-2 bg-violet-500/20 border border-violet-500/40 rounded-full px-4 py-1.5 mb-4" animate={{
+              scale: [1, 1.02, 1]
+            }} transition={{
+              duration: 3,
+              repeat: Infinity,
+              delay: 0.5
+            }}>
                 <Globe size={14} className="text-violet-400" />
                 <span className="text-violet-400 text-xs font-bold">BUSINESS SERVICES</span>
               </motion.div>
@@ -278,10 +296,7 @@ const Home = () => {
                     </div>
                   </div>
 
-                  <Link
-                    to="/business"
-                    className="inline-flex items-center gap-2 bg-violet-500 hover:bg-violet-400 text-background font-bold px-5 py-2.5 rounded-xl transition-all text-sm"
-                  >
+                  <Link to="/business" className="inline-flex items-center gap-2 bg-violet-500 hover:bg-violet-400 text-background font-bold px-5 py-2.5 rounded-xl transition-all text-sm">
                     <Globe size={16} />
                     <span>View Services</span>
                     <ArrowRight size={16} />
@@ -290,25 +305,37 @@ const Home = () => {
 
                 {/* Stats */}
                 <div className="grid grid-cols-2 gap-3">
-                  {[
-                    { value: '3', label: 'Published Books', icon: BookOpen },
-                    { value: '24/7', label: 'Community Access', icon: Users },
-                    { value: '48hr', label: 'Avg Delivery', icon: Zap },
-                    { value: '5★', label: 'Client Rating', icon: Award },
-                  ].map((stat, i) => (
-                    <motion.div
-                      key={stat.label}
-                      className="bg-background/50 border border-violet-500/20 rounded-xl p-3 text-center"
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.1 }}
-                    >
+                  {[{
+                  value: '3',
+                  label: 'Published Books',
+                  icon: BookOpen
+                }, {
+                  value: '24/7',
+                  label: 'Community Access',
+                  icon: Users
+                }, {
+                  value: '48hr',
+                  label: 'Avg Delivery',
+                  icon: Zap
+                }, {
+                  value: '5★',
+                  label: 'Client Rating',
+                  icon: Award
+                }].map((stat, i) => <motion.div key={stat.label} className="bg-background/50 border border-violet-500/20 rounded-xl p-3 text-center" initial={{
+                  opacity: 0,
+                  scale: 0.9
+                }} whileInView={{
+                  opacity: 1,
+                  scale: 1
+                }} viewport={{
+                  once: true
+                }} transition={{
+                  delay: i * 0.1
+                }}>
                       <stat.icon size={18} className="text-violet-400 mx-auto mb-1" />
                       <div className="text-xl font-bold text-foreground">{stat.value}</div>
                       <div className="text-[10px] text-muted-foreground">{stat.label}</div>
-                    </motion.div>
-                  ))}
+                    </motion.div>)}
                 </div>
               </div>
             </div>
@@ -329,11 +356,13 @@ const Home = () => {
             <div className="relative bg-gradient-to-br from-emerald-500/10 via-card/80 to-emerald-400/5 border-2 border-emerald-500/30 rounded-2xl p-5 sm:p-8 overflow-hidden hover:border-emerald-400 hover:shadow-[0_0_60px_rgba(16,185,129,0.2)] transition-all duration-500">
               <div className="absolute bottom-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl" />
               
-              <motion.div 
-                className="inline-flex items-center gap-2 bg-emerald-500/20 border border-emerald-500/40 rounded-full px-4 py-1.5 mb-4"
-                animate={{ scale: [1, 1.02, 1] }}
-                transition={{ duration: 3, repeat: Infinity, delay: 1 }}
-              >
+              <motion.div className="inline-flex items-center gap-2 bg-emerald-500/20 border border-emerald-500/40 rounded-full px-4 py-1.5 mb-4" animate={{
+              scale: [1, 1.02, 1]
+            }} transition={{
+              duration: 3,
+              repeat: Infinity,
+              delay: 1
+            }}>
                 <TrendingUp size={14} className="text-emerald-400" />
                 <span className="text-emerald-400 text-xs font-bold">INVESTING EDUCATION</span>
               </motion.div>
@@ -352,32 +381,25 @@ const Home = () => {
                   </p>
 
                   <div className="space-y-2 mb-4">
-                    {[
-                      'AI StackFinder for High-Probability Entries',
-                      'Swing Positions (Days to Weeks)',
-                      'Weekly Live Investing Calls',
-                      'Stocks, Options & Crypto'
-                    ].map((feature, i) => (
-                      <motion.div 
-                        key={feature}
-                        className="flex items-center gap-2"
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: i * 0.1 }}
-                      >
+                    {['AI StackFinder for High-Probability Entries', 'Swing Positions (Days to Weeks)', 'Weekly Live Investing Calls', 'Stocks, Options & Crypto'].map((feature, i) => <motion.div key={feature} className="flex items-center gap-2" initial={{
+                    opacity: 0,
+                    x: -20
+                  }} whileInView={{
+                    opacity: 1,
+                    x: 0
+                  }} viewport={{
+                    once: true
+                  }} transition={{
+                    delay: i * 0.1
+                  }}>
                         <div className="w-4 h-4 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
                           <Check size={10} className="text-emerald-400" />
                         </div>
                         <span className="text-foreground/90 text-xs sm:text-sm">{feature}</span>
-                      </motion.div>
-                    ))}
+                      </motion.div>)}
                   </div>
 
-                  <Link
-                    to="/investing"
-                    className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-background font-bold px-5 py-2.5 rounded-xl transition-all text-sm"
-                  >
+                  <Link to="/investing" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-background font-bold px-5 py-2.5 rounded-xl transition-all text-sm">
                     <BarChart3 size={16} />
                     <span>Explore Investing</span>
                     <ArrowRight size={16} />
@@ -392,24 +414,33 @@ const Home = () => {
                       <span className="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full">SWING</span>
                     </div>
                     <div className="space-y-2">
-                      {[
-                        { symbol: 'NVDA', gain: '+127%', time: '12 days' },
-                        { symbol: 'TSLA', gain: '+89%', time: '8 days' },
-                        { symbol: 'SPY', gain: '+45%', time: '5 days' },
-                      ].map((trade, i) => (
-                        <motion.div
-                          key={trade.symbol}
-                          className="flex items-center justify-between bg-emerald-500/10 rounded-lg px-3 py-2"
-                          initial={{ opacity: 0, x: 20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: i * 0.15 }}
-                        >
+                      {[{
+                      symbol: 'NVDA',
+                      gain: '+127%',
+                      time: '12 days'
+                    }, {
+                      symbol: 'TSLA',
+                      gain: '+89%',
+                      time: '8 days'
+                    }, {
+                      symbol: 'SPY',
+                      gain: '+45%',
+                      time: '5 days'
+                    }].map((trade, i) => <motion.div key={trade.symbol} className="flex items-center justify-between bg-emerald-500/10 rounded-lg px-3 py-2" initial={{
+                      opacity: 0,
+                      x: 20
+                    }} whileInView={{
+                      opacity: 1,
+                      x: 0
+                    }} viewport={{
+                      once: true
+                    }} transition={{
+                      delay: i * 0.15
+                    }}>
                           <span className="font-bold text-foreground text-sm">{trade.symbol}</span>
                           <span className="text-emerald-400 font-bold text-sm">{trade.gain}</span>
                           <span className="text-[10px] text-muted-foreground">{trade.time}</span>
-                        </motion.div>
-                      ))}
+                        </motion.div>)}
                     </div>
                     <p className="text-[10px] text-muted-foreground/60 mt-2 text-center">
                       Results vary. Past performance ≠ future results.
@@ -426,22 +457,18 @@ const Home = () => {
       <section className="py-6 sm:py-10 px-5 sm:px-4 relative">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
-            <a
-              href="https://whop.com/stackmode-academy/educationalservice/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block"
-            >
+            <a href="https://whop.com/stackmode-academy/educationalservice/" target="_blank" rel="noopener noreferrer" className="group block">
               <div className="relative bg-gradient-to-br from-cyan-500/10 via-card/80 to-violet-500/10 border-2 border-cyan-500/30 rounded-2xl p-5 sm:p-8 overflow-hidden hover:border-cyan-400 hover:shadow-[0_0_60px_rgba(6,182,212,0.2)] transition-all duration-500">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl" />
                 <div className="absolute bottom-0 left-0 w-48 h-48 bg-violet-500/10 rounded-full blur-3xl" />
 
                 <div className="relative z-10 text-center max-w-3xl mx-auto">
-                  <motion.div
-                    className="inline-flex items-center gap-2 bg-cyan-500/20 border border-cyan-500/40 rounded-full px-4 py-1.5 mb-4"
-                    animate={{ scale: [1, 1.03, 1] }}
-                    transition={{ duration: 3, repeat: Infinity }}
-                  >
+                  <motion.div className="inline-flex items-center gap-2 bg-cyan-500/20 border border-cyan-500/40 rounded-full px-4 py-1.5 mb-4" animate={{
+                  scale: [1, 1.03, 1]
+                }} transition={{
+                  duration: 3,
+                  repeat: Infinity
+                }}>
                     <Sparkles size={14} className="text-cyan-400" />
                     <span className="text-cyan-400 text-xs font-bold">THE ULTIMATE EDUCATION PLATFORM</span>
                   </motion.div>
@@ -455,19 +482,28 @@ const Home = () => {
                   </p>
 
                   <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 mb-5 max-w-xl mx-auto">
-                    {[
-                      { emoji: '💻', label: 'Build Software' },
-                      { emoji: '📈', label: 'Swing Investing' },
-                      { emoji: '🏠', label: 'Real Estate' },
-                      { emoji: '🎬', label: 'AI Animations' },
-                      { emoji: '🚀', label: 'Scale Business' },
-                      { emoji: '🤖', label: 'AI Mastery' },
-                    ].map((item) => (
-                      <div key={item.label} className="bg-background/50 border border-border/50 rounded-lg p-2 text-center group-hover:border-cyan-500/30 transition-colors">
+                    {[{
+                    emoji: '💻',
+                    label: 'Build Software'
+                  }, {
+                    emoji: '📈',
+                    label: 'Swing Investing'
+                  }, {
+                    emoji: '🏠',
+                    label: 'Real Estate'
+                  }, {
+                    emoji: '🎬',
+                    label: 'AI Animations'
+                  }, {
+                    emoji: '🚀',
+                    label: 'Scale Business'
+                  }, {
+                    emoji: '🤖',
+                    label: 'AI Mastery'
+                  }].map(item => <div key={item.label} className="bg-background/50 border border-border/50 rounded-lg p-2 text-center group-hover:border-cyan-500/30 transition-colors">
                         <span className="text-base block mb-0.5">{item.emoji}</span>
                         <span className="text-[10px] font-medium text-foreground">{item.label}</span>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
 
                   <div className="inline-flex items-center gap-2 bg-cyan-500 text-background font-bold text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl group-hover:bg-cyan-400 transition-colors shadow-lg shadow-cyan-500/20">
@@ -498,11 +534,13 @@ const Home = () => {
             <div className="relative bg-gradient-to-br from-orange-500/10 via-card/80 to-orange-400/5 border-2 border-orange-500/30 rounded-2xl p-5 sm:p-8 overflow-hidden hover:border-orange-400 hover:shadow-[0_0_60px_rgba(249,115,22,0.2)] transition-all duration-500">
               <div className="absolute top-0 left-1/2 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl" />
               
-              <motion.div 
-                className="inline-flex items-center gap-2 bg-orange-500/20 border border-orange-500/40 rounded-full px-4 py-1.5 mb-4"
-                animate={{ scale: [1, 1.02, 1] }}
-                transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
-              >
+              <motion.div className="inline-flex items-center gap-2 bg-orange-500/20 border border-orange-500/40 rounded-full px-4 py-1.5 mb-4" animate={{
+              scale: [1, 1.02, 1]
+            }} transition={{
+              duration: 3,
+              repeat: Infinity,
+              delay: 1.5
+            }}>
                 <BookOpen size={14} className="text-orange-400" />
                 <span className="text-orange-400 text-xs font-bold">FREE LIBRARY</span>
               </motion.div>
@@ -516,17 +554,12 @@ const Home = () => {
                 </p>
 
                 <div className="flex flex-wrap justify-center gap-2 mb-4">
-                  {['Investing Guides', 'Business Templates', 'Free Books', 'Video Tutorials', 'Cheat Sheets'].map((resource) => (
-                    <span key={resource} className="bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs px-2.5 py-1 rounded-full">
+                  {['Investing Guides', 'Business Templates', 'Free Books', 'Video Tutorials', 'Cheat Sheets'].map(resource => <span key={resource} className="bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs px-2.5 py-1 rounded-full">
                       {resource}
-                    </span>
-                  ))}
+                    </span>)}
                 </div>
 
-                <Link
-                  to="/library"
-                  className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-400 text-background font-bold px-5 py-2.5 rounded-xl transition-all text-sm"
-                >
+                <Link to="/library" className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-400 text-background font-bold px-5 py-2.5 rounded-xl transition-all text-sm">
                   <BookOpen size={16} />
                   <span>Browse Free Resources</span>
                   <ArrowRight size={16} />
@@ -541,21 +574,17 @@ const Home = () => {
       <section className="py-6 sm:py-10 px-5 sm:px-4 bg-gradient-to-b from-background to-cyan-500/5">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal>
-            <a
-              href="https://whop.com/stackmode-academy/educationalservice/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block"
-            >
+            <a href="https://whop.com/stackmode-academy/educationalservice/" target="_blank" rel="noopener noreferrer" className="group block">
               <div className="relative bg-gradient-to-br from-cyan-500/10 via-card to-violet-500/10 border-2 border-cyan-500/40 rounded-2xl p-5 sm:p-8 overflow-hidden hover:border-cyan-400 hover:shadow-[0_0_80px_rgba(6,182,212,0.25)] transition-all duration-500">
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-transparent to-violet-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 
                 <div className="relative z-10 text-center">
-                  <motion.span 
-                    className="inline-block bg-gradient-to-r from-cyan-500 to-cyan-400 text-background text-xs font-bold px-4 py-1 rounded-full mb-4"
-                    animate={{ scale: [1, 1.05, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
+                  <motion.span className="inline-block bg-gradient-to-r from-cyan-500 to-cyan-400 text-background text-xs font-bold px-4 py-1 rounded-full mb-4" animate={{
+                  scale: [1, 1.05, 1]
+                }} transition={{
+                  duration: 2,
+                  repeat: Infinity
+                }}>
                     75% OFF — JOIN NOW
                   </motion.span>
                   
@@ -567,18 +596,27 @@ const Home = () => {
                   </p>
 
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 mb-5">
-                    {[
-                      { icon: Terminal, label: 'Coding', desc: 'Full curriculum' },
-                      { icon: Globe, label: 'Business', desc: 'AI models' },
-                      { icon: BarChart3, label: 'Investing', desc: 'Tools & signals' },
-                      { icon: Users, label: 'Community', desc: 'Live support' },
-                    ].map((item) => (
-                      <div key={item.label} className="bg-background/50 border border-border/50 rounded-xl p-2.5 text-center">
+                    {[{
+                    icon: Terminal,
+                    label: 'Coding',
+                    desc: 'Full curriculum'
+                  }, {
+                    icon: Globe,
+                    label: 'Business',
+                    desc: 'AI models'
+                  }, {
+                    icon: BarChart3,
+                    label: 'Investing',
+                    desc: 'Tools & signals'
+                  }, {
+                    icon: Users,
+                    label: 'Community',
+                    desc: 'Live support'
+                  }].map(item => <div key={item.label} className="bg-background/50 border border-border/50 rounded-xl p-2.5 text-center">
                         <item.icon size={20} className="text-cyan-400 mx-auto mb-1" />
                         <div className="text-xs font-semibold text-foreground">{item.label}</div>
                         <div className="text-[10px] text-muted-foreground">{item.desc}</div>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
 
                   <div className="inline-flex items-center gap-2 bg-cyan-500 text-background font-bold text-sm sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-xl group-hover:bg-cyan-400 transition-colors shadow-lg shadow-cyan-500/20">
@@ -610,11 +648,7 @@ const Home = () => {
           <ScrollReveal delay={0.1}>
             <div className="flex flex-col md:flex-row items-center gap-6 mb-8">
               <div className="w-32 h-32 rounded-2xl overflow-hidden border-2 border-primary/40 flex-shrink-0">
-                <OptimizedImage 
-                  src="/images/stackmodechris-about-new.png" 
-                  alt="Christopher Robinson - Stackmodechris"
-                  className="w-full h-full"
-                />
+                <OptimizedImage src="/images/stackmodechris-about-new.png" alt="Christopher Robinson - Stackmodechris" className="w-full h-full" />
               </div>
               <div className="text-center md:text-left">
                 <h3 className="text-xl font-bold text-foreground mb-1">Christopher Robinson</h3>
@@ -642,8 +676,6 @@ const Home = () => {
 
       <MainFooter />
       <CookieConsent />
-    </main>
-  );
+    </main>;
 };
-
 export default Home;
