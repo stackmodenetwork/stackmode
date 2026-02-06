@@ -56,7 +56,7 @@ const Home = () => {
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
-            <span className="text-cyan-400 text-sm font-mono font-semibold tracking-wide">STACKMODE NETWORK</span>
+            <span className="text-cyan-400 text-sm font-mono font-semibold tracking-wide">STACKMODE ACADEMY</span>
           </motion.div>
 
           {/* Main Headline */}
@@ -485,7 +485,7 @@ const Home = () => {
 
                   <div className="inline-flex items-center gap-3 bg-cyan-500 text-background font-bold text-lg px-10 py-5 rounded-xl group-hover:bg-cyan-400 transition-colors shadow-lg shadow-cyan-500/20">
                     <Zap size={22} />
-                    <span>Join Stackmode Network</span>
+                    <span>Join Stackmode Academy</span>
                     <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
@@ -522,7 +522,7 @@ const Home = () => {
                 <h3 className="text-2xl font-bold text-foreground mb-2">Christopher Robinson</h3>
                 <p className="text-primary font-medium mb-3">aka Stackmodechris</p>
                 <p className="text-muted-foreground max-w-xl">
-                  Founder of Stackmode Network | AI Business & Trading Mentor. My mission: show people that financial freedom isn't about climbing a corporate ladder — it's about building systems that work for you.
+                  Founder of Stackmode Academy | AI Business & Trading Mentor. My mission: show people that financial freedom isn't about climbing a corporate ladder — it's about building systems that work for you.
                 </p>
               </div>
             </div>

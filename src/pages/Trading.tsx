@@ -43,7 +43,7 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Floating Stackmode Network Button */}
+      {/* Floating Stackmode Academy Button */}
       <a href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/" target="_blank" rel="noopener noreferrer" className={`fixed bottom-24 right-4 md:bottom-8 md:right-8 z-40 group transition-all duration-500 ${showStickyHeader ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-4 opacity-0 scale-95 pointer-events-none'}`}>
         <div className="relative">
           <div className="absolute inset-0 bg-primary rounded-full blur-lg opacity-50 group-hover:opacity-75 transition-opacity animate-pulse" />
@@ -67,7 +67,7 @@ const Index = () => {
           <StackFinderPromo variant="trading" />
         </section>
 
-        {/* STACKMODE NETWORK PROMO - Primary CTA */}
+        {/* STACKMODE ACADEMY PROMO - Primary CTA */}
         <TradingStackmodePromo />
 
         {/* Performance Comparison Chart */}
@@ -181,10 +181,10 @@ const Index = () => {
 
               <AccordionItem value="item-3" className="bg-card/50 border border-primary/20 rounded-lg px-3 overflow-hidden">
                 <AccordionTrigger className="text-left text-sm text-foreground hover:text-primary hover:no-underline py-3">
-                  Mentorship vs Stackmode Network?
+                  Mentorship vs Stackmode Academy?
                 </AccordionTrigger>
                 <AccordionContent className="text-sm text-muted-foreground pb-3">
-                  <strong className="text-foreground">Network ($50/mo):</strong> Real-time trades, AI tools, courses. <strong className="text-foreground">Mentorship:</strong> Deep 1-on-1 coaching to become independent.
+                  <strong className="text-foreground">Academy ($50/mo):</strong> Real-time trades, AI tools, courses. <strong className="text-foreground">Mentorship:</strong> Deep 1-on-1 coaching to become independent.
                 </AccordionContent>
               </AccordionItem>
 
@@ -255,7 +255,7 @@ const Index = () => {
               Ready to <span className="text-primary">Start Trading</span>?
             </h2>
             <p className="text-sm text-muted-foreground mb-4">
-              Join the Stackmode Network — live trades, AI tools, and updated education.
+              Join the Stackmode Academy — live trades, AI tools, and updated education.
             </p>
             <motion.a 
               href="https://whop.com/stackmode-networkgroup/makemoneyonlinefast/" 

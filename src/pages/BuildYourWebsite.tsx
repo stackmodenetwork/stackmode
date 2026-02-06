@@ -17,8 +17,8 @@ const BuildYourWebsite = () => {
   return (
     <>
       <Helmet>
-        <title>Build Your Website | Stackmode Network</title>
-        <meta name="description" content="Get a professional website built for your business. Custom web development services by Stackmode Network." />
+        <title>Build Your Website | Stackmode Academy</title>
+        <meta name="description" content="Get a professional website built for your business. Custom web development services by Stackmode Academy." />
         <link rel="canonical" href="https://stackmode.net/buildyourwebsite" />
       </Helmet>
 
@@ -153,7 +153,7 @@ const BuildYourWebsite = () => {
           </div>
         </section>
 
-        {/* ========== STACKMODE NETWORK ========== */}
+        {/* ========== STACKMODE ACADEMY ========== */}
         <section className="max-w-5xl mx-auto py-8 px-4 relative z-10">
           <ScrollReveal>
             <div className="text-center mb-6">
@@ -169,7 +169,7 @@ const BuildYourWebsite = () => {
                 Website Training <span className="text-purple-400">Included</span>
               </h2>
               <p className="text-muted-foreground max-w-xl mx-auto">
-                Inside the Stackmode Network, you'll learn to build professional websites with AI — plus get all our trading and business content for just $50/month.
+                Inside the Stackmode Academy, you'll learn to build professional websites with AI — plus get all our trading and business content for just $50/month.
               </p>
             </div>
             <StackmodeGroupPromo variant="website" />

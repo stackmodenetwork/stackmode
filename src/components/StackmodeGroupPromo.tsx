@@ -52,7 +52,7 @@ export const StackmodeGroupPromo = ({ variant = 'home' }: StackmodeGroupPromoPro
           title: "Courses Become Outdated. We Don't.",
           subtitle: 'Always-Updated Education for $50/month',
           headline: 'Live training beats pre-recorded courses.',
-          description: "That $2,000 course you bought last year? Already outdated. The Stackmode Network evolves with the market — new strategies, new tools, new content weekly.",
+          description: "That $2,000 course you bought last year? Already outdated. The Stackmode Academy evolves with the market — new strategies, new tools, new content weekly.",
           features: [
             '$1000+ Worth of Courses',
             'Updated to Current Trends',
@@ -71,7 +71,7 @@ export const StackmodeGroupPromo = ({ variant = 'home' }: StackmodeGroupPromoPro
           title: 'Learn to Build Websites Yourself',
           subtitle: 'AI Website Training Included for $50/month',
           headline: 'Why pay thousands when you can learn for $50?',
-          description: "Web agencies charge $3,000+ for a simple site. Inside the Stackmode Network, you'll learn to build professional websites with AI — plus get all our trading and business content.",
+          description: "Web agencies charge $3,000+ for a simple site. Inside the Stackmode Academy, you'll learn to build professional websites with AI — plus get all our trading and business content.",
           features: [
             'AI Website Building Training',
             'No Coding Required',
@@ -295,7 +295,7 @@ export const StackmodeGroupPromo = ({ variant = 'home' }: StackmodeGroupPromoPro
                   
                   <div className={`relative flex items-center gap-3 bg-gradient-to-r ${themeColors.buttonBg} text-background font-bold text-lg px-8 py-4 rounded-xl shadow-xl ${themeColors.buttonShadow} transition-all`}>
                     <Users size={20} />
-                    <span>Join Stackmode Network</span>
+                    <span>Join Stackmode Academy</span>
                     <motion.div
                       animate={{ x: [0, 5, 0] }}
                       transition={{ duration: 1.5, repeat: Infinity }}

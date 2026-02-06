@@ -87,7 +87,7 @@ const Learn = () => {
                     BEST VALUE
                   </div>
                   <h2 className="text-2xl font-bold text-foreground mb-2">
-                    Stackmode Network
+                    Stackmode Academy
                   </h2>
                   <p className="text-muted-foreground">
                     Coding school, business training, AI tools, live coaching — all in one membership.

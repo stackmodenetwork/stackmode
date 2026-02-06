@@ -63,9 +63,9 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title>About Stackmodechris | Trading Mentor & Founder of Stackmode Network</title>
+        <title>About Stackmodechris | Trading Mentor & Founder of Stackmode Academy</title>
         <meta name="description" content="Meet Christopher Robinson (Stackmodechris) - a passionate trader and mentor helping everyday people achieve financial freedom through stocks, options, futures, forex, and crypto trading." />
-        <meta name="keywords" content="Stackmodechris, trading mentor, Christopher Robinson, Stackmode Network, trading education, forex trading, crypto trading, stocks trading, options trading, futures trading" />
+        <meta name="keywords" content="Stackmodechris, trading mentor, Christopher Robinson, Stackmode Academy, trading education, forex trading, crypto trading, stocks trading, options trading, futures trading" />
         <link rel="canonical" href="https://stackmode.net/about" />
         
         <meta property="og:title" content="About Stackmodechris | Trading Mentor & Founder" />
@@ -85,7 +85,7 @@ const About = () => {
             "@type": "Person",
             "name": "Christopher Robinson",
             "alternateName": "Stackmodechris",
-            "description": "Trading Mentor & Founder of Stackmode Network",
+            "description": "Trading Mentor & Founder of Stackmode Academy",
             "jobTitle": "Trading Mentor",
             "url": "https://stackmode.net/about",
             "image": "https://stackmode.net/images/stackmodechris-about-new.png",
@@ -121,7 +121,7 @@ const About = () => {
                 <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/40 shadow-2xl shadow-primary/20">
                   <OptimizedImage 
                     src="/images/stackmodechris-about-new.png?v=2" 
-                    alt="Stackmodechris - Founder of Stackmode Network" 
+                    alt="Stackmodechris - Founder of Stackmode Academy" 
                     className="w-full h-full"
                     priority
                   />
@@ -136,7 +136,7 @@ const About = () => {
                   aka Stackmodechris
                 </p>
                 <p className="text-lg text-muted-foreground mb-6">
-                  Founder of Stackmode Network | AI Business & Trading Mentor
+                  Founder of Stackmode Academy | AI Business & Trading Mentor
                 </p>
                 <p className="text-base text-muted-foreground mb-6 max-w-xl">
                   Unlinking time from money. It's time to own your life.
@@ -272,7 +272,7 @@ const About = () => {
           </div>
         </section>
 
-        {/* Stackmode Network Promo */}
+        {/* Stackmode Academy Promo */}
         <section className="py-16 md:py-20">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
@@ -310,7 +310,7 @@ const About = () => {
                     <div className="pt-4">
                       <span className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-cyan-400 text-background font-bold px-8 py-4 rounded-xl text-lg group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all">
                         <Zap size={20} className="animate-pulse" />
-                        Join The Stackmode Network
+                        Join The Stackmode Academy
                         <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                       </span>
                     </div>
