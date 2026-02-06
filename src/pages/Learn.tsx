@@ -6,6 +6,7 @@ import { BookOpen, Terminal, ArrowRight, Gift, Play, Download, Check, Star, Zap,
 import { motion } from 'framer-motion';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
+import { UniversalPageBottom } from '@/components/UniversalPageBottom';
 
 const freeResource = {
   title: "The Key Steps To Profitability",
@@ -239,6 +240,9 @@ const Learn = () => {
           <ReviewsGallery />
         </div>
       </section>
+
+      {/* Universal Bottom CTA */}
+      <UniversalPageBottom />
 
       <MainFooter />
     </main>

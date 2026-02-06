@@ -6,6 +6,7 @@ import { Globe, Megaphone, Check, ArrowRight, Zap, Users, Calendar, ChevronRight
 import { motion } from 'framer-motion';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { ReviewsGallery } from '@/components/ReviewsGallery';
+import { UniversalPageBottom } from '@/components/UniversalPageBottom';
 
 const Business = () => {
   return (
@@ -100,7 +101,7 @@ const Business = () => {
                 </div>
 
                 <a
-                  href="https://calendly.com/stackmodechris/businessconsulting"
+                  href="https://calendly.com/stackmodechris/architecture"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group inline-flex items-center justify-center gap-3 w-full bg-violet-500 hover:bg-violet-400 text-white font-bold text-lg px-6 py-4 rounded-lg transition-all"
@@ -215,39 +216,8 @@ const Business = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-t from-violet-500/10 to-background">
-        <div className="max-w-3xl mx-auto text-center">
-          <ScrollReveal>
-            <h2 className="text-3xl font-bold text-foreground mb-4">
-              Ready to Grow Your Business?
-            </h2>
-            <p className="text-muted-foreground mb-8 text-lg">
-              Whether you want us to build it or want to learn yourself — we've got you covered.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://calendly.com/stackmodechris/businessconsulting"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-violet-500 hover:bg-violet-400 text-white font-bold px-8 py-4 rounded-lg transition-all"
-              >
-                <Phone size={20} />
-                <span>Free Consultation</span>
-              </a>
-              <a
-                href="https://whop.com/stackmode-academy/educationalservice/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold px-8 py-4 rounded-lg transition-all"
-              >
-                <Users size={20} />
-                <span>Join The Academy</span>
-              </a>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
+      {/* Universal Bottom CTA */}
+      <UniversalPageBottom />
 
       <MainFooter />
     </main>

@@ -14,6 +14,7 @@ import { TrustpilotWidget } from '@/components/TrustpilotWidget';
 import { OptimizedImage } from '@/components/OptimizedImage';
 import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
+import { UniversalPageBottom } from '@/components/UniversalPageBottom';
 
 const About = () => {
   const { toast } = useToast();
@@ -143,13 +144,13 @@ const About = () => {
                 </p>
                 <div className="flex flex-wrap justify-center md:justify-start gap-3">
                   <Button asChild className="gap-2 bg-primary hover:bg-primary/90">
-                    <a target="_blank" rel="noopener noreferrer" href="https://calendly.com/stackmodechris/tradingmastermindcoaching">
+                    <a target="_blank" rel="noopener noreferrer" href="https://calendly.com/stackmodechris/architecture">
                       <TrendingUp size={18} />
-                      Free Trading Call
+                      Free Consultation
                     </a>
                   </Button>
                   <Button asChild className="gap-2 bg-accent hover:bg-accent/90">
-                    <a target="_blank" rel="noopener noreferrer" href="https://calendly.com/stackmodechris/businessconsulting">
+                    <a target="_blank" rel="noopener noreferrer" href="https://calendly.com/stackmodechris/architecture">
                       <Briefcase size={18} />
                       Grow Your Business
                     </a>
@@ -444,8 +445,8 @@ const About = () => {
           </div>
         </section>
 
-        {/* Dual Call CTA */}
-        <DualCallCTA />
+        {/* Universal Page Bottom */}
+        <UniversalPageBottom />
 
         {/* Trustpilot Widget */}
         <section className="py-6 px-4 relative z-10">

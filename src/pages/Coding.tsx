@@ -5,6 +5,7 @@ import { MainFooter } from '@/components/MainFooter';
 import { Code, Terminal, Cpu, Sparkles, ArrowRight, Check, Zap, Users, Bot, Globe, Rocket, Brain, Shield, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { ScrollReveal } from '@/components/ScrollReveal';
+import { UniversalPageBottom } from '@/components/UniversalPageBottom';
 
 const techStack = [
   { name: 'Python', icon: '🐍' },
@@ -264,34 +265,8 @@ const Coding = () => {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="py-20 px-4 bg-gradient-to-t from-cyan-500/10 to-background">
-        <div className="max-w-3xl mx-auto text-center">
-          <ScrollReveal>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Ready to Build?
-            </h2>
-            <p className="text-muted-foreground mb-8 text-lg">
-              Join the Stackmode Coding School. Get instant access to all courses, tools, and community.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://whop.com/stackmode-academy/educationalservice/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-3 bg-cyan-500 hover:bg-cyan-400 text-background font-bold text-lg px-10 py-5 rounded-lg transition-all shadow-lg shadow-cyan-500/25"
-              >
-                <Zap size={22} />
-                <span>Get Started — $50/month</span>
-                <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
-              </a>
-            </div>
-            <p className="text-sm text-muted-foreground mt-4">
-              Cancel anytime. No contracts. Instant access.
-            </p>
-          </ScrollReveal>
-        </div>
-      </section>
+      {/* Universal Bottom CTA */}
+      <UniversalPageBottom />
 
       <MainFooter />
     </main>

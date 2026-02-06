@@ -11,6 +11,7 @@ import { TradingBackground } from '@/components/TradingBackground';
 import { StackFinderPromo } from '@/components/StackFinderPromo';
 import { BooksCredibilityPromo } from '@/components/BooksCredibilityPromo';
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
+import { UniversalPageBottom } from '@/components/UniversalPageBottom';
 import { motion } from 'framer-motion';
 
 // New modular trading components
@@ -127,7 +128,7 @@ const Index = () => {
               <p className="text-sm text-muted-foreground">Pick a time that works for you</p>
             </div>
             <div className="relative">
-              <LazyCalendly url="https://calendly.com/stackmodechris/tradingmastermindcoaching?background_color=0a0b0d&text_color=ffffff&primary_color=22c55e" height={500} />
+              <LazyCalendly url="https://calendly.com/stackmodechris/architecture?background_color=0a0b0d&text_color=ffffff&primary_color=22c55e" height={500} />
             </div>
           </div>
         </section>
@@ -200,7 +201,7 @@ const Index = () => {
 
             <div className="text-center mt-4">
               <Button asChild size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold">
-                <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer">
+                <a href="https://calendly.com/stackmodechris/architecture" target="_blank" rel="noopener noreferrer">
                   Book Your Free Call →
                 </a>
               </Button>
@@ -230,7 +231,7 @@ const Index = () => {
                     Helping everyday people achieve financial freedom through stocks, options, futures, forex, and crypto.
                   </p>
                   <div className="flex flex-wrap justify-center sm:justify-start gap-2">
-                    <a href="https://calendly.com/stackmodechris/tradingmastermindcoaching" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 bg-primary/10 hover:bg-primary/20 text-primary px-2.5 py-1 rounded text-xs font-medium transition-colors">
+                    <a href="https://calendly.com/stackmodechris/architecture" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 bg-primary/10 hover:bg-primary/20 text-primary px-2.5 py-1 rounded text-xs font-medium transition-colors">
                       <Calendar className="w-3 h-3" />
                       Free Call
                     </a>
@@ -248,30 +249,8 @@ const Index = () => {
         {/* Books Credibility Section - More compact */}
         <BooksCredibilityPromo variant="compact" showHeading={false} className="mb-8" />
 
-        {/* Bottom CTA - Compact */}
-        <section className="py-8 px-4 mb-6">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-3">
-              Ready to <span className="text-primary">Start Trading</span>?
-            </h2>
-            <p className="text-sm text-muted-foreground mb-4">
-              Join the Stackmode Academy — live trades, AI tools, and updated education.
-            </p>
-            <motion.a 
-              href="https://whop.com/stackmode-academy/educationalservice/"
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-emerald-400 text-background font-bold px-6 py-3 rounded-lg shadow-lg transition-all" 
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <Users size={18} />
-              <span>Join Network — $50/mo</span>
-              <ArrowRight size={18} />
-            </motion.a>
-            <p className="text-[10px] text-muted-foreground mt-2">75% OFF • Cancel anytime</p>
-          </div>
-        </section>
+        {/* Universal Bottom CTA */}
+        <UniversalPageBottom showBooks={false} />
 
       </section>
 

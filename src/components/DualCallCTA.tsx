@@ -19,31 +19,19 @@ export const DualCallCTA = ({ className = '' }: DualCallCTAProps) => {
           Want Personalized Guidance?
         </h2>
         <p className="text-muted-foreground mb-5 text-sm">
-          Book a free strategy call to discuss your goals.
+          Book a free consultation to discuss your goals.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <motion.a 
-            href="https://calendly.com/stackmodechris/tradingmastermindcoaching" 
+            href="https://calendly.com/stackmodechris/architecture" 
             target="_blank" 
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-500/90 text-white font-semibold px-6 py-3 rounded-xl transition-all hover:shadow-lg hover:shadow-emerald-500/25"
+            className="inline-flex items-center justify-center gap-2 bg-violet-500 hover:bg-violet-500/90 text-white font-semibold px-6 py-3 rounded-xl transition-all hover:shadow-lg hover:shadow-violet-500/25"
           >
             <Calendar size={18} />
-            FREE Trading Mentorship Call
-            <ArrowRight size={18} />
-          </motion.a>
-          <motion.a 
-            href="https://calendly.com/stackmodechris/businessconsulting" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center justify-center gap-2 bg-purple-500 hover:bg-purple-500/90 text-white font-semibold px-6 py-3 rounded-xl transition-all hover:shadow-lg hover:shadow-purple-500/25"
-          >
-            <Calendar size={18} />
-            FREE Business Growth Call
+            FREE Consultation Call
             <ArrowRight size={18} />
           </motion.a>
         </div>
