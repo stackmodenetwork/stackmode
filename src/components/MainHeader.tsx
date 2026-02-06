@@ -1,6 +1,6 @@
 import { useState, useCallback, memo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Terminal, Globe, BookOpen, TrendingUp, Phone, MessageCircle, Home, type LucideIcon } from 'lucide-react';
+import { Menu, X, Terminal, Globe, BookOpen, TrendingUp, Phone, MessageCircle, Home, Mic, type LucideIcon } from 'lucide-react';
 
 // Memoized nav link for desktop
 const NavLink = memo(({
@@ -100,6 +100,9 @@ export const MainHeader = memo(() => {
               <span className="w-px h-4 bg-border mx-1" />
               <ExternalNavLink href="https://discord.gg/5zYWSWGMYm" icon={MessageCircle}>
                 Discord
+              </ExternalNavLink>
+              <ExternalNavLink href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true" icon={Mic}>
+                Podcast
               </ExternalNavLink>
               <ExternalNavLink href="tel:+16787758532" icon={Phone} highlight>
                 Call
