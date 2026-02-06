@@ -49,10 +49,10 @@ export const ReviewsBackgroundCarousel = memo(() => {
           <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background via-background/80 to-transparent z-10 pointer-events-none" />
           
           <motion.div className="flex gap-4 py-3" animate={{
-          x: [0, -1600]
+          x: [0, -8800]
         }} transition={{
           x: {
-            duration: 35,
+            duration: 120,
             repeat: Infinity,
             ease: 'linear'
           }
