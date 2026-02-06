@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { MainHeader } from '@/components/MainHeader';
 import { MainFooter } from '@/components/MainFooter';
+import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
 import { BookOpen, Terminal, ArrowRight, Gift, Play, Download, Check, Star, Zap, Users, ArrowLeft } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { ScrollReveal } from '@/components/ScrollReveal';
@@ -24,6 +25,7 @@ const Learn = () => {
       </Helmet>
 
       <MainHeader />
+      <FreeResourcesCTA variant="banner" />
 
       {/* Hero */}
       <section className="relative py-16 px-4 overflow-hidden">
