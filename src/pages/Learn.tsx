@@ -49,7 +49,7 @@ const Learn = () => {
               className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full px-4 py-2 mb-6"
             >
               <BookOpen size={16} className="text-cyan-400" />
-              <span className="text-cyan-400 text-sm font-mono">RESOURCE LIBRARY</span>
+              <span className="text-cyan-400 text-sm font-mono">STACKMODE LIBRARY</span>
             </motion.div>
 
             <motion.h1
@@ -58,17 +58,37 @@ const Learn = () => {
               transition={{ delay: 0.1 }}
               className="text-4xl sm:text-5xl font-bold text-foreground mb-4"
             >
-              Free <span className="text-cyan-400">Resources</span>
+              Free Course + eBook <span className="text-cyan-400">Inside</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-lg text-muted-foreground max-w-xl mx-auto"
+              className="text-lg text-muted-foreground max-w-2xl mx-auto mb-6"
             >
-              Courses, ebooks, and guides. No credit card required.
+              Get "The Key Steps To Profitability" — a complete video course AND downloadable eBook covering trading fundamentals, risk management, and business strategy. No email required.
             </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground"
+            >
+              <span className="flex items-center gap-2">
+                <Play size={14} className="text-emerald-400" />
+                Full Video Course
+              </span>
+              <span className="flex items-center gap-2">
+                <Download size={14} className="text-emerald-400" />
+                Downloadable eBook
+              </span>
+              <span className="flex items-center gap-2">
+                <Gift size={14} className="text-emerald-400" />
+                100% Free — No Catch
+              </span>
+            </motion.div>
           </div>
         </div>
       </section>
