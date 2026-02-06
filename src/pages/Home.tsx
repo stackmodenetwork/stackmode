@@ -115,21 +115,24 @@ const Home = () => {
           y: 0
         }} transition={{
           delay: 0.3
-        }} className="flex flex-col sm:flex-row gap-3 justify-center mb-5">
-             <p className="text-sm font-bold text-center mb-2">Stop paying <span className="text-destructive line-through">$5,000</span> <span className="text-foreground">for outdated courses</span></p>
-             <a href="https://whop.com/stackmode-academy/educationalservice/" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold text-xs sm:text-lg px-4 sm:px-10 py-2.5 sm:py-4 rounded-xl transition-all shadow-lg shadow-cyan-500/20 hover:shadow-cyan-400/30 hover:scale-[1.02] max-w-[280px] sm:max-w-none mx-auto">
-              <Zap size={18} className="sm:w-[22px] sm:h-[22px] flex-shrink-0" />
-              <span>Join The Stackmode Academy — $50/mo</span>
-              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-            </a>
-            <p className="text-muted-foreground text-xs sm:text-sm text-center max-w-[300px] sm:max-w-none mx-auto">
-              Not sure where to start? Talk to us for free.
-            </p>
-            <a href="https://calendly.com/stackmodechris/architecture" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-background font-bold text-xs sm:text-lg px-4 sm:px-10 py-2.5 sm:py-4 rounded-xl transition-all shadow-lg shadow-emerald-500/20 hover:shadow-emerald-400/30 hover:scale-[1.02] max-w-[280px] sm:max-w-none mx-auto">
-              <Calendar size={18} className="sm:w-[22px] sm:h-[22px] flex-shrink-0" />
-              <span>Free Architect Your Life Call</span>
-              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-            </a>
+        }} className="flex flex-col items-center gap-3 mt-2">
+             <p className="text-sm font-bold text-center">Stop paying <span className="text-destructive line-through">$5,000</span> <span className="text-foreground">for outdated courses</span></p>
+             
+             <a href="https://whop.com/stackmode-academy/educationalservice/" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold text-xs sm:text-lg px-4 sm:px-10 py-2.5 sm:py-4 rounded-xl transition-all shadow-lg shadow-cyan-500/20 hover:shadow-cyan-400/30 hover:scale-[1.02] max-w-[280px] sm:max-w-none mx-auto w-full sm:w-auto">
+               <Zap size={18} className="sm:w-[22px] sm:h-[22px] flex-shrink-0" />
+               <span>Join The Stackmode Academy — $50/mo</span>
+               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+             </a>
+
+             <p className="text-muted-foreground text-xs sm:text-sm text-center max-w-[300px] sm:max-w-none mx-auto">
+               Not sure where to start? Talk to us for free.
+             </p>
+
+             <a href="https://calendly.com/stackmodechris/architecture" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-background font-bold text-xs sm:text-lg px-4 sm:px-10 py-2.5 sm:py-4 rounded-xl transition-all shadow-lg shadow-emerald-500/20 hover:shadow-emerald-400/30 hover:scale-[1.02] max-w-[280px] sm:max-w-none mx-auto w-full sm:w-auto">
+               <Calendar size={18} className="sm:w-[22px] sm:h-[22px] flex-shrink-0" />
+               <span>Free Architect Your Life Call</span>
+               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+             </a>
           </motion.div>
 
           <div className="flex items-center justify-center gap-3 mt-3">
