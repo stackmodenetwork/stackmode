@@ -8,6 +8,7 @@ import { ConnectWithMe } from '@/components/ConnectWithMe';
 import { TrustpilotWidget } from '@/components/TrustpilotWidget';
 import { OptimizedImage } from '@/components/OptimizedImage';
 import { ReviewsBackgroundCarousel } from '@/components/ReviewsBackgroundCarousel';
+import { UniversalPageBottom } from '@/components/UniversalPageBottom';
 import { motion } from 'framer-motion';
 
 const techStack = [
@@ -524,6 +525,9 @@ const Home = () => {
           <ConnectWithMe showBlessing={true} />
         </div>
       </section>
+
+      {/* ==================== UNIVERSAL PAGE BOTTOM ==================== */}
+      <UniversalPageBottom />
 
       {/* ==================== TRUSTPILOT SECTION ==================== */}
       <section className="py-8 px-4 border-t border-border/30">
