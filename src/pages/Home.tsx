@@ -101,7 +101,7 @@ const Home = () => {
               Promote your <span className="text-cyan-400 font-medium">business with content monetization</span>,
             </span>
             <span className="block">
-              then invest that income into <span className="text-emerald-400 font-medium">stocks, crypto & real estate</span>.
+              Then invest that income into <span className="text-emerald-400 font-medium">stocks, crypto & real estate</span>.
             </span>
             
           </motion.div>
