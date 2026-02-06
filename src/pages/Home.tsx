@@ -104,7 +104,7 @@ const Home = () => {
               href="https://whop.com/stackmode-academy/educationalservice/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-2 sm:gap-3 bg-cyan-500 hover:bg-cyan-400 text-background font-bold text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 rounded-xl transition-all shadow-lg shadow-cyan-500/20 hover:shadow-cyan-400/30 hover:scale-[1.02]"
+              className="group inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold text-sm sm:text-lg px-5 sm:px-10 py-3 sm:py-4 rounded-xl transition-all shadow-lg shadow-cyan-500/20 hover:shadow-cyan-400/30 hover:scale-[1.02]"
             >
               <Zap size={22} />
               <span>Join The Stackmode Academy — $50/mo</span>
