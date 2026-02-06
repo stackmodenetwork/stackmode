@@ -137,7 +137,7 @@ export const TradingFeatures = () => {
                 transition={{ delay: 0.3 }}
               >
                 <p className="text-foreground font-bold text-lg sm:text-xl mb-3">
-                  DON'T WAIT! <span className="text-primary">JOIN THE STACKMODE NETWORK</span>
+                  DON'T WAIT! <span className="text-primary">JOIN THE STACKMODE ACADEMY</span>
                 </p>
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-muted-foreground line-through text-sm">$200/mo</span>

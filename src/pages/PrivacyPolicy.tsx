@@ -26,7 +26,7 @@ const PrivacyPolicy = () => {
           <section className="space-y-4">
             <h2 className="text-2xl font-semibold text-foreground">1. Introduction</h2>
             <p>
-              Welcome to Stackmode Network LLC ("we," "our," or "us"). We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.
+              Welcome to Stackmode Academy LLC ("we," "our," or "us"). We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.
             </p>
           </section>
 
@@ -101,7 +101,7 @@ const PrivacyPolicy = () => {
               If you have any questions about this Privacy Policy, please contact us at:
             </p>
             <p>
-              <strong>Stackmode Network LLC</strong><br />
+              <strong>Stackmode Academy LLC</strong><br />
               Email: stackmodechris@gmail.com
             </p>
           </section>

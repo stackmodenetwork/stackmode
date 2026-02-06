@@ -229,7 +229,7 @@ export const BlueprintPromo = ({ variant = 'full', className = '' }: BlueprintPr
                     </motion.a>
                     
                     <span className="text-muted-foreground text-sm">
-                      Included with Stackmode Network
+                      Included with Stackmode Academy
                     </span>
                   </div>
 

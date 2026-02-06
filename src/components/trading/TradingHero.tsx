@@ -101,7 +101,7 @@ export const TradingHero = () => {
                 <TrendingDown size={24} className="text-primary rotate-180" />
               </motion.div>
               <div className="text-left">
-                <p className="text-xs text-primary/70 uppercase tracking-wide">STACKMODE NETWORK</p>
+                <p className="text-xs text-primary/70 uppercase tracking-wide">STACKMODE ACADEMY</p>
                 <p className="text-primary font-bold">$50/mo Live Updates</p>
               </div>
             </div>
