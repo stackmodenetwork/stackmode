@@ -7,6 +7,7 @@ import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/Scroll
 import { ConnectWithMe } from '@/components/ConnectWithMe';
 import { TrustpilotWidget } from '@/components/TrustpilotWidget';
 import { OptimizedImage } from '@/components/OptimizedImage';
+import { ReviewsBackgroundCarousel } from '@/components/ReviewsBackgroundCarousel';
 import { motion } from 'framer-motion';
 
 const techStack = [
@@ -44,6 +45,8 @@ const Home = () => {
 
       {/* ==================== HERO SECTION ==================== */}
       <section className="relative min-h-[85vh] flex items-center justify-center px-4 py-16">
+        {/* Background Reviews Carousel */}
+        <ReviewsBackgroundCarousel />
         <div className="relative z-10 max-w-5xl mx-auto text-center">
           {/* Badge */}
           <motion.div
