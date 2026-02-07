@@ -266,7 +266,12 @@
   'https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', '1031260575763105');
   fbq('track', 'PageView');
-  fbq('track', 'ViewContent');
+  fbq('track', 'ViewContent', {
+    content_name: 'Stackmode Academy Homepage',
+    content_category: 'Education',
+    value: 0.00,
+    currency: 'USD'
+  });
   </script>
   <!-- End Meta Pixel Code -->
   
