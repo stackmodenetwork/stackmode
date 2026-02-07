@@ -1,32 +1,29 @@
 
 
-## Fix: Review Image Lightbox Sizing
+## Fix: Meta Pixel ViewContent Missing Parameters
 
 ### Problem
-When users tap a review image to enlarge it, the image can be too large and overflow the viewport, making it impossible to see the full image. This is especially problematic on mobile devices.
+Meta Pixel is flagging the `ViewContent` event because it's missing the required `value` and `currency` parameters. This prevents proper conversion tracking and ad optimization in Meta Ads Manager.
 
-### Solution
-Constrain the lightbox image to always fit within the viewport with proper padding, so the entire image is visible without overlapping or scrolling.
+### Current Code (line 269 in `index.html`)
+```js
+fbq('track', 'ViewContent');
+```
 
-### Changes
+### Updated Code
+```js
+fbq('track', 'ViewContent', {
+  content_name: 'Stackmode Academy Homepage',
+  content_category: 'Education',
+  value: 0.00,
+  currency: 'USD'
+});
+```
 
-**File: `src/components/ReviewsBackgroundCarousel.tsx`**
+### What This Does
+- Adds `value: 0.00` -- since this is a page view (not a purchase), the value is 0. This satisfies Meta's requirement that value must be a numeric value greater than or equal to 0.
+- Adds `currency: 'USD'` -- required currency code.
+- Adds `content_name` and `content_category` for better event reporting in Meta Ads Manager.
 
-1. **Update DialogContent container** - Change `max-w-3xl` to a viewport-aware constraint using `max-w-[90vw] max-h-[90vh]` so the dialog never exceeds 90% of the screen on any device.
-
-2. **Constrain the image wrapper** - Add `flex items-center justify-center max-h-[80vh]` to the wrapper `div` so the image and controls stay centered and bounded.
-
-3. **Constrain the image itself** - Change the `motion.img` classes from `w-full h-auto` to `max-w-full max-h-[75vh] w-auto h-auto object-contain` so the image scales down to fit within the viewport while maintaining its aspect ratio.
-
-4. **Adjust close button positioning** - Move the close button from `absolute -top-12` to `absolute -top-10 right-2` so it stays visible and doesn't get clipped off-screen on smaller devices.
-
-5. **Adjust counter positioning** - Keep the counter inside the image bounds so it doesn't overlap outside the visible area.
-
-### Technical Details
-
-The key CSS change on the image element:
-- **Before:** `className="w-full h-auto rounded-xl border-2 border-primary/30"`
-- **After:** `className="max-w-full max-h-[75vh] w-auto h-auto object-contain rounded-xl border-2 border-primary/30"`
-
-This ensures the image shrinks to fit within 75% of the viewport height while maintaining aspect ratio, so the full image is always visible with room for navigation buttons and the counter.
-
+### File Changed
+- **`index.html`** -- Line 269: Update the `ViewContent` event call to include the missing parameters.
