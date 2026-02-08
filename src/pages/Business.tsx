@@ -67,7 +67,12 @@ const Business = () => {
           <div className="grid md:grid-cols-2 gap-5 sm:gap-8">
             {/* DIY Path - Academy (First) */}
             <ScrollReveal delay={0.1}>
-              <div className="bg-gradient-to-br from-cyan-500/10 to-transparent border-2 border-cyan-500/30 rounded-2xl p-5 sm:p-8 h-full flex flex-col">
+              <a
+                href="https://whop.com/stackmode-academy/educationalservice/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block bg-gradient-to-br from-cyan-500/10 to-transparent border-2 border-cyan-500/30 rounded-2xl p-5 sm:p-8 h-full flex flex-col cursor-pointer transition-all duration-300 hover:border-cyan-400 hover:shadow-[0_0_60px_rgba(6,182,212,0.2)] hover:scale-[1.02]"
+              >
                 <div className="bg-cyan-500/20 border border-cyan-500/40 rounded-full px-3 py-1 text-xs font-bold text-cyan-400 inline-block mb-4">
                   JOIN THE ACADEMY
                 </div>
@@ -102,25 +107,25 @@ const Business = () => {
                   </div>
                 </div>
 
-                <a
-                  href="https://whop.com/stackmode-academy/educationalservice/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-center justify-center gap-3 w-full bg-cyan-500 hover:bg-cyan-400 text-background font-bold text-lg px-6 py-4 rounded-lg transition-all"
-                >
+                <div className="w-full bg-cyan-500 group-hover:bg-cyan-400 text-background font-bold text-lg px-6 py-4 rounded-lg transition-all flex items-center justify-center gap-3">
                   <Zap size={20} />
                   <span>Join for $50/month</span>
                   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                </a>
+                </div>
                 <p className="text-sm text-muted-foreground text-center mt-3">
                   Cancel anytime • Instant access
                 </p>
-              </div>
+              </a>
             </ScrollReveal>
 
             {/* Done-For-You Path - Consultation (Second) */}
             <ScrollReveal delay={0.2}>
-              <div className="bg-gradient-to-br from-violet-500/10 to-transparent border-2 border-violet-500/30 rounded-2xl p-5 sm:p-8 h-full flex flex-col">
+              <a
+                href="https://calendly.com/stackmodechris/architecture"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block bg-gradient-to-br from-violet-500/10 to-transparent border-2 border-violet-500/30 rounded-2xl p-5 sm:p-8 h-full flex flex-col cursor-pointer transition-all duration-300 hover:border-violet-400 hover:shadow-[0_0_60px_rgba(139,92,246,0.2)] hover:scale-[1.02]"
+              >
                 <div className="bg-violet-500/20 border border-violet-500/40 rounded-full px-3 py-1 text-xs font-bold text-violet-400 inline-block mb-4">
                   AGENCY SERVICES
                 </div>
@@ -155,20 +160,15 @@ const Business = () => {
                   </div>
                 </div>
 
-                <a
-                  href="https://calendly.com/stackmodechris/architecture"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-center justify-center gap-3 w-full bg-violet-500 hover:bg-violet-400 text-white font-bold text-lg px-6 py-4 rounded-lg transition-all"
-                >
+                <div className="w-full bg-violet-500 group-hover:bg-violet-400 text-background font-bold text-lg px-6 py-4 rounded-lg transition-all flex items-center justify-center gap-3">
                   <Calendar size={20} />
                   <span>Book a Free Consultation</span>
                   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                </a>
+                </div>
                 <p className="text-sm text-muted-foreground text-center mt-3">
                   30-min call • No obligation • Custom quote
                 </p>
-              </div>
+              </a>
             </ScrollReveal>
           </div>
         </div>
