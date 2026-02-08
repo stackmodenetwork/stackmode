@@ -73,7 +73,7 @@ export const MainHeader = memo(() => {
     <>
       <header className="bg-background/80 backdrop-blur-md border-b border-border/50 sticky top-0 z-40">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-16 relative">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2">
               <img src="/images/sm-logo.png" alt="Stackmode" className="w-10 h-10 object-contain" />
@@ -81,7 +81,7 @@ export const MainHeader = memo(() => {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-1 bg-card/50 rounded-full px-2 py-1 border border-border/50">
+            <nav className="hidden lg:flex items-center gap-1 bg-card/50 rounded-full px-2 py-1 border border-border/50 absolute left-1/2 -translate-x-1/2">
               <NavLink to="/" isActive={isHomeActive} icon={Home}>
                 Home
               </NavLink>
