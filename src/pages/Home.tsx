@@ -81,7 +81,7 @@ const Home = () => {
           y: 0
         }} transition={{
           delay: 0.1
-        }} className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 leading-[1.05] tracking-tight flex flex-col items-center w-full text-center">
+        }} className="text-3xl sm:text-5xl md:text-6xl font-bold text-foreground mb-4 leading-[1.05] tracking-tight flex flex-col items-center w-full text-center lg:text-6xl mx-[9px]">
             <span>Code.</span> <span className="text-cyan-400">Build.</span> <span className="text-emerald-400">Invest.</span>
           </motion.h1>
 
