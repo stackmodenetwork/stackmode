@@ -67,7 +67,7 @@ const Business = () => {
           <div className="grid md:grid-cols-2 gap-5 sm:gap-8">
             {/* DIY Path - Academy (First) */}
             <ScrollReveal delay={0.1}>
-              <div className="bg-gradient-to-br from-cyan-500/10 to-transparent border-2 border-cyan-500/30 rounded-2xl p-5 sm:p-8 h-full">
+              <div className="bg-gradient-to-br from-cyan-500/10 to-transparent border-2 border-cyan-500/30 rounded-2xl p-5 sm:p-8 h-full flex flex-col">
                 <div className="bg-cyan-500/20 border border-cyan-500/40 rounded-full px-3 py-1 text-xs font-bold text-cyan-400 inline-block mb-4">
                   JOIN THE ACADEMY
                 </div>
@@ -83,7 +83,7 @@ const Business = () => {
                   Learn to build websites, run ads, and scale your business. Full training library, templates, and community support.
                 </p>
 
-                <div className="space-y-2 sm:space-y-3 mb-5 sm:mb-8">
+                <div className="space-y-2 sm:space-y-3 mb-5 sm:mb-8 flex-1">
                   <div className="flex items-center gap-3">
                     <Check size={18} className="text-cyan-400 shrink-0" />
                     <span className="text-foreground/80">Complete Website Building Courses</span>
@@ -120,7 +120,7 @@ const Business = () => {
 
             {/* Done-For-You Path - Consultation (Second) */}
             <ScrollReveal delay={0.2}>
-              <div className="bg-gradient-to-br from-violet-500/10 to-transparent border-2 border-violet-500/30 rounded-2xl p-5 sm:p-8 h-full">
+              <div className="bg-gradient-to-br from-violet-500/10 to-transparent border-2 border-violet-500/30 rounded-2xl p-5 sm:p-8 h-full flex flex-col">
                 <div className="bg-violet-500/20 border border-violet-500/40 rounded-full px-3 py-1 text-xs font-bold text-violet-400 inline-block mb-4">
                   AGENCY SERVICES
                 </div>
@@ -136,7 +136,7 @@ const Business = () => {
                   We handle everything. You focus on your business. Professional websites, ad campaigns, and automation — delivered.
                 </p>
 
-                <div className="space-y-2 sm:space-y-3 mb-5 sm:mb-8">
+                <div className="space-y-2 sm:space-y-3 mb-5 sm:mb-8 flex-1">
                   <div className="flex items-center gap-3">
                     <Check size={18} className="text-violet-400 shrink-0" />
                     <span className="text-foreground/80">Custom Website Design & Development</span>
