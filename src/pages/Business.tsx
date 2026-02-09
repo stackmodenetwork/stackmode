@@ -61,6 +61,44 @@ const Business = () => {
         </div>
       </section>
 
+      {/* Views to Income Section */}
+      <section className="py-8 sm:py-14 px-5 sm:px-4">
+        <div className="max-w-3xl mx-auto text-center">
+          <ScrollReveal>
+            <div className="inline-flex items-center gap-2 bg-violet-500/10 border border-violet-500/30 rounded-full px-4 py-1.5 mb-5">
+              <Megaphone size={14} className="text-violet-400" />
+              <span className="text-violet-400 text-xs font-bold tracking-wide">THE REAL SKILL</span>
+            </div>
+
+            <h2 className="text-xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4 leading-tight">
+              Views Mean Nothing.<br />
+              <span className="text-violet-400">Views That Pay You</span> Mean Everything.
+            </h2>
+
+            <p className="text-muted-foreground text-sm sm:text-base max-w-xl mx-auto mb-5">
+              Anyone can get eyeballs. We teach you how to turn those eyeballs into 
+              real income — ads, products, services, and automated funnels that 
+              convert strangers into paying customers.
+            </p>
+
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-5 text-sm">
+              {[
+                { emoji: '👀', label: 'Get Views' },
+                { emoji: '→', label: '' },
+                { emoji: '🧲', label: 'Capture Attention' },
+                { emoji: '→', label: '' },
+                { emoji: '💰', label: 'Make Income' },
+              ].map((step, i) => (
+                <div key={i} className={`flex items-center gap-1 ${step.label ? 'bg-card/50 border border-border/50 rounded-lg px-3 py-2' : 'text-violet-400 font-bold text-lg'}`}>
+                  <span>{step.emoji}</span>
+                  {step.label && <span className="text-foreground/80 font-medium">{step.label}</span>}
+                </div>
+              ))}
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* Two Paths Section */}
       <section className="py-8 sm:py-16 px-5 sm:px-4">
         <div className="max-w-5xl mx-auto">
