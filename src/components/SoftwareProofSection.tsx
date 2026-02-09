@@ -101,14 +101,16 @@ export const SoftwareProofSection = ({ variant }: SoftwareProofSectionProps) => 
             {/* CTA */}
             <div className="flex flex-wrap gap-3">
               {isHome ? (
-                <Link
-                  to="/coding"
+                <a
+                  href="https://whop.com/stackmode-academy/educationalservice/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-background font-bold px-6 py-3 rounded-xl transition-all"
                 >
                   <Code size={18} />
                   <span>Learn How I Built It</span>
                   <ArrowRight size={18} />
-                </Link>
+                </a>
               ) : (
                 <a
                   href="https://whop.com/stackmode-academy/educationalservice/"
