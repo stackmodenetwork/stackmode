@@ -23,7 +23,7 @@ export const StackmodePerformanceChart = () => {
   const maxValue = 220; // Max Y axis value
   const chartHeight = 180;
 
-  // Get interpolated value at cursor position
+  // Get interpolated value at cursor position (0-100 range)
   const getValueAtPosition = (data: number[], position: number) => {
     const segmentWidth = 100 / (dataPoints - 1);
     const index = position / segmentWidth;
@@ -35,6 +35,11 @@ export const StackmodePerformanceChart = () => {
     if (lowerIndex < 0) return data[0];
     
     return data[lowerIndex] + (data[upperIndex] - data[lowerIndex]) * fraction;
+  };
+
+  // Get the Y percentage for a value (maps to the chart area)
+  const getYPercent = (value: number) => {
+    return (1 - value / maxValue) * 100;
   };
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
@@ -318,40 +323,86 @@ export const StackmodePerformanceChart = () => {
             })}
           </svg>
 
-          {/* Cursor line and values */}
-          {cursorPosition !== null && (
-            <>
-              {/* Vertical cursor line */}
-              <div
-                className="absolute top-6 bottom-8 w-px bg-primary/60 pointer-events-none z-10"
-                style={{ left: `calc(8% + ${cursorPosition * 0.88}%)` }}
-              />
-              
-              {/* Stackmode tooltip */}
-              <div
-                className="absolute bg-primary text-background text-[10px] font-bold px-2 py-1 rounded shadow-lg pointer-events-none z-20 whitespace-nowrap"
-                style={{ 
-                  left: `calc(8% + ${cursorPosition * 0.88}%)`,
-                  top: `${15 + (1 - currentStackmode / maxValue) * 55}%`,
-                  transform: 'translate(-50%, -100%)'
-                }}
-              >
-                +{currentStackmode}%
-              </div>
-              
-              {/* S&P 500 tooltip */}
-              <div
-                className="absolute bg-destructive/90 text-white text-[10px] font-bold px-2 py-1 rounded shadow-lg pointer-events-none z-20 whitespace-nowrap"
-                style={{ 
-                  left: `calc(8% + ${cursorPosition * 0.88}%)`,
-                  top: `${15 + (1 - currentSP500 / maxValue) * 55}%`,
-                  transform: 'translate(-50%, 10%)'
-                }}
-              >
-                +{currentSP500}%
-              </div>
-            </>
-          )}
+          {/* Cursor line, dots, and tooltips */}
+          {cursorPosition !== null && (() => {
+            // Calculate precise positions matching the SVG coordinate system
+            const stackmodeYPct = getYPercent(currentStackmode);
+            const sp500YPct = getYPercent(currentSP500);
+            // Chart inner area: top padding ~14%, bottom padding ~18%, left ~8%, usable width ~88%
+            const xPos = `calc(8% + ${cursorPosition * 0.88}%)`;
+            const chartTopPad = 14; // % from top where chart area starts
+            const chartUsableHeight = 68; // % of container that is chart area
+
+            return (
+              <>
+                {/* Vertical cursor line */}
+                <div
+                  className="absolute top-6 bottom-8 w-px pointer-events-none z-10"
+                  style={{
+                    left: xPos,
+                    background: 'linear-gradient(to bottom, hsl(var(--primary)/0.1), hsl(var(--primary)/0.6), hsl(var(--primary)/0.1))',
+                  }}
+                />
+
+                {/* Stackmode dot on curve */}
+                <div
+                  className="absolute w-3 h-3 rounded-full border-2 border-primary bg-background pointer-events-none z-20"
+                  style={{
+                    left: xPos,
+                    top: `${chartTopPad + (stackmodeYPct / 100) * chartUsableHeight}%`,
+                    transform: 'translate(-50%, -50%)',
+                    boxShadow: '0 0 8px hsl(var(--primary)/0.6)',
+                  }}
+                />
+
+                {/* S&P 500 dot on curve */}
+                <div
+                  className="absolute w-3 h-3 rounded-full border-2 border-destructive bg-background pointer-events-none z-20"
+                  style={{
+                    left: xPos,
+                    top: `${chartTopPad + (sp500YPct / 100) * chartUsableHeight}%`,
+                    transform: 'translate(-50%, -50%)',
+                    boxShadow: '0 0 8px rgba(239,68,68,0.5)',
+                  }}
+                />
+
+                {/* Stackmode tooltip */}
+                <div
+                  className="absolute bg-primary text-primary-foreground text-[10px] font-bold px-2 py-1 rounded-md shadow-lg pointer-events-none z-30 whitespace-nowrap"
+                  style={{
+                    left: xPos,
+                    top: `${chartTopPad + (stackmodeYPct / 100) * chartUsableHeight}%`,
+                    transform: `translate(${cursorPosition > 80 ? '-110%' : '60%'}, -50%)`,
+                  }}
+                >
+                  +{currentStackmode}%
+                </div>
+
+                {/* S&P 500 tooltip */}
+                <div
+                  className="absolute bg-destructive/90 text-white text-[10px] font-bold px-2 py-1 rounded-md shadow-lg pointer-events-none z-30 whitespace-nowrap"
+                  style={{
+                    left: xPos,
+                    top: `${chartTopPad + (sp500YPct / 100) * chartUsableHeight}%`,
+                    transform: `translate(${cursorPosition > 80 ? '-110%' : '60%'}, -50%)`,
+                  }}
+                >
+                  +{currentSP500}%
+                </div>
+
+                {/* Year label at cursor */}
+                <div
+                  className="absolute bottom-0 bg-primary/20 text-primary text-[9px] font-bold px-2 py-0.5 rounded-t pointer-events-none z-30 whitespace-nowrap"
+                  style={{
+                    left: xPos,
+                    transform: 'translateX(-50%)',
+                  }}
+                >
+                  {currentYear}
+                </div>
+              </>
+            );
+          })()}
 
           {/* X-axis year labels inside chart */}
           <div className="absolute bottom-1 left-8 sm:left-10 right-2 sm:right-4 flex justify-between text-[8px] sm:text-[10px] text-muted-foreground pointer-events-none">
