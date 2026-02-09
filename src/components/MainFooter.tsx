@@ -56,7 +56,7 @@ export const MainFooter = () => {
             </svg>
           </a>
           <a
-            href="https://www.youtube.com/@stackmodetrading"
+            href="https://www.youtube.com/@Stackmodechris"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-red-400 transition-colors"
