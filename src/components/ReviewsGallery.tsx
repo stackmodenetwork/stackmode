@@ -8,6 +8,7 @@ const allReviews = [
   "review-1.png", "review-2.png", "review-3.png", "review-4.png", "review-5.png",
   "review-6.png", "review-7.png", "review-8.png", "review-9.png", "review-10.png",
   "review-11.png", "review-12.png", "review-46.png", "review-13.png", "review-14.png",
+  "review-62.png", "review-63.png", "review-64.png",
 ];
 
 const ReviewCard = memo(({ img, index, onClick }: { img: string; index: number; onClick: () => void }) => (
