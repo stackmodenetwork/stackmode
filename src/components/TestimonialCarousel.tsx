@@ -23,6 +23,9 @@ const reviewImages = [
   { src: "/lovable-uploads/review-18.png", alt: "Mentorship Win" },
   { src: "/lovable-uploads/review-19.png", alt: "Trading Excellence" },
   { src: "/lovable-uploads/review-20.png", alt: "Student Win" },
+  { src: "/lovable-uploads/review-62.png", alt: "YouTube Analytics" },
+  { src: "/lovable-uploads/review-63.png", alt: "Ad Campaign Results" },
+  { src: "/lovable-uploads/review-64.png", alt: "Revenue Dashboard" },
 ];
 
 export const TestimonialCarousel = () => {
