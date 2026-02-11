@@ -515,7 +515,7 @@ const Home = () => {
                     label: 'Real Estate'
                   }, {
                     emoji: '🎬',
-                    label: 'AI Animations'
+                    label: 'Content Monetization'
                   }, {
                     emoji: '🚀',
                     label: 'Scale Business'
