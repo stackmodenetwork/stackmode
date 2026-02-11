@@ -8,8 +8,8 @@ interface SoftwareProofSectionProps {
 }
 
 const screenshots = [
-  { label: 'StackFinder', src: '/images/stackfinder-preview.png', alt: 'StackFinder - AI Market Intelligence' },
   { label: 'Calculators', src: '/images/stackfinder-calculators.png', alt: 'Smart Calculators' },
+  { label: 'StackFinder', src: '/images/stackfinder-preview.png', alt: 'StackFinder - AI Market Intelligence' },
   { label: 'Sector IQ', src: '/images/stackfinder-sector-iq.png', alt: 'Sector IQ Analysis' },
 ];
 
