@@ -72,33 +72,33 @@ const Home = () => {
 
           {/* Main Headline with staggered word reveal */}
           <motion.h1
-            className="text-3xl sm:text-5xl md:text-6xl lg:text-6xl font-bold text-foreground mb-4 leading-[1.05] tracking-tight flex flex-col items-center w-full"
-            initial="hidden"
-            animate="visible"
-            variants={{
-              hidden: {},
-              visible: { transition: { staggerChildren: 0.15, delayChildren: 0.1 } }
-            }}
-          >
+          className="text-3xl sm:text-5xl md:text-6xl lg:text-6xl font-bold text-foreground mb-4 leading-[1.05] tracking-tight flex flex-col items-center w-full"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.15, delayChildren: 0.1 } }
+          }}>
+
             <motion.span
-              variants={{ hidden: { opacity: 0, y: 40, scale: 0.9 }, visible: { opacity: 1, y: 0, scale: 1 } }}
-              transition={{ duration: 0.5, ease: 'easeOut' }}
-            >
+            variants={{ hidden: { opacity: 0, y: 40, scale: 0.9 }, visible: { opacity: 1, y: 0, scale: 1 } }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}>
+
               Code.
             </motion.span>
             <motion.span
-              className="text-cyan-400"
-              variants={{ hidden: { opacity: 0, y: 40, scale: 0.9 }, visible: { opacity: 1, y: 0, scale: 1 } }}
-              transition={{ duration: 0.5, ease: 'easeOut' }}
-            >
+            className="text-cyan-400"
+            variants={{ hidden: { opacity: 0, y: 40, scale: 0.9 }, visible: { opacity: 1, y: 0, scale: 1 } }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}>
+
               Build.
             </motion.span>
             <motion.span
-              className="text-emerald-400"
-              variants={{ hidden: { opacity: 0, y: 40, scale: 0.9 }, visible: { opacity: 1, y: 0, scale: 1 } }}
-              transition={{ duration: 0.5, ease: 'easeOut' }}
-              animate={{ textShadow: ['0 0 0px rgba(16,185,129,0)', '0 0 20px rgba(16,185,129,0.4)', '0 0 0px rgba(16,185,129,0)'] }}
-            >
+            className="text-emerald-400"
+            variants={{ hidden: { opacity: 0, y: 40, scale: 0.9 }, visible: { opacity: 1, y: 0, scale: 1 } }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            animate={{ textShadow: ['0 0 0px rgba(16,185,129,0)', '0 0 20px rgba(16,185,129,0.4)', '0 0 0px rgba(16,185,129,0)'] }}>
+
               Invest.
             </motion.span>
           </motion.h1>
@@ -120,13 +120,13 @@ const Home = () => {
              <p className="text-sm font-bold text-center">Stop paying <span className="text-destructive line-through">$5,000</span> <span className="text-foreground">for outdated courses</span></p>
              
              <motion.a
-               href="https://whop.com/stackmode-academy/educationalservice/"
-               target="_blank"
-               rel="noopener noreferrer"
-               className="group inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold text-xs sm:text-lg px-4 sm:px-10 py-2.5 sm:py-4 rounded-xl transition-all shadow-lg shadow-cyan-500/20 hover:shadow-cyan-400/30 max-w-[280px] sm:max-w-none mx-auto w-full sm:w-auto"
-               whileHover={{ scale: 1.03 }}
-               whileTap={{ scale: 0.98 }}
-             >
+            href="https://whop.com/stackmode-academy/educationalservice/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold text-xs sm:text-lg px-4 sm:px-10 py-2.5 sm:py-4 rounded-xl transition-all shadow-lg shadow-cyan-500/20 hover:shadow-cyan-400/30 max-w-[280px] sm:max-w-none mx-auto w-full sm:w-auto"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}>
+
                <Zap size={18} className="sm:w-[22px] sm:h-[22px] flex-shrink-0" />
                <span>Join The Stackmode Academy — $50/mo</span>
                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -137,13 +137,13 @@ const Home = () => {
              </p>
 
              <motion.a
-               href="https://calendly.com/stackmodechris/architecture"
-               target="_blank"
-               rel="noopener noreferrer"
-               className="group inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-background font-bold text-xs sm:text-lg px-4 sm:px-10 py-2.5 sm:py-4 rounded-xl transition-all shadow-lg shadow-emerald-500/20 hover:shadow-emerald-400/30 max-w-[280px] sm:max-w-none mx-auto w-full sm:w-auto"
-               whileHover={{ scale: 1.03 }}
-               whileTap={{ scale: 0.98 }}
-             >
+            href="https://calendly.com/stackmodechris/architecture"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-background font-bold text-xs sm:text-lg px-4 sm:px-10 py-2.5 sm:py-4 rounded-xl transition-all shadow-lg shadow-emerald-500/20 hover:shadow-emerald-400/30 max-w-[280px] sm:max-w-none mx-auto w-full sm:w-auto"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}>
+
                <Calendar size={18} className="sm:w-[22px] sm:h-[22px] flex-shrink-0" />
                <span>Start Stacking Wins — Free Call</span>
                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -151,11 +151,11 @@ const Home = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.9, duration: 0.5 }}
-            className="flex items-center justify-center gap-3 mt-3"
-          >
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.9, duration: 0.5 }}
+          className="flex items-center justify-center gap-3 mt-3">
+
             <span className="text-cyan-400/80 text-xs font-mono">24/7 Support</span>
             <span className="text-cyan-400/50">•</span>
             <motion.span className="text-emerald-400 text-xs font-mono font-bold flex items-center gap-1.5" animate={{
@@ -515,14 +515,14 @@ const Home = () => {
                     label: 'Real Estate'
                   }, {
                     emoji: '🎬',
-                    label: 'Content Monetization'
+                    label: 'AI Animations'
                   }, {
                     emoji: '🚀',
                     label: 'Scale Business'
                   }, {
                     emoji: '🤖',
                     label: 'AI Mastery'
-                  }].map(item => <div key={item.label} className="bg-background/50 border border-border/50 rounded-lg p-2 text-center group-hover:border-cyan-500/30 transition-colors">
+                  }].map((item) => <div key={item.label} className="bg-background/50 border border-border/50 rounded-lg p-2 text-center group-hover:border-cyan-500/30 transition-colors">
                         <span className="text-base block mb-0.5">{item.emoji}</span>
                         <span className="text-[10px] font-medium text-foreground">{item.label}</span>
                       </div>)}
@@ -576,7 +576,7 @@ const Home = () => {
                 </p>
 
                 <div className="flex flex-wrap justify-center gap-2 mb-4">
-                  {['Investing Guides', 'Business Templates', 'Free Books', 'Video Tutorials', 'Cheat Sheets'].map(resource => <span key={resource} className="bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs px-2.5 py-1 rounded-full">
+                  {['Investing Guides', 'Business Templates', 'Free Books', 'Video Tutorials', 'Cheat Sheets'].map((resource) => <span key={resource} className="bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs px-2.5 py-1 rounded-full">
                       {resource}
                     </span>)}
                 </div>
@@ -634,7 +634,7 @@ const Home = () => {
                     icon: Users,
                     label: 'Community',
                     desc: 'Live support'
-                  }].map(item => <div key={item.label} className="bg-background/50 border border-border/50 rounded-xl p-2.5 text-center">
+                  }].map((item) => <div key={item.label} className="bg-background/50 border border-border/50 rounded-xl p-2.5 text-center">
                         <item.icon size={20} className="text-cyan-400 mx-auto mb-1" />
                         <div className="text-xs font-semibold text-foreground">{item.label}</div>
                         <div className="text-[10px] text-muted-foreground">{item.desc}</div>
@@ -662,7 +662,7 @@ const Home = () => {
                 Meet Your Mentor
               </h2>
               <p className="text-muted-foreground max-w-xl mx-auto text-sm">
-                I'm Christopher Robinson — Stackmodechris. I left a 4-year finance career to build this network and help others unlink time from money.
+                I'm Christopher Robinson — Stackmodechris. I left a 4-year finance & tech career to build this network and help others unlink time from money.
               </p>
             </div>
           </ScrollReveal>
