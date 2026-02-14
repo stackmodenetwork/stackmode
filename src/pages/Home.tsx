@@ -3,7 +3,7 @@ import { ArrowRight, Zap, Check, Calendar, Terminal, Wrench, BookOpen } from 'lu
 import { MainHeader } from '@/components/MainHeader';
 import { MainFooter } from '@/components/MainFooter';
 import { ScrollReveal } from '@/components/ScrollReveal';
-import { ReviewsBackgroundCarousel } from '@/components/ReviewsBackgroundCarousel';
+
 import { UniversalPageBottom } from '@/components/UniversalPageBottom';
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
 import { SoftwareProofSection } from '@/components/SoftwareProofSection';
@@ -79,10 +79,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Reviews */}
-      <section className="py-4 sm:py-6 px-4">
-        <ReviewsBackgroundCarousel />
-      </section>
 
       {/* Two Paths */}
       <section className="py-8 sm:py-12 px-4">
