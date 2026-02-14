@@ -44,6 +44,7 @@ export const MainHeader = memo(() => {
               <span className="w-px h-4 bg-border mx-1" />
               <ExternalNavLink href="https://discord.gg/5zYWSWGMYm" icon={MessageCircle}>Discord</ExternalNavLink>
               <ExternalNavLink href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true" icon={Mic}>Podcast</ExternalNavLink>
+              <ExternalNavLink href="https://ceoturbo.com" icon={Wrench}>Grow Your Brand</ExternalNavLink>
               <ExternalNavLink href="tel:+16787758532" icon={Phone} highlight>Call</ExternalNavLink>
             </nav>
 

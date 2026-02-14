@@ -32,6 +32,12 @@ export const MainFooter = () => {
           </a>
         </div>
 
+        <div className="border-t border-border/30 pt-4 mb-4">
+          <p className="text-xs text-muted-foreground text-center mb-2">
+            Need to grow your brand beyond code? <a href="https://ceoturbo.com" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300 font-medium transition-colors">CEOTurbo.com</a> — brand strategy, marketing systems & business growth tools.
+          </p>
+        </div>
+
         <p className="text-xs text-muted-foreground/50 text-center">© {new Date().getFullYear()} Stackmode. All rights reserved.</p>
       </div>
     </footer>
