@@ -6,6 +6,7 @@ import { ScrollReveal } from '@/components/ScrollReveal';
 import { ReviewsBackgroundCarousel } from '@/components/ReviewsBackgroundCarousel';
 import { UniversalPageBottom } from '@/components/UniversalPageBottom';
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
+import { SoftwareProofSection } from '@/components/SoftwareProofSection';
 import { motion } from 'framer-motion';
 
 const Home = () => {
@@ -156,28 +157,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* StackFinder showcase */}
-      <section className="py-8 px-4">
-        <div className="max-w-2xl mx-auto">
-          <ScrollReveal>
-            <a
-              href="https://stackmodechris-droid-stackfinder.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block bg-cyan-500/10 border-2 border-cyan-500/30 rounded-xl p-6 hover:border-cyan-400 transition-all text-center"
-            >
-              <h3 className="text-lg font-bold text-foreground mb-2">See What We Built: StackFinder</h3>
-              <p className="text-muted-foreground text-sm mb-4">
-                An AI-powered stock research tool. We built it. You could learn to build one too.
-              </p>
-              <span className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold px-6 py-3 rounded-lg transition-all text-sm">
-                Try StackFinder
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </span>
-            </a>
-          </ScrollReveal>
-        </div>
-      </section>
+      {/* StackFinder Showcase */}
+      <SoftwareProofSection variant="home" />
 
       <UniversalPageBottom />
       <MainFooter />
