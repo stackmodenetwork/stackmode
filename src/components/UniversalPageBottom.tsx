@@ -77,6 +77,14 @@ export const UniversalPageBottom = ({ className = '', showBooks = true }: Univer
         {/* CEOTurbo Brand CTA */}
         <ScrollReveal delay={0.05}>
           <div className="text-center mt-8 mb-2">
+            <a href="https://ceoturbo.com" target="_blank" rel="noopener noreferrer">
+              <motion.img
+                src="/images/ceoturbo-logo.png"
+                alt="CEOTurbo"
+                className="w-32 h-32 object-contain mx-auto mb-3"
+                whileHover={{ scale: 1.05 }}
+              />
+            </a>
             <p className="text-muted-foreground text-sm mb-3">
               Need to turbo-boost your brand income?
             </p>
@@ -88,7 +96,6 @@ export const UniversalPageBottom = ({ className = '', showBooks = true }: Univer
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
             >
-              <img src="/images/ceoturbo-logo.png" alt="CEOTurbo" className="w-6 h-6 object-contain" />
               <span>Visit CEOTurbo.com</span>
               <ArrowRight size={16} />
             </motion.a>
