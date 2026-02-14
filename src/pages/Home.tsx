@@ -46,9 +46,7 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
             className="text-3xl sm:text-5xl font-bold text-foreground mb-5 leading-tight md:text-5xl">
-            The Old Stack Is Outdated.
-
-The AI Stack Is Here.<br />
+            The Old Stack Is Outdated.{' '}
             <span className="text-cyan-400">The AI Stack Is Here.</span>
           </motion.h1>
 
