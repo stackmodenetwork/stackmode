@@ -86,7 +86,7 @@ export const UniversalPageBottom = ({ className = '', showBooks = true }: Univer
               />
             </a>
             <p className="text-muted-foreground text-sm mb-3">
-              Need to turbo-boost your brand income?
+              Need an app, website, or software tool built for your business?
             </p>
             <motion.a
               href="https://ceoturbo.com"
