@@ -1,20 +1,17 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Terminal, Globe, BookOpen, DollarSign } from 'lucide-react';
+import { Home, Terminal, Wrench, BookOpen } from 'lucide-react';
 import { memo } from 'react';
 
 interface NavItem {
   path: string;
   label: string;
   icon: typeof Home;
-  isExternal?: boolean;
-  isHighlighted?: boolean;
 }
 
 const navItems: NavItem[] = [
   { path: '/', label: 'Home', icon: Home },
-  { path: '/coding', label: 'Coding', icon: Terminal },
-  { path: '/business', label: 'Business', icon: Globe },
-  { path: '/investing', label: 'Investing', icon: DollarSign },
+  { path: '/coding', label: 'Academy', icon: Terminal },
+  { path: '/buildyourwebsite', label: 'Build', icon: Wrench },
   { path: '/library', label: 'Library', icon: BookOpen },
 ];
 
@@ -36,54 +33,18 @@ export const BottomNavigation = memo(() => {
           <div className="flex items-center justify-around">
             {navItems.map((item) => {
               const Icon = item.icon;
-              const active = !item.isExternal && isActive(item.path);
+              const active = isActive(item.path);
               
-              const className = `
-                flex flex-col items-center justify-center gap-1 py-2 px-3 rounded-lg transition-colors min-w-[60px]
-                ${item.isHighlighted 
-                  ? 'text-background' 
-                  : active 
-                    ? 'text-cyan-400' 
-                    : 'text-muted-foreground'
-                }
-              `;
-
-              const content = (
-                <>
-                  <div className={`
-                    p-2 rounded-lg transition-colors
-                    ${item.isHighlighted 
-                      ? 'bg-cyan-500' 
-                      : active 
-                        ? 'bg-cyan-500/10' 
-                        : ''
-                    }
-                  `}>
+              return (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`flex flex-col items-center justify-center gap-1 py-2 px-3 rounded-lg transition-colors min-w-[60px] ${active ? 'text-cyan-400' : 'text-muted-foreground'}`}
+                >
+                  <div className={`p-2 rounded-lg transition-colors ${active ? 'bg-cyan-500/10' : ''}`}>
                     <Icon size={20} />
                   </div>
-                  <span className={`text-[10px] font-medium ${item.isHighlighted ? 'text-cyan-400' : ''}`}>
-                    {item.label}
-                  </span>
-                </>
-              );
-
-              if (item.isExternal) {
-                return (
-                  <a
-                    key={item.path}
-                    href={item.path}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={className}
-                  >
-                    {content}
-                  </a>
-                );
-              }
-
-              return (
-                <Link key={item.path} to={item.path} className={className}>
-                  {content}
+                  <span className="text-[10px] font-medium">{item.label}</span>
                 </Link>
               );
             })}
