@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { MainHeader } from '@/components/MainHeader';
 import { MainFooter } from '@/components/MainFooter';
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
-import { Play, Download, ArrowRight, Zap, Gift } from 'lucide-react';
+import { Play, Download, ArrowRight, Calendar, Gift } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { UniversalPageBottom } from '@/components/UniversalPageBottom';
@@ -53,15 +53,15 @@ const Learn = () => {
         </div>
       </section>
 
-      {/* Want Everything? */}
+      {/* Want More? */}
       <section className="py-8 px-4">
         <div className="max-w-2xl mx-auto">
           <ScrollReveal>
-            <a href="https://whop.com/stackmode-academy/educationalservice/" target="_blank" rel="noopener noreferrer" className="group block bg-cyan-500/10 border-2 border-cyan-500/30 rounded-xl p-6 hover:border-cyan-400 transition-all text-center">
-              <h3 className="text-lg font-bold text-foreground mb-2">Want Everything?</h3>
-              <p className="text-muted-foreground text-sm mb-4">Full coding courses, live coaching, community, and all the tools you need.</p>
+            <a href="https://calendly.com/stackmodechris/architecture" target="_blank" rel="noopener noreferrer" className="group block bg-cyan-500/10 border-2 border-cyan-500/30 rounded-xl p-6 hover:border-cyan-400 transition-all text-center">
+              <h3 className="text-lg font-bold text-foreground mb-2">Want More Help?</h3>
+              <p className="text-muted-foreground text-sm mb-4">Book a free consultation to talk about your coding goals.</p>
               <span className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold px-6 py-3 rounded-lg transition-all text-sm">
-                <Zap size={16} /> Join The Academy — $50/mo
+                <Calendar size={16} /> Book a FREE Call
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </span>
             </a>

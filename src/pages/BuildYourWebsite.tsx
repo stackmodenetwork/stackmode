@@ -41,12 +41,12 @@ const BuildYourWebsite = () => {
               Tell us what you need. We build your app, website, or software tool.
             </motion.p>
 
-            {/* CTA Buttons */}
+            {/* CTA Button */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="flex flex-col sm:flex-row gap-3 justify-center"
+              className="flex justify-center"
             >
               <a
                 href="https://calendly.com/stackmodechris/architecture"
@@ -56,16 +56,6 @@ const BuildYourWebsite = () => {
               >
                 <Calendar size={20} />
                 <span>Book a FREE Call</span>
-                <ArrowRight size={18} />
-              </a>
-              <a
-                href="https://whop.com/stackmode-academy/educationalservice/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-cyan-500/20"
-              >
-                <Zap size={20} />
-                <span>Or Learn To Build It — $50/mo</span>
                 <ArrowRight size={18} />
               </a>
             </motion.div>
