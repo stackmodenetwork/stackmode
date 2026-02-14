@@ -1,4 +1,4 @@
-import { ArrowRight, Check, Calendar, Terminal, Wrench } from 'lucide-react';
+import { ArrowRight, Check, Calendar, Layers, Brain, Wrench, Database } from 'lucide-react';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { UniversalPageBottom } from '@/components/UniversalPageBottom';
 import { SoftwareProofSection } from '@/components/SoftwareProofSection';
@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 const Home = () => {
   return (
     <main className="min-h-screen bg-background relative overflow-x-hidden">
-      {/* Simple Header - Logo only */}
+      {/* Header */}
       <header className="bg-background/80 backdrop-blur-md border-b border-border/50 sticky top-0 z-40">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
@@ -30,41 +30,51 @@ const Home = () => {
       </header>
 
       {/* Hero */}
-      <section className="relative min-h-[50vh] flex items-center justify-center px-4 pt-8 pb-6">
+      <section className="relative min-h-[50vh] flex items-center justify-center px-4 pt-10 pb-8">
         <div className="relative z-10 w-full max-w-3xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full px-4 py-2 mb-6"
+          >
+            <Layers size={14} className="text-cyan-400" />
+            <span className="text-cyan-400 text-xs font-bold uppercase tracking-wide">The Future of Software</span>
+          </motion.div>
+
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-3xl sm:text-5xl md:text-6xl font-bold text-foreground mb-4 leading-tight"
+            transition={{ delay: 0.1 }}
+            className="text-3xl sm:text-5xl md:text-6xl font-bold text-foreground mb-5 leading-tight"
           >
-            We Build Software.
+            The Old Stack Is Dead.
             <br />
-            <span className="text-cyan-400">We Teach You How.</span>
+            <span className="text-cyan-400">The AI Stack Is Here.</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15 }}
-            className="text-muted-foreground text-sm sm:text-lg mb-6 max-w-xl mx-auto"
+            transition={{ delay: 0.2 }}
+            className="text-muted-foreground text-sm sm:text-lg mb-4 max-w-2xl mx-auto"
           >
-            Need an app built? We do it for you. Want to learn to code? We teach you step by step.
+            "Full stack" used to mean React + Node. Now it means <span className="text-foreground font-medium">AI Agents, Memory Layers, and Tool Orchestration</span>. 
+            If your company isn't building with the new stack, you're already behind.
           </motion.p>
 
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.25 }}
+            transition={{ delay: 0.3 }}
             className="text-sm font-bold mb-6"
           >
-            Stop paying <span className="text-destructive line-through">$5,000</span>{' '}
-            <span className="text-foreground">for bootcamps that teach old skills</span>
+            Stackmode builds the new stack for you — <span className="text-cyan-400">or teaches you how</span>
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
+            transition={{ delay: 0.35 }}
             className="flex justify-center"
           >
             <a
@@ -74,63 +84,95 @@ const Home = () => {
               className="inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-cyan-500/20"
             >
               <Calendar size={20} />
-              <span>Book a FREE Consultation</span>
+              <span>Book a FREE Architecture Call</span>
               <ArrowRight size={18} />
             </a>
           </motion.div>
         </div>
       </section>
 
-      {/* Two Paths */}
-      <section className="py-8 sm:py-12 px-4">
+      {/* The New AI Stack */}
+      <section className="py-10 sm:py-14 px-4">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal>
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground text-center mb-2">
-              Pick Your Path
+              The AI Agent Stack
             </h2>
-            <p className="text-muted-foreground text-center mb-8 text-sm">
-              Learn to code yourself, or let us build it for you.
+            <p className="text-muted-foreground text-center mb-8 text-sm max-w-xl mx-auto">
+              Every modern app now runs on four layers. We build all of them.
             </p>
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 gap-4">
-            <ScrollReveal>
-              <div className="bg-card/50 border-2 border-cyan-500/30 rounded-xl p-6">
-                <Terminal size={28} className="text-cyan-400 mb-3" />
-                <h3 className="text-lg font-bold text-foreground mb-2">Learn To Code</h3>
-                <p className="text-muted-foreground text-sm mb-3">
-                  Use AI tools to build real apps. No degree needed. Make money from your software.
-                </p>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal>
-              <div className="bg-card/50 border-2 border-violet-500/30 rounded-xl p-6">
-                <Wrench size={28} className="text-violet-400 mb-3" />
-                <h3 className="text-lg font-bold text-foreground mb-2">Hire Us To Build</h3>
-                <p className="text-muted-foreground text-sm mb-3">
-                  We build your app, website, or software tool. You tell us what you need. We make it.
-                </p>
-              </div>
-            </ScrollReveal>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {[
+              {
+                icon: Brain,
+                title: 'The Model Layer',
+                subtitle: 'The Brain',
+                desc: 'GPT, Gemini, Claude — the AI that thinks. We pick the right model for your product.',
+                color: 'cyan',
+              },
+              {
+                icon: Database,
+                title: 'The Memory Layer',
+                subtitle: 'The Context Stack',
+                desc: 'Agents remember users, past actions, and preferences. No more starting from zero.',
+                color: 'violet',
+              },
+              {
+                icon: Layers,
+                title: 'The Planning Layer',
+                subtitle: 'The Task Stack',
+                desc: 'Big goals get broken into sub-tasks. The agent pushes, pops, and executes — just like a developer.',
+                color: 'emerald',
+              },
+              {
+                icon: Wrench,
+                title: 'The Tool Layer',
+                subtitle: 'The Hands',
+                desc: 'APIs, search, code execution — the tools the agent uses to get real work done.',
+                color: 'amber',
+              },
+            ].map((layer, i) => (
+              <ScrollReveal key={layer.title}>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className={`bg-card/50 border-2 border-${layer.color}-500/20 rounded-xl p-5 hover:border-${layer.color}-500/40 transition-all`}
+                >
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className={`p-2 rounded-lg bg-${layer.color}-500/10`}>
+                      <layer.icon size={20} className={`text-${layer.color}-400`} />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-foreground text-sm">{layer.title}</h3>
+                      <span className={`text-${layer.color}-400 text-xs font-medium`}>{layer.subtitle}</span>
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground text-sm">{layer.desc}</p>
+                </motion.div>
+              </ScrollReveal>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* What We Build */}
+      {/* Why It Matters */}
       <section className="py-8 px-4">
         <div className="max-w-2xl mx-auto">
           <ScrollReveal>
             <h2 className="text-2xl font-bold text-foreground text-center mb-6">
-              What We Build
+              Why Your Business Needs This
             </h2>
             <div className="space-y-3">
               {[
-                'AI-powered tools (like StackFinder)',
-                'Business apps and dashboards',
-                'Websites that get you clients',
-                'SaaS products that make monthly income',
-                'Custom software for any industry',
+                'AI agents are replacing traditional software teams',
+                'Companies using AI stacks ship 10x faster',
+                'The old "full stack" skillset is becoming obsolete',
+                'Custom AI tools give you an unfair advantage',
+                'Every industry needs AI-powered software — now',
               ].map((item) => (
                 <div key={item} className="flex items-center gap-3 bg-card/50 border border-border/50 rounded-lg px-4 py-3">
                   <Check size={18} className="text-cyan-400 flex-shrink-0" />
@@ -147,7 +189,7 @@ const Home = () => {
 
       <UniversalPageBottom />
 
-      {/* Simple Footer */}
+      {/* Footer */}
       <footer className="bg-background border-t border-border/50 py-6 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <div className="flex justify-center gap-4 mb-4">
