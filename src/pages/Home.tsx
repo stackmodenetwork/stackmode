@@ -16,14 +16,11 @@ const Home = () => {
               <span className="text-lg font-bold text-foreground font-mono">STACKMODE</span>
             </div>
             <a
-              href="https://calendly.com/stackmodechris/architecture"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/shop"
               className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold px-4 py-2 rounded-lg transition-all text-sm">
-
-              <Calendar size={16} />
-              <span className="hidden sm:inline">Book a FREE Call</span>
-              <span className="sm:hidden">Free Call</span>
+              <ArrowRight size={16} />
+              <span className="hidden sm:inline">Get Your Software Built</span>
+              <span className="sm:hidden">Hire Us</span>
             </a>
           </div>
         </div>
@@ -76,13 +73,9 @@ const Home = () => {
             className="flex justify-center">
 
             <a
-              href="https://calendly.com/stackmodechris/architecture"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/shop"
               className="inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-cyan-500/20">
-
-              <Calendar size={20} />
-              <span>Book a FREE Architecture Call</span>
+              <span>Get Your Software Engineered</span>
               <ArrowRight size={18} />
             </a>
           </motion.div>
