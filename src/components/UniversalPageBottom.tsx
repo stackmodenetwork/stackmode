@@ -61,18 +61,36 @@ export const UniversalPageBottom = ({ className = '', showBooks = true }: Univer
             {/* CTA Button */}
             <div className="flex justify-center">
               <motion.a
-                href="https://calendly.com/stackmodechris/architecture"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/shop"
                 className="inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-cyan-500/25 hover:shadow-cyan-400/30"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <Calendar size={20} />
-                <span>Book a FREE Consultation</span>
+                <Zap size={20} />
+                <span>Get Your Software Engineered</span>
                 <ArrowRight size={18} />
               </motion.a>
             </div>
+          </div>
+        </ScrollReveal>
+
+        {/* CEOTurbo Brand CTA */}
+        <ScrollReveal delay={0.05}>
+          <div className="text-center mt-8 mb-2">
+            <p className="text-muted-foreground text-sm mb-3">
+              Need to turbo-boost your brand income?
+            </p>
+            <motion.a
+              href="https://ceoturbo.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 border border-cyan-500/40 hover:border-cyan-400 text-cyan-400 hover:text-cyan-300 font-bold px-6 py-3 rounded-xl transition-all text-sm"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <span>Visit CEOTurbo.com</span>
+              <ArrowRight size={16} />
+            </motion.a>
           </div>
         </ScrollReveal>
 
