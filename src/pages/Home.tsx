@@ -19,8 +19,8 @@ const Home = () => {
               href="https://calendly.com/stackmodechris/architecture"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold px-4 py-2 rounded-lg transition-all text-sm"
-            >
+              className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold px-4 py-2 rounded-lg transition-all text-sm">
+
               <Calendar size={16} />
               <span className="hidden sm:inline">Book a FREE Call</span>
               <span className="sm:hidden">Free Call</span>
@@ -35,8 +35,8 @@ const Home = () => {
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full px-4 py-2 mb-6"
-          >
+            className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full px-4 py-2 mb-6">
+
             <Layers size={14} className="text-cyan-400" />
             <span className="text-cyan-400 text-xs font-bold uppercase tracking-wide">The Future of Software</span>
           </motion.div>
@@ -45,10 +45,10 @@ const Home = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-5xl md:text-6xl font-bold text-foreground mb-5 leading-tight"
-          >
-            The Old Stack Is Dead.
-            <br />
+            className="text-3xl sm:text-5xl font-bold text-foreground mb-5 leading-tight md:text-5xl">
+            The Old Stack Is Outdated.
+
+The AI Stack Is Here.<br />
             <span className="text-cyan-400">The AI Stack Is Here.</span>
           </motion.h1>
 
@@ -56,8 +56,8 @@ const Home = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-muted-foreground text-sm sm:text-lg mb-4 max-w-2xl mx-auto"
-          >
+            className="text-muted-foreground text-sm sm:text-lg mb-4 max-w-2xl mx-auto">
+
             "Full stack" used to mean React + Node. Now it means <span className="text-foreground font-medium">AI Agents, Memory Layers, and Tool Orchestration</span>. 
             If your company isn't building with the new stack, you're already behind.
           </motion.p>
@@ -66,8 +66,8 @@ const Home = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="text-sm font-bold mb-6"
-          >
+            className="text-sm font-bold mb-6">
+
             Stackmode builds the new stack for you — <span className="text-cyan-400">or teaches you how</span>
           </motion.p>
 
@@ -75,14 +75,14 @@ const Home = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35 }}
-            className="flex justify-center"
-          >
+            className="flex justify-center">
+
             <a
               href="https://calendly.com/stackmodechris/architecture"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-cyan-500/20"
-            >
+              className="inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-cyan-500/20">
+
               <Calendar size={20} />
               <span>Book a FREE Architecture Call</span>
               <ArrowRight size={18} />
@@ -105,43 +105,43 @@ const Home = () => {
 
           <div className="grid sm:grid-cols-2 gap-4">
             {[
-              {
-                icon: Brain,
-                title: 'The Model Layer',
-                subtitle: 'The Brain',
-                desc: 'GPT, Gemini, Claude — the AI that thinks. We pick the right model for your product.',
-                color: 'cyan',
-              },
-              {
-                icon: Database,
-                title: 'The Memory Layer',
-                subtitle: 'The Context Stack',
-                desc: 'Agents remember users, past actions, and preferences. No more starting from zero.',
-                color: 'violet',
-              },
-              {
-                icon: Layers,
-                title: 'The Planning Layer',
-                subtitle: 'The Task Stack',
-                desc: 'Big goals get broken into sub-tasks. The agent pushes, pops, and executes — just like a developer.',
-                color: 'emerald',
-              },
-              {
-                icon: Wrench,
-                title: 'The Tool Layer',
-                subtitle: 'The Hands',
-                desc: 'APIs, search, code execution — the tools the agent uses to get real work done.',
-                color: 'amber',
-              },
-            ].map((layer, i) => (
-              <ScrollReveal key={layer.title}>
+            {
+              icon: Brain,
+              title: 'The Model Layer',
+              subtitle: 'The Brain',
+              desc: 'GPT, Gemini, Claude — the AI that thinks. We pick the right model for your product.',
+              color: 'cyan'
+            },
+            {
+              icon: Database,
+              title: 'The Memory Layer',
+              subtitle: 'The Context Stack',
+              desc: 'Agents remember users, past actions, and preferences. No more starting from zero.',
+              color: 'violet'
+            },
+            {
+              icon: Layers,
+              title: 'The Planning Layer',
+              subtitle: 'The Task Stack',
+              desc: 'Big goals get broken into sub-tasks. The agent pushes, pops, and executes — just like a developer.',
+              color: 'emerald'
+            },
+            {
+              icon: Wrench,
+              title: 'The Tool Layer',
+              subtitle: 'The Hands',
+              desc: 'APIs, search, code execution — the tools the agent uses to get real work done.',
+              color: 'amber'
+            }].
+            map((layer, i) =>
+            <ScrollReveal key={layer.title}>
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className={`bg-card/50 border-2 border-${layer.color}-500/20 rounded-xl p-5 hover:border-${layer.color}-500/40 transition-all`}
-                >
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className={`bg-card/50 border-2 border-${layer.color}-500/20 rounded-xl p-5 hover:border-${layer.color}-500/40 transition-all`}>
+
                   <div className="flex items-center gap-3 mb-2">
                     <div className={`p-2 rounded-lg bg-${layer.color}-500/10`}>
                       <layer.icon size={20} className={`text-${layer.color}-400`} />
@@ -154,7 +154,7 @@ const Home = () => {
                   <p className="text-muted-foreground text-sm">{layer.desc}</p>
                 </motion.div>
               </ScrollReveal>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -168,17 +168,17 @@ const Home = () => {
             </h2>
             <div className="space-y-3">
               {[
-                'AI agents are replacing traditional software teams',
-                'Companies using AI stacks ship 10x faster',
-                'The old "full stack" skillset is becoming obsolete',
-                'Custom AI tools give you an unfair advantage',
-                'Every industry needs AI-powered software — now',
-              ].map((item) => (
-                <div key={item} className="flex items-center gap-3 bg-card/50 border border-border/50 rounded-lg px-4 py-3">
+              'AI agents are replacing traditional software teams',
+              'Companies using AI stacks ship 10x faster',
+              'The old "full stack" skillset is becoming obsolete',
+              'Custom AI tools give you an unfair advantage',
+              'Every industry needs AI-powered software — now'].
+              map((item) =>
+              <div key={item} className="flex items-center gap-3 bg-card/50 border border-border/50 rounded-lg px-4 py-3">
                   <Check size={18} className="text-cyan-400 flex-shrink-0" />
                   <span className="text-foreground text-sm">{item}</span>
                 </div>
-              ))}
+              )}
             </div>
           </ScrollReveal>
         </div>
@@ -203,8 +203,8 @@ const Home = () => {
           <p className="text-xs text-muted-foreground/50">© {new Date().getFullYear()} Stackmode. All rights reserved.</p>
         </div>
       </footer>
-    </main>
-  );
+    </main>);
+
 };
 
 export default Home;
