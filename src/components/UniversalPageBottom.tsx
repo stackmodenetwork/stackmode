@@ -88,6 +88,7 @@ export const UniversalPageBottom = ({ className = '', showBooks = true }: Univer
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
             >
+              <img src="/images/ceoturbo-logo.png" alt="CEOTurbo" className="w-6 h-6 object-contain" />
               <span>Visit CEOTurbo.com</span>
               <ArrowRight size={16} />
             </motion.a>
