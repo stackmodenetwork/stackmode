@@ -65,11 +65,8 @@ const About = () => {
                 I build software and teach others how to do the same. I use AI tools to code real apps that make money. No fluff. Just results.
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-3">
-                <a href="https://whop.com/stackmode-academy/educationalservice/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold px-6 py-3 rounded-xl transition-all text-sm">
-                  <Zap size={16} /> Join The Academy — $50/mo
-                </a>
-                <a href="https://calendly.com/stackmodechris/architecture" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-background font-bold px-6 py-3 rounded-xl transition-all text-sm">
-                  <Calendar size={16} /> FREE Call
+                <a href="https://calendly.com/stackmodechris/architecture" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold px-6 py-3 rounded-xl transition-all text-sm">
+                  <Calendar size={16} /> Book a FREE Call
                 </a>
               </div>
             </div>

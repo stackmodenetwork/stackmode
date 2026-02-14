@@ -54,35 +54,22 @@ export const UniversalPageBottom = ({ className = '', showBooks = true }: Univer
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3">
               Ready to Get Started?
             </h2>
-            <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-              Book a free consultation or join the Academy for instant access to everything.
+             <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
+58:               Book a free consultation to talk about your project or coding goals.
             </p>
             
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            {/* CTA Button */}
+            <div className="flex justify-center">
               <motion.a
                 href="https://calendly.com/stackmodechris/architecture"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-violet-500 hover:bg-violet-400 text-white font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-violet-500/25 hover:shadow-violet-400/30"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <Calendar size={20} />
-                <span>FREE Consultation</span>
-                <ArrowRight size={18} />
-              </motion.a>
-              
-              <motion.a
-                href="https://whop.com/stackmode-academy/educationalservice/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-cyan-500/25 hover:shadow-cyan-400/30"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <Zap size={20} />
-                <span>Join The Academy — $50/mo</span>
+                <Calendar size={20} />
+                <span>Book a FREE Consultation</span>
                 <ArrowRight size={18} />
               </motion.a>
             </div>
