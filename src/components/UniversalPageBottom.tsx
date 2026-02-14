@@ -55,7 +55,7 @@ export const UniversalPageBottom = ({ className = '', showBooks = true }: Univer
               Ready to Get Started?
             </h2>
              <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-58:               Book a free consultation to talk about your project or coding goals.
+              We build apps, SaaS tools, and AI software using the new AI stack — not outdated tech.
             </p>
             
             {/* CTA Button */}
@@ -86,7 +86,7 @@ export const UniversalPageBottom = ({ className = '', showBooks = true }: Univer
               />
             </a>
             <p className="text-muted-foreground text-sm mb-3">
-              Need an app, website, or software tool built for your business?
+              Need to turbo-boost your brand income?
             </p>
             <motion.a
               href="https://ceoturbo.com"
