@@ -15,13 +15,21 @@ const Home = () => {
               <img src="/images/sm-logo.png" alt="Stackmode" className="w-10 h-10 object-contain" />
               <span className="text-lg font-bold text-foreground font-mono">STACKMODE</span>
             </div>
-            <a
-              href="/shop"
-              className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold px-4 py-2 rounded-lg transition-all text-sm">
-              <ArrowRight size={16} />
-              <span className="hidden sm:inline">Get Your Software Built</span>
-              <span className="sm:hidden">Hire Us</span>
-            </a>
+            <div className="flex items-center gap-2">
+              <a
+                href="/trading"
+                className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-background font-bold px-4 py-2 rounded-lg transition-all text-sm">
+                <span className="hidden sm:inline">Get Trading Education</span>
+                <span className="sm:hidden">Trading</span>
+              </a>
+              <a
+                href="/shop"
+                className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold px-4 py-2 rounded-lg transition-all text-sm">
+                <ArrowRight size={16} />
+                <span className="hidden sm:inline">Get Your Software Built</span>
+                <span className="sm:hidden">Hire Us</span>
+              </a>
+            </div>
           </div>
         </div>
       </header>
