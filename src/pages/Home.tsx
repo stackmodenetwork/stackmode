@@ -2,11 +2,13 @@ import { ArrowRight, Check, Code, TrendingUp, Calendar, GraduationCap } from 'lu
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { UniversalPageBottom } from '@/components/UniversalPageBottom';
 import { SoftwareProofSection } from '@/components/SoftwareProofSection';
+import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
 import { motion } from 'framer-motion';
 
 const Home = () => {
   return (
     <main className="min-h-screen bg-background relative overflow-x-hidden">
+      <FreeResourcesCTA variant="banner" />
       {/* Header */}
       <header className="bg-background/80 backdrop-blur-md border-b border-border/50 sticky top-0 z-40">
         <div className="max-w-6xl mx-auto px-4">
