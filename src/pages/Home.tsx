@@ -44,8 +44,8 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
             className="text-3xl sm:text-5xl font-bold text-foreground mb-4 leading-tight">
-            <span>Build Apps with AI.</span>{' '}
-            <span className="text-emerald-400">Stack Your Assets.</span>
+            <span>Learn to Code.</span>{' '}
+            <span className="text-emerald-400">Learn to Invest.</span>
           </motion.h1>
 
           <motion.p
@@ -53,7 +53,7 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
             className="text-muted-foreground text-sm sm:text-lg mb-6 max-w-2xl mx-auto">
-            Turn ideas into reality. Get custom software built — or learn how to trade & invest.
+            The school that teaches you to build AI software and grow your wealth through smart investing.
           </motion.p>
 
           <motion.div
@@ -84,10 +84,10 @@ const Home = () => {
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground text-center mb-2">
-              Pick Your Path
+              Two Schools. One Academy.
             </h2>
             <p className="text-muted-foreground text-center mb-8 text-sm max-w-xl mx-auto">
-              Whether you need software built or want to learn how to grow wealth — we've got you.
+              Master AI-powered coding and wealth-building investing — all in one place.
             </p>
           </ScrollReveal>
 
@@ -104,17 +104,17 @@ const Home = () => {
                   <Code size={24} className="text-cyan-400" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-foreground">Get Your Software Built</h3>
-                  <span className="text-cyan-400 text-xs font-medium">AI-Powered Development</span>
+                  <h3 className="text-lg font-bold text-foreground">Coding School</h3>
+                  <span className="text-cyan-400 text-xs font-medium">Build Apps & Software with AI</span>
                 </div>
               </div>
 
               <p className="text-muted-foreground text-sm mb-5">
-                We build apps, SaaS tools, and AI software using the new AI stack. From idea to launch.
+                Learn to build real apps, SaaS tools, and AI software — even with zero coding experience.
               </p>
 
               <div className="space-y-2.5 mb-6 flex-1">
-                {['Web apps & dashboards', 'AI-powered tools', 'SaaS platforms', 'Automations & integrations'].map((item) =>
+                {['Build web apps from scratch', 'AI tools & automation', 'SaaS & product launches', 'No experience needed'].map((item) =>
                 <div key={item} className="flex items-center gap-2.5">
                     <Check size={15} className="text-cyan-400 flex-shrink-0" />
                     <span className="text-foreground text-sm">{item}</span>
@@ -123,12 +123,12 @@ const Home = () => {
               </div>
 
               <a
-
+                href="https://whop.com/stackmode-academy/educationalservice/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold w-full py-3 rounded-xl transition-all text-sm" href="https://calendly.com/stackmodechris/architecture">
-                <Calendar size={16} />
-                Book a FREE Quote Call
+                className="inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold w-full py-3 rounded-xl transition-all text-sm">
+                <GraduationCap size={16} />
+                Enroll Now — $50/mo
               </a>
             </motion.div>
 
@@ -144,17 +144,17 @@ const Home = () => {
                   <GraduationCap size={24} className="text-emerald-400" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-foreground">Join the Academy</h3>
-                  <span className="text-emerald-400 text-xs font-medium">Learn Coding, Trading & Investing</span>
+                  <h3 className="text-lg font-bold text-foreground">Investing School</h3>
+                  <span className="text-emerald-400 text-xs font-medium">Stocks, Crypto & Real Estate</span>
                 </div>
               </div>
 
               <p className="text-muted-foreground text-sm mb-5">
-                One academy — learn to build AI software, trade stocks & crypto, and grow your wealth.
+                Learn where to put your money — stocks, crypto, real estate, and long-term wealth building.
               </p>
 
               <div className="space-y-2.5 mb-6 flex-1">
-                {['AI coding & app building', 'Swing trading strategies', 'Crypto investing', 'Wealth building & real estate'].map((item) =>
+                {['Swing trading strategies', 'Crypto investing', 'Real estate basics', 'Wealth building mindset'].map((item) =>
                 <div key={item} className="flex items-center gap-2.5">
                     <Check size={15} className="text-emerald-400 flex-shrink-0" />
                     <span className="text-foreground text-sm">{item}</span>
@@ -168,7 +168,7 @@ const Home = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-background font-bold w-full py-3 rounded-xl transition-all text-sm">
                 <ArrowRight size={16} />
-                Join the Academy — $50/mo
+                Enroll Now — $50/mo
               </a>
             </motion.div>
           </div>
