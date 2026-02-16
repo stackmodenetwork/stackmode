@@ -1,4 +1,4 @@
-import { ArrowRight, Check, Calendar, Layers, Brain, Wrench, Database } from 'lucide-react';
+import { ArrowRight, Check, Code, TrendingUp, Calendar, GraduationCap } from 'lucide-react';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { UniversalPageBottom } from '@/components/UniversalPageBottom';
 import { SoftwareProofSection } from '@/components/SoftwareProofSection';
@@ -35,151 +35,153 @@ const Home = () => {
       </header>
 
       {/* Hero */}
-      <section className="relative min-h-[50vh] flex items-center justify-center px-4 pt-10 pb-8">
+      <section className="relative min-h-[40vh] flex items-center justify-center px-4 pt-10 pb-6">
         <div className="relative z-10 w-full max-w-3xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full px-4 py-2 mb-6">
-
-            <Layers size={14} className="text-cyan-400" />
-            <span className="text-cyan-400 text-xs font-bold uppercase tracking-wide">The Future of Software</span>
-          </motion.div>
-
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-5xl font-bold text-foreground mb-5 leading-tight md:text-5xl">
-            <span>The Old Stack Is Outdated.</span>{' '}
-            <span className="text-cyan-400">The AI Stack Is Here.</span>
+            className="text-3xl sm:text-5xl font-bold text-foreground mb-4 leading-tight">
+            <span>Build Apps with AI.</span>{' '}
+            <span className="text-emerald-400">Stack Your Assets.</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-muted-foreground text-sm sm:text-lg mb-4 max-w-2xl mx-auto">
-
-            "Full stack" used to mean React + Node. Now it means <span className="text-foreground font-medium">AI Agents, Memory Layers, and Tool Orchestration</span>. 
-            If your company isn't building with the new stack, you're already behind.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="text-sm font-bold mb-6">
-
-            Stackmode builds the new stack for you — <span className="text-cyan-400">or teaches you how</span>
+            className="text-muted-foreground text-sm sm:text-lg mb-6 max-w-2xl mx-auto">
+            Turn ideas into reality. Get custom software built — or learn how to trade & invest.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35 }}
-            className="flex justify-center">
-
+            transition={{ delay: 0.3 }}
+            className="flex flex-col sm:flex-row justify-center gap-3">
             <a
-              href="/shop"
-              className="inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-cyan-500/20">
-              <span>Get Your Software Engineered</span>
-              <ArrowRight size={18} />
+              href="#paths"
+              className="inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold px-6 py-3 rounded-xl transition-all text-sm">
+              <Code size={16} />
+              Get Software Built
+            </a>
+            <a
+              href="#paths"
+              className="inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-background font-bold px-6 py-3 rounded-xl transition-all text-sm">
+              <TrendingUp size={16} />
+              Learn to Trade & Invest
             </a>
           </motion.div>
         </div>
       </section>
 
-      {/* The New AI Stack */}
-      <section className="py-10 sm:py-14 px-4">
-        <div className="max-w-4xl mx-auto">
+      {/* Two-Path Section */}
+      <section id="paths" className="py-10 sm:py-14 px-4">
+        <div className="max-w-5xl mx-auto">
           <ScrollReveal>
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground text-center mb-2">
-              The AI Agent Stack
+              Pick Your Path
             </h2>
             <p className="text-muted-foreground text-center mb-8 text-sm max-w-xl mx-auto">
-              Every modern app now runs on four layers. We build all of them.
+              Whether you need software built or want to learn how to grow wealth — we've got you.
             </p>
           </ScrollReveal>
 
-          <div className="grid sm:grid-cols-2 gap-4">
-            {[
-            {
-              icon: Brain,
-              title: 'The Model Layer',
-              subtitle: 'The Brain',
-              desc: 'GPT, Gemini, Claude — the AI that thinks. We pick the right model for your product.',
-              color: 'cyan'
-            },
-            {
-              icon: Database,
-              title: 'The Memory Layer',
-              subtitle: 'The Context Stack',
-              desc: 'Agents remember users, past actions, and preferences. No more starting from zero.',
-              color: 'violet'
-            },
-            {
-              icon: Layers,
-              title: 'The Planning Layer',
-              subtitle: 'The Task Stack',
-              desc: 'Big goals get broken into sub-tasks. The agent pushes, pops, and executes — just like a developer.',
-              color: 'emerald'
-            },
-            {
-              icon: Wrench,
-              title: 'The Tool Layer',
-              subtitle: 'The Hands',
-              desc: 'APIs, search, code execution — the tools the agent uses to get real work done.',
-              color: 'amber'
-            }].
-            map((layer, i) =>
-            <ScrollReveal key={layer.title}>
-                <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className={`bg-card/50 border-2 border-${layer.color}-500/20 rounded-xl p-5 hover:border-${layer.color}-500/40 transition-all`}>
-
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className={`p-2 rounded-lg bg-${layer.color}-500/10`}>
-                      <layer.icon size={20} className={`text-${layer.color}-400`} />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-foreground text-sm">{layer.title}</h3>
-                      <span className={`text-${layer.color}-400 text-xs font-medium`}>{layer.subtitle}</span>
-                    </div>
-                  </div>
-                  <p className="text-muted-foreground text-sm">{layer.desc}</p>
-                </motion.div>
-              </ScrollReveal>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* Why It Matters */}
-      <section className="py-8 px-4">
-        <div className="max-w-2xl mx-auto">
-          <ScrollReveal>
-            <h2 className="text-2xl font-bold text-foreground text-center mb-6">
-              Why Your Business Needs This
-            </h2>
-            <div className="space-y-3">
-              {[
-              'AI agents are replacing traditional software teams',
-              'Companies using AI stacks ship 10x faster',
-              'The old "full stack" skillset is becoming obsolete',
-              'Custom AI tools give you an unfair advantage',
-              'Every industry needs AI-powered software — now'].
-              map((item) =>
-              <div key={item} className="flex items-center gap-3 bg-card/50 border border-border/50 rounded-lg px-4 py-3">
-                  <Check size={18} className="text-cyan-400 flex-shrink-0" />
-                  <span className="text-foreground text-sm">{item}</span>
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Card 1 — AI Software */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="group bg-card/60 border-2 border-cyan-500/20 hover:border-cyan-500/40 rounded-2xl p-6 sm:p-8 transition-all flex flex-col">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-3 rounded-xl bg-cyan-500/10">
+                  <Code size={24} className="text-cyan-400" />
                 </div>
-              )}
-            </div>
-          </ScrollReveal>
+                <div>
+                  <h3 className="text-lg font-bold text-foreground">Get Your Software Built</h3>
+                  <span className="text-cyan-400 text-xs font-medium">AI-Powered Development</span>
+                </div>
+              </div>
+
+              <p className="text-muted-foreground text-sm mb-5">
+                We build apps, SaaS tools, and AI software using the new AI stack. From idea to launch.
+              </p>
+
+              <div className="space-y-2.5 mb-6 flex-1">
+                {['Web apps & dashboards', 'AI-powered tools', 'SaaS platforms', 'Automations & integrations'].map((item) => (
+                  <div key={item} className="flex items-center gap-2.5">
+                    <Check size={15} className="text-cyan-400 flex-shrink-0" />
+                    <span className="text-foreground text-sm">{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <a
+                href="https://calendly.com/stackmodechris/free-quote-call"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold w-full py-3 rounded-xl transition-all text-sm mb-3">
+                <Calendar size={16} />
+                Book a FREE Quote Call
+              </a>
+              <a
+                href="/coding"
+                className="text-center text-cyan-400 hover:text-cyan-300 text-xs font-medium transition-colors flex items-center justify-center gap-1">
+                <GraduationCap size={13} />
+                Visit the Academy
+              </a>
+            </motion.div>
+
+            {/* Card 2 — Trading & Investing */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="group bg-card/60 border-2 border-emerald-500/20 hover:border-emerald-500/40 rounded-2xl p-6 sm:p-8 transition-all flex flex-col">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-3 rounded-xl bg-emerald-500/10">
+                  <TrendingUp size={24} className="text-emerald-400" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-foreground">Learn to Trade & Invest</h3>
+                  <span className="text-emerald-400 text-xs font-medium">Stackmode Academy</span>
+                </div>
+              </div>
+
+              <p className="text-muted-foreground text-sm mb-5">
+                Stocks, crypto, real estate — learn where to put your money and how to grow it.
+              </p>
+
+              <div className="space-y-2.5 mb-6 flex-1">
+                {['Swing trading strategies', 'Crypto investing', 'AI trade tools', 'Wealth building'].map((item) => (
+                  <div key={item} className="flex items-center gap-2.5">
+                    <Check size={15} className="text-emerald-400 flex-shrink-0" />
+                    <span className="text-foreground text-sm">{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <a
+                href="https://whop.com/stackmode/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-background font-bold w-full py-3 rounded-xl transition-all text-sm mb-3">
+                <ArrowRight size={16} />
+                Join the Academy — $50/mo
+              </a>
+              <a
+                href="https://calendly.com/stackmodechris/free-consultation"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-center text-emerald-400 hover:text-emerald-300 text-xs font-medium transition-colors flex items-center justify-center gap-1">
+                <Calendar size={13} />
+                Book a FREE Consultation
+              </a>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -205,8 +207,8 @@ const Home = () => {
           <p className="text-xs text-muted-foreground/50">© {new Date().getFullYear()} Stackmode. All rights reserved.</p>
         </div>
       </footer>
-    </main>);
-
+    </main>
+  );
 };
 
 export default Home;
