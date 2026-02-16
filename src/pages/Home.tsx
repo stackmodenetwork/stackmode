@@ -112,19 +112,19 @@ const Home = () => {
               </p>
 
               <div className="space-y-2.5 mb-6 flex-1">
-                {['Web apps & dashboards', 'AI-powered tools', 'SaaS platforms', 'Automations & integrations'].map((item) => (
-                  <div key={item} className="flex items-center gap-2.5">
+                {['Web apps & dashboards', 'AI-powered tools', 'SaaS platforms', 'Automations & integrations'].map((item) =>
+                <div key={item} className="flex items-center gap-2.5">
                     <Check size={15} className="text-cyan-400 flex-shrink-0" />
                     <span className="text-foreground text-sm">{item}</span>
                   </div>
-                ))}
+                )}
               </div>
 
               <a
-                href="https://calendly.com/stackmodechris/free-quote-call"
+
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold w-full py-3 rounded-xl transition-all text-sm">
+                className="inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold w-full py-3 rounded-xl transition-all text-sm" href="https://calendly.com/stackmodechris/architecture">
                 <Calendar size={16} />
                 Book a FREE Quote Call
               </a>
@@ -152,12 +152,12 @@ const Home = () => {
               </p>
 
               <div className="space-y-2.5 mb-6 flex-1">
-                {['AI coding & app building', 'Swing trading strategies', 'Crypto investing', 'Wealth building & real estate'].map((item) => (
-                  <div key={item} className="flex items-center gap-2.5">
+                {['AI coding & app building', 'Swing trading strategies', 'Crypto investing', 'Wealth building & real estate'].map((item) =>
+                <div key={item} className="flex items-center gap-2.5">
                     <Check size={15} className="text-emerald-400 flex-shrink-0" />
                     <span className="text-foreground text-sm">{item}</span>
                   </div>
-                ))}
+                )}
               </div>
 
               <a
@@ -195,8 +195,8 @@ const Home = () => {
           <p className="text-xs text-muted-foreground/50">© {new Date().getFullYear()} Stackmode. All rights reserved.</p>
         </div>
       </footer>
-    </main>
-  );
+    </main>);
+
 };
 
 export default Home;
