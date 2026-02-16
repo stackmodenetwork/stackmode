@@ -66,10 +66,12 @@ const Home = () => {
               Get Software Built
             </a>
             <a
-              href="#paths"
+              href="https://whop.com/stackmode-academy/educationalservice/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-background font-bold px-6 py-3 rounded-xl transition-all text-sm">
-              <TrendingUp size={16} />
-              Learn to Trade & Invest
+              <GraduationCap size={16} />
+              Join the Academy
             </a>
           </motion.div>
         </div>
@@ -122,19 +124,13 @@ const Home = () => {
                 href="https://calendly.com/stackmodechris/free-quote-call"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold w-full py-3 rounded-xl transition-all text-sm mb-3">
+                className="inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold w-full py-3 rounded-xl transition-all text-sm">
                 <Calendar size={16} />
                 Book a FREE Quote Call
               </a>
-              <a
-                href="/coding"
-                className="text-center text-cyan-400 hover:text-cyan-300 text-xs font-medium transition-colors flex items-center justify-center gap-1">
-                <GraduationCap size={13} />
-                Visit the Academy
-              </a>
             </motion.div>
 
-            {/* Card 2 — Trading & Investing */}
+            {/* Card 2 — The Academy */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -143,20 +139,20 @@ const Home = () => {
               className="group bg-card/60 border-2 border-emerald-500/20 hover:border-emerald-500/40 rounded-2xl p-6 sm:p-8 transition-all flex flex-col">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-3 rounded-xl bg-emerald-500/10">
-                  <TrendingUp size={24} className="text-emerald-400" />
+                  <GraduationCap size={24} className="text-emerald-400" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-foreground">Learn to Trade & Invest</h3>
-                  <span className="text-emerald-400 text-xs font-medium">Stackmode Academy</span>
+                  <h3 className="text-lg font-bold text-foreground">Join the Academy</h3>
+                  <span className="text-emerald-400 text-xs font-medium">Learn Coding, Trading & Investing</span>
                 </div>
               </div>
 
               <p className="text-muted-foreground text-sm mb-5">
-                Stocks, crypto, real estate — learn where to put your money and how to grow it.
+                One academy — learn to build AI software, trade stocks & crypto, and grow your wealth.
               </p>
 
               <div className="space-y-2.5 mb-6 flex-1">
-                {['Swing trading strategies', 'Crypto investing', 'AI trade tools', 'Wealth building'].map((item) => (
+                {['AI coding & app building', 'Swing trading strategies', 'Crypto investing', 'Wealth building & real estate'].map((item) => (
                   <div key={item} className="flex items-center gap-2.5">
                     <Check size={15} className="text-emerald-400 flex-shrink-0" />
                     <span className="text-foreground text-sm">{item}</span>
@@ -165,20 +161,12 @@ const Home = () => {
               </div>
 
               <a
-                href="https://whop.com/stackmode/"
+                href="https://whop.com/stackmode-academy/educationalservice/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-background font-bold w-full py-3 rounded-xl transition-all text-sm mb-3">
+                className="inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-background font-bold w-full py-3 rounded-xl transition-all text-sm">
                 <ArrowRight size={16} />
                 Join the Academy — $50/mo
-              </a>
-              <a
-                href="https://calendly.com/stackmodechris/free-consultation"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-center text-emerald-400 hover:text-emerald-300 text-xs font-medium transition-colors flex items-center justify-center gap-1">
-                <Calendar size={13} />
-                Book a FREE Consultation
               </a>
             </motion.div>
           </div>
