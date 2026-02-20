@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { ArrowRight, Gift, TrendingUp, DollarSign, Brain, Shield, Zap, CheckCircle, BookOpen } from 'lucide-react';
+import { ArrowRight, Gift, TrendingUp, DollarSign, Brain, Shield, Zap, CheckCircle, BookOpen, Headphones } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
@@ -14,9 +14,9 @@ const steps = [
 ];
 
 const books = [
-  { title: 'Neuro Trading', image: '/images/books/neuro-trading.jpg', link: 'https://a.co/d/0bz50oF', desc: 'Master the psychology of trading' },
-  { title: 'Before The HYPE', image: '/images/books/before-the-hype-2026.jpg', link: 'https://a.co/d/eSgONXa', desc: 'Get in before the crowd' },
-  { title: 'Freedom Money', image: '/images/books/freedom-money.jpg', link: 'https://a.co/d/91RUksI', desc: 'Build real financial freedom' },
+  { title: 'Neuro Trading', image: '/images/books/neuro-trading.jpg', link: 'https://a.co/d/0bz50oF', audiobookLink: 'https://play.google.com/store/audiobooks/details?id=AQAAAEAaGWdZbM', desc: 'Master the psychology of trading' },
+  { title: 'Before The HYPE', image: '/images/books/before-the-hype-2026.jpg', link: 'https://a.co/d/eSgONXa', audiobookLink: 'https://play.google.com/store/audiobooks/details?id=AQAAAEAaaVspUM', desc: 'Get in before the crowd' },
+  { title: 'Freedom Money', image: '/images/books/freedom-money.jpg', link: 'https://a.co/d/91RUksI', audiobookLink: 'https://play.google.com/store/audiobooks/details?id=AQAAAEAaqV_pVM', desc: 'Build real financial freedom' },
 ];
 
 const Library = () => {
@@ -182,6 +182,16 @@ const Library = () => {
                 />
                 <p className="text-xs sm:text-sm font-bold text-foreground mt-2 group-hover:text-amber-500 transition-colors">{book.title}</p>
                 <p className="text-[10px] text-muted-foreground mt-0.5">{book.desc}</p>
+                <a
+                  href={book.audiobookLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="inline-flex items-center gap-1 mt-2 text-[10px] sm:text-xs font-medium text-primary hover:text-primary/80 transition-colors"
+                >
+                  <Headphones size={12} />
+                  Google Play Audio
+                </a>
               </motion.a>
             ))}
           </div>
