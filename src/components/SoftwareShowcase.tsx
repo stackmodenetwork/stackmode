@@ -53,17 +53,26 @@ export function SoftwareShowcase() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => setSelectedIndex(i)}
-            className="rounded-xl border border-border/50 bg-card/30 overflow-hidden hover:border-primary/40 transition-all text-left cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/50 shadow-md hover:shadow-xl hover:shadow-primary/5">
+            className="group relative rounded-xl overflow-hidden text-left cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/50 shadow-lg hover:shadow-2xl hover:shadow-primary/10 transition-all">
 
-              <img
-              src={item.image}
-              alt={item.title}
-              className="w-full h-auto block"
-              loading="lazy" />
+              {/* Glow border */}
+              <div className="absolute -inset-[1px] rounded-xl bg-gradient-to-b from-primary/40 via-primary/10 to-primary/40 z-0 group-hover:from-primary/60 group-hover:via-primary/20 group-hover:to-primary/60 transition-all" />
 
-              <div className="px-4 py-3">
-                <h3 className="text-sm font-bold text-foreground font-mono">{item.title}</h3>
-                <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{item.description}</p>
+              <div className="relative z-10 rounded-xl overflow-hidden bg-card/80 border border-transparent">
+                <div className="relative">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-auto block"
+                    loading="lazy" />
+                  {/* Gradient overlay at bottom of image */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-card/90 via-transparent to-transparent pointer-events-none" />
+                </div>
+
+                <div className="px-4 py-3">
+                  <h3 className="text-sm font-bold text-foreground font-mono">{item.title}</h3>
+                  <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{item.description}</p>
+                </div>
               </div>
             </motion.button>
           )}
