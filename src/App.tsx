@@ -8,6 +8,7 @@ import { lazy, Suspense } from "react";
 
 const Home = lazy(() => import("./pages/Home"));
 const Shop = lazy(() => import("./pages/Learn"));
+const Library = lazy(() => import("./pages/Library"));
 const DMCAPolicy = lazy(() => import("./pages/DMCAPolicy"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
@@ -42,7 +43,7 @@ const App = () => (
               <Route path="/investing" element={<Navigate to="/" replace />} />
               <Route path="/business" element={<Navigate to="/" replace />} />
               <Route path="/buildyourwebsite" element={<Navigate to="/" replace />} />
-              <Route path="/library" element={<Navigate to="/" replace />} />
+              <Route path="/library" element={<Library />} />
               <Route path="/about" element={<Navigate to="/" replace />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
