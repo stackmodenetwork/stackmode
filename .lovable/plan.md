@@ -1,72 +1,34 @@
 
+# Add Cursor Particle Trail Animation
 
-## Complete Site Overhaul: Reviews, Showcase, Background, Logo
+## What it does
+Adds a visual effect where small cyan-colored particles/dots trail behind the cursor as users move their mouse across the page -- similar to the Google Antigravity site's scattered blue dash effect.
 
-### 1. Review Carousel Cleanup
+## How it works
+- A new `CursorParticles` component will track mouse movement across the entire page
+- As the cursor moves, small particles spawn at the cursor position with random velocity and rotation
+- Particles fade out and are removed after a short lifespan
+- The effect uses a canvas element for performance (no DOM nodes per particle)
+- On mobile/touch devices, the effect is disabled since there's no cursor
 
-**Current problem:** The review carousel has ~53 images, many are duplicates or ad/lead generation screenshots (Systeme.io lead pages, ad dashboards, etc.) instead of trading wins and text message reviews.
+## Implementation Steps
 
-**Changes to `src/components/ReviewWall.tsx`:**
-- Audit the review list and remove:
-  - Ad result screenshots (Facebook ads dashboards, lead generation stats)
-  - Duplicate images
-  - Systeme.io lead page screenshots
-- Keep only: text message conversations, trading P&L screenshots, Discord chat reviews, and genuine testimonials
-- Curate down to ~25-30 high-quality, non-duplicate reviews focused on trading wins and positive text feedback
+1. **Create `src/components/CursorParticles.tsx`**
+   - Uses an HTML `<canvas>` overlaid on the full page (`fixed`, `inset-0`, `pointer-events-none`)
+   - Listens to `mousemove` events on `window`
+   - Spawns small cyan-colored dashes/dots at the cursor position with slight random spread
+   - Each particle has a short lifetime (~1 second), random velocity, and fades out over time
+   - Uses `requestAnimationFrame` for smooth 60fps rendering
+   - Respects `prefers-reduced-motion` -- disables the effect entirely for accessibility
+   - Skips rendering on touch-only devices
 
-### 2. Software Showcase - Smarter Messaging
+2. **Add `<CursorParticles />` to `src/App.tsx`**
+   - Place it once at the top level so it works across all pages
+   - It renders as a fixed overlay with `pointer-events: none` so it doesn't interfere with any clicks or interactions
 
-**Changes to `src/components/SoftwareShowcase.tsx`:**
-- Update the section copy to emphasize that members get **access** to these tools
-- New headline: "Your Trading Edge. Included Free."
-- Add a subtitle explaining: "While you build your own software, use our tools to catch the best trades and stay informed on the market."
-- Each card gets a short benefit-driven description (not just a title):
-  - AI Market Scanner -- "Scan 1000+ assets for breakout setups in seconds"
-  - Stackmode Scout AI -- "AI assistant that finds high-probability trades for you"
-  - Smart Calculators -- "Position sizing, risk/reward, and profit calculators"
-  - Live Crypto News -- "Real-time crypto news feed so you never miss a move"
+## Technical Details
 
-### 3. Unique Coding + Trading Background
-
-**Create new `src/components/CodeTradingBackground.tsx`:**
-- Replace the plain gradient background with a unique, integrated coding-and-trading themed background
-- Animated code snippets (faint, semi-transparent) scrolling vertically on the left side
-- Animated candlestick chart lines (subtle) on the right side
-- A subtle grid overlay with glowing intersection points
-- CSS-only animated gradient mesh that shifts between cyan, violet, and emerald (the brand colors)
-- All elements at very low opacity (0.03-0.08) so they don't distract from content
-- This runs behind the entire page, making it feel unique and different from every other landing page
-
-**Apply to `src/pages/Home.tsx`:**
-- Add the `CodeTradingBackground` component as a fixed background behind all sections
-
-### 4. New SM Logo
-
-**Copy the uploaded logo** (`social-1758242459337-LOGO.jpg`) to `public/images/sm-logo-new.png`
-
-**Update `src/pages/Home.tsx`:**
-- Replace the current `sm-logo.png` in the sticky header with the new SM circle logo
-- Make the logo a clickable link that scrolls to the top of the page (since Home is the main page)
-- Wrap in a `<Link to="/">` or `window.scrollTo(0, 0)` on click
-
-**Update `src/components/academy/AcademyHero.tsx`:**
-- Add the SM logo above the "Founded by" badge for brand recognition at the top of the page
-
-### 5. Files Modified
-
-| File | Change |
-|------|--------|
-| `src/components/ReviewWall.tsx` | Remove duplicate and ad/lead images from the reviews array |
-| `src/components/SoftwareShowcase.tsx` | Update copy to emphasize access + market intelligence benefit |
-| `src/components/CodeTradingBackground.tsx` | **New** -- unique animated coding + trading background |
-| `src/pages/Home.tsx` | Add background component, update logo to new SM logo with home link |
-| `src/components/academy/AcademyHero.tsx` | Add SM logo at top |
-| `public/images/sm-logo-new.png` | **New** -- copied from uploaded file |
-
-### Technical Notes
-
-- The background uses CSS animations only (no framer-motion) for performance -- `@keyframes` for scrolling code text and candlestick lines
-- Background is `position: fixed` with `z-index: 0`, all content sections get `position: relative` with `z-index: 1`
-- Review images that appear to be ad dashboards, Systeme.io lead screenshots, or duplicates will be identified and removed from the array
-- Logo click behavior: on Home page it scrolls to top; from other pages it navigates to `/`
-
+- **Performance**: Canvas-based rendering (not DOM elements), particles capped at ~50 max on screen, cleaned up when off-screen or expired
+- **Colors**: Uses the site's primary cyan color (`hsl(185, 80%, 50%)`) to match the theme
+- **Accessibility**: Fully disabled when `prefers-reduced-motion: reduce` is active
+- **No new dependencies**: Pure React + Canvas API
