@@ -1,46 +1,46 @@
 import { motion } from 'framer-motion';
-import { Code, TrendingUp, Wrench, MessageCircle, Video, BookOpen } from 'lucide-react';
+import { Code, TrendingUp, Wrench, MessageCircle, Video, BookOpen, Layers, DollarSign } from 'lucide-react';
 
 const items = [
   {
-    icon: Code,
-    title: 'AI Coding Lessons',
-    desc: 'Build full apps using AI — no coding experience needed.',
+    icon: Layers,
+    title: 'The AI Agentic Stack',
+    desc: 'Master the Model, Memory, Planning, and Tool layers. Build AI apps that think, learn, and act on their own.',
     color: 'text-primary',
     bg: 'bg-primary/10',
   },
   {
+    icon: Code,
+    title: 'Build Real Software',
+    desc: 'Ship apps people actually pay for. No fluff tutorials — you build products that generate income from day one.',
+    color: 'text-accent',
+    bg: 'bg-accent/10',
+  },
+  {
     icon: TrendingUp,
-    title: 'Trading Education',
-    desc: 'Stocks, crypto, options. Learn to find your own setups.',
+    title: 'Stack Your Assets',
+    desc: 'Stocks, crypto, options. Take your software income and multiply it. Learn setups that work in any market.',
     color: 'text-secondary',
     bg: 'bg-secondary/10',
   },
   {
     icon: Wrench,
     title: 'StackFinder AI Tool',
-    desc: 'Our proprietary market scanner. Members only.',
-    color: 'text-accent',
-    bg: 'bg-accent/10',
-  },
-  {
-    icon: MessageCircle,
-    title: 'Private Discord',
-    desc: 'Daily engagement with students, alumni & instructors.',
-    color: 'text-secondary',
-    bg: 'bg-secondary/10',
-  },
-  {
-    icon: Video,
-    title: 'Live Sessions',
-    desc: 'Watch real trades and real builds. Every week.',
+    desc: 'Your edge while you build. Scans 1000+ assets, finds breakouts, and keeps you ahead of the market.',
     color: 'text-primary',
     bg: 'bg-primary/10',
   },
   {
-    icon: BookOpen,
-    title: '200+ Hours of Content',
-    desc: 'Step-by-step tutorials. New lessons every week.',
+    icon: MessageCircle,
+    title: 'Private Discord Community',
+    desc: 'Daily engagement with students making real money. Share wins, get help, stay accountable.',
+    color: 'text-secondary',
+    bg: 'bg-secondary/10',
+  },
+  {
+    icon: DollarSign,
+    title: 'Built for Real Results',
+    desc: 'This isn\'t theory. Members are building $10K+ software, landing clients, and growing portfolios. You\'re next.',
     color: 'text-accent',
     bg: 'bg-accent/10',
   },
@@ -53,14 +53,17 @@ export const WhatYouGet = () => (
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-center mb-10"
+        className="text-center mb-4"
       >
         <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
-          Everything You Get for <span className="text-primary">$50/mo</span>
+          Why This Academy <span className="text-primary">Changes Lives</span>
         </h2>
+        <p className="text-muted-foreground text-sm mt-2 max-w-lg mx-auto leading-relaxed">
+          Most courses teach you to code. We teach you to build businesses, generate income, and stack wealth — all with the power of AI.
+        </p>
       </motion.div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
         {items.map((item, i) => (
           <motion.div
             key={item.title}
