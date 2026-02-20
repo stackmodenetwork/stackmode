@@ -31,8 +31,8 @@ const Home = () => {
               href="https://whop.com/stackmode-academy/educationalservice/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full transition-all text-[11px] sm:text-xs"
-            >
+              className="inline-flex items-center gap-1.5 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full transition-all text-[11px] sm:text-xs">
+
               <GraduationCap size={14} className="flex-shrink-0" />
               <span className="sm:hidden">Academy</span>
               <span className="hidden sm:inline">Join The Academy</span>
@@ -41,8 +41,8 @@ const Home = () => {
               href="https://discord.gg/5zYWSWGMYm"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-medium px-3 py-1.5 sm:py-2 rounded-full text-foreground/70 hover:text-primary hover:bg-primary/5 border border-border/50 transition-colors"
-            >
+              className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-medium px-3 py-1.5 sm:py-2 rounded-full text-foreground/70 hover:text-primary hover:bg-primary/5 border border-border/50 transition-colors">
+
               <MessageCircle size={14} className="flex-shrink-0" />
               Discord
             </a>
@@ -50,8 +50,8 @@ const Home = () => {
               href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-medium px-3 py-1.5 sm:py-2 rounded-full text-foreground/70 hover:text-primary hover:bg-primary/5 border border-border/50 transition-colors"
-            >
+              className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-medium px-3 py-1.5 sm:py-2 rounded-full text-foreground/70 hover:text-primary hover:bg-primary/5 border border-border/50 transition-colors">
+
               <Mic size={14} className="flex-shrink-0" />
               Podcast
             </a>
@@ -59,16 +59,16 @@ const Home = () => {
               href="https://ceoturbo.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-medium px-3 py-1.5 sm:py-2 rounded-full text-foreground/70 hover:text-primary hover:bg-primary/5 border border-border/50 transition-colors"
-            >
+              className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-medium px-3 py-1.5 sm:py-2 rounded-full text-foreground/70 hover:text-primary hover:bg-primary/5 border border-border/50 transition-colors">
+
               <Wrench size={14} className="flex-shrink-0" />
               <span className="hidden sm:inline">Grow Your Brand</span>
               <span className="sm:hidden">Brand</span>
             </a>
             <a
               href="tel:+16787758532"
-              className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-bold px-3 py-1.5 sm:py-2 rounded-full bg-cyan-500 text-background hover:bg-cyan-400 transition-colors"
-            >
+              className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-bold px-3 py-1.5 sm:py-2 rounded-full text-background transition-colors bg-accent">
+
               <Phone size={14} className="flex-shrink-0" />
               Contact
             </a>
