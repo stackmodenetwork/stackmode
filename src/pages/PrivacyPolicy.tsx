@@ -1,18 +1,11 @@
-import { ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
-
 import { MainFooter } from '@/components/MainFooter';
 import { TrustpilotWidget } from '@/components/TrustpilotWidget';
+import { LegalPageNav } from '@/components/LegalPageNav';
 
 const PrivacyPolicy = () => {
   return (
     <main className="min-h-screen bg-background text-foreground flex flex-col">
-      <div className="max-w-4xl mx-auto w-full px-4 pt-6">
-        <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-          <ArrowLeft size={20} />
-          <span>Home</span>
-        </Link>
-      </div>
+      <LegalPageNav />
 
       <div className="flex-1 max-w-4xl mx-auto px-4 py-12 w-full">
         <h1 className="text-4xl font-bold text-foreground mb-8">Privacy Policy</h1>
