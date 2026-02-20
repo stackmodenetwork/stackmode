@@ -5,6 +5,7 @@ import { WhatYouGet } from '@/components/academy/WhatYouGet';
 import { AcademyPricing } from '@/components/academy/AcademyPricing';
 import { AcademyFAQ } from '@/components/academy/AcademyFAQ';
 import { AcademyFooter } from '@/components/academy/AcademyFooter';
+import { CodeTradingBackground } from '@/components/CodeTradingBackground';
 import { GraduationCap } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
@@ -19,6 +20,8 @@ const Home = () => {
 
   return (
     <main className="min-h-screen bg-background relative overflow-x-hidden">
+      <CodeTradingBackground />
+
       {/* Sticky Header */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/50 transition-transform duration-300 ${
@@ -27,10 +30,13 @@ const Home = () => {
       >
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex items-center justify-between h-14">
-            <div className="flex items-center gap-2">
-              <img src="/images/sm-logo.png" alt="Stackmode" className="w-8 h-8 object-contain" />
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="flex items-center gap-2 focus:outline-none"
+            >
+              <img src="/images/sm-logo-new.png" alt="Stackmode" className="w-9 h-9 rounded-full object-cover" />
               <span className="text-sm font-bold text-foreground font-mono">STACKMODE</span>
-            </div>
+            </button>
             <a
               href="https://whop.com/stackmode-academy/educationalservice/"
               target="_blank"
@@ -44,13 +50,15 @@ const Home = () => {
         </div>
       </header>
 
-      <AcademyHero />
-      <ReviewWall />
+      <div className="relative z-[1]">
+        <AcademyHero />
+        <ReviewWall />
       <SoftwareShowcase />
       <WhatYouGet />
       <AcademyPricing />
       <AcademyFAQ />
-      <AcademyFooter />
+        <AcademyFooter />
+      </div>
     </main>
   );
 };

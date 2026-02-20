@@ -5,18 +5,22 @@ import { useRef } from 'react';
 const showcaseItems = [
   {
     title: 'AI Market Scanner',
+    description: 'Scan 1000+ assets for breakout setups in seconds',
     image: '/images/showcase/market-scanner.png',
   },
   {
     title: 'Stackmode Scout AI',
+    description: 'AI assistant that finds high-probability trades for you',
     image: '/images/showcase/scout-ai.png',
   },
   {
     title: 'Smart Calculators',
+    description: 'Position sizing, risk/reward, and profit calculators',
     image: '/images/showcase/calculators.png',
   },
   {
     title: 'Live Crypto News',
+    description: 'Real-time crypto news feed so you never miss a move',
     image: '/images/showcase/crypto-news.png',
   },
 ];
@@ -30,11 +34,14 @@ export function SoftwareShowcase() {
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 mb-3">
             <Code2 size={14} className="text-primary" />
-            <span className="text-xs font-mono text-primary font-semibold">Built Inside the Academy</span>
+            <span className="text-xs font-mono text-primary font-semibold">Included With Your Membership</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
-            Real Tools. <span className="text-primary">Real Money.</span>
+            Your Trading Edge. <span className="text-primary">Included Free.</span>
           </h2>
+          <p className="text-muted-foreground text-sm mt-2 max-w-lg mx-auto">
+            While you build your own software, use our tools to catch the best trades and stay informed on the market.
+          </p>
         </div>
 
         {/* Horizontal scroll strip */}
@@ -60,6 +67,7 @@ export function SoftwareShowcase() {
               />
               <div className="px-4 py-3">
                 <h3 className="text-sm font-bold text-foreground font-mono">{item.title}</h3>
+                <p className="text-xs text-muted-foreground mt-1">{item.description}</p>
               </div>
             </motion.div>
           ))}
