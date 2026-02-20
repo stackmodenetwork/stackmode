@@ -35,9 +35,7 @@ export function SoftwareShowcase() {
             <Code2 size={14} className="text-primary" />
             <span className="text-xs font-mono text-primary font-semibold">Included With Your Membership</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-bold text-foreground">The StackFinder Gives You the Trading Edge
-            <span className="text-[#00FF88] drop-shadow-[0_0_8px_rgba(0,255,136,0.6)]">Trading Edge</span>
-          </h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground">The StackFinder Gives You the <span className="text-[#00FF88] drop-shadow-[0_0_8px_rgba(0,255,136,0.6)]">Trading Edge</span></h2>
           <p className="text-muted-foreground text-sm mt-2 max-w-lg mx-auto">
             While you're building your software, StackFinder keeps you ahead of the market. Scan for trades, manage risk, and never miss a move.
           </p>
