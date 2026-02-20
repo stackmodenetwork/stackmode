@@ -6,13 +6,13 @@ import { AcademyPricing } from '@/components/academy/AcademyPricing';
 import { AcademyFAQ } from '@/components/academy/AcademyFAQ';
 import { AcademyFooter } from '@/components/academy/AcademyFooter';
 import { CodeTradingBackground } from '@/components/CodeTradingBackground';
-import { GraduationCap, MessageCircle, Mic, Wrench, Phone } from 'lucide-react';
+import { GraduationCap, MessageCircle, Mic, Wrench, Phone, Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
 
 const Home = () => {
   const [showStickyHeader, setShowStickyHeader] = useState(false);
-
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
   useEffect(() => {
     const handleScroll = () => setShowStickyHeader(window.scrollY > 400);
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -26,53 +26,65 @@ const Home = () => {
       {/* Top Category Bar */}
       <nav className="relative z-50 bg-background/90 backdrop-blur-md border-b border-border/50">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="flex items-center justify-center gap-1.5 sm:gap-2 py-2.5 flex-wrap">
+          {/* Desktop: show all links */}
+          <div className="hidden sm:flex items-center justify-center gap-2 py-2.5 flex-wrap">
             <a
               href="https://whop.com/stackmode-academy/educationalservice/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full transition-all text-[11px] sm:text-xs">
-
+              className="inline-flex items-center gap-1.5 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-4 py-2 rounded-full transition-all text-xs">
               <GraduationCap size={14} className="flex-shrink-0" />
-              <span className="sm:hidden">Academy</span>
-              <span className="hidden sm:inline">Join The Academy</span>
+              Join The Academy
             </a>
-            <a
-              href="https://discord.gg/5zYWSWGMYm"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-medium px-3 py-1.5 sm:py-2 rounded-full text-foreground/70 hover:text-primary hover:bg-primary/5 border border-border/50 transition-colors">
-
-              <MessageCircle size={14} className="flex-shrink-0" />
-              Discord
+            <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-2 rounded-full text-foreground/70 hover:text-primary hover:bg-primary/5 border border-border/50 transition-colors">
+              <MessageCircle size={14} className="flex-shrink-0" /> Discord
             </a>
-            <a
-              href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-medium px-3 py-1.5 sm:py-2 rounded-full text-foreground/70 hover:text-primary hover:bg-primary/5 border border-border/50 transition-colors">
-
-              <Mic size={14} className="flex-shrink-0" />
-              Podcast
+            <a href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-2 rounded-full text-foreground/70 hover:text-primary hover:bg-primary/5 border border-border/50 transition-colors">
+              <Mic size={14} className="flex-shrink-0" /> Podcast
             </a>
-            <a
-              href="https://ceoturbo.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-medium px-3 py-1.5 sm:py-2 rounded-full text-foreground/70 hover:text-primary hover:bg-primary/5 border border-border/50 transition-colors">
-
-              <Wrench size={14} className="flex-shrink-0" />
-              <span className="hidden sm:inline">Grow Your Brand</span>
-              <span className="sm:hidden">Brand</span>
+            <a href="https://ceoturbo.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-2 rounded-full text-foreground/70 hover:text-primary hover:bg-primary/5 border border-border/50 transition-colors">
+              <Wrench size={14} className="flex-shrink-0" /> Grow Your Brand
             </a>
-            <a
-              href="tel:+16787758532"
-              className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-bold px-3 py-1.5 sm:py-2 rounded-full text-background transition-colors bg-accent">
-
-              <Phone size={14} className="flex-shrink-0" />
-              Contact
+            <a href="tel:+16787758532" className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-2 rounded-full text-background transition-colors bg-accent">
+              <Phone size={14} className="flex-shrink-0" /> Contact
             </a>
           </div>
+
+          {/* Mobile: hamburger */}
+          <div className="flex sm:hidden items-center justify-between py-2.5">
+            <a
+              href="https://whop.com/stackmode-academy/educationalservice/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-3 py-1.5 rounded-full transition-all text-[11px]">
+              <GraduationCap size={14} className="flex-shrink-0" />
+              Join The Academy
+            </a>
+            <button
+              onClick={() => setMobileNavOpen(prev => !prev)}
+              className="p-2 rounded-lg bg-card/50 border border-border/50 hover:border-primary/50 transition-colors"
+              aria-label={mobileNavOpen ? 'Close menu' : 'Open menu'}>
+              {mobileNavOpen ? <X size={18} className="text-primary" /> : <Menu size={18} />}
+            </button>
+          </div>
+
+          {/* Mobile dropdown */}
+          {mobileNavOpen && (
+            <div className="sm:hidden pb-3 space-y-1 animate-fade-in">
+              <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" onClick={() => setMobileNavOpen(false)} className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium text-foreground hover:bg-card/50 transition-colors">
+                <MessageCircle size={16} className="text-primary" /> Discord
+              </a>
+              <a href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true" target="_blank" rel="noopener noreferrer" onClick={() => setMobileNavOpen(false)} className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium text-foreground hover:bg-card/50 transition-colors">
+                <Mic size={16} className="text-primary" /> Podcast
+              </a>
+              <a href="https://ceoturbo.com" target="_blank" rel="noopener noreferrer" onClick={() => setMobileNavOpen(false)} className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium text-foreground hover:bg-card/50 transition-colors">
+                <Wrench size={16} className="text-primary" /> Grow Your Brand
+              </a>
+              <a href="tel:+16787758532" onClick={() => setMobileNavOpen(false)} className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-bold text-background bg-accent transition-colors mt-1">
+                <Phone size={16} /> Contact
+              </a>
+            </div>
+          )}
         </div>
       </nav>
 
