@@ -31,9 +31,9 @@ export const AcademyHero = () => (
         transition={{ delay: 0.1 }}
         className="text-3xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-4 leading-tight"
       >
-        Learn to Code.{' '}
+        Build with AI.{' '}
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-          Learn to Trade.
+          Stack Your Assets.
         </span>
       </motion.h1>
 
