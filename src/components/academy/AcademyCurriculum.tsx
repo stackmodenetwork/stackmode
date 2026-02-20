@@ -18,7 +18,7 @@ const phases: Phase[] = [
   {
     id: 'phase1',
     label: 'Phase 1',
-    subtitle: 'AI Development Mastery (Months 1–3)',
+    subtitle: 'AI Development Mastery',
     blocks: [
       {
         title: 'AI-Powered Full-Stack Development',
@@ -41,7 +41,7 @@ const phases: Phase[] = [
   {
     id: 'phase2',
     label: 'Phase 2',
-    subtitle: 'Trading & Investing (Months 4–6)',
+    subtitle: 'Trading & Investing',
     blocks: [
       {
         title: 'The Stackmode Strategy',
@@ -64,7 +64,7 @@ const phases: Phase[] = [
   {
     id: 'phase3',
     label: 'Phase 3',
-    subtitle: 'Wealth Stacking System (Months 7–12)',
+    subtitle: 'Wealth Stacking System',
     blocks: [
       {
         title: 'The Compound Effect',
