@@ -1,66 +1,24 @@
 import { Helmet } from 'react-helmet-async';
-import { BookOpen, Download, Play, ArrowRight, Gift, ExternalLink } from 'lucide-react';
+import { ArrowRight, Gift, TrendingUp, DollarSign, Brain, Shield, Zap, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ScrollReveal } from '@/components/ScrollReveal';
 
-const freeResources = [
-  {
-    title: 'AI Development Starter Guide',
-    description: 'Learn the fundamentals of building software with AI assistants. Perfect for complete beginners.',
-    type: 'eBook',
-    icon: BookOpen,
-    color: 'cyan',
-    href: 'https://whop.com/stackmode-academy/educationalservice/',
-  },
-  {
-    title: 'Intro to Prompt Engineering',
-    description: 'Master the art of communicating with AI to build exactly what you envision.',
-    type: 'Course',
-    icon: Play,
-    color: 'violet',
-    href: 'https://whop.com/stackmode-academy/educationalservice/',
-  },
-  {
-    title: 'Trading Fundamentals 101',
-    description: 'Understand stocks, crypto, and options before risking a single dollar.',
-    type: 'Course',
-    icon: Play,
-    color: 'emerald',
-    href: 'https://whop.com/stackmode-academy/educationalservice/',
-  },
-  {
-    title: 'The Stackmode Blueprint',
-    description: 'Our philosophy: Build first, then stack. A free guide to sustainable wealth in the AI era.',
-    type: 'eBook',
-    icon: BookOpen,
-    color: 'amber',
-    href: 'https://whop.com/stackmode-academy/educationalservice/',
-  },
-  {
-    title: 'Build Your First App in 1 Hour',
-    description: 'Step-by-step video walkthrough of building a real app using AI tools — no coding required.',
-    type: 'Video',
-    icon: Play,
-    color: 'rose',
-    href: 'https://whop.com/stackmode-academy/educationalservice/',
-  },
-  {
-    title: 'Portfolio & Risk Management Templates',
-    description: 'Spreadsheets and dashboards to track your trades and manage risk like a pro.',
-    type: 'Template',
-    icon: Download,
-    color: 'blue',
-    href: 'https://whop.com/stackmode-academy/educationalservice/',
-  },
+const FREE_LINK = 'https://stackmodechris.systeme.io/freeeducation';
+
+const steps = [
+  { icon: Brain, title: 'Learn the Mindset', desc: 'How rich people actually think about money.' },
+  { icon: DollarSign, title: 'Build Income First', desc: 'Make money before you risk money. Simple.' },
+  { icon: TrendingUp, title: 'Grow Your Money', desc: 'Stocks, crypto, real estate — the basics.' },
+  { icon: Shield, title: 'Protect Your Bag', desc: 'Don\'t lose what you earned. Risk management.' },
+  { icon: Zap, title: 'Stack & Repeat', desc: 'Reinvest profits. Build real wealth over time.' },
 ];
 
 const Library = () => {
   return (
     <main className="min-h-screen bg-background">
       <Helmet>
-        <title>Free Resources & Library | Stackmode Academy</title>
-        <meta name="description" content="Access free courses, eBooks, and templates to start learning AI development and investing. No cost, no catch." />
+        <title>Free Education — Key Steps to Profitability | Stackmode</title>
+        <meta name="description" content="Free investing and business education. Learn the key steps to profitability — no fluff, no $5,000 programs. Just real knowledge." />
       </Helmet>
 
       {/* Header */}
@@ -72,13 +30,13 @@ const Library = () => {
               <span className="text-lg font-bold text-foreground font-mono">STACKMODE</span>
             </Link>
             <a
-              href="https://whop.com/stackmode-academy/educationalservice/"
+              href={FREE_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[hsl(200,100%,50%)] hover:bg-[hsl(200,100%,60%)] text-background font-bold px-4 py-2 rounded-lg transition-all text-sm"
+              className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-background font-bold px-4 py-2 rounded-lg transition-all text-sm"
             >
-              Join Academy
-              <ArrowRight size={16} />
+              <Gift size={16} />
+              Get Free Access
             </a>
           </div>
         </div>
@@ -103,82 +61,108 @@ const Library = () => {
             transition={{ delay: 0.1 }}
             className="text-3xl sm:text-5xl font-bold text-foreground mb-5"
           >
-            Free Courses, eBooks & Templates
+            Key Steps to Profitability
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-muted-foreground text-base sm:text-lg max-w-xl mx-auto"
+            transition={{ delay: 0.15 }}
+            className="text-foreground text-base sm:text-lg mb-2 max-w-xl mx-auto"
           >
-            Start your journey into AI development and smart investing — completely free. No credit card, no catch.
+            Stop paying <span className="line-through text-red-500 font-bold">$5,000</span> for outdated programs.
           </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-muted-foreground text-sm sm:text-base mb-8 max-w-lg mx-auto"
+          >
+            Learn investing and business fundamentals — free. No fluff. No upsell traps. Just the real steps to making money.
+          </motion.p>
+
+          <motion.a
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            href={FREE_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-background font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-amber-500/20 text-lg"
+          >
+            <Gift size={20} />
+            Get Free Access Now
+            <ArrowRight size={18} />
+          </motion.a>
         </div>
       </section>
 
-      {/* Resources Grid */}
-      <section className="py-8 pb-20 px-4">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {freeResources.map((resource, i) => (
-              <ScrollReveal key={resource.title}>
-                <motion.a
-                  href={resource.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
-                  whileHover={{ y: -4 }}
-                  className="block bg-card/50 border border-border/50 rounded-xl p-5 hover:border-amber-500/30 transition-all group h-full"
-                >
-                  <div className="flex items-start gap-3 mb-3">
-                    <div className={`w-10 h-10 rounded-lg bg-${resource.color}-500/10 flex items-center justify-center flex-shrink-0`}>
-                      <resource.icon size={20} className={`text-${resource.color}-400`} />
-                    </div>
-                    <span className={`text-[10px] font-bold uppercase tracking-wider text-${resource.color}-400 bg-${resource.color}-500/10 px-2 py-0.5 rounded-full`}>
-                      {resource.type}
-                    </span>
-                  </div>
-                  <h3 className="font-bold text-foreground text-sm mb-2 group-hover:text-amber-400 transition-colors">
-                    {resource.title}
-                  </h3>
-                  <p className="text-muted-foreground text-xs leading-relaxed mb-3">
-                    {resource.description}
-                  </p>
-                  <div className="flex items-center gap-1 text-amber-500 text-xs font-medium">
-                    <span>Access Free</span>
-                    <ExternalLink size={12} className="group-hover:translate-x-0.5 transition-transform" />
-                  </div>
-                </motion.a>
-              </ScrollReveal>
+      {/* Steps */}
+      <section className="py-12 px-4">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground text-center mb-10">
+            What You'll Learn
+          </h2>
+          <div className="space-y-4">
+            {steps.map((step, i) => (
+              <motion.div
+                key={step.title}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className="flex items-start gap-4 bg-card/50 border border-border/50 rounded-xl p-5"
+              >
+                <div className="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center flex-shrink-0">
+                  <step.icon size={20} className="text-amber-500" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-foreground text-sm mb-1">{step.title}</h3>
+                  <p className="text-muted-foreground text-xs">{step.desc}</p>
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Upgrade CTA */}
+      {/* Why Free */}
       <section className="py-12 px-4">
-        <div className="max-w-2xl mx-auto text-center">
-          <ScrollReveal>
-            <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-3">
-              Want the Full Academy Experience?
-            </h2>
-            <p className="text-muted-foreground text-sm mb-6">
-              Get access to 200+ hours of content, the StackFinder AI tool, live trading sessions, and our private community.
-            </p>
-            <a
-              href="https://whop.com/stackmode-academy/educationalservice/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-[hsl(260,100%,65%)] to-[hsl(200,100%,50%)] text-white font-bold px-8 py-4 rounded-xl transition-all hover:opacity-90 shadow-lg"
-            >
-              Join Stackmode Academy — $50/mo
-              <ArrowRight size={18} />
-            </a>
-          </ScrollReveal>
+        <div className="max-w-2xl mx-auto">
+          <div className="bg-card/50 border border-border/50 rounded-xl p-6 sm:p-8">
+            <h2 className="text-xl font-bold text-foreground mb-4 text-center">Why is this free?</h2>
+            <div className="space-y-3">
+              {[
+                'Everyone deserves to learn how money works.',
+                'We believe in building trust before asking for anything.',
+                'The best students come from free education — not hype.',
+              ].map((item) => (
+                <div key={item} className="flex items-start gap-3">
+                  <CheckCircle size={16} className="text-amber-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-muted-foreground text-sm">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-12 px-4 pb-20">
+        <div className="max-w-xl mx-auto text-center">
+          <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">Ready to start?</h2>
+          <p className="text-muted-foreground text-sm mb-6">No email required. No tricks. Just hit the button.</p>
+          <a
+            href={FREE_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-background font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-amber-500/20"
+          >
+            <Gift size={20} />
+            Get Free Access
+            <ArrowRight size={18} />
+          </a>
         </div>
       </section>
 
