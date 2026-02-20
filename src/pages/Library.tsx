@@ -1,30 +1,55 @@
 import { Helmet } from 'react-helmet-async';
-import { ArrowRight, Gift, TrendingUp, DollarSign, Brain, Shield, Zap, CheckCircle, BookOpen, Headphones } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { ArrowRight, Gift, BookOpen, Headphones, Star, ShoppingCart } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
 
 const FREE_LINK = 'https://stackmodechris.systeme.io/free-education';
 
-const steps = [
-  { icon: Brain, title: 'Learn the Mindset', desc: 'How rich people actually think about money.' },
-  { icon: DollarSign, title: 'Build Income First', desc: 'Make money before you risk money. Simple.' },
-  { icon: TrendingUp, title: 'Grow Your Money', desc: 'Stocks, crypto, real estate — the basics.' },
-  { icon: Shield, title: 'Protect Your Bag', desc: 'Don\'t lose what you earned. Risk management.' },
-  { icon: Zap, title: 'Stack & Repeat', desc: 'Reinvest profits. Build real wealth over time.' },
-];
-
 const books = [
-  { title: 'Neuro Trading', image: '/images/books/neuro-trading.jpg', link: 'https://a.co/d/0bz50oF', audiobookLink: 'https://play.google.com/store/audiobooks/details?id=AQAAAEAaGWdZbM', desc: 'Master the psychology of trading' },
-  { title: 'Before The HYPE', image: '/images/books/before-the-hype-2026.jpg', link: 'https://a.co/d/eSgONXa', audiobookLink: 'https://play.google.com/store/audiobooks/details?id=AQAAAEAaaVspUM', desc: 'Get in before the crowd' },
-  { title: 'Freedom Money', image: '/images/books/freedom-money.jpg', link: 'https://a.co/d/91RUksI', audiobookLink: 'https://play.google.com/store/audiobooks/details?id=AQAAAEAaqV_pVM', desc: 'Build real financial freedom' },
+  {
+    title: 'Neuro Trading',
+    image: '/images/books/neuro-trading.jpg',
+    link: 'https://a.co/d/0bz50oF',
+    audiobookLink: 'https://play.google.com/store/audiobooks/details?id=AQAAAEAaGWdZbM',
+    tagline: 'Master the psychology of trading',
+    bullets: [
+      'Why 90% of traders lose — and how to be in the 10%',
+      'Emotional discipline techniques used by pros',
+      'Build a trading mindset that prints long-term',
+    ],
+  },
+  {
+    title: 'Before The HYPE',
+    image: '/images/books/before-the-hype-2026.jpg',
+    link: 'https://a.co/d/eSgONXa',
+    audiobookLink: 'https://play.google.com/store/audiobooks/details?id=AQAAAEAaaVspUM',
+    tagline: 'Get in before the crowd',
+    bullets: [
+      'Spot opportunities before they go mainstream',
+      'Crypto, stocks & emerging markets explained simply',
+      'Real strategies — not hype, not gambling',
+    ],
+  },
+  {
+    title: 'Freedom Money',
+    image: '/images/books/freedom-money.jpg',
+    link: 'https://a.co/d/91RUksI',
+    audiobookLink: 'https://play.google.com/store/audiobooks/details?id=AQAAAEAaqV_pVM',
+    tagline: 'Build real financial freedom',
+    bullets: [
+      'Step-by-step blueprint to escape the 9-to-5',
+      'How to build multiple income streams',
+      'Protect & grow your money like the wealthy do',
+    ],
+  },
 ];
 
 const Library = () => {
   return (
     <main className="min-h-screen bg-background">
       <Helmet>
-        <title>Free Education — Key Steps to Profitability | Stackmode</title>
-        <meta name="description" content="Free investing and business education. Learn the key steps to profitability — no fluff, no $5,000 programs. Just real knowledge." />
+        <title>Books & Audiobooks — Stackmode Library</title>
+        <meta name="description" content="Read or listen to Stackmode books on Amazon Kindle, Paperback, and Google Play Audiobooks. Master trading psychology, spot opportunities early, and build real financial freedom." />
       </Helmet>
 
       {/* Header */}
@@ -42,178 +67,121 @@ const Library = () => {
               className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-background font-bold px-4 py-2 rounded-lg transition-all text-sm"
             >
               <Gift size={16} />
-              Get Free Access
+              Free Education
             </a>
           </div>
         </div>
       </header>
 
       {/* Hero */}
-      <section className="relative py-16 sm:py-24 px-4 overflow-hidden">
+      <section className="relative py-14 sm:py-20 px-4 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-amber-500/5 to-transparent" />
         <div className="max-w-3xl mx-auto text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 rounded-full px-4 py-2 mb-6"
-          >
-            <Gift size={16} className="text-amber-500" />
-            <span className="text-amber-500 text-sm font-bold">100% FREE</span>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-5xl font-bold text-foreground mb-5"
-          >
-            Key Steps to Profitability
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15 }}
-            className="text-foreground text-base sm:text-lg mb-2 max-w-xl mx-auto"
-          >
-            Stop paying <span className="line-through text-red-500 font-bold">$5,000</span> for outdated programs.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-muted-foreground text-sm sm:text-base mb-8 max-w-lg mx-auto"
-          >
-            Learn investing and business fundamentals — free. No fluff. No upsell traps. Just the real steps to making money.
-          </motion.p>
-
-          <motion.a
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            href={FREE_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-background font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-amber-500/20 text-lg"
-          >
-            <Gift size={20} />
-            Get Free Access Now
-            <ArrowRight size={18} />
-          </motion.a>
-        </div>
-      </section>
-
-      {/* Steps */}
-      <section className="py-12 px-4">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-foreground text-center mb-10">
-            What You'll Learn
-          </h2>
-          <div className="space-y-4">
-            {steps.map((step, i) => (
-              <motion.div
-                key={step.title}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="flex items-start gap-4 bg-card/50 border border-border/50 rounded-xl p-5"
-              >
-                <div className="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center flex-shrink-0">
-                  <step.icon size={20} className="text-amber-500" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-foreground text-sm mb-1">{step.title}</h3>
-                  <p className="text-muted-foreground text-xs">{step.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Free */}
-      <section className="py-12 px-4">
-        <div className="max-w-2xl mx-auto">
-          <div className="bg-card/50 border border-border/50 rounded-xl p-6 sm:p-8">
-            <h2 className="text-xl font-bold text-foreground mb-4 text-center">Why is this free?</h2>
-            <div className="space-y-3">
-              {[
-                'Everyone deserves to learn how money works.',
-                'We believe in building trust before asking for anything.',
-                'The best students come from free education — not hype.',
-              ].map((item) => (
-                <div key={item} className="flex items-start gap-3">
-                  <CheckCircle size={16} className="text-amber-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-muted-foreground text-sm">{item}</span>
-                </div>
-              ))}
+          <ScrollReveal>
+            <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 rounded-full px-4 py-2 mb-5">
+              <BookOpen size={16} className="text-amber-500" />
+              <span className="text-amber-500 text-sm font-bold">THE STACKMODE LIBRARY</span>
             </div>
-          </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.05}>
+            <h1 className="text-3xl sm:text-5xl font-bold text-foreground mb-4">
+              Books & Audiobooks
+            </h1>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.1}>
+            <p className="text-muted-foreground text-base sm:text-lg max-w-xl mx-auto">
+              Real investing & business knowledge — no fluff. Available on <span className="text-foreground font-semibold">Amazon Kindle</span>, <span className="text-foreground font-semibold">Paperback</span>, and <span className="text-foreground font-semibold">Google Play Audio</span>.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.15}>
+            <p className="text-muted-foreground/70 text-sm mt-3">eBook / Audiobook — $9.99 · Paperback — $19.99</p>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* Books & Audiobooks */}
-      <section className="py-12 px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 mb-2">
-            <BookOpen size={20} className="text-amber-500" />
-            <h2 className="text-xl sm:text-2xl font-bold text-foreground">Books & Audiobooks</h2>
-          </div>
-          <p className="text-muted-foreground text-sm mb-8">Available on Amazon — eBook/Audio $9.99 · Paperback $19.99</p>
-          <div className="grid grid-cols-3 gap-4 sm:gap-6 max-w-lg mx-auto">
-            {books.map((book, i) => (
-              <motion.a
-                key={book.title}
-                href={book.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="group text-center"
-              >
-                <img
-                  src={book.image}
-                  alt={book.title}
-                  className="w-full h-auto rounded-lg border border-border/50 group-hover:border-amber-500/50 transition-all group-hover:scale-105 shadow-lg"
-                />
-                <p className="text-xs sm:text-sm font-bold text-foreground mt-2 group-hover:text-amber-500 transition-colors">{book.title}</p>
-                <p className="text-[10px] text-muted-foreground mt-0.5">{book.desc}</p>
-                <a
-                  href={book.audiobookLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center gap-1 mt-2 text-[10px] sm:text-xs font-medium text-primary hover:text-primary/80 transition-colors"
-                >
-                  <Headphones size={12} />
-                  Google Play Audio
+      {/* Books */}
+      <section className="px-4 pb-16">
+        <StaggerContainer className="max-w-4xl mx-auto space-y-6">
+          {books.map((book) => (
+            <StaggerItem key={book.title}>
+              <div className="bg-card/60 border border-border/50 rounded-2xl p-5 sm:p-7 flex flex-col sm:flex-row gap-5 sm:gap-7 items-center sm:items-start">
+                {/* Book Cover */}
+                <a href={book.link} target="_blank" rel="noopener noreferrer" className="flex-shrink-0 group">
+                  <img
+                    src={book.image}
+                    alt={book.title}
+                    className="w-32 sm:w-36 h-auto rounded-xl border border-border/50 group-hover:border-amber-500/50 transition-all group-hover:scale-105 shadow-lg"
+                  />
                 </a>
-              </motion.a>
-            ))}
-          </div>
-        </div>
+
+                {/* Book Info */}
+                <div className="flex-1 text-center sm:text-left">
+                  <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-1">{book.title}</h2>
+                  <p className="text-amber-500 font-medium text-sm mb-3">{book.tagline}</p>
+
+                  <ul className="space-y-2 mb-5">
+                    {book.bullets.map((bullet) => (
+                      <li key={bullet} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <Star size={13} className="text-amber-500 flex-shrink-0 mt-0.5" fill="currentColor" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="flex flex-col sm:flex-row items-center gap-3">
+                    <a
+                      href={book.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-background font-bold px-5 py-2.5 rounded-lg transition-all text-sm shadow-md shadow-amber-500/15"
+                    >
+                      <ShoppingCart size={15} />
+                      Buy on Amazon
+                    </a>
+                    <a
+                      href={book.audiobookLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 border border-border hover:border-primary/50 text-foreground font-medium px-5 py-2.5 rounded-lg transition-all text-sm"
+                    >
+                      <Headphones size={15} className="text-primary" />
+                      Google Play Audiobook
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
       </section>
 
-      {/* Final CTA */}
-      <section className="py-12 px-4 pb-20">
-        <div className="max-w-xl mx-auto text-center">
-          <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">Ready to start?</h2>
-          <p className="text-muted-foreground text-sm mb-6">No email required. No tricks. Just hit the button.</p>
-          <a
-            href={FREE_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-background font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-amber-500/20"
-          >
-            <Gift size={20} />
-            Get Free Access
-            <ArrowRight size={18} />
-          </a>
-        </div>
+      {/* Free Education CTA */}
+      <section className="py-14 px-4 pb-20">
+        <ScrollReveal>
+          <div className="max-w-2xl mx-auto text-center bg-card/60 border border-amber-500/20 rounded-2xl p-8 sm:p-10">
+            <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 rounded-full px-4 py-1.5 mb-4">
+              <Gift size={14} className="text-amber-500" />
+              <span className="text-amber-500 text-xs font-bold">100% FREE</span>
+            </div>
+            <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">Want to learn for free first?</h2>
+            <p className="text-muted-foreground text-sm mb-6 max-w-md mx-auto">
+              Get free access to key investing & business fundamentals. No email required. No tricks.
+            </p>
+            <a
+              href={FREE_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-background font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-amber-500/20 text-lg"
+            >
+              <Gift size={20} />
+              Get Free Educational Access
+              <ArrowRight size={18} />
+            </a>
+          </div>
+        </ScrollReveal>
       </section>
 
       {/* Footer */}
