@@ -46,7 +46,7 @@ const Home = () => {
               className="inline-flex items-center gap-1.5 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-4 py-2 rounded-lg transition-all text-xs"
             >
               <GraduationCap size={14} />
-              Join Academy — $50/mo
+              Join The Stackmode Academy
             </a>
           </div>
         </div>
