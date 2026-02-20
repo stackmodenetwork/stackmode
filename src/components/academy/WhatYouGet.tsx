@@ -32,7 +32,7 @@ const items = [
   },
   {
     icon: MessageCircle,
-    title: 'Private Discord Community',
+    title: 'Private Community',
     desc: 'Daily engagement with students making real money. Share wins, get help, stay accountable.',
     color: 'text-secondary',
     bg: 'bg-secondary/10',
