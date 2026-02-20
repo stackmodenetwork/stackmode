@@ -6,8 +6,9 @@ import { AcademyPricing } from '@/components/academy/AcademyPricing';
 import { AcademyFAQ } from '@/components/academy/AcademyFAQ';
 import { AcademyFooter } from '@/components/academy/AcademyFooter';
 import { CodeTradingBackground } from '@/components/CodeTradingBackground';
-import { GraduationCap } from 'lucide-react';
+import { GraduationCap, BookOpen } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const [showStickyHeader, setShowStickyHeader] = useState(false);
@@ -51,6 +52,17 @@ const Home = () => {
       </header>
 
       <div className="relative z-[1]">
+        {/* Free Library Banner */}
+        <Link
+          to="/library"
+          className="block bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 border-b border-primary/20 py-2.5 text-center animate-pulse hover:opacity-80 transition-opacity"
+        >
+          <span className="text-xs sm:text-sm font-mono font-semibold text-primary">
+            📚 Free Library — Learn the Key Steps to Profitability
+          </span>
+          <BookOpen size={14} className="inline ml-2 text-primary" />
+        </Link>
+
         <AcademyHero />
         <ReviewWall />
       <SoftwareShowcase />

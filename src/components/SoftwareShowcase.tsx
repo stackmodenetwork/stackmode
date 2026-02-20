@@ -4,24 +4,14 @@ import { useRef } from 'react';
 
 const showcaseItems = [
   {
-    title: 'AI Market Scanner',
+    title: 'StackFinder Market Scanner',
     description: 'Scan 1000+ assets for breakout setups in seconds',
-    image: '/images/showcase/market-scanner.png',
-  },
-  {
-    title: 'Stackmode Scout AI',
-    description: 'AI assistant that finds high-probability trades for you',
-    image: '/images/showcase/scout-ai.png',
+    image: '/images/showcase/stackfinder-scanner.png',
   },
   {
     title: 'Smart Calculators',
     description: 'Position sizing, risk/reward, and profit calculators',
     image: '/images/showcase/calculators.png',
-  },
-  {
-    title: 'Live Crypto News',
-    description: 'Real-time crypto news feed so you never miss a move',
-    image: '/images/showcase/crypto-news.png',
   },
 ];
 
