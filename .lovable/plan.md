@@ -1,54 +1,43 @@
 
 
-# Home Page Redesign: Two-Path Layout
+## Replace Testimonial Carousel with a High-Quality Review Wall
 
-## Overview
-Redesign the Home page to clearly present Stackmode's two core offerings side by side, each with its own call-to-action. The tagline becomes: "Build Apps & Software with AI & Learn How To Stack Your Assets."
+### What Changes
 
-## New Page Structure
+**1. Remove the $309 review image**
+- Remove `review-9.png` from the review list entirely.
 
-### 1. Header (keep as-is)
-Logo + two CTA buttons (Trading Education + Hire Us)
+**2. Reorder reviews strategically**
+- Move the Stripe/revenue screenshots (`review-62.png`, `review-63.png`, `review-64.png`) to the very front of the list so they appear first and immediately signal credibility.
+- Follow with the strongest testimonial screenshots, then fill in with the rest.
 
-### 2. Hero Section (updated)
-- New headline: **"Build Apps with AI. Stack Your Assets."**
-- Subtitle: "Turn ideas into reality. Learn how to trade & invest."
-- Two CTA buttons stacked below
+**3. Replace TestimonialCarousel with a Wall of Reviews**
+- Swap out the current sliding carousel for a masonry-style "wall of reviews" section on the Home page.
+- The wall will show 6-9 reviews initially in a responsive grid (2 columns mobile, 3 columns desktop).
+- A "View All Reviews" button expands to show all remaining reviews.
+- Each card gets a consistent border (subtle border matching the brand's Electric Blue at low opacity) with a hover glow effect.
+- Clicking any review opens a lightbox dialog with prev/next navigation.
+- Section header: "Real Results. Real Members." with 5 gold stars.
+- A small "Verified real results" trust badge below the grid.
 
-### 3. Two-Path Section (NEW - the core change)
-A side-by-side (desktop) or stacked (mobile) layout with two distinct cards:
+### Technical Details
 
-**Card 1 — AI Software & Apps (Cyan theme)**
-- Icon + title: "Get Your Software Built"
-- Short description: We build apps, SaaS tools, and AI software using the new AI stack
-- Checklist: Web apps, AI tools, dashboards, automations
-- CTA button: "Book a FREE Quote Call" → links to Calendly
-- Secondary link: "Visit the Academy" → /coding or external school link
+**Files modified:**
+- `src/components/TestimonialCarousel.tsx` -- Rewrite into a wall-of-reviews component (or create a new `ReviewWall.tsx` component and swap it in Home.tsx).
+- `src/pages/Home.tsx` -- Import the new wall component instead of `TestimonialCarousel`.
 
-**Card 2 — Trading & Investing (Emerald theme)**
-- Icon + title: "Learn to Trade & Invest"  
-- Short description: Stocks, crypto, real estate — learn where to put your money
-- Checklist: Swing trading, crypto investing, AI trade tools, wealth building
-- CTA button: "Join the Academy — $50/mo" → Whop link
-- Secondary link: "Book a FREE Consultation" → Calendly
+**Review order (Stripe-first, no review-9):**
+```
+review-64, review-63, review-62, review-61, review-59, review-57,
+review-52, review-51, review-50, review-49, review-48, review-47,
+review-46, review-44, review-1 through review-8, review-10 through review-14,
+review-15 through review-20
+```
 
-### 4. StackFinder Showcase (keep existing SoftwareProofSection)
-
-### 5. UniversalPageBottom (keep as-is — books, CEOTurbo)
-
-### 6. Footer (keep as-is)
-
-**Removed sections**: "The AI Agent Stack" 4-card grid and "Why Your Business Needs This" checklist — replaced by the cleaner two-path layout.
-
-## Technical Details
-
-### Files Modified
-- **`src/pages/Home.tsx`** — Replace hero copy, remove AI Stack grid and "Why It Matters" section, add new two-path card section with responsive grid layout (`grid md:grid-cols-2 gap-6`)
-
-### Design Details
-- Card 1 uses `border-cyan-500/30` accent, Card 2 uses `border-emerald-500/30`
-- Each card has a subtle gradient background matching its theme
-- Cards use existing Framer Motion animations (staggered fade-in)
-- Mobile: cards stack vertically, full-width CTAs
-- Desktop: side-by-side equal-height cards
+**Wall layout:**
+- CSS `columns-2 sm:columns-3` masonry grid with `gap-3`
+- Each card: `rounded-xl`, `border border-primary/20`, `bg-card/20`, hover effect `hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5`
+- Smooth fade-in animation using framer-motion stagger
+- Show first 9 reviews, expandable to all with a button
+- Lightbox reuses the existing Dialog pattern with prev/next arrows
 
