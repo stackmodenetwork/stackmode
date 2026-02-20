@@ -26,14 +26,14 @@ const TermsAndConditions = () => {
           <section className="space-y-4">
             <h2 className="text-2xl font-semibold text-foreground">1. Agreement to Terms</h2>
             <p>
-              By accessing or using the services provided by Stackmode Academy LLC ("we," "our," or "us"), you agree to be bound by these Terms & Conditions. If you do not agree to these terms, please do not use our services.
+              By accessing or using the services provided by Stackmode Network LLC ("we," "our," or "us"), you agree to be bound by these Terms & Conditions. If you do not agree to these terms, please do not use our services.
             </p>
           </section>
 
           <section className="space-y-4">
             <h2 className="text-2xl font-semibold text-foreground">2. Services Description</h2>
             <p>
-              Stackmode Academy LLC provides trading education, mentorship, and related services. Our services are for educational purposes only and do not constitute financial advice, investment advice, or any other type of professional advice.
+              Stackmode Network LLC provides trading education, mentorship, and related services. Our services are for educational purposes only and do not constitute financial advice, investment advice, or any other type of professional advice.
             </p>
           </section>
 
@@ -79,7 +79,7 @@ const TermsAndConditions = () => {
           <section className="space-y-4">
             <h2 className="text-2xl font-semibold text-foreground">6. Intellectual Property</h2>
             <p>
-              All content, materials, and intellectual property provided through our services are owned by Stackmode Academy LLC and are protected by copyright and other intellectual property laws. You may not reproduce, distribute, modify, or create derivative works without our express written permission.
+              All content, materials, and intellectual property provided through our services are owned by Stackmode Network LLC and are protected by copyright and other intellectual property laws. You may not reproduce, distribute, modify, or create derivative works without our express written permission.
             </p>
           </section>
 
@@ -93,14 +93,14 @@ const TermsAndConditions = () => {
           <section className="space-y-4">
             <h2 className="text-2xl font-semibold text-foreground">8. Limitation of Liability</h2>
             <p>
-              To the fullest extent permitted by law, Stackmode Academy LLC shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, trading losses, or other intangible losses arising from your use of our services.
+              To the fullest extent permitted by law, Stackmode Network LLC shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, trading losses, or other intangible losses arising from your use of our services.
             </p>
           </section>
 
           <section className="space-y-4">
             <h2 className="text-2xl font-semibold text-foreground">9. Indemnification</h2>
             <p>
-              You agree to indemnify and hold harmless Stackmode Academy LLC, its officers, directors, employees, and agents from any claims, damages, losses, or expenses arising from your use of our services or violation of these terms.
+              You agree to indemnify and hold harmless Stackmode Network LLC, its officers, directors, employees, and agents from any claims, damages, losses, or expenses arising from your use of our services or violation of these terms.
             </p>
           </section>
 
@@ -131,7 +131,7 @@ const TermsAndConditions = () => {
               If you have any questions about these Terms & Conditions, please contact us at:
             </p>
             <p>
-              <strong>Stackmode Academy LLC</strong><br />
+              <strong>Stackmode Network LLC</strong><br />
               Email: stackmodechris@gmail.com
             </p>
           </section>
