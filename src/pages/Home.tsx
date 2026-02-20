@@ -1,6 +1,7 @@
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
 import { AcademyHero } from '@/components/academy/AcademyHero';
 import { ReviewWall } from '@/components/ReviewWall';
+import { SoftwareShowcase } from '@/components/SoftwareShowcase';
 import { AcademyDifference } from '@/components/academy/AcademyDifference';
 import { AcademyPhilosophy } from '@/components/academy/AcademyPhilosophy';
 import { AcademyCurriculum } from '@/components/academy/AcademyCurriculum';
@@ -53,6 +54,7 @@ const Home = () => {
 
       <AcademyHero />
       <ReviewWall />
+      <SoftwareShowcase />
       <AcademyDifference />
       <AcademyPhilosophy />
       <AcademyCurriculum />
