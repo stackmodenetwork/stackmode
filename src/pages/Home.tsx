@@ -1,15 +1,9 @@
-import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
 import { AcademyHero } from '@/components/academy/AcademyHero';
 import { ReviewWall } from '@/components/ReviewWall';
 import { SoftwareShowcase } from '@/components/SoftwareShowcase';
-import { AcademyDifference } from '@/components/academy/AcademyDifference';
-import { AcademyPhilosophy } from '@/components/academy/AcademyPhilosophy';
-import { AcademyCurriculum } from '@/components/academy/AcademyCurriculum';
-import { AcademyMembership } from '@/components/academy/AcademyMembership';
-import { AcademyCampus } from '@/components/academy/AcademyCampus';
+import { WhatYouGet } from '@/components/academy/WhatYouGet';
 import { AcademyPricing } from '@/components/academy/AcademyPricing';
 import { AcademyFAQ } from '@/components/academy/AcademyFAQ';
-import { AcademyFinalCTA } from '@/components/academy/AcademyFinalCTA';
 import { AcademyFooter } from '@/components/academy/AcademyFooter';
 import { GraduationCap } from 'lucide-react';
 import { useState, useEffect } from 'react';
@@ -25,9 +19,7 @@ const Home = () => {
 
   return (
     <main className="min-h-screen bg-background relative overflow-x-hidden">
-      <FreeResourcesCTA variant="banner" />
-
-      {/* Sticky Header (appears on scroll) */}
+      {/* Sticky Header */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/50 transition-transform duration-300 ${
           showStickyHeader ? 'translate-y-0' : '-translate-y-full'
@@ -55,14 +47,9 @@ const Home = () => {
       <AcademyHero />
       <ReviewWall />
       <SoftwareShowcase />
-      <AcademyDifference />
-      <AcademyPhilosophy />
-      <AcademyCurriculum />
-      <AcademyMembership />
-      <AcademyCampus />
+      <WhatYouGet />
       <AcademyPricing />
       <AcademyFAQ />
-      <AcademyFinalCTA />
       <AcademyFooter />
     </main>
   );
