@@ -1,8 +1,36 @@
 import { Link } from 'react-router-dom';
+import { BookOpen } from 'lucide-react';
+
+const books = [
+  { title: 'Neuro Trading', image: '/images/books/neuro-trading.jpg', link: 'https://a.co/d/0bz50oF' },
+  { title: 'Before The HYPE', image: '/images/books/before-the-hype-2026.jpg', link: 'https://a.co/d/eSgONXa' },
+  { title: 'Freedom Money', image: '/images/books/freedom-money.jpg', link: 'https://a.co/d/91RUksI' },
+];
 
 export const AcademyFooter = () => (
   <footer className="bg-background border-t border-border/50 py-8 px-4">
     <div className="max-w-5xl mx-auto">
+      {/* Books Section */}
+      <div className="mb-8 text-center">
+        <div className="inline-flex items-center gap-2 mb-4">
+          <BookOpen size={18} className="text-amber-500" />
+          <h3 className="text-sm font-bold text-foreground">Books & Audiobooks on Amazon</h3>
+        </div>
+        <div className="flex items-center justify-center gap-4 sm:gap-6">
+          {books.map((book) => (
+            <a key={book.title} href={book.link} target="_blank" rel="noopener noreferrer" className="group">
+              <img
+                src={book.image}
+                alt={book.title}
+                className="w-20 sm:w-24 h-auto rounded-lg border border-border/50 group-hover:border-amber-500/50 transition-all group-hover:scale-105 shadow-md"
+              />
+              <p className="text-[10px] sm:text-xs text-muted-foreground group-hover:text-amber-500 mt-1.5 text-center transition-colors">{book.title}</p>
+            </a>
+          ))}
+        </div>
+        <p className="text-[10px] text-muted-foreground/60 mt-3">eBook/Audio $9.99 · Paperback $19.99</p>
+      </div>
+
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
         <div className="flex items-center gap-2">
           <img src="/images/sm-logo.png" alt="Stackmode" className="w-8 h-8 object-contain" />

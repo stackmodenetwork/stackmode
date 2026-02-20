@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { ArrowRight, Gift, TrendingUp, DollarSign, Brain, Shield, Zap, CheckCircle } from 'lucide-react';
+import { ArrowRight, Gift, TrendingUp, DollarSign, Brain, Shield, Zap, CheckCircle, BookOpen } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
@@ -11,6 +11,12 @@ const steps = [
   { icon: TrendingUp, title: 'Grow Your Money', desc: 'Stocks, crypto, real estate — the basics.' },
   { icon: Shield, title: 'Protect Your Bag', desc: 'Don\'t lose what you earned. Risk management.' },
   { icon: Zap, title: 'Stack & Repeat', desc: 'Reinvest profits. Build real wealth over time.' },
+];
+
+const books = [
+  { title: 'Neuro Trading', image: '/images/books/neuro-trading.jpg', link: 'https://a.co/d/0bz50oF', desc: 'Master the psychology of trading' },
+  { title: 'Before The HYPE', image: '/images/books/before-the-hype-2026.jpg', link: 'https://a.co/d/eSgONXa', desc: 'Get in before the crowd' },
+  { title: 'Freedom Money', image: '/images/books/freedom-money.jpg', link: 'https://a.co/d/91RUksI', desc: 'Build real financial freedom' },
 ];
 
 const Library = () => {
@@ -144,6 +150,40 @@ const Library = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Books & Audiobooks */}
+      <section className="py-12 px-4">
+        <div className="max-w-3xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 mb-2">
+            <BookOpen size={20} className="text-amber-500" />
+            <h2 className="text-xl sm:text-2xl font-bold text-foreground">Books & Audiobooks</h2>
+          </div>
+          <p className="text-muted-foreground text-sm mb-8">Available on Amazon — eBook/Audio $9.99 · Paperback $19.99</p>
+          <div className="grid grid-cols-3 gap-4 sm:gap-6 max-w-lg mx-auto">
+            {books.map((book, i) => (
+              <motion.a
+                key={book.title}
+                href={book.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="group text-center"
+              >
+                <img
+                  src={book.image}
+                  alt={book.title}
+                  className="w-full h-auto rounded-lg border border-border/50 group-hover:border-amber-500/50 transition-all group-hover:scale-105 shadow-lg"
+                />
+                <p className="text-xs sm:text-sm font-bold text-foreground mt-2 group-hover:text-amber-500 transition-colors">{book.title}</p>
+                <p className="text-[10px] text-muted-foreground mt-0.5">{book.desc}</p>
+              </motion.a>
+            ))}
           </div>
         </div>
       </section>
