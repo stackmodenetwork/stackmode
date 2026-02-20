@@ -68,7 +68,7 @@ export const AcademyHero = () => (
         transition={{ delay: 0.5 }}
         className="mt-5 text-xs text-muted-foreground"
       >
-        500+ students · 4.9★ rating · Cancel anytime
+        4.9★ rating · Cancel anytime
       </motion.p>
     </div>
   </section>
