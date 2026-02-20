@@ -36,7 +36,7 @@ export function SoftwareShowcase() {
             <span className="text-xs font-mono text-primary font-semibold">Included With Your Membership</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
-            StackFinder Gives You the <span className="text-primary">Trading Edge</span>
+            StackFinder Gives You the <span className="text-accent">Trading Edge</span>
           </h2>
           <p className="text-muted-foreground text-sm mt-2 max-w-lg mx-auto">
             While you're building your software, StackFinder keeps you ahead of the market. Scan for trades, manage risk, and never miss a move.
