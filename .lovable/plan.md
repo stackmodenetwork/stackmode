@@ -1,112 +1,72 @@
 
 
-## Simplify, Optimize & Convert: Complete Home Page Overhaul
+## Complete Site Overhaul: Reviews, Showcase, Background, Logo
 
-### The Problem
-The current page has **12 separate sections** stacked vertically, making it far too long. Many sections overlap in messaging (AcademyDifference, AcademyPhilosophy, AcademyCurriculum, AcademyMembership all say similar things). The StackFinder screenshots are in a basic 2x2 grid that doesn't feel polished. SEO meta tags need updating for "Christopher Robinson" and "Stackmodechris" search terms.
+### 1. Review Carousel Cleanup
 
-### The Solution: Cut to 7 Focused Sections
+**Current problem:** The review carousel has ~53 images, many are duplicates or ad/lead generation screenshots (Systeme.io lead pages, ad dashboards, etc.) instead of trading wins and text message reviews.
 
-**Current 12 sections (too many):**
-1. FreeResourcesCTA banner
-2. AcademyHero
-3. ReviewWall
-4. SoftwareShowcase
-5. AcademyDifference
-6. AcademyPhilosophy
-7. AcademyCurriculum
-8. AcademyMembership
-9. AcademyCampus
-10. AcademyPricing
-11. AcademyFAQ
-12. AcademyFinalCTA + Footer
+**Changes to `src/components/ReviewWall.tsx`:**
+- Audit the review list and remove:
+  - Ad result screenshots (Facebook ads dashboards, lead generation stats)
+  - Duplicate images
+  - Systeme.io lead page screenshots
+- Keep only: text message conversations, trading P&L screenshots, Discord chat reviews, and genuine testimonials
+- Curate down to ~25-30 high-quality, non-duplicate reviews focused on trading wins and positive text feedback
 
-**New 7 sections (lean and conversion-focused):**
-1. **Hero** -- Simplified headline, one CTA button, trust badges
-2. **Review Carousel** -- Auto-scrolling social proof (keep as-is, it works)
-3. **Software Showcase** -- Cleaned up with a single horizontal scroll strip instead of grid
-4. **What You Get** -- Merge AcademyDifference + AcademyMembership into one simple 3-column grid
-5. **Pricing** -- Keep the $50/mo card
-6. **FAQ** -- Trim to 5 essential questions only
-7. **Footer**
+### 2. Software Showcase - Smarter Messaging
 
-**Sections being removed/merged:**
-- AcademyPhilosophy (merge key message into hero subtitle)
-- AcademyCurriculum (too detailed -- the 3-phase tabs are overkill for a landing page)
-- AcademyCampus (nice-to-have but adds length without converting)
-- AcademyFinalCTA (redundant with pricing CTA)
-- FreeResourcesCTA banner (distracts from the paid conversion goal)
+**Changes to `src/components/SoftwareShowcase.tsx`:**
+- Update the section copy to emphasize that members get **access** to these tools
+- New headline: "Your Trading Edge. Included Free."
+- Add a subtitle explaining: "While you build your own software, use our tools to catch the best trades and stay informed on the market."
+- Each card gets a short benefit-driven description (not just a title):
+  - AI Market Scanner -- "Scan 1000+ assets for breakout setups in seconds"
+  - Stackmode Scout AI -- "AI assistant that finds high-probability trades for you"
+  - Smart Calculators -- "Position sizing, risk/reward, and profit calculators"
+  - Live Crypto News -- "Real-time crypto news feed so you never miss a move"
 
----
+### 3. Unique Coding + Trading Background
 
-### Specific Changes
+**Create new `src/components/CodeTradingBackground.tsx`:**
+- Replace the plain gradient background with a unique, integrated coding-and-trading themed background
+- Animated code snippets (faint, semi-transparent) scrolling vertically on the left side
+- Animated candlestick chart lines (subtle) on the right side
+- A subtle grid overlay with glowing intersection points
+- CSS-only animated gradient mesh that shifts between cyan, violet, and emerald (the brand colors)
+- All elements at very low opacity (0.03-0.08) so they don't distract from content
+- This runs behind the entire page, making it feel unique and different from every other landing page
 
-**1. Hero (AcademyHero.tsx) -- Simplify**
-- Shorter headline: "Learn to Code. Learn to Trade. Stack Your Money."
-- Remove the announcement banner (Atlanta campus)
-- Remove the floating code particles (visual noise)
-- Remove the "Build Software -> Generate Income -> Stack Wealth" animated flow (too complex)
-- Keep just one CTA: "Join The Stackmode Academy -- $50/mo"
-- Add trust line: "Founded by Christopher Robinson | 500+ students | 4.9 star rating"
+**Apply to `src/pages/Home.tsx`:**
+- Add the `CodeTradingBackground` component as a fixed background behind all sections
 
-**2. Software Showcase (SoftwareShowcase.tsx) -- Clean Up**
-- Switch from 2x2 grid to a single horizontal scrolling strip with clean card layout
-- Each card: screenshot with rounded corners, title below, no description text (let images speak)
-- Subtle auto-scroll or swipe-to-browse on mobile
-- Simpler intro: "Tools Built Inside the Academy"
+### 4. New SM Logo
 
-**3. Merge Sections into "What You Get" (new simplified component)**
-- Replace AcademyDifference + AcademyMembership + AcademyCurriculum with one clean section
-- Simple 3-column (mobile: 1-column) grid with 6 items: icon + short title + one-line description
-- Items: AI Coding, Trading Education, StackFinder Tool, Discord Community, Live Sessions, 200+ Hours of Content
+**Copy the uploaded logo** (`social-1758242459337-LOGO.jpg`) to `public/images/sm-logo-new.png`
 
-**4. FAQ (AcademyFAQ.tsx) -- Trim**
-- Cut from 10 questions down to 5 most important ones:
-  - "Do I need coding experience?"
-  - "How much money do I need?"
-  - "What do I get for $50/mo?"
-  - "Can I cancel anytime?"
-  - "Is there a community?"
+**Update `src/pages/Home.tsx`:**
+- Replace the current `sm-logo.png` in the sticky header with the new SM circle logo
+- Make the logo a clickable link that scrolls to the top of the page (since Home is the main page)
+- Wrap in a `<Link to="/">` or `window.scrollTo(0, 0)` on click
 
-**5. Home.tsx -- Simplified Section Order**
-- Remove imports for: FreeResourcesCTA, AcademyDifference, AcademyPhilosophy, AcademyCurriculum, AcademyMembership, AcademyCampus, AcademyFinalCTA
-- New order: Hero -> ReviewWall -> SoftwareShowcase -> WhatYouGet -> Pricing -> FAQ -> Footer
+**Update `src/components/academy/AcademyHero.tsx`:**
+- Add the SM logo above the "Founded by" badge for brand recognition at the top of the page
 
----
+### 5. Files Modified
 
-### SEO Optimization
+| File | Change |
+|------|--------|
+| `src/components/ReviewWall.tsx` | Remove duplicate and ad/lead images from the reviews array |
+| `src/components/SoftwareShowcase.tsx` | Update copy to emphasize access + market intelligence benefit |
+| `src/components/CodeTradingBackground.tsx` | **New** -- unique animated coding + trading background |
+| `src/pages/Home.tsx` | Add background component, update logo to new SM logo with home link |
+| `src/components/academy/AcademyHero.tsx` | Add SM logo at top |
+| `public/images/sm-logo-new.png` | **New** -- copied from uploaded file |
 
-**index.html updates:**
-- Add "Christopher Robinson" prominently to og:title and meta title: "Stackmode Academy by Christopher Robinson (StackmodeChris) | Learn AI, Coding & Trading"
-- Update meta description to include both names naturally
-- Update Person structured data: add full name "Christopher Robinson" as primary name, "StackmodeChris" as alternateName
-- Add "christopher robinson stackmodechris" to keywords
-- Ensure og:title, twitter:title, and page title all match and contain both name variants
-- Update structured data Course to reference "Christopher Robinson" as instructor name
+### Technical Notes
 
-**Mobile & Desktop Optimization:**
-- All sections use responsive padding (px-4, max-w containers)
-- Touch-friendly tap targets (min 44px)
-- Lazy loading on all images
-- Reduced total page weight by removing 5 sections
-
----
-
-### Technical Details
-
-**Files to modify:**
-- `src/pages/Home.tsx` -- Remove 5 section imports, simplified layout
-- `src/components/academy/AcademyHero.tsx` -- Strip down to simple hero
-- `src/components/SoftwareShowcase.tsx` -- Horizontal scroll strip layout
-- `src/components/academy/AcademyFAQ.tsx` -- Trim to 5 questions
-- `index.html` -- SEO meta tag updates for Christopher Robinson / Stackmodechris
-- Create `src/components/academy/WhatYouGet.tsx` -- Merged simple features section
-
-**Files unchanged:**
-- `src/components/ReviewWall.tsx` -- Carousel works well, keep it
-- `src/components/academy/AcademyPricing.tsx` -- Keep as-is
-- `src/components/academy/AcademyFooter.tsx` -- Keep as-is
-
-**Files no longer imported (but not deleted):**
-- AcademyDifference, AcademyPhilosophy, AcademyCurriculum, AcademyMembership, AcademyCampus, AcademyFinalCTA, FreeResourcesCTA
+- The background uses CSS animations only (no framer-motion) for performance -- `@keyframes` for scrolling code text and candlestick lines
+- Background is `position: fixed` with `z-index: 0`, all content sections get `position: relative` with `z-index: 1`
+- Review images that appear to be ad dashboards, Systeme.io lead screenshots, or duplicates will be identified and removed from the array
+- Logo click behavior: on Home page it scrolls to top; from other pages it navigates to `/`
 
