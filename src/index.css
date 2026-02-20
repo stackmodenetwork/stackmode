@@ -202,3 +202,22 @@
     }
   }
 }
+
+/* Code + Trading Background Animations */
+@keyframes code-scroll {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes candle-scroll {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-25%); }
+}
+
+.animate-code-scroll {
+  animation: code-scroll 40s linear infinite;
+}
+
+.animate-candle-scroll {
+  animation: candle-scroll 30s linear infinite;
+}

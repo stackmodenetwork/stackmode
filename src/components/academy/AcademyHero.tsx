@@ -7,9 +7,18 @@ export const AcademyHero = () => (
 
     <div className="relative z-10 w-full max-w-3xl mx-auto text-center">
       <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.05 }}
+        className="mb-4"
+      >
+        <img src="/images/sm-logo-new.png" alt="Stackmode" className="w-16 h-16 rounded-full object-cover mx-auto border-2 border-primary/30 shadow-lg shadow-primary/10" />
+      </motion.div>
+
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.05 }}
+        transition={{ delay: 0.1 }}
         className="inline-flex items-center gap-1.5 bg-primary/10 border border-primary/20 rounded-full px-3 py-1 mb-5"
       >
         <Star size={12} className="text-primary fill-primary" />
