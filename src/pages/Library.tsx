@@ -3,7 +3,7 @@ import { ArrowRight, Gift, TrendingUp, DollarSign, Brain, Shield, Zap, CheckCirc
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-const FREE_LINK = 'https://stackmodechris.systeme.io/freeeducation';
+const FREE_LINK = 'https://stackmodechris.systeme.io/free-education';
 
 const steps = [
   { icon: Brain, title: 'Learn the Mindset', desc: 'How rich people actually think about money.' },
