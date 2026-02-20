@@ -53,7 +53,7 @@ export function ReviewWall() {
         {/* Header */}
         <div className="text-center mb-4">
           <h2 className="text-xl sm:text-2xl font-bold text-foreground font-mono tracking-tight">
-            Real Results. <span className="text-primary">Real Members.</span>
+            Real Results. <span className="text-[#00FF88] drop-shadow-[0_0_8px_rgba(0,255,136,0.6)]">Real Members.</span>
           </h2>
           <div className="flex items-center justify-center gap-0.5 mt-2">
             {[...Array(5)].map((_, i) => (
