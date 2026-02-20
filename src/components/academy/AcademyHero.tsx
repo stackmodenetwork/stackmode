@@ -44,7 +44,7 @@ export const AcademyHero = () => (
         transition={{ delay: 0.2 }}
         className="text-muted-foreground text-sm sm:text-lg mb-8 max-w-xl mx-auto leading-relaxed"
       >
-        Build apps with AI. Make money from your software. Invest your profits. No experience needed.
+        Learn the new AI Agentic Stack. Build real software that makes money. Trade and invest your profits. Zero experience required.
       </motion.p>
 
       <motion.div
