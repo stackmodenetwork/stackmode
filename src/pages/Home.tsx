@@ -42,10 +42,11 @@ const Home = () => {
               href="https://whop.com/stackmode-academy/educationalservice/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-4 py-2 rounded-lg transition-all text-xs"
+              className="inline-flex items-center gap-1.5 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg transition-all text-[10px] sm:text-xs"
             >
-              <GraduationCap size={14} />
-              Join The Stackmode Academy
+              <GraduationCap size={12} className="sm:w-3.5 sm:h-3.5 flex-shrink-0" />
+              <span className="sm:hidden">Academy</span>
+              <span className="hidden sm:inline">Join The Stackmode Academy</span>
             </a>
           </div>
         </div>
