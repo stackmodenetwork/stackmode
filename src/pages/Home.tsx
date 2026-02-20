@@ -1,6 +1,6 @@
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
 import { AcademyHero } from '@/components/academy/AcademyHero';
-import { AcademyTrustBar } from '@/components/academy/AcademyTrustBar';
+import { TestimonialCarousel } from '@/components/TestimonialCarousel';
 import { AcademyDifference } from '@/components/academy/AcademyDifference';
 import { AcademyPhilosophy } from '@/components/academy/AcademyPhilosophy';
 import { AcademyCurriculum } from '@/components/academy/AcademyCurriculum';
@@ -52,7 +52,9 @@ const Home = () => {
       </header>
 
       <AcademyHero />
-      <AcademyTrustBar />
+      <section className="py-8 px-4">
+        <TestimonialCarousel />
+      </section>
       <AcademyDifference />
       <AcademyPhilosophy />
       <AcademyCurriculum />
