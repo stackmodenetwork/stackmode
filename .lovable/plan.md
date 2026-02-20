@@ -1,43 +1,52 @@
 
 
-## Replace Testimonial Carousel with a High-Quality Review Wall
+## Replace Review Wall with Scrolling Carousel + Add Software Showcase
 
 ### What Changes
 
-**1. Remove the $309 review image**
-- Remove `review-9.png` from the review list entirely.
+**1. Replace ReviewWall with a smooth scrolling review carousel**
+- Swap the masonry wall for an auto-scrolling horizontal carousel (similar to `ReviewsBackgroundCarousel` pattern already in the codebase).
+- Uses CSS/framer-motion infinite scroll animation.
+- Remove the Stripe/ad revenue screenshots (`review-62`, `review-63`, `review-64`) -- these are ad pictures, not trading/coding proof.
+- Keep all other review images focused on trading wins and coding results.
+- Tap-to-enlarge lightbox stays.
 
-**2. Reorder reviews strategically**
-- Move the Stripe/revenue screenshots (`review-62.png`, `review-63.png`, `review-64.png`) to the very front of the list so they appear first and immediately signal credibility.
-- Follow with the strongest testimonial screenshots, then fill in with the rest.
+**2. Add a new "Software Showcase" section with the 4 uploaded images**
+- Copy the 4 uploaded screenshots into `src/assets/` (market scanner, BTC news, Stackmode Scout AI, Smart Calculators).
+- Create a new component that displays these as a polished showcase grid/carousel.
+- Each card gets a title, short description, and a subtle glow border.
+- Intro headline: "Learn to Build Apps Like These" with subtext about coding apps to sell to companies for 5 figures+.
+- Emphasizes the "stack" concept: code apps + stack assets.
 
-**3. Replace TestimonialCarousel with a Wall of Reviews**
-- Swap out the current sliding carousel for a masonry-style "wall of reviews" section on the Home page.
-- The wall will show 6-9 reviews initially in a responsive grid (2 columns mobile, 3 columns desktop).
-- A "View All Reviews" button expands to show all remaining reviews.
-- Each card gets a consistent border (subtle border matching the brand's Electric Blue at low opacity) with a hover glow effect.
-- Clicking any review opens a lightbox dialog with prev/next navigation.
-- Section header: "Real Results. Real Members." with 5 gold stars.
-- A small "Verified real results" trust badge below the grid.
+**3. Positioning as high-level school**
+- Section copy emphasizes elite-level education: "Build Software. Stack Assets. Get Paid."
+- Messaging: "Learn to code AI-powered tools like these and sell them for $10,000+"
+
+### Files Modified
+
+- `src/components/ReviewWall.tsx` -- Rewrite to horizontal auto-scrolling carousel (reuse `ReviewsBackgroundCarousel` pattern), remove ad images.
+- `src/pages/Home.tsx` -- Add new software showcase section, reorder components.
+- `src/components/academy/AcademyMembership.tsx` -- No changes needed, already covers membership tools.
+- Copy 4 uploaded images into `src/assets/showcase/`.
 
 ### Technical Details
 
-**Files modified:**
-- `src/components/TestimonialCarousel.tsx` -- Rewrite into a wall-of-reviews component (or create a new `ReviewWall.tsx` component and swap it in Home.tsx).
-- `src/pages/Home.tsx` -- Import the new wall component instead of `TestimonialCarousel`.
+**Review Carousel:**
+- Infinite horizontal scroll using `framer-motion` `animate={{ x: [0, -totalWidth] }}` with `repeat: Infinity, ease: 'linear'`.
+- Fade edges on left/right with gradient overlays.
+- Reviews displayed at consistent height (`h-28 sm:h-36`).
+- Lightbox dialog on click with prev/next navigation.
 
-**Review order (Stripe-first, no review-9):**
-```
-review-64, review-63, review-62, review-61, review-59, review-57,
-review-52, review-51, review-50, review-49, review-48, review-47,
-review-46, review-44, review-1 through review-8, review-10 through review-14,
-review-15 through review-20
-```
+**Software Showcase Section:**
+- 2x2 responsive grid (`grid-cols-1 sm:grid-cols-2 gap-4`).
+- Each card: rounded screenshot with `border border-primary/20`, title overlay, hover scale effect.
+- Cards data:
+  - Market Scanner (image-17) -- "AI Market Scanner"
+  - BTC News Feed (image-18) -- "Live Crypto News"
+  - Stackmode Scout (image-19) -- "AI Trading Assistant"
+  - Smart Calculators (image-20) -- "Options Calculators"
+- Section intro with bold headline and CTA pitch about building and selling software.
 
-**Wall layout:**
-- CSS `columns-2 sm:columns-3` masonry grid with `gap-3`
-- Each card: `rounded-xl`, `border border-primary/20`, `bg-card/20`, hover effect `hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5`
-- Smooth fade-in animation using framer-motion stagger
-- Show first 9 reviews, expandable to all with a button
-- Lightbox reuses the existing Dialog pattern with prev/next arrows
+**Review list (no ad pics):**
+Remove `review-62.png`, `review-63.png`, `review-64.png`. Start with `review-61.png`, `review-59.png`, etc.
 
