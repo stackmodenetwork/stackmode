@@ -99,7 +99,7 @@ const Home = () => {
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="flex items-center gap-2 focus:outline-none">
               <img src="/images/sm-logo-new.png" alt="Stackmode" className="w-9 h-9 rounded-full object-cover" />
-              <span className="text-sm font-bold text-foreground font-mono">STACKMODE</span>
+              <span className="text-sm font-bold text-foreground font-mono">STACKMODE ACADEMY</span>
             </button>
             <a
               href="https://whop.com/stackmode-academy/educationalservice/"
