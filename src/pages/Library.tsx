@@ -58,17 +58,26 @@ const Library = () => {
           <div className="flex items-center justify-between h-16">
             <Link to="/" className="flex items-center gap-2">
               <img src="/images/sm-logo.png" alt="Stackmode" className="w-10 h-10 object-contain" />
-              <span className="text-lg font-bold text-foreground font-mono">STACKMODE</span>
+              <span className="text-lg font-bold text-foreground font-mono">STACKMODE ACADEMY</span>
             </Link>
-            <a
-              href={FREE_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-background font-bold px-4 py-2 rounded-lg transition-all text-sm"
-            >
-              <Gift size={16} />
-              Free Education
-            </a>
+            <div className="flex items-center gap-3">
+              <Link
+                to="/"
+                className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground font-medium text-sm transition-colors"
+              >
+                <ArrowRight size={14} className="rotate-180" />
+                Home
+              </Link>
+              <a
+                href={FREE_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-background font-bold px-4 py-2 rounded-lg transition-all text-sm"
+              >
+                <Gift size={16} />
+                Free Education
+              </a>
+            </div>
           </div>
         </div>
       </header>
