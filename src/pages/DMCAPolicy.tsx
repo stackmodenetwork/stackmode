@@ -29,7 +29,7 @@ const DMCAPolicy = () => {
           <div className="bg-card border border-border rounded-xl p-6 sm:p-8">
             <h2 className="text-xl font-semibold text-foreground mb-4">📋 Overview</h2>
             <p className="text-muted-foreground leading-relaxed">
-              Stackmode Academy LLC respects the intellectual property rights of others and expects users to do the same. 
+              Stackmode Network LLC respects the intellectual property rights of others and expects users to do the same. 
               In accordance with the Digital Millennium Copyright Act (DMCA), we will respond promptly to claims of copyright 
               infringement committed using our website or services.
             </p>
@@ -88,7 +88,7 @@ const DMCAPolicy = () => {
               Please send all DMCA notices and counter-notifications to our designated copyright agent:
             </p>
             <div className="bg-card border border-border rounded-lg p-4">
-              <p className="text-foreground font-medium">Stackmode Academy LLC</p>
+              <p className="text-foreground font-medium">Stackmode Network LLC</p>
               <a 
                 href="mailto:stackmodechris@gmail.com" 
                 className="text-primary hover:underline"
