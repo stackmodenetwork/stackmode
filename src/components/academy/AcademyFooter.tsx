@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
-import { BookOpen } from 'lucide-react';
+import { BookOpen, Headphones } from 'lucide-react';
 
 const books = [
-  { title: 'Neuro Trading', image: '/images/books/neuro-trading.jpg', link: 'https://a.co/d/0bz50oF' },
-  { title: 'Before The HYPE', image: '/images/books/before-the-hype-2026.jpg', link: 'https://a.co/d/eSgONXa' },
-  { title: 'Freedom Money', image: '/images/books/freedom-money.jpg', link: 'https://a.co/d/91RUksI' },
+  { title: 'Neuro Trading', image: '/images/books/neuro-trading.jpg', link: 'https://a.co/d/0bz50oF', audiobookLink: 'https://play.google.com/store/audiobooks/details?id=AQAAAEAaGWdZbM' },
+  { title: 'Before The HYPE', image: '/images/books/before-the-hype-2026.jpg', link: 'https://a.co/d/eSgONXa', audiobookLink: 'https://play.google.com/store/audiobooks/details?id=AQAAAEAaaVspUM' },
+  { title: 'Freedom Money', image: '/images/books/freedom-money.jpg', link: 'https://a.co/d/91RUksI', audiobookLink: 'https://play.google.com/store/audiobooks/details?id=AQAAAEAaqV_pVM' },
 ];
 
 export const AcademyFooter = () => (
@@ -25,6 +25,16 @@ export const AcademyFooter = () => (
                 className="w-20 sm:w-24 h-auto rounded-lg border border-border/50 group-hover:border-amber-500/50 transition-all group-hover:scale-105 shadow-md"
               />
               <p className="text-[10px] sm:text-xs text-muted-foreground group-hover:text-amber-500 mt-1.5 text-center transition-colors">{book.title}</p>
+              <a
+                href={book.audiobookLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="inline-flex items-center gap-1 mt-1 text-[9px] sm:text-[10px] font-medium text-primary hover:text-primary/80 transition-colors"
+              >
+                <Headphones size={10} />
+                Google Play Audio
+              </a>
             </a>
           ))}
         </div>
