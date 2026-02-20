@@ -29,9 +29,10 @@ export const AcademyHero = () => (
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
-        className="text-3xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-4 leading-tight"
+        className="text-3xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-4 leading-tight text-center"
       >
-        Build with AI.{' '}
+        Build with AI.
+        <br />
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
           Stack Your Assets.
         </span>
