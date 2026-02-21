@@ -62,7 +62,7 @@ export function SoftwareShowcase() {
                 <div className="relative">
                   <img
                     src={item.image}
-                    alt={item.title}
+                    alt={`${item.title} - Stackmode Academy Christopher Robinson StackmodeChris`}
                     className="w-full h-auto block"
                     loading="lazy" />
                   {/* Gradient overlay at bottom of image */}
@@ -98,7 +98,7 @@ export function SoftwareShowcase() {
             <motion.img
               key={selectedIndex}
               src={showcaseItems[selectedIndex].image}
-              alt={showcaseItems[selectedIndex].title}
+              alt={`${showcaseItems[selectedIndex].title} - Stackmode Academy Christopher Robinson StackmodeChris`}
               className="max-w-full max-h-[75vh] w-auto h-auto object-contain rounded-xl border-2 border-primary/30"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}

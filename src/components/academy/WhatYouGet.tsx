@@ -56,7 +56,7 @@ export const WhatYouGet = () => (
         className="text-center mb-4"
       >
         <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
-          Why This Academy <span className="text-primary">Changes Lives</span>
+          Build Software With AI, Learn to Trade the Markets & <span className="text-primary">Stack Your Assets</span>
         </h2>
         <p className="text-muted-foreground text-sm mt-2 max-w-lg mx-auto leading-relaxed">
           Most courses teach you to code. We teach you to build businesses, generate income, and stack wealth — all with the power of AI.

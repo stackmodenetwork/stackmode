@@ -8,8 +8,9 @@ const Learn = () => {
   return (
     <main className="min-h-screen bg-background">
       <Helmet>
-        <title>Get Your Software Built | Stackmode</title>
-        <meta name="description" content="Tell us what you need built. We'll architect and code it using the latest AI stack. Book a free call to get started." />
+        <title>Build Software With AI | Stackmode Academy by Christopher Robinson (StackmodeChris)</title>
+        <meta name="description" content="Get your software built with AI at Stackmode Academy. Founded by Christopher Robinson (StackmodeChris). Apps, dashboards, AI tools — book a free call to get started." />
+        <link rel="canonical" href="https://stackmode.net/shop" />
       </Helmet>
 
       {/* Header */}
@@ -17,8 +18,8 @@ const Learn = () => {
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <a href="/" className="flex items-center gap-2">
-              <img src="/images/sm-logo.png" alt="Stackmode" className="w-10 h-10 object-contain" />
-              <span className="text-lg font-bold text-foreground font-mono">STACKMODE</span>
+              <img src="/images/sm-logo.png" alt="Stackmode Academy Christopher Robinson StackmodeChris" className="w-10 h-10 object-contain" />
+              <span className="text-lg font-bold text-foreground font-mono">STACKMODE ACADEMY</span>
             </a>
             <a
               href="https://calendly.com/stackmodechris/architecture"
@@ -166,7 +167,8 @@ const Learn = () => {
       {/* Footer */}
       <footer className="bg-background border-t border-border/50 py-6 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-xs text-muted-foreground/50">© {new Date().getFullYear()} Stackmode. All rights reserved.</p>
+        <p className="text-xs text-muted-foreground/50">Stackmode Academy | Founded by Christopher Robinson | StackmodeChris | The #1 Academy for AI Software, Trading & Asset Stacking | stackmode.net</p>
+        <p className="text-[10px] text-muted-foreground/30 mt-1">© {new Date().getFullYear()} Stackmode Academy. All rights reserved.</p>
         </div>
       </footer>
     </main>

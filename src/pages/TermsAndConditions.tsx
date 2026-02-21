@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { MainFooter } from '@/components/MainFooter';
 import { TrustpilotWidget } from '@/components/TrustpilotWidget';
 import { LegalPageNav } from '@/components/LegalPageNav';
@@ -5,6 +6,11 @@ import { LegalPageNav } from '@/components/LegalPageNav';
 const TermsAndConditions = () => {
   return (
     <main className="min-h-screen bg-background text-foreground flex flex-col">
+      <Helmet>
+        <title>Terms & Conditions | Stackmode Academy by Christopher Robinson</title>
+        <meta name="description" content="Terms and conditions for Stackmode Academy by Christopher Robinson (StackmodeChris). Review our service terms at stackmode.net." />
+        <link rel="canonical" href="https://stackmode.net/terms" />
+      </Helmet>
       <LegalPageNav />
 
       <div className="flex-1 max-w-4xl mx-auto px-4 py-12 w-full">

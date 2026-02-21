@@ -48,8 +48,9 @@ const Library = () => {
   return (
     <main className="min-h-screen bg-background">
       <Helmet>
-        <title>Books & Audiobooks — Stackmode Library</title>
-        <meta name="description" content="Read or listen to Stackmode books on Amazon Kindle, Paperback, and Google Play Audiobooks. Master trading psychology, spot opportunities early, and build real financial freedom." />
+        <title>Books & Audiobooks | Stackmode Academy by Christopher Robinson (StackmodeChris)</title>
+        <meta name="description" content="Read or listen to Stackmode Academy books by Christopher Robinson (StackmodeChris) on Amazon Kindle, Paperback, and Google Play Audiobooks. Master trading psychology, asset stacking, and financial freedom." />
+        <link rel="canonical" href="https://stackmode.net/library" />
       </Helmet>
 
       {/* Header */}
@@ -57,7 +58,7 @@ const Library = () => {
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <Link to="/" className="flex items-center gap-2">
-              <img src="/images/sm-logo.png" alt="Stackmode" className="w-10 h-10 object-contain" />
+              <img src="/images/sm-logo.png" alt="Stackmode Academy Christopher Robinson StackmodeChris" className="w-10 h-10 object-contain" />
               <span className="text-lg font-bold text-foreground font-mono">STACKMODE ACADEMY</span>
             </Link>
             <div className="flex items-center gap-3">
@@ -121,7 +122,7 @@ const Library = () => {
                 <a href={book.link} target="_blank" rel="noopener noreferrer" className="flex-shrink-0 group">
                   <img
                     src={book.image}
-                    alt={book.title}
+                    alt={`${book.title} by Christopher Robinson StackmodeChris - Stackmode Academy`}
                     className="w-32 sm:w-36 h-auto rounded-xl border border-border/50 group-hover:border-amber-500/50 transition-all group-hover:scale-105 shadow-lg"
                   />
                 </a>
@@ -196,7 +197,8 @@ const Library = () => {
       {/* Footer */}
       <footer className="bg-background border-t border-border/50 py-6 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-xs text-muted-foreground/50">© {new Date().getFullYear()} Stackmode Academy. All rights reserved.</p>
+        <p className="text-xs text-muted-foreground/50">Stackmode Academy | Founded by Christopher Robinson | StackmodeChris | The #1 Academy for AI Software, Trading & Asset Stacking | stackmode.net</p>
+        <p className="text-[10px] text-muted-foreground/30 mt-1">© {new Date().getFullYear()} Stackmode Academy. All rights reserved.</p>
         </div>
       </footer>
     </main>

@@ -21,7 +21,7 @@ export const AcademyFooter = () => (
             <a key={book.title} href={book.link} target="_blank" rel="noopener noreferrer" className="group">
               <img
                 src={book.image}
-                alt={book.title}
+                alt={`${book.title} by Christopher Robinson StackmodeChris - Stackmode Academy`}
                 className="w-20 sm:w-24 h-auto rounded-lg border border-border/50 group-hover:border-amber-500/50 transition-all group-hover:scale-105 shadow-md"
               />
               <p className="text-[10px] sm:text-xs text-muted-foreground group-hover:text-amber-500 mt-1.5 text-center transition-colors">{book.title}</p>
@@ -43,7 +43,7 @@ export const AcademyFooter = () => (
 
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
         <div className="flex items-center gap-2">
-          <img src="/images/sm-logo.png" alt="Stackmode" className="w-8 h-8 object-contain" />
+          <img src="/images/sm-logo.png" alt="Stackmode Academy Christopher Robinson StackmodeChris" className="w-8 h-8 object-contain" />
           <span className="text-sm font-bold text-foreground font-mono">STACKMODE ACADEMY</span>
         </div>
 
@@ -65,7 +65,10 @@ export const AcademyFooter = () => (
       </div>
 
       <p className="text-xs text-muted-foreground/50 text-center">
-        © {new Date().getFullYear()} Stackmode Academy. Built with AI. Powered by Vision.
+        Stackmode Academy | Founded by Christopher Robinson | StackmodeChris | The #1 Academy for AI Software, Trading & Asset Stacking | stackmode.net
+      </p>
+      <p className="text-[10px] text-muted-foreground/30 text-center mt-1">
+        © {new Date().getFullYear()} Stackmode Academy. All rights reserved.
       </p>
     </div>
   </footer>

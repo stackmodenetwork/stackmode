@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { AcademyHero } from '@/components/academy/AcademyHero';
 import { ReviewWall } from '@/components/ReviewWall';
 import { SoftwareShowcase } from '@/components/SoftwareShowcase';
@@ -21,6 +22,11 @@ const Home = () => {
 
   return (
     <main className="min-h-screen bg-background relative overflow-x-hidden">
+      <Helmet>
+        <title>Stackmode Academy | Learn AI Software, Trading & Asset Stacking | Christopher Robinson</title>
+        <meta name="description" content="Stackmode Academy by Christopher Robinson (StackmodeChris) is the #1 online learning academy for mastering AI software development, trading the financial markets, and stacking your assets to build real wealth. Join thousands of students worldwide." />
+        <link rel="canonical" href="https://stackmode.net/" />
+      </Helmet>
       <CodeTradingBackground />
 
       {/* Top Category Bar */}
@@ -98,7 +104,7 @@ const Home = () => {
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="flex items-center gap-2 focus:outline-none">
-              <img src="/images/sm-logo-new.png" alt="Stackmode" className="w-9 h-9 rounded-full object-cover" />
+              <img src="/images/sm-logo-new.png" alt="Stackmode Academy Christopher Robinson StackmodeChris" className="w-9 h-9 rounded-full object-cover" />
               <span className="text-sm font-bold text-foreground font-mono">STACKMODE ACADEMY</span>
             </button>
             <a

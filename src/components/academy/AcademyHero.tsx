@@ -12,7 +12,7 @@ export const AcademyHero = () => (
         transition={{ delay: 0.05 }}
         className="mb-4"
       >
-        <img src="/images/sm-logo-new.png" alt="Stackmode" className="w-16 h-16 rounded-full object-cover mx-auto border-2 border-primary/30 shadow-lg shadow-primary/10" />
+        <img src="/images/sm-logo-new.png" alt="Stackmode Academy Christopher Robinson StackmodeChris" className="w-16 h-16 rounded-full object-cover mx-auto border-2 border-primary/30 shadow-lg shadow-primary/10" />
       </motion.div>
 
       <motion.div
@@ -31,11 +31,7 @@ export const AcademyHero = () => (
         transition={{ delay: 0.1 }}
         className="text-3xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-4 leading-tight text-center"
       >
-        Build with AI.
-        <br />
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-          Stack Your Assets.
-        </span>
+        Stackmode Academy — Learn AI Software, Trading & Asset Stacking
       </motion.h1>
 
       <motion.p
@@ -44,7 +40,7 @@ export const AcademyHero = () => (
         transition={{ delay: 0.2 }}
         className="text-muted-foreground text-sm sm:text-lg mb-8 max-w-xl mx-auto leading-relaxed"
       >
-        Learn the new AI Agentic Stack. Build real software that makes money. Trade and invest your profits. Zero experience required.
+        Build software with AI. Learn to trade the markets. Stack your assets and build wealth. Founded by Christopher Robinson (StackmodeChris). Zero experience required.
       </motion.p>
 
       <motion.div

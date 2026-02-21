@@ -26,7 +26,7 @@ const ReviewImage = memo(({ img, onClick }: {img: string;onClick: () => void;}) 
 
     <img
     src={`/lovable-uploads/${img}`}
-    alt="Member result"
+    alt="Stackmode Academy member result - Christopher Robinson StackmodeChris"
     className="h-28 sm:h-36 w-auto object-contain"
     loading="lazy"
     decoding="async" />
