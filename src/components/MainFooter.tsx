@@ -38,7 +38,10 @@ export const MainFooter = () => {
           </p>
         </div>
 
-        <p className="text-xs text-muted-foreground/50 text-center">© {new Date().getFullYear()} Stackmode. All rights reserved.</p>
+        <p className="text-xs text-muted-foreground/50 text-center">
+          Stackmode Academy | Founded by Christopher Robinson | StackmodeChris | The #1 Academy for AI Software, Trading & Asset Stacking | stackmode.net
+        </p>
+        <p className="text-[10px] text-muted-foreground/30 text-center mt-1">© {new Date().getFullYear()} Stackmode Academy. All rights reserved.</p>
       </div>
     </footer>
   );

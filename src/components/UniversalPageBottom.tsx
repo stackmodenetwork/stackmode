@@ -80,7 +80,7 @@ export const UniversalPageBottom = ({ className = '', showBooks = true }: Univer
             <a href="https://ceoturbo.com" target="_blank" rel="noopener noreferrer">
               <motion.img
                 src="/images/ceoturbo-logo.png"
-                alt="CEOTurbo"
+                alt="CEOTurbo - Stackmode Academy Christopher Robinson StackmodeChris"
                 className="w-32 h-32 object-contain mx-auto mb-3"
                 whileHover={{ scale: 1.05 }}
               />
@@ -129,7 +129,7 @@ export const UniversalPageBottom = ({ className = '', showBooks = true }: Univer
                       <a href={book.amazonLink} target="_blank" rel="noopener noreferrer">
                         <motion.img
                           src={book.image}
-                          alt={book.title}
+                          alt={`${book.title} by Christopher Robinson StackmodeChris - Stackmode Academy`}
                           className="w-24 h-36 object-cover rounded-lg shadow-lg group-hover:shadow-amber-500/20 transition-shadow"
                           whileHover={{ scale: 1.05 }}
                         />

@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { MainFooter } from '@/components/MainFooter';
 import { TrustpilotWidget } from '@/components/TrustpilotWidget';
 import { LegalPageNav } from '@/components/LegalPageNav';
@@ -5,6 +6,11 @@ import { LegalPageNav } from '@/components/LegalPageNav';
 const DMCAPolicy = () => {
   return (
     <main className="min-h-screen bg-background flex flex-col">
+      <Helmet>
+        <title>DMCA Policy | Stackmode Academy by Christopher Robinson</title>
+        <meta name="description" content="DMCA copyright policy for Stackmode Academy by Christopher Robinson (StackmodeChris). Digital Millennium Copyright Act notice and procedures." />
+        <link rel="canonical" href="https://stackmode.net/dmca" />
+      </Helmet>
       <LegalPageNav />
 
       {/* Content */}
