@@ -638,16 +638,20 @@ const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>)
       aria-label="Join Stackmode Academy — Learn AI, Coding and Trading with Christopher Robinson for $50 per month"
       onMouseEnter={() => onHover(true)}
       onMouseLeave={() => onHover(false)}
-      className="relative flex items-center justify-center overflow-hidden no-underline"
+      className="relative flex flex-1 items-center justify-center overflow-hidden no-underline"
       style={{
         flex: hovered ? 1.45 : shrink ? 0.85 : 1,
-        transition: 'flex 0.65s cubic-bezier(0.77, 0, 0.175, 1)',
+        transition: 'flex 0.65s cubic-bezier(0.77, 0, 0.175, 1), box-shadow 0.4s ease',
         cursor: 'none',
-        minHeight: '55vh',
+        minHeight: undefined,
+        boxShadow: hovered ? 'inset 0 0 80px rgba(0,255,136,0.08), 0 0 40px rgba(0,255,136,0.06)' : 'none',
+        borderRight: hovered ? '1px solid rgba(0,255,136,0.15)' : '1px solid transparent',
       }}
     >
-      {/* Dark overlay to ensure text readability */}
-      <div className="absolute inset-0 z-[1]" style={{ background: 'rgba(4,4,10,0.55)' }} />
+      {/* Dark overlay — heavier to push canvas back */}
+      <div className="absolute inset-0 z-[1] transition-all duration-500" style={{
+        background: hovered ? 'rgba(4,4,10,0.5)' : 'rgba(4,4,10,0.7)',
+      }} />
 
       {/* Grid overlay */}
       <div className="absolute inset-0 z-[2] pointer-events-none" style={{
@@ -657,29 +661,35 @@ const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>)
 
       <TerminalCanvas />
 
-      {/* Green radial glow */}
-      <div className="absolute inset-0 pointer-events-none z-[3]" style={{
-        background: 'radial-gradient(600px circle at 50% 60%, rgba(0,255,136,0.06) 0%, transparent 70%)',
+      {/* Green radial glow — stronger on hover */}
+      <div className="absolute inset-0 pointer-events-none z-[3] transition-opacity duration-500" style={{
+        background: 'radial-gradient(600px circle at 50% 60%, rgba(0,255,136,0.08) 0%, transparent 70%)',
+        opacity: hovered ? 1 : 0.4,
       }} />
 
       {/* Corner brackets */}
-      <div className="absolute top-5 left-5 w-5 h-5 border-l-[1.5px] border-t-[1.5px] z-[5]" style={{ borderColor: 'rgba(0,255,136,0.25)' }} />
-      <div className="absolute bottom-5 right-5 w-5 h-5 border-r-[1.5px] border-b-[1.5px] z-[5]" style={{ borderColor: 'rgba(0,255,136,0.25)' }} />
+      <div className="absolute top-4 left-4 w-5 h-5 border-l-[1.5px] border-t-[1.5px] z-[5] transition-all duration-300" style={{ borderColor: hovered ? 'rgba(0,255,136,0.5)' : 'rgba(0,255,136,0.2)' }} />
+      <div className="absolute bottom-4 right-4 w-5 h-5 border-r-[1.5px] border-b-[1.5px] z-[5] transition-all duration-300" style={{ borderColor: hovered ? 'rgba(0,255,136,0.5)' : 'rgba(0,255,136,0.2)' }} />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-start px-6 sm:px-12 max-w-lg w-full" style={{ animation: 'fadeUp 0.8s ease 0.2s both' }}>
-        {/* Logo */}
-        <img
-          src="/images/stackmode-logo-sm.png"
-          alt="Stackmode Academy Christopher Robinson StackmodeChris logo"
-          width={120}
-          height={40}
-          loading="lazy"
-          className="mb-4 w-[100px] sm:w-[120px] h-auto object-contain"
-        />
+      <div className="relative z-10 flex flex-col items-start px-5 sm:px-12 max-w-lg w-full" style={{ animation: 'fadeUp 0.8s ease 0.2s both' }}>
+        {/* Logo — circular */}
+        <div className="mb-3 w-[56px] h-[56px] sm:w-[72px] sm:h-[72px] rounded-full overflow-hidden flex items-center justify-center" style={{
+          border: '2px solid rgba(0,255,136,0.3)',
+          background: 'rgba(0,0,0,0.4)',
+        }}>
+          <img
+            src="/images/stackmode-logo-sm.png"
+            alt="Stackmode Academy Christopher Robinson StackmodeChris logo"
+            width={72}
+            height={72}
+            loading="lazy"
+            className="w-full h-full object-cover"
+          />
+        </div>
 
         {/* Tag */}
-        <span className="mb-3 px-3 py-1 text-[9px] tracking-[0.2em] uppercase rounded-full" style={{
+        <span className="mb-2 px-3 py-0.5 text-[8px] sm:text-[9px] tracking-[0.2em] uppercase rounded-full" style={{
           fontFamily: "'Share Tech Mono', monospace",
           color: '#00ff88',
           border: '1px solid rgba(0,255,136,0.3)',
@@ -687,10 +697,10 @@ const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>)
           // 01 — LEARN & EARN
         </span>
 
-        {/* Heading — horizontal on mobile */}
+        {/* Heading */}
         <h2 style={{
           fontFamily: "'Bebas Neue', sans-serif",
-          fontSize: 'clamp(38px, 6vw, 86px)',
+          fontSize: 'clamp(32px, 5.5vw, 86px)',
           lineHeight: 0.92,
           color: '#f0f0f0',
           margin: 0,
@@ -699,34 +709,34 @@ const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>)
           <span className="md:hidden">STACK<span style={{ color: '#00ff88' }}>MODE</span> ACADEMY</span>
         </h2>
 
-        {/* AI element badge */}
-        <div className="flex items-center gap-2 mt-3" style={{
+        {/* AI badge */}
+        <div className="flex items-center gap-2 mt-2" style={{
           fontFamily: "'Share Tech Mono', monospace",
-          fontSize: 9,
+          fontSize: 8,
           color: '#00ff88',
         }}>
-          <span className="inline-block w-2 h-2 rounded-full bg-[#00ff88] animate-pulse" />
+          <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#00ff88] animate-pulse" />
           <span>AI-POWERED LEARNING SYSTEM</span>
         </div>
 
-        {/* Description — always visible, white text */}
-        <p className="mt-3"
+        {/* Description */}
+        <p className="mt-2 hidden sm:block"
           style={{
             fontFamily: "'Syne', sans-serif",
             fontWeight: 700,
-            fontSize: 13,
+            fontSize: 12,
             color: '#e0e0e0',
             maxWidth: 380,
-            lineHeight: 1.6,
+            lineHeight: 1.5,
           }}
         >
           Code. Content. Capital. One system to build assets, grow audiences, and multiply profits.
         </p>
 
-        {/* Pills — always visible, white text */}
-        <div className="flex flex-wrap gap-2 mt-3">
+        {/* Pills */}
+        <div className="flex flex-wrap gap-1.5 mt-2">
           {['Python', 'Trading', 'Web Dev', 'AI Tools', 'Monetize'].map(p => (
-            <span key={p} className="text-[9px] tracking-wider px-2.5 py-1 rounded-sm" style={{
+            <span key={p} className="text-[8px] tracking-wider px-2 py-0.5 rounded-sm" style={{
               fontFamily: "'Share Tech Mono', monospace",
               background: 'rgba(0,255,136,0.08)',
               color: '#00ff88',
@@ -735,18 +745,20 @@ const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>)
           ))}
         </div>
 
-        {/* CTA — much more visible on mobile */}
-        <div className="relative mt-5 overflow-hidden group/cta rounded-sm" style={{
-          border: '1.5px solid rgba(0,255,136,0.5)',
-          padding: '12px 28px',
-          minHeight: 48,
+        {/* CTA — glows on panel hover */}
+        <div className="relative mt-4 overflow-hidden group/cta rounded-sm transition-all duration-400" style={{
+          border: hovered ? '2px solid rgba(0,255,136,0.8)' : '1.5px solid rgba(0,255,136,0.4)',
+          padding: '10px 24px',
+          minHeight: 44,
           display: 'flex',
           alignItems: 'center',
+          boxShadow: hovered ? '0 0 24px rgba(0,255,136,0.25), inset 0 0 12px rgba(0,255,136,0.08)' : 'none',
+          background: hovered ? 'rgba(0,255,136,0.06)' : 'transparent',
         }}
           aria-label="Join Stackmode Academy for $50 per month — AI coding and trading school by StackmodeChris"
         >
           <div className="absolute inset-0 bg-[#00ff88] -translate-x-full group-hover/cta:translate-x-0 transition-transform duration-300" />
-          <span className="relative z-10 text-[12px] sm:text-[11px] tracking-[0.25em] font-bold transition-colors duration-300 group-hover/cta:text-black" style={{
+          <span className="relative z-10 text-[11px] sm:text-[11px] tracking-[0.25em] font-bold transition-colors duration-300 group-hover/cta:text-black" style={{
             fontFamily: "'Share Tech Mono', monospace",
             color: '#00ff88',
           }}>
@@ -769,16 +781,20 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
       aria-label="Visit CEO Turbo — NFC Digital Business Cards and Brand Boost by StackmodeChris Christopher Robinson"
       onMouseEnter={() => onHover(true)}
       onMouseLeave={() => onHover(false)}
-      className="relative flex items-center justify-center overflow-hidden no-underline"
+      className="relative flex flex-1 items-center justify-center overflow-hidden no-underline"
       style={{
         flex: hovered ? 1.45 : shrink ? 0.85 : 1,
-        transition: 'flex 0.65s cubic-bezier(0.77, 0, 0.175, 1)',
+        transition: 'flex 0.65s cubic-bezier(0.77, 0, 0.175, 1), box-shadow 0.4s ease',
         cursor: 'none',
-        minHeight: '55vh',
+        minHeight: undefined,
+        boxShadow: hovered ? 'inset 0 0 80px rgba(0,207,255,0.08), 0 0 40px rgba(0,207,255,0.06)' : 'none',
+        borderLeft: hovered ? '1px solid rgba(0,207,255,0.15)' : '1px solid transparent',
       }}
     >
       {/* Dark overlay */}
-      <div className="absolute inset-0 z-[1]" style={{ background: 'rgba(4,4,10,0.55)' }} />
+      <div className="absolute inset-0 z-[1] transition-all duration-500" style={{
+        background: hovered ? 'rgba(4,4,10,0.5)' : 'rgba(4,4,10,0.7)',
+      }} />
 
       {/* Grid overlay */}
       <div className="absolute inset-0 z-[2] pointer-events-none" style={{
@@ -789,27 +805,33 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
       <WireframeCanvas />
 
       {/* Cyan radial glow */}
-      <div className="absolute inset-0 pointer-events-none z-[3]" style={{
-        background: 'radial-gradient(600px circle at 50% 60%, rgba(0,207,255,0.05) 0%, transparent 70%)',
+      <div className="absolute inset-0 pointer-events-none z-[3] transition-opacity duration-500" style={{
+        background: 'radial-gradient(600px circle at 50% 60%, rgba(0,207,255,0.07) 0%, transparent 70%)',
+        opacity: hovered ? 1 : 0.4,
       }} />
 
       {/* Corner brackets */}
-      <div className="absolute top-5 right-5 w-5 h-5 border-r-[1.5px] border-t-[1.5px] z-[5]" style={{ borderColor: 'rgba(0,207,255,0.25)' }} />
-      <div className="absolute bottom-5 left-5 w-5 h-5 border-l-[1.5px] border-b-[1.5px] z-[5]" style={{ borderColor: 'rgba(0,207,255,0.25)' }} />
+      <div className="absolute top-4 right-4 w-5 h-5 border-r-[1.5px] border-t-[1.5px] z-[5] transition-all duration-300" style={{ borderColor: hovered ? 'rgba(0,207,255,0.5)' : 'rgba(0,207,255,0.2)' }} />
+      <div className="absolute bottom-4 left-4 w-5 h-5 border-l-[1.5px] border-b-[1.5px] z-[5] transition-all duration-300" style={{ borderColor: hovered ? 'rgba(0,207,255,0.5)' : 'rgba(0,207,255,0.2)' }} />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-start px-6 sm:px-12 max-w-lg w-full" style={{ animation: 'fadeUp 0.8s ease 0.4s both' }}>
-        {/* Logo */}
-        <img
-          src="/images/ceoturbo-logo-new.png"
-          alt="CEO Turbo Christopher Robinson StackmodeChris brand boost logo"
-          width={120}
-          height={40}
-          loading="lazy"
-          className="mb-4 w-[100px] sm:w-[120px] h-auto object-contain"
-        />
+      <div className="relative z-10 flex flex-col items-start px-5 sm:px-12 max-w-lg w-full" style={{ animation: 'fadeUp 0.8s ease 0.4s both' }}>
+        {/* Logo — circular */}
+        <div className="mb-3 w-[56px] h-[56px] sm:w-[72px] sm:h-[72px] rounded-full overflow-hidden flex items-center justify-center" style={{
+          border: '2px solid rgba(0,207,255,0.3)',
+          background: 'rgba(0,0,0,0.4)',
+        }}>
+          <img
+            src="/images/ceoturbo-logo-new.png"
+            alt="CEO Turbo Christopher Robinson StackmodeChris brand boost logo"
+            width={72}
+            height={72}
+            loading="lazy"
+            className="w-full h-full object-cover"
+          />
+        </div>
 
-        <span className="mb-3 px-3 py-1 text-[9px] tracking-[0.2em] uppercase rounded-full" style={{
+        <span className="mb-2 px-3 py-0.5 text-[8px] sm:text-[9px] tracking-[0.2em] uppercase rounded-full" style={{
           fontFamily: "'Share Tech Mono', monospace",
           color: '#00cfff',
           border: '1px solid rgba(0,207,255,0.3)',
@@ -819,7 +841,7 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
 
         <h2 style={{
           fontFamily: "'Bebas Neue', sans-serif",
-          fontSize: 'clamp(38px, 6vw, 86px)',
+          fontSize: 'clamp(32px, 5.5vw, 86px)',
           lineHeight: 0.92,
           color: '#f0f0f0',
           margin: 0,
@@ -828,22 +850,22 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
           <span className="md:hidden">CEO<span style={{ color: '#00cfff' }}>TURBO</span>.COM</span>
         </h2>
 
-        <p className="mt-3"
+        <p className="mt-2 hidden sm:block"
           style={{
             fontFamily: "'Syne', sans-serif",
             fontWeight: 700,
-            fontSize: 13,
+            fontSize: 12,
             color: '#e0e0e0',
             maxWidth: 380,
-            lineHeight: 1.6,
+            lineHeight: 1.5,
           }}
         >
           Digital business cards. Brand boost calls. Premium web design. Your brand working 24/7 on autopilot.
         </p>
 
-        <div className="flex flex-wrap gap-2 mt-3">
+        <div className="flex flex-wrap gap-1.5 mt-2">
           {['NFC Cards', 'Brand Boost', 'Web Design', 'Revenue'].map(p => (
-            <span key={p} className="text-[9px] tracking-wider px-2.5 py-1 rounded-sm" style={{
+            <span key={p} className="text-[8px] tracking-wider px-2 py-0.5 rounded-sm" style={{
               fontFamily: "'Share Tech Mono', monospace",
               background: 'rgba(0,207,255,0.08)',
               color: '#00cfff',
@@ -852,17 +874,20 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
           ))}
         </div>
 
-        <div className="relative mt-5 overflow-hidden group/cta rounded-sm" style={{
-          border: '1.5px solid rgba(0,207,255,0.5)',
-          padding: '12px 28px',
-          minHeight: 48,
+        {/* CTA — glows on panel hover */}
+        <div className="relative mt-4 overflow-hidden group/cta rounded-sm transition-all duration-400" style={{
+          border: hovered ? '2px solid rgba(0,207,255,0.8)' : '1.5px solid rgba(0,207,255,0.4)',
+          padding: '10px 24px',
+          minHeight: 44,
           display: 'flex',
           alignItems: 'center',
+          boxShadow: hovered ? '0 0 24px rgba(0,207,255,0.25), inset 0 0 12px rgba(0,207,255,0.08)' : 'none',
+          background: hovered ? 'rgba(0,207,255,0.06)' : 'transparent',
         }}
           aria-label="Boost your brand with CEO Turbo — digital business cards and brand strategy by Christopher Robinson"
         >
           <div className="absolute inset-0 bg-[#00cfff] -translate-x-full group-hover/cta:translate-x-0 transition-transform duration-300" />
-          <span className="relative z-10 text-[12px] sm:text-[11px] tracking-[0.25em] font-bold transition-colors duration-300 group-hover/cta:text-black" style={{
+          <span className="relative z-10 text-[11px] sm:text-[11px] tracking-[0.25em] font-bold transition-colors duration-300 group-hover/cta:text-black" style={{
             fontFamily: "'Share Tech Mono', monospace",
             color: '#00cfff',
           }}>
@@ -921,9 +946,9 @@ const SplitHero = () => {
 
       <section className="relative w-full overflow-hidden flex flex-col md:flex-row" style={{
         background: '#04040a',
-        minHeight: '100vh',
-        paddingTop: 96,
-        paddingBottom: 60,
+        height: '100dvh',
+        paddingTop: 70,
+        paddingBottom: 32,
       }}>
         {/* Center vertical divider */}
         <div className="absolute left-1/2 top-[15%] bottom-[15%] w-[1px] z-[100] hidden md:block" style={{
