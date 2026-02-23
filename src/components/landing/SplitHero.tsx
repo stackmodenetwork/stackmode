@@ -894,7 +894,7 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
             fontFamily: "'Bebas Neue', sans-serif",
             color: hovered ? '#fff' : '#00cfff',
           }}>
-            BOOST BRAND →
+            BRAND BOOST →
           </span>
         </div>
       </div>
