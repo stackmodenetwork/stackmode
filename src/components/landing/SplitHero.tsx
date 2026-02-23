@@ -736,7 +736,7 @@ const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>)
 
         {/* Pills */}
         <div className="flex flex-wrap gap-2 mt-2">
-          {['Python', 'Trading', 'Web Dev', 'AI Tools', 'Monetize'].map(p => (
+          {['AI', 'Coding', 'Software', 'Trading'].map(p => (
             <span key={p} className="text-[10px] sm:text-[11px] tracking-wide px-3 py-1 rounded" style={{
               fontFamily: "'Syne', sans-serif",
               fontWeight: 600,
