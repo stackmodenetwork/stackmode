@@ -498,7 +498,7 @@ const TopBar = () => {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-[200] flex items-center justify-between px-5 sm:px-8 animate-[slideDown_0.5s_ease_forwards]"
+      className="fixed top-0 left-0 right-0 z-[200] hidden sm:flex items-center justify-between px-5 sm:px-8 animate-[slideDown_0.5s_ease_forwards]"
       style={{
         height: 44,
         background: 'rgba(4,4,10,0.92)',
@@ -933,7 +933,7 @@ const SplitHero = () => {
       <SeoContent />
 
       {/* "CHOOSE YOUR PATH" heading */}
-      <div className="absolute top-[2px] sm:top-[4px] left-0 right-0 z-[150] flex justify-center pointer-events-none">
+      <div className="absolute top-2 sm:top-1 left-0 right-0 z-[150] flex justify-center pointer-events-none">
         <h2 style={{
           fontFamily: "'Bebas Neue', sans-serif",
           fontSize: 'clamp(22px, 3.5vw, 36px)',
@@ -947,10 +947,9 @@ const SplitHero = () => {
         </h2>
       </div>
 
-      <section className="relative w-full overflow-hidden flex flex-col md:flex-row" style={{
+      <section className="relative w-full overflow-hidden flex flex-col md:flex-row pt-0 sm:pt-[70px]" style={{
         background: '#04040a',
         height: '100dvh',
-        paddingTop: 70,
         paddingBottom: 0,
       }}>
         {/* Center vertical divider */}
