@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 
 /* ═══════════════════════════════════════════════
    LEFT CANVAS — Terminal + Trading Chart
@@ -74,9 +75,9 @@ const TerminalCanvas = () => {
       ctx.clearRect(0, 0, W, H);
 
       const isMobile = W < 500;
-      const termH = H * (isMobile ? 0.5 : 0.55);
+      const termH = H * (isMobile ? 0.4 : 0.45);
       const chartTop = termH + 20;
-      const chartH = H - chartTop - 10;
+      const chartH = H * 0.3;
 
       /* ── TERMINAL ── */
       const termPad = isMobile ? 10 : 20;
@@ -632,8 +633,8 @@ interface PanelProps {
 const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>) => {
   const shrink = otherHovered && !hovered;
   return (
-    <a
-      href="https://stackmode.net"
+    <Link
+      to="/academy"
       data-panel-side="left"
       aria-label="Join Stackmode Academy — Learn AI, Coding and Trading with Christopher Robinson for $50 per month"
       onMouseEnter={() => onHover(true)}
@@ -767,7 +768,7 @@ const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>)
           </span>
         </div>
       </div>
-    </a>
+    </Link>
   );
 };
 
