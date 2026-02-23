@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
+import CeoTurboBackground from './CeoTurboBackground';
 
 const useInView = (threshold = 0.2) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -32,6 +33,7 @@ const BrandBoostSection = () => {
 
   return (
     <section className="relative min-h-screen w-full py-20 md:py-28 px-6 overflow-hidden" style={{ background: '#030305' }}>
+      <CeoTurboBackground />
       {/* Cyan radial glow */}
       <div className="absolute top-1/2 right-0 w-[500px] h-[500px] -translate-y-1/2 rounded-full opacity-[0.04]"
         style={{ background: 'radial-gradient(circle, #00E5FF, transparent 70%)' }} />

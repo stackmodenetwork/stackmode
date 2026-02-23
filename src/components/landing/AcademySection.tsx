@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
+import AcademyBackground from './AcademyBackground';
 
 const useInView = (threshold = 0.2) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -24,6 +25,7 @@ const AcademySection = () => {
 
   return (
     <section className="relative min-h-screen w-full py-20 md:py-28 px-6 overflow-hidden" style={{ background: '#030305' }}>
+      <AcademyBackground />
       {/* Grid texture */}
       <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'linear-gradient(rgba(201,168,76,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.1) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
 
