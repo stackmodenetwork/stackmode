@@ -21,16 +21,15 @@ const Home = () => {
   }, []);
 
   return (
-    <main className="min-h-screen bg-background relative overflow-x-hidden">
+    <main className="min-h-screen relative overflow-x-hidden" style={{ background: '#060d06' }}>
       <Helmet>
         <title>Stackmode Academy | Learn AI Software, Trading & Asset Stacking | Christopher Robinson</title>
         <meta name="description" content="Stackmode Academy by Christopher Robinson (StackmodeChris) is the #1 online learning academy for mastering AI software development, trading the financial markets, and stacking your assets to build real wealth. Join thousands of students worldwide." />
-        <link rel="canonical" href="https://stackmode.net/" />
+        <link rel="canonical" href="https://stackmode.net/academy" />
       </Helmet>
-      <CodeTradingBackground />
 
       {/* Top Category Bar */}
-      <nav className="relative z-50 bg-background/90 backdrop-blur-md border-b border-border/50">
+      <nav className="relative z-50 backdrop-blur-md border-b" style={{ background: 'rgba(6,13,6,0.95)', borderColor: 'rgba(0,255,136,0.1)' }}>
         <div className="max-w-6xl mx-auto px-4">
           {/* Desktop: show all links */}
           <div className="hidden sm:flex items-center justify-center gap-2 py-2.5 flex-wrap">
@@ -38,11 +37,12 @@ const Home = () => {
               href="https://whop.com/stackmode-academy/educationalservice/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-4 py-2 rounded-full transition-all text-xs">
+              className="inline-flex items-center gap-1.5 font-bold px-4 py-2 rounded-full transition-all text-xs"
+              style={{ background: '#00ff88', color: '#030305' }}>
               <GraduationCap size={14} className="flex-shrink-0" />
               Join The Academy
             </a>
-            <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-2 rounded-full text-foreground/70 hover:text-primary hover:bg-primary/5 border border-border/50 transition-colors">
+            <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-2 rounded-full transition-colors" style={{ color: 'rgba(255,255,255,0.6)', border: '1px solid rgba(0,255,136,0.15)' }}>
               <MessageCircle size={14} className="flex-shrink-0" /> Discord
             </a>
             <a href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-2 rounded-full text-foreground/70 hover:text-primary hover:bg-primary/5 border border-border/50 transition-colors">
@@ -62,7 +62,8 @@ const Home = () => {
               href="https://whop.com/stackmode-academy/educationalservice/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-3 py-1.5 rounded-full transition-all text-[11px]">
+              className="inline-flex items-center gap-1.5 font-bold px-3 py-1.5 rounded-full transition-all text-[11px]"
+              style={{ background: '#00ff88', color: '#030305' }}>
               <GraduationCap size={14} className="flex-shrink-0" />
               Join The Academy
             </a>
@@ -96,9 +97,9 @@ const Home = () => {
 
       {/* Sticky Header */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/50 transition-transform duration-300 ${
-        showStickyHeader ? 'translate-y-0' : '-translate-y-full'}`
-        }>
+        className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-transform duration-300 ${
+        showStickyHeader ? 'translate-y-0' : '-translate-y-full'}`}
+        style={{ background: 'rgba(6,13,6,0.95)', borderBottom: '1px solid rgba(0,255,136,0.1)' }}>
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex items-center justify-between h-14">
             <button
@@ -111,7 +112,8 @@ const Home = () => {
               href="https://whop.com/stackmode-academy/educationalservice/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg transition-all text-[10px] sm:text-xs">
+              className="inline-flex items-center gap-1.5 font-bold px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg transition-all text-[10px] sm:text-xs"
+              style={{ background: '#00ff88', color: '#030305' }}>
               <GraduationCap size={12} className="sm:w-3.5 sm:h-3.5 flex-shrink-0" />
               <span className="sm:hidden">Join The Academy</span>
               <span className="hidden sm:inline">Join The Stackmode Academy</span>
