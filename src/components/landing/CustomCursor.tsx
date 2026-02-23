@@ -36,12 +36,12 @@ const CustomCursor = () => {
   }, []);
 
   if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) return null;
-  const ringColor = hoverColor || '#7C5CFF';
+  const ringColor = hoverColor || '#C9A84C';
   const ringSize = hoverColor ? 50 : 40;
 
   return (
     <>
-      <div ref={dotRef} className="fixed top-0 left-0 z-[10000] pointer-events-none w-[10px] h-[10px] rounded-full" style={{ background: '#7C5CFF', boxShadow: '0 0 12px #7C5CFF' }} />
+      <div ref={dotRef} className="fixed top-0 left-0 z-[10000] pointer-events-none w-[10px] h-[10px] rounded-full" style={{ background: '#C9A84C', boxShadow: '0 0 12px #C9A84C' }} />
       <div ref={ringRef} className="fixed top-0 left-0 z-[10000] pointer-events-none rounded-full border-2 transition-all duration-200"
         style={{ width: ringSize, height: ringSize, borderColor: ringColor, boxShadow: `0 0 15px ${ringColor}40`, marginLeft: ringSize === 50 ? -5 : 0, marginTop: ringSize === 50 ? -5 : 0 }} />
       <style>{`@media (pointer: fine) { * { cursor: none !important; } }`}</style>

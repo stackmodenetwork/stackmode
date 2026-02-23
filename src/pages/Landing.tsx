@@ -11,7 +11,7 @@ const DigitalCardsSection = lazy(() => import('@/components/landing/DigitalCards
 const LandingFooter = lazy(() => import('@/components/landing/LandingFooter'));
 
 const Landing = () => (
-  <div className="relative" style={{ background: '#060610' }}>
+  <div className="relative" style={{ background: '#030305' }}>
     <Helmet>
       <title>Stackmode | Choose Your Path | Christopher Robinson</title>
       <meta name="description" content="Stackmode by Christopher Robinson (StackmodeChris) — Choose your path: Stackmode Academy for AI software & trading, or CEO Turbo for website design & brand growth." />
