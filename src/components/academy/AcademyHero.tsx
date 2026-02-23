@@ -338,7 +338,7 @@ export const AcademyHero = () => (
         <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
           className="text-xl sm:text-4xl lg:text-5xl font-bold mb-2 sm:mb-3 leading-tight"
           style={{ color: '#f0f0f0', fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.02em' }}>
-          STACKMODE ACADEMY — LEARN AI SOFTWARE, TRADING & ASSET STACKING
+          STACKMODE ACADEMY — LEARN AI SOFTWARE, CODING, TRADING & ASSET STACKING
         </motion.h1>
 
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
