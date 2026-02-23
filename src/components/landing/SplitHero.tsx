@@ -734,22 +734,23 @@ const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>)
         </p>
 
         {/* Pills */}
-        <div className="flex flex-wrap gap-1.5 mt-2">
+        <div className="flex flex-wrap gap-2 mt-2">
           {['Python', 'Trading', 'Web Dev', 'AI Tools', 'Monetize'].map(p => (
-            <span key={p} className="text-[8px] tracking-wider px-2 py-0.5 rounded-sm" style={{
-              fontFamily: "'Share Tech Mono', monospace",
+            <span key={p} className="text-[10px] sm:text-[11px] tracking-wide px-3 py-1 rounded" style={{
+              fontFamily: "'Syne', sans-serif",
+              fontWeight: 600,
               background: 'rgba(0,255,136,0.08)',
               color: '#00ff88',
-              border: '1px solid rgba(0,255,136,0.15)',
+              border: '1px solid rgba(0,255,136,0.18)',
             }}>{p}</span>
           ))}
         </div>
 
         {/* CTA — glows on panel hover */}
-        <div className="relative mt-4 overflow-hidden group/cta rounded-sm transition-all duration-400" style={{
+        <div className="relative mt-4 overflow-hidden group/cta rounded transition-all duration-400" style={{
           border: hovered ? '2px solid rgba(0,255,136,0.8)' : '1.5px solid rgba(0,255,136,0.4)',
-          padding: '10px 24px',
-          minHeight: 44,
+          padding: '14px 32px',
+          minHeight: 50,
           display: 'flex',
           alignItems: 'center',
           boxShadow: hovered ? '0 0 24px rgba(0,255,136,0.25), inset 0 0 12px rgba(0,255,136,0.08)' : 'none',
@@ -758,8 +759,8 @@ const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>)
           aria-label="Join Stackmode Academy for $50 per month — AI coding and trading school by StackmodeChris"
         >
           <div className="absolute inset-0 bg-[#00ff88] -translate-x-full group-hover/cta:translate-x-0 transition-transform duration-300" />
-          <span className="relative z-10 text-[11px] sm:text-[11px] tracking-[0.25em] font-bold transition-colors duration-300 group-hover/cta:text-black" style={{
-            fontFamily: "'Share Tech Mono', monospace",
+          <span className="relative z-10 text-[16px] sm:text-[18px] tracking-[0.15em] transition-colors duration-300 group-hover/cta:text-black" style={{
+            fontFamily: "'Bebas Neue', sans-serif",
             color: '#00ff88',
           }}>
             JOIN ACADEMY →
@@ -863,22 +864,23 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
           Digital business cards. Brand boost calls. Premium web design. Your brand working 24/7 on autopilot.
         </p>
 
-        <div className="flex flex-wrap gap-1.5 mt-2">
+        <div className="flex flex-wrap gap-2 mt-2">
           {['NFC Cards', 'Brand Boost', 'Web Design', 'Revenue'].map(p => (
-            <span key={p} className="text-[8px] tracking-wider px-2 py-0.5 rounded-sm" style={{
-              fontFamily: "'Share Tech Mono', monospace",
+            <span key={p} className="text-[10px] sm:text-[11px] tracking-wide px-3 py-1 rounded" style={{
+              fontFamily: "'Syne', sans-serif",
+              fontWeight: 600,
               background: 'rgba(0,207,255,0.08)',
               color: '#00cfff',
-              border: '1px solid rgba(0,207,255,0.15)',
+              border: '1px solid rgba(0,207,255,0.18)',
             }}>{p}</span>
           ))}
         </div>
 
         {/* CTA — glows on panel hover */}
-        <div className="relative mt-4 overflow-hidden group/cta rounded-sm transition-all duration-400" style={{
+        <div className="relative mt-4 overflow-hidden group/cta rounded transition-all duration-400" style={{
           border: hovered ? '2px solid rgba(0,207,255,0.8)' : '1.5px solid rgba(0,207,255,0.4)',
-          padding: '10px 24px',
-          minHeight: 44,
+          padding: '14px 32px',
+          minHeight: 50,
           display: 'flex',
           alignItems: 'center',
           boxShadow: hovered ? '0 0 24px rgba(0,207,255,0.25), inset 0 0 12px rgba(0,207,255,0.08)' : 'none',
@@ -887,8 +889,8 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
           aria-label="Boost your brand with CEO Turbo — digital business cards and brand strategy by Christopher Robinson"
         >
           <div className="absolute inset-0 bg-[#00cfff] -translate-x-full group-hover/cta:translate-x-0 transition-transform duration-300" />
-          <span className="relative z-10 text-[11px] sm:text-[11px] tracking-[0.25em] font-bold transition-colors duration-300 group-hover/cta:text-black" style={{
-            fontFamily: "'Share Tech Mono', monospace",
+          <span className="relative z-10 text-[16px] sm:text-[18px] tracking-[0.15em] transition-colors duration-300 group-hover/cta:text-black" style={{
+            fontFamily: "'Bebas Neue', sans-serif",
             color: '#00cfff',
           }}>
             BOOST BRAND →
