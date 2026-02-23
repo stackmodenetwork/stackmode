@@ -932,16 +932,16 @@ const SplitHero = () => {
       <KeywordTicker />
       <SeoContent />
 
-      {/* "CHOOSE YOUR PATH" heading */}
-      <div className="absolute top-2 sm:top-1 left-0 right-0 z-[150] flex justify-center pointer-events-none">
+      {/* "CHOOSE YOUR PATH" heading — below TopBar on desktop, visible on mobile */}
+      <div className="fixed top-[30px] sm:top-[48px] left-0 right-0 z-[201] flex justify-center pointer-events-none">
         <h2 style={{
           fontFamily: "'Bebas Neue', sans-serif",
-          fontSize: 'clamp(22px, 3.5vw, 36px)',
-          letterSpacing: '0.25em',
+          fontSize: 'clamp(20px, 3vw, 32px)',
+          letterSpacing: '0.3em',
           color: '#f0f0f0',
           textAlign: 'center',
           margin: 0,
-          textShadow: '0 2px 20px rgba(0,0,0,0.8)',
+          textShadow: '0 2px 24px rgba(0,0,0,0.9), 0 0 40px rgba(0,0,0,0.6)',
         }}>
           CHOOSE YOUR PATH
         </h2>
