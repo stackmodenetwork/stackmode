@@ -633,9 +633,7 @@ const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>)
   const shrink = otherHovered && !hovered;
   return (
     <a
-      href="https://whop.com/stackmode-academy/educationalservice/"
-      target="_blank"
-      rel="noopener noreferrer"
+      href="https://stackmode.net"
       data-panel-side="left"
       aria-label="Join Stackmode Academy — Learn AI, Coding and Trading with Christopher Robinson for $50 per month"
       onMouseEnter={() => onHover(true)}
