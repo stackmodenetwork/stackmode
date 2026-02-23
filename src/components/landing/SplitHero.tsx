@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 
 /* ═══════════════════════════════════════════════
-   LEFT CANVAS — Terminal + Trading Chart
+   LEFT CANVAS — Terminal + Trading Chart (desktop only)
    ═══════════════════════════════════════════════ */
 const TerminalCanvas = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -14,14 +14,13 @@ const TerminalCanvas = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const resize = () => { canvas.width = canvas.offsetWidth * 1; canvas.height = canvas.offsetHeight * 1; };
+    const resize = () => { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; };
     resize();
     window.addEventListener('resize', resize);
 
     const obs = new IntersectionObserver(([e]) => { visibleRef.current = e.isIntersecting; }, { threshold: 0 });
     obs.observe(canvas);
 
-    // Terminal typing
     const lines = [
       '> initializing stackmode.env...',
       '> loading modules: [trading] [webdev] [ai] [content]',
@@ -39,7 +38,6 @@ const TerminalCanvas = () => {
     const CHAR_DELAY = 45;
     const PAUSE_DELAY = 2500;
 
-    // Candlestick data
     const candleCount = 24;
     let candles: { o: number; c: number; h: number; l: number }[] = [];
     const genCandle = (prev: number) => {
@@ -74,16 +72,15 @@ const TerminalCanvas = () => {
       const W = canvas.width, H = canvas.height;
       ctx.clearRect(0, 0, W, H);
 
-      const isMobile = W < 500;
-      const termH = H * (isMobile ? 0.4 : 0.45);
+      const termH = H * 0.45;
       const chartTop = termH + 20;
       const chartH = H * 0.3;
 
       /* ── TERMINAL ── */
-      const termPad = isMobile ? 10 : 20;
+      const termPad = 20;
       const termW = W - termPad * 2;
       const termY = termPad;
-      const titleBarH = isMobile ? 18 : 22;
+      const titleBarH = 22;
 
       ctx.strokeStyle = 'rgba(0,255,136,0.08)';
       ctx.lineWidth = 1;
@@ -105,7 +102,7 @@ const TerminalCanvas = () => {
       });
 
       ctx.fillStyle = 'rgba(0,255,136,0.3)';
-      ctx.font = `${isMobile ? 7 : 9}px "Share Tech Mono", monospace`;
+      ctx.font = '9px "Share Tech Mono", monospace';
       ctx.textAlign = 'center';
       ctx.fillText('STACKMODE_OS v2.1', termPad + termW / 2, termY + titleBarH / 2 + 3);
       ctx.textAlign = 'left';
@@ -132,8 +129,8 @@ const TerminalCanvas = () => {
         }
       }
 
-      const fontSize = isMobile ? 9 : 11;
-      const lineH = isMobile ? 16 : 22;
+      const fontSize = 11;
+      const lineH = 22;
       ctx.font = `${fontSize}px "Share Tech Mono", monospace`;
       const textX = termPad + 16;
       const textStartY = termY + titleBarH + 20;
@@ -173,10 +170,6 @@ const TerminalCanvas = () => {
       for (let i = 0; i < 5; i++) {
         const gy = chartTop + (chartH / 5) * i;
         ctx.beginPath(); ctx.moveTo(30, gy); ctx.lineTo(W - 10, gy); ctx.stroke();
-        const pLabel = (maxP - (range / 5) * i).toFixed(0);
-        ctx.fillStyle = 'rgba(0,255,136,0.25)';
-        ctx.font = `${isMobile ? 6 : 8}px "Share Tech Mono", monospace`;
-        ctx.fillText(pLabel, 4, gy + 3);
       }
 
       candles.forEach((c, i) => {
@@ -191,9 +184,7 @@ const TerminalCanvas = () => {
         ctx.beginPath(); ctx.moveTo(x, toY(c.h)); ctx.lineTo(x, toY(c.l)); ctx.stroke();
 
         ctx.fillStyle = bull ? 'rgba(0,255,136,0.2)' : 'rgba(255,60,80,0.15)';
-        ctx.strokeStyle = bull ? 'rgba(0,255,136,0.4)' : 'rgba(255,60,80,0.3)';
         ctx.fillRect(x - barW * 0.3, bodyTop, barW * 0.6, bodyH);
-        ctx.strokeRect(x - barW * 0.3, bodyTop, barW * 0.6, bodyH);
       });
 
       ctx.strokeStyle = 'rgba(0,255,136,0.3)';
@@ -205,23 +196,17 @@ const TerminalCanvas = () => {
         i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
       });
       ctx.stroke();
-
-      const glowGrad = ctx.createLinearGradient(0, chartTop + chartH - 40, 0, chartTop + chartH);
-      glowGrad.addColorStop(0, 'rgba(0,255,136,0)');
-      glowGrad.addColorStop(1, 'rgba(0,255,136,0.03)');
-      ctx.fillStyle = glowGrad;
-      ctx.fillRect(0, chartTop + chartH - 40, W, 40);
     };
 
     raf = requestAnimationFrame(draw);
     return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', resize); obs.disconnect(); };
   }, []);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />;
+  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full hidden sm:block" />;
 };
 
 /* ═══════════════════════════════════════════════
-   RIGHT CANVAS — Revenue Particles + Wireframe + Trend
+   RIGHT CANVAS — Revenue Particles + Wireframe (desktop only)
    ═══════════════════════════════════════════════ */
 const WireframeCanvas = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -239,14 +224,10 @@ const WireframeCanvas = () => {
     const obs = new IntersectionObserver(([e]) => { visibleRef.current = e.isIntersecting; }, { threshold: 0 });
     obs.observe(canvas);
 
-    const isMobile = () => canvas.width < 500;
-
     const symbols = ['$', '€', '£', '+', '↑', '▲', '◆', '%'];
-    const particleCount = () => isMobile() ? 20 : 40;
     let particles: { x: number; y: number; s: string; size: number; opacity: number; speed: number; offset: number; pulse: boolean }[] = [];
     const initParticles = () => {
-      const count = particleCount();
-      particles = Array.from({ length: count }, (_, i) => ({
+      particles = Array.from({ length: 40 }, (_, i) => ({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         s: symbols[Math.floor(Math.random() * symbols.length)],
@@ -281,7 +262,6 @@ const WireframeCanvas = () => {
       frame++;
       const W = canvas.width, H = canvas.height;
       ctx.clearRect(0, 0, W, H);
-      const mobile = isMobile();
 
       /* ── LAYER 1: Revenue Particles ── */
       ctx.font = '14px "Share Tech Mono", monospace';
@@ -293,7 +273,6 @@ const WireframeCanvas = () => {
         ctx.font = `${p.size * scale}px "Share Tech Mono", monospace`;
         ctx.fillText(p.s, p.x, p.y);
         ctx.restore();
-
         p.y -= p.speed;
         p.x += Math.sin(frame * 0.02 + p.offset) * 0.4;
         if (p.y < -20) { p.y = H + 20; p.x = Math.random() * W; }
@@ -330,12 +309,8 @@ const WireframeCanvas = () => {
         }
       }
       ctx.fillStyle = 'rgba(0,207,255,0.3)';
-      ctx.font = `${mobile ? 7 : 8}px "Share Tech Mono", monospace`;
+      ctx.font = '8px "Share Tech Mono", monospace';
       ctx.fillText(urlText.substring(0, Math.max(0, urlCharIdx)), bx + 12, abY + 10);
-      if (Math.floor(now / 530) % 2 === 0) {
-        const cursorX = bx + 12 + ctx.measureText(urlText.substring(0, Math.max(0, urlCharIdx))).width + 1;
-        ctx.fillRect(cursorX, abY + 3, 1, 9);
-      }
 
       const vpY = abY + 18;
       const vpH = bh - (vpY - by) - 8;
@@ -357,7 +332,6 @@ const WireframeCanvas = () => {
       ctx.fillStyle = 'rgba(0,207,255,0.06)';
       if (layoutIdx === 0) {
         rc(vpX, vpY, vpW, 8);
-        for (let i = 0; i < 4; i++) rc(vpX + vpW - 4 * 14 + i * 14, vpY + 1, 10, 5);
         rc(vpX, vpY + 14, vpW, vpH * 0.5);
         ctx.fillStyle = 'rgba(0,207,255,0.1)';
         rc(vpX + vpW / 2 - 25, vpY + 14 + vpH * 0.55, 50, 10, 3);
@@ -368,9 +342,6 @@ const WireframeCanvas = () => {
         for (let r = 0; r < rows; r++) {
           for (let c = 0; c < cols; c++) {
             rc(vpX + c * (cw + gap), vpY + r * (ch + gap), cw, ch, 3);
-            ctx.fillStyle = 'rgba(0,207,255,0.04)';
-            ctx.fillRect(vpX + c * (cw + gap) + 3, vpY + r * (ch + gap) + ch - 8, cw - 6, 3);
-            ctx.fillStyle = 'rgba(0,207,255,0.06)';
           }
         }
       } else {
@@ -380,16 +351,6 @@ const WireframeCanvas = () => {
         for (let i = 0; i < 4; i++) {
           rc(vpX + sideW + 6 + i * (cardW + 2), vpY, cardW, vpH * 0.25, 3);
         }
-        ctx.fillStyle = 'rgba(0,207,255,0.08)';
-        const barHArr = [0.6, 0.8, 0.5, 0.9, 0.7];
-        const barArea = vpH * 0.6;
-        const barBottom = vpY + vpH;
-        const barStartX = vpX + sideW + 10;
-        const barGap = (vpW - sideW - 24) / 5;
-        barHArr.forEach((h, i) => {
-          const bHeight = barArea * h;
-          ctx.fillRect(barStartX + i * barGap, barBottom - bHeight, barGap * 0.6, bHeight);
-        });
       }
       ctx.globalAlpha = 1;
 
@@ -435,19 +396,13 @@ const WireframeCanvas = () => {
       ctx.arc(lastX, lastY, trendPulseRadius, 0, Math.PI * 2);
       ctx.fillStyle = 'rgba(0,207,255,0.6)';
       ctx.fill();
-      const rippleR = 6 + Math.sin(now * 0.003) * 4;
-      ctx.beginPath();
-      ctx.arc(lastX, lastY, rippleR, 0, Math.PI * 2);
-      ctx.strokeStyle = `rgba(0,207,255,${0.3 - Math.sin(now * 0.003) * 0.15})`;
-      ctx.lineWidth = 1;
-      ctx.stroke();
     };
 
     raf = requestAnimationFrame(draw);
     return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', resize); obs.disconnect(); };
   }, []);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />;
+  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full hidden sm:block" />;
 };
 
 /* ═══════════════════════════════════════════════
@@ -457,7 +412,7 @@ const TICKER_TEXT = 'STACKMODE ACADEMY · CHRISTOPHER ROBINSON · STACKMODECHRIS
 
 const KeywordTicker = () => (
   <div
-    className="relative w-full overflow-hidden group/ticker"
+    className="relative w-full overflow-hidden"
     style={{
       height: 26,
       background: '#070710',
@@ -465,7 +420,7 @@ const KeywordTicker = () => (
     }}
   >
     <div
-      className="flex items-center h-full whitespace-nowrap animate-marquee group-hover/ticker:[animation-play-state:paused]"
+      className="flex items-center h-full whitespace-nowrap animate-marquee"
       style={{ width: 'max-content' }}
     >
       {[0, 1, 2].map(i => (
@@ -485,7 +440,7 @@ const KeywordTicker = () => (
 );
 
 /* ═══════════════════════════════════════════════
-   TOP BAR
+   TOP BAR (desktop only)
    ═══════════════════════════════════════════════ */
 const TopBar = () => {
   const [time, setTime] = useState('');
@@ -524,7 +479,7 @@ const TopBar = () => {
 };
 
 /* ═══════════════════════════════════════════════
-   STATUS BAR
+   STATUS BAR (desktop only)
    ═══════════════════════════════════════════════ */
 const StatusBar = ({ hover }: { hover: 'left' | 'right' | null }) => (
   <footer
@@ -558,7 +513,7 @@ const StatusBar = ({ hover }: { hover: 'left' | 'right' | null }) => (
 );
 
 /* ═══════════════════════════════════════════════
-   SOCIAL FOOTER STRIP
+   SOCIAL FOOTER STRIP (desktop only)
    ═══════════════════════════════════════════════ */
 const SocialFooterStrip = () => (
   <nav
@@ -590,7 +545,7 @@ const SocialFooterStrip = () => (
 );
 
 /* ═══════════════════════════════════════════════
-   CENTER EMBLEM
+   CENTER EMBLEM (desktop only)
    ═══════════════════════════════════════════════ */
 const CenterEmblem = () => (
   <div
@@ -621,7 +576,7 @@ const CenterEmblem = () => (
 );
 
 /* ═══════════════════════════════════════════════
-   PANEL (shared layout)
+   LEFT PANEL
    ═══════════════════════════════════════════════ */
 interface PanelProps {
   side: 'left' | 'right';
@@ -644,14 +599,13 @@ const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>)
         flex: hovered ? 1.45 : shrink ? 0.85 : 1,
         transition: 'flex 0.65s cubic-bezier(0.77, 0, 0.175, 1), box-shadow 0.4s ease',
         cursor: 'none',
-        minHeight: undefined,
         boxShadow: hovered ? 'inset 0 0 80px rgba(0,255,136,0.08), 0 0 40px rgba(0,255,136,0.06)' : 'none',
         borderRight: hovered ? '1px solid rgba(0,255,136,0.15)' : '1px solid transparent',
       }}
     >
-      {/* Dark overlay — heavier to push canvas back */}
-      <div className="absolute inset-0 z-[1] transition-all duration-500" style={{
-        background: hovered ? 'rgba(4,4,10,0.5)' : 'rgba(4,4,10,0.7)',
+      {/* Dark overlay */}
+      <div className="absolute inset-0 z-[1]" style={{
+        background: 'rgba(4,4,10,0.75)',
       }} />
 
       {/* Grid overlay */}
@@ -662,20 +616,20 @@ const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>)
 
       <TerminalCanvas />
 
-      {/* Green radial glow — stronger on hover */}
-      <div className="absolute inset-0 pointer-events-none z-[3] transition-opacity duration-500" style={{
+      {/* Green radial glow */}
+      <div className="absolute inset-0 pointer-events-none z-[3] hidden sm:block" style={{
         background: 'radial-gradient(600px circle at 50% 60%, rgba(0,255,136,0.08) 0%, transparent 70%)',
         opacity: hovered ? 1 : 0.4,
       }} />
 
-      {/* Corner brackets */}
-      <div className="absolute top-4 left-4 w-5 h-5 border-l-[1.5px] border-t-[1.5px] z-[5] transition-all duration-300" style={{ borderColor: hovered ? 'rgba(0,255,136,0.5)' : 'rgba(0,255,136,0.2)' }} />
-      <div className="absolute bottom-4 right-4 w-5 h-5 border-r-[1.5px] border-b-[1.5px] z-[5] transition-all duration-300" style={{ borderColor: hovered ? 'rgba(0,255,136,0.5)' : 'rgba(0,255,136,0.2)' }} />
+      {/* Corner brackets — desktop */}
+      <div className="absolute top-4 left-4 w-5 h-5 border-l-[1.5px] border-t-[1.5px] z-[5] hidden sm:block" style={{ borderColor: hovered ? 'rgba(0,255,136,0.5)' : 'rgba(0,255,136,0.2)' }} />
+      <div className="absolute bottom-4 right-4 w-5 h-5 border-r-[1.5px] border-b-[1.5px] z-[5] hidden sm:block" style={{ borderColor: hovered ? 'rgba(0,255,136,0.5)' : 'rgba(0,255,136,0.2)' }} />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-start px-5 sm:px-12 max-w-lg w-full" style={{ animation: 'fadeUp 0.8s ease 0.2s both' }}>
-        {/* Logo — circular */}
-        <div className="mb-3 w-[56px] h-[56px] sm:w-[72px] sm:h-[72px] rounded-full overflow-hidden flex items-center justify-center" style={{
+      <div className="relative z-10 flex flex-col items-center sm:items-start px-4 sm:px-12 max-w-lg w-full">
+        {/* Logo */}
+        <div className="mb-2 sm:mb-3 w-[44px] h-[44px] sm:w-[72px] sm:h-[72px] rounded-full overflow-hidden flex items-center justify-center" style={{
           border: '2px solid rgba(0,255,136,0.3)',
           background: 'rgba(0,0,0,0.4)',
         }}>
@@ -684,13 +638,13 @@ const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>)
             alt="Stackmode Academy Christopher Robinson StackmodeChris logo"
             width={72}
             height={72}
-            loading="lazy"
+            loading="eager"
             className="w-full h-full object-cover"
           />
         </div>
 
-        {/* Tag */}
-        <span className="mb-2 px-3 py-0.5 text-[8px] sm:text-[9px] tracking-[0.2em] uppercase rounded-full" style={{
+        {/* Tag — hidden on mobile for space */}
+        <span className="mb-2 px-3 py-0.5 text-[9px] tracking-[0.2em] uppercase rounded-full hidden sm:inline-block" style={{
           fontFamily: "'Share Tech Mono', monospace",
           color: '#00ff88',
           border: '1px solid rgba(0,255,136,0.3)',
@@ -699,9 +653,9 @@ const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>)
         </span>
 
         {/* Heading */}
-        <h2 style={{
+        <h2 className="text-center sm:text-left" style={{
           fontFamily: "'Bebas Neue', sans-serif",
-          fontSize: 'clamp(32px, 5.5vw, 86px)',
+          fontSize: 'clamp(28px, 5.5vw, 86px)',
           lineHeight: 0.92,
           color: '#f0f0f0',
           margin: 0,
@@ -711,7 +665,7 @@ const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>)
         </h2>
 
         {/* AI badge */}
-        <div className="flex items-center gap-2 mt-2" style={{
+        <div className="flex items-center gap-2 mt-1.5 sm:mt-2" style={{
           fontFamily: "'Share Tech Mono', monospace",
           fontSize: 8,
           color: '#00ff88',
@@ -720,7 +674,7 @@ const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>)
           <span>AI-POWERED LEARNING SYSTEM</span>
         </div>
 
-        {/* Description */}
+        {/* Description — desktop only */}
         <p className="mt-2 hidden sm:block"
           style={{
             fontFamily: "'Syne', sans-serif",
@@ -734,10 +688,10 @@ const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>)
           Code. Content. Capital. One system to build assets, grow audiences, and multiply profits.
         </p>
 
-        {/* Pills */}
-        <div className="flex flex-wrap gap-2 mt-2">
+        {/* Pills — smaller on mobile */}
+        <div className="flex flex-wrap justify-center sm:justify-start gap-1.5 sm:gap-2 mt-2">
           {['AI', 'Coding', 'Software', 'Trading'].map(p => (
-            <span key={p} className="text-[10px] sm:text-[11px] tracking-wide px-3 py-1 rounded" style={{
+            <span key={p} className="text-[9px] sm:text-[11px] tracking-wide px-2 sm:px-3 py-0.5 sm:py-1 rounded" style={{
               fontFamily: "'Syne', sans-serif",
               fontWeight: 600,
               background: 'rgba(0,255,136,0.08)',
@@ -747,22 +701,23 @@ const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>)
           ))}
         </div>
 
-        {/* CTA — glows on panel hover */}
-        <div className="relative mt-4 overflow-hidden group/cta rounded transition-all duration-400" style={{
-          border: hovered ? '2px solid rgba(0,255,136,0.8)' : '1.5px solid rgba(0,255,136,0.4)',
-          padding: '14px 32px',
-          minHeight: 50,
+        {/* CTA */}
+        <div className="relative mt-3 sm:mt-4 overflow-hidden group/cta rounded transition-all duration-300 w-full sm:w-auto" style={{
+          border: '1.5px solid rgba(0,255,136,0.4)',
+          padding: '10px 24px',
+          minHeight: 44,
           display: 'flex',
           alignItems: 'center',
-          boxShadow: hovered ? '0 0 24px rgba(0,255,136,0.25), inset 0 0 12px rgba(0,255,136,0.08)' : 'none',
+          justifyContent: 'center',
+          boxShadow: hovered ? '0 0 24px rgba(0,255,136,0.25)' : 'none',
           background: hovered ? 'rgba(0,255,136,0.06)' : 'transparent',
         }}
-          aria-label="Join Stackmode Academy for $50 per month — AI coding and trading school by StackmodeChris"
+          aria-label="Join Stackmode Academy for $50 per month"
         >
           <div className="absolute inset-0 bg-[#00ff88] -translate-x-full group-hover/cta:translate-x-0 transition-transform duration-300" />
-          <span className="relative z-10 text-[16px] sm:text-[18px] tracking-[0.15em] font-bold transition-colors duration-300 group-hover/cta:!text-[#04040a]" style={{
+          <span className="relative z-10 text-[15px] sm:text-[18px] tracking-[0.15em] font-bold transition-colors duration-300 group-hover/cta:!text-[#04040a]" style={{
             fontFamily: "'Bebas Neue', sans-serif",
-            color: hovered ? '#fff' : '#00ff88',
+            color: '#00ff88',
           }}>
             JOIN ACADEMY →
           </span>
@@ -772,6 +727,9 @@ const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>)
   );
 };
 
+/* ═══════════════════════════════════════════════
+   RIGHT PANEL
+   ═══════════════════════════════════════════════ */
 const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>) => {
   const shrink = otherHovered && !hovered;
   return (
@@ -788,14 +746,13 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
         flex: hovered ? 1.45 : shrink ? 0.85 : 1,
         transition: 'flex 0.65s cubic-bezier(0.77, 0, 0.175, 1), box-shadow 0.4s ease',
         cursor: 'none',
-        minHeight: undefined,
         boxShadow: hovered ? 'inset 0 0 80px rgba(0,207,255,0.08), 0 0 40px rgba(0,207,255,0.06)' : 'none',
         borderLeft: hovered ? '1px solid rgba(0,207,255,0.15)' : '1px solid transparent',
       }}
     >
       {/* Dark overlay */}
-      <div className="absolute inset-0 z-[1] transition-all duration-500" style={{
-        background: hovered ? 'rgba(4,4,10,0.5)' : 'rgba(4,4,10,0.7)',
+      <div className="absolute inset-0 z-[1]" style={{
+        background: 'rgba(4,4,10,0.75)',
       }} />
 
       {/* Grid overlay */}
@@ -806,20 +763,20 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
 
       <WireframeCanvas />
 
-      {/* Cyan radial glow */}
-      <div className="absolute inset-0 pointer-events-none z-[3] transition-opacity duration-500" style={{
+      {/* Cyan radial glow — desktop */}
+      <div className="absolute inset-0 pointer-events-none z-[3] hidden sm:block" style={{
         background: 'radial-gradient(600px circle at 50% 60%, rgba(0,207,255,0.07) 0%, transparent 70%)',
         opacity: hovered ? 1 : 0.4,
       }} />
 
-      {/* Corner brackets */}
-      <div className="absolute top-4 right-4 w-5 h-5 border-r-[1.5px] border-t-[1.5px] z-[5] transition-all duration-300" style={{ borderColor: hovered ? 'rgba(0,207,255,0.5)' : 'rgba(0,207,255,0.2)' }} />
-      <div className="absolute bottom-4 left-4 w-5 h-5 border-l-[1.5px] border-b-[1.5px] z-[5] transition-all duration-300" style={{ borderColor: hovered ? 'rgba(0,207,255,0.5)' : 'rgba(0,207,255,0.2)' }} />
+      {/* Corner brackets — desktop */}
+      <div className="absolute top-4 right-4 w-5 h-5 border-r-[1.5px] border-t-[1.5px] z-[5] hidden sm:block" style={{ borderColor: hovered ? 'rgba(0,207,255,0.5)' : 'rgba(0,207,255,0.2)' }} />
+      <div className="absolute bottom-4 left-4 w-5 h-5 border-l-[1.5px] border-b-[1.5px] z-[5] hidden sm:block" style={{ borderColor: hovered ? 'rgba(0,207,255,0.5)' : 'rgba(0,207,255,0.2)' }} />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-start px-5 sm:px-12 max-w-lg w-full" style={{ animation: 'fadeUp 0.8s ease 0.4s both' }}>
-        {/* Logo — circular */}
-        <div className="mb-3 w-[56px] h-[56px] sm:w-[72px] sm:h-[72px] rounded-full overflow-hidden flex items-center justify-center" style={{
+      <div className="relative z-10 flex flex-col items-center sm:items-start px-4 sm:px-12 max-w-lg w-full">
+        {/* Logo */}
+        <div className="mb-2 sm:mb-3 w-[44px] h-[44px] sm:w-[72px] sm:h-[72px] rounded-full overflow-hidden flex items-center justify-center" style={{
           border: '2px solid rgba(0,207,255,0.3)',
           background: 'rgba(0,0,0,0.4)',
         }}>
@@ -833,7 +790,7 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
           />
         </div>
 
-        <span className="mb-2 px-3 py-0.5 text-[8px] sm:text-[9px] tracking-[0.2em] uppercase rounded-full" style={{
+        <span className="mb-2 px-3 py-0.5 text-[9px] tracking-[0.2em] uppercase rounded-full hidden sm:inline-block" style={{
           fontFamily: "'Share Tech Mono', monospace",
           color: '#00cfff',
           border: '1px solid rgba(0,207,255,0.3)',
@@ -841,9 +798,9 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
           // 02 — BRAND & SCALE
         </span>
 
-        <h2 style={{
+        <h2 className="text-center sm:text-left" style={{
           fontFamily: "'Bebas Neue', sans-serif",
-          fontSize: 'clamp(32px, 5.5vw, 86px)',
+          fontSize: 'clamp(28px, 5.5vw, 86px)',
           lineHeight: 0.92,
           color: '#f0f0f0',
           margin: 0,
@@ -865,9 +822,9 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
           Digital business cards. Brand boost calls. Premium web design. Your brand working 24/7 on autopilot.
         </p>
 
-        <div className="flex flex-wrap gap-2 mt-2">
+        <div className="flex flex-wrap justify-center sm:justify-start gap-1.5 sm:gap-2 mt-2">
           {['NFC Cards', 'Brand Boost', 'Web Design', 'Revenue'].map(p => (
-            <span key={p} className="text-[10px] sm:text-[11px] tracking-wide px-3 py-1 rounded" style={{
+            <span key={p} className="text-[9px] sm:text-[11px] tracking-wide px-2 sm:px-3 py-0.5 sm:py-1 rounded" style={{
               fontFamily: "'Syne', sans-serif",
               fontWeight: 600,
               background: 'rgba(0,207,255,0.08)',
@@ -877,22 +834,23 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
           ))}
         </div>
 
-        {/* CTA — glows on panel hover */}
-        <div className="relative mt-4 overflow-hidden group/cta rounded transition-all duration-400" style={{
-          border: hovered ? '2px solid rgba(0,207,255,0.8)' : '1.5px solid rgba(0,207,255,0.4)',
-          padding: '14px 32px',
-          minHeight: 50,
+        {/* CTA */}
+        <div className="relative mt-3 sm:mt-4 overflow-hidden group/cta rounded transition-all duration-300 w-full sm:w-auto" style={{
+          border: '1.5px solid rgba(0,207,255,0.4)',
+          padding: '10px 24px',
+          minHeight: 44,
           display: 'flex',
           alignItems: 'center',
-          boxShadow: hovered ? '0 0 24px rgba(0,207,255,0.25), inset 0 0 12px rgba(0,207,255,0.08)' : 'none',
+          justifyContent: 'center',
+          boxShadow: hovered ? '0 0 24px rgba(0,207,255,0.25)' : 'none',
           background: hovered ? 'rgba(0,207,255,0.06)' : 'transparent',
         }}
-          aria-label="Boost your brand with CEO Turbo — digital business cards and brand strategy by Christopher Robinson"
+          aria-label="Boost your brand with CEO Turbo"
         >
           <div className="absolute inset-0 bg-[#00cfff] -translate-x-full group-hover/cta:translate-x-0 transition-transform duration-300" />
-          <span className="relative z-10 text-[16px] sm:text-[18px] tracking-[0.15em] font-bold transition-colors duration-300 group-hover/cta:!text-[#04040a]" style={{
+          <span className="relative z-10 text-[15px] sm:text-[18px] tracking-[0.15em] font-bold transition-colors duration-300 group-hover/cta:!text-[#04040a]" style={{
             fontFamily: "'Bebas Neue', sans-serif",
-            color: hovered ? '#fff' : '#00cfff',
+            color: '#00cfff',
           }}>
             BRAND BOOST →
           </span>
@@ -932,11 +890,11 @@ const SplitHero = () => {
       <KeywordTicker />
       <SeoContent />
 
-      {/* "CHOOSE YOUR PATH" heading */}
-      <div className="absolute top-2 sm:top-1 left-0 right-0 z-[150] flex justify-center pointer-events-none">
+      {/* "CHOOSE YOUR PATH" heading — visible on all screens */}
+      <div className="relative sm:absolute sm:top-1 left-0 right-0 z-[150] flex justify-center py-3 sm:py-0 pointer-events-none" style={{ background: '#04040a' }}>
         <h2 style={{
           fontFamily: "'Bebas Neue', sans-serif",
-          fontSize: 'clamp(22px, 3.5vw, 36px)',
+          fontSize: 'clamp(20px, 3.5vw, 36px)',
           letterSpacing: '0.25em',
           color: '#f0f0f0',
           textAlign: 'center',
@@ -947,27 +905,33 @@ const SplitHero = () => {
         </h2>
       </div>
 
-      <section className="relative w-full overflow-hidden flex flex-col md:flex-row pt-0 sm:pt-[70px]" style={{
+      <section className="relative w-full overflow-hidden flex flex-col sm:flex-row sm:pt-[70px]" style={{
         background: '#04040a',
-        height: '100dvh',
-        paddingBottom: 0,
+        minHeight: '100dvh',
       }}>
-        {/* Center vertical divider */}
+        {/* Center vertical divider — desktop */}
         <div className="absolute left-1/2 top-[15%] bottom-[15%] w-[1px] z-[100] hidden md:block" style={{
           background: 'linear-gradient(to bottom, transparent, rgba(255,255,255,0.1), transparent)',
         }} />
 
         <CenterEmblem />
 
+        {/* Mobile: thin divider between panels */}
+        <div className="sm:hidden w-full h-[1px] relative z-10" style={{ background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.08), transparent)' }} />
+
         <LeftPanel hovered={leftHover} otherHovered={rightHover} onHover={setLeftHover} />
+
+        {/* Mobile divider */}
+        <div className="sm:hidden w-full h-[1px] relative z-10" style={{ background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.08), transparent)' }} />
+
         <RightPanel hovered={rightHover} otherHovered={leftHover} onHover={setRightHover} />
       </section>
 
       <SocialFooterStrip />
       <StatusBar hover={hover} />
 
-      {/* CRT Scanline */}
-      <div className="fixed inset-0 z-[9990] pointer-events-none" style={{
+      {/* CRT Scanline — desktop only */}
+      <div className="fixed inset-0 z-[9990] pointer-events-none hidden sm:block" style={{
         backgroundImage: 'repeating-linear-gradient(to bottom, transparent, transparent 2px, rgba(0,0,0,0.04) 2px, rgba(0,0,0,0.04) 4px)',
       }} />
     </>
