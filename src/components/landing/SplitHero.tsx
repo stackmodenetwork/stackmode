@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-// ─── Animated Background with code, charts, web elements ───
+// ─── Subtle candlestick chart + code rain background ───
 const TechBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -15,75 +15,64 @@ const TechBackground = () => {
     const onResize = () => { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; };
     window.addEventListener('resize', onResize);
 
-    // Floating particles
-    const particles: { x: number; y: number; vx: number; vy: number; size: number; char: string; color: string; alpha: number; speed: number }[] = [];
-    const chars = ['</', '/>', '{', '}', '( )', '=>', '[]', '&&', '||', '$.', 'fn', 'AI', '01', '10', '▲', '▼', '◆', '₿', '$', '📈', 'npm', 'git'];
-    const colors = ['#00E5FF', '#C9A84C', '#FF6B2B', '#00E5FF', '#C9A84C'];
-
-    for (let i = 0; i < 45; i++) {
-      particles.push({
-        x: Math.random() * w,
-        y: Math.random() * h,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: -Math.random() * 0.4 - 0.1,
-        size: Math.random() * 10 + 8,
-        char: chars[Math.floor(Math.random() * chars.length)],
-        color: colors[Math.floor(Math.random() * colors.length)],
-        alpha: Math.random() * 0.06 + 0.02,
-        speed: Math.random() * 0.5 + 0.2,
-      });
+    // Generate candlestick data
+    const candleCount = Math.floor(w / 28);
+    const candles: { x: number; open: number; close: number; high: number; low: number }[] = [];
+    let price = h * 0.5;
+    for (let i = 0; i < candleCount; i++) {
+      const change = (Math.random() - 0.48) * 30;
+      const open = price;
+      const close = price + change;
+      const high = Math.max(open, close) + Math.random() * 15;
+      const low = Math.min(open, close) - Math.random() * 15;
+      candles.push({ x: i * 28 + 14, open, close, high, low });
+      price = close;
     }
 
-    // Grid lines
-    const gridLines: { x: number; y: number; length: number; horizontal: boolean; color: string; alpha: number }[] = [];
-    for (let i = 0; i < 12; i++) {
-      gridLines.push({
-        x: Math.random() * w,
-        y: Math.random() * h,
-        length: Math.random() * 150 + 50,
-        horizontal: Math.random() > 0.5,
-        color: Math.random() > 0.5 ? '#00E5FF' : '#C9A84C',
-        alpha: Math.random() * 0.04 + 0.01,
-      });
-    }
+    // Slow falling code characters
+    const cols = Math.floor(w / 50);
+    const drops: number[] = Array(cols).fill(0).map(() => Math.random() * h / 20);
+    const chars = '{}[]<>=>$01'.split('');
 
     let raf: number;
     const draw = () => {
-      ctx.fillStyle = 'rgba(3, 3, 5, 0.06)';
+      ctx.fillStyle = 'rgba(3, 3, 5, 0.04)';
       ctx.fillRect(0, 0, w, h);
 
-      // Draw grid lines
-      gridLines.forEach(line => {
-        ctx.strokeStyle = line.color;
-        ctx.globalAlpha = line.alpha;
+      // Draw candlesticks (very subtle)
+      candles.forEach(c => {
+        const green = c.close < c.open;
+        const color = green ? 'rgba(0, 229, 255, 0.04)' : 'rgba(255, 107, 43, 0.04)';
+        const wickColor = green ? 'rgba(0, 229, 255, 0.025)' : 'rgba(255, 107, 43, 0.025)';
+
+        // Wick
+        ctx.strokeStyle = wickColor;
         ctx.lineWidth = 1;
         ctx.beginPath();
-        if (line.horizontal) {
-          ctx.moveTo(line.x, line.y);
-          ctx.lineTo(line.x + line.length, line.y);
-        } else {
-          ctx.moveTo(line.x, line.y);
-          ctx.lineTo(line.x, line.y + line.length);
-        }
+        ctx.moveTo(c.x, c.high);
+        ctx.lineTo(c.x, c.low);
         ctx.stroke();
-        line.y -= 0.1;
-        if (line.y < -line.length) line.y = h + 10;
+
+        // Body
+        ctx.fillStyle = color;
+        const top = Math.min(c.open, c.close);
+        const bodyH = Math.max(Math.abs(c.close - c.open), 2);
+        ctx.fillRect(c.x - 5, top, 10, bodyH);
       });
 
-      // Draw particles
-      particles.forEach(p => {
-        ctx.globalAlpha = p.alpha;
-        ctx.fillStyle = p.color;
-        ctx.font = `${p.size}px "Share Tech Mono", monospace`;
-        ctx.fillText(p.char, p.x, p.y);
-        p.x += p.vx;
-        p.y += p.vy * p.speed;
-        if (p.y < -20) { p.y = h + 20; p.x = Math.random() * w; }
-        if (p.x < -20) p.x = w + 20;
-        if (p.x > w + 20) p.x = -20;
-      });
+      // Slow code rain
+      for (let i = 0; i < cols; i++) {
+        const char = chars[Math.floor(Math.random() * chars.length)];
+        const x = i * 50;
+        const y = drops[i] * 50;
+        const isLeft = x < w / 2;
+        ctx.fillStyle = isLeft ? 'rgba(0, 229, 255, 0.035)' : 'rgba(255, 107, 43, 0.035)';
+        ctx.font = '11px "Share Tech Mono", monospace';
+        ctx.fillText(char, x, y);
+        if (y > h && Math.random() > 0.99) drops[i] = 0;
+        drops[i] += 0.15;
+      }
 
-      ctx.globalAlpha = 1;
       raf = requestAnimationFrame(draw);
     };
     raf = requestAnimationFrame(draw);
