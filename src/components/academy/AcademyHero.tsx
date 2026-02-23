@@ -185,48 +185,66 @@ const MiniChart = () => {
 };
 
 export const AcademyHero = () => (
-  <section className="relative flex items-center justify-center px-4 py-12 sm:py-20 overflow-hidden" style={{ background: '#080c08' }}>
-    {/* Subtle grid — very faint */}
+  <section className="relative flex items-center justify-center px-4 py-6 sm:py-20 overflow-hidden" style={{ background: '#080c08' }}>
+    {/* Subtle grid */}
     <div className="absolute inset-0 opacity-[0.025]" style={{
       backgroundImage: 'linear-gradient(rgba(0,255,136,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,136,0.2) 1px, transparent 1px)',
       backgroundSize: '48px 48px',
     }} />
-    {/* Subtle radial glow */}
     <div className="absolute inset-0" style={{
       background: 'radial-gradient(ellipse 60% 40% at 50% 40%, rgba(0,255,136,0.04) 0%, transparent 70%)',
     }} />
 
     <div className="relative z-10 w-full max-w-4xl mx-auto">
-      <div className="text-center mb-6">
-        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.05 }} className="mb-3">
+      <div className="text-center mb-3 sm:mb-6">
+        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.05 }} className="mb-2 sm:mb-3">
           <Link to="/">
-            <img src="/images/sm-logo-new.png" alt="Stackmode Academy Christopher Robinson StackmodeChris" className="w-14 h-14 rounded-full object-cover mx-auto shadow-lg cursor-pointer" style={{ border: '2px solid rgba(0,255,136,0.25)', boxShadow: '0 0 16px rgba(0,255,136,0.1)' }} />
+            <img src="/images/sm-logo-new.png" alt="Stackmode Academy Christopher Robinson StackmodeChris" className="w-11 h-11 sm:w-14 sm:h-14 rounded-full object-cover mx-auto shadow-lg cursor-pointer" style={{ border: '2px solid rgba(0,255,136,0.25)', boxShadow: '0 0 16px rgba(0,255,136,0.1)' }} />
           </Link>
         </motion.div>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-          className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 mb-4"
+          className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 mb-2 sm:mb-4"
           style={{ background: 'rgba(0,255,136,0.06)', border: '1px solid rgba(0,255,136,0.15)' }}>
           <Star size={11} style={{ color: '#00ff88', fill: '#00ff88' }} />
           <span className="text-[10px] font-medium" style={{ color: 'rgba(0,255,136,0.8)', fontFamily: "'Share Tech Mono', monospace" }}>Founded by Christopher Robinson</span>
         </motion.div>
 
         <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-          className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-3 leading-tight"
+          className="text-xl sm:text-4xl lg:text-5xl font-bold mb-2 sm:mb-3 leading-tight"
           style={{ color: '#f0f0f0', fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.02em' }}>
           STACKMODE ACADEMY — LEARN AI SOFTWARE, TRADING & ASSET STACKING
         </motion.h1>
 
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-          className="text-xs sm:text-sm mb-5 max-w-lg mx-auto leading-relaxed"
+          className="text-xs sm:text-sm mb-3 sm:mb-5 max-w-lg mx-auto leading-relaxed"
           style={{ color: 'rgba(255,255,255,0.55)', fontFamily: "'DM Sans', sans-serif" }}>
           Build software with AI. Learn to trade the markets. Stack your assets and build wealth. Zero experience required.
         </motion.p>
       </div>
 
-      {/* Terminal + Chart side by side on desktop */}
+      {/* CTA — appears before terminal so it's above the fold on mobile */}
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }} className="text-center mb-4 sm:mb-6">
+        <a href="https://whop.com/stackmode-academy/educationalservice/" target="_blank" rel="noopener noreferrer"
+          className="group inline-flex items-center justify-center gap-2 font-bold px-8 py-3.5 rounded-lg transition-all text-sm hover:scale-[1.02]"
+          style={{
+            background: 'rgba(0,255,136,0.12)',
+            color: '#00ff88',
+            border: '1.5px solid rgba(0,255,136,0.35)',
+            boxShadow: '0 0 20px rgba(0,255,136,0.1)',
+            fontFamily: "'Bebas Neue', sans-serif",
+            letterSpacing: '0.1em',
+            fontSize: 17,
+          }}>
+          <GraduationCap size={18} />
+          JOIN THE STACKMODE ACADEMY — $50/MO
+        </a>
+        <p className="mt-2 text-[10px]" style={{ color: 'rgba(255,255,255,0.25)' }}>4.9★ rating · Cancel anytime</p>
+      </motion.div>
+
+      {/* Terminal + Chart — hidden on mobile to keep CTA above fold */}
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }}
-        className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+        className="hidden sm:grid grid-cols-2 gap-4">
         <TerminalCode />
         <div className="flex flex-col justify-center">
           <MiniChart />
@@ -243,25 +261,6 @@ export const AcademyHero = () => (
             ))}
           </div>
         </div>
-      </motion.div>
-
-      {/* CTA */}
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="text-center">
-        <a href="https://whop.com/stackmode-academy/educationalservice/" target="_blank" rel="noopener noreferrer"
-          className="group inline-flex items-center justify-center gap-2 font-bold px-8 py-3.5 rounded-lg transition-all text-sm hover:scale-[1.02]"
-          style={{
-            background: 'rgba(0,255,136,0.12)',
-            color: '#00ff88',
-            border: '1.5px solid rgba(0,255,136,0.35)',
-            boxShadow: '0 0 20px rgba(0,255,136,0.1)',
-            fontFamily: "'Bebas Neue', sans-serif",
-            letterSpacing: '0.1em',
-            fontSize: 17,
-          }}>
-          <GraduationCap size={18} />
-          JOIN THE STACKMODE ACADEMY — $50/MO
-        </a>
-        <p className="mt-3 text-[10px]" style={{ color: 'rgba(255,255,255,0.25)' }}>4.9★ rating · Cancel anytime</p>
       </motion.div>
     </div>
   </section>
