@@ -1,28 +1,5 @@
-# Stackmode.net Robots.txt
-# https://stackmode.net
-
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: LinkedInBot
-Allow: /
-
-User-agent: Discordbot
-Allow: /
-
 User-agent: *
 Allow: /
-
-# Sitemap
 Sitemap: https://stackmode.net/sitemap.xml
+Disallow: /admin
+Disallow: /private
