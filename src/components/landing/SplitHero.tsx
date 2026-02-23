@@ -528,7 +528,7 @@ const TopBar = () => {
    ═══════════════════════════════════════════════ */
 const StatusBar = ({ hover }: { hover: 'left' | 'right' | null }) => (
   <footer
-    className="fixed bottom-0 left-0 right-0 z-[200] flex items-center justify-between px-5 sm:px-8"
+    className="fixed bottom-0 left-0 right-0 z-[200] hidden sm:flex items-center justify-between px-5 sm:px-8"
     style={{
       height: 32,
       background: 'rgba(4,4,10,0.92)',
@@ -562,7 +562,7 @@ const StatusBar = ({ hover }: { hover: 'left' | 'right' | null }) => (
    ═══════════════════════════════════════════════ */
 const SocialFooterStrip = () => (
   <nav
-    className="fixed z-[201] left-0 right-0 flex items-center justify-center gap-6"
+    className="fixed z-[201] left-0 right-0 hidden sm:flex items-center justify-center gap-6"
     style={{
       bottom: 32,
       height: 28,
@@ -760,9 +760,9 @@ const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>)
           aria-label="Join Stackmode Academy for $50 per month — AI coding and trading school by StackmodeChris"
         >
           <div className="absolute inset-0 bg-[#00ff88] -translate-x-full group-hover/cta:translate-x-0 transition-transform duration-300" />
-          <span className="relative z-10 text-[16px] sm:text-[18px] tracking-[0.15em] transition-colors duration-300 group-hover/cta:text-black" style={{
+          <span className="relative z-10 text-[16px] sm:text-[18px] tracking-[0.15em] font-bold transition-colors duration-300 group-hover/cta:!text-[#04040a]" style={{
             fontFamily: "'Bebas Neue', sans-serif",
-            color: '#00ff88',
+            color: hovered ? '#fff' : '#00ff88',
           }}>
             JOIN ACADEMY →
           </span>
@@ -890,9 +890,9 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
           aria-label="Boost your brand with CEO Turbo — digital business cards and brand strategy by Christopher Robinson"
         >
           <div className="absolute inset-0 bg-[#00cfff] -translate-x-full group-hover/cta:translate-x-0 transition-transform duration-300" />
-          <span className="relative z-10 text-[16px] sm:text-[18px] tracking-[0.15em] transition-colors duration-300 group-hover/cta:text-black" style={{
+          <span className="relative z-10 text-[16px] sm:text-[18px] tracking-[0.15em] font-bold transition-colors duration-300 group-hover/cta:!text-[#04040a]" style={{
             fontFamily: "'Bebas Neue', sans-serif",
-            color: '#00cfff',
+            color: hovered ? '#fff' : '#00cfff',
           }}>
             BOOST BRAND →
           </span>
@@ -951,7 +951,7 @@ const SplitHero = () => {
         background: '#04040a',
         height: '100dvh',
         paddingTop: 70,
-        paddingBottom: 32,
+        paddingBottom: 0,
       }}>
         {/* Center vertical divider */}
         <div className="absolute left-1/2 top-[15%] bottom-[15%] w-[1px] z-[100] hidden md:block" style={{

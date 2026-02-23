@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import { AcademyHero } from '@/components/academy/AcademyHero';
 import { ReviewWall } from '@/components/ReviewWall';
 import { SoftwareShowcase } from '@/components/SoftwareShowcase';
@@ -102,12 +103,12 @@ const Home = () => {
         style={{ background: 'rgba(6,13,6,0.95)', borderBottom: '1px solid rgba(0,255,136,0.1)' }}>
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex items-center justify-between h-14">
-            <button
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            <Link
+              to="/"
               className="flex items-center gap-2 focus:outline-none">
               <img src="/images/sm-logo-new.png" alt="Stackmode Academy Christopher Robinson StackmodeChris" className="w-9 h-9 rounded-full object-cover" />
               <span className="text-sm font-bold text-foreground font-mono">STACKMODE ACADEMY</span>
-            </button>
+            </Link>
             <a
               href="https://whop.com/stackmode-academy/educationalservice/"
               target="_blank"
