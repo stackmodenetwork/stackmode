@@ -8,7 +8,7 @@ const books = [
 ];
 
 export const AcademyFooter = () => (
-  <footer className="bg-background border-t border-border/50 py-8 px-4">
+  <footer className="border-t py-8 px-4" style={{ background: '#04040a', borderColor: 'rgba(255,255,255,0.04)' }}>
     <div className="max-w-5xl mx-auto">
       {/* Books Section */}
       <div className="mb-8 text-center">

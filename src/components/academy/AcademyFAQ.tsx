@@ -25,7 +25,7 @@ const faqs = [
 ];
 
 export const AcademyFAQ = () => (
-  <section className="py-14 sm:py-18 px-4 bg-card/30">
+  <section className="py-14 sm:py-18 px-4" style={{ background: 'rgba(255,255,255,0.015)' }}>
     <div className="max-w-3xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 20 }}

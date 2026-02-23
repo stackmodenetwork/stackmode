@@ -22,7 +22,7 @@ const Home = () => {
   }, []);
 
   return (
-    <main className="min-h-screen relative overflow-x-hidden" style={{ background: '#060d06' }}>
+    <main className="min-h-screen relative overflow-x-hidden" style={{ background: '#04040a' }}>
       <Helmet>
         <title>Stackmode Academy | Learn AI Software, Trading & Asset Stacking | Christopher Robinson</title>
         <meta name="description" content="Stackmode Academy by Christopher Robinson (StackmodeChris) is the #1 online learning academy for mastering AI software development, trading the financial markets, and stacking your assets to build real wealth. Join thousands of students worldwide." />
@@ -30,7 +30,7 @@ const Home = () => {
       </Helmet>
 
       {/* Top Category Bar */}
-      <nav className="relative z-50 backdrop-blur-md border-b" style={{ background: 'rgba(6,13,6,0.95)', borderColor: 'rgba(0,255,136,0.1)' }}>
+      <nav className="relative z-50 backdrop-blur-md border-b" style={{ background: 'rgba(4,4,10,0.95)', borderColor: 'rgba(255,255,255,0.06)' }}>
         <div className="max-w-6xl mx-auto px-4">
           {/* Desktop: show all links */}
           <div className="hidden sm:flex items-center justify-center gap-2 py-2.5 flex-wrap">
@@ -100,7 +100,7 @@ const Home = () => {
       <header
         className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-transform duration-300 ${
         showStickyHeader ? 'translate-y-0' : '-translate-y-full'}`}
-        style={{ background: 'rgba(6,13,6,0.95)', borderBottom: '1px solid rgba(0,255,136,0.1)' }}>
+        style={{ background: 'rgba(4,4,10,0.95)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex items-center justify-between h-14">
             <Link

@@ -46,7 +46,7 @@ const books = [
 
 const Library = () => {
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen" style={{ background: '#04040a' }}>
       <Helmet>
         <title>Books & Audiobooks | Stackmode Academy by Christopher Robinson (StackmodeChris)</title>
         <meta name="description" content="Read or listen to Stackmode Academy books by Christopher Robinson (StackmodeChris) on Amazon Kindle, Paperback, and Google Play Audiobooks. Master trading psychology, asset stacking, and financial freedom." />
@@ -54,7 +54,7 @@ const Library = () => {
       </Helmet>
 
       {/* Header */}
-      <header className="bg-background/80 backdrop-blur-md border-b border-border/50 sticky top-0 z-40">
+      <header className="backdrop-blur-md border-b sticky top-0 z-40" style={{ background: 'rgba(4,4,10,0.95)', borderColor: 'rgba(255,255,255,0.06)' }}>
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <Link to="/" className="flex items-center gap-2">
@@ -85,7 +85,7 @@ const Library = () => {
 
       {/* Hero */}
       <section className="relative py-14 sm:py-20 px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-amber-500/5 to-transparent" />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(245,158,11,0.03), transparent)' }} />
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <ScrollReveal>
             <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 rounded-full px-4 py-2 mb-5">
@@ -117,7 +117,7 @@ const Library = () => {
         <StaggerContainer className="max-w-4xl mx-auto space-y-6">
           {books.map((book) => (
             <StaggerItem key={book.title}>
-              <div className="bg-card/60 border border-border/50 rounded-2xl p-5 sm:p-7 flex flex-col sm:flex-row gap-5 sm:gap-7 items-center sm:items-start">
+              <div className="border rounded-2xl p-5 sm:p-7 flex flex-col sm:flex-row gap-5 sm:gap-7 items-center sm:items-start" style={{ background: 'rgba(255,255,255,0.02)', borderColor: 'rgba(255,255,255,0.06)' }}>
                 {/* Book Cover */}
                 <a href={book.link} target="_blank" rel="noopener noreferrer" className="flex-shrink-0 group">
                   <img
@@ -171,7 +171,7 @@ const Library = () => {
       {/* Free Education CTA */}
       <section className="py-14 px-4 pb-20">
         <ScrollReveal>
-          <div className="max-w-2xl mx-auto text-center bg-card/60 border border-amber-500/20 rounded-2xl p-8 sm:p-10">
+          <div className="max-w-2xl mx-auto text-center rounded-2xl p-8 sm:p-10" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(245,158,11,0.15)' }}>
             <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 rounded-full px-4 py-1.5 mb-4">
               <Gift size={14} className="text-amber-500" />
               <span className="text-amber-500 text-xs font-bold">100% FREE</span>
@@ -195,7 +195,7 @@ const Library = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-background border-t border-border/50 py-6 px-4">
+      <footer className="border-t py-6 px-4" style={{ background: '#04040a', borderColor: 'rgba(255,255,255,0.04)' }}>
         <div className="max-w-4xl mx-auto text-center">
         <p className="text-xs text-muted-foreground/50">Stackmode Academy | Founded by Christopher Robinson | StackmodeChris | The #1 Academy for AI Software, Trading & Asset Stacking | stackmode.net</p>
         <p className="text-[10px] text-muted-foreground/30 mt-1">© {new Date().getFullYear()} Stackmode Academy. All rights reserved.</p>
