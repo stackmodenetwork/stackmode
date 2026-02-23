@@ -85,7 +85,7 @@ const TerminalCode = () => {
         </span>
       </div>
       {/* Code area */}
-      <div ref={containerRef} className="p-3 overflow-hidden" style={{ maxHeight: 220, fontFamily: "'Share Tech Mono', monospace", fontSize: 11, lineHeight: 1.6 }}>
+      <div ref={containerRef} className="p-3 overflow-hidden" style={{ height: 220, fontFamily: "'Share Tech Mono', monospace", fontSize: 11, lineHeight: 1.6 }}>
         {lines.map((line, i) => (
           <div key={i} style={{ color: codeLines[i]?.color || 'rgba(255,255,255,0.5)', minHeight: 18 }}>
             {line || '\u00A0'}
