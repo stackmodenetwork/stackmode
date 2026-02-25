@@ -865,9 +865,9 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
           Digital business cards. Brand boost calls. Premium web design. Your brand working 24/7 on autopilot.
         </p>
 
-        <div className="flex flex-wrap gap-2 mt-2">
-          {['NFC Cards', 'Brand Boost', 'Web Design', 'Revenue'].map(p => (
-            <span key={p} className="text-[10px] sm:text-[11px] tracking-wide px-3 py-1 rounded" style={{
+        <div className="flex flex-nowrap gap-1.5 sm:gap-2 mt-2">
+          {['NFC Cards', 'Brand Boost', 'Web Design', 'Stacking'].map(p => (
+            <span key={p} className="text-[9px] sm:text-[11px] tracking-wide px-2 sm:px-3 py-1 rounded whitespace-nowrap" style={{
               fontFamily: "'Syne', sans-serif",
               fontWeight: 600,
               background: 'rgba(0,207,255,0.08)',
@@ -897,6 +897,28 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
             BRAND BOOST →
           </span>
         </div>
+
+        {/* Get Your Card — anchor to purchase section */}
+        <a
+          href="#get-your-card"
+          onClick={(e) => { e.preventDefault(); e.stopPropagation(); document.getElementById('get-your-card')?.scrollIntoView({ behavior: 'smooth' }); }}
+          className="relative mt-2 overflow-hidden rounded transition-all duration-300 pointer-events-auto text-center"
+          style={{
+            border: '1px solid rgba(0,207,255,0.25)',
+            padding: '10px 24px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            background: 'rgba(0,207,255,0.04)',
+          }}
+        >
+          <span className="text-[13px] sm:text-[15px] tracking-[0.15em]" style={{
+            fontFamily: "'Bebas Neue', sans-serif",
+            color: 'rgba(0,207,255,0.7)',
+          }}>
+            GET YOUR TAP DIGITAL CARD ↓
+          </span>
+        </a>
       </div>
     </a>
   );
@@ -908,12 +930,14 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
 const SeoContent = () => (
   <div className="sr-only">
     <h1>Stackmode Academy — Learn AI, Coding, Software &amp; Trading Online | Christopher Robinson (StackmodeChris)</h1>
-    <h2>AI and Software Development Courses by StackmodeChris</h2>
-    <h2>Stock Trading and Crypto Investing School Online</h2>
-    <h2>CEO Turbo — NFC Digital Business Cards and Brand Boost</h2>
-    <h2>Learn to Code and Trade with Christopher Robinson</h2>
+    <h2>AI and Software Development Courses by StackmodeChris — Best Online Academy 2026</h2>
+    <h2>Stock Trading and Crypto Investing School Online — Learn to Trade Stocks Options Forex Crypto</h2>
+    <h2>CEO Turbo — NFC Digital Business Cards — Tap to Share — Buy Premium Digital Business Card</h2>
+    <h2>Learn to Code and Trade with Christopher Robinson — Python AI Web Development</h2>
+    <h2>Brand Boost Strategy Call — Personal Branding Course — Entrepreneur Education</h2>
+    <h2>Asset Stacking Course — Build Passive Income — Financial Freedom Academy</h2>
     <p>
-      Stackmode Academy is the ultimate online school for AI, coding, software development, and trading/investing. Founded by Christopher Robinson, known as StackmodeChris, based in Atlanta, Georgia. Our complete Code-Content-Capital system teaches you to build real digital assets, grow an audience that buys, and multiply your profits through smart investing. Learn Python programming, artificial intelligence tools, web development, stock market trading, and cryptocurrency investing — all in one ecosystem for just $50 per month. Follow StackmodeChris on Instagram at christopherrobinsonceo, YouTube at ChristopherRobinson-CEO, and TikTok at stackmodechris___. Also visit CEO Turbo at ceoturbo.com for NFC digital business cards, brand boost strategy calls, and premium web design services for entrepreneurs and CEOs.
+      Stackmode Academy is the ultimate online school for AI, coding, software development, and trading/investing. Founded by Christopher Robinson, known as StackmodeChris, based in Atlanta, Georgia. Our complete Code-Content-Capital system teaches you to build real digital assets, grow an audience that buys, and multiply your profits through smart investing. Learn Python programming, artificial intelligence tools, web development, stock market trading, and cryptocurrency investing — all in one ecosystem for just $50 per month. Get your premium NFC digital business card from CEO Turbo — tap to share your contact info, social links, and website instantly. No paper needed, always updated. CEO Turbo also offers brand boost strategy calls and premium web design for entrepreneurs, founders, and CEOs. Follow StackmodeChris on Instagram at christopherrobinsonceo, YouTube at ChristopherRobinson-CEO, and TikTok at stackmodechris___. Visit CEO Turbo at ceoturbo.com for NFC digital business cards, brand boost strategy calls, and premium web design services.
     </p>
   </div>
 );
@@ -932,16 +956,16 @@ const SplitHero = () => {
       <KeywordTicker />
       <SeoContent />
 
-      {/* "CHOOSE YOUR PATH" heading — fixed on desktop, static on mobile */}
-      <div className="hidden sm:flex fixed top-[48px] left-0 right-0 z-[201] justify-center pointer-events-none">
+      {/* "CHOOSE YOUR PATH" heading — visible on all devices */}
+      <div className="fixed top-2 sm:top-[48px] left-0 right-0 z-[201] flex justify-center pointer-events-none">
         <h2 style={{
           fontFamily: "'Bebas Neue', sans-serif",
-          fontSize: 'clamp(20px, 3vw, 32px)',
+          fontSize: 'clamp(16px, 3vw, 32px)',
           letterSpacing: '0.3em',
           color: '#f0f0f0',
           textAlign: 'center',
           margin: 0,
-          textShadow: '0 2px 24px rgba(0,0,0,0.9), 0 0 40px rgba(0,0,0,0.6)',
+          textShadow: '0 2px 24px rgba(0,0,0,0.95), 0 0 40px rgba(0,0,0,0.8), 0 0 80px rgba(0,0,0,0.6)',
         }}>
           CHOOSE YOUR PATH
         </h2>
