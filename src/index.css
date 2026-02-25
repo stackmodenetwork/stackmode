@@ -86,8 +86,16 @@
 }
 
 @layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    height: -webkit-fill-available;
+    overflow-x: hidden;
+  }
+
   * {
     @apply border-border;
+    -webkit-tap-highlight-color: transparent;
   }
 
   body {
@@ -95,16 +103,26 @@
     font-family: 'Inter', 'DM Sans', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'JetBrains Mono', 'Fira Code', monospace;
     letter-spacing: -0.02em;
     font-weight: 700;
+    text-rendering: optimizeLegibility;
   }
 
   code, pre, .font-mono {
     font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
   }
 
   #lovable-badge {
