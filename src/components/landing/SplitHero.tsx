@@ -968,16 +968,18 @@ const SplitHero = () => {
         <a
           href="#get-your-card"
           onClick={(e) => { e.preventDefault(); document.getElementById('get-your-card')?.scrollIntoView({ behavior: 'smooth' }); }}
-          className="pointer-events-auto px-4 py-1.5 sm:px-5 sm:py-2 rounded-full transition-all duration-300 hover:scale-105"
+          className="pointer-events-auto px-5 py-2 sm:px-7 sm:py-2.5 rounded-full transition-all duration-300 hover:scale-105"
           style={{
             fontFamily: "'Bebas Neue', sans-serif",
-            fontSize: 'clamp(10px, 1.8vw, 14px)',
+            fontSize: 'clamp(12px, 2.2vw, 16px)',
             letterSpacing: '0.15em',
             color: '#00cfff',
-            border: '1px solid rgba(0,207,255,0.3)',
-            background: 'rgba(4,4,10,0.8)',
+            border: '1px solid rgba(0,207,255,0.4)',
+            background: 'rgba(4,4,10,0.85)',
             backdropFilter: 'blur(8px)',
             textShadow: '0 0 12px rgba(0,207,255,0.4)',
+            boxShadow: '0 0 20px rgba(0,207,255,0.15), 0 0 40px rgba(0,207,255,0.05)',
+            animation: 'ctaPulse 2.5s ease-in-out infinite',
           }}
         >
           GET YOUR TAP DIGITAL CARD ↓
