@@ -5,7 +5,7 @@ const features = [
   'Complete AI Development Curriculum',
   'Trading & Investing Masterclasses',
   'Exclusive StackFinder AI Tool Access',
-  'Private Discord Community (24/7)',
+  'Private Community Chat (24/7)',
   'Live Trading Sessions (Weekly)',
   'Exclusive Educational Video Content',
   'Portfolio & Business Templates',

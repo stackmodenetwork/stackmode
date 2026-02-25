@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     q: 'What do I get for $50/mo?',
-    a: '200+ hours of tutorials, the StackFinder AI tool, private Discord community, live trading sessions, AI coding lessons, and new content every week. Cancel anytime.',
+    a: 'Exclusive educational video content, the StackFinder AI tool, private community chat, live trading sessions, AI coding lessons, and new content every week. Cancel anytime.',
   },
   {
     q: 'Can I cancel anytime?',
@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: 'Is there a community?',
-    a: "Yes — a private Discord with daily engagement. Connect with other students, share wins, get feedback, discuss trades, and stay accountable.",
+    a: "Yes — a private community chat with daily engagement. Connect with other students, share wins, get feedback, discuss trades, and stay accountable.",
   },
 ];
 
