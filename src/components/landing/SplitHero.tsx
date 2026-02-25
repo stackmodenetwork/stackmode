@@ -806,14 +806,10 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
 
       <WireframeCanvas />
 
-      {/* Cyan radial glow — much stronger for visibility */}
+      {/* Cyan radial glow — subtle, doesn't tint the background */}
       <div className="absolute inset-0 pointer-events-none z-[3] transition-opacity duration-500" style={{
-        background: 'radial-gradient(600px circle at 50% 60%, rgba(0,207,255,0.18) 0%, transparent 70%)',
-        opacity: hovered ? 1 : 0.7,
-      }} />
-      {/* Secondary edge glow */}
-      <div className="absolute inset-0 pointer-events-none z-[3]" style={{
-        background: 'linear-gradient(135deg, rgba(0,207,255,0.06) 0%, transparent 50%, rgba(0,207,255,0.04) 100%)',
+        background: 'radial-gradient(600px circle at 50% 60%, rgba(0,207,255,0.06) 0%, transparent 70%)',
+        opacity: hovered ? 1 : 0.4,
       }} />
 
       {/* Corner brackets */}
