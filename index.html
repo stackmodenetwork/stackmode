@@ -122,34 +122,55 @@
     }
     </script>
 
-    <!-- Structured Data - Person (Extended) -->
+    <!-- Structured Data - Person & Orgs Graph -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Christopher Robinson",
-      "alternateName": ["Stackmodechris", "Christopher Robinson CEO"],
-      "url": "https://stackmode.net",
-      "sameAs": [
-        "https://www.youtube.com/@ChristopherRobinson-CEO",
-        "https://x.com/ChristopherRCEO",
-        "https://www.instagram.com/christopherrobinsonceo/",
-        "https://ceoturbo.com/"
-      ],
-      "jobTitle": "CEO",
-      "worksFor": [
+      "@graph": [
         {
-          "@type": "Organization",
-          "name": "Stackmode Network",
-          "url": "https://stackmode.net"
+          "@type": "Person",
+          "@id": "https://stackmode.net/#person",
+          "name": "Christopher Robinson",
+          "alternateName": ["Stackmodechris", "Christopher Robinson CEO"],
+          "url": "https://stackmode.net",
+          "jobTitle": "CEO",
+          "knowsAbout": ["Trading","Coding","Business Scaling","Website Design","Digital Tap Business Cards","Artificial Intelligence","Search Engine Optimization"],
+          "sameAs": [
+            "https://www.youtube.com/@ChristopherRobinson-CEO",
+            "https://x.com/ChristopherRCEO",
+            "https://www.instagram.com/christopherrobinsonceo/",
+            "https://www.tiktok.com/@stackmodechris___",
+            "https://www.linkedin.com/in/stackmodechris/",
+            "https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet",
+            "https://discord.gg/5zYWSWGMYm",
+            "https://ceoturbo.com/"
+          ],
+          "worksFor": [
+            { "@id": "https://stackmode.net/#organization" },
+            { "@id": "https://ceoturbo.com/#organization" }
+          ]
         },
         {
           "@type": "Organization",
-          "name": "CEOTurbo",
+          "@id": "https://stackmode.net/#organization",
+          "name": "Stackmode Academy",
+          "url": "https://stackmode.net",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "8735 DUNWOODY PLACE # 12143",
+            "addressLocality": "ATLANTA",
+            "addressRegion": "GA",
+            "postalCode": "30350",
+            "addressCountry": "US"
+          }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://ceoturbo.com/#organization",
+          "name": "Ceoturbo",
           "url": "https://ceoturbo.com"
         }
-      ],
-      "description": "Christopher Robinson is the CEO of Stackmode Network and CEOTurbo, helping entrepreneurs master AI, trading, and SEO strategies."
+      ]
     }
     </script>
 
