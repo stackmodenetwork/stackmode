@@ -118,7 +118,7 @@ const DigitalCardPurchase = () => {
   }, [buyBtnLoaded]);
 
   return (
-    <section className="relative w-full py-16 sm:py-24 px-4 overflow-hidden" style={{ background: '#04040a' }}>
+    <section id="get-your-card" className="relative w-full py-16 sm:py-24 px-4 overflow-hidden" style={{ background: '#04040a' }}>
       {/* Subtle grid */}
       <div className="absolute inset-0 opacity-[0.015]" style={{
         backgroundImage: 'linear-gradient(rgba(0,207,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(0,207,255,0.15) 1px, transparent 1px)',
