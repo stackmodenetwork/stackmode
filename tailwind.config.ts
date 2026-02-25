@@ -79,6 +79,12 @@ export default {
 				'body': ['DM Sans', 'sans-serif'],
 				'mono': ['JetBrains Mono', 'monospace']
 			},
+			height: {
+				screen: '100dvh',
+			},
+			minHeight: {
+				screen: '100dvh',
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',

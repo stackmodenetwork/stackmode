@@ -504,6 +504,8 @@ const TopBar = () => {
         background: 'rgba(4,4,10,0.92)',
         backdropFilter: 'blur(16px)',
         borderBottom: '1px solid rgba(255,255,255,0.04)',
+        willChange: 'transform',
+        transform: 'translateZ(0)',
       }}
     >
       <div className="flex items-center gap-0">
@@ -533,6 +535,8 @@ const StatusBar = ({ hover }: { hover: 'left' | 'right' | null }) => (
       height: 32,
       background: 'rgba(4,4,10,0.92)',
       borderTop: '1px solid rgba(255,255,255,0.03)',
+      willChange: 'transform',
+      transform: 'translateZ(0)',
       fontFamily: "'Share Tech Mono', monospace",
       fontSize: 8,
       letterSpacing: '2px',
@@ -568,6 +572,8 @@ const SocialFooterStrip = () => (
       height: 28,
       background: 'rgba(4,4,10,0.95)',
       borderTop: '1px solid rgba(255,255,255,0.02)',
+      willChange: 'transform',
+      transform: 'translateZ(0)',
       fontFamily: "'Share Tech Mono', monospace",
       fontSize: 8,
       letterSpacing: '3px',
@@ -951,6 +957,7 @@ const SplitHero = () => {
           transition: 'opacity 0.4s ease, transform 0.4s ease',
           opacity: showFixedHeader ? 1 : 0,
           transform: showFixedHeader ? 'translateY(0)' : 'translateY(-20px)',
+          willChange: 'transform, opacity',
         }}
       >
         <h2 style={{
