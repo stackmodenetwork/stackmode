@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { BookOpen, Headphones } from 'lucide-react';
+import { BookOpen, Headphones, ShoppingCart } from 'lucide-react';
 
 const books = [
   { title: 'Neuro Trading', image: '/images/books/neuro-trading.jpg', link: 'https://a.co/d/0bz50oF', audiobookLink: 'https://play.google.com/store/audiobooks/details?id=AQAAAEAaGWdZbM' },
@@ -16,29 +16,42 @@ export const AcademyFooter = () => (
           <BookOpen size={18} className="text-amber-500" />
           <h3 className="text-sm font-bold text-foreground">Books & Audiobooks on Amazon</h3>
         </div>
-        <div className="flex items-center justify-center gap-4 sm:gap-6">
+        <div className="flex items-center justify-center gap-4 sm:gap-8">
           {books.map((book) => (
-            <a key={book.title} href={book.link} target="_blank" rel="noopener noreferrer" className="group">
-              <img
-                src={book.image}
-                alt={`${book.title} by Christopher Robinson StackmodeChris - Stackmode Academy`}
-                className="w-20 sm:w-24 h-auto rounded-lg border border-border/50 group-hover:border-amber-500/50 transition-all group-hover:scale-105 shadow-md"
-              />
-              <p className="text-[10px] sm:text-xs text-muted-foreground group-hover:text-amber-500 mt-1.5 text-center transition-colors">{book.title}</p>
+            <div key={book.title} className="flex flex-col items-center gap-1.5">
+              <a href={book.link} target="_blank" rel="noopener noreferrer" className="group">
+                <img
+                  src={book.image}
+                  alt={`${book.title} by Christopher Robinson StackmodeChris - Stackmode Academy`}
+                  className="w-20 sm:w-24 h-auto rounded-lg border border-border/50 group-hover:border-amber-500/50 transition-all group-hover:scale-105 shadow-md"
+                  width={96} height={144} loading="lazy"
+                />
+              </a>
+              <p className="text-[10px] sm:text-xs text-foreground font-semibold mt-1">{book.title}</p>
+              <a
+                href={book.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 bg-amber-500 hover:bg-amber-400 text-background font-bold px-3 py-1.5 rounded-md transition-all text-[10px] sm:text-[11px] shadow-sm"
+              >
+                <ShoppingCart size={11} />
+                Order on Amazon
+              </a>
               <a
                 href={book.audiobookLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                className="inline-flex items-center gap-1 mt-1 text-[9px] sm:text-[10px] font-medium text-primary hover:text-primary/80 transition-colors"
+                className="inline-flex items-center gap-1 text-[9px] sm:text-[10px] font-medium text-primary hover:text-primary/80 transition-colors"
               >
                 <Headphones size={10} />
-                Google Play Audio
+                Google Play Audio · $9.99
               </a>
-            </a>
+            </div>
           ))}
         </div>
-        <p className="text-[10px] text-muted-foreground/60 mt-3">eBook/Audio $9.99 · Paperback $19.99</p>
+        <p className="text-[10px] text-muted-foreground/70 mt-3">
+          eBook/Audio <span className="font-bold text-foreground">$9.99</span> · Paperback <span className="font-bold text-foreground">$19.99</span> · Fast Delivery
+        </p>
       </div>
 
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
