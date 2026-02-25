@@ -212,12 +212,12 @@ const DigitalCardPurchase = () => {
               }}
             >
               {/* QR grid */}
-              <div className="w-24 h-24 rounded-lg border grid grid-cols-5 grid-rows-5 gap-[2px] p-2" style={{ borderColor: 'rgba(255,255,255,0.08)' }}>
+              <div className="w-24 h-24 rounded-lg border grid grid-cols-5 grid-rows-5 gap-[2px] p-2" style={{ borderColor: 'rgba(255,255,255,0.25)' }}>
                 {Array(25).fill(null).map((_, i) => (
-                  <div key={i} className="rounded-sm" style={{ background: [0,1,2,5,6,10,12,14,18,19,20,23,24].includes(i) ? 'rgba(255,255,255,0.15)' : 'transparent' }} />
+                  <div key={i} className="rounded-sm" style={{ background: [0,1,2,5,6,10,12,14,18,19,20,23,24].includes(i) ? 'rgba(255,255,255,0.55)' : 'transparent' }} />
                 ))}
               </div>
-              <div className="text-[10px] text-white/20 tracking-[0.2em]" style={{ fontFamily: "'Share Tech Mono', monospace" }}>
+              <div className="text-[10px] text-white/60 tracking-[0.2em]" style={{ fontFamily: "'Share Tech Mono', monospace" }}>
                 TAP OR SCAN TO CONNECT
               </div>
             </div>
