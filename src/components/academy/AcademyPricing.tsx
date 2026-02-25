@@ -7,7 +7,7 @@ const features = [
   'Exclusive StackFinder AI Tool Access',
   'Private Discord Community (24/7)',
   'Live Trading Sessions (Weekly)',
-  '200+ Hours of Video Content',
+  'Exclusive Educational Video Content',
   'Portfolio & Business Templates',
   'Priority Campus Access (Atlanta 2026)',
   'New Content Added Weekly',
