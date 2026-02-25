@@ -4,7 +4,7 @@ import CustomCursor from '@/components/landing/CustomCursor';
 import DigitalCardPurchase from '@/components/landing/DigitalCardPurchase';
 
 const Landing = () => (
-  <div className="relative" style={{ background: '#04040a' }}>
+  <div className="relative" style={{ background: '#04040a', overflowX: 'hidden', WebkitOverflowScrolling: 'touch' }}>
     <Helmet>
       <title>Stackmode Academy | AI, Coding, Software &amp; Trading School | StackmodeChris | Christopher Robinson</title>
       <meta name="description" content="Stackmode Academy — founded by Christopher Robinson (StackmodeChris). Learn AI tools, software development, Python coding, stock trading, and investing. Get your NFC digital business card from CEO Turbo. Code. Content. Capital. Join for $50/month at stackmode.net" />

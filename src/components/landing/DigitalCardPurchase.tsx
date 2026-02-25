@@ -153,7 +153,7 @@ const DigitalCardPurchase = () => {
         }}
       >
         {/* Section label */}
-        <p className="text-[10px] tracking-[0.4em] text-white/20 mb-6 uppercase" style={{ fontFamily: "'Share Tech Mono', monospace" }}>
+        <p className="text-[10px] tracking-[0.4em] text-white/40 mb-6 uppercase" style={{ fontFamily: "'Share Tech Mono', monospace" }}>
           // CEO TURBO — NFC DIGITAL BUSINESS CARDS
         </p>
 
@@ -163,7 +163,7 @@ const DigitalCardPurchase = () => {
         >
           GET YOUR DIGITAL CARD
         </h2>
-        <p className="text-white/40 text-sm sm:text-base text-center max-w-lg mb-10" style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 300 }}>
+        <p className="text-white/60 text-sm sm:text-base text-center max-w-lg mb-10" style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 300 }}>
           Premium NFC digital business card — tap to share your brand instantly. No paper. No limits. Always updated.
         </p>
 
@@ -254,7 +254,7 @@ const DigitalCardPurchase = () => {
         <div ref={buyBtnRef} className="w-full max-w-[580px] mx-auto" />
       </div>
 
-      {/* Card spin keyframes */}
+      {/* Keyframes */}
       <style>{`
         @keyframes cardSpin {
           0% { transform: rotateY(0deg) rotateX(2deg); }
@@ -262,6 +262,10 @@ const DigitalCardPurchase = () => {
           50% { transform: rotateY(180deg) rotateX(2deg); }
           75% { transform: rotateY(360deg) rotateX(-2deg); }
           100% { transform: rotateY(360deg) rotateX(2deg); }
+        }
+        @keyframes ctaPulse {
+          0%, 100% { box-shadow: 0 0 20px rgba(0,207,255,0.15), 0 0 40px rgba(0,207,255,0.05); }
+          50% { box-shadow: 0 0 28px rgba(0,207,255,0.3), 0 0 60px rgba(0,207,255,0.12); border-color: rgba(0,207,255,0.6); }
         }
       `}</style>
     </section>
