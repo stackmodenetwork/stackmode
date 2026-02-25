@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import RevenueAccelerationBg from './RevenueAccelerationBg';
 
 const DigitalCardPurchase = () => {
   const buyBtnRef = useRef<HTMLDivElement>(null);
@@ -117,15 +118,40 @@ const DigitalCardPurchase = () => {
     }
   }, [buyBtnLoaded]);
 
+  // Scroll-triggered entrance
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setIsVisible(true); obs.disconnect(); } },
+      { threshold: 0.1 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
   return (
-    <section id="get-your-card" className="relative w-full py-16 sm:py-24 px-4 overflow-hidden" style={{ background: '#04040a' }}>
+    <section ref={sectionRef} id="get-your-card" className="relative w-full py-16 sm:py-24 px-4 overflow-hidden" style={{ background: '#04040a' }}>
+      {/* Revenue acceleration animated background */}
+      <RevenueAccelerationBg />
+
       {/* Subtle grid */}
       <div className="absolute inset-0 opacity-[0.015]" style={{
         backgroundImage: 'linear-gradient(rgba(0,207,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(0,207,255,0.15) 1px, transparent 1px)',
         backgroundSize: '48px 48px',
       }} />
 
-      <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
+      <div
+        className="relative z-10 max-w-4xl mx-auto flex flex-col items-center"
+        style={{
+          transition: 'opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1)',
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? 'translateY(0)' : 'translateY(40px)',
+        }}
+      >
         {/* Section label */}
         <p className="text-[10px] tracking-[0.4em] text-white/20 mb-6 uppercase" style={{ fontFamily: "'Share Tech Mono', monospace" }}>
           // CEO TURBO — NFC DIGITAL BUSINESS CARDS
