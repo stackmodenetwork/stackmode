@@ -789,13 +789,13 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
         transition: 'flex 0.65s cubic-bezier(0.77, 0, 0.175, 1), box-shadow 0.4s ease',
         cursor: 'none',
         minHeight: undefined,
-        boxShadow: hovered ? 'inset 0 0 80px rgba(0,207,255,0.08), 0 0 40px rgba(0,207,255,0.06)' : 'none',
+        boxShadow: hovered ? 'inset 0 0 100px rgba(0,207,255,0.12), 0 0 60px rgba(0,207,255,0.1)' : 'inset 0 0 40px rgba(0,207,255,0.04)',
         borderLeft: hovered ? '1px solid rgba(0,207,255,0.15)' : '1px solid transparent',
       }}
     >
-      {/* Dark overlay */}
+      {/* Dark overlay — lighter than Academy to let cyan glow through */}
       <div className="absolute inset-0 z-[1] transition-all duration-500" style={{
-        background: hovered ? 'rgba(4,4,10,0.5)' : 'rgba(4,4,10,0.7)',
+        background: hovered ? 'rgba(4,4,10,0.35)' : 'rgba(4,4,10,0.55)',
       }} />
 
       {/* Grid overlay */}
@@ -806,10 +806,14 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
 
       <WireframeCanvas />
 
-      {/* Cyan radial glow */}
+      {/* Cyan radial glow — much stronger for visibility */}
       <div className="absolute inset-0 pointer-events-none z-[3] transition-opacity duration-500" style={{
-        background: 'radial-gradient(600px circle at 50% 60%, rgba(0,207,255,0.07) 0%, transparent 70%)',
-        opacity: hovered ? 1 : 0.4,
+        background: 'radial-gradient(600px circle at 50% 60%, rgba(0,207,255,0.18) 0%, transparent 70%)',
+        opacity: hovered ? 1 : 0.7,
+      }} />
+      {/* Secondary edge glow */}
+      <div className="absolute inset-0 pointer-events-none z-[3]" style={{
+        background: 'linear-gradient(135deg, rgba(0,207,255,0.06) 0%, transparent 50%, rgba(0,207,255,0.04) 100%)',
       }} />
 
       {/* Corner brackets */}
@@ -838,7 +842,7 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
           color: '#00cfff',
           border: '1px solid rgba(0,207,255,0.3)',
         }}>
-          // 02 — BRAND & SCALE
+          // 02 — WEBSITES & REVENUE
         </span>
 
         <h2 style={{
@@ -862,11 +866,11 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
             lineHeight: 1.5,
           }}
         >
-          We build your website. NFC digital business cards. Brand boost calls. Your brand on autopilot 24/7.
+          We design your website. Monetize content. Boost ad revenue. Scale your brand on autopilot.
         </p>
 
         <div className="flex flex-nowrap gap-1.5 sm:gap-2 mt-2">
-          {['NFC Cards', 'Brand Boost', 'Website Built', 'Revenue'].map(p => (
+          {['Web Design', 'Ad Revenue', 'Content $$$', 'Brand Boost'].map(p => (
             <span key={p} className="text-[9px] sm:text-[11px] tracking-wide px-2 sm:px-3 py-1 rounded whitespace-nowrap" style={{
               fontFamily: "'Syne', sans-serif",
               fontWeight: 600,
@@ -944,19 +948,19 @@ const SplitHero = () => {
       <KeywordTicker />
       <SeoContent />
 
-      {/* "CHOOSE YOUR PATH" heading + card CTA — hides when scrolling past hero */}
+      {/* "CHOOSE YOUR PATH" — fixed on desktop, absolutely centered on mobile */}
+      {/* Desktop: fixed top bar that hides on scroll */}
       <div
-        className="fixed top-2 sm:top-[48px] left-0 right-0 z-[201] flex flex-col items-center pointer-events-none gap-1.5 sm:gap-2"
+        className="fixed top-[48px] left-0 right-0 z-[201] hidden sm:flex flex-col items-center pointer-events-none gap-2"
         style={{
           transition: 'opacity 0.4s ease, transform 0.4s ease',
           opacity: showFixedHeader ? 1 : 0,
           transform: showFixedHeader ? 'translateY(0)' : 'translateY(-20px)',
-          pointerEvents: showFixedHeader ? 'none' : 'none',
         }}
       >
         <h2 style={{
           fontFamily: "'Bebas Neue', sans-serif",
-          fontSize: 'clamp(16px, 3vw, 32px)',
+          fontSize: 'clamp(20px, 3vw, 32px)',
           letterSpacing: '0.3em',
           color: '#f0f0f0',
           textAlign: 'center',
@@ -968,10 +972,10 @@ const SplitHero = () => {
         <a
           href="#get-your-card"
           onClick={(e) => { e.preventDefault(); document.getElementById('get-your-card')?.scrollIntoView({ behavior: 'smooth' }); }}
-          className="pointer-events-auto px-5 py-2 sm:px-7 sm:py-2.5 rounded-full transition-all duration-300 hover:scale-105"
+          className="pointer-events-auto px-7 py-2.5 rounded-full transition-all duration-300 hover:scale-105"
           style={{
             fontFamily: "'Bebas Neue', sans-serif",
-            fontSize: 'clamp(12px, 2.2vw, 16px)',
+            fontSize: 16,
             letterSpacing: '0.15em',
             color: '#00cfff',
             border: '1px solid rgba(0,207,255,0.4)',
@@ -990,7 +994,48 @@ const SplitHero = () => {
         background: '#04040a',
         height: '100dvh',
       }}>
-        {/* Center vertical divider */}
+        {/* Mobile center divider with CHOOSE YOUR PATH */}
+        <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 z-[150] flex sm:hidden flex-col items-center gap-2 pointer-events-none px-4">
+          {/* Glow line */}
+          <div className="w-full h-[1px] mb-1" style={{
+            background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent)',
+          }} />
+          <h2 style={{
+            fontFamily: "'Bebas Neue', sans-serif",
+            fontSize: 18,
+            letterSpacing: '0.35em',
+            color: '#f0f0f0',
+            textAlign: 'center',
+            margin: 0,
+            textShadow: '0 2px 20px rgba(0,0,0,0.95), 0 0 40px rgba(0,0,0,0.9)',
+          }}>
+            CHOOSE YOUR PATH
+          </h2>
+          <a
+            href="#get-your-card"
+            onClick={(e) => { e.preventDefault(); document.getElementById('get-your-card')?.scrollIntoView({ behavior: 'smooth' }); }}
+            className="pointer-events-auto px-5 py-2 rounded-full"
+            style={{
+              fontFamily: "'Bebas Neue', sans-serif",
+              fontSize: 11,
+              letterSpacing: '0.15em',
+              color: '#00cfff',
+              border: '1px solid rgba(0,207,255,0.4)',
+              background: 'rgba(4,4,10,0.9)',
+              backdropFilter: 'blur(8px)',
+              textShadow: '0 0 12px rgba(0,207,255,0.4)',
+              boxShadow: '0 0 20px rgba(0,207,255,0.15), 0 0 40px rgba(0,207,255,0.05)',
+              animation: 'ctaPulse 2.5s ease-in-out infinite',
+            }}
+          >
+            GET YOUR TAP DIGITAL CARD ↓
+          </a>
+          <div className="w-full h-[1px] mt-1" style={{
+            background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent)',
+          }} />
+        </div>
+
+        {/* Center vertical divider — desktop */}
         <div className="absolute left-1/2 top-[15%] bottom-[15%] w-[1px] z-[100] hidden md:block" style={{
           background: 'linear-gradient(to bottom, transparent, rgba(255,255,255,0.1), transparent)',
         }} />
