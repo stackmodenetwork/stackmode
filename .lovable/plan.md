@@ -1,21 +1,17 @@
 
 
-## Remove the Black Bar on Mobile
+## Current State Assessment
 
-The black bar you see on mobile comes from two things working together:
+After inspecting the site at both mobile (375x812) and desktop (1440x900) viewports, **the page is currently rendering correctly**. The previous fix that removed the `#root` constraints (`max-width: 1280px`, `padding: 2rem`, `text-align: center`) from `App.css` resolved the sizing issue.
 
-1. **A fixed 44px top bar** (the `TopBar` component with the "STACKMODE / CEOTURBO" branding and clock) that sits at the very top of the screen with a dark semi-transparent background.
-2. **70px of top padding** on the main hero section, which creates dead space beneath the bar.
+### What I verified:
+- **Landing page (/) on mobile**: "CHOOSE YOUR PATH" header is at the top, both panels stack vertically at 50/50 height, all text is properly sized, no overlapping
+- **Landing page (/) on desktop**: Side-by-side split panels, header centered, content properly positioned within each panel
+- **Academy page (/academy) on mobile**: "Choose Your Path" back button visible, hero section properly sized, code terminal animation visible, all content flows correctly
 
-### Changes
+### No changes needed
 
-**File: `src/components/landing/SplitHero.tsx`**
+The site appears to be working as intended across all device types. If you are still seeing sizing/overlap issues, it may be a browser cache issue -- try doing a hard refresh (Ctrl+Shift+R on desktop, or clear Safari cache on mobile) to ensure the latest CSS is loaded.
 
-1. **Hide the TopBar on mobile** -- Add `hidden sm:flex` so the fixed top bar only appears on tablet/desktop screens. On mobile, the two panels will go edge-to-edge from the top of the screen.
-
-2. **Make paddingTop responsive** -- Change `paddingTop: 70` to `0` on mobile and keep it at `70px` on larger screens. This will be done by switching from an inline style to a responsive class (e.g., `pt-0 sm:pt-[70px]`).
-
-3. **Adjust the "CHOOSE YOUR PATH" heading position** -- Since there's no top bar on mobile, shift it down slightly so it sits neatly over the panels rather than being cut off at the very top edge. Use responsive top positioning (e.g., `top-2 sm:top-1`).
-
-These three small changes will make the landing page fully seamless on mobile with no black bar, while keeping the cinematic top bar on desktop.
+If there are specific elements you're seeing that look wrong, please share a screenshot or describe which section is overlapping so I can target the exact issue.
 
