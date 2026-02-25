@@ -673,7 +673,7 @@ const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>)
       <div className="absolute bottom-4 right-4 w-5 h-5 border-r-[1.5px] border-b-[1.5px] z-[5] transition-all duration-300" style={{ borderColor: hovered ? 'rgba(0,255,136,0.5)' : 'rgba(0,255,136,0.2)' }} />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-start px-5 sm:px-12 max-w-lg w-full sm:[animation:fadeUp_0.8s_ease_0.2s_both]">
+      <div className="relative z-10 flex flex-col items-start px-5 sm:px-12 max-w-lg w-full sm:[animation:fadeUp_0.8s_ease_0.2s_both] pt-14 sm:pt-0">
         {/* Logo — circular */}
         <div className="mb-3 w-[56px] h-[56px] sm:w-[72px] sm:h-[72px] rounded-full overflow-hidden flex items-center justify-center" style={{
           border: '2px solid rgba(0,255,136,0.3)',
@@ -946,7 +946,7 @@ const SplitHero = () => {
 
       {/* "CHOOSE YOUR PATH" — fixed top on all screens, hides on scroll */}
       <div
-        className="fixed left-0 right-0 z-[201] flex flex-col items-center pointer-events-none gap-1.5 sm:gap-2 top-3 sm:top-[48px] px-4"
+        className="fixed left-0 right-0 z-[201] flex flex-col items-center pointer-events-none gap-1.5 sm:gap-2 top-[env(safe-area-inset-top,8px)] sm:top-[48px] px-4 pt-2 sm:pt-0"
         style={{
           transition: 'opacity 0.4s ease, transform 0.4s ease',
           opacity: showFixedHeader ? 1 : 0,
