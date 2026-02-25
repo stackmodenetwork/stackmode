@@ -927,6 +927,16 @@ const SplitHero = () => {
   const [leftHover, setLeftHover] = useState(false);
   const [rightHover, setRightHover] = useState(false);
   const hover = leftHover ? 'left' : rightHover ? 'right' : null;
+  const [showFixedHeader, setShowFixedHeader] = useState(true);
+
+  useEffect(() => {
+    const onScroll = () => {
+      // Hide the fixed header once user scrolls past ~85% of viewport height
+      setShowFixedHeader(window.scrollY < window.innerHeight * 0.85);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
     <>
@@ -934,8 +944,16 @@ const SplitHero = () => {
       <KeywordTicker />
       <SeoContent />
 
-      {/* "CHOOSE YOUR PATH" heading + card CTA — visible on all devices */}
-      <div className="fixed top-2 sm:top-[48px] left-0 right-0 z-[201] flex flex-col items-center pointer-events-none gap-1.5 sm:gap-2">
+      {/* "CHOOSE YOUR PATH" heading + card CTA — hides when scrolling past hero */}
+      <div
+        className="fixed top-2 sm:top-[48px] left-0 right-0 z-[201] flex flex-col items-center pointer-events-none gap-1.5 sm:gap-2"
+        style={{
+          transition: 'opacity 0.4s ease, transform 0.4s ease',
+          opacity: showFixedHeader ? 1 : 0,
+          transform: showFixedHeader ? 'translateY(0)' : 'translateY(-20px)',
+          pointerEvents: showFixedHeader ? 'none' : 'none',
+        }}
+      >
         <h2 style={{
           fontFamily: "'Bebas Neue', sans-serif",
           fontSize: 'clamp(16px, 3vw, 32px)',
