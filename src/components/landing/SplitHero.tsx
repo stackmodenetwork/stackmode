@@ -944,10 +944,9 @@ const SplitHero = () => {
       <KeywordTicker />
       <SeoContent />
 
-      {/* "CHOOSE YOUR PATH" — fixed on desktop, absolutely centered on mobile */}
-      {/* Desktop: fixed top bar that hides on scroll */}
+      {/* "CHOOSE YOUR PATH" — fixed top on all screens, hides on scroll */}
       <div
-        className="fixed top-[48px] left-0 right-0 z-[201] hidden sm:flex flex-col items-center pointer-events-none gap-2"
+        className="fixed left-0 right-0 z-[201] flex flex-col items-center pointer-events-none gap-1.5 sm:gap-2 top-3 sm:top-[48px] px-4"
         style={{
           transition: 'opacity 0.4s ease, transform 0.4s ease',
           opacity: showFixedHeader ? 1 : 0,
@@ -956,7 +955,7 @@ const SplitHero = () => {
       >
         <h2 style={{
           fontFamily: "'Bebas Neue', sans-serif",
-          fontSize: 'clamp(20px, 3vw, 32px)',
+          fontSize: 'clamp(16px, 3vw, 32px)',
           letterSpacing: '0.3em',
           color: '#f0f0f0',
           textAlign: 'center',
@@ -968,10 +967,10 @@ const SplitHero = () => {
         <a
           href="#get-your-card"
           onClick={(e) => { e.preventDefault(); document.getElementById('get-your-card')?.scrollIntoView({ behavior: 'smooth' }); }}
-          className="pointer-events-auto px-7 py-2.5 rounded-full transition-all duration-300 hover:scale-105"
+          className="pointer-events-auto px-5 sm:px-7 py-2 sm:py-2.5 rounded-full transition-all duration-300 hover:scale-105"
           style={{
             fontFamily: "'Bebas Neue', sans-serif",
-            fontSize: 16,
+            fontSize: 'clamp(11px, 2vw, 16px)',
             letterSpacing: '0.15em',
             color: '#00cfff',
             border: '1px solid rgba(0,207,255,0.4)',
@@ -990,50 +989,10 @@ const SplitHero = () => {
         background: '#04040a',
         height: '100dvh',
       }}>
-        {/* Mobile center divider with CHOOSE YOUR PATH — fades when a panel is active */}
-        <div
-          className="absolute left-0 right-0 top-1/2 -translate-y-1/2 z-[150] flex sm:hidden flex-col items-center gap-2 pointer-events-none px-4"
-          style={{
-            transition: 'opacity 0.35s ease',
-            opacity: (leftHover || rightHover) ? 0 : 1,
-          }}
-        >
-          {/* Glow line */}
-          <div className="w-full h-[1px] mb-1" style={{
-            background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent)',
-          }} />
-          <h2 style={{
-            fontFamily: "'Bebas Neue', sans-serif",
-            fontSize: 18,
-            letterSpacing: '0.35em',
-            color: '#f0f0f0',
-            textAlign: 'center',
-            margin: 0,
-            textShadow: '0 2px 20px rgba(0,0,0,0.95), 0 0 40px rgba(0,0,0,0.9)',
-          }}>
-            CHOOSE YOUR PATH
-          </h2>
-          <a
-            href="#get-your-card"
-            onClick={(e) => { e.preventDefault(); document.getElementById('get-your-card')?.scrollIntoView({ behavior: 'smooth' }); }}
-            className="pointer-events-auto px-5 py-2 rounded-full"
-            style={{
-              fontFamily: "'Bebas Neue', sans-serif",
-              fontSize: 11,
-              letterSpacing: '0.15em',
-              color: '#00cfff',
-              border: '1px solid rgba(0,207,255,0.4)',
-              background: 'rgba(4,4,10,0.9)',
-              backdropFilter: 'blur(8px)',
-              textShadow: '0 0 12px rgba(0,207,255,0.4)',
-              boxShadow: '0 0 20px rgba(0,207,255,0.15), 0 0 40px rgba(0,207,255,0.05)',
-              animation: 'ctaPulse 2.5s ease-in-out infinite',
-            }}
-          >
-            GET YOUR TAP DIGITAL CARD ↓
-          </a>
-          <div className="w-full h-[1px] mt-1" style={{
-            background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent)',
+        {/* Mobile horizontal divider line only */}
+        <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 z-[150] flex sm:hidden pointer-events-none px-4">
+          <div className="w-full h-[1px]" style={{
+            background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent)',
           }} />
         </div>
 
