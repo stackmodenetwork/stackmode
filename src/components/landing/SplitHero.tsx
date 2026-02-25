@@ -897,28 +897,6 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
             BRAND BOOST →
           </span>
         </div>
-
-        {/* Get Your Card — anchor to purchase section */}
-        <a
-          href="#get-your-card"
-          onClick={(e) => { e.preventDefault(); e.stopPropagation(); document.getElementById('get-your-card')?.scrollIntoView({ behavior: 'smooth' }); }}
-          className="relative mt-2 overflow-hidden rounded transition-all duration-300 pointer-events-auto text-center"
-          style={{
-            border: '1px solid rgba(0,207,255,0.25)',
-            padding: '10px 24px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            background: 'rgba(0,207,255,0.04)',
-          }}
-        >
-          <span className="text-[13px] sm:text-[15px] tracking-[0.15em]" style={{
-            fontFamily: "'Bebas Neue', sans-serif",
-            color: 'rgba(0,207,255,0.7)',
-          }}>
-            GET YOUR TAP DIGITAL CARD ↓
-          </span>
-        </a>
       </div>
     </a>
   );
@@ -956,8 +934,8 @@ const SplitHero = () => {
       <KeywordTicker />
       <SeoContent />
 
-      {/* "CHOOSE YOUR PATH" heading — visible on all devices */}
-      <div className="fixed top-2 sm:top-[48px] left-0 right-0 z-[201] flex justify-center pointer-events-none">
+      {/* "CHOOSE YOUR PATH" heading + card CTA — visible on all devices */}
+      <div className="fixed top-2 sm:top-[48px] left-0 right-0 z-[201] flex flex-col items-center pointer-events-none gap-1.5 sm:gap-2">
         <h2 style={{
           fontFamily: "'Bebas Neue', sans-serif",
           fontSize: 'clamp(16px, 3vw, 32px)',
@@ -969,6 +947,23 @@ const SplitHero = () => {
         }}>
           CHOOSE YOUR PATH
         </h2>
+        <a
+          href="#get-your-card"
+          onClick={(e) => { e.preventDefault(); document.getElementById('get-your-card')?.scrollIntoView({ behavior: 'smooth' }); }}
+          className="pointer-events-auto px-4 py-1.5 sm:px-5 sm:py-2 rounded-full transition-all duration-300 hover:scale-105"
+          style={{
+            fontFamily: "'Bebas Neue', sans-serif",
+            fontSize: 'clamp(10px, 1.8vw, 14px)',
+            letterSpacing: '0.15em',
+            color: '#00cfff',
+            border: '1px solid rgba(0,207,255,0.3)',
+            background: 'rgba(4,4,10,0.8)',
+            backdropFilter: 'blur(8px)',
+            textShadow: '0 0 12px rgba(0,207,255,0.4)',
+          }}
+        >
+          GET YOUR TAP DIGITAL CARD ↓
+        </a>
       </div>
 
       <section className="relative w-full overflow-hidden flex flex-col md:flex-row" style={{
