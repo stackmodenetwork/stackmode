@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import SplitHero from '@/components/landing/SplitHero';
 import CustomCursor from '@/components/landing/CustomCursor';
+import DigitalCardPurchase from '@/components/landing/DigitalCardPurchase';
 
 const Landing = () => (
   <div className="relative" style={{ background: '#04040a' }}>
@@ -35,6 +36,7 @@ const Landing = () => (
 
     <CustomCursor />
     <SplitHero />
+    <DigitalCardPurchase />
   </div>
 );
 
