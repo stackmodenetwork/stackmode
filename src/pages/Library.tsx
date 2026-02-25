@@ -68,6 +68,9 @@ const Library = () => {
         <div className="max-w-6xl mx-auto px-4">
           {/* Desktop */}
           <div className="hidden sm:flex items-center justify-center gap-2 py-2.5 flex-wrap">
+            <Link to="/" className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-2 rounded-full transition-colors bg-foreground/10 hover:bg-foreground/20 text-foreground border border-border/50">
+              <ArrowRight size={14} className="rotate-180 flex-shrink-0" /> Choose Your Path
+            </Link>
             <a href="https://whop.com/stackmode-academy/educationalservice/" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 font-bold px-4 py-2 rounded-full transition-all text-xs"
               style={{ background: '#00ff88', color: '#030305' }}>
@@ -90,6 +93,9 @@ const Library = () => {
 
           {/* Mobile hamburger */}
           <div className="flex sm:hidden items-center justify-between py-2.5">
+            <Link to="/" className="inline-flex items-center gap-1.5 font-bold px-3 py-1.5 rounded-full transition-all text-[11px] bg-foreground/10 text-foreground border border-border/50">
+              <ArrowRight size={14} className="rotate-180 flex-shrink-0" /> Choose Your Path
+            </Link>
             <a href="https://whop.com/stackmode-academy/educationalservice/" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 font-bold px-3 py-1.5 rounded-full transition-all text-[11px]"
               style={{ background: '#00ff88', color: '#030305' }}>
