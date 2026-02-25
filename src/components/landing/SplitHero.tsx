@@ -457,7 +457,7 @@ const TICKER_TEXT = 'STACKMODE ACADEMY · CHRISTOPHER ROBINSON · STACKMODECHRIS
 
 const KeywordTicker = () => (
   <div
-    className="relative w-full overflow-hidden group/ticker"
+    className="relative w-full overflow-hidden group/ticker hidden sm:block"
     style={{
       height: 26,
       background: '#070710',
@@ -673,7 +673,7 @@ const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>)
       <div className="absolute bottom-4 right-4 w-5 h-5 border-r-[1.5px] border-b-[1.5px] z-[5] transition-all duration-300" style={{ borderColor: hovered ? 'rgba(0,255,136,0.5)' : 'rgba(0,255,136,0.2)' }} />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-start px-5 sm:px-12 max-w-lg w-full" style={{ animation: 'fadeUp 0.8s ease 0.2s both' }}>
+      <div className="relative z-10 flex flex-col items-start px-5 sm:px-12 max-w-lg w-full sm:[animation:fadeUp_0.8s_ease_0.2s_both]">
         {/* Logo — circular */}
         <div className="mb-3 w-[56px] h-[56px] sm:w-[72px] sm:h-[72px] rounded-full overflow-hidden flex items-center justify-center" style={{
           border: '2px solid rgba(0,255,136,0.3)',
@@ -817,7 +817,7 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
       <div className="absolute bottom-4 left-4 w-5 h-5 border-l-[1.5px] border-b-[1.5px] z-[5] transition-all duration-300" style={{ borderColor: hovered ? 'rgba(0,207,255,0.5)' : 'rgba(0,207,255,0.2)' }} />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-start px-5 sm:px-12 max-w-lg w-full" style={{ animation: 'fadeUp 0.8s ease 0.4s both' }}>
+      <div className="relative z-10 flex flex-col items-start px-5 sm:px-12 max-w-lg w-full sm:[animation:fadeUp_0.8s_ease_0.4s_both]">
         {/* Logo — circular */}
         <div className="mb-3 w-[56px] h-[56px] sm:w-[72px] sm:h-[72px] rounded-full overflow-hidden flex items-center justify-center" style={{
           border: '2px solid rgba(0,207,255,0.3)',
@@ -932,8 +932,8 @@ const SplitHero = () => {
       <KeywordTicker />
       <SeoContent />
 
-      {/* "CHOOSE YOUR PATH" heading — below TopBar on desktop, visible on mobile */}
-      <div className="fixed top-[30px] sm:top-[48px] left-0 right-0 z-[201] flex justify-center pointer-events-none">
+      {/* "CHOOSE YOUR PATH" heading — fixed on desktop, static on mobile */}
+      <div className="hidden sm:flex fixed top-[48px] left-0 right-0 z-[201] justify-center pointer-events-none">
         <h2 style={{
           fontFamily: "'Bebas Neue', sans-serif",
           fontSize: 'clamp(20px, 3vw, 32px)',
@@ -947,10 +947,9 @@ const SplitHero = () => {
         </h2>
       </div>
 
-      <section className="relative w-full overflow-hidden flex flex-col md:flex-row pt-0 sm:pt-[70px]" style={{
+      <section className="relative w-full overflow-hidden flex flex-col md:flex-row" style={{
         background: '#04040a',
         height: '100dvh',
-        paddingBottom: 0,
       }}>
         {/* Center vertical divider */}
         <div className="absolute left-1/2 top-[15%] bottom-[15%] w-[1px] z-[100] hidden md:block" style={{
