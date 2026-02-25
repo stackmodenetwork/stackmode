@@ -300,9 +300,9 @@ const WireframeCanvas = () => {
       });
 
       /* ── LAYER 2: Browser Wireframe ── */
-      const bw = Math.min(W * 0.65, 280);
+      const bw = Math.min(W * 0.6, 260);
       const bh = bw * 0.7;
-      const bx = (W - bw) / 2;
+      const bx = W * 0.45;
       const by = (H - bh) / 2 - 20;
 
       ctx.strokeStyle = 'rgba(0,207,255,0.07)';
@@ -695,7 +695,7 @@ const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>)
           color: '#00ff88',
           border: '1px solid rgba(0,255,136,0.3)',
         }}>
-          // 01 — LEARN & EARN
+          // 01 — CODE & BUILD
         </span>
 
         {/* Heading */}
@@ -731,12 +731,12 @@ const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>)
             lineHeight: 1.5,
           }}
         >
-          Code. Content. Capital. One system to build assets, grow audiences, and multiply profits.
+          Learn to code with Python & AI. Build software. Trade stocks & crypto. One system — $50/mo.
         </p>
 
         {/* Pills */}
         <div className="flex flex-wrap gap-2 mt-2">
-          {['AI', 'Coding', 'Software', 'Trading'].map(p => (
+          {['Python', 'AI Coding', 'Web Dev', 'Trading'].map(p => (
             <span key={p} className="text-[10px] sm:text-[11px] tracking-wide px-3 py-1 rounded" style={{
               fontFamily: "'Syne', sans-serif",
               fontWeight: 600,
@@ -862,11 +862,11 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
             lineHeight: 1.5,
           }}
         >
-          Digital business cards. Brand boost calls. Premium web design. Your brand working 24/7 on autopilot.
+          We build your website. NFC digital business cards. Brand boost calls. Your brand on autopilot 24/7.
         </p>
 
         <div className="flex flex-nowrap gap-1.5 sm:gap-2 mt-2">
-          {['NFC Cards', 'Brand Boost', 'Web Design', 'Stacking'].map(p => (
+          {['NFC Cards', 'Brand Boost', 'Website Built', 'Revenue'].map(p => (
             <span key={p} className="text-[9px] sm:text-[11px] tracking-wide px-2 sm:px-3 py-1 rounded whitespace-nowrap" style={{
               fontFamily: "'Syne', sans-serif",
               fontWeight: 600,
