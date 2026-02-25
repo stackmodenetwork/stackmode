@@ -49,8 +49,8 @@ export const AcademyFooter = () => (
             </div>
           ))}
         </div>
-        <p className="text-[10px] text-muted-foreground/70 mt-3">
-          eBook/Audio <span className="font-bold text-foreground">$9.99</span> · Paperback <span className="font-bold text-foreground">$19.99</span> · Fast Delivery
+        <p className="text-[10px] text-foreground font-bold mt-3">
+          eBook/Audio $9.99 · Paperback $19.99 · Fast Delivery
         </p>
       </div>
 
