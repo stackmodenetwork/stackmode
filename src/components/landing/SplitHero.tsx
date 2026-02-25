@@ -793,9 +793,9 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
         borderLeft: hovered ? '1px solid rgba(0,207,255,0.15)' : '1px solid transparent',
       }}
     >
-      {/* Dark overlay — lighter than Academy to let cyan glow through */}
+      {/* Dark overlay — matched to Academy panel */}
       <div className="absolute inset-0 z-[1] transition-all duration-500" style={{
-        background: hovered ? 'rgba(4,4,10,0.35)' : 'rgba(4,4,10,0.55)',
+        background: hovered ? 'rgba(4,4,10,0.5)' : 'rgba(4,4,10,0.7)',
       }} />
 
       {/* Grid overlay */}
