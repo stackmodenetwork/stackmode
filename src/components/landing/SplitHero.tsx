@@ -990,8 +990,14 @@ const SplitHero = () => {
         background: '#04040a',
         height: '100dvh',
       }}>
-        {/* Mobile center divider with CHOOSE YOUR PATH */}
-        <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 z-[150] flex sm:hidden flex-col items-center gap-2 pointer-events-none px-4">
+        {/* Mobile center divider with CHOOSE YOUR PATH — fades when a panel is active */}
+        <div
+          className="absolute left-0 right-0 top-1/2 -translate-y-1/2 z-[150] flex sm:hidden flex-col items-center gap-2 pointer-events-none px-4"
+          style={{
+            transition: 'opacity 0.35s ease',
+            opacity: (leftHover || rightHover) ? 0 : 1,
+          }}
+        >
           {/* Glow line */}
           <div className="w-full h-[1px] mb-1" style={{
             background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent)',
