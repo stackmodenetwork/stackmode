@@ -150,59 +150,74 @@ const DigitalCardPurchase = () => {
               animation: 'cardSpin 6s ease-in-out infinite',
             }}
           >
-            {/* Front */}
+            {/* Front — matches physical card design */}
             <div
-              className="absolute inset-0 rounded-2xl border p-6 flex flex-col justify-between"
+              className="absolute inset-0 rounded-2xl flex flex-col justify-end"
               style={{
                 backfaceVisibility: 'hidden',
-                borderColor: 'rgba(0,207,255,0.2)',
-                background: 'linear-gradient(145deg, #080812 0%, #0d0d1a 40%, #080812 100%)',
-                boxShadow: '0 25px 80px rgba(0,207,255,0.12), 0 0 1px rgba(0,207,255,0.3), inset 0 1px 0 rgba(255,255,255,0.04)',
+                background: 'linear-gradient(160deg, #1a1a1f 0%, #0e0e12 35%, #0a0a0e 70%, #111115 100%)',
+                boxShadow: '0 30px 80px rgba(0,0,0,0.7), 0 0 1px rgba(255,255,255,0.08), inset 0 1px 0 rgba(255,255,255,0.04)',
+                border: '1px solid rgba(255,255,255,0.06)',
               }}
             >
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <img src="/images/ceoturbo-logo-new.png" alt="CEO Turbo" className="w-6 h-6 rounded" />
-                  <span className="text-lg tracking-[0.15em]" style={{ fontFamily: "'Bebas Neue', sans-serif", color: '#00cfff' }}>
-                    CEO TURBO
-                  </span>
-                </div>
-                <div className="text-[10px] text-white/30 tracking-widest mt-1" style={{ fontFamily: "'Share Tech Mono', monospace" }}>
-                  DIGITAL BUSINESS CARD
-                </div>
+              {/* NFC tap icon — top right */}
+              <div className="absolute top-5 right-5">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10" stroke="rgba(255,255,255,0.15)" strokeWidth="1" strokeLinecap="round" fill="none"/>
+                  <path d="M8.5 12a3.5 3.5 0 0 1 3.5-3.5" stroke="rgba(255,255,255,0.2)" strokeWidth="1" strokeLinecap="round" fill="none"/>
+                  <path d="M7 12a5 5 0 0 1 5-5" stroke="rgba(255,255,255,0.15)" strokeWidth="1" strokeLinecap="round" fill="none"/>
+                  <path d="M5.5 12a6.5 6.5 0 0 1 6.5-6.5" stroke="rgba(255,255,255,0.1)" strokeWidth="1" strokeLinecap="round" fill="none"/>
+                  <circle cx="12" cy="12" r="1.5" fill="rgba(255,255,255,0.2)"/>
+                </svg>
               </div>
-              <div className="flex items-end justify-between">
-                <div className="text-[9px] text-white/25 leading-relaxed" style={{ fontFamily: "'Share Tech Mono', monospace" }}>
-                  yourname.com<br />@yourbrand
-                </div>
-                <div className="w-9 h-9 rounded-lg border flex items-center justify-center" style={{ borderColor: 'rgba(0,207,255,0.25)', background: 'rgba(0,207,255,0.05)' }}>
-                  <span className="text-[7px] font-bold tracking-wider" style={{ color: '#00cfff' }}>NFC</span>
-                </div>
+
+              {/* Card text — bottom left */}
+              <div className="p-7 sm:p-8">
+                <h3 style={{
+                  fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif",
+                  fontSize: 'clamp(22px, 4vw, 32px)',
+                  fontWeight: 700,
+                  lineHeight: 1.1,
+                  letterSpacing: '0.02em',
+                  color: 'transparent',
+                  backgroundImage: 'linear-gradient(180deg, rgba(200,200,205,0.9) 0%, rgba(140,140,148,0.7) 100%)',
+                  backgroundClip: 'text',
+                  WebkitBackgroundClip: 'text',
+                  margin: 0,
+                }}>
+                  DIGITAL<br />BUSINESS<br /><span style={{
+                    backgroundImage: 'linear-gradient(180deg, rgba(180,180,185,0.75) 0%, rgba(110,110,118,0.55) 100%)',
+                    backgroundClip: 'text',
+                    WebkitBackgroundClip: 'text',
+                    color: 'transparent',
+                  }}>CARD</span>
+                </h3>
               </div>
-              {/* Holographic stripe */}
-              <div className="absolute top-1/2 -translate-y-1/2 right-6 w-[3px] h-16 rounded-full opacity-30" style={{
-                background: 'linear-gradient(to bottom, transparent, #00cfff, #00ff88, #00cfff, transparent)',
+
+              {/* Subtle edge highlight */}
+              <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{
+                background: 'linear-gradient(135deg, rgba(255,255,255,0.03) 0%, transparent 40%, transparent 60%, rgba(255,255,255,0.01) 100%)',
               }} />
             </div>
 
             {/* Back */}
             <div
-              className="absolute inset-0 rounded-2xl border p-6 flex flex-col items-center justify-center gap-4"
+              className="absolute inset-0 rounded-2xl flex flex-col items-center justify-center gap-4"
               style={{
                 backfaceVisibility: 'hidden',
                 transform: 'rotateY(180deg)',
-                borderColor: 'rgba(0,207,255,0.2)',
-                background: 'linear-gradient(145deg, #080812 0%, #0d0d1a 40%, #080812 100%)',
-                boxShadow: '0 25px 80px rgba(0,207,255,0.12), 0 0 1px rgba(0,207,255,0.3), inset 0 1px 0 rgba(255,255,255,0.04)',
+                background: 'linear-gradient(160deg, #1a1a1f 0%, #0e0e12 35%, #0a0a0e 70%, #111115 100%)',
+                boxShadow: '0 30px 80px rgba(0,0,0,0.7), 0 0 1px rgba(255,255,255,0.08), inset 0 1px 0 rgba(255,255,255,0.04)',
+                border: '1px solid rgba(255,255,255,0.06)',
               }}
             >
               {/* QR grid */}
-              <div className="w-24 h-24 rounded-lg border grid grid-cols-5 grid-rows-5 gap-[2px] p-2" style={{ borderColor: 'rgba(0,207,255,0.2)' }}>
+              <div className="w-24 h-24 rounded-lg border grid grid-cols-5 grid-rows-5 gap-[2px] p-2" style={{ borderColor: 'rgba(255,255,255,0.08)' }}>
                 {Array(25).fill(null).map((_, i) => (
-                  <div key={i} className="rounded-sm" style={{ background: [0,1,2,5,6,10,12,14,18,19,20,23,24].includes(i) ? 'rgba(0,207,255,0.35)' : 'transparent' }} />
+                  <div key={i} className="rounded-sm" style={{ background: [0,1,2,5,6,10,12,14,18,19,20,23,24].includes(i) ? 'rgba(255,255,255,0.15)' : 'transparent' }} />
                 ))}
               </div>
-              <div className="text-[10px] text-white/30 tracking-[0.2em]" style={{ fontFamily: "'Share Tech Mono', monospace" }}>
+              <div className="text-[10px] text-white/20 tracking-[0.2em]" style={{ fontFamily: "'Share Tech Mono', monospace" }}>
                 TAP OR SCAN TO CONNECT
               </div>
             </div>
