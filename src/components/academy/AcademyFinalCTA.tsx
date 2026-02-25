@@ -41,7 +41,7 @@ export const AcademyFinalCTA = () => (
           {Array.from({ length: 5 }).map((_, i) => (
             <Star key={i} size={14} className="text-amber-400 fill-amber-400" />
           ))}
-          <span className="text-xs text-muted-foreground ml-2">4.9/5 from 500+ reviews</span>
+          <span className="text-xs text-muted-foreground ml-2">Trusted by hundreds of students</span>
         </div>
       </motion.div>
     </div>
