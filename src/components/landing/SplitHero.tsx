@@ -1001,7 +1001,7 @@ const SplitHero = () => {
           background: 'linear-gradient(to bottom, transparent, rgba(255,255,255,0.1), transparent)',
         }} />
 
-        <CenterEmblem />
+        
 
         <LeftPanel hovered={leftHover} otherHovered={rightHover} onHover={setLeftHover} />
         <RightPanel hovered={rightHover} otherHovered={leftHover} onHover={setRightHover} />
