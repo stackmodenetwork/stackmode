@@ -3,7 +3,7 @@ import { ChevronDown, ChevronUp, X, ChevronLeft, ChevronRight, Check } from 'luc
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 
 const allReviews = [
-  "review-51.png", "review-52.png", "review-57.png", "review-59.png", "review-61.png",
+  "review-65.png", "review-51.png", "review-52.png", "review-57.png", "review-59.png", "review-61.png",
   "review-48.png", "review-47.png", "review-44.png", "review-49.png", "review-50.png",
   "review-1.png", "review-2.png", "review-3.png", "review-4.png", "review-5.png",
   "review-6.png", "review-7.png", "review-8.png", "review-9.png", "review-10.png",

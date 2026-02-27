@@ -6,7 +6,7 @@ import { Dialog, DialogContent } from '@/components/ui/dialog';
 // Curated reviews: trading wins, text message reviews, genuine testimonials only
 // Removed: ad dashboards, Systeme.io lead pages, duplicates
 const reviews = [
-"review-61.png", "review-59.png", "review-57.png",
+"review-65.png", "review-61.png", "review-59.png", "review-57.png",
 "review-43.png",
 "review-39.png", "review-37.png", "review-35.png", "review-33.png",
 "review-31.png", "review-29.png", "review-27.png", "review-25.png",
