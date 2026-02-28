@@ -54,10 +54,10 @@ const Home = () => {
       <nav className="relative z-50 backdrop-blur-md border-b" style={{ background: 'rgba(4,4,10,0.95)', borderColor: 'rgba(255,255,255,0.06)' }}>
         <div className="max-w-6xl mx-auto px-4">
           {/* Desktop */}
-          <div className="hidden sm:flex items-center gap-2 py-2.5 flex-wrap">
+          <div className="hidden sm:flex items-center justify-center gap-2 py-2.5 flex-wrap">
             <Link
               to="/"
-              className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-2 rounded-full transition-colors mr-auto"
+              className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-2 rounded-full transition-colors"
               style={{ color: 'rgba(255,255,255,0.4)', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
               <ArrowLeft size={14} className="flex-shrink-0" /> Choose Your Path
             </Link>
