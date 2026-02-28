@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Hacker/Developer Dark Theme - Optimized for Performance */
+/* Hacker/Developer Dark Theme — Green-Only Palette */
 
 @layer base {
   :root {
@@ -17,21 +17,24 @@
     --popover: 220 20% 8%;
     --popover-foreground: 210 20% 90%;
 
-    /* Primary - Cyan (Developer aesthetic) */
-    --primary: 185 80% 50%;
+    /* Primary — Electric Green */
+    --primary: 150 100% 50%;
     --primary-foreground: 220 20% 4%;
+    --primary-glow: 150 90% 40%;
 
-    /* Secondary - Violet */
-    --secondary: 270 60% 55%;
-    --secondary-foreground: 220 20% 4%;
+    /* Secondary — Muted Green */
+    --secondary: 150 40% 30%;
+    --secondary-foreground: 150 100% 90%;
+    --secondary-glow: 150 50% 25%;
 
     /* Muted */
     --muted: 220 15% 12%;
     --muted-foreground: 215 15% 50%;
 
-    /* Accent - Emerald */
-    --accent: 160 70% 45%;
+    /* Accent — Warm Green */
+    --accent: 140 60% 40%;
     --accent-foreground: 220 20% 4%;
+    --accent-glow: 140 50% 35%;
 
     /* Destructive */
     --destructive: 0 70% 55%;
@@ -40,18 +43,18 @@
     /* UI Elements */
     --border: 220 15% 15%;
     --input: 220 15% 10%;
-    --ring: 185 80% 50%;
+    --ring: 150 100% 50%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 220 20% 7%;
     --sidebar-foreground: 210 20% 90%;
-    --sidebar-primary: 185 80% 50%;
+    --sidebar-primary: 150 100% 50%;
     --sidebar-primary-foreground: 220 20% 4%;
     --sidebar-accent: 220 15% 12%;
     --sidebar-accent-foreground: 210 20% 90%;
     --sidebar-border: 220 15% 15%;
-    --sidebar-ring: 185 80% 50%;
+    --sidebar-ring: 150 100% 50%;
   }
 
   .dark {
@@ -61,27 +64,30 @@
     --card-foreground: 210 20% 90%;
     --popover: 220 20% 8%;
     --popover-foreground: 210 20% 90%;
-    --primary: 185 80% 50%;
+    --primary: 150 100% 50%;
     --primary-foreground: 220 20% 4%;
-    --secondary: 270 60% 55%;
-    --secondary-foreground: 220 20% 4%;
+    --primary-glow: 150 90% 40%;
+    --secondary: 150 40% 30%;
+    --secondary-foreground: 150 100% 90%;
+    --secondary-glow: 150 50% 25%;
     --muted: 220 15% 12%;
     --muted-foreground: 215 15% 50%;
-    --accent: 160 70% 45%;
+    --accent: 140 60% 40%;
     --accent-foreground: 220 20% 4%;
+    --accent-glow: 140 50% 35%;
     --destructive: 0 70% 55%;
     --destructive-foreground: 210 20% 95%;
     --border: 220 15% 15%;
     --input: 220 15% 10%;
-    --ring: 185 80% 50%;
+    --ring: 150 100% 50%;
     --sidebar-background: 220 20% 7%;
     --sidebar-foreground: 210 20% 90%;
-    --sidebar-primary: 185 80% 50%;
+    --sidebar-primary: 150 100% 50%;
     --sidebar-primary-foreground: 220 20% 4%;
     --sidebar-accent: 220 15% 12%;
     --sidebar-accent-foreground: 210 20% 90%;
     --sidebar-border: 220 15% 15%;
-    --sidebar-ring: 185 80% 50%;
+    --sidebar-ring: 150 100% 50%;
   }
 }
 
@@ -142,61 +148,28 @@
 }
 
 @layer components {
-  /* Minimal button style */
   .btn-primary {
     @apply bg-primary text-primary-foreground font-semibold px-6 py-3 rounded-lg;
     @apply hover:opacity-90 transition-opacity duration-150;
   }
 
-  /* Subtle glow for accents */
-  .glow-cyan {
-    box-shadow: 0 0 20px hsl(185 80% 50% / 0.2);
-  }
-
-  .glow-violet {
-    box-shadow: 0 0 20px hsl(270 60% 55% / 0.2);
+  .glow-green {
+    box-shadow: 0 0 20px hsl(150 100% 50% / 0.2);
   }
 }
 
 @layer utilities {
-  /* Gaming Animations */
   @keyframes stackUp {
-    0% {
-      opacity: 0;
-      transform: translateY(100px) rotateX(-90deg);
-    }
-    50% {
-      opacity: 0.7;
-      transform: translateY(-10px) rotateX(0deg);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0) rotateX(0deg);
-    }
+    0% { opacity: 0; transform: translateY(100px) rotateX(-90deg); }
+    50% { opacity: 0.7; transform: translateY(-10px) rotateX(0deg); }
+    100% { opacity: 1; transform: translateY(0) rotateX(0deg); }
   }
 
   @keyframes float {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
   }
 
-  @keyframes rotate3d {
-    0% {
-      transform: rotateX(0deg) rotateY(0deg);
-    }
-    50% {
-      transform: rotateX(180deg) rotateY(180deg);
-    }
-    100% {
-      transform: rotateX(360deg) rotateY(360deg);
-    }
-  }
-
-  /* Simplified Animation Utilities */
   .animate-fade-in {
     animation: fadeIn 0.3s ease-out;
   }
@@ -206,17 +179,14 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* Hide scrollbars */
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
 
-  /* Safe area insets for mobile */
   .pb-safe {
     padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
   }
@@ -232,7 +202,6 @@
   }
 }
 
-/* Code + Trading Background Animations */
 @keyframes code-scroll {
   0% { transform: translateY(0); }
   100% { transform: translateY(-50%); }

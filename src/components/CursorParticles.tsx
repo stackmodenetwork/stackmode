@@ -13,7 +13,7 @@ interface Particle {
 }
 
 const MAX_PARTICLES = 50;
-const PARTICLE_COLOR = "hsl(185, 80%, 50%)";
+const PARTICLE_COLOR = "hsl(150, 100%, 50%)";
 
 const CursorParticles = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);

@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { ArrowRight, Gift, BookOpen, Headphones, Star, ShoppingCart, GraduationCap, MessageCircle, Mic, Wrench, Phone, Menu, X } from 'lucide-react';
+import { ArrowRight, Gift, BookOpen, Headphones, Star, ShoppingCart, GraduationCap, MessageCircle, Mic, Globe, Phone, Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
 import { useState, useEffect } from 'react';

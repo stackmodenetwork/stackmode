@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Terminal, Wrench, BookOpen } from 'lucide-react';
+import { Home, Terminal, Globe, BookOpen } from 'lucide-react';
 import { memo } from 'react';
 
 interface NavItem {
@@ -11,7 +11,7 @@ interface NavItem {
 const navItems: NavItem[] = [
   { path: '/', label: 'Home', icon: Home },
   { path: '/coding', label: 'Academy', icon: Terminal },
-  { path: '/buildyourwebsite', label: 'Build', icon: Wrench },
+  { path: '/buildyourwebsite', label: 'Build', icon: Globe },
   { path: '/library', label: 'Library', icon: BookOpen },
 ];
 
@@ -39,9 +39,9 @@ export const BottomNavigation = memo(() => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`flex flex-col items-center justify-center gap-1 py-2 px-3 rounded-lg transition-colors min-w-[60px] ${active ? 'text-cyan-400' : 'text-muted-foreground'}`}
+                  className={`flex flex-col items-center justify-center gap-1 py-2 px-3 rounded-lg transition-colors min-w-[60px] ${active ? 'text-primary' : 'text-muted-foreground'}`}
                 >
-                  <div className={`p-2 rounded-lg transition-colors ${active ? 'bg-cyan-500/10' : ''}`}>
+                  <div className={`p-2 rounded-lg transition-colors ${active ? 'bg-primary/10' : ''}`}>
                     <Icon size={20} />
                   </div>
                   <span className="text-[10px] font-medium">{item.label}</span>

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Home, Mic, MessageCircle, Wrench, Phone } from 'lucide-react';
+import { Home, Mic, MessageCircle, Globe, Phone } from 'lucide-react';
 
 export function LegalPageNav() {
   return (
@@ -36,7 +36,7 @@ export function LegalPageNav() {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1.5 text-sm font-medium px-3 py-1.5 rounded-full text-foreground/70 hover:text-primary hover:bg-primary/5 transition-colors"
         >
-          <Wrench size={14} />
+          <Globe size={14} />
           <span>Grow Your Brand</span>
         </a>
         <a
