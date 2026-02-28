@@ -187,7 +187,7 @@ const Landing = () => (
             transition={{ duration: 0.5, delay: 1.1 }}
             className="flex flex-wrap gap-3 sm:gap-4 mb-6"
           >
-            <Link to="/academy" className="btn-cta text-xs sm:text-sm">[ EXPLORE THE ACADEMY → ]</Link>
+            <a href="https://whop.com/stackmode-academy/educationalservice/" target="_blank" rel="noopener noreferrer" className="btn-cta text-xs sm:text-sm">[ EXPLORE THE ACADEMY → ]</a>
             <Link to="/prompt-shop" className="btn-ghost text-xs sm:text-sm">[ BROWSE THE SHOP → ]</Link>
           </motion.div>
 
@@ -290,7 +290,7 @@ const Landing = () => (
       <div className="max-w-5xl mx-auto grid sm:grid-cols-2 gap-4 sm:gap-6">
         <EcoCard badge="LEARN" badgeColor="#39ff14" icon="🧠" title="Stackmode Academy" 
           copy="Courses on coding, AI, investing & building income. Real skills. Real results."
-          cta="ENTER ACADEMY" href="/academy" delay={0} />
+          cta="ENTER ACADEMY" href="https://whop.com/stackmode-academy/educationalservice/" isExternal delay={0} />
         <EcoCard badge="SHOP" badgeColor="#ff6b1a" icon="⌨️" title="Prompt Shop"
           copy="Done-for-you AI prompts for websites, presentations, images & videos."
           cta="BROWSE PROMPTS" href="/prompt-shop" delay={0.1} />
