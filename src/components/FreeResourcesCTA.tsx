@@ -19,9 +19,9 @@ export const FreeResourcesCTA = ({ variant = 'banner', className = '' }: FreeRes
       >
         <Link to="/library">
           <motion.div
-            className="relative bg-gradient-to-r from-amber-500 to-orange-500 text-background font-bold text-sm px-4 py-3 rounded-full shadow-xl cursor-pointer flex items-center gap-2"
+            className="relative bg-primary text-primary-foreground font-bold text-sm px-4 py-3 rounded-full shadow-xl cursor-pointer flex items-center gap-2"
             animate={{ 
-              boxShadow: ['0 0 0px rgba(245,158,11,0.5)', '0 0 20px rgba(245,158,11,0.8)', '0 0 0px rgba(245,158,11,0.5)']
+              boxShadow: ['0 0 0px rgba(0,255,136,0.5)', '0 0 20px rgba(0,255,136,0.8)', '0 0 0px rgba(0,255,136,0.5)']
             }}
             transition={{ duration: 2, repeat: Infinity }}
             whileHover={{ scale: 1.05 }}
@@ -44,22 +44,22 @@ export const FreeResourcesCTA = ({ variant = 'banner', className = '' }: FreeRes
     return (
       <Link to="/library" className={`group inline-block ${className}`}>
         <motion.div
-          className="relative bg-gradient-to-r from-amber-500/10 to-orange-500/10 border-2 border-amber-500/40 hover:border-amber-500/70 rounded-xl px-4 py-3 transition-all duration-300"
+          className="relative bg-primary/10 border-2 border-primary/40 hover:border-primary/70 rounded-xl px-4 py-3 transition-all duration-300"
           whileHover={{ scale: 1.02 }}
         >
           <div className="flex items-center gap-3">
             <motion.div
-              className="w-10 h-10 bg-amber-500/20 rounded-full flex items-center justify-center"
+              className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center"
               animate={{ scale: [1, 1.1, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              <Gift size={20} className="text-amber-500" />
+              <Gift size={20} className="text-primary" />
             </motion.div>
             <div className="flex-1">
               <div className="flex items-center gap-2">
                 <span className="font-bold text-foreground text-sm">Free Courses & eBooks</span>
                 <motion.span 
-                  className="text-[10px] bg-red-500 text-white px-2 py-0.5 rounded-full font-bold"
+                  className="text-[10px] bg-primary text-primary-foreground px-2 py-0.5 rounded-full font-bold"
                   animate={{ scale: [1, 1.1, 1] }}
                   transition={{ duration: 1, repeat: Infinity }}
                 >
@@ -68,7 +68,7 @@ export const FreeResourcesCTA = ({ variant = 'banner', className = '' }: FreeRes
               </div>
               <span className="text-xs text-muted-foreground">Get started with no cost resources</span>
             </div>
-            <ArrowRight size={18} className="text-amber-500 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight size={18} className="text-primary group-hover:translate-x-1 transition-transform" />
           </div>
         </motion.div>
       </Link>
@@ -86,17 +86,16 @@ export const FreeResourcesCTA = ({ variant = 'banner', className = '' }: FreeRes
         whileHover={{ scale: 1.01 }}
       >
         <motion.div 
-          className="relative bg-gradient-to-r from-amber-500/10 via-orange-500/5 to-amber-500/10 py-3 px-4 transition-all duration-300 group-hover:from-amber-500/20 group-hover:via-orange-500/10 group-hover:to-amber-500/20"
+          className="relative bg-primary/10 py-3 px-4 transition-all duration-300 group-hover:bg-primary/15"
         >
           {/* Animated background pulse */}
           <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-amber-500/0 via-amber-500/10 to-amber-500/0"
+            className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0"
             animate={{ x: ['-100%', '100%'] }}
             transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
           />
           
-          {/* Hover glow effect */}
-          <div className="absolute inset-0 bg-amber-500/0 group-hover:bg-amber-500/5 transition-colors duration-300" />
+          <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300" />
           
           <div className="relative z-10 max-w-7xl mx-auto flex items-center justify-center gap-3 flex-wrap">
             <motion.div
@@ -106,13 +105,13 @@ export const FreeResourcesCTA = ({ variant = 'banner', className = '' }: FreeRes
             >
               <div className="relative">
                 <motion.div
-                  className="absolute inset-0 bg-amber-500 rounded-full blur-md opacity-50 group-hover:opacity-80 transition-opacity"
+                  className="absolute inset-0 bg-primary rounded-full blur-md opacity-50 group-hover:opacity-80 transition-opacity"
                   animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.6, 0.3] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
                 />
-                <Gift size={20} className="text-amber-500 relative z-10 group-hover:scale-110 transition-transform" />
+                <Gift size={20} className="text-primary relative z-10 group-hover:scale-110 transition-transform" />
               </div>
-              <span className="text-amber-500 font-bold text-sm sm:text-base group-hover:text-amber-400 transition-colors">FREE COURSES & EBOOKS</span>
+              <span className="text-primary font-bold text-sm sm:text-base group-hover:text-primary transition-colors">FREE COURSES & EBOOKS</span>
             </motion.div>
             
             <span className="text-muted-foreground text-xs sm:text-sm hidden sm:inline group-hover:text-foreground/70 transition-colors">
@@ -120,7 +119,7 @@ export const FreeResourcesCTA = ({ variant = 'banner', className = '' }: FreeRes
             </span>
             
             <motion.div 
-              className="flex items-center gap-1 bg-amber-500 text-background font-bold text-xs sm:text-sm px-3 py-1.5 rounded-full transition-all group-hover:bg-amber-400 group-hover:shadow-lg group-hover:shadow-amber-500/30"
+              className="flex items-center gap-1 bg-primary text-primary-foreground font-bold text-xs sm:text-sm px-3 py-1.5 rounded-full transition-all group-hover:shadow-lg"
             >
               <Sparkles size={14} />
               <span>Get Free Access</span>

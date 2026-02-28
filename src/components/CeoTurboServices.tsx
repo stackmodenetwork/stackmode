@@ -49,12 +49,12 @@ export const CeoTurboServices = () =>
         href={s.href}
         target="_blank"
         rel="noopener noreferrer"
-        className="group relative rounded-xl border border-border/50 p-4 sm:p-5 transition-all hover:border-accent/40 hover:bg-accent/5"
+        className="group relative rounded-xl border border-border/50 p-4 sm:p-5 transition-all hover:border-primary/40 hover:bg-primary/5"
         style={{ background: 'rgba(255,255,255,0.02)' }}>
 
             <div className="flex items-start justify-between mb-3">
-              <div className="p-2 rounded-lg bg-accent/10">
-                <s.icon size={18} className="text-accent bg-sidebar-primary" />
+              <div className="p-2 rounded-lg bg-primary/10">
+                <s.icon size={18} className="text-primary" />
               </div>
               <ArrowUpRight size={14} className="text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
@@ -62,6 +62,18 @@ export const CeoTurboServices = () =>
             <p className="text-xs text-muted-foreground leading-relaxed">{s.desc}</p>
           </a>
       )}
+      </div>
+
+      <div className="flex justify-center mt-6">
+        <a
+          href="https://ceoturbo.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 font-bold px-6 py-3 rounded-xl transition-all text-sm hover:scale-105"
+          style={{ background: '#00ff88', color: '#030305', boxShadow: '0 8px 24px -8px rgba(0,255,136,0.3)' }}>
+          <Globe size={16} />
+          Grow Your Brand
+        </a>
       </div>
     </div>
   </section>;

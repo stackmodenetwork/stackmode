@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { lazy, Suspense } from "react";
 import CursorParticles from "./components/CursorParticles";
+import CursorGridBackground from "./components/CursorGridBackground";
 
 const Landing = lazy(() => import("./pages/Landing"));
 const Home = lazy(() => import("./pages/Home"));
@@ -30,6 +31,7 @@ const App = () => (
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
+        <CursorGridBackground />
         <CursorParticles />
         <Toaster />
         <Sonner />

@@ -338,13 +338,13 @@ export const AcademyHero = () => (
         <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
           className="text-xl sm:text-4xl lg:text-5xl font-bold mb-2 sm:mb-3 leading-tight"
           style={{ color: '#f0f0f0', fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.02em' }}>
-          STACKMODE ACADEMY — LEARN AI SOFTWARE, CODING, TRADING & ASSET STACKING
+          LEARN TO BUILD SOFTWARE, TRADE STOCKS & MAKE MONEY WITH AI
         </motion.h1>
 
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
           className="text-xs sm:text-sm mb-3 sm:mb-4 max-w-lg mx-auto leading-relaxed"
           style={{ color: 'rgba(255,255,255,0.5)', fontFamily: "'DM Sans', sans-serif" }}>
-          Build software with AI. Learn to trade the markets. Stack your assets and build wealth. Zero experience required.
+          No experience needed. We teach you step by step. AI writes the code, you build the business. Start earning in your first month.
         </motion.p>
       </div>
 
