@@ -1,12 +1,12 @@
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion, useMotionValue, useTransform, AnimatePresence } from 'framer-motion';
 
 /* ═══════════════════════════════════════════════
-   LEFT CANVAS — Terminal + Trading Chart
+   FLOATING GRID DOTS — subtle animated background
    ═══════════════════════════════════════════════ */
-const TerminalCanvas = () => {
+const GridDots = ({ color, side }: { color: string; side: 'left' | 'right' }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const visibleRef = useRef(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -14,897 +14,239 @@ const TerminalCanvas = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const resize = () => { canvas.width = canvas.offsetWidth * 1; canvas.height = canvas.offsetHeight * 1; };
+    const resize = () => {
+      canvas.width = canvas.offsetWidth * 1.5;
+      canvas.height = canvas.offsetHeight * 1.5;
+    };
     resize();
     window.addEventListener('resize', resize);
 
-    const obs = new IntersectionObserver(([e]) => { visibleRef.current = e.isIntersecting; }, { threshold: 0 });
-    obs.observe(canvas);
-
-    // Terminal typing
-    const lines = [
-      '> initializing stackmode.env...',
-      '> loading modules: [trading] [webdev] [ai] [content]',
-      '> portfolio.balance = $0 → $12,847.00',
-      '> git commit -m \'shipped new product\'',
-      '> revenue_stream.add(\'saas\', \'content\', \'trading\')',
-      '> stack.execute() ✓ SUCCESS',
-    ];
-    const lineColors = [0.5, 0.35, 0.7, 0.5, 0.5, 0.7];
-    let currentLine = 0;
-    let charIndex = 0;
-    let typedLines: string[] = [];
-    let lastType = 0;
-    let pauseUntil = 0;
-    const CHAR_DELAY = 45;
-    const PAUSE_DELAY = 2500;
-
-    // Candlestick data
-    const candleCount = 24;
-    let candles: { o: number; c: number; h: number; l: number }[] = [];
-    const genCandle = (prev: number) => {
-      const change = (Math.random() - 0.45) * 14;
-      const o = prev;
-      const c = o + change;
-      const h = Math.max(o, c) + Math.random() * 8;
-      const l = Math.min(o, c) - Math.random() * 8;
-      return { o, c, h, l };
-    };
-    let price = 50;
-    for (let i = 0; i < candleCount; i++) {
-      const cd = genCandle(price);
-      candles.push(cd);
-      price = cd.c;
-    }
-    let lastCandleTime = 0;
-
-    const getMA = (idx: number) => {
-      let sum = 0, cnt = 0;
-      for (let i = Math.max(0, idx - 4); i <= idx; i++) {
-        sum += (candles[i].o + candles[i].c) / 2;
-        cnt++;
-      }
-      return sum / cnt;
-    };
-
     let raf: number;
-    const draw = (now: number) => {
+    const dots: { x: number; y: number; vx: number; vy: number; r: number }[] = [];
+    const count = 35;
+    for (let i = 0; i < count; i++) {
+      dots.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        r: 1 + Math.random() * 1.5,
+      });
+    }
+
+    const draw = () => {
       raf = requestAnimationFrame(draw);
-      if (!visibleRef.current) return;
       const W = canvas.width, H = canvas.height;
       ctx.clearRect(0, 0, W, H);
 
-      const isMobile = W < 500;
-      const termH = H * (isMobile ? 0.4 : 0.45);
-      const chartTop = termH + 20;
-      const chartH = H * 0.3;
+      dots.forEach(d => {
+        d.x += d.vx;
+        d.y += d.vy;
+        if (d.x < 0 || d.x > W) d.vx *= -1;
+        if (d.y < 0 || d.y > H) d.vy *= -1;
 
-      /* ── TERMINAL ── */
-      const termPad = isMobile ? 10 : 20;
-      const termW = W - termPad * 2;
-      const termY = termPad;
-      const titleBarH = isMobile ? 18 : 22;
-
-      ctx.strokeStyle = 'rgba(0,255,136,0.08)';
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.roundRect(termPad, termY, termW, termH - termPad * 2, 6);
-      ctx.stroke();
-
-      ctx.fillStyle = 'rgba(0,255,136,0.04)';
-      ctx.beginPath();
-      ctx.roundRect(termPad, termY, termW, titleBarH, [6, 6, 0, 0]);
-      ctx.fill();
-
-      const dotColors = ['rgba(255,95,87,0.5)', 'rgba(255,189,46,0.5)', 'rgba(39,201,63,0.5)'];
-      dotColors.forEach((col, i) => {
-        ctx.fillStyle = col;
         ctx.beginPath();
-        ctx.arc(termPad + 12 + i * 11, termY + titleBarH / 2, 3, 0, Math.PI * 2);
+        ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+        ctx.fillStyle = color;
         ctx.fill();
       });
 
-      ctx.fillStyle = 'rgba(0,255,136,0.3)';
-      ctx.font = `${isMobile ? 7 : 9}px "Share Tech Mono", monospace`;
-      ctx.textAlign = 'center';
-      ctx.fillText('STACKMODE_OS v2.1', termPad + termW / 2, termY + titleBarH / 2 + 3);
-      ctx.textAlign = 'left';
-
-      ctx.fillStyle = 'rgba(0,0,0,0.2)';
-      ctx.fillRect(termPad + 1, termY + titleBarH, termW - 2, termH - termPad * 2 - titleBarH - 1);
-
-      if (now > pauseUntil) {
-        if (now - lastType > CHAR_DELAY) {
-          lastType = now;
-          if (currentLine < lines.length) {
-            charIndex++;
-            if (charIndex > lines[currentLine].length) {
-              typedLines.push(lines[currentLine]);
-              currentLine++;
-              charIndex = 0;
-            }
-          } else {
-            pauseUntil = now + PAUSE_DELAY;
-            typedLines = [];
-            currentLine = 0;
-            charIndex = 0;
-          }
-        }
-      }
-
-      const fontSize = isMobile ? 9 : 11;
-      const lineH = isMobile ? 16 : 22;
-      ctx.font = `${fontSize}px "Share Tech Mono", monospace`;
-      const textX = termPad + 16;
-      const textStartY = termY + titleBarH + 20;
-
-      typedLines.forEach((line, i) => {
-        ctx.fillStyle = `rgba(0,255,136,${lineColors[i] || 0.4})`;
-        ctx.fillText(line, textX, textStartY + i * lineH);
-      });
-
-      if (currentLine < lines.length) {
-        const partial = lines[currentLine].substring(0, charIndex);
-        const ci = typedLines.length;
-        ctx.fillStyle = `rgba(0,255,136,${lineColors[currentLine] || 0.4})`;
-        ctx.fillText(partial, textX, textStartY + ci * lineH);
-        if (Math.floor(now / 530) % 2 === 0) {
-          const tw = ctx.measureText(partial).width;
-          ctx.fillStyle = 'rgba(0,255,136,0.6)';
-          ctx.fillRect(textX + tw + 2, textStartY + ci * lineH - fontSize + 2, fontSize * 0.55, fontSize);
-        }
-      }
-
-      /* ── CANDLESTICK CHART ── */
-      if (now - lastCandleTime > 2000) {
-        lastCandleTime = now;
-        candles.shift();
-        candles.push(genCandle(candles[candles.length - 1].c));
-      }
-
-      let minP = Infinity, maxP = -Infinity;
-      candles.forEach(c => { minP = Math.min(minP, c.l); maxP = Math.max(maxP, c.h); });
-      const range = maxP - minP || 1;
-      const toY = (p: number) => chartTop + chartH - ((p - minP) / range) * chartH * 0.9 - chartH * 0.05;
-      const barW = (W - 60) / candleCount;
-
-      ctx.strokeStyle = 'rgba(255,255,255,0.025)';
+      // Connect nearby dots
+      ctx.strokeStyle = color.replace(/[\d.]+\)$/, '0.06)');
       ctx.lineWidth = 0.5;
-      for (let i = 0; i < 5; i++) {
-        const gy = chartTop + (chartH / 5) * i;
-        ctx.beginPath(); ctx.moveTo(30, gy); ctx.lineTo(W - 10, gy); ctx.stroke();
-        const pLabel = (maxP - (range / 5) * i).toFixed(0);
-        ctx.fillStyle = 'rgba(0,255,136,0.25)';
-        ctx.font = `${isMobile ? 6 : 8}px "Share Tech Mono", monospace`;
-        ctx.fillText(pLabel, 4, gy + 3);
-      }
-
-      candles.forEach((c, i) => {
-        const x = 35 + i * barW + barW / 2;
-        const bull = c.c >= c.o;
-        const bodyTop = toY(Math.max(c.o, c.c));
-        const bodyBot = toY(Math.min(c.o, c.c));
-        const bodyH = Math.max(bodyBot - bodyTop, 1);
-
-        ctx.strokeStyle = bull ? 'rgba(0,255,136,0.4)' : 'rgba(255,60,80,0.3)';
-        ctx.lineWidth = 1;
-        ctx.beginPath(); ctx.moveTo(x, toY(c.h)); ctx.lineTo(x, toY(c.l)); ctx.stroke();
-
-        ctx.fillStyle = bull ? 'rgba(0,255,136,0.2)' : 'rgba(255,60,80,0.15)';
-        ctx.strokeStyle = bull ? 'rgba(0,255,136,0.4)' : 'rgba(255,60,80,0.3)';
-        ctx.fillRect(x - barW * 0.3, bodyTop, barW * 0.6, bodyH);
-        ctx.strokeRect(x - barW * 0.3, bodyTop, barW * 0.6, bodyH);
-      });
-
-      ctx.strokeStyle = 'rgba(0,255,136,0.3)';
-      ctx.lineWidth = 1.5;
-      ctx.beginPath();
-      candles.forEach((_, i) => {
-        const x = 35 + i * barW + barW / 2;
-        const y = toY(getMA(i));
-        i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
-      });
-      ctx.stroke();
-
-      const glowGrad = ctx.createLinearGradient(0, chartTop + chartH - 40, 0, chartTop + chartH);
-      glowGrad.addColorStop(0, 'rgba(0,255,136,0)');
-      glowGrad.addColorStop(1, 'rgba(0,255,136,0.03)');
-      ctx.fillStyle = glowGrad;
-      ctx.fillRect(0, chartTop + chartH - 40, W, 40);
-    };
-
-    raf = requestAnimationFrame(draw);
-    return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', resize); obs.disconnect(); };
-  }, []);
-
-  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full hidden sm:block" />;
-};
-
-/* ═══════════════════════════════════════════════
-   RIGHT CANVAS — Revenue Particles + Wireframe + Trend
-   ═══════════════════════════════════════════════ */
-const WireframeCanvas = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const visibleRef = useRef(false);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    const resize = () => { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; };
-    resize();
-    window.addEventListener('resize', resize);
-    const obs = new IntersectionObserver(([e]) => { visibleRef.current = e.isIntersecting; }, { threshold: 0 });
-    obs.observe(canvas);
-
-    const isMobile = () => canvas.width < 500;
-
-    const symbols = ['$', '€', '£', '+', '↑', '▲', '◆', '%'];
-    const particleCount = () => isMobile() ? 20 : 40;
-    let particles: { x: number; y: number; s: string; size: number; opacity: number; speed: number; offset: number; pulse: boolean }[] = [];
-    const initParticles = () => {
-      const count = particleCount();
-      particles = Array.from({ length: count }, (_, i) => ({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        s: symbols[Math.floor(Math.random() * symbols.length)],
-        size: 10 + Math.random() * 10,
-        opacity: 0.04 + Math.random() * 0.12,
-        speed: 0.25 + Math.random() * 0.35,
-        offset: Math.random() * Math.PI * 2,
-        pulse: i % 8 === 0,
-      }));
-    };
-    initParticles();
-
-    let urlCharIdx = 0;
-    let urlTyping = true;
-    let urlPause = 0;
-    const urlText = 'ceoturbo.com';
-    let layoutIdx = 0;
-    let layoutAlpha = 1;
-    let lastLayoutSwitch = 0;
-
-    let trendPoints: number[] = [];
-    for (let i = 0; i < 20; i++) trendPoints.push(30 + i * 2 + Math.random() * 8);
-    let lastTrendAdd = 0;
-    let trendPulseRadius = 3;
-
-    let frame = 0;
-    let raf: number;
-
-    const draw = (now: number) => {
-      raf = requestAnimationFrame(draw);
-      if (!visibleRef.current) return;
-      frame++;
-      const W = canvas.width, H = canvas.height;
-      ctx.clearRect(0, 0, W, H);
-      const mobile = isMobile();
-
-      /* ── LAYER 1: Revenue Particles ── */
-      ctx.font = '14px "Share Tech Mono", monospace';
-      particles.forEach(p => {
-        const scale = p.pulse ? 1 + Math.sin(frame * 0.03 + p.offset) * 0.35 : 1;
-        ctx.save();
-        ctx.globalAlpha = p.opacity;
-        ctx.fillStyle = '#00cfff';
-        ctx.font = `${p.size * scale}px "Share Tech Mono", monospace`;
-        ctx.fillText(p.s, p.x, p.y);
-        ctx.restore();
-
-        p.y -= p.speed;
-        p.x += Math.sin(frame * 0.02 + p.offset) * 0.4;
-        if (p.y < -20) { p.y = H + 20; p.x = Math.random() * W; }
-      });
-
-      /* ── LAYER 2: Browser Wireframe ── */
-      const bw = Math.min(W * 0.6, 260);
-      const bh = bw * 0.7;
-      const bx = W * 0.45;
-      const by = (H - bh) / 2 - 20;
-
-      ctx.strokeStyle = 'rgba(0,207,255,0.07)';
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.roundRect(bx, by, bw, bh, 5);
-      ctx.stroke();
-
-      ctx.fillStyle = 'rgba(0,207,255,0.04)';
-      ctx.fillRect(bx, by, bw, 16);
-      ctx.fillStyle = 'rgba(0,207,255,0.08)';
-      ctx.fillRect(bx + 6, by + 3, 40, 10);
-
-      const abY = by + 18;
-      ctx.strokeStyle = 'rgba(0,207,255,0.06)';
-      ctx.strokeRect(bx + 8, abY, bw - 16, 14);
-
-      if (now > urlPause) {
-        if (urlTyping) {
-          urlCharIdx++;
-          if (urlCharIdx > urlText.length) { urlPause = now + 3000; urlTyping = false; }
-        } else {
-          urlCharIdx--;
-          if (urlCharIdx <= 0) { urlPause = now + 500; urlTyping = true; }
-        }
-      }
-      ctx.fillStyle = 'rgba(0,207,255,0.3)';
-      ctx.font = `${mobile ? 7 : 8}px "Share Tech Mono", monospace`;
-      ctx.fillText(urlText.substring(0, Math.max(0, urlCharIdx)), bx + 12, abY + 10);
-      if (Math.floor(now / 530) % 2 === 0) {
-        const cursorX = bx + 12 + ctx.measureText(urlText.substring(0, Math.max(0, urlCharIdx))).width + 1;
-        ctx.fillRect(cursorX, abY + 3, 1, 9);
-      }
-
-      const vpY = abY + 18;
-      const vpH = bh - (vpY - by) - 8;
-      const vpW = bw - 16;
-      const vpX = bx + 8;
-
-      if (now - lastLayoutSwitch > 3500) {
-        lastLayoutSwitch = now;
-        layoutIdx = (layoutIdx + 1) % 3;
-        layoutAlpha = 0;
-      }
-      layoutAlpha = Math.min(1, layoutAlpha + 0.02);
-
-      ctx.globalAlpha = layoutAlpha;
-      const rc = (x: number, y: number, w: number, h: number, r = 2) => {
-        ctx.beginPath(); ctx.roundRect(x, y, w, h, r); ctx.fill();
-      };
-
-      ctx.fillStyle = 'rgba(0,207,255,0.06)';
-      if (layoutIdx === 0) {
-        rc(vpX, vpY, vpW, 8);
-        for (let i = 0; i < 4; i++) rc(vpX + vpW - 4 * 14 + i * 14, vpY + 1, 10, 5);
-        rc(vpX, vpY + 14, vpW, vpH * 0.5);
-        ctx.fillStyle = 'rgba(0,207,255,0.1)';
-        rc(vpX + vpW / 2 - 25, vpY + 14 + vpH * 0.55, 50, 10, 3);
-      } else if (layoutIdx === 1) {
-        const cols = 3, rows = 2, gap = 4;
-        const cw = (vpW - gap * (cols - 1)) / cols;
-        const ch = (vpH - gap * (rows - 1)) / rows;
-        for (let r = 0; r < rows; r++) {
-          for (let c = 0; c < cols; c++) {
-            rc(vpX + c * (cw + gap), vpY + r * (ch + gap), cw, ch, 3);
-            ctx.fillStyle = 'rgba(0,207,255,0.04)';
-            ctx.fillRect(vpX + c * (cw + gap) + 3, vpY + r * (ch + gap) + ch - 8, cw - 6, 3);
-            ctx.fillStyle = 'rgba(0,207,255,0.06)';
+      for (let i = 0; i < dots.length; i++) {
+        for (let j = i + 1; j < dots.length; j++) {
+          const dx = dots[i].x - dots[j].x;
+          const dy = dots[i].y - dots[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(dots[i].x, dots[i].y);
+            ctx.lineTo(dots[j].x, dots[j].y);
+            ctx.stroke();
           }
         }
-      } else {
-        const sideW = vpW * 0.22;
-        rc(vpX, vpY, sideW, vpH);
-        const cardW = (vpW - sideW - 12) / 4;
-        for (let i = 0; i < 4; i++) {
-          rc(vpX + sideW + 6 + i * (cardW + 2), vpY, cardW, vpH * 0.25, 3);
-        }
-        ctx.fillStyle = 'rgba(0,207,255,0.08)';
-        const barHArr = [0.6, 0.8, 0.5, 0.9, 0.7];
-        const barArea = vpH * 0.6;
-        const barBottom = vpY + vpH;
-        const barStartX = vpX + sideW + 10;
-        const barGap = (vpW - sideW - 24) / 5;
-        barHArr.forEach((h, i) => {
-          const bHeight = barArea * h;
-          ctx.fillRect(barStartX + i * barGap, barBottom - bHeight, barGap * 0.6, bHeight);
-        });
       }
-      ctx.globalAlpha = 1;
-
-      /* ── LAYER 3: Revenue Trend Line ── */
-      if (now - lastTrendAdd > 1500) {
-        lastTrendAdd = now;
-        const last = trendPoints[trendPoints.length - 1];
-        trendPoints.push(last + 1 + Math.random() * 4);
-        if (trendPoints.length > 30) trendPoints.shift();
-      }
-
-      const tMinY = Math.min(...trendPoints);
-      const tMaxY = Math.max(...trendPoints);
-      const tRange = tMaxY - tMinY || 1;
-      const tAreaX = W * 0.55;
-      const tAreaW = W * 0.4;
-      const tAreaY = H * 0.7;
-      const tAreaH = H * 0.22;
-
-      ctx.beginPath();
-      trendPoints.forEach((p, i) => {
-        const x = tAreaX + (i / (trendPoints.length - 1)) * tAreaW;
-        const y = tAreaY + tAreaH - ((p - tMinY) / tRange) * tAreaH;
-        i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
-      });
-      ctx.strokeStyle = 'rgba(0,207,255,0.25)';
-      ctx.lineWidth = 1.5;
-      ctx.stroke();
-
-      const lastX = tAreaX + tAreaW;
-      const lastY = tAreaY + tAreaH - ((trendPoints[trendPoints.length - 1] - tMinY) / tRange) * tAreaH;
-      ctx.lineTo(lastX, tAreaY + tAreaH);
-      ctx.lineTo(tAreaX, tAreaY + tAreaH);
-      ctx.closePath();
-      const areaGrad = ctx.createLinearGradient(0, tAreaY, 0, tAreaY + tAreaH);
-      areaGrad.addColorStop(0, 'rgba(0,207,255,0.04)');
-      areaGrad.addColorStop(1, 'transparent');
-      ctx.fillStyle = areaGrad;
-      ctx.fill();
-
-      trendPulseRadius = 3 + Math.sin(now * 0.005) * 1.5;
-      ctx.beginPath();
-      ctx.arc(lastX, lastY, trendPulseRadius, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(0,207,255,0.6)';
-      ctx.fill();
-      const rippleR = 6 + Math.sin(now * 0.003) * 4;
-      ctx.beginPath();
-      ctx.arc(lastX, lastY, rippleR, 0, Math.PI * 2);
-      ctx.strokeStyle = `rgba(0,207,255,${0.3 - Math.sin(now * 0.003) * 0.15})`;
-      ctx.lineWidth = 1;
-      ctx.stroke();
     };
 
     raf = requestAnimationFrame(draw);
-    return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', resize); obs.disconnect(); };
-  }, []);
+    return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', resize); };
+  }, [color]);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full hidden sm:block" />;
+  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-40" />;
 };
 
 /* ═══════════════════════════════════════════════
-   KEYWORD TICKER
+   STAT COUNTER
    ═══════════════════════════════════════════════ */
-const TICKER_TEXT = 'STACKMODE ACADEMY · CHRISTOPHER ROBINSON · STACKMODECHRIS · AI TOOLS · PYTHON CODING · STOCK TRADING · CRYPTO INVESTING · WEB DEVELOPMENT · SOFTWARE ENGINEERING · CONTENT MONETIZATION · BUILD DIGITAL ASSETS · $50/MONTH · CEO TURBO · NFC DIGITAL BUSINESS CARDS · BRAND BOOST CALL · ATLANTA GEORGIA · FINANCIAL FREEDOM · LEARN TO CODE · LEARN TO TRADE · CHRISTOPHERROBINSONCEO · STACKMODECHRIS___ · ';
-
-const KeywordTicker = () => (
-  <div
-    className="relative w-full overflow-hidden group/ticker hidden sm:block"
-    style={{
-      height: 26,
-      background: '#070710',
-      borderBottom: '1px solid rgba(255,255,255,0.03)',
-    }}
-  >
-    <div
-      className="flex items-center h-full whitespace-nowrap animate-marquee group-hover/ticker:[animation-play-state:paused]"
-      style={{ width: 'max-content' }}
-    >
-      {[0, 1, 2].map(i => (
-        <p key={i} className="inline-block" style={{
-          fontFamily: "'Share Tech Mono', monospace",
-          fontSize: 9,
-          color: '#252525',
-          letterSpacing: '0.15em',
-          margin: 0,
-          padding: '0 12px',
-        }}>
-          {TICKER_TEXT}
-        </p>
-      ))}
+const StatItem = ({ value, label }: { value: string; label: string }) => (
+  <div className="text-center">
+    <div className="text-lg sm:text-2xl font-bold" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.05em' }}>
+      {value}
+    </div>
+    <div className="text-[9px] sm:text-[10px] uppercase tracking-[0.15em] opacity-50" style={{ fontFamily: "'Share Tech Mono', monospace" }}>
+      {label}
     </div>
   </div>
 );
 
 /* ═══════════════════════════════════════════════
-   TOP BAR
+   PATH CARD — shared component for both paths
    ═══════════════════════════════════════════════ */
-const TopBar = () => {
-  const [time, setTime] = useState('');
-  useEffect(() => {
-    const tick = () => setTime(new Date().toLocaleTimeString('en-US', { hour12: false }));
-    tick();
-    const id = setInterval(tick, 1000);
-    return () => clearInterval(id);
-  }, []);
-
-  return (
-    <header
-      className="fixed top-0 left-0 right-0 z-[200] hidden sm:flex items-center justify-between px-5 sm:px-8 animate-[slideDown_0.5s_ease_forwards]"
-      style={{
-        height: 44,
-        background: 'rgba(4,4,10,0.92)',
-        backdropFilter: 'blur(16px)',
-        borderBottom: '1px solid rgba(255,255,255,0.04)',
-        willChange: 'transform',
-        transform: 'translateZ(0)',
-      }}
-    >
-      <div className="flex items-center gap-0">
-        <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 20, letterSpacing: '0.15em', color: '#f0f0f0' }}>
-          STACK<span style={{ color: '#00ff88' }}>MODE</span>
-        </span>
-        <div className="mx-3" style={{ width: 1, height: 18, background: 'rgba(255,255,255,0.12)' }} />
-        <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 20, letterSpacing: '0.15em', color: '#f0f0f0' }}>
-          CEO<span style={{ color: '#00cfff' }}>TURBO</span>
-        </span>
-      </div>
-      <div className="hidden sm:flex items-center gap-4" style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: 9, color: '#333' }}>
-        <span>{time}</span>
-        <span>SESSION_001</span>
-      </div>
-    </header>
-  );
-};
-
-/* ═══════════════════════════════════════════════
-   STATUS BAR
-   ═══════════════════════════════════════════════ */
-const StatusBar = ({ hover }: { hover: 'left' | 'right' | null }) => (
-  <footer
-    className="fixed bottom-0 left-0 right-0 z-[200] hidden sm:flex items-center justify-between px-5 sm:px-8"
-    style={{
-      height: 32,
-      background: 'rgba(4,4,10,0.92)',
-      borderTop: '1px solid rgba(255,255,255,0.03)',
-      willChange: 'transform',
-      transform: 'translateZ(0)',
-      fontFamily: "'Share Tech Mono', monospace",
-      fontSize: 8,
-      letterSpacing: '2px',
-    }}
-  >
-    <div className="flex items-center gap-2">
-      <div className="rounded-full animate-pulse" style={{ width: 5, height: 5, background: '#00ff88' }} />
-      <span style={{ color: '#252525' }}>STACKMODE.NET — ALL SYSTEMS OPERATIONAL</span>
-    </div>
-    <span
-      className="hidden sm:block transition-colors duration-300"
-      style={{
-        color: hover === 'left' ? 'rgba(0,255,136,0.35)' : hover === 'right' ? 'rgba(0,207,255,0.3)' : '#252525',
-      }}
-    >
-      {hover === 'left'
-        ? '// STACKMODE ACADEMY — $50/MO → BUILD YOUR STACK'
-        : hover === 'right'
-          ? '// CEO TURBO — NFC CARDS + BRAND BOOST + WEB DESIGN'
-          : '// HOVER TO SELECT YOUR PATH'}
-    </span>
-  </footer>
-);
-
-/* ═══════════════════════════════════════════════
-   SOCIAL FOOTER STRIP
-   ═══════════════════════════════════════════════ */
-const SocialFooterStrip = () => (
-  <nav
-    className="fixed z-[201] left-0 right-0 hidden sm:flex items-center justify-center gap-6"
-    style={{
-      bottom: 32,
-      height: 28,
-      background: 'rgba(4,4,10,0.95)',
-      borderTop: '1px solid rgba(255,255,255,0.02)',
-      willChange: 'transform',
-      transform: 'translateZ(0)',
-      fontFamily: "'Share Tech Mono', monospace",
-      fontSize: 8,
-      letterSpacing: '3px',
-    }}
-    aria-label="Social media links for Christopher Robinson StackmodeChris"
-  >
-    <a href="https://www.instagram.com/christopherrobinsonceo/" target="_blank" rel="noopener noreferrer"
-      aria-label="Follow Christopher Robinson on Instagram — christopherrobinsonceo"
-      style={{ color: '#1a1a1a', textDecoration: 'none' }}>INSTAGRAM</a>
-    <a href="https://www.youtube.com/@ChristopherRobinson-CEO" target="_blank" rel="noopener noreferrer"
-      aria-label="Subscribe to Christopher Robinson on YouTube — ChristopherRobinson-CEO"
-      style={{ color: '#1a1a1a', textDecoration: 'none' }}>YOUTUBE</a>
-    <a href="https://www.tiktok.com/@stackmodechris___" target="_blank" rel="noopener noreferrer"
-      aria-label="Follow StackmodeChris on TikTok — stackmodechris___"
-      style={{ color: '#1a1a1a', textDecoration: 'none' }}>TIKTOK</a>
-    <a href="https://ceoturbo.com" target="_blank" rel="noopener noreferrer"
-      aria-label="Visit CEO Turbo — NFC Digital Business Cards and Brand Boost by StackmodeChris Christopher Robinson"
-      style={{ color: '#1a1a1a', textDecoration: 'none' }}>CEOTURBO.COM</a>
-  </nav>
-);
-
-/* ═══════════════════════════════════════════════
-   CENTER EMBLEM
-   ═══════════════════════════════════════════════ */
-const CenterEmblem = () => (
-  <div
-    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[110] hidden md:flex flex-col items-center"
-    style={{ animation: 'fadeUp 0.7s ease 0.7s both' }}
-  >
-    <div
-      className="relative flex items-center justify-center"
-      style={{
-        width: 68, height: 68, borderRadius: '50%',
-        border: '1px solid rgba(255,255,255,0.07)',
-      }}
-    >
-      <div
-        className="absolute inset-0 rounded-full"
-        style={{
-          border: '1px solid transparent',
-          borderTopColor: 'rgba(255,255,255,0.4)',
-          animation: 'spin 7s linear infinite',
-        }}
-      />
-      <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 20, color: 'rgba(255,255,255,0.45)' }}>SM</span>
-    </div>
-    <span style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: 7, letterSpacing: '0.2em', color: '#1e1e1e', marginTop: 6 }}>
-      SELECT PATH
-    </span>
-  </div>
-);
-
-/* ═══════════════════════════════════════════════
-   PANEL (shared layout)
-   ═══════════════════════════════════════════════ */
-interface PanelProps {
-  side: 'left' | 'right';
-  hovered: boolean;
-  otherHovered: boolean;
-  onHover: (h: boolean) => void;
+interface PathCardProps {
+  href: string;
+  isExternal?: boolean;
+  logo: string;
+  logoAlt: string;
+  tag: string;
+  title: React.ReactNode;
+  description: string;
+  pills: string[];
+  ctaText: string;
+  accentColor: string;
+  accentRgb: string;
+  stats: { value: string; label: string }[];
+  index: number;
 }
 
-const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>) => {
-  const shrink = otherHovered && !hovered;
-  return (
-    <Link
-      to="/academy"
-      data-panel-side="left"
-      aria-label="Join Stackmode Academy — Learn AI, Coding and Trading with Christopher Robinson for $50 per month"
-      onMouseEnter={() => onHover(true)}
-      onMouseLeave={() => onHover(false)}
-      className="relative flex flex-1 items-center justify-center overflow-hidden no-underline"
+const PathCard = ({ href, isExternal, logo, logoAlt, tag, title, description, pills, ctaText, accentColor, accentRgb, stats, index }: PathCardProps) => {
+  const [hovered, setHovered] = useState(false);
+
+  const cardContent = (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, delay: index * 0.15, ease: [0.22, 1, 0.36, 1] }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className="relative group flex-1 min-h-[420px] sm:min-h-[500px] md:min-h-0 md:h-full rounded-2xl md:rounded-none overflow-hidden"
       style={{
-        flex: hovered ? 1.45 : shrink ? 0.85 : 1,
-        transition: 'flex 0.65s cubic-bezier(0.77, 0, 0.175, 1), box-shadow 0.4s ease',
-        cursor: 'none',
-        minHeight: undefined,
-        boxShadow: hovered ? 'inset 0 0 80px rgba(0,255,136,0.08), 0 0 40px rgba(0,255,136,0.06)' : 'none',
-        borderRight: hovered ? '1px solid rgba(0,255,136,0.15)' : '1px solid transparent',
+        background: '#0a0a14',
+        border: '1px solid rgba(255,255,255,0.06)',
+        borderWidth: '1px',
       }}
     >
-      {/* Dark overlay */}
-      <div className="absolute inset-0 z-[1] transition-all duration-500" style={{
-        background: hovered ? 'rgba(4,4,10,0.5)' : 'rgba(4,4,10,0.7)',
-      }} />
-      {/* Mobile gradient background (replaces canvas) */}
-      <div className="absolute inset-0 z-[0] sm:hidden" style={{
-        background: 'radial-gradient(ellipse at 30% 50%, rgba(0,255,136,0.06) 0%, transparent 60%)',
-      }} />
+      {/* Animated background */}
+      <div className="absolute inset-0 hidden sm:block">
+        <GridDots color={`rgba(${accentRgb}, 0.12)`} side={index === 0 ? 'left' : 'right'} />
+      </div>
 
-      {/* Grid overlay */}
-      <div className="absolute inset-0 z-[2] pointer-events-none" style={{
-        backgroundImage: 'linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px)',
-        backgroundSize: '48px 48px',
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 transition-all duration-700" style={{
+        background: hovered
+          ? `radial-gradient(ellipse at 50% 80%, rgba(${accentRgb}, 0.12) 0%, transparent 70%)`
+          : `radial-gradient(ellipse at 50% 100%, rgba(${accentRgb}, 0.04) 0%, transparent 60%)`,
       }} />
 
-      <TerminalCanvas />
-
-      {/* Green radial glow — stronger on hover */}
-      <div className="absolute inset-0 pointer-events-none z-[3] transition-opacity duration-500" style={{
-        background: 'radial-gradient(600px circle at 50% 60%, rgba(0,255,136,0.08) 0%, transparent 70%)',
-        opacity: hovered ? 1 : 0.4,
+      {/* Top accent line */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] transition-all duration-500" style={{
+        background: hovered
+          ? `linear-gradient(90deg, transparent, ${accentColor}, transparent)`
+          : `linear-gradient(90deg, transparent, rgba(${accentRgb}, 0.3), transparent)`,
       }} />
-
-      {/* Corner brackets */}
-      <div className="absolute top-4 left-4 w-5 h-5 border-l-[1.5px] border-t-[1.5px] z-[5] transition-all duration-300" style={{ borderColor: hovered ? 'rgba(0,255,136,0.5)' : 'rgba(0,255,136,0.2)' }} />
-      <div className="absolute bottom-4 right-4 w-5 h-5 border-r-[1.5px] border-b-[1.5px] z-[5] transition-all duration-300" style={{ borderColor: hovered ? 'rgba(0,255,136,0.5)' : 'rgba(0,255,136,0.2)' }} />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center sm:items-start text-center sm:text-left px-5 sm:px-12 max-w-lg w-full sm:[animation:fadeUp_0.8s_ease_0.2s_both] pt-10 sm:pt-0">
-        {/* Logo — circular */}
-        <div className="mb-2 sm:mb-3 w-[44px] h-[44px] sm:w-[72px] sm:h-[72px] rounded-full overflow-hidden flex items-center justify-center" style={{
-          border: '2px solid rgba(0,255,136,0.3)',
-          background: 'rgba(0,0,0,0.4)',
-        }}>
-          <img
-            src="/images/stackmode-logo-sm.png"
-            alt="Stackmode Academy Christopher Robinson StackmodeChris logo"
-            width={72}
-            height={72}
-            loading="lazy"
-            className="w-full h-full object-cover"
-          />
-        </div>
+      <div className="relative z-10 flex flex-col h-full justify-between p-6 sm:p-8 md:p-10 lg:p-14">
+        <div>
+          {/* Logo + Tag row */}
+          <div className="flex items-center gap-3 mb-5 sm:mb-8">
+            <div className={`w-11 h-11 sm:w-14 sm:h-14 rounded-xl overflow-hidden transition-all duration-300`} style={{
+              border: `1px solid rgba(${accentRgb}, ${hovered ? 0.5 : 0.2})`,
+              boxShadow: hovered ? `0 0 20px rgba(${accentRgb}, 0.2)` : 'none',
+            }}>
+              <img src={logo} alt={logoAlt} className="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <span className="text-[9px] sm:text-[10px] tracking-[0.2em] uppercase px-3 py-1 rounded-full" style={{
+              fontFamily: "'Share Tech Mono', monospace",
+              color: accentColor,
+              border: `1px solid rgba(${accentRgb}, 0.25)`,
+              background: `rgba(${accentRgb}, 0.06)`,
+            }}>
+              {tag}
+            </span>
+          </div>
 
-        {/* Tag */}
-        <span className="mb-1.5 sm:mb-2 px-3 py-0.5 text-[8px] sm:text-[9px] tracking-[0.2em] uppercase rounded-full" style={{
-          fontFamily: "'Share Tech Mono', monospace",
-          color: '#00ff88',
-          border: '1px solid rgba(0,255,136,0.3)',
-        }}>
-          // 01 — CODE & BUILD
-        </span>
-
-        {/* Heading */}
-        <h2 style={{
-          fontFamily: "'Bebas Neue', sans-serif",
-          fontSize: 'clamp(32px, 5.5vw, 86px)',
-          lineHeight: 0.92,
-          color: '#f0f0f0',
-          margin: 0,
-        }}>
-          <span className="hidden md:inline">STACK<br /><span style={{ color: '#00ff88' }}>MODE</span><br />ACADEMY</span>
-          <span className="md:hidden">STACK<span style={{ color: '#00ff88' }}>MODE</span> ACADEMY</span>
-        </h2>
-
-        {/* AI badge */}
-        <div className="flex items-center gap-2 mt-1 sm:mt-2" style={{
-          fontFamily: "'Share Tech Mono', monospace",
-          fontSize: 8,
-          color: '#00ff88',
-        }}>
-          <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#00ff88] animate-pulse" />
-          <span>AI-POWERED LEARNING SYSTEM</span>
-        </div>
-
-        {/* Description */}
-        <p className="mt-2 hidden sm:block"
-          style={{
-            fontFamily: "'Syne', sans-serif",
-            fontWeight: 700,
-            fontSize: 12,
-            color: '#e0e0e0',
-            maxWidth: 380,
-            lineHeight: 1.5,
-          }}
-        >
-          Learn to code with Python & AI. Build software. Trade stocks & crypto. One system — $50/mo.
-        </p>
-
-        {/* Pills */}
-        <div className="flex flex-wrap justify-center sm:justify-start gap-1.5 sm:gap-2 mt-1.5 sm:mt-2">
-          {['Python', 'AI Coding', 'Web Dev', 'Trading'].map(p => (
-            <span key={p} className="text-[9px] sm:text-[11px] tracking-wide px-2 sm:px-3 py-0.5 sm:py-1 rounded" style={{
-              fontFamily: "'Syne', sans-serif",
-              fontWeight: 600,
-              background: 'rgba(0,255,136,0.08)',
-              color: '#00ff88',
-              border: '1px solid rgba(0,255,136,0.18)',
-            }}>{p}</span>
-          ))}
-        </div>
-
-        {/* CTA — glows on panel hover */}
-        <div className="relative mt-3 sm:mt-4 overflow-hidden group/cta rounded transition-all duration-400 px-6 py-2.5 sm:px-8 sm:py-3.5 flex items-center justify-center sm:justify-start" style={{
-          border: hovered ? '2px solid rgba(0,255,136,0.8)' : '1.5px solid rgba(0,255,136,0.4)',
-          boxShadow: hovered ? '0 0 24px rgba(0,255,136,0.25), inset 0 0 12px rgba(0,255,136,0.08)' : 'none',
-          background: hovered ? 'rgba(0,255,136,0.06)' : 'transparent',
-        }}
-          aria-label="Join Stackmode Academy for $50 per month — AI coding and trading school by StackmodeChris"
-        >
-          <div className="absolute inset-0 bg-[#00ff88] -translate-x-full group-hover/cta:translate-x-0 transition-transform duration-300" />
-          <span className="relative z-10 text-[14px] sm:text-[18px] tracking-[0.15em] font-bold transition-colors duration-300 group-hover/cta:!text-[#04040a]" style={{
+          {/* Title */}
+          <h2 className="mb-3 sm:mb-4" style={{
             fontFamily: "'Bebas Neue', sans-serif",
-            color: hovered ? '#fff' : '#00ff88',
+            fontSize: 'clamp(36px, 6vw, 72px)',
+            lineHeight: 0.95,
+            color: '#f0f0f0',
+            letterSpacing: '0.02em',
           }}>
-            JOIN ACADEMY →
-          </span>
+            {title}
+          </h2>
+
+          {/* Description */}
+          <p className="mb-4 sm:mb-6 max-w-sm" style={{
+            fontFamily: "'Syne', sans-serif",
+            fontWeight: 500,
+            fontSize: 'clamp(13px, 1.4vw, 15px)',
+            color: 'rgba(255,255,255,0.55)',
+            lineHeight: 1.6,
+          }}>
+            {description}
+          </p>
+
+          {/* Pills */}
+          <div className="flex flex-wrap gap-2 mb-6 sm:mb-8">
+            {pills.map(p => (
+              <span key={p} className="text-[10px] sm:text-[11px] tracking-wide px-3 py-1 rounded-lg transition-all duration-300" style={{
+                fontFamily: "'Syne', sans-serif",
+                fontWeight: 600,
+                background: hovered ? `rgba(${accentRgb}, 0.12)` : `rgba(${accentRgb}, 0.06)`,
+                color: accentColor,
+                border: `1px solid rgba(${accentRgb}, 0.15)`,
+              }}>{p}</span>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom: stats + CTA */}
+        <div>
+          {/* Stats */}
+          <div className="flex gap-6 sm:gap-8 mb-6 sm:mb-8" style={{ color: accentColor }}>
+            {stats.map(s => <StatItem key={s.label} {...s} />)}
+          </div>
+
+          {/* CTA Button */}
+          <div className="relative overflow-hidden rounded-xl group/cta inline-flex transition-all duration-500" style={{
+            border: `2px solid rgba(${accentRgb}, ${hovered ? 0.7 : 0.3})`,
+            boxShadow: hovered ? `0 0 30px rgba(${accentRgb}, 0.2), 0 4px 20px rgba(0,0,0,0.4)` : '0 4px 12px rgba(0,0,0,0.3)',
+          }}>
+            <div className={`absolute inset-0 transition-transform duration-400 -translate-x-full group-hover/cta:translate-x-0`} style={{ background: accentColor }} />
+            <span className="relative z-10 px-8 sm:px-10 py-3 sm:py-4 text-[15px] sm:text-[18px] tracking-[0.12em] font-bold transition-colors duration-300 group-hover/cta:text-[#04040a]" style={{
+              fontFamily: "'Bebas Neue', sans-serif",
+              color: hovered ? '#fff' : accentColor,
+            }}>
+              {ctaText}
+            </span>
+          </div>
         </div>
       </div>
-    </Link>
+
+      {/* Corner accents */}
+      <div className="absolute top-5 right-5 w-4 h-4 border-t border-r transition-all duration-300 hidden sm:block" style={{
+        borderColor: hovered ? `rgba(${accentRgb}, 0.5)` : `rgba(${accentRgb}, 0.15)`,
+      }} />
+      <div className="absolute bottom-5 left-5 w-4 h-4 border-b border-l transition-all duration-300 hidden sm:block" style={{
+        borderColor: hovered ? `rgba(${accentRgb}, 0.5)` : `rgba(${accentRgb}, 0.15)`,
+      }} />
+    </motion.div>
   );
-};
 
-const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>) => {
-  const shrink = otherHovered && !hovered;
+  if (isExternal) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className="flex flex-1 no-underline md:h-full">
+        {cardContent}
+      </a>
+    );
+  }
+
   return (
-    <a
-      href="https://ceoturbo.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      data-panel-side="right"
-      aria-label="Visit CEO Turbo — NFC Digital Business Cards and Brand Boost by StackmodeChris Christopher Robinson"
-      onMouseEnter={() => onHover(true)}
-      onMouseLeave={() => onHover(false)}
-      className="relative flex flex-1 items-center justify-center overflow-hidden no-underline"
-      style={{
-        flex: hovered ? 1.45 : shrink ? 0.85 : 1,
-        transition: 'flex 0.65s cubic-bezier(0.77, 0, 0.175, 1), box-shadow 0.4s ease',
-        cursor: 'none',
-        minHeight: undefined,
-        boxShadow: hovered ? 'inset 0 0 100px rgba(0,207,255,0.12), 0 0 60px rgba(0,207,255,0.1)' : 'inset 0 0 40px rgba(0,207,255,0.04)',
-        borderLeft: hovered ? '1px solid rgba(0,207,255,0.15)' : '1px solid transparent',
-      }}
-    >
-      {/* Dark overlay */}
-      <div className="absolute inset-0 z-[1] transition-all duration-500" style={{
-        background: hovered ? 'rgba(4,4,10,0.5)' : 'rgba(4,4,10,0.7)',
-      }} />
-      {/* Mobile gradient background (replaces canvas) */}
-      <div className="absolute inset-0 z-[0] sm:hidden" style={{
-        background: 'radial-gradient(ellipse at 70% 50%, rgba(0,207,255,0.06) 0%, transparent 60%)',
-      }} />
-
-      {/* Grid overlay */}
-      <div className="absolute inset-0 z-[2] pointer-events-none" style={{
-        backgroundImage: 'linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px)',
-        backgroundSize: '48px 48px',
-      }} />
-
-      <WireframeCanvas />
-
-      {/* Cyan radial glow — subtle, doesn't tint the background */}
-      <div className="absolute inset-0 pointer-events-none z-[3] transition-opacity duration-500" style={{
-        background: 'radial-gradient(600px circle at 50% 60%, rgba(0,207,255,0.06) 0%, transparent 70%)',
-        opacity: hovered ? 1 : 0.4,
-      }} />
-
-      {/* Corner brackets */}
-      <div className="absolute top-4 right-4 w-5 h-5 border-r-[1.5px] border-t-[1.5px] z-[5] transition-all duration-300" style={{ borderColor: hovered ? 'rgba(0,207,255,0.5)' : 'rgba(0,207,255,0.2)' }} />
-      <div className="absolute bottom-4 left-4 w-5 h-5 border-l-[1.5px] border-b-[1.5px] z-[5] transition-all duration-300" style={{ borderColor: hovered ? 'rgba(0,207,255,0.5)' : 'rgba(0,207,255,0.2)' }} />
-
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-center sm:items-start text-center sm:text-left px-5 sm:px-12 max-w-lg w-full sm:[animation:fadeUp_0.8s_ease_0.4s_both]">
-        {/* Logo — circular */}
-        <div className="mb-2 sm:mb-3 w-[44px] h-[44px] sm:w-[72px] sm:h-[72px] rounded-full overflow-hidden flex items-center justify-center" style={{
-          border: '2px solid rgba(0,207,255,0.3)',
-          background: 'rgba(0,0,0,0.4)',
-        }}>
-          <img
-            src="/images/ceoturbo-logo-new.png"
-            alt="CEO Turbo Christopher Robinson StackmodeChris brand boost logo"
-            width={72}
-            height={72}
-            loading="lazy"
-            className="w-full h-full object-cover"
-          />
-        </div>
-
-        <span className="mb-1.5 sm:mb-2 px-3 py-0.5 text-[8px] sm:text-[9px] tracking-[0.2em] uppercase rounded-full" style={{
-          fontFamily: "'Share Tech Mono', monospace",
-          color: '#00cfff',
-          border: '1px solid rgba(0,207,255,0.3)',
-        }}>
-          // 02 — WEBSITES & REVENUE
-        </span>
-
-        <h2 style={{
-          fontFamily: "'Bebas Neue', sans-serif",
-          fontSize: 'clamp(32px, 5.5vw, 86px)',
-          lineHeight: 0.92,
-          color: '#f0f0f0',
-          margin: 0,
-        }}>
-          <span className="hidden md:inline">CEO<br /><span style={{ color: '#00cfff' }}>TURBO</span><br />.COM</span>
-          <span className="md:hidden">CEO<span style={{ color: '#00cfff' }}>TURBO</span>.COM</span>
-        </h2>
-
-        <p className="mt-2 hidden sm:block"
-          style={{
-            fontFamily: "'Syne', sans-serif",
-            fontWeight: 700,
-            fontSize: 12,
-            color: '#e0e0e0',
-            maxWidth: 380,
-            lineHeight: 1.5,
-          }}
-        >
-          We design your website. Monetize content. Boost ad revenue. Scale your brand on autopilot.
-        </p>
-
-        <div className="flex flex-nowrap justify-center sm:justify-start gap-1.5 sm:gap-2 mt-1.5 sm:mt-2">
-          {['Web Design', 'Ad Revenue', 'Content $$$', 'Brand Boost'].map(p => (
-            <span key={p} className="text-[8px] sm:text-[11px] tracking-wide px-2 sm:px-3 py-0.5 sm:py-1 rounded whitespace-nowrap" style={{
-              fontFamily: "'Syne', sans-serif",
-              fontWeight: 600,
-              background: 'rgba(0,207,255,0.08)',
-              color: '#00cfff',
-              border: '1px solid rgba(0,207,255,0.18)',
-            }}>{p}</span>
-          ))}
-        </div>
-
-        {/* CTA */}
-        <div className="relative mt-3 sm:mt-4 overflow-hidden group/cta rounded transition-all duration-400 px-6 py-2.5 sm:px-8 sm:py-3.5 flex items-center justify-center sm:justify-start" style={{
-          border: hovered ? '2px solid rgba(0,207,255,0.8)' : '1.5px solid rgba(0,207,255,0.4)',
-          boxShadow: hovered ? '0 0 24px rgba(0,207,255,0.25), inset 0 0 12px rgba(0,207,255,0.08)' : 'none',
-          background: hovered ? 'rgba(0,207,255,0.06)' : 'transparent',
-        }}
-          aria-label="Boost your brand with CEO Turbo — digital business cards and brand strategy by Christopher Robinson"
-        >
-          <div className="absolute inset-0 bg-[#00cfff] -translate-x-full group-hover/cta:translate-x-0 transition-transform duration-300" />
-          <span className="relative z-10 text-[14px] sm:text-[18px] tracking-[0.15em] font-bold transition-colors duration-300 group-hover/cta:!text-[#04040a]" style={{
-            fontFamily: "'Bebas Neue', sans-serif",
-            color: hovered ? '#fff' : '#00cfff',
-          }}>
-            BRAND BOOST →
-          </span>
-        </div>
-      </div>
-    </a>
+    <Link to={href} className="flex flex-1 no-underline md:h-full">
+      {cardContent}
+    </Link>
   );
 };
 
@@ -916,12 +258,10 @@ const SeoContent = () => (
     <h1>Stackmode Academy — Learn AI, Coding, Software &amp; Trading Online | Christopher Robinson (StackmodeChris)</h1>
     <h2>AI and Software Development Courses by StackmodeChris — Best Online Academy 2026</h2>
     <h2>Stock Trading and Crypto Investing School Online — Learn to Trade Stocks Options Forex Crypto</h2>
-    <h2>CEO Turbo — NFC Digital Business Cards — Tap to Share — Buy Premium Digital Business Card</h2>
+    <h2>CEO Turbo — NFC Digital Business Cards — Website Design — Brand Boost</h2>
     <h2>Learn to Code and Trade with Christopher Robinson — Python AI Web Development</h2>
-    <h2>Brand Boost Strategy Call — Personal Branding Course — Entrepreneur Education</h2>
-    <h2>Asset Stacking Course — Build Passive Income — Financial Freedom Academy</h2>
     <p>
-      Stackmode Academy is the ultimate online school for AI, coding, software development, and trading/investing. Founded by Christopher Robinson, known as StackmodeChris, based in Atlanta, Georgia. Our complete Code-Content-Capital system teaches you to build real digital assets, grow an audience that buys, and multiply your profits through smart investing. Learn Python programming, artificial intelligence tools, web development, stock market trading, and cryptocurrency investing — all in one ecosystem for just $50 per month. Get your premium NFC digital business card from CEO Turbo — tap to share your contact info, social links, and website instantly. No paper needed, always updated. CEO Turbo also offers brand boost strategy calls and premium web design for entrepreneurs, founders, and CEOs. Follow StackmodeChris on Instagram at christopherrobinsonceo, YouTube at ChristopherRobinson-CEO, and TikTok at stackmodechris___. Visit CEO Turbo at ceoturbo.com for NFC digital business cards, brand boost strategy calls, and premium web design services.
+      Stackmode Academy is the ultimate online school for AI, coding, software development, and trading/investing. Founded by Christopher Robinson, known as StackmodeChris, based in Atlanta, Georgia. CEO Turbo offers premium web design, NFC digital business cards, brand boost strategy, and ad revenue optimization. Visit ceoturbo.com for website design and digital business card services. Follow StackmodeChris on Instagram at christopherrobinsonceo, YouTube at ChristopherRobinson-CEO, and TikTok at stackmodechris___.
     </p>
   </div>
 );
@@ -930,96 +270,163 @@ const SeoContent = () => (
    SPLIT HERO — MAIN EXPORT
    ═══════════════════════════════════════════════ */
 const SplitHero = () => {
-  const [leftHover, setLeftHover] = useState(false);
-  const [rightHover, setRightHover] = useState(false);
-  const hover = leftHover ? 'left' : rightHover ? 'right' : null;
-  const [showFixedHeader, setShowFixedHeader] = useState(true);
+  const [time, setTime] = useState('');
 
   useEffect(() => {
-    const onScroll = () => {
-      // Hide the fixed header once user scrolls past ~85% of viewport height
-      setShowFixedHeader(window.scrollY < window.innerHeight * 0.85);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    const tick = () => setTime(new Date().toLocaleTimeString('en-US', { hour12: false }));
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
   }, []);
 
   return (
     <>
-      <TopBar />
-      <KeywordTicker />
       <SeoContent />
 
-      {/* "CHOOSE YOUR PATH" — fixed top on all screens, hides on scroll */}
-      <div
-        className="fixed left-0 right-0 z-[201] flex flex-col items-center pointer-events-none gap-1.5 sm:gap-2 top-[env(safe-area-inset-top,8px)] sm:top-[48px] px-4 pt-2 sm:pt-0"
-        style={{
-          transition: 'opacity 0.4s ease, transform 0.4s ease',
-          opacity: showFixedHeader ? 1 : 0,
-          transform: showFixedHeader ? 'translateY(0)' : 'translateY(-20px)',
-          willChange: 'transform, opacity',
-        }}
-      >
-        <h2 style={{
-          fontFamily: "'Bebas Neue', sans-serif",
-          fontSize: 'clamp(16px, 3vw, 32px)',
-          letterSpacing: '0.3em',
-          color: '#f0f0f0',
-          textAlign: 'center',
-          margin: 0,
-          textShadow: '0 2px 24px rgba(0,0,0,0.95), 0 0 40px rgba(0,0,0,0.8), 0 0 80px rgba(0,0,0,0.6)',
-        }}>
-          CHOOSE YOUR PATH
-        </h2>
-        <a
-          href="#get-your-card"
-          onClick={(e) => { e.preventDefault(); document.getElementById('get-your-card')?.scrollIntoView({ behavior: 'smooth' }); }}
-          className="pointer-events-auto px-5 sm:px-7 py-2 sm:py-2.5 rounded-full transition-all duration-300 hover:scale-105"
-          style={{
-            fontFamily: "'Bebas Neue', sans-serif",
-            fontSize: 'clamp(11px, 2vw, 16px)',
-            letterSpacing: '0.15em',
-            color: '#00cfff',
-            border: '1px solid rgba(0,207,255,0.4)',
-            background: 'rgba(4,4,10,0.85)',
-            backdropFilter: 'blur(8px)',
-            textShadow: '0 0 12px rgba(0,207,255,0.4)',
-            boxShadow: '0 0 20px rgba(0,207,255,0.15), 0 0 40px rgba(0,207,255,0.05)',
-            animation: 'ctaPulse 2.5s ease-in-out infinite',
-          }}
-        >
-          GET YOUR TAP DIGITAL CARD ↓
-        </a>
-      </div>
-
-      <section className="relative w-full overflow-hidden flex flex-col md:flex-row" style={{
-        background: '#04040a',
-        height: '100dvh',
+      {/* Minimal top bar */}
+      <header className="fixed top-0 left-0 right-0 z-[200] flex items-center justify-between px-4 sm:px-8" style={{
+        height: 48,
+        background: 'rgba(4,4,10,0.85)',
+        backdropFilter: 'blur(20px)',
+        borderBottom: '1px solid rgba(255,255,255,0.04)',
       }}>
-        {/* Mobile horizontal divider line only */}
-        <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 z-[150] flex sm:hidden pointer-events-none px-4">
-          <div className="w-full h-[1px]" style={{
-            background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent)',
-          }} />
+        <div className="flex items-center gap-1">
+          <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 18, letterSpacing: '0.12em', color: '#f0f0f0' }}>
+            STACK<span style={{ color: '#00ff88' }}>MODE</span>
+          </span>
+          <span className="mx-2 text-[10px] text-foreground/20">×</span>
+          <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 18, letterSpacing: '0.12em', color: '#f0f0f0' }}>
+            CEO<span style={{ color: '#00cfff' }}>TURBO</span>
+          </span>
         </div>
+        <div className="flex items-center gap-4">
+          <span className="hidden sm:inline text-[9px] tracking-[0.2em]" style={{ fontFamily: "'Share Tech Mono', monospace", color: '#333' }}>
+            {time}
+          </span>
+          <div className="flex items-center gap-1.5">
+            <div className="w-1.5 h-1.5 rounded-full bg-[#00ff88] animate-pulse" />
+            <span className="text-[8px] sm:text-[9px] tracking-[0.15em] uppercase" style={{ fontFamily: "'Share Tech Mono', monospace", color: '#444' }}>
+              Online
+            </span>
+          </div>
+        </div>
+      </header>
 
-        {/* Center vertical divider — desktop */}
-        <div className="absolute left-1/2 top-[15%] bottom-[15%] w-[1px] z-[100] hidden md:block" style={{
-          background: 'linear-gradient(to bottom, transparent, rgba(255,255,255,0.1), transparent)',
+      {/* Main split section */}
+      <section className="relative w-full min-h-screen pt-[48px]" style={{ background: '#04040a' }}>
+        {/* Background grid */}
+        <div className="absolute inset-0 pointer-events-none" style={{
+          backgroundImage: 'linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px)',
+          backgroundSize: '60px 60px',
         }} />
 
-        
+        {/* Center content wrapper */}
+        <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100dvh-48px)] px-4 sm:px-6 py-8 sm:py-12">
+          {/* Heading */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="text-center mb-6 sm:mb-10"
+          >
+            <div className="inline-flex items-center gap-2 mb-3 px-4 py-1.5 rounded-full" style={{
+              border: '1px solid rgba(255,255,255,0.06)',
+              background: 'rgba(255,255,255,0.02)',
+            }}>
+              <span className="text-[9px] sm:text-[10px] tracking-[0.25em] uppercase" style={{
+                fontFamily: "'Share Tech Mono', monospace",
+                color: 'rgba(255,255,255,0.4)',
+              }}>
+                Christopher Robinson • StackmodeChris
+              </span>
+            </div>
+            <h2 className="text-[13px] sm:text-[15px] tracking-[0.3em] uppercase" style={{
+              fontFamily: "'Bebas Neue', sans-serif",
+              color: 'rgba(255,255,255,0.25)',
+              letterSpacing: '0.35em',
+            }}>
+              Choose Your Path
+            </h2>
+          </motion.div>
 
-        <LeftPanel hovered={leftHover} otherHovered={rightHover} onHover={setLeftHover} />
-        <RightPanel hovered={rightHover} otherHovered={leftHover} onHover={setRightHover} />
+          {/* Two cards */}
+          <div className="w-full max-w-6xl flex flex-col md:flex-row gap-4 sm:gap-5 md:gap-0 flex-1 md:min-h-[520px] lg:min-h-[560px]">
+            <PathCard
+              href="/academy"
+              logo="/images/stackmode-logo-sm.png"
+              logoAlt="Stackmode Academy Christopher Robinson StackmodeChris"
+              tag="Academy"
+              title={<>JOIN THE<br /><span style={{ color: '#00ff88' }}>ACADEMY</span></>}
+              description="Master AI coding, build software products, and trade the financial markets. One system — $50/mo."
+              pills={['Python & AI', 'Web Dev', 'Trading', 'Asset Stacking']}
+              ctaText="JOIN ACADEMY →"
+              accentColor="#00ff88"
+              accentRgb="0,255,136"
+              stats={[
+                { value: '2,400+', label: 'Students' },
+                { value: '$50', label: 'Per Month' },
+                { value: '24/7', label: 'Access' },
+              ]}
+              index={0}
+            />
+
+            {/* Vertical divider — desktop */}
+            <div className="hidden md:flex flex-col items-center justify-center px-0">
+              <div className="w-[1px] flex-1" style={{
+                background: 'linear-gradient(to bottom, transparent, rgba(255,255,255,0.08), transparent)',
+              }} />
+            </div>
+
+            <PathCard
+              href="https://ceoturbo.com"
+              isExternal
+              logo="/images/ceoturbo-logo-new.png"
+              logoAlt="CEO Turbo Christopher Robinson StackmodeChris brand design"
+              tag="Services"
+              title={<>DESIGN YOUR<br /><span style={{ color: '#00cfff' }}>WEBSITE & BRAND</span></>}
+              description="We build your website, design your brand, and set up everything you need to look professional online."
+              pills={['Website Design', 'Digital Cards', 'Ad Revenue', 'Brand Strategy']}
+              ctaText="GET STARTED →"
+              accentColor="#00cfff"
+              accentRgb="0,207,255"
+              stats={[
+                { value: '500+', label: 'Brands Built' },
+                { value: 'NFC', label: 'Tap Cards' },
+                { value: '48hr', label: 'Turnaround' },
+              ]}
+              index={1}
+            />
+          </div>
+
+          {/* Bottom social strip */}
+          <motion.nav
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8 }}
+            className="flex items-center justify-center gap-5 sm:gap-8 mt-6 sm:mt-10 pb-4"
+            style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: 9, letterSpacing: '0.2em' }}
+            aria-label="Social media links for Christopher Robinson StackmodeChris"
+          >
+            {[
+              { label: 'Instagram', href: 'https://www.instagram.com/christopherrobinsonceo/' },
+              { label: 'YouTube', href: 'https://www.youtube.com/@ChristopherRobinson-CEO' },
+              { label: 'TikTok', href: 'https://www.tiktok.com/@stackmodechris___' },
+              { label: 'Discord', href: 'https://discord.gg/5zYWSWGMYm' },
+            ].map(s => (
+              <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
+                className="uppercase transition-colors duration-300 hover:text-primary"
+                style={{ color: 'rgba(255,255,255,0.15)' }}
+              >
+                {s.label}
+              </a>
+            ))}
+          </motion.nav>
+        </div>
       </section>
 
-      <SocialFooterStrip />
-      <StatusBar hover={hover} />
-
-      {/* CRT Scanline */}
+      {/* Subtle scanline */}
       <div className="fixed inset-0 z-[9990] pointer-events-none" style={{
-        backgroundImage: 'repeating-linear-gradient(to bottom, transparent, transparent 2px, rgba(0,0,0,0.04) 2px, rgba(0,0,0,0.04) 4px)',
+        backgroundImage: 'repeating-linear-gradient(to bottom, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px)',
       }} />
     </>
   );
