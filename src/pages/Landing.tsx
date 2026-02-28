@@ -7,6 +7,51 @@ import AnimatedBackground from '@/components/landing/AnimatedBackground';
 import TrustBar from '@/components/TrustBar';
 import { ReviewWall } from '@/components/ReviewWall';
 import DigitalCardPurchase from '@/components/landing/DigitalCardPurchase';
+import { useState, useEffect } from 'react';
+
+/* ═══ LANDING CODE TERMINAL ═══ */
+const landingCodeLines = [
+  '> initializing stackmode...',
+  '> loading AI modules ✓',
+  '> building revenue engine...',
+  '> portfolio: +42.3% ✓',
+  '> output: $4,200/mo',
+  '> status: [STACKING]',
+];
+
+const LandingCodeTerminal = () => {
+  const [visibleLines, setVisibleLines] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVisibleLines(prev => {
+        if (prev >= landingCodeLines.length) {
+          setTimeout(() => setVisibleLines(0), 800);
+          return prev;
+        }
+        return prev + 1;
+      });
+    }, 1200);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="space-y-1.5 p-4">
+      {landingCodeLines.slice(0, visibleLines).map((line, i) => (
+        <motion.p
+          key={i}
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="text-[11px] sm:text-xs font-mono"
+          style={{ color: line.includes('✓') ? '#39ff14' : line.includes('$') ? '#ffd700' : '#00e5ff' }}
+        >
+          {line}
+        </motion.p>
+      ))}
+      <span className="inline-block w-2 h-4 animate-pulse" style={{ background: '#39ff14' }} />
+    </div>
+  );
+};
+
 
 /* ═══ ECOSYSTEM CARD ═══ */
 const EcoCard = ({ badge, badgeColor, title, copy, cta, href, isExternal, icon, delay }: {
@@ -214,13 +259,7 @@ const Landing = () => (
               <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#ffbd2e' }} />
               <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#27c93f' }} />
             </div>
-            <video
-              autoPlay muted loop playsInline
-              className="w-full aspect-video object-cover"
-              poster="/images/stackmodechris-about-new.png"
-            >
-              <source src="/videos/promo-hero.mp4" type="video/mp4" />
-            </video>
+            <LandingCodeTerminal />
           </div>
 
           {/* Ticker marquee */}
