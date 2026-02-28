@@ -10,6 +10,7 @@ import CursorGridBackground from "./components/CursorGridBackground";
 
 const Landing = lazy(() => import("./pages/Landing"));
 const Home = lazy(() => import("./pages/Home"));
+const PromptShop = lazy(() => import("./pages/PromptShop"));
 const Shop = lazy(() => import("./pages/Learn"));
 const Library = lazy(() => import("./pages/Library"));
 const DMCAPolicy = lazy(() => import("./pages/DMCAPolicy"));
@@ -18,8 +19,8 @@ const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const PageLoader = () => (
-  <div className="min-h-screen bg-background flex items-center justify-center">
-    <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+  <div className="min-h-screen flex items-center justify-center" style={{ background: 'var(--bg-primary)' }}>
+    <div className="w-8 h-8 border-2 border-neon-green border-t-transparent rounded-full animate-spin" />
   </div>
 );
 
@@ -40,12 +41,14 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Landing />} />
               <Route path="/academy" element={<Home />} />
+              <Route path="/prompt-shop" element={<PromptShop />} />
               <Route path="/shop" element={<Shop />} />
+              <Route path="/stackfinder" element={<Navigate to="/" replace />} />
+              <Route path="/brand-boost" element={<Navigate to="https://ceoturbo.com" replace />} />
               <Route path="/dmca" element={<DMCAPolicy />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/terms" element={<TermsAndConditions />} />
-              {/* Redirects for old routes */}
-              <Route path="/coding" element={<Navigate to="/" replace />} />
+              <Route path="/coding" element={<Navigate to="/academy" replace />} />
               <Route path="/investing" element={<Navigate to="/" replace />} />
               <Route path="/business" element={<Navigate to="/" replace />} />
               <Route path="/buildyourwebsite" element={<Navigate to="/" replace />} />
