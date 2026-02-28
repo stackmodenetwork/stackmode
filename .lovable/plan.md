@@ -1,49 +1,35 @@
 
 
-## Plan: Move Video to Academy, Add Code Terminal to Landing, Upgrade TrustBar with 20+ AI Company Logos
+## Plan: Fix Mobile Buttons & Clean Up TrustBar Duplicates
 
-### 1. Move promo video from Landing hero to Academy page
+### 1. Fix overlapping CTA buttons on mobile (`src/pages/Landing.tsx`)
 
-**Landing.tsx (lines 211-224)**: Replace the `<video>` block with a `FloatingCodeWindow`-style animated terminal component (extracted from PromptShop). The terminal will display rotating code lines like the Prompt Shop hero but styled for the landing page context — visible on both mobile and desktop.
+**Lines 304-332**: The two buttons overlap on mobile because they use `text-xs` and long bracket text with inline styles competing for space.
 
-**Home.tsx (Academy page)**: Add the promo video in a new section (above or replacing the YouTube iframe in "Watch & Learn"), wrapped in a terminal card with the same styling.
+Changes:
+- Make buttons full-width on mobile: `w-full sm:w-auto`
+- Add proper padding: `px-5 py-3` on both buttons
+- Ensure `flex-col` stacking has enough gap: `gap-3`
+- Shorten bracket text slightly for mobile readability
 
-### 2. Add animated code terminal to Landing hero (replacing video)
+### 2. Remove duplicate brands in TrustBar (`src/components/TrustBar.tsx`)
 
-Extract and adapt the `FloatingCodeWindow` component from `PromptShop.tsx` into the Landing page's right column. Instead of being hidden on mobile (`hidden lg:block`), it will be fully responsive. Lines will include:
-```
-> initializing stackmode...
-> loading AI modules ✓
-> building revenue engine...
-> portfolio: +42.3% ✓
-> output: $4,200/mo
-> status: [STACKING]
-```
+Current list has 17 items — no literal duplicates in the array. But the user sees duplicates because the marquee triples each row (`[...row1, ...row1, ...row1]`). The issue is that with only 8-9 items per row on a small screen, duplicates are very visible.
 
-### 3. Massively expand TrustBar with 20+ real AI company logos
+The deeper problem: some logos represent overlapping brands:
+- **ChatGPT** and **OpenAI** = same company (remove OpenAI, keep ChatGPT)
+- **Notion** appears with `notion-full.png` — check if it also shows elsewhere
 
-**New approach** inspired by GodOfPrompt: Show company name + logo pairs in the marquee, with the company name visible next to each logo (like "ChatGPT — OpenAI"). Use SVG logos fetched from public CDNs (logo.clearbit.com, unavailable ones use text fallback with Orbitron font).
+Fix:
+- Remove OpenAI (ChatGPT already covers it)
+- Redistribute items more evenly across 2 rows (9 and 8 → ~8 and 7)
+- Reduce triple repeat to double repeat so duplicates are less visible on mobile
+- This eliminates the "seeing the same name twice" problem
 
-Companies to add (20 total):
-- **Already have logos**: ChatGPT, Claude, Midjourney, Google, GitHub, Figma, Shopify, Stripe, Vercel, Whop
-- **Need new logos** (will use clearbit/SVG CDN URLs or inline SVG): Gemini, Copilot, Runway, Perplexity AI, Grok, Stable Diffusion, ElevenLabs, Sora, Kling AI, Cursor, Notion AI, HeyGen, Pika Labs, Leonardo AI, Synthesia, Luma AI, DeepSeek
-
-For logos we can't get as local files, use a text-based fallback with the company name in Orbitron font + a colored dot indicator — still looks professional against the dark background.
-
-**TrustBar layout update**: Two-row or wider single-row marquee showing `[Logo] Company Name` pairs scrolling. Each item shows the logo (white silhouette filter) + company name in small Orbitron text.
-
-### 4. Files to modify
+### 3. Files to edit
 
 | File | Change |
 |------|--------|
-| `src/pages/Landing.tsx` | Replace video (lines 217-223) with animated code terminal component |
-| `src/pages/Home.tsx` | Add promo video section with terminal card wrapper |
-| `src/components/TrustBar.tsx` | Expand to 20+ companies, add name labels, improve layout |
-
-### Technical details
-
-- Video source path stays `/videos/promo-hero.mp4` with poster `/images/stackmodechris-about-new.png`
-- Code terminal component will be defined inline in Landing.tsx (same pattern as PromptShop's FloatingCodeWindow but responsive)
-- TrustBar logos that don't have local files will use `https://logo.clearbit.com/[domain]` as image source with the same `brightness(0) invert(1)` filter, falling back to text-only display
-- All changes maintain the dark `#04060e` background and neon terminal aesthetic
+| `src/pages/Landing.tsx` | Fix button layout: full-width on mobile, proper padding and gap |
+| `src/components/TrustBar.tsx` | Remove OpenAI duplicate, reduce repeat count from 3x to 2x |
 
