@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 import { BookOpen, Headphones, ShoppingCart } from 'lucide-react';
 
 const books = [
-  { title: 'Neuro Trading', image: '/images/books/neuro-trading.jpg', link: 'https://a.co/d/0bz50oF', audiobookLink: 'https://play.google.com/store/audiobooks/details?id=AQAAAEAaGWdZbM' },
-  { title: 'Before The HYPE', image: '/images/books/before-the-hype-2026.jpg', link: 'https://a.co/d/eSgONXa', audiobookLink: 'https://play.google.com/store/audiobooks/details?id=AQAAAEAaaVspUM' },
-  { title: 'Freedom Money', image: '/images/books/freedom-money.jpg', link: 'https://a.co/d/91RUksI', audiobookLink: 'https://play.google.com/store/audiobooks/details?id=AQAAAEAaqV_pVM' },
-];
+{ title: 'Neuro Trading', image: '/images/books/neuro-trading.jpg', link: 'https://a.co/d/0bz50oF', audiobookLink: 'https://play.google.com/store/audiobooks/details?id=AQAAAEAaGWdZbM' },
+{ title: 'Before The HYPE', image: '/images/books/before-the-hype-2026.jpg', link: 'https://a.co/d/eSgONXa', audiobookLink: 'https://play.google.com/store/audiobooks/details?id=AQAAAEAaaVspUM' },
+{ title: 'Freedom Money', image: '/images/books/freedom-money.jpg', link: 'https://a.co/d/91RUksI', audiobookLink: 'https://play.google.com/store/audiobooks/details?id=AQAAAEAaqV_pVM' }];
 
-export const AcademyFooter = () => (
-  <footer className="border-t py-8 px-4" style={{ background: '#04040a', borderColor: 'rgba(255,255,255,0.04)' }}>
+
+export const AcademyFooter = () =>
+<footer className="border-t py-8 px-4" style={{ background: '#04040a', borderColor: 'rgba(255,255,255,0.04)' }}>
     <div className="max-w-5xl mx-auto">
       {/* Books Section */}
       <div className="mb-8 text-center">
@@ -17,37 +17,37 @@ export const AcademyFooter = () => (
           <h3 className="text-sm font-bold text-foreground">Books & Audiobooks on Amazon</h3>
         </div>
         <div className="flex items-center justify-center gap-4 sm:gap-8">
-          {books.map((book) => (
-            <div key={book.title} className="flex flex-col items-center gap-1.5">
+          {books.map((book) =>
+        <div key={book.title} className="flex flex-col items-center gap-1.5">
               <a href={book.link} target="_blank" rel="noopener noreferrer" className="group">
                 <img
-                  src={book.image}
-                  alt={`${book.title} by Christopher Robinson StackmodeChris - Stackmode Academy`}
-                  className="w-20 sm:w-24 h-auto rounded-lg border border-border/50 group-hover:border-amber-500/50 transition-all group-hover:scale-105 shadow-md"
-                  width={96} height={144} loading="lazy"
-                />
+              src={book.image}
+              alt={`${book.title} by Christopher Robinson StackmodeChris - Stackmode Academy`}
+              className="w-20 sm:w-24 h-auto rounded-lg border border-border/50 group-hover:border-amber-500/50 transition-all group-hover:scale-105 shadow-md"
+              width={96} height={144} loading="lazy" />
+
               </a>
               <p className="text-[10px] sm:text-xs text-foreground font-semibold mt-1">{book.title}</p>
               <a
-                href={book.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 bg-amber-500 hover:bg-amber-400 text-background font-bold px-3 py-1.5 rounded-md transition-all text-[10px] sm:text-[11px] shadow-sm"
-              >
+            href={book.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 bg-amber-500 hover:bg-amber-400 text-background font-bold px-3 py-1.5 rounded-md transition-all text-[10px] sm:text-[11px] shadow-sm">
+
                 <ShoppingCart size={11} />
                 Order on Amazon
               </a>
               <a
-                href={book.audiobookLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-[9px] sm:text-[10px] font-medium text-primary hover:text-primary/80 transition-colors"
-              >
+            href={book.audiobookLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-[9px] sm:text-[10px] font-medium text-primary hover:text-primary/80 transition-colors">
+
                 <Headphones size={10} />
                 Google Play Audio · $9.99
               </a>
             </div>
-          ))}
+        )}
         </div>
         <p className="text-[10px] text-foreground font-bold mt-3">
           eBook/Audio $9.99 · Paperback $19.99 · Fast Delivery
@@ -78,11 +78,10 @@ export const AcademyFooter = () => (
       </div>
 
       <p className="text-xs text-muted-foreground/50 text-center">
-        Stackmode Academy | Founded by Christopher Robinson | StackmodeChris | The #1 Academy for AI Software, Trading & Asset Stacking | stackmode.net
+        Stackmode Academy | Founded by Christopher Robinson | Christopher Robinson CEO | Stackmodechris | The #1 Academy for AI Software, Trading & Asset Stacking | stackmode.net
       </p>
       <p className="text-[10px] text-muted-foreground/30 text-center mt-1">
         © {new Date().getFullYear()} Stackmode Academy. All rights reserved.
       </p>
     </div>
-  </footer>
-);
+  </footer>;
