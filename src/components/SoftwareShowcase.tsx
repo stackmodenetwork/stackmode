@@ -79,6 +79,17 @@ export function SoftwareShowcase() {
         </div>
 
         <p className="text-center text-muted-foreground text-xs mt-4">Tap any image to enlarge</p>
+
+        <div className="flex justify-center mt-6">
+          <a
+            href="https://whop.com/stackmode-academy/educationalservice/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 font-bold px-6 py-3 rounded-xl transition-all text-sm shadow-lg shadow-primary/20 hover:scale-105"
+            style={{ background: '#00ff88', color: '#030305' }}>
+            Get The Ultimate Market Scanner
+          </a>
+        </div>
       </div>
 
       {/* Lightbox */}
