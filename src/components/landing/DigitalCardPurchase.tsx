@@ -159,7 +159,7 @@ const DigitalCardPurchase = () => {
 
         <h2
           className="text-3xl sm:text-4xl md:text-5xl text-center mb-3"
-          style={{ fontFamily: "'Bebas Neue', sans-serif", color: '#00cfff', letterSpacing: '0.05em' }}
+          style={{ fontFamily: "'Bebas Neue', sans-serif", color: '#00ff88', letterSpacing: '0.05em' }}
         >
           GET YOUR DIGITAL CARD
         </h2>
