@@ -134,7 +134,7 @@ const DigitalCardPurchase = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="get-your-card" className="relative w-full py-16 sm:py-24 px-4 overflow-hidden" style={{ background: '#04040a' }}>
+    <section ref={sectionRef} id="digital-card" className="relative w-full py-16 sm:py-24 px-4 overflow-hidden" style={{ background: '#04040a' }}>
       {/* Revenue acceleration animated background */}
       <RevenueAccelerationBg />
 

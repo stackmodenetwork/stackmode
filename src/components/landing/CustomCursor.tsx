@@ -61,7 +61,7 @@ const CustomCursor = () => {
 
   if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) return null;
 
-  const ringColor = panelHover === 'left' ? '#00ff88' : panelHover === 'right' ? '#00cfff' : 'rgba(255,255,255,0.25)';
+  const ringColor = panelHover === 'left' ? '#00ff88' : panelHover === 'right' ? '#00cfff' : panelHover === 'gold' ? '#C9A84C' : 'rgba(255,255,255,0.25)';
 
   return (
     <>
