@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -361,12 +361,33 @@ const SeoContent = () => (
    ═══════════════════════════════════════════════ */
 const SplitHero = () => {
   const [time, setTime] = useState('');
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoReady, setVideoReady] = useState(false);
 
   useEffect(() => {
     const tick = () => setTime(new Date().toLocaleTimeString('en-US', { hour12: false }));
     tick();
     const id = setInterval(tick, 1000);
     return () => clearInterval(id);
+  }, []);
+
+  // Smooth looping: fade out near end, seek back before visible jump
+  const handleTimeUpdate = useCallback(() => {
+    const video = videoRef.current;
+    if (!video || !video.duration) return;
+    const timeLeft = video.duration - video.currentTime;
+    if (timeLeft < 0.8) {
+      video.style.opacity = String(Math.max(0, timeLeft / 0.8));
+    } else {
+      video.style.opacity = '1';
+    }
+  }, []);
+
+  const handleVideoEnded = useCallback(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.currentTime = 0;
+    video.play().catch(() => {});
   }, []);
 
   return (
@@ -404,23 +425,38 @@ const SplitHero = () => {
 
       {/* Main section */}
       <section className="relative w-full min-h-[100dvh] pt-[48px] flex flex-col" style={{ background: '#04040a' }}>
-        {/* Video background */}
+        {/* Video background — smooth loop with crossfade */}
         <video
-          className="absolute inset-0 w-full h-full object-cover z-0"
+          ref={videoRef}
+          className="absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-700"
+          style={{ opacity: videoReady ? 1 : 0 }}
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
           aria-hidden="true"
+          onCanPlayThrough={() => setVideoReady(true)}
+          onTimeUpdate={handleTimeUpdate}
+          onEnded={handleVideoEnded}
         >
           <source src="/videos/landing-bg.mp4" type="video/mp4" />
         </video>
-        {/* Dark overlay for readability */}
-        <div className="absolute inset-0 z-[1]" style={{ background: 'rgba(4,4,10,0.75)' }} />
+
+        {/* Multi-layer overlay for depth & readability */}
+        <div className="absolute inset-0 z-[1]" style={{
+          background: `
+            radial-gradient(ellipse at center, rgba(4,4,10,0.55) 0%, rgba(4,4,10,0.85) 70%, rgba(4,4,10,0.95) 100%),
+            linear-gradient(to bottom, rgba(4,4,10,0.3) 0%, rgba(4,4,10,0.6) 50%, rgba(4,4,10,0.9) 100%)
+          `,
+        }} />
 
         {/* Center content */}
-        <div className="relative z-10 flex flex-col items-center justify-center flex-1 px-4 sm:px-6 py-6 sm:py-10">
+        <div className="relative z-10 flex flex-col items-center justify-center flex-1 px-4 sm:px-6 py-6 sm:py-10" style={{
+          WebkitFontSmoothing: 'antialiased',
+          MozOsxFontSmoothing: 'grayscale' as any,
+          textRendering: 'optimizeLegibility',
+        }}>
           {/* Heading */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
