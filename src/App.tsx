@@ -7,6 +7,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { lazy, Suspense } from "react";
 import CursorParticles from "./components/CursorParticles";
 
+const Landing = lazy(() => import("./pages/Landing"));
 const Home = lazy(() => import("./pages/Home"));
 const Shop = lazy(() => import("./pages/Learn"));
 const Library = lazy(() => import("./pages/Library"));
@@ -35,8 +36,8 @@ const App = () => (
         <BrowserRouter>
           <Suspense fallback={<PageLoader />}>
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/academy" element={<Navigate to="/" replace />} />
+              <Route path="/" element={<Landing />} />
+              <Route path="/academy" element={<Home />} />
               <Route path="/shop" element={<Shop />} />
               <Route path="/dmca" element={<DMCAPolicy />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
