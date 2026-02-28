@@ -1,39 +1,48 @@
 
 
-## Plan: Make Academy the Main Page & Weave In Business Card + CEOTurbo Products
+## Redesign: Side-by-Side CTA Buttons with Animated Backgrounds
 
-### What Changes
+### Concept
+Replace the two large stacked card panels with a **single centered hero** layout. The page has one branded heading + tagline at top, then **two side-by-side CTA buttons** — each button is a compact, visually rich tile with its own micro-animation canvas behind it. On mobile they sit side-by-side too (not stacked), just smaller. Clean, instant comprehension, fast load.
 
-**1. Route the root `/` to the Academy page (Home component)**
-- In `App.tsx`, change the `/` route to render `<Home />` instead of `<Landing />`
-- Remove or redirect `/academy` to `/` 
-- Remove the `Landing` lazy import if no longer needed
+```text
+┌─────────────────────────────────────────────┐
+│          STACKMODE × CEOTURBO               │  ← top bar (keep)
+├─────────────────────────────────────────────┤
+│                                             │
+│     Christopher Robinson • StackmodeChris   │
+│          CHOOSE YOUR PATH                   │
+│                                             │
+│   ┌──────────────┐  ┌──────────────┐        │
+│   │ ≋ candlestick│  │ ◇ web design │        │
+│   │   animation  │  │   animation  │        │
+│   │              │  │              │        │
+│   │  STACKMODE   │  │  CEO TURBO   │        │
+│   │  ACADEMY     │  │  WEB & BRAND │        │
+│   │              │  │              │        │
+│   │ Code·Trade·AI│  │ Sites·Cards  │        │
+│   │  JOIN NOW →  │  │ GET STARTED →│        │
+│   └──────────────┘  └──────────────┘        │
+│                                             │
+│     IG · YT · TikTok · Discord              │
+└─────────────────────────────────────────────┘
+```
 
-**2. Remove "Choose Your Path" nav references from Home.tsx**
-- Remove the "Choose Your Path" back-arrow link in both desktop and mobile nav bars (lines 37-39, 65-67) since this IS the homepage now
-- Keep everything else in the top nav intact
+### Design Details
 
-**3. Weave DigitalCardPurchase into the Academy page**
-- Import `DigitalCardPurchase` into `Home.tsx`
-- Place it after `AcademyFAQ` and before `AcademyFooter` — keeps the school/coding focus up top, business card + CEOTurbo stuff at the bottom
+**Each button/tile** (~280px×340px desktop, ~160px×220px mobile):
+- Rounded card with dark bg (`#0a0a14`), accent-colored border on hover
+- **Left tile (Academy)**: Canvas animation showing floating candlestick bars + code bracket symbols (`{ }`, `< />`) in green (`#00ff88`). Logo, "STACKMODE ACADEMY" title, pills: `Code · Trade · AI`, CTA button
+- **Right tile (CEOTurbo)**: Canvas animation showing floating browser window outlines + paintbrush/palette shapes in cyan (`#00cfff`). Logo, "DESIGN YOUR WEBSITE & BRAND" title, pills: `Sites · Cards · Brand`, CTA button
+- Both tiles are **always side-by-side** — on mobile they shrink proportionally using `grid-cols-2` with smaller text/padding
+- Hover: accent glow intensifies, border lights up, CTA fill animates
 
-**4. Add a CEOTurbo services mini-section before the footer**
-- Create a lightweight `CeoTurboServices` component with 3-4 cards: Prompt Shop, Make Ads Fast, Website Design, Digital Business Cards — each linking out to ceoturbo.com
-- Compact grid layout, stays on-brand with the dark terminal aesthetic
-- Place it after DigitalCardPurchase, before AcademyFooter
+### Implementation — Single File Change
 
-**5. Update canonical URL in Home.tsx Helmet**
-- Change canonical from `/academy` to `https://stackmode.net`
-- Move the full SEO meta tags from Landing.tsx to Home.tsx
-
-### Files Modified
-- `src/App.tsx` — route changes
-- `src/pages/Home.tsx` — remove "Choose Your Path" links, add DigitalCardPurchase + CeoTurboServices, update SEO
-- New file: `src/components/CeoTurboServices.tsx` — compact promo grid for CEOTurbo products
-
-### What Stays Untouched
-- All academy sections (Hero, ReviewWall, SoftwareShowcase, WhatYouGet, Pricing, FAQ)
-- AcademyFooter
-- DigitalCardPurchase component internals
-- All other pages and routes
+**`src/components/landing/SplitHero.tsx`** — Full rewrite:
+1. Replace `GridDots` with two new canvas components: `CandlestickCanvas` (draws floating candlestick bars + code symbols) and `WebDesignCanvas` (draws floating browser frames + design shapes)
+2. Replace `PathCard` with a compact `ChoiceTile` component — logo, title, 3 pills, CTA button, canvas background
+3. Layout: centered `grid grid-cols-2 gap-3 sm:gap-6` wrapper, max-w-3xl — always 2 columns
+4. Keep top bar, heading, social strip, SEO content, scanline overlay unchanged
+5. Mobile: smaller text (Bebas Neue 20px vs 40px desktop), tighter padding (p-4 vs p-8), canvas still renders but fewer particles
 
