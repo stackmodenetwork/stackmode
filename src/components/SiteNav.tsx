@@ -7,7 +7,6 @@ const navLinks = [
   { label: 'ACADEMY', path: '/academy' },
   { label: 'PROMPT SHOP', path: '/prompt-shop' },
   { label: 'STACKFINDER', path: '/stackfinder' },
-  { label: 'BRAND BOOST', href: 'https://ceoturbo.com' },
 ];
 
 export const SiteNav = memo(() => {
@@ -18,9 +17,9 @@ export const SiteNav = memo(() => {
     <>
       <nav className="fixed top-0 left-0 right-0 z-[200] flex items-center justify-between px-4 sm:px-8" style={{
         height: 56,
-        background: 'rgba(8,12,26,0.92)',
-        backdropFilter: 'blur(12px)',
-        borderBottom: '1px solid rgba(57,255,20,0.1)',
+        background: 'rgba(4,6,14,0.94)',
+        backdropFilter: 'blur(16px)',
+        borderBottom: '1px solid rgba(57,255,20,0.08)',
       }}>
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2.5 no-underline">
@@ -36,17 +35,8 @@ export const SiteNav = memo(() => {
         <div className="hidden lg:flex items-center gap-1">
           {navLinks.map(link => {
             const isActive = link.path ? location.pathname === link.path : false;
-            if (link.href) {
-              return (
-                <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer"
-                  className="px-3 py-1.5 text-[11px] tracking-[2px] uppercase transition-colors hover:text-neon-green"
-                  style={{ fontFamily: "'Orbitron', sans-serif", color: 'rgba(232,244,255,0.6)' }}>
-                  {link.label}
-                </a>
-              );
-            }
             return (
-              <Link key={link.label} to={link.path!}
+              <Link key={link.label} to={link.path}
                 className="px-3 py-1.5 text-[11px] tracking-[2px] uppercase transition-colors relative"
                 style={{
                   fontFamily: "'Orbitron', sans-serif",
@@ -59,10 +49,19 @@ export const SiteNav = memo(() => {
           })}
         </div>
 
-        {/* Desktop CTA */}
-        <a href="https://whop.com/stackmode-academy/educationalservice/" target="_blank" rel="noopener noreferrer"
-          className="hidden lg:inline-flex items-center gap-1.5 btn-cta text-[10px] py-2 px-4">
-          [ START NOW → ]
+        {/* Desktop CTA — Brand Boost */}
+        <a href="https://ceoturbo.com" target="_blank" rel="noopener noreferrer"
+          className="hidden lg:inline-flex items-center gap-1.5 text-[10px] py-2 px-4 rounded transition-all"
+          style={{
+            fontFamily: "'Orbitron', sans-serif",
+            fontWeight: 700,
+            color: '#ff2d9b',
+            border: '1px solid rgba(255,45,155,0.4)',
+            background: 'rgba(255,45,155,0.08)',
+            letterSpacing: '0.05em',
+            textTransform: 'uppercase',
+          }}>
+          [ BRAND BOOST → ]
         </a>
 
         {/* Mobile hamburger */}
@@ -73,34 +72,34 @@ export const SiteNav = memo(() => {
 
       {/* Mobile overlay */}
       {open && (
-        <div className="fixed inset-0 z-[199] lg:hidden" style={{ background: 'rgba(8,12,26,0.97)', backdropFilter: 'blur(20px)' }}>
+        <div className="fixed inset-0 z-[199] lg:hidden" style={{ background: 'rgba(4,6,14,0.98)', backdropFilter: 'blur(20px)' }}>
           <div className="flex flex-col items-center justify-center h-full gap-6 pt-14">
-            {navLinks.map(link => {
-              if (link.href) {
-                return (
-                  <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}
-                    className="text-lg tracking-[0.2em] uppercase transition-colors hover:text-neon-green"
-                    style={{ fontFamily: "'Press Start 2P', monospace", color: 'rgba(232,244,255,0.5)', fontSize: 14 }}>
-                    {link.label}
-                  </a>
-                );
-              }
-              return (
-                <Link key={link.label} to={link.path!} onClick={() => setOpen(false)}
-                  className="text-lg tracking-[0.2em] uppercase transition-colors"
-                  style={{
-                    fontFamily: "'Press Start 2P', monospace",
-                    color: location.pathname === link.path ? '#39ff14' : 'rgba(232,244,255,0.5)',
-                    fontSize: 14,
-                    textShadow: location.pathname === link.path ? '0 0 10px #39ff14' : 'none',
-                  }}>
-                  {link.label}
-                </Link>
-              );
-            })}
+            {navLinks.map(link => (
+              <Link key={link.label} to={link.path} onClick={() => setOpen(false)}
+                className="text-lg tracking-[0.2em] uppercase transition-colors"
+                style={{
+                  fontFamily: "'Press Start 2P', monospace",
+                  color: location.pathname === link.path ? '#39ff14' : 'rgba(232,244,255,0.5)',
+                  fontSize: 14,
+                  textShadow: location.pathname === link.path ? '0 0 10px #39ff14' : 'none',
+                }}>
+                {link.label}
+              </Link>
+            ))}
+            <a href="https://ceoturbo.com" target="_blank" rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="tracking-[0.2em] uppercase transition-colors"
+              style={{
+                fontFamily: "'Press Start 2P', monospace",
+                color: '#ff2d9b',
+                fontSize: 14,
+                textShadow: '0 0 10px rgba(255,45,155,0.4)',
+              }}>
+              BRAND BOOST
+            </a>
             <a href="https://whop.com/stackmode-academy/educationalservice/" target="_blank" rel="noopener noreferrer"
               onClick={() => setOpen(false)} className="btn-cta text-sm mt-4">
-              [ START NOW → ]
+              [ JOIN ACADEMY → ]
             </a>
           </div>
         </div>

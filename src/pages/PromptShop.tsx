@@ -52,8 +52,6 @@ const PromptShop = () => {
   const [active, setActive] = useState<Category>('all');
   const sectionRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
-  const filtered = active === 'all' ? prompts : prompts.filter(p => p.cat === active);
-
   const scrollToSection = (cat: Category) => {
     setActive(cat);
     if (cat !== 'all' && sectionRefs.current[cat]) {
@@ -62,9 +60,10 @@ const PromptShop = () => {
   };
 
   const groupedSections: Category[] = ['websites', 'presentations', 'images', 'videos'];
+  const filtered = active === 'all' ? prompts : prompts.filter(p => p.cat === active);
 
   return (
-    <div className="relative" style={{ background: 'var(--bg-primary)', overflowX: 'hidden' }}>
+    <div className="relative" style={{ background: '#04060e', overflowX: 'hidden' }}>
       <Helmet>
         <title>AI Prompt Shop | Stackmode.net — Prompts for Websites, Presentations, Images & Video</title>
         <meta name="description" content="Get premium AI prompts built by Christopher Robinson CEO. Templates for web design, HTML presentations, AI image generation & video creation." />
@@ -74,7 +73,6 @@ const PromptShop = () => {
       <AnimatedBackground />
       <SiteNav />
 
-      {/* SR-ONLY */}
       <div className="sr-only">
         <h1>AI Prompt Shop by Christopher Robinson CEO — Stackmode.net</h1>
       </div>
@@ -87,26 +85,24 @@ const PromptShop = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-lg sm:text-2xl md:text-3xl mb-3 neon-green leading-relaxed" style={{
-              fontFamily: "'Press Start 2P', monospace",
-            }}>
-              NO MORE GUESSING
-            </h2>
-            <h2 className="text-lg sm:text-2xl md:text-3xl mb-6 neon-green leading-relaxed" style={{
-              fontFamily: "'Press Start 2P', monospace",
-            }}>
-              JUST ACTION
-            </h2>
+            <p className="text-2xl sm:text-4xl md:text-5xl font-bold mb-2 text-foreground" style={{ fontFamily: "'Rajdhani', sans-serif", fontWeight: 700 }}>
+              Stop <span className="text-muted-foreground">___</span> Guessing.
+            </p>
+            <p className="text-2xl sm:text-4xl md:text-5xl font-bold mb-6 text-foreground" style={{ fontFamily: "'Rajdhani', sans-serif", fontWeight: 700 }}>
+              Start <span className="inline-flex items-center gap-2 px-4 py-1 rounded-full" style={{ background: 'rgba(57,255,20,0.1)', border: '1px solid rgba(57,255,20,0.3)' }}>
+                <span>✏️</span> <span className="neon-green" style={{ textShadow: '0 0 10px #39ff14' }}>Creating</span>
+              </span> Prompts.
+            </p>
           </motion.div>
 
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="text-base sm:text-lg mb-8"
-            style={{ fontFamily: "'Rajdhani', sans-serif", color: '#7a9bb5', fontWeight: 500 }}
+            className="text-base sm:text-lg mb-8 text-muted-foreground"
+            style={{ fontWeight: 500 }}
           >
-            Real prompts. Real results. Pick yours.
+            Create custom AI prompts for marketing, writing, coding, or teaching — in seconds.
           </motion.p>
 
           {/* Category tabs with arrows */}
@@ -124,16 +120,15 @@ const PromptShop = () => {
                 style={{
                   fontFamily: "'Orbitron', sans-serif",
                   fontWeight: 600,
-                  background: active === cat.id ? `${catColors[cat.id]}15` : 'transparent',
-                  color: active === cat.id ? catColors[cat.id] : 'rgba(232,244,255,0.4)',
-                  border: `1px solid ${active === cat.id ? `${catColors[cat.id]}50` : 'rgba(232,244,255,0.1)'}`,
-                  boxShadow: active === cat.id ? `0 0 15px ${catColors[cat.id]}20` : 'none',
+                  background: active === cat.id ? `${catColors[cat.id]}12` : 'transparent',
+                  color: active === cat.id ? catColors[cat.id] : 'rgba(232,244,255,0.3)',
+                  border: `1px solid ${active === cat.id ? `${catColors[cat.id]}40` : 'rgba(232,244,255,0.08)'}`,
                 }}
               >
                 <span>{cat.icon}</span>
                 <span>{cat.label}</span>
                 {cat.id !== 'all' && (
-                  <ChevronDown size={12} className="opacity-50 group-hover:opacity-100 transition-opacity" />
+                  <ChevronDown size={12} className="opacity-40 group-hover:opacity-80 transition-opacity" />
                 )}
               </button>
             ))}
@@ -142,7 +137,7 @@ const PromptShop = () => {
       </section>
 
       {/* ═══ HOW IT WORKS ═══ */}
-      <section className="relative z-10 py-12 px-4" style={{ background: 'var(--bg-secondary)' }}>
+      <section className="relative z-10 py-12 px-4" style={{ background: 'rgba(4,6,14,0.95)' }}>
         <div className="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-0">
           {[
             { num: '01', text: 'PICK YOUR PROMPT' },
@@ -154,7 +149,7 @@ const PromptShop = () => {
                 <span className="text-[10px] tracking-[0.2em] block mb-1 neon-green" style={{ fontFamily: "'Press Start 2P', monospace" }}>
                   [{step.num}]
                 </span>
-                <span className="text-[10px] sm:text-xs tracking-[0.1em]" style={{ fontFamily: "'Orbitron', sans-serif", color: '#e8f4ff' }}>
+                <span className="text-[10px] sm:text-xs tracking-[0.1em] text-foreground" style={{ fontFamily: "'Orbitron', sans-serif" }}>
                   {step.text}
                 </span>
               </div>
@@ -168,7 +163,6 @@ const PromptShop = () => {
       <section className="relative z-10 py-16 sm:py-24 px-4">
         <div className="max-w-6xl mx-auto">
           {active === 'all' ? (
-            /* Show all sections */
             groupedSections.map(cat => {
               const catPrompts = prompts.filter(p => p.cat === cat);
               const catInfo = categories.find(c => c.id === cat)!;
@@ -190,7 +184,6 @@ const PromptShop = () => {
               );
             })
           ) : (
-            /* Filtered view */
             <div ref={el => { sectionRefs.current[active] = el; }} className="scroll-mt-20">
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {filtered.map((p, i) => (
@@ -202,15 +195,12 @@ const PromptShop = () => {
         </div>
       </section>
 
-      {/* ═══ TRUST BAR ═══ */}
       <TrustBar />
-
       <SiteFooter />
     </div>
   );
 };
 
-/* ═══ PROMPT CARD ═══ */
 const PromptCard = ({ prompt, color, delay }: { prompt: typeof prompts[0]; color: string; delay: number }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
@@ -219,28 +209,26 @@ const PromptCard = ({ prompt, color, delay }: { prompt: typeof prompts[0]; color
     transition={{ duration: 0.4, delay }}
     className="terminal-card p-4 flex flex-col h-full"
   >
-    {/* Terminal dots */}
     <div className="flex gap-1.5 mb-3">
       <div className="w-2 h-2 rounded-full" style={{ background: '#ff5f56' }} />
       <div className="w-2 h-2 rounded-full" style={{ background: '#ffbd2e' }} />
       <div className="w-2 h-2 rounded-full" style={{ background: '#27c93f' }} />
     </div>
 
-    {/* Category badge */}
     <span className="inline-block text-[8px] tracking-[0.15em] uppercase px-2 py-0.5 rounded mb-3 self-start" style={{
       fontFamily: "'Orbitron', sans-serif",
       fontWeight: 700,
-      background: `${color}15`,
+      background: `${color}12`,
       color: color,
-      border: `1px solid ${color}30`,
+      border: `1px solid ${color}25`,
     }}>
       {prompt.cat}
     </span>
 
-    <h4 className="text-sm mb-2 font-bold" style={{ fontFamily: "'Orbitron', sans-serif", color: '#e8f4ff' }}>
+    <h4 className="text-sm mb-2 font-bold text-foreground" style={{ fontFamily: "'Orbitron', sans-serif" }}>
       {prompt.title}
     </h4>
-    <p className="text-xs leading-relaxed flex-1 mb-4" style={{ fontFamily: "'Rajdhani', sans-serif", color: '#7a9bb5', fontWeight: 500 }}>
+    <p className="text-xs leading-relaxed flex-1 mb-4 text-muted-foreground" style={{ fontWeight: 500 }}>
       {prompt.desc}
     </p>
 

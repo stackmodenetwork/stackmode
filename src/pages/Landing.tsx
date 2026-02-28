@@ -21,13 +21,11 @@ const EcoCard = ({ badge, badgeColor, title, copy, cta, href, isExternal, icon, 
       transition={{ duration: 0.5, delay }}
       className="terminal-card p-5 sm:p-6 h-full flex flex-col"
     >
-      {/* Terminal dots */}
       <div className="flex gap-1.5 mb-4">
         <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#ff5f56' }} />
         <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#ffbd2e' }} />
         <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#27c93f' }} />
       </div>
-
       <div className="text-2xl mb-3">{icon}</div>
       <span className="inline-block text-[9px] tracking-[0.2em] uppercase px-2 py-0.5 rounded mb-3 self-start font-bold" style={{
         fontFamily: "'Orbitron', sans-serif",
@@ -40,7 +38,7 @@ const EcoCard = ({ badge, badgeColor, title, copy, cta, href, isExternal, icon, 
       <h3 className="text-sm sm:text-base mb-2" style={{ fontFamily: "'Orbitron', sans-serif", fontWeight: 700, color: '#e8f4ff' }}>
         {title}
       </h3>
-      <p className="text-sm leading-relaxed flex-1 mb-4" style={{ fontFamily: "'Rajdhani', sans-serif", color: '#7a9bb5', fontWeight: 500 }}>
+      <p className="text-sm leading-relaxed flex-1 mb-4 text-muted-foreground" style={{ fontWeight: 500 }}>
         {copy}
       </p>
       <span className="btn-cta text-[10px] py-2 px-4 text-center">[ {cta} → ]</span>
@@ -55,9 +53,8 @@ const EcoCard = ({ badge, badgeColor, title, copy, cta, href, isExternal, icon, 
 
 /* ═══ ABOUT SECTION ═══ */
 const AboutSection = () => (
-  <section className="relative py-16 sm:py-24 px-4" style={{ background: 'var(--bg-secondary)' }}>
+  <section className="relative py-16 sm:py-24 px-4" style={{ background: 'rgba(6,8,18,0.9)' }}>
     <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
-      {/* Photo terminal */}
       <motion.div
         initial={{ opacity: 0, x: -30 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -74,7 +71,6 @@ const AboutSection = () => (
           className="w-full aspect-square object-cover rounded" style={{ filter: 'saturate(0.85)' }} loading="lazy" />
       </motion.div>
 
-      {/* Bio */}
       <motion.div
         initial={{ opacity: 0, x: 30 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -93,7 +89,7 @@ const AboutSection = () => (
         <p className="text-sm mb-4" style={{ fontFamily: "'Orbitron', sans-serif", color: '#00e5ff' }}>
           @StackmodeChris
         </p>
-        <p className="text-base sm:text-lg leading-relaxed mb-6" style={{ fontFamily: "'Rajdhani', sans-serif", color: '#e8f4ff', fontWeight: 500 }}>
+        <p className="text-base sm:text-lg leading-relaxed mb-6 text-foreground" style={{ fontWeight: 500 }}>
           Christopher Robinson is a serial entrepreneur, educator, and tech investor based in Dunwoody, GA. 
           From web design to AI systems to stock market strategy — he built Stackmode.net as the home base 
           for everyone ready to CODE, BUILD, and INVEST their way to freedom.
@@ -116,7 +112,7 @@ const AboutSection = () => (
 
 /* ═══ MAIN LANDING PAGE ═══ */
 const Landing = () => (
-  <div className="relative" style={{ background: 'var(--bg-primary)', overflowX: 'hidden' }}>
+  <div className="relative" style={{ background: '#04060e', overflowX: 'hidden' }}>
     <Helmet>
       <title>Stackmode.net | Christopher Robinson CEO — Code. Build. Invest.</title>
       <meta name="description" content="Learn to code, build income streams, and invest smarter with Christopher Robinson CEO (Stackmodechris). Courses, AI tools, prompt packs & more at Stackmode.net." />
@@ -137,7 +133,6 @@ const Landing = () => (
     <AnimatedBackground />
     <SiteNav />
 
-    {/* SR-ONLY SEO */}
     <div className="sr-only">
       <h1>Stackmode.net — Learn to Code, Build & Invest with Christopher Robinson CEO (StackmodeChris)</h1>
     </div>
@@ -180,8 +175,8 @@ const Landing = () => (
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.9 }}
-            className="text-base sm:text-lg md:text-xl max-w-lg mb-6 sm:mb-8 leading-relaxed"
-            style={{ fontFamily: "'Rajdhani', sans-serif", color: '#e8f4ff', fontWeight: 500 }}
+            className="text-base sm:text-lg md:text-xl max-w-lg mb-6 sm:mb-8 leading-relaxed text-foreground"
+            style={{ fontWeight: 500 }}
           >
             Stop waiting. Start stacking. The tools, courses, and systems that turn ambition into income.
           </motion.p>
@@ -200,8 +195,7 @@ const Landing = () => (
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.3 }}
-            className="text-xs"
-            style={{ fontFamily: "'Rajdhani', sans-serif", color: '#7a9bb5' }}
+            className="text-xs text-muted-foreground"
           >
             ★★★★★ Rated on Trustpilot · 500+ students · Founded by Christopher Robinson CEO
           </motion.p>
@@ -214,8 +208,7 @@ const Landing = () => (
           transition={{ duration: 0.8, delay: 0.5 }}
           className="lg:col-span-2 relative"
         >
-          {/* Promo video / image area */}
-          <div className="terminal-card overflow-hidden" style={{ boxShadow: '0 0 60px rgba(57,255,20,0.2)' }}>
+          <div className="terminal-card overflow-hidden" style={{ boxShadow: '0 0 60px rgba(57,255,20,0.15)' }}>
             <div className="flex gap-1.5 px-3 py-2">
               <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#ff5f56' }} />
               <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#ffbd2e' }} />
@@ -231,11 +224,11 @@ const Landing = () => (
           </div>
 
           {/* Ticker marquee */}
-          <div className="mt-3 overflow-hidden rounded" style={{ background: 'rgba(8,12,26,0.8)', border: '1px solid rgba(57,255,20,0.1)' }}>
+          <div className="mt-3 overflow-hidden rounded" style={{ background: 'rgba(4,6,14,0.9)', border: '1px solid rgba(57,255,20,0.08)' }}>
             <div className="flex animate-marquee py-1.5" style={{ width: 'max-content' }}>
               {[...Array(3)].map((_, g) => (
                 <span key={g} className="text-[10px] tracking-[0.15em] whitespace-nowrap px-2" style={{
-                  fontFamily: "'Orbitron', sans-serif", color: '#39ff14', opacity: 0.5,
+                  fontFamily: "'Orbitron', sans-serif", color: '#39ff14', opacity: 0.4,
                 }}>
                   CODE · BUILD · INVEST · TRADE · AUTOMATE · SCALE · PASSIVE INCOME · AI TOOLS · SAAS · WEBDESIGN ·{' '}
                 </span>
@@ -246,8 +239,16 @@ const Landing = () => (
       </div>
     </section>
 
+    {/* ═══ TRUST BAR — moved up ═══ */}
+    <TrustBar />
+
+    {/* ═══ REVIEWS — "REAL RESULTS" moved above ecosystem ═══ */}
+    <div className="relative z-10">
+      <ReviewWall />
+    </div>
+
     {/* ═══ WHAT IS STACKMODE — 3 Cards ═══ */}
-    <section className="relative z-10 py-16 sm:py-24 px-4" style={{ background: 'var(--bg-secondary)' }}>
+    <section className="relative z-10 py-16 sm:py-24 px-4" style={{ background: 'rgba(6,8,18,0.9)' }}>
       <div className="max-w-5xl mx-auto">
         <div className="grid sm:grid-cols-3 gap-4 sm:gap-6">
           {[
@@ -267,7 +268,7 @@ const Landing = () => (
                 fontFamily: "'Press Start 2P', monospace", color: card.color,
                 textShadow: `0 0 10px ${card.color}`,
               }}>{card.title}</h3>
-              <p className="text-sm" style={{ fontFamily: "'Rajdhani', sans-serif", color: '#7a9bb5', fontWeight: 500 }}>{card.copy}</p>
+              <p className="text-sm text-muted-foreground" style={{ fontWeight: 500 }}>{card.copy}</p>
             </motion.div>
           ))}
         </div>
@@ -302,14 +303,6 @@ const Landing = () => (
       </div>
     </section>
 
-    {/* ═══ TRUST BAR ═══ */}
-    <TrustBar />
-
-    {/* ═══ REVIEWS ═══ */}
-    <div className="relative z-10">
-      <ReviewWall />
-    </div>
-
     {/* ═══ ABOUT ═══ */}
     <AboutSection />
 
@@ -318,7 +311,6 @@ const Landing = () => (
       <DigitalCardPurchase />
     </div>
 
-    {/* ═══ FOOTER ═══ */}
     <SiteFooter />
   </div>
 );
