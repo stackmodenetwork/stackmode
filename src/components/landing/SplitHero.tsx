@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -371,24 +371,6 @@ const SplitHero = () => {
     return () => clearInterval(id);
   }, []);
 
-  // Smooth looping: fade out near end, seek back before visible jump
-  const handleTimeUpdate = useCallback(() => {
-    const video = videoRef.current;
-    if (!video || !video.duration) return;
-    const timeLeft = video.duration - video.currentTime;
-    if (timeLeft < 0.8) {
-      video.style.opacity = String(Math.max(0, timeLeft / 0.8));
-    } else {
-      video.style.opacity = '1';
-    }
-  }, []);
-
-  const handleVideoEnded = useCallback(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    video.currentTime = 0;
-    video.play().catch(() => {});
-  }, []);
 
   return (
     <>
@@ -429,7 +411,7 @@ const SplitHero = () => {
         <video
           ref={videoRef}
           className="absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-700"
-          style={{ opacity: videoReady ? 1 : 0 }}
+          style={{ opacity: videoReady ? 1 : 0, transition: 'opacity 1s ease' }}
           autoPlay
           muted
           loop
@@ -437,8 +419,6 @@ const SplitHero = () => {
           preload="auto"
           aria-hidden="true"
           onCanPlayThrough={() => setVideoReady(true)}
-          onTimeUpdate={handleTimeUpdate}
-          onEnded={handleVideoEnded}
         >
           <source src="/videos/landing-bg.mp4" type="video/mp4" />
         </video>
@@ -493,7 +473,7 @@ const SplitHero = () => {
               logoAlt="Stackmode Academy Christopher Robinson StackmodeChris"
               title="STACKMODE"
               subtitle="ACADEMY"
-              pills={['Code', 'Trade', 'AI']}
+              pills={['Code', 'Trading', 'AI']}
               ctaText="JOIN NOW →"
               accentColor="#00ff88"
               accentRgb="0,255,136"
