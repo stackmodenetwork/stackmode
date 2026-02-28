@@ -217,7 +217,7 @@ const TerminalCanvas = () => {
     return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', resize); obs.disconnect(); };
   }, []);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />;
+  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full hidden sm:block" />;
 };
 
 /* ═══════════════════════════════════════════════
@@ -447,7 +447,7 @@ const WireframeCanvas = () => {
     return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', resize); obs.disconnect(); };
   }, []);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />;
+  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full hidden sm:block" />;
 };
 
 /* ═══════════════════════════════════════════════
@@ -655,9 +655,13 @@ const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>)
         borderRight: hovered ? '1px solid rgba(0,255,136,0.15)' : '1px solid transparent',
       }}
     >
-      {/* Dark overlay — heavier to push canvas back */}
+      {/* Dark overlay */}
       <div className="absolute inset-0 z-[1] transition-all duration-500" style={{
         background: hovered ? 'rgba(4,4,10,0.5)' : 'rgba(4,4,10,0.7)',
+      }} />
+      {/* Mobile gradient background (replaces canvas) */}
+      <div className="absolute inset-0 z-[0] sm:hidden" style={{
+        background: 'radial-gradient(ellipse at 30% 50%, rgba(0,255,136,0.06) 0%, transparent 60%)',
       }} />
 
       {/* Grid overlay */}
@@ -679,9 +683,9 @@ const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>)
       <div className="absolute bottom-4 right-4 w-5 h-5 border-r-[1.5px] border-b-[1.5px] z-[5] transition-all duration-300" style={{ borderColor: hovered ? 'rgba(0,255,136,0.5)' : 'rgba(0,255,136,0.2)' }} />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-start px-5 sm:px-12 max-w-lg w-full sm:[animation:fadeUp_0.8s_ease_0.2s_both] pt-14 sm:pt-0">
+      <div className="relative z-10 flex flex-col items-center sm:items-start text-center sm:text-left px-5 sm:px-12 max-w-lg w-full sm:[animation:fadeUp_0.8s_ease_0.2s_both] pt-10 sm:pt-0">
         {/* Logo — circular */}
-        <div className="mb-3 w-[56px] h-[56px] sm:w-[72px] sm:h-[72px] rounded-full overflow-hidden flex items-center justify-center" style={{
+        <div className="mb-2 sm:mb-3 w-[44px] h-[44px] sm:w-[72px] sm:h-[72px] rounded-full overflow-hidden flex items-center justify-center" style={{
           border: '2px solid rgba(0,255,136,0.3)',
           background: 'rgba(0,0,0,0.4)',
         }}>
@@ -696,7 +700,7 @@ const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>)
         </div>
 
         {/* Tag */}
-        <span className="mb-2 px-3 py-0.5 text-[8px] sm:text-[9px] tracking-[0.2em] uppercase rounded-full" style={{
+        <span className="mb-1.5 sm:mb-2 px-3 py-0.5 text-[8px] sm:text-[9px] tracking-[0.2em] uppercase rounded-full" style={{
           fontFamily: "'Share Tech Mono', monospace",
           color: '#00ff88',
           border: '1px solid rgba(0,255,136,0.3)',
@@ -717,7 +721,7 @@ const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>)
         </h2>
 
         {/* AI badge */}
-        <div className="flex items-center gap-2 mt-2" style={{
+        <div className="flex items-center gap-2 mt-1 sm:mt-2" style={{
           fontFamily: "'Share Tech Mono', monospace",
           fontSize: 8,
           color: '#00ff88',
@@ -741,9 +745,9 @@ const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>)
         </p>
 
         {/* Pills */}
-        <div className="flex flex-wrap gap-2 mt-2">
+        <div className="flex flex-wrap justify-center sm:justify-start gap-1.5 sm:gap-2 mt-1.5 sm:mt-2">
           {['Python', 'AI Coding', 'Web Dev', 'Trading'].map(p => (
-            <span key={p} className="text-[10px] sm:text-[11px] tracking-wide px-3 py-1 rounded" style={{
+            <span key={p} className="text-[9px] sm:text-[11px] tracking-wide px-2 sm:px-3 py-0.5 sm:py-1 rounded" style={{
               fontFamily: "'Syne', sans-serif",
               fontWeight: 600,
               background: 'rgba(0,255,136,0.08)',
@@ -754,19 +758,15 @@ const LeftPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>)
         </div>
 
         {/* CTA — glows on panel hover */}
-        <div className="relative mt-4 overflow-hidden group/cta rounded transition-all duration-400" style={{
+        <div className="relative mt-3 sm:mt-4 overflow-hidden group/cta rounded transition-all duration-400 px-6 py-2.5 sm:px-8 sm:py-3.5 flex items-center justify-center sm:justify-start" style={{
           border: hovered ? '2px solid rgba(0,255,136,0.8)' : '1.5px solid rgba(0,255,136,0.4)',
-          padding: '14px 32px',
-          minHeight: 50,
-          display: 'flex',
-          alignItems: 'center',
           boxShadow: hovered ? '0 0 24px rgba(0,255,136,0.25), inset 0 0 12px rgba(0,255,136,0.08)' : 'none',
           background: hovered ? 'rgba(0,255,136,0.06)' : 'transparent',
         }}
           aria-label="Join Stackmode Academy for $50 per month — AI coding and trading school by StackmodeChris"
         >
           <div className="absolute inset-0 bg-[#00ff88] -translate-x-full group-hover/cta:translate-x-0 transition-transform duration-300" />
-          <span className="relative z-10 text-[16px] sm:text-[18px] tracking-[0.15em] font-bold transition-colors duration-300 group-hover/cta:!text-[#04040a]" style={{
+          <span className="relative z-10 text-[14px] sm:text-[18px] tracking-[0.15em] font-bold transition-colors duration-300 group-hover/cta:!text-[#04040a]" style={{
             fontFamily: "'Bebas Neue', sans-serif",
             color: hovered ? '#fff' : '#00ff88',
           }}>
@@ -799,9 +799,13 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
         borderLeft: hovered ? '1px solid rgba(0,207,255,0.15)' : '1px solid transparent',
       }}
     >
-      {/* Dark overlay — matched to Academy panel */}
+      {/* Dark overlay */}
       <div className="absolute inset-0 z-[1] transition-all duration-500" style={{
         background: hovered ? 'rgba(4,4,10,0.5)' : 'rgba(4,4,10,0.7)',
+      }} />
+      {/* Mobile gradient background (replaces canvas) */}
+      <div className="absolute inset-0 z-[0] sm:hidden" style={{
+        background: 'radial-gradient(ellipse at 70% 50%, rgba(0,207,255,0.06) 0%, transparent 60%)',
       }} />
 
       {/* Grid overlay */}
@@ -823,9 +827,9 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
       <div className="absolute bottom-4 left-4 w-5 h-5 border-l-[1.5px] border-b-[1.5px] z-[5] transition-all duration-300" style={{ borderColor: hovered ? 'rgba(0,207,255,0.5)' : 'rgba(0,207,255,0.2)' }} />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-start px-5 sm:px-12 max-w-lg w-full sm:[animation:fadeUp_0.8s_ease_0.4s_both]">
+      <div className="relative z-10 flex flex-col items-center sm:items-start text-center sm:text-left px-5 sm:px-12 max-w-lg w-full sm:[animation:fadeUp_0.8s_ease_0.4s_both]">
         {/* Logo — circular */}
-        <div className="mb-3 w-[56px] h-[56px] sm:w-[72px] sm:h-[72px] rounded-full overflow-hidden flex items-center justify-center" style={{
+        <div className="mb-2 sm:mb-3 w-[44px] h-[44px] sm:w-[72px] sm:h-[72px] rounded-full overflow-hidden flex items-center justify-center" style={{
           border: '2px solid rgba(0,207,255,0.3)',
           background: 'rgba(0,0,0,0.4)',
         }}>
@@ -839,7 +843,7 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
           />
         </div>
 
-        <span className="mb-2 px-3 py-0.5 text-[8px] sm:text-[9px] tracking-[0.2em] uppercase rounded-full" style={{
+        <span className="mb-1.5 sm:mb-2 px-3 py-0.5 text-[8px] sm:text-[9px] tracking-[0.2em] uppercase rounded-full" style={{
           fontFamily: "'Share Tech Mono', monospace",
           color: '#00cfff',
           border: '1px solid rgba(0,207,255,0.3)',
@@ -871,9 +875,9 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
           We design your website. Monetize content. Boost ad revenue. Scale your brand on autopilot.
         </p>
 
-        <div className="flex flex-nowrap gap-1.5 sm:gap-2 mt-2">
+        <div className="flex flex-nowrap justify-center sm:justify-start gap-1.5 sm:gap-2 mt-1.5 sm:mt-2">
           {['Web Design', 'Ad Revenue', 'Content $$$', 'Brand Boost'].map(p => (
-            <span key={p} className="text-[9px] sm:text-[11px] tracking-wide px-2 sm:px-3 py-1 rounded whitespace-nowrap" style={{
+            <span key={p} className="text-[8px] sm:text-[11px] tracking-wide px-2 sm:px-3 py-0.5 sm:py-1 rounded whitespace-nowrap" style={{
               fontFamily: "'Syne', sans-serif",
               fontWeight: 600,
               background: 'rgba(0,207,255,0.08)',
@@ -883,20 +887,16 @@ const RightPanel = ({ hovered, otherHovered, onHover }: Omit<PanelProps, 'side'>
           ))}
         </div>
 
-        {/* CTA — glows on panel hover */}
-        <div className="relative mt-4 overflow-hidden group/cta rounded transition-all duration-400" style={{
+        {/* CTA */}
+        <div className="relative mt-3 sm:mt-4 overflow-hidden group/cta rounded transition-all duration-400 px-6 py-2.5 sm:px-8 sm:py-3.5 flex items-center justify-center sm:justify-start" style={{
           border: hovered ? '2px solid rgba(0,207,255,0.8)' : '1.5px solid rgba(0,207,255,0.4)',
-          padding: '14px 32px',
-          minHeight: 50,
-          display: 'flex',
-          alignItems: 'center',
           boxShadow: hovered ? '0 0 24px rgba(0,207,255,0.25), inset 0 0 12px rgba(0,207,255,0.08)' : 'none',
           background: hovered ? 'rgba(0,207,255,0.06)' : 'transparent',
         }}
           aria-label="Boost your brand with CEO Turbo — digital business cards and brand strategy by Christopher Robinson"
         >
           <div className="absolute inset-0 bg-[#00cfff] -translate-x-full group-hover/cta:translate-x-0 transition-transform duration-300" />
-          <span className="relative z-10 text-[16px] sm:text-[18px] tracking-[0.15em] font-bold transition-colors duration-300 group-hover/cta:!text-[#04040a]" style={{
+          <span className="relative z-10 text-[14px] sm:text-[18px] tracking-[0.15em] font-bold transition-colors duration-300 group-hover/cta:!text-[#04040a]" style={{
             fontFamily: "'Bebas Neue', sans-serif",
             color: hovered ? '#fff' : '#00cfff',
           }}>
