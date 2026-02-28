@@ -1,66 +1,49 @@
 
 
-## Plan: Replicate Netlify Reference Site with SEO Optimization
+## Plan: Move Video to Academy, Add Code Terminal to Landing, Upgrade TrustBar with 20+ AI Company Logos
 
-The Netlify site has 5 pages: Home, Academy, Prompt Shop, StackFinder, Brand Boost. The current Lovable project has the Home and Prompt Shop largely matching, but is missing dedicated StackFinder and Brand Boost pages and needs the Academy page restructured. All academy/enrollment links must point to `https://whop.com/stackmode-academy/educationalservice/`.
+### 1. Move promo video from Landing hero to Academy page
 
-### Changes Required
+**Landing.tsx (lines 211-224)**: Replace the `<video>` block with a `FloatingCodeWindow`-style animated terminal component (extracted from PromptShop). The terminal will display rotating code lines like the Prompt Shop hero but styled for the landing page context — visible on both mobile and desktop.
 
-**1. Create StackFinder page (`src/pages/StackFinder.tsx`)**
-- Stock ticker marquee at top (AAPL, TSLA, NVDA, etc. with green/red % changes, infinite scroll)
-- Hero: "STACKFINDER" in Press Start 2P cyan neon, "Stop Guessing. Start Finding." subtitle
-- Description text + two CTAs (ACCESS STACKFINDER + Beta Waitlist)
-- 3 terminal feature cards: Smart Filters, Real-Time Data, AI Insights (each with terminal code preview line)
-- Dashboard Preview section: mock terminal with stock table (5 rows), portfolio chart canvas
-- Waitlist form section with terminal-styled inputs
-- SEO meta tags, sr-only H1, structured data
-- Uses shared AnimatedBackground, SiteNav, SiteFooter
+**Home.tsx (Academy page)**: Add the promo video in a new section (above or replacing the YouTube iframe in "Watch & Learn"), wrapped in a terminal card with the same styling.
 
-**2. Create Brand Boost page (`src/pages/BrandBoost.tsx`)**
-- Hero: "BRAND BOOST" in Press Start 2P pink neon, "POWERED BY CEOTURBO.COM" in cyan Orbitron
-- Description + pulsing CTA button linking to ceoturbo.com
-- 3 service terminal cards: SEO Domination (#SEO), AI Integration (#AI), Custom Systems (#BUILD)
-- "How It Works" 4-step flow: Apply → Strategy Call → We Build → You Grow
-- Final CTA section: "READY TO BE SEEN?" with large green CTA
-- SEO meta tags
+### 2. Add animated code terminal to Landing hero (replacing video)
 
-**3. Update Academy page (`src/pages/Home.tsx`)**
-- Restructure to match Netlify reference: Hero with STACKMODE/ACADEMY text, 4 Core Pillars, Curriculum Path, Watch & Learn (YouTube), Reviews
-- Keep existing ReviewWall, AcademyPricing, AcademyFAQ components
-- All enrollment CTAs → whop.com link
-- Remove AcademyHero's old top bar; use consistent SiteNav
+Extract and adapt the `FloatingCodeWindow` component from `PromptShop.tsx` into the Landing page's right column. Instead of being hidden on mobile (`hidden lg:block`), it will be fully responsive. Lines will include:
+```
+> initializing stackmode...
+> loading AI modules ✓
+> building revenue engine...
+> portfolio: +42.3% ✓
+> output: $4,200/mo
+> status: [STACKING]
+```
 
-**4. Update App.tsx routing**
-- `/stackfinder` → new StackFinder component (remove Navigate redirect)
-- `/brand-boost` → new BrandBoost component (remove Navigate redirect)
+### 3. Massively expand TrustBar with 20+ real AI company logos
 
-**5. Update SiteNav**
-- Add "BRAND BOOST" to navLinks array pointing to `/brand-boost` (internal page, not external)
-- Keep the external ceoturbo.com CTA as the desktop right-side button
+**New approach** inspired by GodOfPrompt: Show company name + logo pairs in the marquee, with the company name visible next to each logo (like "ChatGPT — OpenAI"). Use SVG logos fetched from public CDNs (logo.clearbit.com, unavailable ones use text fallback with Orbitron font).
 
-**6. SEO across all pages**
-- Each page gets unique `<Helmet>` with title, description, keywords, canonical, OG tags, Twitter cards
-- sr-only H1 on each page with target keywords
-- All academy enrollment links → `https://whop.com/stackmode-academy/educationalservice/`
-- Update sitemap.xml to include `/academy`, `/prompt-shop`, `/stackfinder`, `/brand-boost`
+Companies to add (20 total):
+- **Already have logos**: ChatGPT, Claude, Midjourney, Google, GitHub, Figma, Shopify, Stripe, Vercel, Whop
+- **Need new logos** (will use clearbit/SVG CDN URLs or inline SVG): Gemini, Copilot, Runway, Perplexity AI, Grok, Stable Diffusion, ElevenLabs, Sora, Kling AI, Cursor, Notion AI, HeyGen, Pika Labs, Leonardo AI, Synthesia, Luma AI, DeepSeek
 
-**7. Update SiteFooter**
-- Add StackFinder link to footer nav
+For logos we can't get as local files, use a text-based fallback with the company name in Orbitron font + a colored dot indicator — still looks professional against the dark background.
 
-**8. Landing page minor updates**
-- Ecosystem card for Academy → href to whop link
-- "EXPLORE THE ACADEMY" hero CTA → whop link
-- Review section matches Netlify reference (already close)
+**TrustBar layout update**: Two-row or wider single-row marquee showing `[Logo] Company Name` pairs scrolling. Each item shows the logo (white silhouette filter) + company name in small Orbitron text.
 
-### Files to Create
-- `src/pages/StackFinder.tsx`
-- `src/pages/BrandBoost.tsx`
+### 4. Files to modify
 
-### Files to Edit
-- `src/App.tsx` — add StackFinder + BrandBoost routes
-- `src/pages/Home.tsx` — restructure academy page, whop links
-- `src/components/SiteNav.tsx` — add Brand Boost nav link
-- `src/components/SiteFooter.tsx` — add StackFinder to nav
-- `src/pages/Landing.tsx` — academy links → whop
-- `public/sitemap.xml` — add all page URLs
+| File | Change |
+|------|--------|
+| `src/pages/Landing.tsx` | Replace video (lines 217-223) with animated code terminal component |
+| `src/pages/Home.tsx` | Add promo video section with terminal card wrapper |
+| `src/components/TrustBar.tsx` | Expand to 20+ companies, add name labels, improve layout |
+
+### Technical details
+
+- Video source path stays `/videos/promo-hero.mp4` with poster `/images/stackmodechris-about-new.png`
+- Code terminal component will be defined inline in Landing.tsx (same pattern as PromptShop's FloatingCodeWindow but responsive)
+- TrustBar logos that don't have local files will use `https://logo.clearbit.com/[domain]` as image source with the same `brightness(0) invert(1)` filter, falling back to text-only display
+- All changes maintain the dark `#04060e` background and neon terminal aesthetic
 
