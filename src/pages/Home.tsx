@@ -127,14 +127,14 @@ const Home = () => (
       </div>
     </section>
 
-    {/* Watch & Learn */}
+    {/* Watch & Learn — Promo Video */}
     <section className="relative z-10 py-16 sm:py-24 px-4 text-center">
       <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
         className="text-xs sm:text-sm mb-6 neon-green" style={{ fontFamily: "'Press Start 2P', monospace" }}>
         WATCH & LEARN
       </motion.h2>
       <p className="text-sm text-muted-foreground mb-8 max-w-lg mx-auto">
-        Free lessons on YouTube. Subscribe and level up before you even enroll.
+        See what Stackmode Academy is all about. Watch, subscribe, and level up.
       </p>
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
         className="max-w-2xl mx-auto terminal-card overflow-hidden" style={{ boxShadow: '0 0 60px rgba(57,255,20,0.1)' }}>
@@ -143,21 +143,22 @@ const Home = () => (
           <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#ffbd2e' }} />
           <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#27c93f' }} />
         </div>
-        <div className="aspect-video">
-          <iframe
-            className="w-full h-full"
-            src="https://www.youtube.com/embed?listType=user_uploads&list=ChristopherRobinson-CEO"
-            title="Stackmode Academy YouTube"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            loading="lazy"
-          />
-        </div>
+        <video
+          autoPlay muted loop playsInline
+          className="w-full aspect-video object-cover"
+          poster="/images/stackmodechris-about-new.png"
+        >
+          <source src="/videos/promo-hero.mp4" type="video/mp4" />
+        </video>
       </motion.div>
-      <a href="https://www.youtube.com/@ChristopherRobinson-CEO" target="_blank" rel="noopener noreferrer"
-        className="btn-ghost text-xs mt-6 inline-block">
-        [ SUBSCRIBE ON YOUTUBE → ]
-      </a>
+
+      {/* YouTube CTA */}
+      <div className="mt-8">
+        <a href="https://www.youtube.com/@ChristopherRobinson-CEO" target="_blank" rel="noopener noreferrer"
+          className="btn-ghost text-xs inline-block">
+          [ SUBSCRIBE ON YOUTUBE → ]
+        </a>
+      </div>
     </section>
 
     {/* Pricing & FAQ */}
