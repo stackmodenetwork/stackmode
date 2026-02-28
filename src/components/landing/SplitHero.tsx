@@ -360,16 +360,9 @@ const SeoContent = () => (
    SPLIT HERO — MAIN EXPORT
    ═══════════════════════════════════════════════ */
 const SplitHero = () => {
-  const [time, setTime] = useState('');
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoReady, setVideoReady] = useState(false);
 
-  useEffect(() => {
-    const tick = () => setTime(new Date().toLocaleTimeString('en-US', { hour12: false }));
-    tick();
-    const id = setInterval(tick, 1000);
-    return () => clearInterval(id);
-  }, []);
 
 
   return (
@@ -393,9 +386,6 @@ const SplitHero = () => {
           </span>
         </div>
         <div className="flex items-center gap-4">
-          <span className="hidden sm:inline text-[9px] tracking-[0.2em]" style={{ fontFamily: "'Share Tech Mono', monospace", color: '#333' }}>
-            {time}
-          </span>
           <div className="flex items-center gap-1.5">
             <div className="w-1.5 h-1.5 rounded-full bg-[#00ff88] animate-pulse" />
             <span className="text-[8px] sm:text-[9px] tracking-[0.15em] uppercase" style={{ fontFamily: "'Share Tech Mono', monospace", color: '#444' }}>
