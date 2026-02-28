@@ -63,6 +63,17 @@ export const CeoTurboServices = () => (
           </a>
         ))}
       </div>
+
+      <div className="flex justify-center mt-6">
+        <a
+          href="https://ceoturbo.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 font-bold px-6 py-3 rounded-xl transition-all text-sm shadow-lg hover:scale-105"
+          style={{ background: '#00cfff', color: '#030305', boxShadow: '0 8px 24px -8px rgba(0,207,255,0.3)' }}>
+          Boost Your Brand
+        </a>
+      </div>
     </div>
   </section>
 );
