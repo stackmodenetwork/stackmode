@@ -7,8 +7,9 @@ import { WhatYouGet } from '@/components/academy/WhatYouGet';
 import { AcademyPricing } from '@/components/academy/AcademyPricing';
 import { AcademyFAQ } from '@/components/academy/AcademyFAQ';
 import { AcademyFooter } from '@/components/academy/AcademyFooter';
-import { CodeTradingBackground } from '@/components/CodeTradingBackground';
-import { GraduationCap, MessageCircle, Mic, Wrench, Phone, Menu, X, ArrowRight } from 'lucide-react';
+import DigitalCardPurchase from '@/components/landing/DigitalCardPurchase';
+import { CeoTurboServices } from '@/components/CeoTurboServices';
+import { GraduationCap, MessageCircle, Mic, Wrench, Phone, Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
 
@@ -24,19 +25,36 @@ const Home = () => {
   return (
     <main className="min-h-screen relative overflow-x-hidden" style={{ background: '#04040a' }}>
       <Helmet>
-        <title>Stackmode Academy | Learn AI Software, Trading & Asset Stacking | Christopher Robinson</title>
-        <meta name="description" content="Stackmode Academy by Christopher Robinson (StackmodeChris) is the #1 online learning academy for mastering AI software development, trading the financial markets, and stacking your assets to build real wealth. Join thousands of students worldwide." />
-        <link rel="canonical" href="https://stackmode.net/academy" />
+        <title>Stackmode Academy | AI, Coding, Software &amp; Trading School | StackmodeChris | Christopher Robinson</title>
+        <meta name="description" content="Stackmode Academy — founded by Christopher Robinson (StackmodeChris). Learn AI tools, software development, Python coding, stock trading, and investing. Get your NFC digital business card from CEO Turbo. Code. Content. Capital. Join for $50/month at stackmode.net" />
+        <meta name="keywords" content="stackmode academy, stackmodechris, christopher robinson CEO, learn AI online, coding and trading school, software development course, AI tools for beginners, python programming course, stock trading school, crypto investing course, digital business card, NFC business card, CEO turbo, best online academy 2026" />
+        <meta name="author" content="Christopher Robinson" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <link rel="canonical" href="https://stackmode.net" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://stackmode.net" />
+        <meta property="og:title" content="Stackmode Academy — AI, Coding &amp; Trading School | StackmodeChris" />
+        <meta property="og:description" content="Christopher Robinson's complete education system. Learn AI, code software, and master trading/investing. One ecosystem. $50/month." />
+        <meta property="og:image" content="https://stackmode.net/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="Stackmode Academy" />
+        <meta property="og:locale" content="en_US" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@stackmodechris" />
+        <meta name="twitter:creator" content="@stackmodechris" />
+        <meta name="twitter:title" content="Stackmode Academy — AI, Coding &amp; Trading School by StackmodeChris" />
+        <meta name="twitter:description" content="Code. Content. Capital. Christopher Robinson's complete system to build assets, grow audiences and multiply profits. $50/month." />
+        <meta name="twitter:image" content="https://stackmode.net/og-image.jpg" />
       </Helmet>
 
       {/* Top Category Bar */}
       <nav className="relative z-50 backdrop-blur-md border-b" style={{ background: 'rgba(4,4,10,0.95)', borderColor: 'rgba(255,255,255,0.06)' }}>
         <div className="max-w-6xl mx-auto px-4">
-          {/* Desktop: show all links */}
+          {/* Desktop */}
           <div className="hidden sm:flex items-center justify-center gap-2 py-2.5 flex-wrap">
-            <Link to="/" className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-2 rounded-full transition-colors bg-foreground/10 hover:bg-foreground/20 text-foreground border border-border/50">
-              <ArrowRight size={14} className="rotate-180 flex-shrink-0" /> Choose Your Path
-            </Link>
             <a
               href="https://whop.com/stackmode-academy/educationalservice/"
               target="_blank"
@@ -60,11 +78,8 @@ const Home = () => {
             </a>
           </div>
 
-          {/* Mobile: hamburger */}
+          {/* Mobile */}
           <div className="flex sm:hidden items-center justify-between py-2.5">
-            <Link to="/" className="inline-flex items-center gap-1.5 font-bold px-3 py-1.5 rounded-full transition-all text-[11px] bg-foreground/10 text-foreground border border-border/50">
-              <ArrowRight size={14} className="rotate-180 flex-shrink-0" /> Choose Your Path
-            </Link>
             <a
               href="https://whop.com/stackmode-academy/educationalservice/"
               target="_blank"
@@ -130,19 +145,19 @@ const Home = () => {
       </header>
 
       <div className="relative z-[1]">
-        {/* Free Library Banner */}
         <FreeResourcesCTA variant="banner" />
-
         <AcademyHero />
         <ReviewWall />
-      <SoftwareShowcase />
-      <WhatYouGet />
-      <AcademyPricing />
-      <AcademyFAQ />
+        <SoftwareShowcase />
+        <WhatYouGet />
+        <AcademyPricing />
+        <AcademyFAQ />
+        <DigitalCardPurchase />
+        <CeoTurboServices />
         <AcademyFooter />
       </div>
-    </main>);
-
+    </main>
+  );
 };
 
 export default Home;
