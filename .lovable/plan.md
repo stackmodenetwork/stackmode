@@ -1,43 +1,112 @@
 
 
-## Plan: Replace Social Strip with Animated Scroll Arrow + Move Socials to Footer
+## Plan: Major Academy Page Overhaul — Cursor Animations, Color Consistency, Nav Cleanup, New Sections
 
-### Changes to `src/components/landing/SplitHero.tsx`
+This is a large multi-part redesign. I recommend breaking it into phases to avoid breaking the site. Here is the full plan:
 
-**1. Remove the social links strip** (lines 499-521) — the Instagram, YouTube, TikTok, Discord links currently sitting below the two tiles.
+---
 
-**2. Replace with an animated bouncing arrow** that smoothly scrolls down to the DigitalCardPurchase section:
-- A `motion.div` with a `ChevronDown` (or double-chevron) icon from lucide-react
-- Infinite bounce animation (`y: [0, 10, 0]` repeating every 1.5s)
-- Subtle glow effect matching the brand palette
-- Text label: "GET YOUR DIGITAL CARD ↓" in small Share Tech Mono
-- `onClick` handler: `document.getElementById('digital-card')?.scrollIntoView({ behavior: 'smooth' })`
-- On hover: scale up slightly, glow intensifies
+### 1. Unified Color Scheme — Green-Only Palette
 
-**3. Add hover cursor interaction** — when hovering the arrow area, the custom cursor ring expands and glows gold (`#C9A84C`) by adding `data-panel-side` or a custom data attribute the existing `CustomCursor` component already listens to. We'll use a gold ring color variant.
+**Problem:** The site mixes green (#00ff88), cyan (#00cfff), amber (#f59e0b), violet (secondary), and accent colors inconsistently.
 
-### Changes to `src/components/landing/DigitalCardPurchase.tsx`
+**Changes:**
+- **`src/index.css`**: Update CSS variables so `--primary`, `--accent`, and `--secondary` all use shades of green. Remove blues/cyans from the base palette. Primary stays `#00ff88`, secondary becomes a darker green, accent becomes a warm green.
+- **`src/pages/Home.tsx`**: All nav bar buttons become a single muted white/gray color EXCEPT "Join The Academy" (green fill) and "Grow Your Brand" (green outline). Remove amber from Library, remove teal from Contact, etc.
+- **`src/components/CeoTurboServices.tsx`**: Change cyan accent to green. "Boost Your Brand" button becomes green.
+- **`src/components/academy/WhatYouGet.tsx`**: Replace `text-secondary` and `text-accent` with green variants.
 
-**4. Add `id="digital-card"`** to the section's root element so the smooth scroll target works.
+---
 
-### Changes to `src/components/landing/LandingFooter.tsx`
+### 2. Navigation Bar Cleanup
 
-**5. Add the social links** (Instagram, YouTube, TikTok, Discord) to the footer so they remain accessible — add them as a row in the bottom bar area with proper SEO alt text.
+**Changes in `src/pages/Home.tsx`:**
+- Replace all `Wrench` icons with `Globe` (from lucide-react) for "Grow Your Brand"
+- **Desktop nav**: Only "Join The Academy" and "Grow Your Brand" get highlighted styling. All other links (Choose Your Path, Contact, Discord, Podcast) use uniform muted white text, no colored borders.
+- **Mobile nav**: Remove Library pill from top bar. Show "Join The Academy" (full text, not "Join") and "Grow Your Brand" as two pills. Library moves into the hamburger dropdown.
+- **`src/components/academy/WhatYouGet.tsx`**: Replace `Wrench` icon with `Globe`.
 
-### SEO Optimizations
+---
 
-**6. In `src/components/landing/SplitHero.tsx`**:
-- Add `fetchpriority="high"` to the video element
-- Remove `preload="auto"` from video (already preloaded in index.html `<link rel="preload">`)
+### 3. Interactive Grid Cursor Background (God of Prompt / Antigravity style)
 
-### Performance
+**New file: `src/components/CursorGridBackground.tsx`**
+- A full-page fixed canvas overlay (behind content, above background)
+- Draws a subtle dot grid pattern across the viewport
+- On mouse move, dots near the cursor glow brighter and shift outward slightly (repulsion/attraction effect)
+- Uses requestAnimationFrame for smooth 60fps rendering
+- Disabled on touch devices and reduced-motion preference
+- This replaces or supplements the existing `CursorParticles` component
 
-- No new dependencies needed — uses existing framer-motion and lucide-react
-- Arrow animation is CSS-lightweight (transform only)
-- Social links move to footer = fewer interactive elements in the viewport on load
+**Changes in `src/App.tsx`:**
+- Add `CursorGridBackground` component alongside or replacing `CursorParticles`
 
-### Files to edit
-1. `src/components/landing/SplitHero.tsx` — remove socials, add scroll arrow
-2. `src/components/landing/DigitalCardPurchase.tsx` — add anchor id
-3. `src/components/landing/LandingFooter.tsx` — add social links row
+---
+
+### 4. Animated Performance Comparison Chart (New Section)
+
+**The existing `ReturnsComparisonChart` component already exists** with the Employee vs Stackmode Investor comparison. It is not currently rendered on the Academy page.
+
+**Changes in `src/pages/Home.tsx`:**
+- Import and add `ReturnsComparisonChart` between `WhatYouGet` and `AcademyPricing` sections
+- Wrap it in a container with a heading like "Why Students Choose Stackmode"
+
+---
+
+### 5. Interactive Coding Terminal Section
+
+**Already exists** as `TerminalCode` inside `AcademyHero.tsx`. It's already rendering on the Academy page hero. No new component needed — it's already there showing the typing animation.
+
+---
+
+### 6. Simplified Copywriting
+
+**Changes across multiple components:**
+- **`src/components/academy/AcademyHero.tsx`**: Simplify headline to something like "LEARN TO BUILD SOFTWARE, TRADE STOCKS & MAKE MONEY WITH AI". Simplify subtitle to "No experience needed. We teach you step by step. Start earning in your first month."
+- **`src/components/academy/WhatYouGet.tsx`**: Simplify descriptions to kindergarten-level clarity. E.g., "Build Real Software" → desc: "Learn to make apps that people pay for. AI writes the code — you just tell it what to build."
+- **`src/components/SoftwareShowcase.tsx`**: Simplify copy
+- **`src/components/academy/AcademyFAQ.tsx`**: Keep as-is (already simple)
+
+---
+
+### 7. Page Flow Reorder
+
+**`src/pages/Home.tsx`** content order becomes:
+1. FreeResourcesCTA banner
+2. AcademyHero (with terminal + mini chart)
+3. ReviewWall (social proof)
+4. WhatYouGet (what's included)
+5. **ReturnsComparisonChart** (new addition — Employee vs Stackmode)
+6. SoftwareShowcase (StackFinder)
+7. AcademyPricing
+8. AcademyFAQ
+9. DigitalCardPurchase (buy the card)
+10. CeoTurboServices (grow your brand)
+11. AcademyFooter
+
+---
+
+### 8. SEO Optimization
+
+- Ensure all headings use semantic H2/H3 tags
+- Keep existing sr-only H1 structure
+- Ensure all images have descriptive alt text (already mostly done)
+- Meta tags already comprehensive
+
+---
+
+### Technical Details
+
+**Files to modify:**
+- `src/index.css` — Update CSS variable color scheme
+- `src/pages/Home.tsx` — Nav bar reorder, add ReturnsComparisonChart, icon swaps
+- `src/components/CeoTurboServices.tsx` — Green color scheme, Globe icon
+- `src/components/academy/WhatYouGet.tsx` — Globe icon, simplified copy
+- `src/components/academy/AcademyHero.tsx` — Simplified copywriting
+- `src/App.tsx` — Add CursorGridBackground
+
+**New files:**
+- `src/components/CursorGridBackground.tsx` — Interactive dot grid cursor effect
+
+**Icon changes:** All `Wrench` → `Globe` globally
 
