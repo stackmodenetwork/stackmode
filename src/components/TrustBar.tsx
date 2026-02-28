@@ -3,13 +3,11 @@ import { memo } from 'react';
 const tools = [
   { name: 'ChatGPT', logo: '/images/logos/chatgpt.png' },
   { name: 'Claude', logo: '/images/logos/claude.png' },
-  { name: 'OpenAI', logo: '/images/logos/openai.png' },
   { name: 'Google', logo: '/images/logos/google-new.png', noFilter: true },
   { name: 'Midjourney', logo: '/images/logos/midjourney.png' },
   { name: 'Runway', logo: '/images/logos/runway.png', noFilter: true },
   { name: 'Perplexity AI', logo: '/images/logos/perplexity.png' },
   { name: 'ElevenLabs', logo: '/images/logos/elevenlabs.png' },
-  { name: 'Notion', logo: '/images/logos/notion-full.png' },
   { name: 'Stripe', logo: '/images/logos/stripe-new.png' },
   { name: 'Reddit', logo: '/images/logos/reddit.png' },
   { name: 'Slack', logo: '/images/logos/slack-salesforce.png', noFilter: true },
@@ -20,8 +18,8 @@ const tools = [
   { name: 'Whop', logo: '/images/logos/whop.png' },
 ];
 
-const row1 = tools.slice(0, 9);
-const row2 = tools.slice(9);
+const row1 = tools.slice(0, 8);
+const row2 = tools.slice(8);
 
 const ToolItem = ({ tool }: { tool: typeof tools[0] }) => (
   <div className="flex items-center gap-2.5 px-5 sm:px-7 py-3 flex-shrink-0">
@@ -61,14 +59,14 @@ export const TrustBar = memo(() => (
 
         {/* Row 1 */}
         <div className="flex animate-marquee mb-1" style={{ width: 'max-content' }}>
-          {[...row1, ...row1, ...row1].map((tool, i) => (
+          {[...row1, ...row1].map((tool, i) => (
             <ToolItem key={`r1-${i}`} tool={tool} />
           ))}
         </div>
 
         {/* Row 2 — reverse */}
         <div className="flex animate-marquee-reverse" style={{ width: 'max-content' }}>
-          {[...row2, ...row2, ...row2].map((tool, i) => (
+          {[...row2, ...row2].map((tool, i) => (
             <ToolItem key={`r2-${i}`} tool={tool} />
           ))}
         </div>

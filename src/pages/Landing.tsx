@@ -307,9 +307,9 @@ const Landing = () => (
             transition={{ duration: 0.5, delay: 1.1 }}
             className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-5"
           >
-            <Link to="/prompt-shop" className="btn-ghost text-xs sm:text-sm text-center">[ PROMPT SHOP → ]</Link>
+            <Link to="/prompt-shop" className="btn-ghost w-full sm:w-auto text-sm sm:text-sm text-center px-5 py-3">PROMPT SHOP →</Link>
             <a href="https://whop.com/stackmode-academy/educationalservice/" target="_blank" rel="noopener noreferrer"
-              className="text-xs sm:text-sm text-center px-6 py-3 rounded transition-all uppercase tracking-wider"
+              className="w-full sm:w-auto text-sm sm:text-sm text-center px-5 py-3 rounded transition-all uppercase tracking-wider"
               style={{
                 fontFamily: "'Orbitron', sans-serif",
                 fontWeight: 700,
@@ -328,7 +328,7 @@ const Landing = () => (
                 e.currentTarget.style.background = 'rgba(57,255,20,0.06)';
               }}
             >
-              [ EXPLORE THE ACADEMY → ]
+              EXPLORE THE ACADEMY →
             </a>
           </motion.div>
 
