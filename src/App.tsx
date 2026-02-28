@@ -18,6 +18,7 @@ const Library = lazy(() => import("./pages/Library"));
 const DMCAPolicy = lazy(() => import("./pages/DMCAPolicy"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
+const BusinessCards = lazy(() => import("./pages/BusinessCards"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const PageLoader = () => (
@@ -47,6 +48,7 @@ const App = () => (
               <Route path="/shop" element={<Shop />} />
               <Route path="/stackfinder" element={<StackFinder />} />
               <Route path="/brand-boost" element={<BrandBoost />} />
+              <Route path="/businesscards" element={<BusinessCards />} />
               <Route path="/dmca" element={<DMCAPolicy />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/terms" element={<TermsAndConditions />} />
