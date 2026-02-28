@@ -10,7 +10,7 @@ import { AcademyFooter } from '@/components/academy/AcademyFooter';
 import DigitalCardPurchase from '@/components/landing/DigitalCardPurchase';
 import { CeoTurboServices } from '@/components/CeoTurboServices';
 import { ReturnsComparisonChart } from '@/components/ReturnsComparisonChart';
-import { GraduationCap, MessageCircle, Mic, Globe, Phone, Menu, X, ArrowLeft, BookOpen } from 'lucide-react';
+import { GraduationCap, MessageCircle, Mic, Globe, Phone, Menu, X, Home as HomeIcon, BookOpen } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { FreeResourcesCTA } from '@/components/FreeResourcesCTA';
 
@@ -60,7 +60,7 @@ const Home = () => {
               to="/"
               className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-2 rounded-full transition-colors"
               style={{ color: 'rgba(255,255,255,0.35)' }}>
-              <ArrowLeft size={14} className="flex-shrink-0" /> Choose Your Path
+              <HomeIcon size={14} className="flex-shrink-0" /> Home
             </Link>
             <a
               href="https://whop.com/stackmode-academy/educationalservice/"
@@ -129,7 +129,7 @@ const Home = () => {
                 <Phone size={16} className="text-primary" /> Contact
               </a>
               <Link to="/" onClick={() => setMobileNavOpen(false)} className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium text-foreground/40 hover:bg-card/50 transition-colors">
-                <ArrowLeft size={16} /> Choose Your Path
+                <HomeIcon size={16} /> Home
               </Link>
             </div>
           )}
