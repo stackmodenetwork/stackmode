@@ -6,15 +6,15 @@
 
 @layer base {
   :root {
-    /* Deep Navy Backgrounds */
-    --background: 225 60% 5%;
-    --foreground: 210 40% 95%;
+    /* Ultra-dark backgrounds */
+    --background: 228 70% 3%;
+    --foreground: 210 40% 93%;
 
     /* Card Surfaces */
-    --card: 225 50% 8%;
+    --card: 228 55% 6%;
     --card-foreground: 210 30% 90%;
 
-    --popover: 225 50% 9%;
+    --popover: 228 55% 7%;
     --popover-foreground: 210 30% 90%;
 
     /* Primary — Neon Green */
@@ -28,8 +28,8 @@
     --secondary-glow: 190 90% 38%;
 
     /* Muted */
-    --muted: 225 30% 12%;
-    --muted-foreground: 215 25% 45%;
+    --muted: 228 30% 10%;
+    --muted-foreground: 215 20% 50%;
 
     /* Accent — Neon Pink */
     --accent: 330 100% 59%;
@@ -49,36 +49,36 @@
     --destructive-foreground: 210 20% 95%;
 
     /* UI Elements */
-    --border: 225 30% 14%;
-    --input: 225 30% 10%;
+    --border: 228 25% 12%;
+    --input: 228 25% 8%;
     --ring: 110 100% 55%;
 
     --radius: 0.25rem;
 
-    --sidebar-background: 225 50% 7%;
+    --sidebar-background: 228 55% 5%;
     --sidebar-foreground: 210 30% 90%;
     --sidebar-primary: 110 100% 55%;
     --sidebar-primary-foreground: 225 60% 5%;
-    --sidebar-accent: 225 30% 12%;
+    --sidebar-accent: 228 30% 10%;
     --sidebar-accent-foreground: 210 30% 90%;
-    --sidebar-border: 225 30% 14%;
+    --sidebar-border: 228 25% 12%;
     --sidebar-ring: 110 100% 55%;
 
     /* Named colors for direct use */
-    --bg-primary: #080c1a;
-    --bg-secondary: #0d1225;
-    --bg-card: #0f1a2e;
-    --grid-line: rgba(0, 229, 255, 0.08);
-    --border-glow: rgba(57, 255, 20, 0.3);
-    --border-card: rgba(0, 229, 255, 0.2);
+    --bg-primary: #04060e;
+    --bg-secondary: #060a16;
+    --bg-card: #0a1020;
+    --grid-line: rgba(0, 229, 255, 0.05);
+    --border-glow: rgba(57, 255, 20, 0.25);
+    --border-card: rgba(0, 229, 255, 0.15);
   }
 
   .dark {
-    --background: 225 60% 5%;
-    --foreground: 210 40% 95%;
-    --card: 225 50% 8%;
+    --background: 228 70% 3%;
+    --foreground: 210 40% 93%;
+    --card: 228 55% 6%;
     --card-foreground: 210 30% 90%;
-    --popover: 225 50% 9%;
+    --popover: 228 55% 7%;
     --popover-foreground: 210 30% 90%;
     --primary: 110 100% 55%;
     --primary-foreground: 225 60% 5%;
@@ -86,23 +86,23 @@
     --secondary: 190 100% 45%;
     --secondary-foreground: 225 60% 5%;
     --secondary-glow: 190 90% 38%;
-    --muted: 225 30% 12%;
-    --muted-foreground: 215 25% 45%;
+    --muted: 228 30% 10%;
+    --muted-foreground: 215 20% 50%;
     --accent: 330 100% 59%;
     --accent-foreground: 225 60% 5%;
     --accent-glow: 330 90% 50%;
     --destructive: 0 70% 55%;
     --destructive-foreground: 210 20% 95%;
-    --border: 225 30% 14%;
-    --input: 225 30% 10%;
+    --border: 228 25% 12%;
+    --input: 228 25% 8%;
     --ring: 110 100% 55%;
-    --sidebar-background: 225 50% 7%;
+    --sidebar-background: 228 55% 5%;
     --sidebar-foreground: 210 30% 90%;
     --sidebar-primary: 110 100% 55%;
     --sidebar-primary-foreground: 225 60% 5%;
-    --sidebar-accent: 225 30% 12%;
+    --sidebar-accent: 228 30% 10%;
     --sidebar-accent-foreground: 210 30% 90%;
-    --sidebar-border: 225 30% 14%;
+    --sidebar-border: 228 25% 12%;
     --sidebar-ring: 110 100% 55%;
   }
 }
@@ -122,7 +122,8 @@
 
   body {
     @apply bg-background text-foreground overflow-x-hidden;
-    font-family: 'Rajdhani', system-ui, sans-serif;
+    font-family: 'Rajdhani', system-ui, -apple-system, sans-serif;
+    font-weight: 500;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -131,11 +132,25 @@
     background-color: var(--bg-primary);
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  /* Only major headings use pixel font */
+  h1, h2 {
     font-family: 'Press Start 2P', monospace;
     letter-spacing: 0.02em;
     font-weight: 400;
     text-rendering: optimizeLegibility;
+  }
+
+  /* Sub-headings use Orbitron for readability */
+  h3, h4, h5, h6 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Body text is readable Rajdhani */
+  p, span, li, a, label, td, th, input, textarea, select, button {
+    font-family: 'Rajdhani', system-ui, -apple-system, sans-serif;
   }
 
   code, pre, .font-mono {
@@ -184,21 +199,13 @@
     background: var(--bg-card);
     border: 1px solid var(--border-card);
     border-radius: 4px;
-    box-shadow: 0 0 20px rgba(0,229,255,0.08);
+    box-shadow: 0 0 15px rgba(0,229,255,0.05);
     transition: all 0.3s ease;
   }
   .terminal-card:hover {
-    border-color: rgba(57,255,20,0.5);
-    box-shadow: 0 0 35px rgba(57,255,20,0.15);
+    border-color: rgba(57,255,20,0.4);
+    box-shadow: 0 0 30px rgba(57,255,20,0.1);
     transform: translateY(-4px);
-  }
-
-  /* Terminal dots (macOS style) */
-  .terminal-dots::before {
-    content: '';
-    display: flex;
-    gap: 6px;
-    padding: 8px 12px;
   }
 
   /* Primary CTA Button */
@@ -224,7 +231,7 @@
   /* Ghost Button */
   .btn-ghost {
     background: transparent;
-    border: 1px solid rgba(0,229,255,0.5);
+    border: 1px solid rgba(0,229,255,0.4);
     color: #00e5ff;
     font-family: 'Orbitron', sans-serif;
     font-weight: 600;
@@ -241,7 +248,7 @@
   }
 
   .glow-green {
-    box-shadow: 0 0 20px rgba(57,255,20,0.2);
+    box-shadow: 0 0 20px rgba(57,255,20,0.15);
   }
 
   /* Scanline overlay */
