@@ -65,9 +65,13 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Gaming Colors
-				'neon-blue': 'hsl(var(--neon-blue))',
-				'neon-pink': 'hsl(var(--neon-pink))'
+				// Gaming/Neon Colors
+				'neon-green': '#39ff14',
+				'neon-cyan': '#00e5ff',
+				'neon-pink': '#ff2d9b',
+				'neon-orange': '#ff6b1a',
+				'neon-yellow': '#ffd700',
+				'neon-purple': '#b44fff',
 			},
 			backgroundImage: {
 				'gradient-retro': 'var(--gradient-retro)',
@@ -75,9 +79,11 @@ export default {
 				'gradient-gaming': 'var(--gradient-gaming)'
 			},
 			fontFamily: {
-				'heading': ['Sora', 'sans-serif'],
-				'body': ['DM Sans', 'sans-serif'],
-				'mono': ['JetBrains Mono', 'monospace']
+				'pixel': ['"Press Start 2P"', 'monospace'],
+				'orbitron': ['Orbitron', 'sans-serif'],
+				'body': ['Rajdhani', 'sans-serif'],
+				'heading': ['"Press Start 2P"', 'monospace'],
+				'mono': ['"JetBrains Mono"', 'monospace']
 			},
 			height: {
 				screen: '100dvh',

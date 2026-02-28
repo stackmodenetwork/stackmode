@@ -2,7 +2,7 @@ import { useEffect, useRef, useCallback } from 'react';
 
 const GRID_SPACING = 40;
 const DOT_SIZE = 1;
-const DOT_COLOR_BASE = 'rgba(0,255,136,';
+const DOT_COLOR_BASE = 'rgba(57,255,20,';
 const INFLUENCE_RADIUS = 150;
 const MAX_DISPLACEMENT = 12;
 
