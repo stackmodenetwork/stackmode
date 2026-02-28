@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { ArrowRight, Gift, BookOpen, Headphones, Star, ShoppingCart, GraduationCap, MessageCircle, Mic, Globe, Phone, Menu, X } from 'lucide-react';
+import { Home as HomeIcon, ArrowRight, Gift, BookOpen, Headphones, Star, ShoppingCart, GraduationCap, MessageCircle, Mic, Globe, Phone, Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
 import { useState, useEffect } from 'react';
@@ -69,7 +69,7 @@ const Library = () => {
           {/* Desktop */}
           <div className="hidden sm:flex items-center justify-center gap-2 py-2.5 flex-wrap">
             <Link to="/" className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-2 rounded-full transition-colors bg-foreground/10 hover:bg-foreground/20 text-foreground border border-border/50">
-              <ArrowRight size={14} className="rotate-180 flex-shrink-0" /> Choose Your Path
+              <HomeIcon size={14} className="flex-shrink-0" /> Home
             </Link>
             <a href="https://whop.com/stackmode-academy/educationalservice/" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 font-bold px-4 py-2 rounded-full transition-all text-xs"
@@ -94,7 +94,7 @@ const Library = () => {
           {/* Mobile hamburger */}
           <div className="flex sm:hidden items-center justify-between py-2.5">
             <Link to="/" className="inline-flex items-center gap-1.5 font-bold px-3 py-1.5 rounded-full transition-all text-[11px] bg-foreground/10 text-foreground border border-border/50">
-              <ArrowRight size={14} className="rotate-180 flex-shrink-0" /> Choose Your Path
+              <HomeIcon size={14} className="flex-shrink-0" /> Home
             </Link>
             <a href="https://whop.com/stackmode-academy/educationalservice/" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 font-bold px-3 py-1.5 rounded-full transition-all text-[11px]"
