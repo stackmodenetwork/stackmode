@@ -382,7 +382,7 @@ const SplitHero = () => {
       }}>
         <div className="flex items-center gap-1">
           <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 18, letterSpacing: '0.12em', color: '#f0f0f0' }}>
-            STACK<span style={{ color: '#00ff88' }}>MODE</span>
+            STACKMODE <span style={{ color: '#00ff88' }}>ACADEMY</span>
           </span>
           <span className="mx-2 text-[10px] text-foreground/20">×</span>
           <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 18, letterSpacing: '0.12em', color: '#f0f0f0' }}>
@@ -404,11 +404,20 @@ const SplitHero = () => {
 
       {/* Main section */}
       <section className="relative w-full min-h-[100dvh] pt-[48px] flex flex-col" style={{ background: '#04040a' }}>
-        {/* Background grid */}
-        <div className="absolute inset-0 pointer-events-none" style={{
-          backgroundImage: 'linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px)',
-          backgroundSize: '60px 60px',
-        }} />
+        {/* Video background */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          aria-hidden="true"
+        >
+          <source src="/videos/landing-bg.mp4" type="video/mp4" />
+        </video>
+        {/* Dark overlay for readability */}
+        <div className="absolute inset-0 z-[1]" style={{ background: 'rgba(4,4,10,0.75)' }} />
 
         {/* Center content */}
         <div className="relative z-10 flex flex-col items-center justify-center flex-1 px-4 sm:px-6 py-6 sm:py-10">
@@ -423,17 +432,18 @@ const SplitHero = () => {
               border: '1px solid rgba(255,255,255,0.06)',
               background: 'rgba(255,255,255,0.02)',
             }}>
-              <span className="text-[8px] sm:text-[10px] tracking-[0.25em] uppercase" style={{
+              <span className="text-[11px] sm:text-[13px] tracking-[0.25em] uppercase" style={{
                 fontFamily: "'Share Tech Mono', monospace",
-                color: 'rgba(255,255,255,0.4)',
+                color: 'rgba(255,255,255,0.7)',
               }}>
                 Christopher Robinson • StackmodeChris
               </span>
             </div>
-            <h2 className="text-[12px] sm:text-[15px] tracking-[0.3em] uppercase" style={{
+            <h2 className="uppercase font-bold" style={{
               fontFamily: "'Bebas Neue', sans-serif",
-              color: 'rgba(255,255,255,0.25)',
-              letterSpacing: '0.35em',
+              fontSize: 'clamp(22px, 4vw, 36px)',
+              color: '#f0f0f0',
+              letterSpacing: '0.15em',
             }}>
               Choose Your Path
             </h2>
@@ -476,7 +486,7 @@ const SplitHero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
             className="flex items-center justify-center gap-4 sm:gap-8 mt-5 sm:mt-8 pb-4"
-            style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: 9, letterSpacing: '0.2em' }}
+            style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: 11, letterSpacing: '0.2em' }}
             aria-label="Social media links for Christopher Robinson StackmodeChris"
           >
             {[
@@ -487,7 +497,7 @@ const SplitHero = () => {
             ].map(s => (
               <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
                 className="uppercase transition-colors duration-300 hover:text-primary"
-                style={{ color: 'rgba(255,255,255,0.15)' }}
+                style={{ color: 'rgba(255,255,255,0.5)' }}
               >
                 {s.label}
               </a>
