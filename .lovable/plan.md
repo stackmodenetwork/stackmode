@@ -1,48 +1,24 @@
 
 
-## Redesign: Side-by-Side CTA Buttons with Animated Backgrounds
+## Plan: Fix Landing Page Text & Add Video Background
 
-### Concept
-Replace the two large stacked card panels with a **single centered hero** layout. The page has one branded heading + tagline at top, then **two side-by-side CTA buttons** — each button is a compact, visually rich tile with its own micro-animation canvas behind it. On mobile they sit side-by-side too (not stacked), just smaller. Clean, instant comprehension, fast load.
+### Changes to `src/components/landing/SplitHero.tsx`
 
-```text
-┌─────────────────────────────────────────────┐
-│          STACKMODE × CEOTURBO               │  ← top bar (keep)
-├─────────────────────────────────────────────┤
-│                                             │
-│     Christopher Robinson • StackmodeChris   │
-│          CHOOSE YOUR PATH                   │
-│                                             │
-│   ┌──────────────┐  ┌──────────────┐        │
-│   │ ≋ candlestick│  │ ◇ web design │        │
-│   │   animation  │  │   animation  │        │
-│   │              │  │              │        │
-│   │  STACKMODE   │  │  CEO TURBO   │        │
-│   │  ACADEMY     │  │  WEB & BRAND │        │
-│   │              │  │              │        │
-│   │ Code·Trade·AI│  │ Sites·Cards  │        │
-│   │  JOIN NOW →  │  │ GET STARTED →│        │
-│   └──────────────┘  └──────────────┘        │
-│                                             │
-│     IG · YT · TikTok · Discord              │
-└─────────────────────────────────────────────┘
-```
+**1. Fix top-left header**: Change `STACK<span>MODE</span>` to `STACKMODE ACADEMY` (full brand name).
 
-### Design Details
+**2. Make "Choose Your Path" text larger and visible**:
+- Increase "Christopher Robinson • StackmodeChris" from `8-10px` to `11-13px`, bump color from `rgba(255,255,255,0.4)` to `rgba(255,255,255,0.7)`.
+- Increase "Choose Your Path" from `12-15px` to `clamp(22px, 4vw, 36px)`, change color from `rgba(255,255,255,0.25)` to `#f0f0f0` (full white). Make it bold and prominent.
 
-**Each button/tile** (~280px×340px desktop, ~160px×220px mobile):
-- Rounded card with dark bg (`#0a0a14`), accent-colored border on hover
-- **Left tile (Academy)**: Canvas animation showing floating candlestick bars + code bracket symbols (`{ }`, `< />`) in green (`#00ff88`). Logo, "STACKMODE ACADEMY" title, pills: `Code · Trade · AI`, CTA button
-- **Right tile (CEOTurbo)**: Canvas animation showing floating browser window outlines + paintbrush/palette shapes in cyan (`#00cfff`). Logo, "DESIGN YOUR WEBSITE & BRAND" title, pills: `Sites · Cards · Brand`, CTA button
-- Both tiles are **always side-by-side** — on mobile they shrink proportionally using `grid-cols-2` with smaller text/padding
-- Hover: accent glow intensifies, border lights up, CTA fill animates
+**3. Make social links more visible**: Bump color from `rgba(255,255,255,0.15)` to `rgba(255,255,255,0.5)`, increase font size from `9px` to `11px`.
 
-### Implementation — Single File Change
+**4. Add uploaded video as full-screen background**: 
+- Copy `user-uploads://0227_6.mp4` to `public/videos/landing-bg.mp4`.
+- Add a `<video>` element behind the grid/content with `autoPlay muted loop playsInline`, absolute positioned, object-cover, with a dark overlay (`rgba(4,4,10,0.75)`) on top so text remains readable.
+- Remove the subtle CSS grid background lines (replaced by the video).
+- Keep scanline overlay on top of everything for the terminal aesthetic.
 
-**`src/components/landing/SplitHero.tsx`** — Full rewrite:
-1. Replace `GridDots` with two new canvas components: `CandlestickCanvas` (draws floating candlestick bars + code symbols) and `WebDesignCanvas` (draws floating browser frames + design shapes)
-2. Replace `PathCard` with a compact `ChoiceTile` component — logo, title, 3 pills, CTA button, canvas background
-3. Layout: centered `grid grid-cols-2 gap-3 sm:gap-6` wrapper, max-w-3xl — always 2 columns
-4. Keep top bar, heading, social strip, SEO content, scanline overlay unchanged
-5. Mobile: smaller text (Bebas Neue 20px vs 40px desktop), tighter padding (p-4 vs p-8), canvas still renders but fewer particles
+### Files
+- Copy video asset to `public/videos/landing-bg.mp4`
+- Edit `src/components/landing/SplitHero.tsx`
 
