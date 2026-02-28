@@ -11,6 +11,8 @@ import CursorGridBackground from "./components/CursorGridBackground";
 const Landing = lazy(() => import("./pages/Landing"));
 const Home = lazy(() => import("./pages/Home"));
 const PromptShop = lazy(() => import("./pages/PromptShop"));
+const StackFinder = lazy(() => import("./pages/StackFinder"));
+const BrandBoost = lazy(() => import("./pages/BrandBoost"));
 const Shop = lazy(() => import("./pages/Learn"));
 const Library = lazy(() => import("./pages/Library"));
 const DMCAPolicy = lazy(() => import("./pages/DMCAPolicy"));
@@ -43,8 +45,8 @@ const App = () => (
               <Route path="/academy" element={<Home />} />
               <Route path="/prompt-shop" element={<PromptShop />} />
               <Route path="/shop" element={<Shop />} />
-              <Route path="/stackfinder" element={<Navigate to="/" replace />} />
-              <Route path="/brand-boost" element={<Navigate to="https://ceoturbo.com" replace />} />
+              <Route path="/stackfinder" element={<StackFinder />} />
+              <Route path="/brand-boost" element={<BrandBoost />} />
               <Route path="/dmca" element={<DMCAPolicy />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/terms" element={<TermsAndConditions />} />

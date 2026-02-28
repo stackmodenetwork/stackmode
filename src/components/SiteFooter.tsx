@@ -14,7 +14,8 @@ const navLinks = [
   { label: 'Home', path: '/' },
   { label: 'Academy', path: '/academy' },
   { label: 'Prompt Shop', path: '/prompt-shop' },
-  { label: 'Brand Boost', href: 'https://ceoturbo.com' },
+  { label: 'StackFinder', path: '/stackfinder' },
+  { label: 'Brand Boost', path: '/brand-boost' },
   { label: 'Library', path: '/library' },
 ];
 
@@ -34,14 +35,8 @@ export const SiteFooter = memo(() => (
     </p>
 
     <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-6">
-      {navLinks.map(link => link.href ? (
-        <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer"
-          className="text-sm tracking-wide transition-colors hover:text-neon-green text-foreground/40"
-          style={{ fontFamily: "'Orbitron', sans-serif" }}>
-          {link.label}
-        </a>
-      ) : (
-        <Link key={link.label} to={link.path!}
+      {navLinks.map(link => (
+        <Link key={link.label} to={link.path}
           className="text-sm tracking-wide transition-colors hover:text-neon-green text-foreground/40"
           style={{ fontFamily: "'Orbitron', sans-serif" }}>
           {link.label}

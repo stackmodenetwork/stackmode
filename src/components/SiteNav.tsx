@@ -7,6 +7,7 @@ const navLinks = [
   { label: 'ACADEMY', path: '/academy' },
   { label: 'PROMPT SHOP', path: '/prompt-shop' },
   { label: 'STACKFINDER', path: '/stackfinder' },
+  { label: 'BRAND BOOST', path: '/brand-boost' },
 ];
 
 export const SiteNav = memo(() => {
