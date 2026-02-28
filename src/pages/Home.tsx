@@ -54,12 +54,12 @@ const Home = () => {
       <nav className="relative z-50 backdrop-blur-md border-b" style={{ background: 'rgba(4,4,10,0.95)', borderColor: 'rgba(255,255,255,0.06)' }}>
         <div className="max-w-6xl mx-auto px-4">
           {/* Desktop */}
-          <div className="hidden sm:flex items-center justify-center gap-2 py-2.5 flex-wrap">
+          <div className="hidden sm:flex items-center gap-2 py-2.5 flex-wrap">
             <Link
-              to="/library"
-              className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-2 rounded-full transition-colors"
-              style={{ color: '#f59e0b', border: '1px solid rgba(245,158,11,0.3)', background: 'rgba(245,158,11,0.08)' }}>
-              <BookOpen size={14} className="flex-shrink-0" /> Library
+              to="/"
+              className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-2 rounded-full transition-colors mr-auto"
+              style={{ color: 'rgba(255,255,255,0.4)', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
+              <ArrowLeft size={14} className="flex-shrink-0" /> Choose Your Path
             </Link>
             <a
               href="https://whop.com/stackmode-academy/educationalservice/"
@@ -73,21 +73,21 @@ const Home = () => {
             <a href="https://ceoturbo.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-2 rounded-full transition-colors" style={{ color: '#00cfff', border: '1px solid rgba(0,207,255,0.3)', background: 'rgba(0,207,255,0.08)' }}>
               <Wrench size={14} className="flex-shrink-0" /> Grow Your Brand
             </a>
+            <Link
+              to="/library"
+              className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-2 rounded-full transition-colors"
+              style={{ color: '#f59e0b', border: '1px solid rgba(245,158,11,0.3)', background: 'rgba(245,158,11,0.08)' }}>
+              <BookOpen size={14} className="flex-shrink-0" /> Library
+            </Link>
+            <a href="tel:+16787758532" className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-2 rounded-full text-background transition-colors bg-accent">
+              <Phone size={14} className="flex-shrink-0" /> Contact
+            </a>
             <a href="https://discord.gg/5zYWSWGMYm" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-2 rounded-full transition-colors" style={{ color: 'rgba(255,255,255,0.6)', border: '1px solid rgba(0,255,136,0.15)' }}>
               <MessageCircle size={14} className="flex-shrink-0" /> Discord
             </a>
             <a href="https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-2 rounded-full text-foreground/70 hover:text-primary hover:bg-primary/5 border border-border/50 transition-colors">
               <Mic size={14} className="flex-shrink-0" /> Podcast
             </a>
-            <a href="tel:+16787758532" className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-2 rounded-full text-background transition-colors bg-accent">
-              <Phone size={14} className="flex-shrink-0" /> Contact
-            </a>
-            <Link
-              to="/"
-              className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-2 rounded-full transition-colors"
-              style={{ color: 'rgba(255,255,255,0.4)', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
-              <ArrowLeft size={14} className="flex-shrink-0" /> Choose Your Path
-            </Link>
           </div>
 
           {/* Mobile */}
