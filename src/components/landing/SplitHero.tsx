@@ -416,7 +416,7 @@ const SplitHero = () => {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
           aria-hidden="true"
           onCanPlayThrough={() => setVideoReady(true)}
         >
@@ -496,29 +496,38 @@ const SplitHero = () => {
             />
           </div>
 
-          {/* Social strip */}
-          <motion.nav
+          {/* Animated scroll arrow to digital card section */}
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
-            className="flex items-center justify-center gap-4 sm:gap-8 mt-5 sm:mt-8 pb-4"
-            style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: 11, letterSpacing: '0.2em' }}
-            aria-label="Social media links for Christopher Robinson StackmodeChris"
+            className="flex flex-col items-center mt-6 sm:mt-10 pb-4 cursor-pointer group"
+            data-panel-side="gold"
+            onClick={() => document.getElementById('digital-card')?.scrollIntoView({ behavior: 'smooth' })}
+            role="button"
+            aria-label="Scroll down to get your digital business card"
+            tabIndex={0}
+            onKeyDown={(e) => { if (e.key === 'Enter') document.getElementById('digital-card')?.scrollIntoView({ behavior: 'smooth' }); }}
           >
-            {[
-              { label: 'Instagram', href: 'https://www.instagram.com/christopherrobinsonceo/' },
-              { label: 'YouTube', href: 'https://www.youtube.com/@ChristopherRobinson-CEO' },
-              { label: 'TikTok', href: 'https://www.tiktok.com/@stackmodechris___' },
-              { label: 'Discord', href: 'https://discord.gg/5zYWSWGMYm' },
-            ].map(s => (
-              <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
-                className="uppercase transition-colors duration-300 hover:text-primary"
-                style={{ color: 'rgba(255,255,255,0.5)' }}
-              >
-                {s.label}
-              </a>
-            ))}
-          </motion.nav>
+            <span
+              className="text-[10px] tracking-[0.3em] uppercase mb-3 transition-colors duration-300 group-hover:text-[#C9A84C]"
+              style={{ fontFamily: "'Share Tech Mono', monospace", color: 'rgba(255,255,255,0.4)' }}
+            >
+              GET YOUR DIGITAL CARD
+            </span>
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
+              className="flex flex-col items-center"
+            >
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="opacity-60 group-hover:opacity-100 transition-opacity duration-300">
+                <path d="M7 10l5 5 5-5" />
+              </svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="opacity-30 group-hover:opacity-70 transition-opacity duration-300 -mt-4">
+                <path d="M7 10l5 5 5-5" />
+              </svg>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 

@@ -12,6 +12,13 @@ const turboLinks = [
   { label: 'Instagram', href: 'https://www.instagram.com/stackmodetrading/' },
 ];
 
+const socialLinks = [
+  { label: 'Instagram', href: 'https://www.instagram.com/christopherrobinsonceo/', ariaLabel: 'Christopher Robinson CEO Instagram' },
+  { label: 'YouTube', href: 'https://www.youtube.com/@ChristopherRobinson-CEO', ariaLabel: 'Christopher Robinson CEO YouTube channel' },
+  { label: 'TikTok', href: 'https://www.tiktok.com/@stackmodechris___', ariaLabel: 'StackmodeChris TikTok' },
+  { label: 'Discord', href: 'https://discord.gg/5zYWSWGMYm', ariaLabel: 'Stackmode Discord community' },
+];
+
 const LandingFooter = () => (
   <footer className="relative w-full py-12 px-6 border-t" style={{ background: '#030305', borderColor: 'rgba(255,255,255,0.05)' }}>
     <div className="max-w-6xl mx-auto">
@@ -56,6 +63,17 @@ const LandingFooter = () => (
           </div>
         </div>
       </div>
+
+      {/* Social links row */}
+      <nav className="flex items-center justify-center gap-6 sm:gap-8 py-6 border-t" style={{ borderColor: 'rgba(255,255,255,0.05)' }} aria-label="Social media links for Christopher Robinson StackmodeChris">
+        {socialLinks.map(s => (
+          <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.ariaLabel}
+            className="text-[10px] tracking-[0.2em] uppercase text-white/30 hover:text-[#C9A84C] transition-colors duration-300"
+            style={{ fontFamily: "'Share Tech Mono', monospace" }}>
+            {s.label}
+          </a>
+        ))}
+      </nav>
 
       {/* Bottom bar */}
       <div className="flex flex-col sm:flex-row justify-between items-center pt-6 border-t" style={{ borderColor: 'rgba(255,255,255,0.05)' }}>
