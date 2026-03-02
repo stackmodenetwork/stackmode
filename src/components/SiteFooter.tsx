@@ -1,94 +1,107 @@
 import { memo } from 'react';
 import { Link } from 'react-router-dom';
 
-const socials = [
-  { label: 'Instagram', href: 'https://www.instagram.com/christopherrobinsonceo/', icon: '📸' },
-  { label: 'TikTok', href: 'https://www.tiktok.com/@stackmodechris___', icon: '🎵' },
-  { label: 'Twitter/X', href: 'https://x.com/ChristopherRCEO', icon: '𝕏' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/stackmodechris/', icon: '💼' },
-  { label: 'YouTube', href: 'https://www.youtube.com/@ChristopherRobinson-CEO', icon: '▶️' },
-  { label: 'Discord', href: 'https://discord.gg/5zYWSWGMYm', icon: '💬' },
-];
-
-const navLinks = [
-  { label: 'Home', path: '/' },
-  { label: 'Academy', path: '/academy' },
-  { label: 'Prompt Shop', path: '/prompt-shop' },
-  { label: 'StackFinder', path: '/stackfinder' },
-  { label: 'Brand Boost', path: '/brand-boost' },
-  { label: 'Library', path: '/library' },
-];
-
 export const SiteFooter = memo(() => (
-  <footer className="relative border-t py-12 sm:py-16 px-4" style={{
-    background: '#030508',
-    borderColor: 'rgba(57,255,20,0.1)',
+  <footer className="border-t py-12 sm:py-16 px-4" style={{
+    background: '#000',
+    borderColor: 'rgba(255,255,255,0.08)',
   }}>
-    <div className="flex justify-center mb-6">
-      <img src="/images/stackmode-logo.png" alt="Stackmode" className="w-12 h-12 rounded-full" />
-    </div>
-    
-    <p className="text-center text-[8px] sm:text-[10px] tracking-[0.2em] mb-8 neon-green" style={{
-      fontFamily: "'Press Start 2P', monospace",
-    }}>
-      STACKMODE.NET
-    </p>
+    <div className="max-w-6xl mx-auto">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+        {/* Brand */}
+        <div className="col-span-2 md:col-span-1">
+          <div className="flex items-center gap-2 mb-3">
+            <img src="/images/sm-logo-new.png" alt="Stackmode" className="w-7 h-7 rounded-full" loading="lazy" />
+            <span className="text-base font-bold tracking-wider uppercase" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+              STACKMODE
+            </span>
+          </div>
+          <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
+            AI software, trading strategies, and asset stacking education by Christopher Robinson, CEO.
+          </p>
+        </div>
 
-    <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-6">
-      {navLinks.map(link => (
-        <Link key={link.label} to={link.path}
-          className="text-sm tracking-wide transition-colors hover:text-neon-green text-foreground/40"
-          style={{ fontFamily: "'Orbitron', sans-serif" }}>
-          {link.label}
-        </Link>
-      ))}
-    </div>
+        {/* Navigate */}
+        <div>
+          <h4 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(255,255,255,0.4)', fontFamily: "'Space Grotesk', sans-serif" }}>
+            Navigate
+          </h4>
+          <div className="flex flex-col gap-2">
+            {[
+              { label: 'Home', path: '/' },
+              { label: 'AI Prompt Shop', path: '/prompt-shop' },
+              { label: 'Stackfinder', path: '/stackfinder' },
+              { label: 'Academy', path: '/academy' },
+              { label: 'Pricing', path: '/pricing' },
+              { label: 'Brand Boost', path: '/brand-boost' },
+              { label: 'Library', path: '/library' },
+            ].map(link => (
+              <Link key={link.path} to={link.path} className="text-sm transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
 
-    <div className="flex justify-center gap-4 mb-8">
-      {socials.map(s => (
-        <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
-          className="text-lg sm:text-xl opacity-40 hover:opacity-100 transition-opacity hover:scale-110 transform">
-          {s.icon}
-        </a>
-      ))}
-    </div>
+        {/* Connect */}
+        <div>
+          <h4 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(255,255,255,0.4)', fontFamily: "'Space Grotesk', sans-serif" }}>
+            Connect
+          </h4>
+          <div className="flex flex-col gap-2">
+            {[
+              { label: 'YouTube', href: 'https://youtube.com/@ChristopherRobinson-CEO' },
+              { label: 'X (Twitter)', href: 'https://x.com/ChristopherRCEO' },
+              { label: 'Instagram', href: 'https://instagram.com/christopherrobinsonceo' },
+              { label: 'TikTok', href: 'https://tiktok.com/@stackmodechris___' },
+              { label: 'LinkedIn', href: 'https://linkedin.com/in/stackmodechris' },
+              { label: 'Discord', href: 'https://discord.gg/5zYWSWGMYm' },
+            ].map(link => (
+              <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer"
+                className="text-sm transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
 
-    <div className="flex justify-center mb-8">
-      <div className="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc"
-        data-businessunit-id="67e4fc7b3c4aed39c66f2c18" data-style-height="52px" data-style-width="100%">
-        <a href="https://www.trustpilot.com/review/stackmode.net" target="_blank" rel="noopener noreferrer"
-          className="text-xs text-foreground/20">Trustpilot</a>
+        {/* Legal */}
+        <div>
+          <h4 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: 'rgba(255,255,255,0.4)', fontFamily: "'Space Grotesk', sans-serif" }}>
+            Legal
+          </h4>
+          <div className="flex flex-col gap-2">
+            <Link to="/privacy" className="text-sm transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.5)' }}>Privacy Policy</Link>
+            <Link to="/terms" className="text-sm transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.5)' }}>Terms & Conditions</Link>
+            <Link to="/dmca" className="text-sm transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.5)' }}>DMCA</Link>
+          </div>
+        </div>
       </div>
+
+      {/* Bottom row */}
+      <div className="border-t pt-6 flex flex-col sm:flex-row items-center justify-between gap-4" style={{ borderColor: 'rgba(255,255,255,0.08)' }}>
+        <p className="text-xs" style={{ color: 'rgba(255,255,255,0.3)' }}>
+          © {new Date().getFullYear()} Stackmode.net — Christopher Robinson, CEO. All rights reserved.
+        </p>
+        <div className="flex items-center gap-4">
+          {[
+            { label: 'YouTube', href: 'https://youtube.com/@ChristopherRobinson-CEO', d: 'M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.3-1.9.5-3.8.5-5.8s-.2-3.9-.5-5.8ZM9.5 15.6V8.4l6.3 3.6-6.3 3.6Z' },
+            { label: 'X', href: 'https://x.com/ChristopherRCEO', d: 'M18.2 2.25h3.5l-7.7 8.8 9 11.7h-7.1l-5.5-7.2-6.3 7.2H.6l8.2-9.4L0 2.25h7.3l5 6.6 5.9-6.6Zm-1.2 18.4h1.9L7.1 4.2H5.1l11.9 16.45Z' },
+            { label: 'Instagram', href: 'https://instagram.com/christopherrobinsonceo', d: 'M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.97.24 2.44.41.61.24 1.05.52 1.51.98.46.46.74.9.98 1.51.17.47.36 1.27.41 2.44.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.97-.41 2.44-.24.61-.52 1.05-.98 1.51-.46.46-.9.74-1.51.98-.47.17-1.27.36-2.44.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.97-.24-2.44-.41a4.07 4.07 0 0 1-1.51-.98 4.07 4.07 0 0 1-.98-1.51c-.17-.47-.36-1.27-.41-2.44C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.24-1.97.41-2.44.24-.61.52-1.05.98-1.51a4.07 4.07 0 0 1 1.51-.98c.47-.17 1.27-.36 2.44-.41C8.42 2.17 8.8 2.16 12 2.16ZM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.87 5.87 0 0 0-2.13 1.38A5.87 5.87 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.47 1.38 2.13a5.87 5.87 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.87 5.87 0 0 0 2.13-1.38 5.87 5.87 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.87 5.87 0 0 0-1.38-2.13A5.87 5.87 0 0 0 19.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0Zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm7.85-10.4a1.44 1.44 0 1 0-2.88 0 1.44 1.44 0 0 0 2.88 0Z' },
+            { label: 'LinkedIn', href: 'https://linkedin.com/in/stackmodechris', d: 'M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14Zm1.78 13.02H3.56V9h3.56v11.45ZM22.22 0H1.77A1.75 1.75 0 0 0 0 1.73v20.54A1.75 1.75 0 0 0 1.77 24h20.45A1.75 1.75 0 0 0 24 22.27V1.73A1.75 1.75 0 0 0 22.22 0Z' },
+          ].map(s => (
+            <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
+              className="transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.3)' }}>
+              <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4"><path d={s.d} /></svg>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <p className="text-center text-[10px] mt-4" style={{ color: 'rgba(255,255,255,0.1)' }}>
+        Stackmode.net — AI Education & Trading by Christopher Robinson CEO. Stackmodechris.
+      </p>
     </div>
-
-    <div className="flex flex-wrap justify-center gap-3 mb-8">
-      <a href="https://www.amazon.com/stores/Christopher-Robinson/author/B0DQX99MLJ" target="_blank" rel="noopener noreferrer" className="btn-ghost text-[10px] py-2 px-4 flex items-center gap-2">
-        <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor"><path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.533 8.447-1.595l.315-.14c.207-.09.39-.112.547-.066.156.043.235.18.235.403 0 .26-.12.474-.358.64-.79.56-1.83 1.054-3.12 1.48-1.292.428-2.553.7-3.783.816l-.542.045c-2.37 0-4.94-.48-7.71-1.44S1.374 19.09.045 18.02zM6.394 15.66c0-.678.132-1.272.396-1.782.264-.51.614-.9 1.052-1.17.437-.27.9-.46 1.39-.57.49-.11 1.07-.18 1.74-.21l1.442-.06v-.48c0-.39-.025-.7-.076-.93-.05-.23-.156-.43-.313-.6-.158-.17-.377-.28-.66-.33-.282-.05-.632-.08-1.05-.08-.39 0-.818.04-1.282.12-.464.08-.87.19-1.216.33-.12.05-.206.04-.256-.04-.05-.08-.076-.18-.076-.3v-.39c0-.17.03-.3.09-.38.06-.08.174-.16.34-.23.52-.24 1.1-.42 1.738-.54.64-.12 1.27-.18 1.89-.18.86 0 1.56.08 2.1.24.54.16.96.38 1.26.66.3.28.5.62.6 1.02.1.4.15.84.15 1.32v4.92c0 .14-.07.21-.21.21h-.84c-.12 0-.19-.07-.21-.21l-.12-.72c-.44.4-.89.7-1.36.9-.47.2-1.01.3-1.62.3-.42 0-.82-.07-1.2-.2-.38-.13-.71-.32-1-.57-.29-.25-.52-.56-.69-.93-.17-.37-.26-.8-.26-1.29zm3.5.36c0 .3.05.56.14.78.09.22.22.4.38.54.16.14.34.24.55.3.21.06.43.09.66.09.3 0 .62-.06.95-.18.33-.12.65-.3.94-.54v-1.98l-1.09.06c-.74.04-1.3.17-1.67.39-.37.22-.56.57-.56 1.04z"/><path d="M21.69 17.49c.21-.05.37-.02.48.09.11.11.08.28-.1.51-.54.72-1.14 1.27-1.78 1.65-.64.38-1.48.57-2.5.57-1.32 0-2.42-.39-3.28-1.17-.86-.78-1.3-1.86-1.3-3.24 0-1.19.35-2.2 1.04-3.03.69-.83 1.66-1.25 2.89-1.25 1.2 0 2.05.42 2.53 1.26.48.84.73 2.01.73 3.51 0 .12-.05.19-.14.21l-5.04.03c0 .78.19 1.38.58 1.81.39.43.95.64 1.69.64.39 0 .77-.07 1.13-.2.36-.13.65-.28.87-.45.16-.12.29-.17.39-.15.1.02.18.1.24.24l.21.45c.07.14.09.26.05.36-.04.1-.14.2-.3.3-.44.28-.96.5-1.56.66-.6.16-1.16.24-1.68.24-.64 0-1.2-.09-1.68-.27-.48-.18-.89-.44-1.23-.78-.34-.34-.6-.76-.78-1.26-.18-.5-.27-1.07-.27-1.71 0-.66.1-1.25.3-1.77.2-.52.48-.96.84-1.32.36-.36.78-.63 1.26-.81.48-.18 1-.27 1.56-.27.6 0 1.11.07 1.53.21.42.14.77.35 1.05.63.28.28.48.63.6 1.05.12.42.18.9.18 1.44v.36h-4.32c.04-.84.24-1.47.6-1.89.36-.42.87-.63 1.53-.63.42 0 .77.09 1.05.27.28.18.42.48.42.9z"/></svg>
-        Amazon Books →
-      </a>
-      <a href="https://play.google.com/store/books/author?id=Christopher+Robinson" target="_blank" rel="noopener noreferrer" className="btn-ghost text-[10px] py-2 px-4 flex items-center gap-2">
-        <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302a1.004 1.004 0 0 1 0 1.38l-2.302 2.302L15.395 12l2.303-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z"/></svg>
-        Google Play Books →
-      </a>
-    </div>
-
-    <div className="flex flex-wrap justify-center gap-4 text-xs mb-4 text-foreground/20">
-      <Link to="/privacy" className="hover:text-neon-green transition-colors">Privacy Policy</Link>
-      <span>·</span>
-      <Link to="/terms" className="hover:text-neon-green transition-colors">Terms of Service</Link>
-      <span>·</span>
-      <Link to="/dmca" className="hover:text-neon-green transition-colors">DMCA</Link>
-    </div>
-
-    <p className="text-center text-[10px] mt-4 max-w-2xl mx-auto" style={{ color: '#1a2a40' }}>
-      Stackmode.net | Christopher Robinson CEO | Dunwoody, GA ·
-      Web Design · Coding · AI Integration · Business Systems · Passive Income · SaaS ·
-      Investing · Stock Trading · Real Estate · Animation · Prompt Engineering
-    </p>
-
-    <p className="text-center text-[9px] mt-2 text-foreground/10">
-      © {new Date().getFullYear()} Stackmode.net | Christopher Robinson CEO | All Rights Reserved
-    </p>
   </footer>
 ));
 

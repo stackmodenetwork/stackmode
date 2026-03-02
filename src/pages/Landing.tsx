@@ -3,429 +3,331 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SiteNav from '@/components/SiteNav';
 import SiteFooter from '@/components/SiteFooter';
-import AnimatedBackground from '@/components/landing/AnimatedBackground';
 import TrustBar from '@/components/TrustBar';
-import { ReviewWall } from '@/components/ReviewWall';
-import DigitalCardPurchase from '@/components/landing/DigitalCardPurchase';
-import { useState, useEffect, memo } from 'react';
+import { useState, useEffect, memo, useCallback } from 'react';
 
-/* ═══ MINI CANDLESTICK CHART ═══ */
-const candleData = [
-  { o: 30, c: 55, h: 60, l: 25 },
-  { o: 55, c: 45, h: 62, l: 40 },
-  { o: 45, c: 68, h: 72, l: 42 },
-  { o: 68, c: 58, h: 75, l: 52 },
-  { o: 58, c: 78, h: 82, l: 55 },
-  { o: 78, c: 72, h: 85, l: 68 },
-  { o: 72, c: 88, h: 92, l: 70 },
-  { o: 88, c: 82, h: 95, l: 78 },
-  { o: 82, c: 94, h: 98, l: 80 },
+/* ═══ TYPEWRITER ═══ */
+const typewriterPhrases = [
+  'Building SaaS with AI...',
+  'Stacking digital assets...',
+  'Scanning markets with Stackfinder...',
+  'Generating revenue with prompts...',
+  'Optimizing trading algorithms...',
 ];
 
-const CandlestickChart = memo(() => (
-  <svg viewBox="0 0 180 100" className="w-full h-full" preserveAspectRatio="none">
-    {candleData.map((c, i) => {
-      const x = 10 + i * 18;
-      const green = c.c > c.o;
-      const color = green ? '#39ff14' : '#ff5f56';
-      const top = 100 - c.h;
-      const bodyTop = 100 - Math.max(c.o, c.c);
-      const bodyH = Math.abs(c.c - c.o) || 1;
-      return (
-        <g key={i}>
-          <line x1={x + 4} y1={top} x2={x + 4} y2={100 - c.l} stroke={color} strokeWidth="1" opacity="0.6" />
-          <rect x={x} y={bodyTop} width="8" height={bodyH} fill={color} opacity="0.8" rx="0.5" />
-        </g>
-      );
-    })}
-    {/* Trend line */}
-    <polyline
-      points={candleData.map((c, i) => `${10 + i * 18 + 4},${100 - (c.o + c.c) / 2}`).join(' ')}
-      fill="none" stroke="#00e5ff" strokeWidth="1" opacity="0.4" strokeDasharray="3,2"
-    />
-  </svg>
-));
-CandlestickChart.displayName = 'CandlestickChart';
+const Typewriter = memo(() => {
+  const [text, setText] = useState('');
+  const [phraseIdx, setPhraseIdx] = useState(0);
+  const [charIdx, setCharIdx] = useState(0);
+  const [deleting, setDeleting] = useState(false);
 
-/* ═══ STABLE HERO TERMINAL ═══ */
-const terminalLines = [
-  { text: '$ stackmode init --deploy', color: '#00e5ff' },
-  { text: '✓ AI modules loaded', color: '#39ff14' },
-  { text: '✓ Revenue engine online', color: '#39ff14' },
-  { text: '> portfolio: +42.3%', color: '#ffd700' },
-  { text: '> monthly: $4,200', color: '#ffd700' },
-  { text: '[STATUS] STACKING...', color: '#ff2d9b' },
-];
-
-const HeroTerminal = memo(() => {
-  const [lines, setLines] = useState(0);
   useEffect(() => {
-    const t = setInterval(() => {
-      setLines(p => {
-        if (p >= terminalLines.length) {
-          setTimeout(() => setLines(0), 1200);
-          return p;
-        }
-        return p + 1;
-      });
-    }, 900);
-    return () => clearInterval(t);
-  }, []);
+    const phrase = typewriterPhrases[phraseIdx];
+    const timeout = deleting ? 30 : 60;
+
+    const timer = setTimeout(() => {
+      if (!deleting && charIdx < phrase.length) {
+        setText(phrase.slice(0, charIdx + 1));
+        setCharIdx(c => c + 1);
+      } else if (!deleting && charIdx === phrase.length) {
+        setTimeout(() => setDeleting(true), 2000);
+      } else if (deleting && charIdx > 0) {
+        setText(phrase.slice(0, charIdx - 1));
+        setCharIdx(c => c - 1);
+      } else if (deleting && charIdx === 0) {
+        setDeleting(false);
+        setPhraseIdx(p => (p + 1) % typewriterPhrases.length);
+      }
+    }, timeout);
+
+    return () => clearTimeout(timer);
+  }, [charIdx, deleting, phraseIdx]);
 
   return (
-    <div className="terminal-card overflow-hidden" style={{ boxShadow: '0 0 60px rgba(57,255,20,0.12)' }}>
-      {/* Terminal header */}
-      <div className="flex items-center gap-1.5 px-3 py-2 border-b" style={{ borderColor: 'rgba(0,229,255,0.08)' }}>
-        <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#ff5f56' }} />
-        <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#ffbd2e' }} />
-        <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#27c93f' }} />
-        <span className="ml-2 text-[9px] tracking-[0.15em] text-muted-foreground" style={{ fontFamily: "'Orbitron', sans-serif" }}>
-          stackmode.exe
-        </span>
-      </div>
+    <div className="h-8 flex items-center">
+      <span className="text-sm sm:text-base font-mono" style={{ color: 'rgba(255,255,255,0.5)' }}>
+        {text}
+      </span>
+      <span className="inline-block w-0.5 h-5 ml-0.5 animate-pulse bg-white" />
+    </div>
+  );
+});
+Typewriter.displayName = 'Typewriter';
 
-      {/* Chart */}
-      <div className="h-[80px] sm:h-[100px] px-3 pt-2" style={{ background: 'rgba(4,6,14,0.6)' }}>
-        <CandlestickChart />
-      </div>
+/* ═══ PROMPT PREVIEW WIDGET ═══ */
+const promptTabs = [
+  { label: 'Algo Trading', text: 'Act as a Quant Analyst. Build a high-frequency Python algo using ccxt. Combine VWAP mean-reversion with RSI divergence filters. Enforce Kelly Criterion sizing and sub-millisecond PostgreSQL logging. Provide backtested R:R optimizations securely.' },
+  { label: 'System Architecture', text: 'Act as a Principal Cloud Architect. Design a zero-trust microservices SaaS platform. Write Kubernetes manifests mapping Node.js gRPC services to a Redis/Postgres datastore. Guarantee 99.999% uptime for 1M+ concurrent TCP connections.' },
+  { label: 'Quant Modeling', text: 'Act as an M&A Financial Modeler. Construct an institutional DCF & LBO Excel model. Integrate Python Monte Carlo simulations to run 10,000 WACC scenarios, outputting automated sensitivity tables and 10-year dynamic waterfall cohort projections.' },
+];
 
-      {/* Terminal output — fixed height prevents layout shift */}
-      <div className="h-[130px] sm:h-[140px] p-3 overflow-hidden">
-        {terminalLines.slice(0, lines).map((l, i) => (
-          <p key={i} className="text-[10px] sm:text-[11px] font-mono leading-relaxed" style={{ color: l.color }}>
-            {l.text}
-          </p>
+const PromptPreview = memo(() => {
+  const [active, setActive] = useState(0);
+  const [displayed, setDisplayed] = useState('');
+
+  useEffect(() => {
+    setDisplayed('');
+    let i = 0;
+    const text = promptTabs[active].text;
+    const interval = setInterval(() => {
+      if (i < text.length) {
+        setDisplayed(text.slice(0, i + 1));
+        i++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 15);
+    return () => clearInterval(interval);
+  }, [active]);
+
+  return (
+    <div className="max-w-2xl mx-auto mt-8">
+      <div className="flex gap-2 mb-0 overflow-x-auto scrollbar-hide">
+        {promptTabs.map((tab, i) => (
+          <button key={i} onClick={() => setActive(i)}
+            className="px-4 py-2 text-xs font-semibold uppercase tracking-wider whitespace-nowrap rounded-t-lg transition-colors"
+            style={{
+              fontFamily: "'Space Grotesk', sans-serif",
+              background: i === active ? '#111' : 'transparent',
+              color: i === active ? '#fff' : 'rgba(255,255,255,0.4)',
+              border: i === active ? '1px solid rgba(255,255,255,0.1)' : '1px solid transparent',
+              borderBottom: 'none',
+            }}>
+            {tab.label}
+          </button>
         ))}
-        <span className="inline-block w-1.5 h-3.5 mt-1 animate-pulse" style={{ background: '#39ff14' }} />
+      </div>
+      <div className="rounded-b-xl rounded-tr-xl p-4 sm:p-6" style={{ background: '#111', border: '1px solid rgba(255,255,255,0.1)' }}>
+        <div className="flex items-center gap-2 mb-3">
+          <span className="w-3 h-3 rounded-full" style={{ background: '#ff5f56' }} />
+          <span className="w-3 h-3 rounded-full" style={{ background: '#ffbd2e' }} />
+          <span className="w-3 h-3 rounded-full" style={{ background: '#27c93f' }} />
+          <span className="text-xs ml-2" style={{ color: 'rgba(255,255,255,0.3)', fontFamily: "'Space Grotesk', sans-serif" }}>Terminal</span>
+        </div>
+        <p className="text-sm font-mono leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)', minHeight: 80 }}>
+          {displayed}<span className="inline-block w-0.5 h-4 ml-0.5 animate-pulse bg-white" />
+        </p>
+        <div className="flex items-center justify-between mt-4 pt-3" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+          <span className="text-[10px] uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.3)' }}>AI Generated Output</span>
+          <Link to="/prompt-shop" className="text-xs font-semibold text-white hover:underline flex items-center gap-1">
+            Get This Prompt →
+          </Link>
+        </div>
       </div>
     </div>
   );
 });
-HeroTerminal.displayName = 'HeroTerminal';
+PromptPreview.displayName = 'PromptPreview';
 
-/* ═══ PROMPT TICKER ═══ */
-const promptExamples = [
-  'prompt: "Build a SaaS dashboard with auth, Stripe billing, and analytics..."',
-  'prompt: "Generate a pitch deck — 10 slides, investor-ready, with financials..."',
-  'prompt: "Create a landing page with hero, features grid, testimonials, CTA..."',
-  'prompt: "Write Python script to scrape stock data and generate daily reports..."',
-];
+/* ═══ PILLAR CARD ═══ */
+const PillarCard = ({ number, title, desc, items, link, linkText, delay }: {
+  number: string; title: string; desc: string; items: string[]; link: string; linkText: string; delay: number;
+}) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5, delay }}
+    className="glass-card relative"
+  >
+    <div className="absolute top-4 left-4 text-5xl font-bold" style={{ color: 'rgba(255,255,255,0.05)', fontFamily: "'Barlow Condensed', sans-serif" }}>
+      {number}
+    </div>
+    <div className="pt-12">
+      <h3 className="text-xl mb-2" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>{title}</h3>
+      <p className="text-sm mb-4" style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>{desc}</p>
+      <div className="flex flex-col gap-2 mb-6">
+        {items.map(item => (
+          <span key={item} className="flex items-center gap-2 text-sm" style={{ color: 'rgba(255,255,255,0.7)' }}>
+            <span className="text-white">✓</span> {item}
+          </span>
+        ))}
+      </div>
+      <Link to={link} className="text-sm font-semibold text-white hover:underline">{linkText} →</Link>
+    </div>
+  </motion.div>
+);
 
-const PromptTicker = memo(() => (
-  <div className="mt-3 overflow-hidden rounded" style={{ background: 'rgba(4,6,14,0.9)', border: '1px solid rgba(57,255,20,0.08)' }}>
-    <div className="flex animate-marquee py-2" style={{ width: 'max-content' }}>
-      {[...Array(3)].map((_, g) => (
-        <div key={g} className="flex items-center gap-6 px-4">
-          {promptExamples.map((p, i) => (
-            <span key={`${g}-${i}`} className="text-[10px] whitespace-nowrap font-mono" style={{ color: i % 2 === 0 ? '#39ff14' : '#00e5ff', opacity: 0.5 }}>
-              {p}
-            </span>
-          ))}
-        </div>
-      ))}
+/* ═══ SHOWCASE CARD ═══ */
+const ShowcaseCard = ({ img, badge, title, sub }: { img: string; badge: string; title: string; sub: string }) => (
+  <div className="glass-card overflow-hidden p-0">
+    <img src={img} alt={title} className="w-full h-48 object-cover" loading="lazy" />
+    <div className="p-4">
+      <span className="text-[10px] uppercase tracking-wider mb-2 inline-block" style={{ color: 'rgba(255,255,255,0.5)' }}>{badge}</span>
+      <h3 className="text-lg mb-1" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>{title}</h3>
+      <p className="text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>{sub}</p>
     </div>
   </div>
-));
-PromptTicker.displayName = 'PromptTicker';
-
-/* ═══ ECOSYSTEM CARD ═══ */
-const EcoCard = ({ badge, badgeColor, title, copy, cta, href, isExternal, icon, delay }: {
-  badge: string; badgeColor: string; title: string; copy: string; cta: string;
-  href: string; isExternal?: boolean; icon: string; delay: number;
-}) => {
-  const inner = (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.5, delay }}
-      className="terminal-card p-5 sm:p-6 h-full flex flex-col"
-    >
-      <div className="flex gap-1.5 mb-4">
-        <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#ff5f56' }} />
-        <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#ffbd2e' }} />
-        <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#27c93f' }} />
-      </div>
-      <div className="text-2xl mb-3">{icon}</div>
-      <span className="inline-block text-[9px] tracking-[0.2em] uppercase px-2 py-0.5 rounded mb-3 self-start font-bold" style={{
-        fontFamily: "'Orbitron', sans-serif",
-        background: `${badgeColor}20`,
-        color: badgeColor,
-        border: `1px solid ${badgeColor}40`,
-      }}>
-        {badge}
-      </span>
-      <h3 className="text-sm sm:text-base mb-2" style={{ fontFamily: "'Orbitron', sans-serif", fontWeight: 700, color: '#e8f4ff' }}>
-        {title}
-      </h3>
-      <p className="text-sm leading-relaxed flex-1 mb-4 text-muted-foreground" style={{ fontWeight: 500 }}>
-        {copy}
-      </p>
-      <span className="btn-cta text-[10px] py-2 px-4 text-center">[ {cta} → ]</span>
-    </motion.div>
-  );
-
-  if (isExternal) {
-    return <a href={href} target="_blank" rel="noopener noreferrer" className="no-underline">{inner}</a>;
-  }
-  return <Link to={href} className="no-underline">{inner}</Link>;
-};
-
-/* ═══ ABOUT SECTION ═══ */
-const AboutSection = () => (
-  <section className="relative py-12 sm:py-24 px-4" style={{ background: 'rgba(6,8,18,0.9)' }}>
-    <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6 sm:gap-12 items-center">
-      <motion.div
-        initial={{ opacity: 0, x: -30 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="terminal-card p-3 relative scanlines"
-      >
-        <div className="flex gap-1.5 mb-2 px-2 pt-2">
-          <div className="w-2 h-2 rounded-full" style={{ background: '#ff5f56' }} />
-          <div className="w-2 h-2 rounded-full" style={{ background: '#ffbd2e' }} />
-          <div className="w-2 h-2 rounded-full" style={{ background: '#27c93f' }} />
-        </div>
-        <img src="/images/stackmodechris-about-new.png" alt="Christopher Robinson CEO StackmodeChris"
-          className="w-full aspect-square object-cover rounded" style={{ filter: 'saturate(0.85)' }} loading="lazy" />
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, x: 30 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.15 }}
-      >
-        <p className="text-[10px] tracking-[0.3em] uppercase mb-3 cursor-blink" style={{
-          fontFamily: "'Orbitron', sans-serif", color: '#00e5ff',
-        }}>
-          [ FOUNDER & CEO ]
-        </p>
-        <h2 className="text-lg sm:text-xl mb-2" style={{ fontFamily: "'Press Start 2P', monospace" }}>
-          <span className="neon-green">Christopher</span>{' '}
-          <span style={{ color: '#e8f4ff' }}>Robinson</span>
-        </h2>
-        <p className="text-sm mb-4" style={{ fontFamily: "'Orbitron', sans-serif", color: '#00e5ff' }}>
-          @StackmodeChris
-        </p>
-        <p className="text-base sm:text-lg leading-relaxed mb-6 text-foreground" style={{ fontWeight: 500 }}>
-          Christopher Robinson is a serial entrepreneur, educator, and tech investor based in Dunwoody, GA. 
-          From web design to AI systems to stock market strategy — he built Stackmode.net as the home base 
-          for everyone ready to CODE, BUILD, and INVEST their way to freedom.
-        </p>
-        <div className="flex gap-3">
-          {[
-            { href: 'https://www.instagram.com/christopherrobinsonceo/', icon: '📸' },
-            { href: 'https://www.tiktok.com/@stackmodechris___', icon: '🎵' },
-            { href: 'https://x.com/ChristopherRCEO', icon: '𝕏' },
-            { href: 'https://www.linkedin.com/in/stackmodechris/', icon: '💼' },
-          ].map(s => (
-            <a key={s.href} href={s.href} target="_blank" rel="noopener noreferrer"
-              className="text-xl opacity-60 hover:opacity-100 transition-opacity">{s.icon}</a>
-          ))}
-        </div>
-      </motion.div>
-    </div>
-  </section>
 );
 
 /* ═══ MAIN LANDING PAGE ═══ */
 const Landing = () => (
-  <div className="relative" style={{ background: '#04060e', overflowX: 'hidden' }}>
+  <div style={{ background: '#000', minHeight: '100vh' }}>
     <Helmet>
-      <title>Stackmode.net | Christopher Robinson CEO — Code. Build. Invest.</title>
-      <meta name="description" content="Learn to code, build income streams, and invest smarter with Christopher Robinson CEO (Stackmodechris). Courses, AI tools, prompt packs & more at Stackmode.net." />
-      <meta name="keywords" content="christopher robinson ceo, stackmode, stackmodechris, make money online, coding courses, saas, ai tools, passive income, investing, trading, web design, stackmode academy" />
-      <meta name="author" content="Christopher Robinson" />
-      <meta name="robots" content="index, follow" />
+      <title>Stackmode — Master AI. Stack Assets. Build Wealth. | Christopher Robinson CEO</title>
+      <meta name="description" content="AI software, trading strategies, investing, and digital asset stacking by Christopher Robinson CEO. Courses, prompts, tools & more." />
       <link rel="canonical" href="https://stackmode.net" />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://stackmode.net" />
-      <meta property="og:title" content="Stackmode.net | Christopher Robinson CEO — Code. Build. Invest." />
-      <meta property="og:description" content="Learn to code, build income streams, and invest smarter with Christopher Robinson CEO." />
-      <meta property="og:site_name" content="Stackmode.net" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@ChristopherRCEO" />
-      <meta name="twitter:creator" content="@ChristopherRCEO" />
+      <meta property="og:title" content="Stackmode — Master AI. Stack Assets. Build Wealth." />
     </Helmet>
 
-    <AnimatedBackground />
     <SiteNav />
 
     <div className="sr-only">
-      <h1>Stackmode.net — Learn to Code, Build & Invest with Christopher Robinson CEO (StackmodeChris)</h1>
+      <h1>Stackmode.net — AI Software, Trading & Asset Stacking by Christopher Robinson CEO (StackmodeChris)</h1>
     </div>
 
     {/* ═══ HERO ═══ */}
-    <section className="relative z-10 min-h-[90vh] sm:min-h-screen flex items-center pt-16 pb-8 sm:pb-12 px-4">
-      <div className="max-w-6xl mx-auto w-full grid lg:grid-cols-5 gap-6 lg:gap-12 items-center">
-        {/* Left — 60% */}
-        <div className="lg:col-span-3">
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            className="text-[9px] sm:text-xs tracking-[0.2em] uppercase mb-3 sm:mb-6 cursor-blink"
-            style={{ fontFamily: "'Orbitron', sans-serif", color: '#00e5ff' }}
-          >
-            [ CHRISTOPHER ROBINSON CEO ]
-          </motion.p>
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 pt-20 pb-12">
+      <motion.img
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6 }}
+        src="/images/sm-logo-new.png" alt="Stackmode Logo" className="w-16 h-16 sm:w-20 sm:h-20 rounded-full mb-6" 
+      />
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="text-4xl sm:text-6xl md:text-7xl mb-4"
+        style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, lineHeight: 1.1 }}
+      >
+        Master AI. Stack Assets.<br />Build Wealth.
+      </motion.h2>
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5 }}
+        className="text-base sm:text-lg max-w-xl mb-4"
+        style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}
+      >
+        AI software, trading strategies, investing, and digital asset stacking — by Christopher Robinson, CEO
+      </motion.p>
 
-          <div className="mb-4 sm:mb-8">
-            {['CODE.', 'BUILD.', 'INVEST.'].map((word, i) => (
-              <motion.div
-                key={word}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 + i * 0.2 }}
-              >
-                <span className={`block ${i === 0 ? 'neon-green' : i === 1 ? 'neon-cyan' : 'neon-pink'}`} style={{
-                  fontFamily: "'Press Start 2P', monospace",
-                  fontSize: 'clamp(24px, 5.5vw, 52px)',
-                  lineHeight: 1.3,
-                }}>
-                  {word}
-                </span>
-              </motion.div>
-            ))}
-          </div>
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}>
+        <Typewriter />
+      </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.9 }}
-            className="text-sm sm:text-lg md:text-xl max-w-lg mb-5 sm:mb-8 leading-relaxed text-foreground"
-            style={{ fontWeight: 500 }}
-          >
-            Stop waiting. Start stacking. The tools, courses, and systems that turn ambition into income.
-          </motion.p>
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.9 }}
+        className="flex flex-col sm:flex-row gap-3 mt-6"
+      >
+        <Link to="/academy" className="btn-primary btn-lg">Join the Academy →</Link>
+        <Link to="/prompt-shop" className="btn-glass btn-lg">Browse Prompts →</Link>
+      </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 1.1 }}
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-5"
-          >
-            <Link to="/prompt-shop" className="btn-ghost w-full sm:w-auto text-sm sm:text-sm text-center px-5 py-3">PROMPT SHOP →</Link>
-            <a href="https://whop.com/stackmode-academy/educationalservice/" target="_blank" rel="noopener noreferrer"
-              className="w-full sm:w-auto text-sm sm:text-sm text-center px-5 py-3 rounded transition-all uppercase tracking-wider"
-              style={{
-                fontFamily: "'Orbitron', sans-serif",
-                fontWeight: 700,
-                color: '#39ff14',
-                border: '1px solid rgba(57,255,20,0.35)',
-                background: 'rgba(57,255,20,0.06)',
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.borderColor = '#39ff14';
-                e.currentTarget.style.boxShadow = '0 0 20px rgba(57,255,20,0.25)';
-                e.currentTarget.style.background = 'rgba(57,255,20,0.12)';
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.borderColor = 'rgba(57,255,20,0.35)';
-                e.currentTarget.style.boxShadow = 'none';
-                e.currentTarget.style.background = 'rgba(57,255,20,0.06)';
-              }}
-            >
-              EXPLORE THE ACADEMY →
-            </a>
-          </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.3 }}
-            className="text-[11px] sm:text-xs text-muted-foreground"
-          >
-            ★★★★★ Rated on Trustpilot · 60+ clients worked with · Founded by Christopher Robinson CEO
-          </motion.p>
-        </div>
-
-        {/* Right — Terminal + Chart */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="lg:col-span-2 relative"
-        >
-          <HeroTerminal />
-          <PromptTicker />
-        </motion.div>
-      </div>
+      <PromptPreview />
     </section>
+
+    {/* ═══ SOCIAL PROOF BAR ═══ */}
+    <div className="proof-bar">
+      <div className="container">
+        <div className="proof-bar__inner">
+          <span className="proof-bar__item">
+            <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z" /><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5" /></svg>
+            Active Community
+          </span>
+          <span className="proof-bar__item">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></svg>
+            50+ countries
+          </span>
+          <span className="proof-bar__item">
+            <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
+            $100K+ revenue
+          </span>
+          <span className="proof-bar__item">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+            5-star rated
+          </span>
+        </div>
+      </div>
+    </div>
 
     {/* ═══ TRUST BAR ═══ */}
     <TrustBar />
 
-    {/* ═══ REVIEWS ═══ */}
-    <div className="relative z-10">
-      <ReviewWall />
-    </div>
-
-    {/* ═══ WHAT IS STACKMODE — 3 Cards ═══ */}
-    <section className="relative z-10 py-12 sm:py-24 px-4" style={{ background: 'rgba(6,8,18,0.9)' }}>
-      <div className="max-w-5xl mx-auto">
-        <div className="grid grid-cols-3 gap-2 sm:gap-6">
-          {[
-            { icon: '💻', title: 'CODE', copy: 'Learn real web dev & AI development skills that pay', color: '#ff6b1a' },
-            { icon: '📈', title: 'BUILD', copy: 'Launch SaaS, apps & income systems from scratch', color: '#39ff14' },
-            { icon: '💹', title: 'INVEST', copy: 'Master stocks, trading & passive income strategies', color: '#00e5ff' },
-          ].map((card, i) => (
-            <motion.div key={card.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="terminal-card p-3 sm:p-5 text-center"
-            >
-              <div className="text-xl sm:text-3xl mb-2 sm:mb-3">{card.icon}</div>
-              <h3 className="text-[10px] sm:text-base mb-1 sm:mb-2" style={{
-                fontFamily: "'Press Start 2P', monospace", color: card.color,
-                textShadow: `0 0 10px ${card.color}`,
-              }}>{card.title}</h3>
-              <p className="text-[11px] sm:text-sm text-muted-foreground hidden sm:block" style={{ fontWeight: 500 }}>{card.copy}</p>
-            </motion.div>
-          ))}
+    {/* ═══ THREE PILLARS ═══ */}
+    <section className="section">
+      <div className="container">
+        <div className="section-header">
+          <p className="section-header__eyebrow">The Framework</p>
+          <h2 className="section-header__title">Three Pillars of Wealth</h2>
+          <p className="section-header__subtitle">Master all three. Stack your income streams. Build generational wealth.</p>
+        </div>
+        <div className="grid-3">
+          <PillarCard number="01" title="AI Software Mastery" desc="Build websites, apps, and automations using AI. No coding needed."
+            items={['Generate complete SaaS websites', 'Automate business workflows', 'Build AI-powered client tools']}
+            link="/academy" linkText="Learn AI" delay={0} />
+          <PillarCard number="02" title="Trading & Asset Stacking" desc="Trade stocks, crypto & forex. Stack multiple income streams for long-term wealth."
+            items={['Technical analysis foundations', 'Stocks, crypto & forex strategies', 'Risk management & position sizing']}
+            link="/academy" linkText="Learn Trading" delay={0.1} />
+          <PillarCard number="03" title="Write Like a Pro" desc="AI-powered copywriting for ads, emails, landing pages, and social media."
+            items={['Email sequences that convert', 'Ad copy that stops the scroll', 'Landing pages that close deals']}
+            link="/prompt-shop" linkText="Learn Copy" delay={0.2} />
         </div>
       </div>
     </section>
 
-    {/* ═══ ECOSYSTEM ═══ */}
-    <section className="relative z-10 py-12 sm:py-24 px-4">
-      <motion.h2
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        className="text-center text-xs sm:text-lg mb-8 sm:mb-14 neon-green"
-        style={{ fontFamily: "'Press Start 2P', monospace" }}
-      >
-        THE STACKMODE ECOSYSTEM
-      </motion.h2>
-
-      <div className="max-w-5xl mx-auto grid sm:grid-cols-2 gap-4 sm:gap-6">
-        <EcoCard badge="LEARN" badgeColor="#39ff14" icon="🧠" title="Stackmode Academy" 
-          copy="Courses on coding, AI, investing & building income. Real skills. Real results."
-          cta="ENTER ACADEMY" href="https://whop.com/stackmode-academy/educationalservice/" isExternal delay={0} />
-        <EcoCard badge="SHOP" badgeColor="#ff6b1a" icon="⌨️" title="Prompt Shop"
-          copy="Done-for-you AI prompts for websites, presentations, images & videos."
-          cta="BROWSE PROMPTS" href="/prompt-shop" delay={0.1} />
-        <EcoCard badge="SOFTWARE" badgeColor="#00e5ff" icon="📊" title="StackFinder"
-          copy="Find winning stocks faster. Proprietary software built for serious investors."
-          cta="FIND STOCKS" href="/stackfinder" delay={0.2} />
-        <EcoCard badge="AGENCY" badgeColor="#ff2d9b" icon="⚡" title="Brand Boost by CeoTurbo"
-          copy="SEO, AI integration & custom business systems. Get your brand built right."
-          cta="BOOST MY BRAND" href="https://ceoturbo.com" isExternal delay={0.3} />
+    {/* ═══ VERIFIED RESULTS ═══ */}
+    <section className="section section--glass">
+      <div className="container">
+        <div className="section-header">
+          <h2 className="section-header__title">Verified Results</h2>
+          <p className="section-header__subtitle">Real clients. Real results. Built by Christopher Robinson.</p>
+        </div>
+        <div className="grid-3">
+          <ShowcaseCard img="https://ceoturbo.com/wp-content/uploads/2025/01/Untitled-design-3.png" badge="500+ views in 3 days" title="SWOLE JD" sub="Fitness & Coaching" />
+          <ShowcaseCard img="https://ceoturbo.com/wp-content/uploads/2025/01/Untitled-design-4.png" badge="$100K+ revenue" title="Stackmode Academy" sub="AI Education Platform" />
+          <ShowcaseCard img="https://ceoturbo.com/wp-content/uploads/2025/01/Untitled-design-5.png" badge="12x more booked calls" title="ZAHPHYSIQUE" sub="Health & Wellness" />
+          <ShowcaseCard img="https://ceoturbo.com/wp-content/uploads/2025/02/Screenshot-2025-02-09-213223.png" badge="340% traffic increase" title="TRUE LEGACY" sub="Global Business Launch" />
+          <ShowcaseCard img="https://ceoturbo.com/wp-content/uploads/2024/12/Screenshot-2024-12-16-170752-1.png" badge="Professional authority" title="TRUE LEGACY GLOBAL" sub="Wellness Enterprise" />
+          <ShowcaseCard img="https://ceoturbo.com/wp-content/uploads/2024/12/Screenshot-2024-12-25-035858.png" badge="1,000+ followers gained" title="7UVHAVIN" sub="Music & Entertainment" />
+        </div>
       </div>
     </section>
 
-    {/* ═══ ABOUT ═══ */}
-    <AboutSection />
+    {/* ═══ BRAND BOOST BRIDGE ═══ */}
+    <section className="section text-center">
+      <div className="container" style={{ maxWidth: 700 }}>
+        <p className="text-xs uppercase tracking-widest mb-3" style={{ color: 'rgba(255,255,255,0.4)' }}>Done For You</p>
+        <h2 className="section-header__title">Want us to build it for you?</h2>
+        <p className="text-base mb-8" style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>
+          Skip the learning curve. We'll build your AI systems, funnels, and brand identity giving you a completely finished, revenue-ready business.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <Link to="/brand-boost" className="btn-primary btn-lg">Explore Brand Boost</Link>
+          <a href="https://calendly.com/stackmode" target="_blank" rel="noopener noreferrer" className="btn-glass btn-lg">Book Discovery Call</a>
+        </div>
+      </div>
+    </section>
 
-    {/* ═══ DIGITAL CARD ═══ */}
-    <div className="relative z-10">
-      <DigitalCardPurchase />
-    </div>
+    {/* ═══ ACADEMY CTA ═══ */}
+    <section className="section section--glass">
+      <div className="container">
+        <div className="grid-2" style={{ alignItems: 'center' }}>
+          <div>
+            <h2 className="section-header__title" style={{ textAlign: 'left' }}>Stackmode Academy</h2>
+            <p className="text-base sm:text-lg mb-6" style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>
+              Step inside the academy to master AI workflows, algorithmic trading, and digital asset stacking. Stop watching from the sidelines.
+            </p>
+            <a href="https://whop.com/stackmode-academy/educationalservice/" target="_blank" rel="noopener noreferrer" className="btn-primary btn-lg">
+              Enroll in the Academy
+            </a>
+          </div>
+          <div className="flex justify-center">
+            <div className="glass-card text-center" style={{ padding: '4rem', borderRadius: 20 }}>
+              <svg viewBox="0 0 24 24" fill="white" className="w-24 h-24 mx-auto">
+                <path d="M12 2L1 7l11 5 9-4.09V17h2V7L12 2z" />
+                <path d="M6 10.27v5.38C6 17.5 8.69 19 12 19s6-1.5 6-3.35v-5.38l-6 2.73-6-2.73z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <SiteFooter />
   </div>
