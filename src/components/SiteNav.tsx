@@ -1,106 +1,154 @@
-import { useState, memo } from 'react';
+import { useState, memo, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
 
 const navLinks = [
-  { label: 'HOME', path: '/' },
-  { label: 'ACADEMY', path: '/academy' },
-  { label: 'PROMPT SHOP', path: '/prompt-shop' },
-  { label: 'STACKFINDER', path: '/stackfinder' },
-  { label: 'BRAND BOOST', path: '/brand-boost' },
+  { label: 'Home', path: '/' },
+  {
+    label: 'Prompt Shop',
+    path: '/prompt-shop',
+    dropdown: [
+      { label: 'All Prompts', path: '/prompt-shop' },
+      { label: 'Image Prompts', path: '/shop/image-prompts' },
+      { label: 'Video Prompts', path: '/shop/video-prompts' },
+      { label: 'Presentations', path: '/shop/presentation-prompts' },
+    ],
+  },
+  { label: 'Stackfinder', path: '/stackfinder' },
+  { label: 'Brand Boost', path: '/brand-boost' },
+  { label: 'Academy', path: '/academy' },
+  { label: 'Library', path: '/library' },
+  { label: 'Pricing', path: '/pricing' },
 ];
 
 export const SiteNav = memo(() => {
   const [open, setOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
+
+  useEffect(() => {
+    setOpen(false);
+    setDropdownOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener('click', handleClick);
+    return () => document.removeEventListener('click', handleClick);
+  }, []);
+
+  const isActive = (path: string) => {
+    if (path === '/') return location.pathname === '/';
+    return location.pathname.startsWith(path);
+  };
 
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-[200] flex items-center justify-between px-4 sm:px-8" style={{
-        height: 56,
-        background: 'rgba(4,6,14,0.94)',
+        height: 60,
+        background: 'rgba(0,0,0,0.92)',
         backdropFilter: 'blur(16px)',
-        borderBottom: '1px solid rgba(57,255,20,0.08)',
+        borderBottom: '1px solid rgba(255,255,255,0.08)',
       }}>
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2.5 no-underline">
-          <img src="/images/stackmode-logo.png" alt="Stackmode" className="w-9 h-9 rounded-full object-cover" />
-          <span className="hidden sm:block text-[10px] sm:text-xs tracking-[0.15em] neon-green" style={{
-            fontFamily: "'Press Start 2P', monospace",
-          }}>
-            STACKMODE.NET
+          <img src="/images/sm-logo-new.png" alt="Stackmode" className="w-8 h-8 rounded-full object-cover" />
+          <span className="text-sm font-bold tracking-wider text-white" style={{ fontFamily: "'Barlow Condensed', sans-serif", textTransform: 'uppercase' }}>
+            STACKMODE
           </span>
         </Link>
 
         {/* Desktop links */}
-        <div className="hidden lg:flex items-center gap-1">
+        <div className="hidden lg:flex items-center gap-0.5">
           {navLinks.map(link => {
-            const isActive = link.path ? location.pathname === link.path : false;
+            const active = isActive(link.path);
+            if (link.dropdown) {
+              return (
+                <div key={link.label} className="relative" ref={dropdownRef}>
+                  <button
+                    onClick={() => setDropdownOpen(v => !v)}
+                    className="px-3 py-1.5 text-sm transition-colors relative"
+                    style={{
+                      fontFamily: "'Space Grotesk', sans-serif",
+                      fontWeight: 500,
+                      color: active ? '#fff' : 'rgba(255,255,255,0.6)',
+                    }}
+                  >
+                    {link.label} ▾
+                  </button>
+                  {dropdownOpen && (
+                    <div className="absolute top-full left-0 mt-1 py-2 rounded-lg min-w-[200px]" style={{
+                      background: 'rgba(17,17,17,0.98)',
+                      border: '1px solid rgba(255,255,255,0.1)',
+                      backdropFilter: 'blur(20px)',
+                    }}>
+                      {link.dropdown.map(item => (
+                        <Link key={item.path} to={item.path}
+                          className="block px-4 py-2 text-sm transition-colors hover:bg-white/5"
+                          style={{
+                            fontFamily: "'Space Grotesk', sans-serif",
+                            color: isActive(item.path) ? '#fff' : 'rgba(255,255,255,0.6)',
+                          }}>
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            }
             return (
               <Link key={link.label} to={link.path}
-                className="px-3 py-1.5 text-[11px] tracking-[2px] uppercase transition-colors relative"
+                className="px-3 py-1.5 text-sm transition-colors"
                 style={{
-                  fontFamily: "'Orbitron', sans-serif",
-                  color: isActive ? '#39ff14' : 'rgba(232,244,255,0.6)',
+                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontWeight: 500,
+                  color: active ? '#fff' : 'rgba(255,255,255,0.6)',
                 }}>
                 {link.label}
-                {isActive && <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-neon-green" />}
               </Link>
             );
           })}
         </div>
 
-        {/* Desktop CTA — Brand Boost */}
-        <a href="https://ceoturbo.com" target="_blank" rel="noopener noreferrer"
-          className="hidden lg:inline-flex items-center gap-1.5 text-[10px] py-2 px-4 rounded transition-all"
-          style={{
-            fontFamily: "'Orbitron', sans-serif",
-            fontWeight: 700,
-            color: '#ff2d9b',
-            border: '1px solid rgba(255,45,155,0.4)',
-            background: 'rgba(255,45,155,0.08)',
-            letterSpacing: '0.05em',
-            textTransform: 'uppercase',
-          }}>
-          [ BRAND BOOST → ]
+        {/* Desktop CTA */}
+        <a href="https://whop.com/stackmode-academy/educationalservice/" target="_blank" rel="noopener noreferrer"
+          className="hidden lg:inline-flex btn-primary btn-sm">
+          Subscribe to Premium
         </a>
 
         {/* Mobile hamburger */}
         <button onClick={() => setOpen(v => !v)} className="lg:hidden p-2" aria-label="Toggle menu">
-          {open ? <X size={22} color="#39ff14" /> : <Menu size={22} color="#e8f4ff" />}
+          <div className="flex flex-col gap-1.5">
+            <span className={`block w-6 h-0.5 bg-white transition-all ${open ? 'rotate-45 translate-y-2' : ''}`} />
+            <span className={`block w-6 h-0.5 bg-white transition-all ${open ? 'opacity-0' : ''}`} />
+            <span className={`block w-6 h-0.5 bg-white transition-all ${open ? '-rotate-45 -translate-y-2' : ''}`} />
+          </div>
         </button>
       </nav>
 
       {/* Mobile overlay */}
       {open && (
-        <div className="fixed inset-0 z-[199] lg:hidden" style={{ background: 'rgba(4,6,14,0.98)', backdropFilter: 'blur(20px)' }}>
-          <div className="flex flex-col items-center justify-center h-full gap-6 pt-14">
+        <div className="fixed inset-0 z-[199] lg:hidden" style={{ background: 'rgba(0,0,0,0.98)', paddingTop: 60 }}>
+          <div className="flex flex-col items-center justify-center h-full gap-4 -mt-16">
             {navLinks.map(link => (
               <Link key={link.label} to={link.path} onClick={() => setOpen(false)}
-                className="text-lg tracking-[0.2em] uppercase transition-colors"
+                className="text-xl tracking-wide uppercase transition-colors"
                 style={{
-                  fontFamily: "'Press Start 2P', monospace",
-                  color: location.pathname === link.path ? '#39ff14' : 'rgba(232,244,255,0.5)',
-                  fontSize: 14,
-                  textShadow: location.pathname === link.path ? '0 0 10px #39ff14' : 'none',
+                  fontFamily: "'Barlow Condensed', sans-serif",
+                  fontWeight: 700,
+                  color: isActive(link.path) ? '#fff' : 'rgba(255,255,255,0.4)',
                 }}>
                 {link.label}
               </Link>
             ))}
-            <a href="https://ceoturbo.com" target="_blank" rel="noopener noreferrer"
-              onClick={() => setOpen(false)}
-              className="tracking-[0.2em] uppercase transition-colors"
-              style={{
-                fontFamily: "'Press Start 2P', monospace",
-                color: '#ff2d9b',
-                fontSize: 14,
-                textShadow: '0 0 10px rgba(255,45,155,0.4)',
-              }}>
-              BRAND BOOST
-            </a>
             <a href="https://whop.com/stackmode-academy/educationalservice/" target="_blank" rel="noopener noreferrer"
-              onClick={() => setOpen(false)} className="btn-cta text-sm mt-4">
-              [ JOIN ACADEMY → ]
+              onClick={() => setOpen(false)} className="btn-primary btn-lg mt-6">
+              Subscribe to Premium
             </a>
           </div>
         </div>
