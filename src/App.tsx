@@ -11,16 +11,15 @@ const Home = lazy(() => import("./pages/Home"));
 const PromptShop = lazy(() => import("./pages/PromptShop"));
 const StackFinder = lazy(() => import("./pages/StackFinder"));
 const BrandBoost = lazy(() => import("./pages/BrandBoost"));
-const Shop = lazy(() => import("./pages/Learn"));
 const Library = lazy(() => import("./pages/Library"));
 const Pricing = lazy(() => import("./pages/Pricing"));
 const ShopImagePrompts = lazy(() => import("./pages/ShopImagePrompts"));
 const ShopVideoPrompts = lazy(() => import("./pages/ShopVideoPrompts"));
 const ShopPresentationPrompts = lazy(() => import("./pages/ShopPresentationPrompts"));
+const BusinessCards = lazy(() => import("./pages/BusinessCards"));
 const DMCAPolicy = lazy(() => import("./pages/DMCAPolicy"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
-const BusinessCards = lazy(() => import("./pages/BusinessCards"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const PageLoader = () => (
@@ -44,23 +43,24 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Landing />} />
               <Route path="/academy" element={<Home />} />
-              <Route path="/prompt-shop" element={<PromptShop />} />
-              <Route path="/shop" element={<Shop />} />
-              <Route path="/stackfinder" element={<StackFinder />} />
-              <Route path="/brand-boost" element={<BrandBoost />} />
-              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/shop" element={<PromptShop />} />
               <Route path="/shop/image-prompts" element={<ShopImagePrompts />} />
               <Route path="/shop/video-prompts" element={<ShopVideoPrompts />} />
               <Route path="/shop/presentation-prompts" element={<ShopPresentationPrompts />} />
+              <Route path="/stackfinder" element={<StackFinder />} />
+              <Route path="/brand-boost" element={<BrandBoost />} />
+              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/library" element={<Library />} />
               <Route path="/businesscards" element={<BusinessCards />} />
               <Route path="/dmca" element={<DMCAPolicy />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/terms" element={<TermsAndConditions />} />
+              {/* Redirects */}
+              <Route path="/prompt-shop" element={<Navigate to="/shop" replace />} />
               <Route path="/coding" element={<Navigate to="/academy" replace />} />
               <Route path="/investing" element={<Navigate to="/" replace />} />
               <Route path="/business" element={<Navigate to="/" replace />} />
               <Route path="/buildyourwebsite" element={<Navigate to="/brand-boost" replace />} />
-              <Route path="/library" element={<Library />} />
               <Route path="/about" element={<Navigate to="/" replace />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

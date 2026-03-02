@@ -4,16 +4,10 @@ import { motion } from 'framer-motion';
 import SiteNav from '@/components/SiteNav';
 import SiteFooter from '@/components/SiteFooter';
 import TrustBar from '@/components/TrustBar';
-import { useState, useEffect, memo, useCallback } from 'react';
+import { useState, useEffect, memo } from 'react';
 
 /* ═══ TYPEWRITER ═══ */
-const typewriterPhrases = [
-  'Building SaaS with AI...',
-  'Stacking digital assets...',
-  'Scanning markets with Stackfinder...',
-  'Generating revenue with prompts...',
-  'Optimizing trading algorithms...',
-];
+const phrases = ['Building SaaS with AI...', 'Stacking digital assets...', 'Scanning markets with Stackfinder...', 'Generating revenue with prompts...', 'Optimizing trading algorithms...'];
 
 const Typewriter = memo(() => {
   const [text, setText] = useState('');
@@ -22,39 +16,27 @@ const Typewriter = memo(() => {
   const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
-    const phrase = typewriterPhrases[phraseIdx];
+    const phrase = phrases[phraseIdx];
     const timeout = deleting ? 30 : 60;
-
     const timer = setTimeout(() => {
-      if (!deleting && charIdx < phrase.length) {
-        setText(phrase.slice(0, charIdx + 1));
-        setCharIdx(c => c + 1);
-      } else if (!deleting && charIdx === phrase.length) {
-        setTimeout(() => setDeleting(true), 2000);
-      } else if (deleting && charIdx > 0) {
-        setText(phrase.slice(0, charIdx - 1));
-        setCharIdx(c => c - 1);
-      } else if (deleting && charIdx === 0) {
-        setDeleting(false);
-        setPhraseIdx(p => (p + 1) % typewriterPhrases.length);
-      }
+      if (!deleting && charIdx < phrase.length) { setText(phrase.slice(0, charIdx + 1)); setCharIdx(c => c + 1); }
+      else if (!deleting && charIdx === phrase.length) { setTimeout(() => setDeleting(true), 2000); }
+      else if (deleting && charIdx > 0) { setText(phrase.slice(0, charIdx - 1)); setCharIdx(c => c - 1); }
+      else { setDeleting(false); setPhraseIdx(p => (p + 1) % phrases.length); }
     }, timeout);
-
     return () => clearTimeout(timer);
   }, [charIdx, deleting, phraseIdx]);
 
   return (
-    <div className="h-8 flex items-center">
-      <span className="text-sm sm:text-base font-mono" style={{ color: 'rgba(255,255,255,0.5)' }}>
-        {text}
-      </span>
+    <div className="h-8 flex items-center justify-center">
+      <span className="text-sm font-mono" style={{ color: 'rgba(255,255,255,0.5)' }}>{text}</span>
       <span className="inline-block w-0.5 h-5 ml-0.5 animate-pulse bg-white" />
     </div>
   );
 });
 Typewriter.displayName = 'Typewriter';
 
-/* ═══ PROMPT PREVIEW WIDGET ═══ */
+/* ═══ PROMPT PREVIEW ═══ */
 const promptTabs = [
   { label: 'Algo Trading', text: 'Act as a Quant Analyst. Build a high-frequency Python algo using ccxt. Combine VWAP mean-reversion with RSI divergence filters. Enforce Kelly Criterion sizing and sub-millisecond PostgreSQL logging. Provide backtested R:R optimizations securely.' },
   { label: 'System Architecture', text: 'Act as a Principal Cloud Architect. Design a zero-trust microservices SaaS platform. Write Kubernetes manifests mapping Node.js gRPC services to a Redis/Postgres datastore. Guarantee 99.999% uptime for 1M+ concurrent TCP connections.' },
@@ -70,12 +52,8 @@ const PromptPreview = memo(() => {
     let i = 0;
     const text = promptTabs[active].text;
     const interval = setInterval(() => {
-      if (i < text.length) {
-        setDisplayed(text.slice(0, i + 1));
-        i++;
-      } else {
-        clearInterval(interval);
-      }
+      if (i < text.length) { setDisplayed(text.slice(0, i + 1)); i++; }
+      else clearInterval(interval);
     }, 15);
     return () => clearInterval(interval);
   }, [active]);
@@ -86,13 +64,7 @@ const PromptPreview = memo(() => {
         {promptTabs.map((tab, i) => (
           <button key={i} onClick={() => setActive(i)}
             className="px-4 py-2 text-xs font-semibold uppercase tracking-wider whitespace-nowrap rounded-t-lg transition-colors"
-            style={{
-              fontFamily: "'Space Grotesk', sans-serif",
-              background: i === active ? '#111' : 'transparent',
-              color: i === active ? '#fff' : 'rgba(255,255,255,0.4)',
-              border: i === active ? '1px solid rgba(255,255,255,0.1)' : '1px solid transparent',
-              borderBottom: 'none',
-            }}>
+            style={{ background: i === active ? '#111' : 'transparent', color: i === active ? '#fff' : 'rgba(255,255,255,0.4)', border: i === active ? '1px solid rgba(255,255,255,0.1)' : '1px solid transparent', borderBottom: 'none' }}>
             {tab.label}
           </button>
         ))}
@@ -102,51 +74,20 @@ const PromptPreview = memo(() => {
           <span className="w-3 h-3 rounded-full" style={{ background: '#ff5f56' }} />
           <span className="w-3 h-3 rounded-full" style={{ background: '#ffbd2e' }} />
           <span className="w-3 h-3 rounded-full" style={{ background: '#27c93f' }} />
-          <span className="text-xs ml-2" style={{ color: 'rgba(255,255,255,0.3)', fontFamily: "'Space Grotesk', sans-serif" }}>Terminal</span>
+          <span className="text-xs ml-2" style={{ color: 'rgba(255,255,255,0.3)' }}>Terminal</span>
         </div>
         <p className="text-sm font-mono leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)', minHeight: 80 }}>
           {displayed}<span className="inline-block w-0.5 h-4 ml-0.5 animate-pulse bg-white" />
         </p>
         <div className="flex items-center justify-between mt-4 pt-3" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
           <span className="text-[10px] uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.3)' }}>AI Generated Output</span>
-          <Link to="/prompt-shop" className="text-xs font-semibold text-white hover:underline flex items-center gap-1">
-            Get This Prompt →
-          </Link>
+          <Link to="/shop" className="text-xs font-semibold text-white hover:underline">Get This Prompt →</Link>
         </div>
       </div>
     </div>
   );
 });
 PromptPreview.displayName = 'PromptPreview';
-
-/* ═══ PILLAR CARD ═══ */
-const PillarCard = ({ number, title, desc, items, link, linkText, delay }: {
-  number: string; title: string; desc: string; items: string[]; link: string; linkText: string; delay: number;
-}) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.5, delay }}
-    className="glass-card relative"
-  >
-    <div className="absolute top-4 left-4 text-5xl font-bold" style={{ color: 'rgba(255,255,255,0.05)', fontFamily: "'Barlow Condensed', sans-serif" }}>
-      {number}
-    </div>
-    <div className="pt-12">
-      <h3 className="text-xl mb-2" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>{title}</h3>
-      <p className="text-sm mb-4" style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>{desc}</p>
-      <div className="flex flex-col gap-2 mb-6">
-        {items.map(item => (
-          <span key={item} className="flex items-center gap-2 text-sm" style={{ color: 'rgba(255,255,255,0.7)' }}>
-            <span className="text-white">✓</span> {item}
-          </span>
-        ))}
-      </div>
-      <Link to={link} className="text-sm font-semibold text-white hover:underline">{linkText} →</Link>
-    </div>
-  </motion.div>
-);
 
 /* ═══ SHOWCASE CARD ═══ */
 const ShowcaseCard = ({ img, badge, title, sub }: { img: string; badge: string; title: string; sub: string }) => (
@@ -160,96 +101,79 @@ const ShowcaseCard = ({ img, badge, title, sub }: { img: string; badge: string; 
   </div>
 );
 
-/* ═══ MAIN LANDING PAGE ═══ */
+/* ═══ BUILD YOUR BRAND CARDS ═══ */
+const brandCards = [
+  { title: 'Logo & Brand Identity', desc: 'Generate full brand kits — logo concepts, color palettes, typography systems.', tools: 'Midjourney · DALL-E · Ideogram', icon: '🎨' },
+  { title: 'Full Websites', desc: 'Build complete landing pages, SaaS sites, and portfolio pages.', tools: 'Lovable · Claude · Cursor', icon: '🌐' },
+  { title: 'Pitch Decks & Presentations', desc: 'Investor-ready decks that look designed, not generated.', tools: 'ChatGPT · Claude · Gamma', icon: '📊' },
+  { title: 'Video Scripts & Content', desc: 'YouTube hooks, Reel scripts, and TikTok formats that match your voice.', tools: 'ChatGPT · Claude', icon: '🎬' },
+  { title: 'Product Photography', desc: 'Studio-quality product images with one prompt.', tools: 'Midjourney · Firefly · DALL-E 3', icon: '📸' },
+  { title: 'Business Cards', desc: 'Design ultra-premium, print-ready business cards.', tools: 'Midjourney · Print · Brand Identity', icon: '💳' },
+];
+
+/* ═══ TESTIMONIALS ═══ */
+const testimonials = [
+  { name: 'Marcus T.', text: 'The AI Trading prompt showed me how to analyze SPY charts in ChatGPT. Made my first profitable swing trade the same week.' },
+  { name: 'Destiny W.', text: 'The asset stacking course broke down exactly how to stack income streams. I now have 4 running simultaneously.' },
+  { name: 'Jaylon B.', text: 'The Midjourney image prompts are insane. My product photos look like a $10K shoot. Clients can\'t believe it.' },
+  { name: 'Priya M.', text: 'Stackfinder spotted NVDA before it ran 8%. The AI scanner is the real deal.' },
+  { name: 'Kevin L.', text: "Christopher's Academy teaches AI tools I actually use every day. ROI in the first week." },
+  { name: 'Alexis R.', text: 'Used the SaaS landing page prompt to build my entire site in Lovable. Saved me $3,000 in designer fees.' },
+];
+
 const Landing = () => (
   <div style={{ background: '#000', minHeight: '100vh' }}>
     <Helmet>
       <title>Stackmode — Master AI. Stack Assets. Build Wealth. | Christopher Robinson CEO</title>
-      <meta name="description" content="AI software, trading strategies, investing, and digital asset stacking by Christopher Robinson CEO. Courses, prompts, tools & more." />
+      <meta name="description" content="AI software, trading strategies, investing, and digital asset stacking by Christopher Robinson CEO." />
       <link rel="canonical" href="https://stackmode.net" />
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://stackmode.net" />
-      <meta property="og:title" content="Stackmode — Master AI. Stack Assets. Build Wealth." />
     </Helmet>
 
     <SiteNav />
+    <div className="sr-only"><h1>Stackmode.net — AI Software, Trading & Asset Stacking by Christopher Robinson CEO</h1></div>
 
-    <div className="sr-only">
-      <h1>Stackmode.net — AI Software, Trading & Asset Stacking by Christopher Robinson CEO (StackmodeChris)</h1>
-    </div>
-
-    {/* ═══ HERO ═══ */}
+    {/* HERO */}
     <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 pt-20 pb-12">
-      <motion.img
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6 }}
-        src="/images/sm-logo-new.png" alt="Stackmode Logo" className="w-16 h-16 sm:w-20 sm:h-20 rounded-full mb-6" 
-      />
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="text-4xl sm:text-6xl md:text-7xl mb-4"
-        style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, lineHeight: 1.1 }}
-      >
+      <motion.img initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6 }}
+        src="/images/sm-logo-new.png" alt="Stackmode Logo" className="w-16 h-16 sm:w-20 sm:h-20 rounded-full mb-6" />
+      <motion.h2 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
+        className="text-4xl sm:text-6xl md:text-7xl mb-4" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, lineHeight: 1.1 }}>
         Master AI. Stack Assets.<br />Build Wealth.
       </motion.h2>
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
-        className="text-base sm:text-lg max-w-xl mb-4"
-        style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}
-      >
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}
+        className="text-base sm:text-lg max-w-xl mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>
         AI software, trading strategies, investing, and digital asset stacking — by Christopher Robinson, CEO
       </motion.p>
-
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}>
-        <Typewriter />
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.9 }}
-        className="flex flex-col sm:flex-row gap-3 mt-6"
-      >
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}><Typewriter /></motion.div>
+      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9 }} className="flex flex-col sm:flex-row gap-3 mt-6">
         <Link to="/academy" className="btn-primary btn-lg">Join the Academy →</Link>
-        <Link to="/prompt-shop" className="btn-glass btn-lg">Browse Prompts →</Link>
+        <Link to="/shop" className="btn-glass btn-lg">Browse Prompts →</Link>
       </motion.div>
-
       <PromptPreview />
     </section>
 
-    {/* ═══ SOCIAL PROOF BAR ═══ */}
+    {/* PROOF BAR */}
     <div className="proof-bar">
       <div className="container">
         <div className="proof-bar__inner">
-          <span className="proof-bar__item">
-            <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z" /><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5" /></svg>
-            Active Community
-          </span>
-          <span className="proof-bar__item">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></svg>
-            50+ countries
-          </span>
-          <span className="proof-bar__item">
-            <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
-            $100K+ revenue
-          </span>
-          <span className="proof-bar__item">
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
-            5-star rated
-          </span>
+          {[
+            { icon: 'M22 10v6M2 10l10-5 10 5-10 5zM6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5', label: 'Active Community' },
+            { icon: 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z', label: '50+ countries' },
+            { icon: 'M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6', label: '$100K+ revenue' },
+            { icon: 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z', label: '5-star rated' },
+          ].map(item => (
+            <span key={item.label} className="proof-bar__item">
+              <svg viewBox="0 0 24 24"><path d={item.icon} /></svg>
+              {item.label}
+            </span>
+          ))}
         </div>
       </div>
     </div>
 
-    {/* ═══ TRUST BAR ═══ */}
     <TrustBar />
 
-    {/* ═══ THREE PILLARS ═══ */}
+    {/* THREE PILLARS */}
     <section className="section">
       <div className="container">
         <div className="section-header">
@@ -258,21 +182,61 @@ const Landing = () => (
           <p className="section-header__subtitle">Master all three. Stack your income streams. Build generational wealth.</p>
         </div>
         <div className="grid-3">
-          <PillarCard number="01" title="AI Software Mastery" desc="Build websites, apps, and automations using AI. No coding needed."
-            items={['Generate complete SaaS websites', 'Automate business workflows', 'Build AI-powered client tools']}
-            link="/academy" linkText="Learn AI" delay={0} />
-          <PillarCard number="02" title="Trading & Asset Stacking" desc="Trade stocks, crypto & forex. Stack multiple income streams for long-term wealth."
-            items={['Technical analysis foundations', 'Stocks, crypto & forex strategies', 'Risk management & position sizing']}
-            link="/academy" linkText="Learn Trading" delay={0.1} />
-          <PillarCard number="03" title="Write Like a Pro" desc="AI-powered copywriting for ads, emails, landing pages, and social media."
-            items={['Email sequences that convert', 'Ad copy that stops the scroll', 'Landing pages that close deals']}
-            link="/prompt-shop" linkText="Learn Copy" delay={0.2} />
+          {[
+            { num: '01', title: 'AI Software Mastery', desc: 'Build websites, apps, and automations using AI. No coding needed.', items: ['Generate complete SaaS websites', 'Automate business workflows', 'Build AI-powered client tools'], link: '/academy', cta: 'Learn AI' },
+            { num: '02', title: 'Trading & Asset Stacking', desc: 'Trade stocks, crypto & forex. Stack multiple income streams for long-term wealth.', items: ['Technical analysis foundations', 'Stocks, crypto & forex strategies', 'Risk management & position sizing'], link: '/academy', cta: 'Learn Trading' },
+            { num: '03', title: 'Write Like a Pro', desc: 'AI-powered copywriting for ads, emails, landing pages, and social media.', items: ['Email sequences that convert', 'Ad copy that stops the scroll', 'Landing pages that close deals'], link: '/shop', cta: 'Learn Copy' },
+          ].map((p, i) => (
+            <motion.div key={p.num} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="glass-card relative">
+              <div className="absolute top-4 left-4 text-5xl font-bold" style={{ color: 'rgba(255,255,255,0.05)', fontFamily: "'Barlow Condensed', sans-serif" }}>{p.num}</div>
+              <div className="pt-12">
+                <h3 className="text-xl mb-2" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>{p.title}</h3>
+                <p className="text-sm mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>{p.desc}</p>
+                <div className="flex flex-col gap-2 mb-6">
+                  {p.items.map(item => (
+                    <span key={item} className="flex items-center gap-2 text-sm" style={{ color: 'rgba(255,255,255,0.7)' }}>
+                      <span className="text-white">✓</span> {item}
+                    </span>
+                  ))}
+                </div>
+                <Link to={p.link} className="text-sm font-semibold text-white hover:underline">{p.cta} →</Link>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
 
-    {/* ═══ VERIFIED RESULTS ═══ */}
+    {/* BUILD YOUR BRAND */}
     <section className="section section--glass">
+      <div className="container">
+        <div className="section-header">
+          <p className="section-header__eyebrow">Stackmode AI Prompts</p>
+          <h2 className="section-header__title">Build Your Brand. Make It Yours.</h2>
+          <p className="section-header__subtitle">Every Stackmode prompt is precision-engineered. Your output won't look like everyone else's — because our prompts include customization variables.</p>
+        </div>
+        <div className="grid-3">
+          {brandCards.map((card, i) => (
+            <motion.div key={card.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }} className="glass-card text-center">
+              <div className="text-3xl mb-3">{card.icon}</div>
+              <h3 className="text-lg mb-2" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>{card.title}</h3>
+              <p className="text-sm mb-3" style={{ color: 'rgba(255,255,255,0.6)' }}>{card.desc}</p>
+              <p className="text-[10px] uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.3)' }}>{card.tools}</p>
+            </motion.div>
+          ))}
+        </div>
+        <div className="text-center mt-8 glass-card" style={{ maxWidth: 600, margin: '2rem auto 0' }}>
+          <h3 className="text-lg mb-2" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>Why Stackmode Prompts Are Different</h3>
+          <p className="text-sm" style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>
+            Generic AI prompts produce generic results. Every Stackmode prompt includes [bracket variables] for your brand name, color, audience, tone, and platform — so no two outputs look the same.
+          </p>
+          <Link to="/shop" className="btn-primary btn-sm mt-4 inline-block">Browse the AI Prompt Shop</Link>
+        </div>
+      </div>
+    </section>
+
+    {/* VERIFIED RESULTS */}
+    <section className="section">
       <div className="container">
         <div className="section-header">
           <h2 className="section-header__title">Verified Results</h2>
@@ -289,12 +253,12 @@ const Landing = () => (
       </div>
     </section>
 
-    {/* ═══ BRAND BOOST BRIDGE ═══ */}
-    <section className="section text-center">
+    {/* DONE FOR YOU BRIDGE */}
+    <section className="section text-center section--glass">
       <div className="container" style={{ maxWidth: 700 }}>
         <p className="text-xs uppercase tracking-widest mb-3" style={{ color: 'rgba(255,255,255,0.4)' }}>Done For You</p>
         <h2 className="section-header__title">Want us to build it for you?</h2>
-        <p className="text-base mb-8" style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>
+        <p className="text-base mb-8" style={{ color: 'rgba(255,255,255,0.6)' }}>
           Skip the learning curve. We'll build your AI systems, funnels, and brand identity giving you a completely finished, revenue-ready business.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -304,27 +268,90 @@ const Landing = () => (
       </div>
     </section>
 
-    {/* ═══ ACADEMY CTA ═══ */}
-    <section className="section section--glass">
+    {/* ACADEMY CTA */}
+    <section className="section">
       <div className="container">
         <div className="grid-2" style={{ alignItems: 'center' }}>
           <div>
-            <h2 className="section-header__title" style={{ textAlign: 'left' }}>Stackmode Academy</h2>
-            <p className="text-base sm:text-lg mb-6" style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>
-              Step inside the academy to master AI workflows, algorithmic trading, and digital asset stacking. Stop watching from the sidelines.
+            <p className="text-xs uppercase tracking-widest mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Stackmode Academy</p>
+            <h2 className="section-header__title" style={{ textAlign: 'left' }}>
+              Learn the exact frameworks I use to stack assets, automate trading, and dominate AI.
+            </h2>
+            <p className="text-base mb-6" style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>
+              Step inside the academy to master AI workflows, algorithmic trading, and digital asset stacking. Stop watching from the sidelines and join a community of builders engineering their financial freedom.
             </p>
             <a href="https://whop.com/stackmode-academy/educationalservice/" target="_blank" rel="noopener noreferrer" className="btn-primary btn-lg">
               Enroll in the Academy
             </a>
           </div>
-          <div className="flex justify-center">
-            <div className="glass-card text-center" style={{ padding: '4rem', borderRadius: 20 }}>
-              <svg viewBox="0 0 24 24" fill="white" className="w-24 h-24 mx-auto">
-                <path d="M12 2L1 7l11 5 9-4.09V17h2V7L12 2z" />
-                <path d="M6 10.27v5.38C6 17.5 8.69 19 12 19s6-1.5 6-3.35v-5.38l-6 2.73-6-2.73z" />
-              </svg>
+          <div>
+            <div className="glass-card">
+              <p className="text-xs uppercase tracking-widest mb-3" style={{ color: 'rgba(255,255,255,0.4)' }}>Brand Boost</p>
+              <p className="text-sm mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>1-on-1 AI system builds, SEO, and website optimization for your business.</p>
+              <h3 className="text-lg mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>What You Get</h3>
+              <div className="boost-checklist">
+                <span className="boost-checklist__item">Custom AI system for your business</span>
+                <span className="boost-checklist__item">Complete website design & development</span>
+                <span className="boost-checklist__item">SEO optimization & traffic growth</span>
+                <span className="boost-checklist__item">1-on-1 strategy calls with Christopher</span>
+              </div>
+              <div className="mt-4 pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+                <p className="text-xs mb-1" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 16 }}>Real Results</p>
+                <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                  <span>340% traffic increase</span>
+                  <span>12x more booked calls</span>
+                  <span>$100K+ revenue</span>
+                  <span>Professional brand authority</span>
+                </div>
+              </div>
+              <Link to="/brand-boost" className="btn-glass btn-sm mt-4 inline-block">Book a Strategy Call →</Link>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    {/* BOOK A CALL */}
+    <section className="section text-center section--glass">
+      <div className="container" style={{ maxWidth: 600 }}>
+        <h2 className="section-header__title">Book a Call</h2>
+        <p className="section-header__subtitle mb-8">Ready to start? Pick a time that works for you.</p>
+        <a href="https://calendly.com/stackmode" target="_blank" rel="noopener noreferrer" className="btn-primary btn-lg">Book a Call →</a>
+      </div>
+    </section>
+
+    {/* READY TO STACK */}
+    <section className="section text-center">
+      <div className="container" style={{ maxWidth: 600 }}>
+        <h2 className="section-header__title">Ready to Stack Smarter?</h2>
+        <p className="section-header__subtitle mb-8">Join thousands of creators, traders, and entrepreneurs building wealth with AI.</p>
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <Link to="/academy" className="btn-primary btn-lg">Join the Academy →</Link>
+          <Link to="/shop" className="btn-glass btn-lg">Browse Prompts →</Link>
+        </div>
+      </div>
+    </section>
+
+    {/* STUDENT TESTIMONIALS */}
+    <section className="section section--glass">
+      <div className="container">
+        <div className="section-header">
+          <h2 className="section-header__title">Student Success</h2>
+          <p className="section-header__subtitle">Real results from the Stackmode community.</p>
+        </div>
+        <div className="grid-3">
+          {testimonials.map((t, i) => (
+            <motion.div key={t.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }} className="glass-card">
+              <div className="flex gap-0.5 mb-3">{[...Array(5)].map((_, j) => <span key={j} className="text-yellow-400 text-sm">⭐</span>)}</div>
+              <p className="text-sm mb-4" style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, fontStyle: 'italic' }}>"{t.text}"</p>
+              <p className="text-xs font-bold text-white">— {t.name}</p>
+            </motion.div>
+          ))}
+        </div>
+        <div className="text-center mt-8">
+          <a href="https://whop.com/stackmode-academy/educationalservice/" target="_blank" rel="noopener noreferrer" className="btn-glass btn-sm">
+            Join Active Community inside the Academy →
+          </a>
         </div>
       </div>
     </section>
