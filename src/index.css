@@ -358,6 +358,15 @@
   animation: marquee 25s linear infinite;
 }
 
+@keyframes gate-scroll {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+.animate-gate-scroll {
+  animation: gate-scroll 8s linear infinite;
+}
+
 @keyframes marquee-reverse {
   0% { transform: translateX(-50%); }
   100% { transform: translateX(0); }

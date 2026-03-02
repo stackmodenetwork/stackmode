@@ -1,45 +1,52 @@
 import { Helmet } from 'react-helmet-async';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import SiteNav from '@/components/SiteNav';
 import SiteFooter from '@/components/SiteFooter';
-import AnimatedBackground from '@/components/landing/AnimatedBackground';
 
 const WHOP_URL = 'https://whop.com/stackmode-academy/educationalservice/';
 
 /* ═══ TICKER DATA ═══ */
 const tickers = [
-  { symbol: 'AAPL', price: '189.42', change: '+2.34%', up: true },
-  { symbol: 'TSLA', price: '248.91', change: '+5.12%', up: true },
   { symbol: 'NVDA', price: '875.30', change: '+3.87%', up: true },
-  { symbol: 'AMZN', price: '178.22', change: '-1.05%', up: false },
-  { symbol: 'MSFT', price: '415.60', change: '+1.28%', up: true },
-  { symbol: 'META', price: '505.75', change: '+2.91%', up: true },
-  { symbol: 'GOOG', price: '141.80', change: '-0.42%', up: false },
+  { symbol: 'TSLA', price: '248.91', change: '+5.12%', up: true },
+  { symbol: 'AAPL', price: '189.42', change: '+2.34%', up: true },
   { symbol: 'AMD', price: '172.45', change: '+4.56%', up: true },
   { symbol: 'PLTR', price: '24.80', change: '+6.12%', up: true },
+  { symbol: 'META', price: '505.75', change: '+2.91%', up: true },
+  { symbol: 'MSFT', price: '415.60', change: '+1.28%', up: true },
+  { symbol: 'AMZN', price: '178.22', change: '-1.05%', up: false },
+  { symbol: 'GOOG', price: '141.80', change: '-0.42%', up: false },
   { symbol: 'SOFI', price: '8.92', change: '-2.30%', up: false },
 ];
 
-/* ═══ STOCK TABLE DATA ═══ */
-const stockRows = [
-  { ticker: 'NVDA', name: 'NVIDIA Corp', sector: 'Technology', score: 94, signal: 'STRONG BUY', color: '#39ff14' },
-  { ticker: 'PLTR', name: 'Palantir Tech', sector: 'Technology', score: 88, signal: 'BUY', color: '#39ff14' },
-  { ticker: 'TSLA', name: 'Tesla Inc', sector: 'Auto/EV', score: 76, signal: 'HOLD', color: '#ffd700' },
-  { ticker: 'AMZN', name: 'Amazon.com', sector: 'E-Commerce', score: 82, signal: 'BUY', color: '#39ff14' },
-  { ticker: 'SOFI', name: 'SoFi Tech', sector: 'Fintech', score: 61, signal: 'WATCH', color: '#ff6b1a' },
+/* ═══ SCANNER TABLE DATA ═══ */
+const scannerRows = [
+  { ticker: 'NVDA', price: '$875.30', change: '+3.87%', changeUp: true, score: 94, signal: 'STRONG BUY', signalColor: '#28c840' },
+  { ticker: 'PLTR', price: '$24.80', change: '+6.12%', changeUp: true, score: 88, signal: 'BUY', signalColor: '#28c840' },
+  { ticker: 'TSLA', price: '$248.91', change: '+5.12%', changeUp: true, score: 76, signal: 'HOLD', signalColor: '#666' },
+  { ticker: 'AMD', price: '$172.45', change: '+4.56%', changeUp: true, score: 82, signal: 'BUY', signalColor: '#28c840' },
+  { ticker: 'SOFI', price: '$8.92', change: '-2.30%', changeUp: false, score: 41, signal: 'AVOID', signalColor: '#ff5f57' },
+];
+
+/* ═══ GATE ROWS ═══ */
+const gateRows = [
+  { ticker: 'MSFT', fit: '94%', stack: '8.7', signal: 'BUY' },
+  { ticker: 'AAPL', fit: '82%', stack: '7.4', signal: 'HOLD' },
+  { ticker: 'GOOG', fit: '91%', stack: '8.5', signal: 'BUY' },
+  { ticker: 'AMZN', fit: '88%', stack: '8.1', signal: 'BUY' },
 ];
 
 /* ═══ TICKER MARQUEE ═══ */
 const TickerMarquee = () => (
-  <div className="relative z-10 overflow-hidden" style={{ background: 'rgba(4,6,14,0.95)', borderBottom: '1px solid rgba(0,229,255,0.1)' }}>
+  <div className="overflow-hidden border-b border-border" style={{ background: '#060606' }}>
     <div className="flex animate-marquee py-2" style={{ width: 'max-content' }}>
       {[...Array(3)].flatMap((_, g) =>
         tickers.map((t, i) => (
-          <span key={`${g}-${i}`} className="flex items-center gap-2 px-4 text-xs" style={{ fontFamily: "'Orbitron', sans-serif" }}>
-            <span style={{ color: '#e8f4ff', fontWeight: 700 }}>{t.symbol}</span>
-            <span style={{ color: 'rgba(232,244,255,0.4)' }}>${t.price}</span>
-            <span style={{ color: t.up ? '#39ff14' : '#ff4444', fontWeight: 600 }}>{t.change}</span>
+          <span key={`${g}-${i}`} className="flex items-center gap-2 px-4 text-xs font-medium">
+            <span className="font-bold text-foreground">{t.symbol}</span>
+            <span className="text-muted-foreground">${t.price}</span>
+            <span style={{ color: t.up ? '#28c840' : '#ff5f57' }} className="font-semibold">{t.change}</span>
           </span>
         ))
       )}
@@ -47,255 +54,265 @@ const TickerMarquee = () => (
   </div>
 );
 
-/* ═══ FEATURE CARDS ═══ */
-const features = [
-  { tag: '#FILTER', title: 'Smart Filters', desc: 'Screen thousands of stocks by sector, market cap, volume, and momentum — instantly.', code: 'filter(sector="TECH", cap>10B, vol>1M)' },
-  { tag: '#DATA', title: 'Real-Time Data', desc: 'Live price feeds, earnings calendars, and institutional flow data at your fingertips.', code: 'stream(feed="LIVE", latency<50ms)' },
-  { tag: '#AI', title: 'AI Insights', desc: 'Machine learning models score each stock on momentum, sentiment, and risk.', code: 'ai.score(model="v3", confidence>0.85)' },
-];
-
-/* ═══ DASHBOARD PREVIEW ═══ */
-const DashboardPreview = () => {
-  const [activeRow, setActiveRow] = useState(0);
-  useEffect(() => {
-    const t = setInterval(() => setActiveRow(p => (p + 1) % stockRows.length), 2000);
-    return () => clearInterval(t);
-  }, []);
-
-  return (
-    <div className="terminal-card overflow-hidden" style={{ boxShadow: '0 0 80px rgba(0,229,255,0.08)' }}>
-      <div className="flex items-center gap-1.5 px-4 py-2.5" style={{ background: 'rgba(0,0,0,0.3)', borderBottom: '1px solid rgba(0,229,255,0.1)' }}>
-        <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#ff5f56' }} />
-        <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#ffbd2e' }} />
-        <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#27c93f' }} />
-        <span className="ml-3 text-[10px] tracking-[0.2em]" style={{ fontFamily: "'Orbitron', sans-serif", color: '#00e5ff' }}>
-          STACKFINDER v2.1 — MARKET SCANNER
-        </span>
-        <span className="ml-auto flex items-center gap-1.5 text-[9px]" style={{ fontFamily: "'Orbitron', sans-serif", color: '#39ff14' }}>
-          <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#39ff14' }} />
-          LIVE
-        </span>
-      </div>
-      <div className="overflow-x-auto">
-        <table className="w-full text-xs" style={{ fontFamily: "'Orbitron', sans-serif" }}>
-          <thead>
-            <tr style={{ borderBottom: '1px solid rgba(0,229,255,0.08)' }}>
-              {['TICKER', 'NAME', 'SECTOR', 'SCORE', 'SIGNAL'].map(h => (
-                <th key={h} className="text-left px-4 py-2.5 text-[10px] tracking-wider" style={{ color: 'rgba(0,229,255,0.5)', fontWeight: 600 }}>{h}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {stockRows.map((row, i) => (
-              <tr key={row.ticker}
-                className="transition-colors"
-                style={{
-                  background: i === activeRow ? 'rgba(0,229,255,0.05)' : 'transparent',
-                  borderBottom: '1px solid rgba(0,229,255,0.04)',
-                }}>
-                <td className="px-4 py-2.5 font-bold" style={{ color: '#e8f4ff' }}>{row.ticker}</td>
-                <td className="px-4 py-2.5" style={{ color: 'rgba(232,244,255,0.5)' }}>{row.name}</td>
-                <td className="px-4 py-2.5" style={{ color: 'rgba(232,244,255,0.3)' }}>{row.sector}</td>
-                <td className="px-4 py-2.5 font-bold" style={{ color: row.color }}>{row.score}</td>
-                <td className="px-4 py-2.5">
-                  <span className="text-[9px] px-2 py-0.5 rounded" style={{
-                    background: `${row.color}15`,
-                    color: row.color,
-                    border: `1px solid ${row.color}30`,
-                  }}>{row.signal}</span>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  );
-};
-
-/* ═══ WAITLIST FORM ═══ */
-const WaitlistForm = () => {
-  const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-
-  return (
-    <div className="terminal-card p-6 sm:p-8 max-w-lg mx-auto">
-      <div className="flex gap-1.5 mb-4">
-        <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#ff5f56' }} />
-        <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#ffbd2e' }} />
-        <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#27c93f' }} />
-      </div>
-      <h3 className="text-sm mb-2" style={{ fontFamily: "'Press Start 2P', monospace", color: '#00e5ff' }}>
-        JOIN THE BETA
-      </h3>
-      <p className="text-sm mb-5 text-muted-foreground">Get early access to StackFinder when we launch.</p>
-      {submitted ? (
-        <p className="text-sm neon-green" style={{ fontFamily: "'Orbitron', sans-serif" }}>✓ You're on the list. We'll be in touch.</p>
-      ) : (
-        <div className="flex gap-2">
-          <input
-            type="email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            placeholder="your@email.com"
-            className="flex-1 px-3 py-2 rounded text-sm"
-            style={{
-              background: 'rgba(0,229,255,0.05)',
-              border: '1px solid rgba(0,229,255,0.15)',
-              color: '#e8f4ff',
-              fontFamily: "'Orbitron', sans-serif",
-              outline: 'none',
-            }}
-          />
-          <button
-            onClick={() => { if (email.includes('@')) setSubmitted(true); }}
-            className="btn-cta text-xs px-4"
-          >
-            [ SUBMIT ]
-          </button>
-        </div>
-      )}
-    </div>
-  );
-};
-
 /* ═══ MAIN PAGE ═══ */
 const StackFinder = () => (
-  <div className="relative" style={{ background: '#04060e', overflowX: 'hidden' }}>
+  <div className="bg-background text-foreground" style={{ overflowX: 'hidden' }}>
     <Helmet>
-      <title>StackFinder | AI-Powered Stock Scanner & Market Analysis Tool</title>
-      <meta name="description" content="StackFinder by Stackmode — AI-powered stock screening, real-time market data, and smart filters. Stop guessing. Start finding winning investments." />
-      <meta name="keywords" content="stackfinder, stock scanner, ai stock analysis, market screener, stackmode, christopher robinson, investing tool" />
+      <title>Stackfinder | Stackmode | Christopher Robinson CEO</title>
+      <meta name="description" content="Stackmode.net by Christopher Robinson CEO. Stackfinder AI stock screener with real-time data, smart filters, and AI insights for investments." />
+      <meta name="keywords" content="Christopher Robinson, Christopher Robinson CEO, Stackmodechris, Stackfinder, AI stock screener, stock trading, investing, AI trading, real-time data, market scanner" />
       <meta name="author" content="Christopher Robinson" />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://stackmode.net/stackfinder" />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://stackmode.net/stackfinder" />
-      <meta property="og:title" content="StackFinder — AI Stock Scanner by Stackmode" />
-      <meta property="og:description" content="Find winning stocks faster. AI-powered screening, real-time data, and institutional flow insights." />
-      <meta property="og:site_name" content="Stackmode.net" />
+      <meta property="og:title" content="Stackfinder — AI-Powered Stock Screening | Stackmode" />
+      <meta property="og:description" content="Proprietary AI stock screener with real-time data and smart filters by Christopher Robinson CEO." />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@ChristopherRCEO" />
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": [
+          { "@type": "Person", "@id": "https://stackmode.net/#christopher-robinson", "name": "Christopher Robinson", "alternateName": "Stackmodechris", "jobTitle": "CEO" },
+          { "@type": "Organization", "@id": "https://stackmode.net/#organization", "name": "Stackmode Network LLC", "url": "https://stackmode.net" },
+          { "@type": "WebSite", "@id": "https://stackmode.net/#website", "url": "https://stackmode.net", "name": "Stackmode.net" }
+        ]
+      })}</script>
     </Helmet>
 
-    <AnimatedBackground />
+    <TickerMarquee />
     <SiteNav />
 
-    <div className="sr-only">
-      <h1>StackFinder — AI-Powered Stock Scanner & Market Analysis by Christopher Robinson</h1>
-    </div>
+    <h1 className="sr-only">Stackfinder — AI-Powered Stock Screening by Christopher Robinson CEO</h1>
 
-    {/* Ticker */}
-    <div className="pt-14">
-      <TickerMarquee />
-    </div>
-
-    {/* Hero */}
-    <section className="relative z-10 py-16 sm:py-24 px-4 text-center">
+    {/* ═══ HERO ═══ */}
+    <section className="section text-center">
       <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="mb-4"
-        style={{ fontFamily: "'Press Start 2P', monospace", fontSize: 'clamp(24px, 5vw, 48px)', color: '#00e5ff', textShadow: '0 0 30px rgba(0,229,255,0.4)' }}
+        initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
+        className="section-header__title" style={{ letterSpacing: '0.05em' }}
       >
         STACKFINDER
       </motion.h2>
       <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3 }}
-        className="text-lg sm:text-xl mb-3"
-        style={{ fontFamily: "'Orbitron', sans-serif", color: '#e8f4ff', fontWeight: 600 }}
+        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
+        className="text-xl sm:text-2xl font-semibold italic text-foreground mb-3"
       >
         Stop Guessing. Start Finding.
       </motion.p>
       <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
-        className="text-base sm:text-lg max-w-2xl mx-auto mb-8 text-muted-foreground"
+        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}
+        className="section-header__subtitle mb-8"
       >
         Proprietary stock screening software with AI-powered insights, real-time data feeds, and smart filters — built for serious investors who want an edge.
       </motion.p>
       <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.7 }}
+        initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}
         className="flex flex-wrap justify-center gap-3"
       >
-        <a href={WHOP_URL} target="_blank" rel="noopener noreferrer" className="btn-cta text-xs sm:text-sm">
-          [ ACCESS STACKFINDER → ]
-        </a>
-        <a href="#waitlist" className="btn-ghost text-xs sm:text-sm">[ JOIN BETA WAITLIST ]</a>
+        <a href={WHOP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary btn-lg">Access Stackfinder →</a>
+        <a href="/academy" className="btn-glass btn-lg">Join Beta Waitlist →</a>
       </motion.div>
     </section>
 
-    {/* Feature Cards */}
-    <section className="relative z-10 py-12 px-4">
-      <div className="max-w-5xl mx-auto grid sm:grid-cols-3 gap-4 sm:gap-6">
-        {features.map((f, i) => (
-          <motion.div
-            key={f.tag}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: i * 0.1 }}
-            className="terminal-card p-5"
-          >
-            <div className="flex gap-1.5 mb-3">
-              <div className="w-2 h-2 rounded-full" style={{ background: '#ff5f56' }} />
-              <div className="w-2 h-2 rounded-full" style={{ background: '#ffbd2e' }} />
-              <div className="w-2 h-2 rounded-full" style={{ background: '#27c93f' }} />
+    {/* ═══ FEATURES ═══ */}
+    <section className="section">
+      <div className="container">
+        <div className="grid-3">
+          {/* Smart Filters */}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="glass-card">
+            <div className="mb-4">
+              <svg className="w-8 h-8 text-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
+              </svg>
             </div>
-            <span className="text-[9px] tracking-[0.2em] mb-2 block" style={{ fontFamily: "'Orbitron', sans-serif", color: '#00e5ff' }}>{f.tag}</span>
-            <h3 className="text-sm mb-2" style={{ fontFamily: "'Press Start 2P', monospace", color: '#e8f4ff' }}>{f.title}</h3>
-            <p className="text-sm mb-4 text-muted-foreground">{f.desc}</p>
-            <div className="rounded px-3 py-1.5 text-[10px]" style={{
-              background: 'rgba(0,229,255,0.05)',
-              border: '1px solid rgba(0,229,255,0.1)',
-              fontFamily: "'Orbitron', sans-serif",
-              color: '#39ff14',
-            }}>
-              &gt; {f.code}
+            <h3 className="text-lg font-bold text-foreground mb-2">Smart Filters</h3>
+            <p className="text-sm text-muted-foreground">Screen thousands of stocks by sector, market cap, volume, and momentum — instantly.</p>
+          </motion.div>
+
+          {/* Real-Time Data */}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="glass-card">
+            <div className="mb-4">
+              <svg className="w-8 h-8 text-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+              </svg>
+            </div>
+            <h3 className="text-lg font-bold text-foreground mb-2">Real-Time Data</h3>
+            <p className="text-sm text-muted-foreground mb-4">Live price feeds, earnings calendars, and institutional flow data at your fingertips.</p>
+            <div className="rounded-lg overflow-hidden" style={{ background: '#0a0a0a', border: '1px solid rgba(255,255,255,0.08)' }}>
+              <div className="flex items-center gap-1.5 px-3 py-2" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#ff5f56' }} />
+                <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#ffbd2e' }} />
+                <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#27c93f' }} />
+                <span className="ml-2 text-[10px] text-muted-foreground">feed.js</span>
+              </div>
+              <div className="p-3 font-mono text-xs space-y-1">
+                <div><span className="text-muted-foreground">$ </span><span className="text-foreground font-semibold">stream</span> --live NVDA TSLA</div>
+                <div style={{ color: '#28c840' }}>✓ NVDA $875.30 ↑3.87%</div>
+                <div style={{ color: '#28c840' }}>✓ TSLA $248.91 ↑5.12%</div>
+              </div>
             </div>
           </motion.div>
-        ))}
-      </div>
-    </section>
 
-    {/* Dashboard Preview */}
-    <section className="relative z-10 py-16 sm:py-24 px-4">
-      <motion.h2
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        className="text-center text-xs sm:text-sm mb-8 neon-cyan"
-        style={{ fontFamily: "'Press Start 2P', monospace" }}
-      >
-        DASHBOARD PREVIEW
-      </motion.h2>
-      <div className="max-w-4xl mx-auto">
+          {/* AI Insights */}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="glass-card">
+            <div className="mb-4">
+              <svg className="w-8 h-8 text-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z" />
+                <circle cx="12" cy="15" r="2" />
+              </svg>
+            </div>
+            <h3 className="text-lg font-bold text-foreground mb-2">AI Insights</h3>
+            <p className="text-sm text-muted-foreground mb-4">Machine learning models score each stock on momentum, sentiment, and risk.</p>
+            <div className="rounded-lg overflow-hidden" style={{ background: '#0a0a0a', border: '1px solid rgba(255,255,255,0.08)' }}>
+              <div className="flex items-center gap-1.5 px-3 py-2" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#ff5f56' }} />
+                <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#ffbd2e' }} />
+                <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#27c93f' }} />
+                <span className="ml-2 text-[10px] text-muted-foreground">ai-score.py</span>
+              </div>
+              <div className="p-3 font-mono text-xs space-y-1">
+                <div><span className="text-muted-foreground">{'>>> '}</span><span className="text-foreground font-semibold">score</span>("NVDA")</div>
+                <div style={{ color: '#28c840' }}>✓ Score: 94 — STRONG BUY</div>
+                <div className="text-muted-foreground">→ Momentum: A+ | Sentiment: A</div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* AI TRADING CHAT DEMO */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="mt-16 max-w-[800px] mx-auto"
         >
-          <DashboardPreview />
+          <div className="rounded-xl overflow-hidden" style={{ background: '#111', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <div className="flex items-center gap-1.5 px-4 py-3" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+              <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#ff5f56' }} />
+              <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#ffbd2e' }} />
+              <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#27c93f' }} />
+              <span className="ml-3 text-xs font-semibold text-muted-foreground tracking-wide">Stackfinder AI Agent</span>
+            </div>
+            <div className="p-4 sm:p-6 space-y-4">
+              {/* User message */}
+              <div className="flex justify-end">
+                <div className="rounded-xl px-4 py-3 text-sm max-w-[80%]" style={{ background: 'rgba(255,255,255,0.08)' }}>
+                  Scan for tech stocks with extreme momentum and &gt;20% revenue growth this quarter.
+                </div>
+              </div>
+              {/* Bot response */}
+              <div className="flex justify-start">
+                <div className="rounded-xl px-4 py-3 text-sm max-w-[85%]" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }}>
+                  <strong>Scanning 8,400+ specific AI and Tech equities...</strong><br /><br />
+                  Top Match Found: <strong>NVDA</strong><br />
+                  <span style={{ color: '#00ff88', fontWeight: 600 }}>+265% YoY Revenue Growth</span><br /><br />
+                  <strong>Momentum Chart:</strong>
+                  <div className="flex items-end gap-2 mt-3 h-[160px]">
+                    <div className="w-10 rounded-t" style={{ height: '40px', background: 'rgba(255,255,255,0.15)' }} />
+                    <div className="w-10 rounded-t" style={{ height: '65px', background: 'rgba(255,255,255,0.15)' }} />
+                    <div className="w-10 rounded-t" style={{ height: '110px', background: 'rgba(255,255,255,0.15)' }} />
+                    <motion.div
+                      initial={{ scaleY: 0 }}
+                      whileInView={{ scaleY: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, ease: [0.175, 0.885, 0.32, 1.275] }}
+                      className="w-10 rounded-t origin-bottom"
+                      style={{ height: '160px', background: '#28c840' }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
 
-    {/* Waitlist */}
-    <section id="waitlist" className="relative z-10 py-16 sm:py-24 px-4">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-      >
-        <WaitlistForm />
+    {/* ═══ MARKET SCANNER ═══ */}
+    <section className="section section--glass">
+      <div className="container">
+        <div className="section-header">
+          <h2 className="section-header__title">Market Scanner Preview</h2>
+          <p className="section-header__subtitle">See how Stackfinder ranks top opportunities in real-time.</p>
+        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="overflow-x-auto mb-8"
+        >
+          <table className="w-full text-sm" style={{ borderCollapse: 'collapse' }}>
+            <thead>
+              <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+                {['Ticker', 'Price', 'Change', 'AI Score', 'Signal'].map(h => (
+                  <th key={h} className="text-left p-4 text-muted-foreground font-medium">{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {scannerRows.map((row, i) => (
+                <tr key={row.ticker} style={{ borderBottom: i < scannerRows.length - 1 ? '1px solid rgba(255,255,255,0.08)' : 'none' }}>
+                  <td className="p-4 font-bold text-foreground">{row.ticker}</td>
+                  <td className="p-4 text-foreground">{row.price}</td>
+                  <td className="p-4 font-medium" style={{ color: row.changeUp ? '#28c840' : '#ff5f57' }}>{row.change}</td>
+                  <td className="p-4 font-semibold text-foreground">{row.score}</td>
+                  <td className="p-4">
+                    <span className="text-xs font-bold px-2.5 py-1 rounded" style={{
+                      background: row.signalColor,
+                      color: row.signalColor === '#666' ? '#fff' : '#000',
+                    }}>{row.signal}</span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </motion.div>
+      </div>
+    </section>
+
+    {/* ═══ PREMIUM UNLOCK GATE ═══ */}
+    <section className="relative overflow-hidden" style={{ borderTop: '1px solid rgba(255,255,255,0.08)', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+      {/* Blurred scrolling rows behind */}
+      <div className="relative overflow-hidden" style={{ height: '300px', filter: 'blur(6px)', opacity: 0.5, maskImage: 'linear-gradient(to bottom, black 0%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, black 0%, transparent 100%)' }}>
+        <div className="flex flex-col gap-4 p-5 animate-gate-scroll">
+          {[...gateRows, ...gateRows].map((row, i) => (
+            <div key={i} className="flex justify-between font-mono text-xs sm:text-sm p-4 rounded-md" style={{ background: 'rgba(255,255,255,0.03)' }}>
+              <span>{row.ticker}</span>
+              <span>AI SYSTEM FIT: {row.fit}</span>
+              <span>STACK SCORE: {row.stack}</span>
+              <span>SIGNAL: {row.signal}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Overlay card */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-[90%] max-w-[480px] p-8 sm:p-10 rounded-xl text-center" style={{ background: '#111', border: '1px solid rgba(255,255,255,0.15)', boxShadow: '0 20px 40px rgba(0,0,0,0.8)' }}>
+        <svg className="w-8 h-8 mx-auto mb-6 text-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+        </svg>
+        <h3 className="text-2xl sm:text-3xl font-bold text-foreground uppercase mb-2" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>Unlock Premium Stackfinder</h3>
+        <p className="text-sm text-muted-foreground mb-6 leading-relaxed">Get AI stack scores, buy/sell signals, sector fit ratings, and your personalized asset roadmap.</p>
+        <ul className="text-left space-y-3 mb-6">
+          {['Full AI Stack Score Breakdown', 'Personalized Asset Roadmap', 'Real-Time Signal Alerts'].map(f => (
+            <li key={f} className="flex items-center gap-2 text-sm font-medium text-foreground">
+              <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              {f}
+            </li>
+          ))}
+        </ul>
+        <a href={WHOP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary btn-lg w-full justify-center mb-4">
+          Start Premium — Subscribe Now →
+        </a>
+        <p className="text-xs text-muted-foreground" style={{ opacity: 0.5 }}>Premium members get full access · Cancel anytime</p>
+      </div>
+    </section>
+
+    {/* ═══ CTA ═══ */}
+    <section className="section text-center">
+      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+        <h2 className="section-header__title mb-3">Ready to Trade Smarter?</h2>
+        <p className="section-header__subtitle mb-8">Join Stackmode Academy for full access to Stackfinder, AI trading signals, and live market sessions.</p>
+        <a href={WHOP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary btn-lg">Join the Academy →</a>
       </motion.div>
     </section>
 
