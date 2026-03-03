@@ -1,82 +1,39 @@
 
 
-## Full Stripe + Auth Integration Plan
+## Plan: Revamp BusinessProofBento with All Proof Images + New Uploads
 
-This is a multi-part build: an `/auth` page, Stripe subscription edge functions, auth-aware nav, and premium gating.
+### What's happening now
+- The proof section uses a marquee with only 7 images, all forced into `w-[340px] h-[220px]` boxes with `object-cover object-top` — this crops/zooms images badly, especially tall screenshots.
+- The user has uploaded 10 new proof images (ad stats, YouTube views, trading P&L, portfolio screenshots) that need to be added.
+- There are also existing `business-proof-*.png` (20 files) and `review-*.png` (65 files) in lovable-uploads that should be included.
 
-### What already exists
-- **Profiles table** with `subscription_status`, `stripe_customer_id`, `subscription_end_date` columns and RLS policies
-- **Stripe product**: "Stackmode Architect Premium Plan" at $20/month (`price_1T6kCqRqIhXyWonrAAxhR0MJ`)
-- **Secrets**: `STRIPE_SECRET_KEY`, `LOVABLE_API_KEY` already configured
-- **No edge functions or config.toml** exist yet
+### Plan
 
-### What we will build
+**1. Copy new uploaded images to `public/images/proof/`**
+- Copy all 10 new uploads as: `ad-stats.png`, `youtube-shorts.png`, `youtube-lifetime.png`, `yt-revenue.png`, `watch-page-ads.png`, `intel-trade.png`, `account-value.png`, `portfolio-growth.png`, `trading-positions.png`, `amzn-trade.png`
 
-**1. `/auth` page** (`src/pages/Auth.tsx`)
-- Dark-themed signup/login page matching Stackmode brand
-- Stackmode logo centered at top, tagline beneath
-- Tab switcher: Sign Up (email + password) and Login (email + password)
-- Google OAuth button using `supabase.auth.signInWithOAuth({ provider: 'google' })`
-- On success, redirect to `/`
-- No `react-icons` dependency; use an inline Google SVG icon instead
-- Style: dark card on black background, Space Grotesk font, clean and sleek
+**2. Rewrite `BusinessProofBento.tsx` as a masonry grid**
+- Replace the marquee layout with an animated masonry grid using CSS `column-count` (responsive: 1 col mobile, 2 tablet, 3-4 desktop)
+- Each image card: `object-contain` on a dark bg so full image is always visible (no cropping)
+- Add category labels/badges (Trading, YouTube, Revenue, Ads) with colored indicators
+- Click to enlarge via the existing lightbox
+- Staggered entrance animations with framer-motion
+- Include ALL proof sources:
+  - 10 existing `/images/proof/` images
+  - 10 new uploaded images
+  - Select `business-proof-*.png` images (20)
+- Total ~40 images in the masonry grid, naturally varying heights
 
-**2. Auth context** (`src/contexts/AuthContext.tsx`)
-- Global auth provider wrapping the app
-- Tracks: `user`, `session`, `isSubscribed`, `subscriptionEnd`, `loading`
-- Calls `check-subscription` edge function on login and every 60 seconds
-- Provides `signOut` helper
+**3. Styling details**
+- Cards: rounded-xl, border-white/8, bg-[#0a0a0a], hover:scale-[1.02] transition
+- Labels: small pill badge top-left with category + description bottom
+- Images use `object-contain` with `aspect-auto` so nothing gets cropped
+- Responsive columns: 1 (mobile) → 2 (sm) → 3 (md) → 4 (lg)
 
-**3. Three Supabase Edge Functions**
-- `supabase/functions/check-subscription/index.ts` — verifies active Stripe subscription by user email
-- `supabase/functions/create-checkout/index.ts` — creates Stripe checkout session for authenticated user, returns URL
-- `supabase/functions/customer-portal/index.ts` — creates Stripe billing portal session
+**4. Keep Landing.tsx integration unchanged** — it already renders `<BusinessProofBento />`
 
-All use `price_1T6kCqRqIhXyWonrAAxhR0MJ` and CORS headers.
-
-**4. `supabase/config.toml`** — set `verify_jwt = false` for all three functions (auth validated in code)
-
-**5. Auth-aware SiteNav update**
-- If not logged in: show "Login" button linking to `/auth`
-- If logged in but not subscribed: show "Subscribe" button that triggers checkout
-- If logged in and subscribed: show gold "Premium" badge
-- Dropdown with "Manage Subscription" (portal) and "Logout"
-- **Only the `/academy` page keeps the Whop link** — all other "Subscribe to Premium" buttons use Stripe checkout
-
-**6. Route updates** (`App.tsx`)
-- Add `/auth` route
-- Wrap app in `AuthProvider`
-
-**7. Pricing page update** — middle tier CTA uses Stripe checkout instead of Whop link
-
-### What stays the same
-- `/academy` page keeps Whop links (no Stripe there)
-- All existing pages and styling remain intact
-- No changes to `client.ts`, `types.ts`, or `.env`
-
-### Technical details
-
-```text
-Edge Function Flow:
-  User clicks "Subscribe" 
-    → AuthContext checks login (redirect to /auth if not)
-    → Calls create-checkout edge function
-    → Returns Stripe checkout URL
-    → User completes payment on Stripe
-    → check-subscription detects active sub on next poll
-    → UI updates to show Premium badge
-
-Files to create:
-  src/pages/Auth.tsx
-  src/contexts/AuthContext.tsx
-  supabase/config.toml
-  supabase/functions/check-subscription/index.ts
-  supabase/functions/create-checkout/index.ts
-  supabase/functions/customer-portal/index.ts
-
-Files to modify:
-  src/App.tsx (add AuthProvider wrapper + /auth route)
-  src/components/SiteNav.tsx (auth-aware nav)
-  src/pages/Pricing.tsx (Stripe checkout for middle tier)
-```
+### Technical approach
+- No new dependencies needed (framer-motion already installed)
+- No marquee component needed — switch to static masonry with scroll reveal
+- Lightbox stays the same (AnimatePresence + motion)
 
