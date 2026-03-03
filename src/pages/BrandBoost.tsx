@@ -1,19 +1,26 @@
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import SiteNav from '@/components/SiteNav';
 import SiteFooter from '@/components/SiteFooter';
+import { Globe, Code, TrendingUp, Palette, Search, Users } from 'lucide-react';
 
 const CALENDLY_URL = 'https://calendly.com/stackmode';
 
-const tickerItems = ['Custom Websites', 'AI Automation', 'SEO Strategy', 'Content Monetization', 'Brand Identity', 'Limited Spots Available'];
+const anim = (i: number) => ({
+  initial: { opacity: 0, y: 16 } as const,
+  whileInView: { opacity: 1, y: 0 } as const,
+  viewport: { once: true } as const,
+  transition: { delay: i * 0.06 },
+});
 
 const services = [
-  { num: '01', title: 'Custom Website', desc: 'No more Linktree. A fully designed, professional website built for your brand — mobile-first, fast, SEO-ready, and built to convert visitors into clients.' },
-  { num: '02', title: 'Content Monetization Plan', desc: 'A complete roadmap to turn your content into revenue — digital products, offers, funnels, and pricing strategy aligned to your audience and goals.' },
-  { num: '03', title: 'AI Systems & Automation', desc: 'Custom AI workflows built for your business — automated lead nurturing, content generation pipelines, booking flows, and tools that run 24/7 without you.' },
-  { num: '04', title: 'Custom Dashboards', desc: 'If you need it, Christopher builds it — analytics dashboards, client portals, booking tools, membership platforms, or any custom web app your business requires.' },
-  { num: '05', title: 'SEO & Traffic Strategy', desc: 'Keyword research, on-page optimization, metadata, schema markup, and a content calendar designed to drive organic traffic that converts into real revenue.' },
-  { num: '06', title: '1-on-1 Strategy Sessions', desc: 'Direct access to Christopher for personalized business strategy, growth planning, and execution support.' },
+  { icon: Globe, title: 'Custom Website', desc: 'Mobile-first, fast, SEO-ready — built to convert visitors into clients.', span: 'md:col-span-2' },
+  { icon: TrendingUp, title: 'Content Monetization', desc: 'Digital products, offers, funnels, and pricing strategy for your audience.', span: 'md:col-span-1' },
+  { icon: Code, title: 'AI Systems & Automation', desc: 'Automated lead nurturing, content pipelines, booking flows that run 24/7.', span: 'md:col-span-1' },
+  { icon: Palette, title: 'Custom Dashboards', desc: 'Analytics dashboards, client portals, membership platforms — anything you need.', span: 'md:col-span-1' },
+  { icon: Search, title: 'SEO & Traffic Strategy', desc: 'Keyword research, schema markup, and content calendars that drive organic traffic.', span: 'md:col-span-1' },
+  { icon: Users, title: '1-on-1 Strategy', desc: 'Direct access to Christopher for business strategy and execution support.', span: 'md:col-span-2' },
 ];
 
 const BrandBoost = () => (
@@ -27,50 +34,73 @@ const BrandBoost = () => (
     <SiteNav />
 
     {/* Hero */}
-    <section className="section text-center" style={{ paddingTop: 120 }}>
-      <div className="container" style={{ maxWidth: 700 }}>
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-          <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6"
-            style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.7)' }}>
-            Limited Availability
-          </span>
-          <h1 className="text-4xl sm:text-6xl mb-4" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, lineHeight: 1.1 }}>
-            Delete the Linktree.<br />Get a Real Brand.
-          </h1>
-          <p className="text-base sm:text-lg mb-8" style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>
-            Christopher Robinson builds your complete digital presence — custom website, content monetization plan, AI systems, and revenue strategy. One person. Full execution.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary btn-lg">Book Your Free Strategy Call</a>
-            <a href="#included" className="btn-glass btn-lg">See What's Included</a>
-          </div>
-        </motion.div>
-      </div>
+    <section className="relative min-h-[80vh] flex flex-col items-center justify-center text-center px-4 pt-20 pb-12">
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-2xl">
+        <span className="inline-block px-4 py-1.5 rounded-full text-xs font-medium tracking-wider mb-6"
+          style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.6)' }}>
+          Limited Availability
+        </span>
+        <h1 className="text-4xl sm:text-6xl mb-4" style={{ fontWeight: 600, lineHeight: 1.1, letterSpacing: '-0.02em' }}>
+          Delete the Linktree.<br />Get a Real Brand.
+        </h1>
+        <p className="text-base sm:text-lg mb-8" style={{ color: 'rgba(255,255,255,0.55)', lineHeight: 1.6 }}>
+          Custom website, content monetization plan, AI systems, and revenue strategy. One person. Full execution.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary btn-lg">Book Your Free Strategy Call</a>
+          <a href="#included" className="btn-glass btn-lg">See what's included</a>
+        </div>
+      </motion.div>
     </section>
 
-
-    {/* Everything Included */}
+    {/* Bento Services Grid */}
     <section id="included" className="section">
       <div className="container">
         <div className="section-header">
-          <p className="section-header__eyebrow">Everything Included</p>
-          <p className="section-header__subtitle">This is the full-stack brand build — not a consultation, not a template.</p>
+          <p className="section-header__eyebrow">Everything included</p>
+          <p className="section-header__subtitle">Not a consultation. Not a template. A full-stack brand build.</p>
         </div>
-        <div className="grid-3">
-          {services.map((s, i) => (
-            <motion.div key={s.num}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-              className="glass-card relative"
-            >
-              <div className="absolute top-4 left-4 text-4xl font-bold" style={{ color: 'rgba(255,255,255,0.04)', fontFamily: "'Barlow Condensed', sans-serif" }}>
-                {s.num}
-              </div>
-              <div className="pt-10">
-                <h3 className="text-lg mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>{s.title}</h3>
-                <p className="text-sm" style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>{s.desc}</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          {services.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <motion.div
+                key={s.title}
+                {...anim(i)}
+                className={`relative overflow-hidden rounded-xl border border-white/[0.08] bg-[#0a0a0a] p-6 sm:p-8 group hover:border-white/20 transition-colors ${s.span}`}
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-white/[0.06] flex items-center justify-center">
+                    <Icon className="w-5 h-5 text-white/60" />
+                  </div>
+                </div>
+                <h3 className="text-xl mb-2" style={{ fontWeight: 600 }}>{s.title}</h3>
+                <p className="text-sm" style={{ color: 'rgba(255,255,255,0.55)', lineHeight: 1.6 }}>{s.desc}</p>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+
+    {/* Client Showcase Proof */}
+    <section className="section section--glass">
+      <div className="container">
+        <div className="section-header">
+          <p className="section-header__eyebrow">Recent Builds</p>
+          <h2 className="section-header__title">Built by Christopher</h2>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {[
+            { img: '/images/showcase/client-jd.png', name: 'Swole JD — Fitness' },
+            { img: '/images/showcase/client-legacy.png', name: 'True Legacy — Business' },
+            { img: '/images/showcase/client-7uvhavin.png', name: '7uvhavin — Music' },
+            { img: '/images/showcase/client-ceoturbo.png', name: 'CEO Turbo — Growth' },
+          ].map((item, i) => (
+            <motion.div key={item.name} {...anim(i)} className="relative group overflow-hidden rounded-xl border border-white/[0.08]">
+              <img src={item.img} alt={item.name} className="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                <span className="text-sm font-medium">{item.name}</span>
               </div>
             </motion.div>
           ))}
@@ -78,27 +108,18 @@ const BrandBoost = () => (
       </div>
     </section>
 
-    {/* Urgency CTA */}
-    <section className="section text-center section--glass">
+    {/* CTA */}
+    <section className="section text-center">
       <div className="container" style={{ maxWidth: 700 }}>
-        <h2 className="section-header__title">Your Brand Is Losing Money Every Day</h2>
-        <p className="text-base mb-8" style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>
-          You have the traffic, you have the attention, but you are leaving revenue on the table because your systems aren't optimized. Let's fix that.
+        <h2 className="section-header__title">Your brand is losing money every day</h2>
+        <p className="text-base mb-8" style={{ color: 'rgba(255,255,255,0.55)', lineHeight: 1.6 }}>
+          You have the traffic and attention, but you're leaving revenue on the table. Let's fix that.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary btn-lg">Book Your Free Call →</a>
-          <a href="#included" className="btn-glass btn-lg">See What's Included</a>
+          <a href="#included" className="btn-glass btn-lg">See what's included</a>
         </div>
         <p className="text-xs mt-4" style={{ color: 'rgba(255,255,255,0.3)' }}>No obligation · Free 30-min call · Limited spots</p>
-      </div>
-    </section>
-
-    {/* Calendly Section */}
-    <section className="section text-center">
-      <div className="container" style={{ maxWidth: 700 }}>
-        <h2 className="section-header__title">Book Your Free Strategy Call</h2>
-        <p className="section-header__subtitle mb-8">Pick a time that works for you. Christopher will review your brand and map out a personalized build plan — no obligation.</p>
-        <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary btn-lg">Book a Call →</a>
       </div>
     </section>
 
