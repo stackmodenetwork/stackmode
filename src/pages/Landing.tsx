@@ -64,7 +64,7 @@ const PromptPreview = memo(() => {
       <div className="flex gap-2 mb-0 overflow-x-auto scrollbar-hide">
         {promptTabs.map((tab, i) => (
           <button key={i} onClick={() => setActive(i)}
-            className="px-4 py-2 text-xs font-semibold uppercase tracking-wider whitespace-nowrap rounded-t-lg transition-colors"
+            className="px-4 py-2 text-xs font-medium tracking-wider whitespace-nowrap rounded-t-lg transition-colors"
             style={{ background: i === active ? '#111' : 'transparent', color: i === active ? '#fff' : 'rgba(255,255,255,0.4)', borderTop: i === active ? '1px solid rgba(255,255,255,0.1)' : '1px solid transparent', borderLeft: i === active ? '1px solid rgba(255,255,255,0.1)' : '1px solid transparent', borderRight: i === active ? '1px solid rgba(255,255,255,0.1)' : '1px solid transparent', borderBottom: 'none' }}>
             {tab.label}
           </button>
@@ -81,7 +81,7 @@ const PromptPreview = memo(() => {
           {displayed}<span className="inline-block w-0.5 h-4 ml-0.5 animate-pulse bg-white" />
         </p>
         <div className="flex items-center justify-between mt-4 pt-3" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-          <span className="text-[10px] uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.3)' }}>AI Generated Output</span>
+          <span className="text-[10px] tracking-wider" style={{ color: 'rgba(255,255,255,0.3)' }}>AI Generated Output</span>
           <Link to="/shop" className="text-xs font-semibold text-white hover:underline">Get This Prompt →</Link>
         </div>
       </div>
@@ -95,8 +95,8 @@ const ShowcaseCard = ({ img, badge, title, sub }: { img: string; badge: string; 
   <div className="glass-card overflow-hidden p-0">
     <img src={img} alt={title} className="w-full h-48 object-cover" loading="lazy" />
     <div className="p-4">
-      <span className="text-[10px] uppercase tracking-wider mb-2 inline-block" style={{ color: 'rgba(255,255,255,0.5)' }}>{badge}</span>
-      <h3 className="text-lg mb-1" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>{title}</h3>
+      <span className="text-[10px] tracking-wider mb-2 inline-block" style={{ color: 'rgba(255,255,255,0.5)' }}>{badge}</span>
+      <h3 className="text-lg mb-1" style={{ fontWeight: 600 }}>{title}</h3>
       <p className="text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>{sub}</p>
     </div>
   </div>
@@ -138,7 +138,7 @@ const Landing = () => (
       <motion.img initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6 }}
         src="/images/sm-logo-new.png" alt="Stackmode Logo" className="w-16 h-16 sm:w-20 sm:h-20 rounded-full mb-6" />
       <motion.h2 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-        className="text-4xl sm:text-6xl md:text-7xl mb-4" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, lineHeight: 1.1 }}>
+        className="text-4xl sm:text-6xl md:text-7xl mb-4" style={{ fontWeight: 600, lineHeight: 1.1, letterSpacing: '-0.02em' }}>
         Master AI. Stack Assets.<br />Build Wealth.
       </motion.h2>
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}
@@ -189,9 +189,9 @@ const Landing = () => (
             { num: '03', title: 'Write Like a Pro', desc: 'AI-powered copywriting for ads, emails, landing pages, and social media.', items: ['Email sequences that convert', 'Ad copy that stops the scroll', 'Landing pages that close deals'], link: '/shop', cta: 'Learn Copy' },
           ].map((p, i) => (
             <motion.div key={p.num} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="glass-card relative">
-              <div className="absolute top-4 left-4 text-5xl font-bold" style={{ color: 'rgba(255,255,255,0.05)', fontFamily: "'Barlow Condensed', sans-serif" }}>{p.num}</div>
+              <div className="absolute top-4 left-4 text-5xl font-bold" style={{ color: 'rgba(255,255,255,0.05)' }}>{p.num}</div>
               <div className="pt-12">
-                <h3 className="text-xl mb-2" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>{p.title}</h3>
+                <h3 className="text-xl mb-2" style={{ fontWeight: 600 }}>{p.title}</h3>
                 <p className="text-sm mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>{p.desc}</p>
                 <div className="flex flex-col gap-2 mb-6">
                   {p.items.map(item => (
@@ -219,14 +219,14 @@ const Landing = () => (
         <div className="grid-3">
           {brandCards.map((card, i) => (
             <motion.div key={card.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }} className="glass-card text-center">
-              <h3 className="text-lg mb-2" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 500 }}>{card.title}</h3>
-              <p className="text-sm mb-3" style={{ color: 'rgba(255,255,255,0.6)', fontFamily: "'Space Grotesk', sans-serif" }}>{card.desc}</p>
-              <p className="text-[10px] uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.3)' }}>{card.tools}</p>
+              <h3 className="text-lg mb-2" style={{ fontWeight: 500 }}>{card.title}</h3>
+              <p className="text-sm mb-3" style={{ color: 'rgba(255,255,255,0.6)' }}>{card.desc}</p>
+              <p className="text-[10px] tracking-wider" style={{ color: 'rgba(255,255,255,0.3)' }}>{card.tools}</p>
             </motion.div>
           ))}
         </div>
         <div className="text-center mt-8 glass-card" style={{ maxWidth: 600, margin: '2rem auto 0' }}>
-          <h3 className="text-lg mb-2" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>Why Stackmode Prompts Are Different</h3>
+          <h3 className="text-lg mb-2" style={{ fontWeight: 600 }}>Why Stackmode Prompts Are Different</h3>
           <p className="text-sm" style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>
             Generic AI prompts produce generic results. Every Stackmode prompt includes [bracket variables] for your brand name, color, audience, tone, and platform — so no two outputs look the same.
           </p>
@@ -240,8 +240,8 @@ const Landing = () => (
       <div className="container">
         <div className="section-header">
           <p className="section-header__eyebrow">Client Work</p>
-          <h2 className="section-header__title" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Websites We've Built</h2>
-          <p className="section-header__subtitle" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Real clients. Real results. Built by Christopher Robinson.</p>
+          <h2 className="section-header__title" style={{ letterSpacing: '0.05em', textTransform: 'uppercase' }}>Websites We've Built</h2>
+          <p className="section-header__subtitle">Real clients. Real results. Built by Christopher Robinson.</p>
         </div>
       </div>
       <ImageAutoSlider
@@ -258,7 +258,7 @@ const Landing = () => (
     {/* DONE FOR YOU BRIDGE */}
     <section className="section text-center section--glass">
       <div className="container" style={{ maxWidth: 700 }}>
-        <p className="text-xs uppercase tracking-widest mb-3" style={{ color: 'rgba(255,255,255,0.4)' }}>Done For You</p>
+        <p className="text-xs tracking-widest mb-3" style={{ color: 'rgba(255,255,255,0.4)' }}>Done For You</p>
         <h2 className="section-header__title">Want us to build it for you?</h2>
         <p className="text-base mb-8" style={{ color: 'rgba(255,255,255,0.6)' }}>
           Skip the learning curve. We'll build your AI systems, funnels, and brand identity giving you a completely finished, revenue-ready business.
@@ -275,7 +275,7 @@ const Landing = () => (
       <div className="container">
         <div className="grid-2" style={{ alignItems: 'center' }}>
           <div>
-            <p className="text-xs uppercase tracking-widest mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Stackmode Academy</p>
+            <p className="text-xs tracking-widest mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Stackmode Academy</p>
             <h2 className="section-header__title" style={{ textAlign: 'left' }}>
               Learn the exact frameworks I use to stack assets, automate trading, and dominate AI.
             </h2>
@@ -288,9 +288,9 @@ const Landing = () => (
           </div>
           <div>
             <div className="glass-card">
-              <p className="text-xs uppercase tracking-widest mb-3" style={{ color: 'rgba(255,255,255,0.4)' }}>Brand Boost</p>
+              <p className="text-xs tracking-widest mb-3" style={{ color: 'rgba(255,255,255,0.4)' }}>Brand Boost</p>
               <p className="text-sm mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>1-on-1 AI system builds, SEO, and website optimization for your business.</p>
-              <h3 className="text-lg mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>What You Get</h3>
+              <h3 className="text-lg mb-3" style={{ fontWeight: 600 }}>What You Get</h3>
               <div className="boost-checklist">
                 <span className="boost-checklist__item">Custom AI system for your business</span>
                 <span className="boost-checklist__item">Complete website design & development</span>
@@ -298,7 +298,7 @@ const Landing = () => (
                 <span className="boost-checklist__item">1-on-1 strategy calls with Christopher</span>
               </div>
               <div className="mt-4 pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-                <p className="text-xs mb-1" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 16 }}>Real Results</p>
+                <p className="text-xs mb-1" style={{ fontWeight: 600, fontSize: 16 }}>Real Results</p>
                 <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>
                   <span>340% traffic increase</span>
                   <span>12x more booked calls</span>
