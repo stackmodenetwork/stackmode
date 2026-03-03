@@ -1,19 +1,47 @@
 
 
-## Plan: Add IconHover3D Component to Library Page
+## Plan: Update Pricing Page + Set Up Stripe Payments
 
-### What changes
+This is a two-part task. Part 1 is straightforward. Part 2 requires infrastructure setup first.
 
-1. **Create `src/components/ui/icon-3d-hover.tsx`** -- Copy the provided IconHover3D component. Note: the provided JSX has empty/incomplete rendering (motion divs with no content). I will adapt it into a working 3D hover card with the cube animation concept, using proper framer-motion syntax that actually renders visible elements (the provided code has many empty `<motion.div>` tags with only comments).
+---
 
-2. **Update `src/pages/Library.tsx`** -- Remove the "Core Philosophy Carousel" section (lines 68-104: the quote carousel with dots) and replace it with a section using the IconHover3D component. The component will display "Library" as the heading and a description about the books/resources collection, serving as the page's intro element instead of the rotating quotes.
+### Part 1: Pricing Page Text Updates
 
-3. **No new dependencies needed** -- `framer-motion` is already installed.
+**File: `src/pages/Pricing.tsx`** -- Only this file changes. No other pages touched.
 
-### Technical details
+Changes to the `tiers` array (line 13-18):
+- `name`: "Full Academy" → "Stackmode Architect"
+- `price`: "$29" → "$20"
+- `cta`: "Get Started" → "Get Access -- $20/mo"
+- `href`: Will point to Stripe checkout (not Whop) once Stripe is wired
 
-- The provided component's JSX is largely skeleton/empty divs. I will implement the intended 3D cube hover effect with actual visible faces, border animations, and the heading fill-on-hover effect described in the code's variant logic.
-- The component will use CSS `transform-style: preserve-3d` for the cube, with `rotateX`/`rotateY` animations on hover.
-- The heading uses a clip-path fill animation: white text becomes black as a white background slides left-to-right on hover.
-- Colors adapted to the Stackmode palette (white/black instead of purple).
+Changes to comparison table header (line 97):
+- "Stackmode $29" → "Architect $20"
+
+**File: `src/components/academy/AcademyPricing.tsx`** -- Update references:
+- Heading: "Join Stackmode Academy Today" → "Join Stackmode Architect Today"
+- Card heading: "STACKMODE ACADEMY MEMBERSHIP" → "STACKMODE ARCHITECT"
+- Price: "$50" → "$20"
+- Button: "Join Academy Now -- $50/month" → "Get Access -- $20/mo"
+
+---
+
+### Part 2: Stripe + Supabase Integration
+
+**Blocker: No Supabase or Stripe is connected to this project yet.**
+
+Before any backend code can be written, we need:
+
+1. **Enable Lovable Cloud (or connect external Supabase)** -- This gives us a database for the `profiles` table, auth, and edge functions. Without this, there is no backend.
+
+2. **Enable Stripe** -- This collects your Stripe secret key and makes the Stripe tools available to create the product, price, webhooks, and edge functions.
+
+**Recommended order:**
+1. I update the pricing page text now (Part 1)
+2. You enable Cloud/Supabase from the Cloud tab
+3. You enable Stripe (I'll use the Stripe tool which will prompt you for your secret key)
+4. Then I create the profiles table, edge functions (stripe-webhook, create-checkout-session, create-portal-session), and wire the checkout button
+
+**Want me to proceed with Part 1 (the text updates) now, and then we tackle Stripe + Supabase as the next step?**
 
