@@ -11,10 +11,10 @@ const tiers = [
     cta: 'Browse Shop', href: '/shop', external: false, featured: false,
   },
   {
-    label: 'Stackmode', name: 'Full Academy', price: '$29', cadence: '/mo',
+    label: 'Stackmode', name: 'Stackmode Architect', price: '$20', cadence: '/mo',
     tagline: 'Everything you need to build with AI and trade smarter.',
     benefits: ['Full AI Prompt Library', 'Stackfinder AI Scanner', 'All Academy courses', 'Weekly live coaching', 'Discord (All channels)'],
-    cta: 'Get Started', href: 'https://whop.com/stackmode-academy/educationalservice/', external: true, featured: true, badge: 'Most Popular',
+    cta: 'Get Access — $20/mo', href: 'https://whop.com/stackmode-academy/educationalservice/', external: true, featured: true, badge: 'Most Popular',
   },
   {
     label: 'CEO', name: 'Brand Boost', price: 'Custom', cadence: '',
@@ -94,7 +94,7 @@ const Pricing = () => (
                 <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
                   <th className="px-4 sm:px-6 py-3 text-xs font-semibold uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.4)' }}>Feature</th>
                   <th className="px-4 py-3 text-xs font-bold uppercase tracking-widest text-white">Free</th>
-                  <th className="px-4 py-3 text-xs font-bold uppercase tracking-widest text-white" style={{ background: 'rgba(255,255,255,0.03)' }}>Stackmode $29</th>
+                  <th className="px-4 py-3 text-xs font-bold uppercase tracking-widest text-white" style={{ background: 'rgba(255,255,255,0.03)' }}>Architect $20</th>
                   <th className="px-4 py-3 text-xs font-bold uppercase tracking-widest text-white">CEO</th>
                 </tr>
               </thead>
