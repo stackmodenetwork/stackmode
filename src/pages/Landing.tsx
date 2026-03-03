@@ -267,16 +267,16 @@ const Landing = () =>
     </section>
 
     {/* FINAL CTA */}
-    <section className="section text-center">
-      <div className="container" style={{ maxWidth: 600 }}>
-        <h2 className="section-header__title">Ready to Stack Smarter?</h2>
-        <p className="section-header__subtitle mb-8">Join thousands of creators, traders, and entrepreneurs building wealth with AI.</p>
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <Link to="/academy" className="btn-primary btn-lg">Join the Academy →</Link>
-          <Link to="/shop" className="btn-glass btn-lg">Browse Prompts →</Link>
-        </div>
-      </div>
-    </section>
+    
+
+
+
+
+
+
+
+
+  
 
     <SiteFooter />
   </div>;
