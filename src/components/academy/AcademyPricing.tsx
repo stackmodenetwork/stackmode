@@ -24,7 +24,7 @@ export const AcademyPricing = () => (
         className="text-center mb-8"
       >
         <h2 className="text-2xl sm:text-4xl font-bold text-foreground mb-2">
-          Join Stackmode Architect Today
+          Join Stackmode Academy Today
         </h2>
       </motion.div>
 
@@ -38,10 +38,10 @@ export const AcademyPricing = () => (
         <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/10 rounded-full blur-3xl" />
 
         <div className="relative z-10">
-          <h3 className="text-lg font-bold text-foreground mb-1">STACKMODE ARCHITECT</h3>
+          <h3 className="text-lg font-bold text-foreground mb-1">STACKMODE ACADEMY MEMBERSHIP</h3>
           <div className="flex items-baseline gap-1 mb-1">
-            <span className="text-4xl sm:text-5xl font-bold text-foreground">$20</span>
-            <span className="text-muted-foreground text-sm">/ month</span>
+            <span className="text-4xl sm:text-5xl font-bold text-foreground">$50</span>
+            <span className="text-muted-foreground text-sm">/month</span>
           </div>
           <p className="text-xs text-muted-foreground mb-6">Billed Monthly · Cancel Anytime</p>
 
@@ -61,7 +61,7 @@ export const AcademyPricing = () => (
             className="flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-bold w-full py-4 rounded-xl transition-all text-sm shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-[1.01]"
           >
             <GraduationCap size={18} />
-            Get Access — $20/mo
+            Join Academy Now — $50/month
           </a>
 
           <div className="flex items-center justify-center gap-2 mt-4">

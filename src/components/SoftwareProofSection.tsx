@@ -101,7 +101,7 @@ export const SoftwareProofSection = ({ variant }: SoftwareProofSectionProps) => 
             {/* CTA */}
             <div className="flex flex-wrap gap-3">
               <a
-                href="https://calendly.com/stackmodechris/turboboost"
+                href="https://calendly.com/stackmodechris/architecture"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`inline-flex items-center gap-2 ${isHome ? 'bg-emerald-500 hover:bg-emerald-400' : 'bg-cyan-500 hover:bg-cyan-400'} text-background font-bold px-6 py-3 rounded-xl transition-all`}

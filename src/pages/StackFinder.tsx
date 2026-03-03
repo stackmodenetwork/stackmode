@@ -287,7 +287,7 @@ const StackFinder = () => (
           <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
           <path d="M7 11V7a5 5 0 0 1 10 0v4" />
         </svg>
-        <h3 className="text-2xl sm:text-3xl font-bold text-foreground uppercase mb-2 font-heading">Unlock Premium Stackfinder</h3>
+        <h3 className="text-2xl sm:text-3xl font-bold text-foreground uppercase mb-2" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>Unlock Premium Stackfinder</h3>
         <p className="text-sm text-muted-foreground mb-6 leading-relaxed">Get AI stack scores, buy/sell signals, sector fit ratings, and your personalized asset roadmap.</p>
         <ul className="text-left space-y-3 mb-6">
           {['Full AI Stack Score Breakdown', 'Personalized Asset Roadmap', 'Real-Time Signal Alerts'].map(f => (

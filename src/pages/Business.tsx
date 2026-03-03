@@ -57,7 +57,7 @@ const Business = () => {
               <ArrowRight size={18} />
             </a>
             <a
-              href="https://calendly.com/stackmodechris/turboboost"
+              href="https://calendly.com/stackmodechris/architecture"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-violet-500 hover:bg-violet-400 text-white font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-violet-500/20"
@@ -100,7 +100,7 @@ const Business = () => {
         <div className="max-w-2xl mx-auto">
           <ScrollReveal>
             <a
-              href="https://calendly.com/stackmodechris/turboboost"
+              href="https://calendly.com/stackmodechris/architecture"
               target="_blank"
               rel="noopener noreferrer"
               className="group block bg-violet-500/10 border-2 border-violet-500/30 rounded-xl p-6 hover:border-violet-400 transition-all text-center"

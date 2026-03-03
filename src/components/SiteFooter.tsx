@@ -8,7 +8,7 @@ export const SiteFooter = memo(() => (
         <div className="col-span-2 md:col-span-1">
           <div className="flex items-center gap-2 mb-3">
             <img src="/images/sm-logo-new.png" alt="Stackmode" className="w-7 h-7 rounded-full" loading="lazy" />
-            <span className="text-base font-bold tracking-wider uppercase font-heading">STACKMODE</span>
+            <span className="text-base font-bold tracking-wider uppercase" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>STACKMODE</span>
           </div>
           <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
             AI software, trading strategies, and asset stacking education by Christopher Robinson, CEO.

@@ -23,7 +23,7 @@ export const DualCallCTA = ({ className = '' }: DualCallCTAProps) => {
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <motion.a 
-            href="https://calendly.com/stackmodechris/turboboost" 
+            href="https://calendly.com/stackmodechris/architecture" 
             target="_blank" 
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
