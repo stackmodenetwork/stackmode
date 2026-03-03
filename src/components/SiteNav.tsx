@@ -2,6 +2,7 @@ import { useState, memo, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronRight, BookOpen } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useAuth } from '@/contexts/AuthContext';
 
 const navLinks = [
   {
@@ -22,6 +23,7 @@ export const SiteNav = memo(() => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
+  const { user } = useAuth();
 
   useEffect(() => { setOpen(false); setDropdownOpen(false); }, [location.pathname]);
 
@@ -96,14 +98,22 @@ export const SiteNav = memo(() => {
           })}
         </div>
 
-        {/* Right: Auth buttons (placeholder — no auth yet) */}
+        {/* Right: Auth buttons */}
         <div className="hidden lg:flex items-center gap-2">
-          <Link to="/login" className="px-4 py-1.5 text-[11px] uppercase tracking-[0.15em] text-white/60 hover:text-white transition-colors border border-transparent hover:border-white/20" style={{ fontFamily: "'DM Mono', monospace", borderRadius: 2 }}>
-            Login
-          </Link>
-          <Link to="/pricing" className="px-4 py-1.5 text-[11px] uppercase tracking-[0.15em] bg-white text-black font-bold transition-colors hover:bg-white/90" style={{ fontFamily: "'DM Mono', monospace", borderRadius: 2 }}>
-            Get Started
-          </Link>
+          {user ? (
+            <Link to="/dashboard" className="px-4 py-1.5 text-[11px] uppercase tracking-[0.15em] bg-white text-black font-bold transition-colors hover:bg-white/90" style={{ fontFamily: "'DM Mono', monospace", borderRadius: 2 }}>
+              Dashboard
+            </Link>
+          ) : (
+            <>
+              <Link to="/auth" className="px-4 py-1.5 text-[11px] uppercase tracking-[0.15em] text-white/60 hover:text-white transition-colors border border-transparent hover:border-white/20" style={{ fontFamily: "'DM Mono', monospace", borderRadius: 2 }}>
+                Login
+              </Link>
+              <Link to="/pricing" className="px-4 py-1.5 text-[11px] uppercase tracking-[0.15em] bg-white text-black font-bold transition-colors hover:bg-white/90" style={{ fontFamily: "'DM Mono', monospace", borderRadius: 2 }}>
+                Get Started
+              </Link>
+            </>
+          )}
         </div>
 
         {/* Mobile hamburger */}
@@ -137,10 +147,17 @@ export const SiteNav = memo(() => {
               </div>
             ))}
             <div className="flex flex-col gap-3 mt-8 w-64">
-              <Link to="/login" onClick={() => setOpen(false)}
-                className="btn-glass text-center text-sm">Login</Link>
-              <Link to="/pricing" onClick={() => setOpen(false)}
-                className="btn-primary text-center text-sm">Get Started</Link>
+              {user ? (
+                <Link to="/dashboard" onClick={() => setOpen(false)}
+                  className="btn-primary text-center text-sm">Dashboard</Link>
+              ) : (
+                <>
+                  <Link to="/auth" onClick={() => setOpen(false)}
+                    className="btn-glass text-center text-sm">Login</Link>
+                  <Link to="/pricing" onClick={() => setOpen(false)}
+                    className="btn-primary text-center text-sm">Get Started</Link>
+                </>
+              )}
             </div>
           </div>
         </div>
