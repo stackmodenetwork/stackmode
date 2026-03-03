@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import SiteNav from '@/components/SiteNav';
 import SiteFooter from '@/components/SiteFooter';
 import TrustBar from '@/components/TrustBar';
+import { FocusCards } from '@/components/ui/focus-cards';
 import { useState, useEffect, memo } from 'react';
 
 /* ═══ TYPEWRITER ═══ */
@@ -239,17 +240,15 @@ const Landing = () => (
     <section className="section">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-header__title">Verified Results</h2>
+          <h2 className="section-header__title">Websites We've Built</h2>
           <p className="section-header__subtitle">Real clients. Real results. Built by Christopher Robinson.</p>
         </div>
-        <div className="grid-3">
-          <ShowcaseCard img="https://ceoturbo.com/wp-content/uploads/2025/01/Untitled-design-3.png" badge="500+ views in 3 days" title="SWOLE JD" sub="Fitness & Coaching" />
-          <ShowcaseCard img="https://ceoturbo.com/wp-content/uploads/2025/01/Untitled-design-4.png" badge="$100K+ revenue" title="Stackmode Academy" sub="AI Education Platform" />
-          <ShowcaseCard img="https://ceoturbo.com/wp-content/uploads/2025/01/Untitled-design-5.png" badge="12x more booked calls" title="ZAHPHYSIQUE" sub="Health & Wellness" />
-          <ShowcaseCard img="https://ceoturbo.com/wp-content/uploads/2025/02/Screenshot-2025-02-09-213223.png" badge="340% traffic increase" title="TRUE LEGACY" sub="Global Business Launch" />
-          <ShowcaseCard img="https://ceoturbo.com/wp-content/uploads/2024/12/Screenshot-2024-12-16-170752-1.png" badge="Professional authority" title="TRUE LEGACY GLOBAL" sub="Wellness Enterprise" />
-          <ShowcaseCard img="https://ceoturbo.com/wp-content/uploads/2024/12/Screenshot-2024-12-25-035858.png" badge="1,000+ followers gained" title="7UVHAVIN" sub="Music & Entertainment" />
-        </div>
+        <FocusCards cards={[
+          { title: "SWOLE JD — Fitness & Coaching", src: "/images/showcase/client-jd.png" },
+          { title: "True Legacy — Global Business", src: "/images/showcase/client-legacy.png" },
+          { title: "7UVHAVIN — Music & Entertainment", src: "/images/showcase/client-7uvhavin.png" },
+          { title: "CEO Turbo — Growth Platform", src: "/images/showcase/client-ceoturbo.png" },
+        ]} />
       </div>
     </section>
 
