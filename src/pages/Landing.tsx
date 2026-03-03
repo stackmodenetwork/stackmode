@@ -186,7 +186,7 @@ const Landing = () =>
 
     <ToolsLogoGrid />
 
-    <BrandShowcaseBento />
+    
 
     {/* CLIENT SHOWCASE */}
     <section className="section">
