@@ -71,7 +71,7 @@ const Pricing = () => {
                       {tier.badge}
                     </div>
                   )}
-                  <p className="text-xs uppercase tracking-widest mb-1" style={{ color: 'rgba(255,255,255,0.4)' }}>{tier.label}</p>
+                  
                   <h3 className="text-xl mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>{tier.name}</h3>
                   <div className="flex items-baseline gap-1 mb-2">
                     <span className="text-4xl font-bold" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>{tier.price}</span>
