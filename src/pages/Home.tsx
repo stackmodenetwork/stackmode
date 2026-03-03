@@ -83,7 +83,7 @@ const Academy = () =>
         className="glass-card text-center">
           
               <div className="text-3xl mb-3">{f.icon}</div>
-              <h3 className="text-lg mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>{f.title}</h3>
+              <h3 className="text-lg mb-3 font-heading font-bold">{f.title}</h3>
               <div className="flex flex-col gap-1">
                 {f.items.map((item) =>
             <span key={item} className="text-sm" style={{ color: 'rgba(255,255,255,0.6)' }}>{item}</span>
@@ -111,10 +111,10 @@ const Academy = () =>
         transition={{ delay: i * 0.15 }}
         className="glass-card relative">
           
-              <div className="absolute top-4 right-4 text-5xl font-bold" style={{ color: 'rgba(255,255,255,0.04)', fontFamily: "'Barlow Condensed', sans-serif" }}>
+              <div className="absolute top-4 right-4 text-5xl font-bold font-heading" style={{ color: 'rgba(255,255,255,0.04)' }}>
                 {track.num}
               </div>
-              <h3 className="text-2xl mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>{track.title}</h3>
+              <h3 className="text-2xl mb-3 font-heading font-bold">{track.title}</h3>
               <p className="text-sm mb-5" style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>{track.desc}</p>
               <div className="flex flex-col gap-2 mb-6">
                 {track.items.map((item) =>

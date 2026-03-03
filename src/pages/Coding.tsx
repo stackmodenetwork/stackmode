@@ -57,7 +57,7 @@ const Coding = () => {
             className="flex justify-center"
           >
             <a
-              href="https://calendly.com/stackmodechris/architecture"
+              href="https://calendly.com/stackmodechris/turboboost"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-cyan-500/20"

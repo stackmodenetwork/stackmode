@@ -93,7 +93,7 @@ const Library = () => {
                 </a>
                 <div className="flex-1 text-center sm:text-left">
                   <p className="text-xs uppercase tracking-widest mb-1" style={{ color: 'rgba(255,255,255,0.4)' }}>{book.title}</p>
-                  <h3 className="text-xl mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>{book.tagline}</h3>
+                  <h3 className="text-xl mb-3 font-heading font-bold">{book.tagline}</h3>
                   <div className="flex flex-col gap-2 mb-5">
                     {book.bullets.map(b => (
                       <span key={b} className="flex items-center gap-2 text-sm" style={{ color: 'rgba(255,255,255,0.7)' }}>
@@ -143,7 +143,7 @@ const Library = () => {
                 className="glass-card text-center"
               >
                 <div className="text-4xl mb-4">{r.icon}</div>
-                <h3 className="text-lg mb-2" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>{r.title}</h3>
+                <h3 className="text-lg mb-2 font-heading font-bold">{r.title}</h3>
                 <p className="text-sm mb-6" style={{ color: 'rgba(255,255,255,0.6)' }}>{r.desc}</p>
                 <a href={r.href} target="_blank" rel="noopener noreferrer" className="btn-glass btn-sm">{r.cta} →</a>
               </motion.div>

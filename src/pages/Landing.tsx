@@ -96,7 +96,7 @@ const ShowcaseCard = ({ img, badge, title, sub }: { img: string; badge: string; 
     <img src={img} alt={title} className="w-full h-48 object-cover" loading="lazy" />
     <div className="p-4">
       <span className="text-[10px] uppercase tracking-wider mb-2 inline-block" style={{ color: 'rgba(255,255,255,0.5)' }}>{badge}</span>
-      <h3 className="text-lg mb-1" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>{title}</h3>
+      <h3 className="text-lg mb-1 font-heading font-bold">{title}</h3>
       <p className="text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>{sub}</p>
     </div>
   </div>
@@ -138,7 +138,7 @@ const Landing = () => (
       <motion.img initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6 }}
         src="/images/sm-logo-new.png" alt="Stackmode Logo" className="w-16 h-16 sm:w-20 sm:h-20 rounded-full mb-6" />
       <motion.h2 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-        className="text-4xl sm:text-6xl md:text-7xl mb-4" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, lineHeight: 1.1 }}>
+        className="text-4xl sm:text-6xl md:text-7xl mb-4 font-heading font-bold" style={{ lineHeight: 1.1 }}>
         Master AI. Stack Assets.<br />Build Wealth.
       </motion.h2>
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}
@@ -189,9 +189,9 @@ const Landing = () => (
             { num: '03', title: 'Write Like a Pro', desc: 'AI-powered copywriting for ads, emails, landing pages, and social media.', items: ['Email sequences that convert', 'Ad copy that stops the scroll', 'Landing pages that close deals'], link: '/shop', cta: 'Learn Copy' },
           ].map((p, i) => (
             <motion.div key={p.num} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="glass-card relative">
-              <div className="absolute top-4 left-4 text-5xl font-bold" style={{ color: 'rgba(255,255,255,0.05)', fontFamily: "'Barlow Condensed', sans-serif" }}>{p.num}</div>
+              <div className="absolute top-4 left-4 text-5xl font-bold font-heading" style={{ color: 'rgba(255,255,255,0.05)' }}>{p.num}</div>
               <div className="pt-12">
-                <h3 className="text-xl mb-2" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>{p.title}</h3>
+                <h3 className="text-xl mb-2 font-heading font-bold">{p.title}</h3>
                 <p className="text-sm mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>{p.desc}</p>
                 <div className="flex flex-col gap-2 mb-6">
                   {p.items.map(item => (
@@ -226,7 +226,7 @@ const Landing = () => (
           ))}
         </div>
         <div className="text-center mt-8 glass-card" style={{ maxWidth: 600, margin: '2rem auto 0' }}>
-          <h3 className="text-lg mb-2" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>Why Stackmode Prompts Are Different</h3>
+          <h3 className="text-lg mb-2 font-heading font-bold">Why Stackmode Prompts Are Different</h3>
           <p className="text-sm" style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>
             Generic AI prompts produce generic results. Every Stackmode prompt includes [bracket variables] for your brand name, color, audience, tone, and platform — so no two outputs look the same.
           </p>
@@ -240,7 +240,7 @@ const Landing = () => (
       <div className="container">
         <div className="section-header">
           <p className="section-header__eyebrow">Client Work</p>
-          <h2 className="section-header__title" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Websites We've Built</h2>
+          <h2 className="section-header__title">Websites We've Built</h2>
           <p className="section-header__subtitle" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Real clients. Real results. Built by Christopher Robinson.</p>
         </div>
       </div>
@@ -265,7 +265,7 @@ const Landing = () => (
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link to="/brand-boost" className="btn-primary btn-lg">Explore Brand Boost</Link>
-          <a href="https://calendly.com/stackmode" target="_blank" rel="noopener noreferrer" className="btn-glass btn-lg">Book Discovery Call</a>
+          <a href="https://calendly.com/stackmodechris/turboboost" target="_blank" rel="noopener noreferrer" className="btn-glass btn-lg">Book Discovery Call</a>
         </div>
       </div>
     </section>
@@ -290,7 +290,7 @@ const Landing = () => (
             <div className="glass-card">
               <p className="text-xs uppercase tracking-widest mb-3" style={{ color: 'rgba(255,255,255,0.4)' }}>Brand Boost</p>
               <p className="text-sm mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>1-on-1 AI system builds, SEO, and website optimization for your business.</p>
-              <h3 className="text-lg mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>What You Get</h3>
+              <h3 className="text-lg mb-3 font-heading font-bold">What You Get</h3>
               <div className="boost-checklist">
                 <span className="boost-checklist__item">Custom AI system for your business</span>
                 <span className="boost-checklist__item">Complete website design & development</span>
@@ -298,7 +298,7 @@ const Landing = () => (
                 <span className="boost-checklist__item">1-on-1 strategy calls with Christopher</span>
               </div>
               <div className="mt-4 pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-                <p className="text-xs mb-1" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 16 }}>Real Results</p>
+                <p className="text-base mb-1 font-heading font-bold">Real Results</p>
                 <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>
                   <span>340% traffic increase</span>
                   <span>12x more booked calls</span>
@@ -318,7 +318,7 @@ const Landing = () => (
       <div className="container" style={{ maxWidth: 600 }}>
         <h2 className="section-header__title">Book a Call</h2>
         <p className="section-header__subtitle mb-8">Ready to start? Pick a time that works for you.</p>
-        <a href="https://calendly.com/stackmode" target="_blank" rel="noopener noreferrer" className="btn-primary btn-lg">Book a Call →</a>
+        <a href="https://calendly.com/stackmodechris/turboboost" target="_blank" rel="noopener noreferrer" className="btn-primary btn-lg">Book a Call →</a>
       </div>
     </section>
 

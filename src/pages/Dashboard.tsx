@@ -50,7 +50,7 @@ const Dashboard = () => {
 
           {isSubscribed && (
             <div className="rounded-xl border border-border bg-card p-6 space-y-4">
-              <h2 className="text-lg font-bold" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>Stackmode Architect</h2>
+              <h2 className="text-lg font-heading font-bold">Stackmode Architect</h2>
               <div className="flex justify-between text-sm">
                 <span className="text-muted-foreground">Access remaining</span>
                 <span className="font-bold">{daysLeft} days</span>
