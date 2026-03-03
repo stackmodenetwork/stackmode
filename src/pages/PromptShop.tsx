@@ -182,7 +182,7 @@ const PromptShop = () => {
                   {p.tier === 'free' ? (
                     <button className="btn-primary btn-sm w-full">Get Free Prompt →</button>
                   ) : (
-                    <a href={WHOP_URL} target="_blank" rel="noopener noreferrer" className="btn-glass btn-sm w-full text-center block">Unlock Premium →</a>
+                    <a href="/auth" className="btn-glass btn-sm w-full text-center block">Unlock Premium →</a>
                   )}
                 </div>
               </motion.div>
