@@ -5,7 +5,7 @@ import SiteNav from '@/components/SiteNav';
 import SiteFooter from '@/components/SiteFooter';
 import { Globe, Code, TrendingUp, Palette, Search, Users } from 'lucide-react';
 
-const CALENDLY_URL = 'https://calendly.com/stackmode';
+const CALENDLY_URL = 'https://calendly.com/stackmodechris/turboboost';
 
 const anim = (i: number) => ({
   initial: { opacity: 0, y: 16 } as const,
@@ -46,9 +46,8 @@ const BrandBoost = () => (
         <p className="text-base sm:text-lg mb-8" style={{ color: 'rgba(255,255,255,0.55)', lineHeight: 1.6 }}>
           Custom website, content monetization plan, AI systems, and revenue strategy. One person. Full execution.
         </p>
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary btn-lg">Book Your Free Strategy Call</a>
-          <a href="#included" className="btn-glass btn-lg">See what's included</a>
+        <div className="flex justify-center">
+          <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary btn-lg">Book Your Free Strategy Call →</a>
         </div>
       </motion.div>
     </section>
@@ -115,10 +114,7 @@ const BrandBoost = () => (
         <p className="text-base mb-8" style={{ color: 'rgba(255,255,255,0.55)', lineHeight: 1.6 }}>
           You have the traffic and attention, but you're leaving revenue on the table. Let's fix that.
         </p>
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary btn-lg">Book Your Free Call →</a>
-          <a href="#included" className="btn-glass btn-lg">See what's included</a>
-        </div>
+        <a href="https://calendly.com/stackmodechris/turboboost" target="_blank" rel="noopener noreferrer" className="btn-primary btn-lg">Book Your Free Strategy Call →</a>
         <p className="text-xs mt-4" style={{ color: 'rgba(255,255,255,0.3)' }}>No obligation · Free 30-min call · Limited spots</p>
       </div>
     </section>

@@ -10,6 +10,7 @@ import { AnimatedTextRotator } from '@/components/ui/animated-text-rotator';
 import BusinessProofBento from '@/components/BusinessProofBento';
 import PillarsBentoGrid from '@/components/PillarsBentoGrid';
 import BrandShowcaseBento from '@/components/BrandShowcaseBento';
+import ToolsLogoGrid from '@/components/ToolsLogoGrid';
 
 /* ═══ TYPEWRITER ═══ */
 const phrases = ['Building SaaS with AI...', 'Stacking digital assets...', 'Scanning markets with Stackfinder...', 'Generating revenue with prompts...', 'Optimizing trading algorithms...'];
@@ -183,6 +184,8 @@ const Landing = () => (
 
     <PillarsBentoGrid />
 
+    <ToolsLogoGrid />
+
     <BrandShowcaseBento />
 
     {/* CLIENT SHOWCASE */}
@@ -215,7 +218,7 @@ const Landing = () => (
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link to="/brand-boost" className="btn-primary btn-lg">Explore Brand Boost</Link>
-          <a href="https://calendly.com/stackmode" target="_blank" rel="noopener noreferrer" className="btn-glass btn-lg">Book Discovery Call</a>
+          <a href="https://calendly.com/stackmodechris/turboboost" target="_blank" rel="noopener noreferrer" className="btn-glass btn-lg">Book Discovery Call</a>
         </div>
       </div>
     </section>
@@ -263,16 +266,7 @@ const Landing = () => (
       </div>
     </section>
 
-    {/* BOOK A CALL */}
-    <section className="section text-center section--glass">
-      <div className="container" style={{ maxWidth: 600 }}>
-        <h2 className="section-header__title">Book a Call</h2>
-        <p className="section-header__subtitle mb-8">Ready to start? Pick a time that works for you.</p>
-        <a href="https://calendly.com/stackmode" target="_blank" rel="noopener noreferrer" className="btn-primary btn-lg">Book a Call →</a>
-      </div>
-    </section>
-
-    {/* READY TO STACK */}
+    {/* FINAL CTA */}
     <section className="section text-center">
       <div className="container" style={{ maxWidth: 600 }}>
         <h2 className="section-header__title">Ready to Stack Smarter?</h2>
@@ -280,30 +274,6 @@ const Landing = () => (
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link to="/academy" className="btn-primary btn-lg">Join the Academy →</Link>
           <Link to="/shop" className="btn-glass btn-lg">Browse Prompts →</Link>
-        </div>
-      </div>
-    </section>
-
-    {/* STUDENT TESTIMONIALS */}
-    <section className="section section--glass">
-      <div className="container">
-        <div className="section-header">
-          <h2 className="section-header__title">Student Success</h2>
-          <p className="section-header__subtitle">Real results from the Stackmode community.</p>
-        </div>
-        <div className="grid-3">
-          {testimonials.map((t, i) => (
-            <motion.div key={t.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }} className="glass-card">
-              <div className="flex gap-0.5 mb-3">{[...Array(5)].map((_, j) => <span key={j} className="text-yellow-400 text-sm">⭐</span>)}</div>
-              <p className="text-sm mb-4" style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, fontStyle: 'italic' }}>"{t.text}"</p>
-              <p className="text-xs font-bold text-white">— {t.name}</p>
-            </motion.div>
-          ))}
-        </div>
-        <div className="text-center mt-8">
-          <a href="https://whop.com/stackmode-academy/educationalservice/" target="_blank" rel="noopener noreferrer" className="btn-glass btn-sm">
-            Join Active Community inside the Academy →
-          </a>
         </div>
       </div>
     </section>
