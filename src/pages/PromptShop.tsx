@@ -124,7 +124,7 @@ const PromptShop = () => {
               </p>
               <div className="flex gap-6 mb-6">
                 <div><span className="text-2xl font-bold text-white" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>150+</span><br /><span className="text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>Prompts</span></div>
-                <div><span className="text-2xl font-bold text-white" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>10k+</span><br /><span className="text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>Users</span></div>
+                <div><span className="text-2xl font-bold text-white" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>All AIs</span><br /><span className="text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>Compatible</span></div>
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }} className="flex justify-center lg:justify-end">
