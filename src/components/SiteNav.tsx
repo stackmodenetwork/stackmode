@@ -1,5 +1,6 @@
 import { useState, memo, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useAuth } from '@/contexts/AuthContext';
 
 const navLinks = [
   { label: 'Home', path: '/' },
@@ -24,20 +25,106 @@ const navLinks = [
 export const SiteNav = memo(() => {
   const [open, setOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const userMenuRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
+  const { user, isSubscribed, loading, signOut, handleCheckout, handlePortal } = useAuth();
 
-  useEffect(() => { setOpen(false); setDropdownOpen(false); }, [location.pathname]);
+  useEffect(() => { setOpen(false); setDropdownOpen(false); setUserMenuOpen(false); }, [location.pathname]);
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) setDropdownOpen(false);
+      if (userMenuRef.current && !userMenuRef.current.contains(e.target as Node)) setUserMenuOpen(false);
     };
     document.addEventListener('click', handleClick);
     return () => document.removeEventListener('click', handleClick);
   }, []);
 
   const isActive = (path: string) => path === '/' ? location.pathname === '/' : location.pathname.startsWith(path);
+
+  const renderAuthButton = () => {
+    if (loading) return null;
+
+    if (!user) {
+      return (
+        <Link to="/auth" className="btn-primary btn-sm">Login</Link>
+      );
+    }
+
+    if (isSubscribed) {
+      return (
+        <div className="relative" ref={userMenuRef}>
+          <button onClick={() => setUserMenuOpen(v => !v)}
+            className="flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-bold"
+            style={{ background: 'linear-gradient(135deg, #FFD700, #FFA500)', color: '#000', fontFamily: "'Space Grotesk', sans-serif" }}>
+            ★ Premium
+          </button>
+          {userMenuOpen && (
+            <div className="absolute top-full right-0 mt-2 py-2 rounded-lg min-w-[180px]" style={{ background: 'rgba(17,17,17,0.98)', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(20px)' }}>
+              <button onClick={handlePortal}
+                className="block w-full text-left px-4 py-2 text-sm transition-colors hover:bg-white/5"
+                style={{ fontFamily: "'Space Grotesk', sans-serif", color: 'rgba(255,255,255,0.7)' }}>
+                Manage Subscription
+              </button>
+              <button onClick={signOut}
+                className="block w-full text-left px-4 py-2 text-sm transition-colors hover:bg-white/5"
+                style={{ fontFamily: "'Space Grotesk', sans-serif", color: 'rgba(255,255,255,0.7)' }}>
+                Logout
+              </button>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    // Logged in but not subscribed
+    return (
+      <div className="relative" ref={userMenuRef}>
+        <button onClick={() => setUserMenuOpen(v => !v)}
+          className="btn-primary btn-sm">
+          Subscribe
+        </button>
+        {userMenuOpen && (
+          <div className="absolute top-full right-0 mt-2 py-2 rounded-lg min-w-[180px]" style={{ background: 'rgba(17,17,17,0.98)', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(20px)' }}>
+            <button onClick={handleCheckout}
+              className="block w-full text-left px-4 py-2 text-sm transition-colors hover:bg-white/5"
+              style={{ fontFamily: "'Space Grotesk', sans-serif", color: 'rgba(255,255,255,0.7)' }}>
+              Subscribe to Premium
+            </button>
+            <button onClick={signOut}
+              className="block w-full text-left px-4 py-2 text-sm transition-colors hover:bg-white/5"
+              style={{ fontFamily: "'Space Grotesk', sans-serif", color: 'rgba(255,255,255,0.7)' }}>
+              Logout
+            </button>
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  const renderMobileAuthButton = () => {
+    if (loading) return null;
+    if (!user) {
+      return <Link to="/auth" onClick={() => setOpen(false)} className="btn-primary btn-lg mt-6">Login</Link>;
+    }
+    if (isSubscribed) {
+      return (
+        <div className="flex flex-col items-center gap-3 mt-6">
+          <span className="px-4 py-1.5 rounded-full text-sm font-bold" style={{ background: 'linear-gradient(135deg, #FFD700, #FFA500)', color: '#000' }}>★ Premium</span>
+          <button onClick={() => { handlePortal(); setOpen(false); }} className="text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>Manage Subscription</button>
+          <button onClick={() => { signOut(); setOpen(false); }} className="text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>Logout</button>
+        </div>
+      );
+    }
+    return (
+      <div className="flex flex-col items-center gap-3 mt-6">
+        <button onClick={() => { handleCheckout(); setOpen(false); }} className="btn-primary btn-lg">Subscribe to Premium</button>
+        <button onClick={() => { signOut(); setOpen(false); }} className="text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>Logout</button>
+      </div>
+    );
+  };
 
   return (
     <>
@@ -87,8 +174,9 @@ export const SiteNav = memo(() => {
           })}
         </div>
 
-        <a href="https://whop.com/stackmode-academy/educationalservice/" target="_blank" rel="noopener noreferrer"
-          className="hidden lg:inline-flex btn-primary btn-sm">Subscribe to Premium</a>
+        <div className="hidden lg:flex items-center">
+          {renderAuthButton()}
+        </div>
 
         <button onClick={() => setOpen(v => !v)} className="lg:hidden p-2" aria-label="Toggle menu">
           <div className="flex flex-col gap-1.5">
@@ -109,8 +197,7 @@ export const SiteNav = memo(() => {
                 {link.label}
               </Link>
             ))}
-            <a href="https://whop.com/stackmode-academy/educationalservice/" target="_blank" rel="noopener noreferrer"
-              onClick={() => setOpen(false)} className="btn-primary btn-lg mt-6">Subscribe to Premium</a>
+            {renderMobileAuthButton()}
           </div>
         </div>
       )}
