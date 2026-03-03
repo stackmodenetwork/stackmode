@@ -6,6 +6,10 @@ import SiteFooter from '@/components/SiteFooter';
 import TrustBar from '@/components/TrustBar';
 import { ImageAutoSlider } from '@/components/ui/image-auto-slider';
 import { useState, useEffect, memo } from 'react';
+import { AnimatedTextRotator } from '@/components/ui/animated-text-rotator';
+import BusinessProofBento from '@/components/BusinessProofBento';
+import PillarsBentoGrid from '@/components/PillarsBentoGrid';
+import BrandShowcaseBento from '@/components/BrandShowcaseBento';
 
 /* ═══ TYPEWRITER ═══ */
 const phrases = ['Building SaaS with AI...', 'Stacking digital assets...', 'Scanning markets with Stackfinder...', 'Generating revenue with prompts...', 'Optimizing trading algorithms...'];
@@ -139,7 +143,9 @@ const Landing = () => (
         src="/images/sm-logo-new.png" alt="Stackmode Logo" className="w-16 h-16 sm:w-20 sm:h-20 rounded-full mb-6" />
       <motion.h2 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
         className="text-4xl sm:text-6xl md:text-7xl mb-4" style={{ fontWeight: 600, lineHeight: 1.1, letterSpacing: '-0.02em' }}>
-        Master AI. Stack Assets.<br />Build Wealth.
+        Master{' '}
+        <AnimatedTextRotator words={['AI Software', 'Trading Systems', 'Digital Assets', 'Brand Building']} interval={2800} />
+        .<br />Build Wealth.
       </motion.h2>
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}
         className="text-base sm:text-lg max-w-xl mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>
@@ -171,69 +177,13 @@ const Landing = () => (
         </div>
       </div>
     </div>
-
     
 
-    {/* THREE PILLARS */}
-    <section className="section">
-      <div className="container">
-        <div className="section-header">
-          <p className="section-header__eyebrow">The Framework</p>
-          <h2 className="section-header__title">Three Pillars of Wealth</h2>
-          <p className="section-header__subtitle">Master all three. Stack your income streams. Build generational wealth.</p>
-        </div>
-        <div className="grid-3">
-          {[
-            { num: '01', title: 'AI Software Mastery', desc: 'Build websites, apps, and automations using AI. No coding needed.', items: ['Generate complete SaaS websites', 'Automate business workflows', 'Build AI-powered client tools'], link: '/academy', cta: 'Learn AI' },
-            { num: '02', title: 'Trading & Asset Stacking', desc: 'Trade stocks, crypto & forex. Stack multiple income streams for long-term wealth.', items: ['Technical analysis foundations', 'Stocks, crypto & forex strategies', 'Risk management & position sizing'], link: '/academy', cta: 'Learn Trading' },
-            { num: '03', title: 'Write Like a Pro', desc: 'AI-powered copywriting for ads, emails, landing pages, and social media.', items: ['Email sequences that convert', 'Ad copy that stops the scroll', 'Landing pages that close deals'], link: '/shop', cta: 'Learn Copy' },
-          ].map((p, i) => (
-            <motion.div key={p.num} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="glass-card relative">
-              <div className="absolute top-4 left-4 text-5xl font-bold" style={{ color: 'rgba(255,255,255,0.05)' }}>{p.num}</div>
-              <div className="pt-12">
-                <h3 className="text-xl mb-2" style={{ fontWeight: 600 }}>{p.title}</h3>
-                <p className="text-sm mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>{p.desc}</p>
-                <div className="flex flex-col gap-2 mb-6">
-                  {p.items.map(item => (
-                    <span key={item} className="flex items-center gap-2 text-sm" style={{ color: 'rgba(255,255,255,0.7)' }}>
-                      <span className="text-white">✓</span> {item}
-                    </span>
-                  ))}
-                </div>
-                <Link to={p.link} className="text-sm font-semibold text-white hover:underline">{p.cta} →</Link>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <BusinessProofBento />
 
-    {/* BUILD YOUR BRAND */}
-    <section className="section section--glass">
-      <div className="container">
-        <div className="section-header">
-          <p className="section-header__eyebrow">Stackmode AI Prompts</p>
-          <h2 className="section-header__title">Build Your Brand. Make It Yours.</h2>
-          <p className="section-header__subtitle">Every Stackmode prompt is precision-engineered. Your output won't look like everyone else's — because our prompts include customization variables.</p>
-        </div>
-        <div className="grid-3">
-          {brandCards.map((card, i) => (
-            <motion.div key={card.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }} className="glass-card text-center">
-              <h3 className="text-lg mb-2" style={{ fontWeight: 500 }}>{card.title}</h3>
-              <p className="text-sm mb-3" style={{ color: 'rgba(255,255,255,0.6)' }}>{card.desc}</p>
-              <p className="text-[10px] tracking-wider" style={{ color: 'rgba(255,255,255,0.3)' }}>{card.tools}</p>
-            </motion.div>
-          ))}
-        </div>
-        <div className="text-center mt-8 glass-card" style={{ maxWidth: 600, margin: '2rem auto 0' }}>
-          <h3 className="text-lg mb-2" style={{ fontWeight: 600 }}>Why Stackmode Prompts Are Different</h3>
-          <p className="text-sm" style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>
-            Generic AI prompts produce generic results. Every Stackmode prompt includes [bracket variables] for your brand name, color, audience, tone, and platform — so no two outputs look the same.
-          </p>
-          <Link to="/shop" className="btn-primary btn-sm mt-4 inline-block" onClick={() => window.scrollTo(0, 0)}>Browse the AI Prompt Shop</Link>
-        </div>
-      </div>
-    </section>
+    <PillarsBentoGrid />
+
+    <BrandShowcaseBento />
 
     {/* CLIENT SHOWCASE */}
     <section className="section">
