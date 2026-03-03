@@ -1,47 +1,72 @@
 
 
-## Plan: Update Pricing Page + Set Up Stripe Payments
+## Plan: Wire Stripe $20/mo Subscription End-to-End
 
-This is a two-part task. Part 1 is straightforward. Part 2 requires infrastructure setup first.
-
----
-
-### Part 1: Pricing Page Text Updates
-
-**File: `src/pages/Pricing.tsx`** -- Only this file changes. No other pages touched.
-
-Changes to the `tiers` array (line 13-18):
-- `name`: "Full Academy" → "Stackmode Architect"
-- `price`: "$29" → "$20"
-- `cta`: "Get Started" → "Get Access -- $20/mo"
-- `href`: Will point to Stripe checkout (not Whop) once Stripe is wired
-
-Changes to comparison table header (line 97):
-- "Stackmode $29" → "Architect $20"
-
-**File: `src/components/academy/AcademyPricing.tsx`** -- Update references:
-- Heading: "Join Stackmode Academy Today" → "Join Stackmode Architect Today"
-- Card heading: "STACKMODE ACADEMY MEMBERSHIP" → "STACKMODE ARCHITECT"
-- Price: "$50" → "$20"
-- Button: "Join Academy Now -- $50/month" → "Get Access -- $20/mo"
+**Stripe product already exists:** "Stackmode Architect Premium Plan" (`prod_U4u0abZakpp1fP`) with price `price_1T6kCqRqIhXyWonrAAxhR0MJ` at $20/month. No need to create anything new in Stripe.
 
 ---
 
-### Part 2: Stripe + Supabase Integration
+### 1. Create Three Edge Functions
 
-**Blocker: No Supabase or Stripe is connected to this project yet.**
+**`supabase/functions/create-checkout/index.ts`**
+- Authenticates user via JWT, looks up or creates Stripe customer by email
+- Creates a Stripe checkout session using `price_1T6kCqRqIhXyWonrAAxhR0MJ` in `subscription` mode
+- Returns checkout URL; frontend redirects user to Stripe
 
-Before any backend code can be written, we need:
+**`supabase/functions/check-subscription/index.ts`**
+- Authenticates user, looks up Stripe customer by email
+- Queries active subscriptions, returns `{ subscribed, product_id, subscription_end }`
+- Called on login, page load, and periodically
 
-1. **Enable Lovable Cloud (or connect external Supabase)** -- This gives us a database for the `profiles` table, auth, and edge functions. Without this, there is no backend.
+**`supabase/functions/customer-portal/index.ts`**
+- Authenticates user, creates a Stripe Billing Portal session
+- Returns portal URL for managing/canceling subscription
 
-2. **Enable Stripe** -- This collects your Stripe secret key and makes the Stripe tools available to create the product, price, webhooks, and edge functions.
+All three need `verify_jwt = false` in `supabase/config.toml` (JWT validated manually in code).
 
-**Recommended order:**
-1. I update the pricing page text now (Part 1)
-2. You enable Cloud/Supabase from the Cloud tab
-3. You enable Stripe (I'll use the Stripe tool which will prompt you for your secret key)
-4. Then I create the profiles table, edge functions (stripe-webhook, create-checkout-session, create-portal-session), and wire the checkout button
+---
 
-**Want me to proceed with Part 1 (the text updates) now, and then we tackle Stripe + Supabase as the next step?**
+### 2. Create Auth Page (`src/pages/Auth.tsx`)
+
+- Email/password login and signup form
+- Uses Supabase Auth (`supabase.auth.signInWithPassword` / `signUp`)
+- Redirects to `/pricing` or `/dashboard` after login
+- Add `/auth` route to `App.tsx`
+
+---
+
+### 3. Create AuthContext (`src/contexts/AuthContext.tsx`)
+
+- Wraps the app; listens to `onAuthStateChange`
+- On login/session change, calls `check-subscription` edge function
+- Exposes: `user`, `session`, `isSubscribed`, `subscriptionEnd`, `signOut`, `checkSubscription`
+- Wrap `App.tsx` children with this provider
+
+---
+
+### 4. Update Pricing Page
+
+- Replace the Whop link on the Stackmode Architect card with a button that:
+  - If not logged in: redirects to `/auth`
+  - If logged in but not subscribed: calls `create-checkout` and redirects to Stripe
+  - If already subscribed: shows "Manage Subscription" linking to customer portal
+
+---
+
+### 5. Create Dashboard Page (`src/pages/Dashboard.tsx`)
+
+- Protected route (redirects to `/auth` if not logged in)
+- Shows premium member badge, subscription status, end date
+- "Manage Subscription" button (customer portal)
+- Add `/dashboard` route to `App.tsx`
+
+---
+
+### Technical Details
+
+- **Price ID** (hardcoded): `price_1T6kCqRqIhXyWonrAAxhR0MJ`
+- **Product ID**: `prod_U4u0abZakpp1fP`
+- **Secrets already configured**: `STRIPE_SECRET_KEY`, `SUPABASE_SERVICE_ROLE_KEY`
+- **Database**: `profiles` table already has `stripe_customer_id`, `subscription_status`, `subscription_end_date` columns with RLS policies
+- **No webhooks** -- subscription status checked live via Stripe API
 
