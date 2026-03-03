@@ -31,7 +31,7 @@ const Pricing = () => {
       cta: 'Browse Shop', href: '/shop', external: false, featured: false, useStripe: false,
     },
     {
-      label: 'Stackmode', name: 'Full Academy', price: '$20', cadence: '/mo',
+      label: 'Stackmode', name: 'Premium', price: '$20', cadence: '/mo',
       tagline: 'Everything you need to build with AI and trade smarter.',
       benefits: ['Full AI Prompt Library', 'Stackfinder AI Scanner', 'All Academy courses', 'Weekly live coaching', 'Discord (All channels)'],
       cta: isSubscribed ? '★ Active' : 'Get Started', href: '#', external: false, featured: true, badge: 'Most Popular', useStripe: true,
