@@ -9,40 +9,40 @@ const WHOP_URL = 'https://whop.com/stackmode-academy/educationalservice/';
 
 type Filter = 'all' | 'website' | 'image' | 'video' | 'trading' | 'free' | 'premium';
 
-const filters: { id: Filter; label: string }[] = [
-  { id: 'all', label: 'All' },
-  { id: 'website', label: 'Website' },
-  { id: 'image', label: 'Image' },
-  { id: 'video', label: 'Video' },
-  { id: 'trading', label: 'Trading' },
-  { id: 'free', label: '🆓 Free' },
-  { id: 'premium', label: '⭐ Premium' },
-];
+const filters: {id: Filter;label: string;}[] = [
+{ id: 'all', label: 'All' },
+{ id: 'website', label: 'Website' },
+{ id: 'image', label: 'Image' },
+{ id: 'video', label: 'Video' },
+{ id: 'trading', label: 'Trading' },
+{ id: 'free', label: '🆓 Free' },
+{ id: 'premium', label: '⭐ Premium' }];
+
 
 const prompts = [
-  { cat: 'website', tier: 'free', title: 'Portfolio Website Starter', desc: 'Build a clean, modern portfolio in 60 seconds. Full prompt included.', preview: '"Create a dark-mode portfolio website for [YOUR NAME], a [ROLE]. Include: animated hero with particle background, project showcase grid with hover animations, skills section with progress bars, testimonials carousel, and contact form. Use [COLOR_1] and [COLOR_2] as accent colors..."' },
-  { cat: 'trading', tier: 'premium', title: 'Institutional Algo Strategy', desc: 'Complete algorithmic trading system with VWAP, RSI divergence, Kelly Criterion sizing, and auto backtesting.', preview: '"Act as a quantitative hedge fund analyst. Build a Python trading algo with VWAP deviation at ±2σ Bollinger confluence... [PREMIUM — 847 words]"' },
-  { cat: 'image', tier: 'premium', title: 'Brand Identity Suite', desc: 'Complete Midjourney prompt system for logos, brand kits, product photography, and social media assets.', preview: '"You are a world-class brand identity designer. Create a complete brand system for [COMPANY NAME] in the [INDUSTRY] space... [PREMIUM — 634 words]"' },
-  { cat: 'video', tier: 'free', title: 'YouTube Hook Generator', desc: '5 proven hook formulas that stop the scroll. Free to use right now.', preview: '"Generate 5 YouTube video hooks for a video about [TOPIC]. Each hook must: open with a bold claim or shocking stat..."' },
-  { cat: 'website', tier: 'premium', title: 'SaaS Landing Page Builder', desc: 'Complete SaaS landing page with hero, features, pricing table, testimonials, FAQ, and animated CTA.', preview: '"You are a senior full-stack developer and conversion-rate optimizer. Build a complete SaaS landing page... [PREMIUM — 1,100+ words]"' },
-  { cat: 'trading', tier: 'premium', title: 'DCF + LBO Financial Model', desc: 'Institutional-grade DCF and LBO model with Monte Carlo simulation for 10,000 scenarios.', preview: '"Build a complete institutional DCF and LBO model in Python/Excel... [PREMIUM — 920 words]"' },
-];
+{ cat: 'website', tier: 'free', title: 'Portfolio Website Starter', desc: 'Build a clean, modern portfolio in 60 seconds. Full prompt included.', preview: '"Create a dark-mode portfolio website for [YOUR NAME], a [ROLE]. Include: animated hero with particle background, project showcase grid with hover animations, skills section with progress bars, testimonials carousel, and contact form. Use [COLOR_1] and [COLOR_2] as accent colors..."' },
+{ cat: 'trading', tier: 'premium', title: 'Institutional Algo Strategy', desc: 'Complete algorithmic trading system with VWAP, RSI divergence, Kelly Criterion sizing, and auto backtesting.', preview: '"Act as a quantitative hedge fund analyst. Build a Python trading algo with VWAP deviation at ±2σ Bollinger confluence... [PREMIUM — 847 words]"' },
+{ cat: 'image', tier: 'premium', title: 'Brand Identity Suite', desc: 'Complete Midjourney prompt system for logos, brand kits, product photography, and social media assets.', preview: '"You are a world-class brand identity designer. Create a complete brand system for [COMPANY NAME] in the [INDUSTRY] space... [PREMIUM — 634 words]"' },
+{ cat: 'video', tier: 'free', title: 'YouTube Hook Generator', desc: '5 proven hook formulas that stop the scroll. Free to use right now.', preview: '"Generate 5 YouTube video hooks for a video about [TOPIC]. Each hook must: open with a bold claim or shocking stat..."' },
+{ cat: 'website', tier: 'premium', title: 'SaaS Landing Page Builder', desc: 'Complete SaaS landing page with hero, features, pricing table, testimonials, FAQ, and animated CTA.', preview: '"You are a senior full-stack developer and conversion-rate optimizer. Build a complete SaaS landing page... [PREMIUM — 1,100+ words]"' },
+{ cat: 'trading', tier: 'premium', title: 'DCF + LBO Financial Model', desc: 'Institutional-grade DCF and LBO model with Monte Carlo simulation for 10,000 scenarios.', preview: '"Build a complete institutional DCF and LBO model in Python/Excel... [PREMIUM — 920 words]"' }];
+
 
 const testimonials = [
-  { name: 'Marcus T.', text: 'The AI Trading prompt showed me how to analyze SPY charts in ChatGPT. Made my first profitable swing trade the same week.' },
-  { name: 'Destiny W.', text: 'The asset stacking course broke down exactly how to stack income streams. I now have 4 running simultaneously.' },
-  { name: 'Jaylon B.', text: 'The Midjourney image prompts are insane. My product photos look like a $10K shoot. Clients can\'t believe it.' },
-  { name: 'Priya M.', text: 'Stackfinder spotted NVDA before it ran 8%. The AI scanner is the real deal.' },
-  { name: 'Kevin L.', text: "Christopher's Academy teaches AI tools I actually use every day. ROI in the first week." },
-  { name: 'Alexis R.', text: 'Used the SaaS landing page prompt to build my entire site in Lovable. Saved me $3,000 in designer fees.' },
-];
+{ name: 'Marcus T.', text: 'The AI Trading prompt showed me how to analyze SPY charts in ChatGPT. Made my first profitable swing trade the same week.' },
+{ name: 'Destiny W.', text: 'The asset stacking course broke down exactly how to stack income streams. I now have 4 running simultaneously.' },
+{ name: 'Jaylon B.', text: 'The Midjourney image prompts are insane. My product photos look like a $10K shoot. Clients can\'t believe it.' },
+{ name: 'Priya M.', text: 'Stackfinder spotted NVDA before it ran 8%. The AI scanner is the real deal.' },
+{ name: 'Kevin L.', text: "Christopher's Academy teaches AI tools I actually use every day. ROI in the first week." },
+{ name: 'Alexis R.', text: 'Used the SaaS landing page prompt to build my entire site in Lovable. Saved me $3,000 in designer fees.' }];
+
 
 /* Terminal prompt preview */
 const promptTabs = [
-  { label: 'Algo Trading', text: 'Act as a Quant Analyst. Build a high-frequency Python algo using ccxt. Combine VWAP mean-reversion with RSI divergence filters. Enforce Kelly Criterion sizing and sub-millisecond PostgreSQL logging.' },
-  { label: 'System Architecture', text: 'Act as a Principal Cloud Architect. Design a zero-trust microservices SaaS platform. Write Kubernetes manifests mapping Node.js gRPC services to a Redis/Postgres datastore.' },
-  { label: 'Quant Modeling', text: 'Act as an M&A Financial Modeler. Construct an institutional DCF & LBO Excel model. Integrate Python Monte Carlo simulations to run 10,000 WACC scenarios.' },
-];
+{ label: 'Algo Trading', text: 'Act as a Quant Analyst. Build a high-frequency Python algo using ccxt. Combine VWAP mean-reversion with RSI divergence filters. Enforce Kelly Criterion sizing and sub-millisecond PostgreSQL logging.' },
+{ label: 'System Architecture', text: 'Act as a Principal Cloud Architect. Design a zero-trust microservices SaaS platform. Write Kubernetes manifests mapping Node.js gRPC services to a Redis/Postgres datastore.' },
+{ label: 'Quant Modeling', text: 'Act as an M&A Financial Modeler. Construct an institutional DCF & LBO Excel model. Integrate Python Monte Carlo simulations to run 10,000 WACC scenarios.' }];
+
 
 const TerminalWidget = memo(() => {
   const [active, setActive] = useState(0);
@@ -53,8 +53,8 @@ const TerminalWidget = memo(() => {
     let i = 0;
     const text = promptTabs[active].text;
     const interval = setInterval(() => {
-      if (i < text.length) { setDisplayed(text.slice(0, i + 1)); i++; }
-      else clearInterval(interval);
+      if (i < text.length) {setDisplayed(text.slice(0, i + 1));i++;} else
+      clearInterval(interval);
     }, 12);
     return () => clearInterval(interval);
   }, [active]);
@@ -62,13 +62,13 @@ const TerminalWidget = memo(() => {
   return (
     <div className="max-w-lg w-full">
       <div className="flex gap-1 mb-0">
-        {promptTabs.map((t, i) => (
-          <button key={i} onClick={() => setActive(i)}
-            className="px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider rounded-t-lg transition-colors"
-            style={{ background: i === active ? '#111' : 'transparent', color: i === active ? '#fff' : 'rgba(255,255,255,0.3)', border: i === active ? '1px solid rgba(255,255,255,0.1)' : '1px solid transparent', borderBottom: 'none' }}>
+        {promptTabs.map((t, i) =>
+        <button key={i} onClick={() => setActive(i)}
+        className="px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider rounded-t-lg transition-colors"
+        style={{ background: i === active ? '#111' : 'transparent', color: i === active ? '#fff' : 'rgba(255,255,255,0.3)', border: i === active ? '1px solid rgba(255,255,255,0.1)' : '1px solid transparent', borderBottom: 'none' }}>
             {t.label}
           </button>
-        ))}
+        )}
       </div>
       <div className="rounded-b-xl rounded-tr-xl p-4" style={{ background: '#111', border: '1px solid rgba(255,255,255,0.1)' }}>
         <div className="flex items-center gap-2 mb-2">
@@ -85,15 +85,15 @@ const TerminalWidget = memo(() => {
           <span className="text-[10px] font-semibold text-white">Get This Prompt →</span>
         </div>
       </div>
-    </div>
-  );
+    </div>);
+
 });
 TerminalWidget.displayName = 'TerminalWidget';
 
 const PromptShop = () => {
   const [activeFilter, setActiveFilter] = useState<Filter>('all');
 
-  const filtered = prompts.filter(p => {
+  const filtered = prompts.filter((p) => {
     if (activeFilter === 'all') return true;
     if (activeFilter === 'free') return p.tier === 'free';
     if (activeFilter === 'premium') return p.tier === 'premium';
@@ -145,32 +145,32 @@ const PromptShop = () => {
 
           {/* Filters */}
           <div className="flex flex-wrap justify-center gap-2 mb-10">
-            {filters.map(f => (
-              <button key={f.id} onClick={() => setActiveFilter(f.id)}
-                className="px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded-lg transition-all"
-                style={{
-                  background: activeFilter === f.id ? '#fff' : 'transparent',
-                  color: activeFilter === f.id ? '#000' : 'rgba(255,255,255,0.5)',
-                  border: `1px solid ${activeFilter === f.id ? '#fff' : 'rgba(255,255,255,0.1)'}`,
-                }}>
+            {filters.map((f) =>
+            <button key={f.id} onClick={() => setActiveFilter(f.id)}
+            className="px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded-lg transition-all"
+            style={{
+              background: activeFilter === f.id ? '#fff' : 'transparent',
+              color: activeFilter === f.id ? '#000' : 'rgba(255,255,255,0.5)',
+              border: `1px solid ${activeFilter === f.id ? '#fff' : 'rgba(255,255,255,0.1)'}`
+            }}>
                 {f.label}
               </button>
-            ))}
+            )}
           </div>
 
           {/* Prompt Cards */}
           <div className="grid-3">
-            {filtered.map((p, i) => (
-              <motion.div key={p.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="glass-card flex flex-col"
-              >
+            {filtered.map((p, i) =>
+            <motion.div key={p.title}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.05 }}
+            className="glass-card flex flex-col">
+              
                 <div className="flex items-center gap-2 mb-3">
                   <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded font-bold"
-                    style={{ background: p.tier === 'free' ? 'rgba(39,201,63,0.1)' : 'rgba(255,215,0,0.1)', color: p.tier === 'free' ? '#27c93f' : '#ffd700', border: `1px solid ${p.tier === 'free' ? 'rgba(39,201,63,0.2)' : 'rgba(255,215,0,0.2)'}` }}>
+                style={{ background: p.tier === 'free' ? 'rgba(39,201,63,0.1)' : 'rgba(255,215,0,0.1)', color: p.tier === 'free' ? '#27c93f' : '#ffd700', border: `1px solid ${p.tier === 'free' ? 'rgba(39,201,63,0.2)' : 'rgba(255,215,0,0.2)'}` }}>
                     {p.tier === 'free' ? 'FREE' : '⭐ PREMIUM'}
                   </span>
                   <span className="text-[10px] uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.4)' }}>{p.cat}</span>
@@ -179,14 +179,14 @@ const PromptShop = () => {
                 <p className="text-sm mb-3" style={{ color: 'rgba(255,255,255,0.6)' }}>{p.desc}</p>
                 <p className="text-xs font-mono mb-4 flex-1" style={{ color: 'rgba(255,255,255,0.35)', lineHeight: 1.5 }}>{p.preview}</p>
                 <div>
-                  {p.tier === 'free' ? (
-                    <button className="btn-primary btn-sm w-full">Get Free Prompt →</button>
-                  ) : (
-                    <a href="/auth" className="btn-glass btn-sm w-full text-center block">Unlock Premium →</a>
-                  )}
+                  {p.tier === 'free' ?
+                <button className="btn-primary btn-sm w-full">Get Free Prompt →</button> :
+
+                <a href="/auth" className="btn-glass btn-sm w-full text-center block">Unlock Premium →</a>
+                }
                 </div>
               </motion.div>
-            ))}
+            )}
           </div>
 
           <div className="text-center mt-10">
@@ -203,56 +203,56 @@ const PromptShop = () => {
           </div>
           <div className="grid-3" style={{ maxWidth: 800, margin: '0 auto' }}>
             {[
-              { num: '01', title: 'Pick', desc: 'Browse and pick the prompt you need.' },
-              { num: '02', title: 'Copy', desc: 'Copy the full prompt — variables included.' },
-              { num: '03', title: 'Paste & Create', desc: 'Paste into ChatGPT, Claude, or Midjourney and get results.' },
-            ].map((step, i) => (
-              <motion.div key={step.num}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="text-center"
-              >
+            { num: '01', title: 'Pick', desc: 'Browse and pick the prompt you need.' },
+            { num: '02', title: 'Copy', desc: 'Copy the full prompt — variables included.' },
+            { num: '03', title: 'Paste & Create', desc: 'Paste into ChatGPT, Claude, or Midjourney and get results.' }].
+            map((step, i) =>
+            <motion.div key={step.num}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1 }}
+            className="text-center">
+              
                 <div className="text-3xl font-bold mb-2" style={{ fontFamily: "'Barlow Condensed', sans-serif", color: 'rgba(255,255,255,0.15)' }}>{step.num}</div>
                 <h3 className="text-lg mb-1" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>{step.title}</h3>
                 <p className="text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>{step.desc}</p>
               </motion.div>
-            ))}
+            )}
           </div>
         </div>
       </section>
 
       {/* Student Success */}
-      <section className="section">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-header__title">Student Success</h2>
-            <p className="section-header__subtitle">Real results from the Stackmode community.</p>
-          </div>
-          <div className="grid-3">
-            {testimonials.map((t, i) => (
-              <motion.div key={t.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="glass-card"
-              >
-                <div className="flex gap-0.5 mb-3">
-                  {[...Array(5)].map((_, j) => <span key={j} className="text-yellow-400 text-sm">⭐</span>)}
-                </div>
-                <p className="text-sm mb-4" style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, fontStyle: 'italic' }}>"{t.text}"</p>
-                <p className="text-xs font-bold text-white">— {t.name}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
 
       <SiteFooter />
-    </div>
-  );
+    </div>);
+
 };
 
 export default PromptShop;
