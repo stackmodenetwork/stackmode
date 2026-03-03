@@ -299,7 +299,7 @@ const StackFinder = () => (
             </li>
           ))}
         </ul>
-        <a href={WHOP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary btn-lg w-full justify-center mb-4">
+        <a href="/auth" className="btn-primary btn-lg w-full justify-center mb-4">
           Start Premium — Subscribe Now →
         </a>
         <p className="text-xs text-muted-foreground" style={{ opacity: 0.5 }}>Premium members get full access · Cancel anytime</p>
