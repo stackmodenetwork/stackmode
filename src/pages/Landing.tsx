@@ -171,7 +171,7 @@ const Landing = () => (
       </div>
     </div>
 
-    <TrustBar />
+    
 
     {/* THREE PILLARS */}
     <section className="section">
