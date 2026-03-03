@@ -1,18 +1,12 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { IconHover3D } from '@/components/ui/icon-3d-hover';
 import SiteNav from '@/components/SiteNav';
 import SiteFooter from '@/components/SiteFooter';
 
 const FREE_LINK = 'https://stackmodechris.systeme.io/free-education';
 const WHOP_URL = 'https://whop.com/stackmode-academy/educationalservice/';
-
-const quotes = [
-  { text: "The difference between the 10% who win and the 90% who lose isn't just strategy — it's Emotional Discipline. You must detach from the outcome to execute flawlessly.", source: 'from Neuro Trading' },
-  { text: "Don't wait for the mainstream to validate an opportunity. By the time everyone is talking about it, the asymmetrical upside is already mathematically gone.", source: 'from Before The Hype' },
-  { text: "True wealth isn't a high salary. It's having multiple, disconnected income streams operating 24/7 without your direct physical input.", source: 'from Freedom Money' },
-];
 
 const books = [
   {
@@ -48,12 +42,6 @@ const resources = [
 ];
 
 const Library = () => {
-  const [quoteIdx, setQuoteIdx] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => setQuoteIdx(i => (i + 1) % quotes.length), 6000);
-    return () => clearInterval(timer);
-  }, []);
 
   return (
     <div style={{ background: '#000', minHeight: '100vh' }}>
@@ -65,41 +53,15 @@ const Library = () => {
 
       <SiteNav />
 
-      {/* Core Philosophy Carousel */}
-      <section className="section text-center" style={{ paddingTop: 120 }}>
-        <div className="container" style={{ maxWidth: 700 }}>
-          <p className="section-header__eyebrow mb-4">The Core Philosophy</p>
-          <p className="text-sm mb-8" style={{ color: 'rgba(255,255,255,0.5)' }}>Swipe through the foundational concepts of Stackmode.</p>
-          
-          <div className="relative" style={{ minHeight: 160 }}>
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={quoteIdx}
-                initial={{ opacity: 0, x: 40 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -40 }}
-                transition={{ duration: 0.4 }}
-                className="glass-card text-left"
-              >
-                <p className="text-base sm:text-lg leading-relaxed mb-4" style={{ color: 'rgba(255,255,255,0.85)', fontStyle: 'italic' }}>
-                  "{quotes[quoteIdx].text}"
-                </p>
-                <div className="flex items-center gap-2">
-                  <span className="text-sm font-bold text-white">Christopher Robinson</span>
-                  <span className="text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>CEO, {quotes[quoteIdx].source}</span>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* Dots */}
-          <div className="flex justify-center gap-2 mt-6">
-            {quotes.map((_, i) => (
-              <button key={i} onClick={() => setQuoteIdx(i)}
-                className="w-2 h-2 rounded-full transition-all"
-                style={{ background: i === quoteIdx ? '#fff' : 'rgba(255,255,255,0.2)' }} />
-            ))}
-          </div>
+      {/* Library 3D Header */}
+      <section className="section flex justify-center" style={{ paddingTop: 120 }}>
+        <div className="container flex justify-center">
+          <IconHover3D
+            heading="Library"
+            text="A comprehensive collection of books and resources by Christopher Robinson. Master trading psychology, asset stacking, and financial freedom."
+            width={600}
+            height={150}
+          />
         </div>
       </section>
 
