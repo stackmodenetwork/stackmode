@@ -12,6 +12,7 @@ import PillarsBentoGrid from '@/components/PillarsBentoGrid';
 import BrandShowcaseBento from '@/components/BrandShowcaseBento';
 import ToolsLogoGrid from '@/components/ToolsLogoGrid';
 import ReviewsWall from '@/components/ReviewsWall';
+import TestimonialsMarquee from '@/components/TestimonialsMarquee';
 
 /* ═══ TYPEWRITER ═══ */
 const phrases = ['Building SaaS with AI...', 'Stacking digital assets...', 'Scanning markets with Stackfinder...', 'Generating revenue with prompts...', 'Optimizing trading algorithms...'];
@@ -270,12 +271,7 @@ const Landing = () =>
     {/* FINAL CTA */}
     
 
-
-
-
-
-
-  
+    <TestimonialsMarquee />
 
     <ReviewsWall />
 

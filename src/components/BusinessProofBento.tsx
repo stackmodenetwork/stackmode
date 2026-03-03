@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import { MasonryGrid } from '@/components/ui/image-testimonial-grid';
 
-type Category = 'Trading' | 'YouTube' | 'Revenue' | 'Ads';
+type Category = 'Trading' | 'YouTube' | 'Revenue';
 
 interface ProofItem {
   img: string;
@@ -15,33 +15,29 @@ const categoryStyles: Record<Category, { pill: string; dot: string }> = {
   Trading: { pill: 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/20', dot: 'bg-emerald-400' },
   YouTube: { pill: 'bg-red-500/15 text-red-400 border border-red-500/20', dot: 'bg-red-400' },
   Revenue: { pill: 'bg-amber-500/15 text-amber-400 border border-amber-500/20', dot: 'bg-amber-400' },
-  Ads: { pill: 'bg-blue-500/15 text-blue-400 border border-blue-500/20', dot: 'bg-blue-400' },
 };
 
 const proofItems: ProofItem[] = [
+  // Trading
   { img: '/images/proof/cumulative-pl.png', label: '+$2,256 cumulative P&L', category: 'Trading' },
-  { img: '/images/proof/ad-stats.png', label: 'Ad campaign performance', category: 'Ads' },
-  { img: '/images/proof/youtube-impressions.png', label: '14.2M impressions', category: 'YouTube' },
-  { img: '/images/proof/stripe-payouts.png', label: 'Recurring revenue payouts', category: 'Revenue' },
   { img: '/images/proof/trading-pl-1.png', label: 'Student results — $1,224 day', category: 'Trading' },
-  { img: '/images/proof/youtube-shorts.png', label: 'YouTube Shorts analytics', category: 'YouTube' },
-  { img: '/images/proof/stripe-balances.png', label: 'Stripe deposit history', category: 'Revenue' },
-  { img: '/images/proof/intel-trade.png', label: 'INTC trade execution', category: 'Trading' },
-  { img: '/images/proof/youtube-lifetime.png', label: 'Lifetime YouTube stats', category: 'YouTube' },
-  { img: '/images/proof/yt-revenue.png', label: 'YouTube revenue breakdown', category: 'Revenue' },
   { img: '/images/proof/trading-pl-2.png', label: 'Live trading P&L', category: 'Trading' },
-  { img: '/images/proof/watch-page-ads.png', label: 'Watch page ad revenue', category: 'Ads' },
-  { img: '/images/proof/youtube-views.png', label: '1.2M+ lifetime views', category: 'YouTube' },
-  { img: '/images/proof/account-value.png', label: 'Account value growth', category: 'Trading' },
-  { img: '/images/proof/content-performance.png', label: 'Content performance', category: 'YouTube' },
-  { img: '/images/proof/portfolio-growth.png', label: 'Portfolio growth chart', category: 'Trading' },
   { img: '/images/proof/trading-pl-3.png', label: 'Consistent gains', category: 'Trading' },
+  { img: '/images/proof/account-value.png', label: 'Account value growth', category: 'Trading' },
+  { img: '/images/proof/portfolio-growth.png', label: 'Portfolio growth chart', category: 'Trading' },
   { img: '/images/proof/amzn-trade.png', label: 'AMZN swing trade', category: 'Trading' },
-  { img: '/images/proof/trading-positions.png', label: 'Active trading positions', category: 'Trading' },
   { img: '/images/proof/student-testimonial.png', label: 'Mentorship results', category: 'Trading' },
+  // YouTube
+  { img: '/images/proof/youtube-impressions.png', label: '14.2M impressions', category: 'YouTube' },
+  { img: '/images/proof/youtube-views.png', label: '1.2M+ lifetime views', category: 'YouTube' },
+  { img: '/images/proof/content-performance.png', label: 'Content performance', category: 'YouTube' },
+  { img: '/images/proof/youtube-shorts.png', label: 'YouTube Shorts analytics', category: 'YouTube' },
+  // Revenue
+  { img: '/images/proof/stripe-payouts.png', label: 'Recurring revenue payouts', category: 'Revenue' },
+  { img: '/images/proof/stripe-balances.png', label: 'Stripe deposit history', category: 'Revenue' },
 ];
 
-const categories: Category[] = ['Trading', 'YouTube', 'Revenue', 'Ads'];
+const categories: Category[] = ['Trading', 'YouTube', 'Revenue'];
 
 function ProofCard({ item, onClick }: { item: ProofItem; onClick: () => void }) {
   return (
