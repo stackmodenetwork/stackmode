@@ -65,7 +65,7 @@ const PromptPreview = memo(() => {
         {promptTabs.map((tab, i) => (
           <button key={i} onClick={() => setActive(i)}
             className="px-4 py-2 text-xs font-semibold uppercase tracking-wider whitespace-nowrap rounded-t-lg transition-colors"
-            style={{ background: i === active ? '#111' : 'transparent', color: i === active ? '#fff' : 'rgba(255,255,255,0.4)', border: i === active ? '1px solid rgba(255,255,255,0.1)' : '1px solid transparent', borderBottom: 'none' }}>
+            style={{ background: i === active ? '#111' : 'transparent', color: i === active ? '#fff' : 'rgba(255,255,255,0.4)', borderTop: i === active ? '1px solid rgba(255,255,255,0.1)' : '1px solid transparent', borderLeft: i === active ? '1px solid rgba(255,255,255,0.1)' : '1px solid transparent', borderRight: i === active ? '1px solid rgba(255,255,255,0.1)' : '1px solid transparent', borderBottom: 'none' }}>
             {tab.label}
           </button>
         ))}
@@ -230,7 +230,7 @@ const Landing = () => (
           <p className="text-sm" style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>
             Generic AI prompts produce generic results. Every Stackmode prompt includes [bracket variables] for your brand name, color, audience, tone, and platform — so no two outputs look the same.
           </p>
-          <Link to="/shop" className="btn-primary btn-sm mt-4 inline-block">Browse the AI Prompt Shop</Link>
+          <Link to="/shop" className="btn-primary btn-sm mt-4 inline-block" onClick={() => window.scrollTo(0, 0)}>Browse the AI Prompt Shop</Link>
         </div>
       </div>
     </section>
@@ -240,7 +240,7 @@ const Landing = () => (
       <div className="container">
         <div className="section-header">
           <p className="section-header__eyebrow">Client Work</p>
-          <h2 className="section-header__title" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, textTransform: 'none' }}>Websites we've built</h2>
+          <h2 className="section-header__title" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Websites We've Built</h2>
           <p className="section-header__subtitle" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Real clients. Real results. Built by Christopher Robinson.</p>
         </div>
       </div>
