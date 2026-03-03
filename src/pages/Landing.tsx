@@ -267,8 +267,6 @@ const Landing = () =>
       </div>
     </section>
 
-    <ReviewsWall />
-
     {/* FINAL CTA */}
     
 
@@ -277,9 +275,9 @@ const Landing = () =>
 
 
 
-
-
   
+
+    <ReviewsWall />
 
     <SiteFooter />
   </div>;
