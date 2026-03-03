@@ -48,16 +48,6 @@ const BrandBoost = () => (
       </div>
     </section>
 
-    {/* Scrolling Proof Ticker */}
-    <div className="overflow-hidden py-4" style={{ borderTop: '1px solid rgba(255,255,255,0.08)', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-      <div className="animate-marquee flex whitespace-nowrap">
-        {[...tickerItems, ...tickerItems, ...tickerItems].map((item, i) => (
-          <span key={i} className="inline-flex items-center gap-3 mx-6 text-sm font-semibold uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.5)' }}>
-            <span style={{ color: 'rgba(255,255,255,0.2)' }}>✦</span> {item}
-          </span>
-        ))}
-      </div>
-    </div>
 
     {/* Everything Included */}
     <section id="included" className="section">
