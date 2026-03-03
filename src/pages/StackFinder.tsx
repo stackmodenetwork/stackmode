@@ -107,10 +107,9 @@ const StackFinder = () => (
       </motion.p>
       <motion.div
         initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}
-        className="flex flex-wrap justify-center gap-3"
+        className="flex justify-center"
       >
         <a href={WHOP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary btn-lg">Access Stackfinder →</a>
-        <a href="/academy" className="btn-glass btn-lg">Join Beta Waitlist →</a>
       </motion.div>
     </section>
 
