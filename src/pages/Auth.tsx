@@ -57,41 +57,31 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4" style={{ background: '#000' }}>
+    <div className="min-h-screen flex items-center justify-center px-4 bg-background">
       <Helmet>
         <title>Login — Stackmode</title>
         <meta name="description" content="Sign in or create your Stackmode account." />
       </Helmet>
 
       <div className="w-full max-w-md">
-        {/* Logo */}
         <div className="flex flex-col items-center mb-8">
           <img src="/images/sm-logo-new.png" alt="Stackmode" className="w-16 h-16 rounded-full mb-4" />
-          <h1 className="text-2xl font-bold text-white" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>STACKMODE</h1>
-          <p className="text-sm mt-1" style={{ color: 'rgba(255,255,255,0.4)', fontFamily: "'Space Grotesk', sans-serif" }}>
-            Master AI. Stack Assets. Build Systems.
-          </p>
+          <h1 className="text-2xl font-semibold text-foreground" style={{ letterSpacing: '-0.01em' }}>Stackmode</h1>
+          <p className="text-sm mt-1 text-muted-foreground">Master AI. Stack Assets. Build Systems.</p>
         </div>
 
-        {/* Card */}
         <div className="rounded-2xl p-6 sm:p-8" style={{ background: '#111', border: '1px solid rgba(255,255,255,0.1)' }}>
           <Tabs value={tab} onValueChange={(v) => setTab(v as 'login' | 'signup')}>
             <TabsList className="w-full mb-6" style={{ background: 'rgba(255,255,255,0.05)' }}>
-              <TabsTrigger value="login" className="flex-1 data-[state=active]:bg-white data-[state=active]:text-black text-white/60" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                Login
-              </TabsTrigger>
-              <TabsTrigger value="signup" className="flex-1 data-[state=active]:bg-white data-[state=active]:text-black text-white/60" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                Sign Up
-              </TabsTrigger>
+              <TabsTrigger value="login" className="flex-1 data-[state=active]:bg-white data-[state=active]:text-black text-white/60">Login</TabsTrigger>
+              <TabsTrigger value="signup" className="flex-1 data-[state=active]:bg-white data-[state=active]:text-black text-white/60">Sign Up</TabsTrigger>
             </TabsList>
 
             <TabsContent value="login">
               <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                <Input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} required
-                  className="bg-black/50 border-white/10 text-white placeholder:text-white/30" style={{ fontFamily: "'Space Grotesk', sans-serif" }} />
-                <Input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} required
-                  className="bg-black/50 border-white/10 text-white placeholder:text-white/30" style={{ fontFamily: "'Space Grotesk', sans-serif" }} />
-                <Button type="submit" disabled={loading} className="w-full bg-white text-black hover:bg-white/90 font-semibold" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                <Input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} required className="bg-black/50 border-white/10 text-white placeholder:text-white/30" />
+                <Input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} required className="bg-black/50 border-white/10 text-white placeholder:text-white/30" />
+                <Button type="submit" disabled={loading} className="w-full bg-white text-black hover:bg-white/90 font-semibold">
                   {loading ? 'Signing in…' : 'Sign In'}
                 </Button>
               </form>
@@ -99,36 +89,30 @@ const Auth = () => {
 
             <TabsContent value="signup">
               <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                <Input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} required
-                  className="bg-black/50 border-white/10 text-white placeholder:text-white/30" style={{ fontFamily: "'Space Grotesk', sans-serif" }} />
-                <Input type="password" placeholder="Password (min 6 chars)" value={password} onChange={e => setPassword(e.target.value)} required minLength={6}
-                  className="bg-black/50 border-white/10 text-white placeholder:text-white/30" style={{ fontFamily: "'Space Grotesk', sans-serif" }} />
-                <Button type="submit" disabled={loading} className="w-full bg-white text-black hover:bg-white/90 font-semibold" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                <Input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} required className="bg-black/50 border-white/10 text-white placeholder:text-white/30" />
+                <Input type="password" placeholder="Password (min 6 chars)" value={password} onChange={e => setPassword(e.target.value)} required minLength={6} className="bg-black/50 border-white/10 text-white placeholder:text-white/30" />
+                <Button type="submit" disabled={loading} className="w-full bg-white text-black hover:bg-white/90 font-semibold">
                   {loading ? 'Creating account…' : 'Create Account'}
                 </Button>
               </form>
             </TabsContent>
           </Tabs>
 
-          {/* Divider */}
           <div className="flex items-center gap-3 my-5">
             <div className="flex-1 h-px" style={{ background: 'rgba(255,255,255,0.1)' }} />
-            <span className="text-xs" style={{ color: 'rgba(255,255,255,0.3)', fontFamily: "'Space Grotesk', sans-serif" }}>or</span>
+            <span className="text-xs text-muted-foreground">or</span>
             <div className="flex-1 h-px" style={{ background: 'rgba(255,255,255,0.1)' }} />
           </div>
 
-          {/* Google */}
-          <Button onClick={handleGoogle} variant="outline" className="w-full gap-2 border-white/10 text-white hover:bg-white/5" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+          <Button onClick={handleGoogle} variant="outline" className="w-full gap-2 border-white/10 text-white hover:bg-white/5">
             <GoogleIcon /> Continue with Google
           </Button>
 
-          {error && <p className="text-red-400 text-sm mt-4 text-center" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{error}</p>}
-          {message && <p className="text-green-400 text-sm mt-4 text-center" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{message}</p>}
+          {error && <p className="text-red-400 text-sm mt-4 text-center">{error}</p>}
+          {message && <p className="text-green-400 text-sm mt-4 text-center">{message}</p>}
         </div>
 
-        <p className="text-center mt-6 text-xs" style={{ color: 'rgba(255,255,255,0.3)', fontFamily: "'Space Grotesk', sans-serif" }}>
-          Christopher Robinson — CEO, Stackmode
-        </p>
+        <p className="text-center mt-6 text-xs text-muted-foreground">Christopher Robinson — CEO, Stackmode</p>
       </div>
     </div>
   );

@@ -58,19 +58,19 @@ export const SiteNav = memo(() => {
         <div className="relative" ref={userMenuRef}>
           <button onClick={() => setUserMenuOpen(v => !v)}
             className="flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-bold"
-            style={{ background: 'linear-gradient(135deg, #FFD700, #FFA500)', color: '#000', fontFamily: "'Space Grotesk', sans-serif" }}>
+            style={{ background: 'linear-gradient(135deg, #FFD700, #FFA500)', color: '#000' }}>
             ★ Premium
           </button>
           {userMenuOpen && (
             <div className="absolute top-full right-0 mt-2 py-2 rounded-lg min-w-[180px]" style={{ background: 'rgba(17,17,17,0.98)', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(20px)' }}>
               <button onClick={handlePortal}
                 className="block w-full text-left px-4 py-2 text-sm transition-colors hover:bg-white/5"
-                style={{ fontFamily: "'Space Grotesk', sans-serif", color: 'rgba(255,255,255,0.7)' }}>
+                style={{ color: 'rgba(255,255,255,0.7)' }}>
                 Manage Subscription
               </button>
               <button onClick={signOut}
                 className="block w-full text-left px-4 py-2 text-sm transition-colors hover:bg-white/5"
-                style={{ fontFamily: "'Space Grotesk', sans-serif", color: 'rgba(255,255,255,0.7)' }}>
+                style={{ color: 'rgba(255,255,255,0.7)' }}>
                 Logout
               </button>
             </div>
@@ -90,12 +90,12 @@ export const SiteNav = memo(() => {
           <div className="absolute top-full right-0 mt-2 py-2 rounded-lg min-w-[180px]" style={{ background: 'rgba(17,17,17,0.98)', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(20px)' }}>
             <button onClick={handleCheckout}
               className="block w-full text-left px-4 py-2 text-sm transition-colors hover:bg-white/5"
-              style={{ fontFamily: "'Space Grotesk', sans-serif", color: 'rgba(255,255,255,0.7)' }}>
+              style={{ color: 'rgba(255,255,255,0.7)' }}>
               Subscribe to Premium
             </button>
             <button onClick={signOut}
               className="block w-full text-left px-4 py-2 text-sm transition-colors hover:bg-white/5"
-              style={{ fontFamily: "'Space Grotesk', sans-serif", color: 'rgba(255,255,255,0.7)' }}>
+              style={{ color: 'rgba(255,255,255,0.7)' }}>
               Logout
             </button>
           </div>
@@ -136,7 +136,7 @@ export const SiteNav = memo(() => {
       }}>
         <Link to="/" className="flex items-center gap-2.5 no-underline">
           <img src="/images/sm-logo-new.png" alt="Stackmode" className="w-8 h-8 rounded-full object-cover" />
-          <span className="text-sm font-bold tracking-wider text-white" style={{ fontFamily: "'Barlow Condensed', sans-serif", textTransform: 'uppercase' }}>STACKMODE</span>
+          <span className="text-sm font-semibold tracking-wide text-white">Stackmode</span>
         </Link>
 
         <div className="hidden lg:flex items-center gap-0.5">
@@ -147,7 +147,7 @@ export const SiteNav = memo(() => {
                 <div key={link.label} className="relative" ref={dropdownRef}>
                   <button onClick={() => setDropdownOpen(v => !v)}
                     className="px-3 py-1.5 text-sm transition-colors"
-                    style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 500, color: active ? '#fff' : 'rgba(255,255,255,0.6)' }}>
+                    style={{ fontWeight: 500, color: active ? '#fff' : 'rgba(255,255,255,0.6)' }}>
                     {link.label} ▾
                   </button>
                   {dropdownOpen && (
@@ -155,7 +155,7 @@ export const SiteNav = memo(() => {
                       {link.dropdown.map(item => (
                         <Link key={item.label} to={item.path}
                           className="block px-4 py-2 text-sm transition-colors hover:bg-white/5"
-                          style={{ fontFamily: "'Space Grotesk', sans-serif", color: isActive(item.path) ? '#fff' : 'rgba(255,255,255,0.6)' }}>
+                          style={{ color: isActive(item.path) ? '#fff' : 'rgba(255,255,255,0.6)' }}>
                           {item.label}
                         </Link>
                       ))}
@@ -167,7 +167,7 @@ export const SiteNav = memo(() => {
             return (
               <Link key={link.label} to={link.path}
                 className="px-3 py-1.5 text-sm transition-colors"
-                style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 500, color: active ? '#fff' : 'rgba(255,255,255,0.6)' }}>
+                style={{ fontWeight: 500, color: active ? '#fff' : 'rgba(255,255,255,0.6)' }}>
                 {link.label}
               </Link>
             );
@@ -192,8 +192,8 @@ export const SiteNav = memo(() => {
           <div className="flex flex-col items-center justify-center h-full gap-4 -mt-16">
             {navLinks.map(link => (
               <Link key={link.label} to={link.path} onClick={() => setOpen(false)}
-                className="text-xl tracking-wide uppercase transition-colors"
-                style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: isActive(link.path) ? '#fff' : 'rgba(255,255,255,0.4)' }}>
+                className="text-xl tracking-wide transition-colors"
+                style={{ fontWeight: 600, color: isActive(link.path) ? '#fff' : 'rgba(255,255,255,0.4)' }}>
                 {link.label}
               </Link>
             ))}
