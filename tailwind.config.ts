@@ -79,11 +79,10 @@ export default {
 				'gradient-gaming': 'var(--gradient-gaming)'
 			},
 			fontFamily: {
-				'pixel': ['"Press Start 2P"', 'monospace'],
-				'orbitron': ['Orbitron', 'sans-serif'],
-				'body': ['Rajdhani', 'sans-serif'],
-				'heading': ['"Press Start 2P"', 'monospace'],
-				'mono': ['"JetBrains Mono"', 'monospace']
+				'heading': ['Syne', 'sans-serif'],
+				'body': ['"DM Sans"', 'sans-serif'],
+				'mono': ['"DM Mono"', 'monospace'],
+				'syne': ['Syne', 'sans-serif'],
 			},
 			height: {
 				screen: '100dvh',
