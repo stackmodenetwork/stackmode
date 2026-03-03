@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import SiteNav from '@/components/SiteNav';
 import SiteFooter from '@/components/SiteFooter';
 import TrustBar from '@/components/TrustBar';
-import { FocusCards } from '@/components/ui/focus-cards';
+import { ImageAutoSlider } from '@/components/ui/image-auto-slider';
 import { useState, useEffect, memo } from 'react';
 
 /* ═══ TYPEWRITER ═══ */
@@ -104,12 +104,12 @@ const ShowcaseCard = ({ img, badge, title, sub }: { img: string; badge: string; 
 
 /* ═══ BUILD YOUR BRAND CARDS ═══ */
 const brandCards = [
-  { title: 'Logo & Brand Identity', desc: 'Generate full brand kits — logo concepts, color palettes, typography systems.', tools: 'Midjourney · DALL-E · Ideogram', icon: '🎨' },
-  { title: 'Full Websites', desc: 'Build complete landing pages, SaaS sites, and portfolio pages.', tools: 'Lovable · Claude · Cursor', icon: '🌐' },
-  { title: 'Pitch Decks & Presentations', desc: 'Investor-ready decks that look designed, not generated.', tools: 'ChatGPT · Claude · Gamma', icon: '📊' },
-  { title: 'Video Scripts & Content', desc: 'YouTube hooks, Reel scripts, and TikTok formats that match your voice.', tools: 'ChatGPT · Claude', icon: '🎬' },
-  { title: 'Product Photography', desc: 'Studio-quality product images with one prompt.', tools: 'Midjourney · Firefly · DALL-E 3', icon: '📸' },
-  { title: 'Business Cards', desc: 'Design ultra-premium, print-ready business cards.', tools: 'Midjourney · Print · Brand Identity', icon: '💳' },
+  { title: 'Logo & Brand Identity', desc: 'Generate full brand kits — logo concepts, color palettes, typography systems.', tools: 'Midjourney · DALL-E · Ideogram' },
+  { title: 'Full Websites', desc: 'Build complete landing pages, SaaS sites, and portfolio pages.', tools: 'Lovable · Claude · Cursor' },
+  { title: 'Pitch Decks & Presentations', desc: 'Investor-ready decks that look designed, not generated.', tools: 'ChatGPT · Claude · Gamma' },
+  { title: 'Video Scripts & Content', desc: 'YouTube hooks, Reel scripts, and TikTok formats that match your voice.', tools: 'ChatGPT · Claude' },
+  { title: 'Product Photography', desc: 'Studio-quality product images with one prompt.', tools: 'Midjourney · Firefly · DALL-E 3' },
+  { title: 'Business Cards', desc: 'Design ultra-premium, print-ready business cards.', tools: 'Midjourney · Print · Brand Identity' },
 ];
 
 /* ═══ TESTIMONIALS ═══ */
@@ -219,9 +219,8 @@ const Landing = () => (
         <div className="grid-3">
           {brandCards.map((card, i) => (
             <motion.div key={card.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }} className="glass-card text-center">
-              <div className="text-3xl mb-3">{card.icon}</div>
-              <h3 className="text-lg mb-2" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>{card.title}</h3>
-              <p className="text-sm mb-3" style={{ color: 'rgba(255,255,255,0.6)' }}>{card.desc}</p>
+              <h3 className="text-lg mb-2" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 500 }}>{card.title}</h3>
+              <p className="text-sm mb-3" style={{ color: 'rgba(255,255,255,0.6)', fontFamily: "'Space Grotesk', sans-serif" }}>{card.desc}</p>
               <p className="text-[10px] uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.3)' }}>{card.tools}</p>
             </motion.div>
           ))}
@@ -236,20 +235,24 @@ const Landing = () => (
       </div>
     </section>
 
-    {/* VERIFIED RESULTS */}
+    {/* CLIENT SHOWCASE */}
     <section className="section">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-header__title">Websites We've Built</h2>
-          <p className="section-header__subtitle">Real clients. Real results. Built by Christopher Robinson.</p>
+          <p className="section-header__eyebrow">Client Work</p>
+          <h2 className="section-header__title" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, textTransform: 'none' }}>Websites we've built</h2>
+          <p className="section-header__subtitle" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Real clients. Real results. Built by Christopher Robinson.</p>
         </div>
-        <FocusCards cards={[
-          { title: "SWOLE JD — Fitness & Coaching", src: "/images/showcase/client-jd.png" },
-          { title: "True Legacy — Global Business", src: "/images/showcase/client-legacy.png" },
-          { title: "7UVHAVIN — Music & Entertainment", src: "/images/showcase/client-7uvhavin.png" },
-          { title: "CEO Turbo — Growth Platform", src: "/images/showcase/client-ceoturbo.png" },
-        ]} />
       </div>
+      <ImageAutoSlider
+        speed={20}
+        images={[
+          { title: "Swole JD — Fitness & Coaching", src: "/images/showcase/client-jd.png" },
+          { title: "True Legacy — Global Business", src: "/images/showcase/client-legacy.png" },
+          { title: "7uvhavin — Music & Entertainment", src: "/images/showcase/client-7uvhavin.png" },
+          { title: "CEO Turbo — Growth Platform", src: "/images/showcase/client-ceoturbo.png" },
+        ]}
+      />
     </section>
 
     {/* DONE FOR YOU BRIDGE */}
