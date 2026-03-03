@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import SiteNav from '@/components/SiteNav';
 import SiteFooter from '@/components/SiteFooter';
 
-const CALENDLY_URL = 'https://calendly.com/stackmode';
+const CALENDLY_URL = 'https://calendly.com/stackmodechris/turboboost';
 
 const tickerItems = ['Custom Websites', 'AI Automation', 'SEO Strategy', 'Content Monetization', 'Brand Identity', 'Limited Spots Available'];
 
@@ -34,7 +34,7 @@ const BrandBoost = () => (
             style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.7)' }}>
             Limited Availability
           </span>
-          <h1 className="text-4xl sm:text-6xl mb-4" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, lineHeight: 1.1 }}>
+          <h1 className="text-4xl sm:text-6xl mb-4 font-heading font-bold" style={{ lineHeight: 1.1 }}>
             Delete the Linktree.<br />Get a Real Brand.
           </h1>
           <p className="text-base sm:text-lg mb-8" style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>
@@ -65,11 +65,11 @@ const BrandBoost = () => (
               transition={{ delay: i * 0.08 }}
               className="glass-card relative"
             >
-              <div className="absolute top-4 left-4 text-4xl font-bold" style={{ color: 'rgba(255,255,255,0.04)', fontFamily: "'Barlow Condensed', sans-serif" }}>
+              <div className="absolute top-4 left-4 text-4xl font-bold font-heading" style={{ color: 'rgba(255,255,255,0.04)' }}>
                 {s.num}
               </div>
               <div className="pt-10">
-                <h3 className="text-lg mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>{s.title}</h3>
+                <h3 className="text-lg mb-3 font-heading font-bold">{s.title}</h3>
                 <p className="text-sm" style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>{s.desc}</p>
               </div>
             </motion.div>

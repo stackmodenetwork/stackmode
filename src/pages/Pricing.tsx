@@ -72,7 +72,7 @@ const Pricing = () => {
       <main style={{ paddingTop: 80 }}>
         <div className="text-center px-4 mb-10">
           <p className="text-sm uppercase tracking-widest mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>Simple, transparent pricing</p>
-          <h1 className="text-5xl sm:text-6xl mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800 }}>Pick Your Stack</h1>
+          <h1 className="text-5xl sm:text-6xl mb-3 font-heading font-bold">Pick Your Stack</h1>
           <p className="text-base" style={{ color: 'rgba(255,255,255,0.5)' }}>Start free. Upgrade when you're ready. No hidden fees.</p>
         </div>
 
@@ -89,9 +89,9 @@ const Pricing = () => {
                     </div>
                   )}
                   <p className="text-xs uppercase tracking-widest mb-1" style={{ color: 'rgba(255,255,255,0.4)' }}>{tier.label}</p>
-                  <h3 className="text-xl mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>{tier.name}</h3>
+                  <h3 className="text-xl mb-3 font-heading font-bold">{tier.name}</h3>
                   <div className="flex items-baseline gap-1 mb-2">
-                    <span className="text-4xl font-bold" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>{tier.price}</span>
+                    <span className="text-4xl font-bold font-heading">{tier.price}</span>
                     {tier.cadence && <span className="text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>{tier.cadence}</span>}
                   </div>
                   <p className="text-sm mb-6" style={{ color: 'rgba(255,255,255,0.5)' }}>{tier.tagline}</p>

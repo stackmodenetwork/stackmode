@@ -22,7 +22,7 @@ const Learn = () => {
               <span className="text-lg font-bold text-foreground font-mono">STACKMODE ACADEMY</span>
             </a>
             <a
-              href="https://calendly.com/stackmodechris/architecture"
+              href="https://calendly.com/stackmodechris/turboboost"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold px-4 py-2 rounded-lg transition-all text-sm"
@@ -70,7 +70,7 @@ const Learn = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            href="https://calendly.com/stackmodechris/architecture"
+            href="https://calendly.com/stackmodechris/turboboost"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-cyan-500/20"
@@ -149,7 +149,7 @@ const Learn = () => {
             <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">Ready to Build?</h2>
             <p className="text-muted-foreground text-sm mb-5">Book a free call. Tell us what you need. Get a custom quote.</p>
             <a
-              href="https://calendly.com/stackmodechris/architecture"
+              href="https://calendly.com/stackmodechris/turboboost"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-background font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-cyan-500/20"

@@ -51,7 +51,7 @@ const Index = () => {
               <ArrowRight size={18} />
             </a>
             <a
-              href="https://calendly.com/stackmodechris/architecture"
+              href="https://calendly.com/stackmodechris/turboboost"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-background font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-emerald-500/20"

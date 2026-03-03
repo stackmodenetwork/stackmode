@@ -116,15 +116,15 @@ const PromptShop = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
               <p className="section-header__eyebrow mb-2">The Prompt Library</p>
-              <h1 className="text-5xl sm:text-6xl mb-4" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, lineHeight: 1.1 }}>
+              <h1 className="text-5xl sm:text-6xl mb-4 font-heading font-bold" style={{ lineHeight: 1.1 }}>
                 Copy. Paste.<br />Create.
               </h1>
               <p className="text-base mb-6" style={{ color: 'rgba(255,255,255,0.6)' }}>
                 AI software, trading strategies, investing, and digital asset stacking — by Christopher Robinson, CEO
               </p>
               <div className="flex gap-6 mb-6">
-                <div><span className="text-2xl font-bold text-white" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>150+</span><br /><span className="text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>Prompts</span></div>
-                <div><span className="text-2xl font-bold text-white" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>All AIs</span><br /><span className="text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>Compatible</span></div>
+                <div><span className="text-2xl font-bold text-white font-heading">150+</span><br /><span className="text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>Prompts</span></div>
+                <div><span className="text-2xl font-bold text-white font-heading">All AIs</span><br /><span className="text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>Compatible</span></div>
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }} className="flex justify-center lg:justify-end">
@@ -175,7 +175,7 @@ const PromptShop = () => {
                   </span>
                   <span className="text-[10px] uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.4)' }}>{p.cat}</span>
                 </div>
-                <h3 className="text-lg mb-2" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>{p.title}</h3>
+                <h3 className="text-lg mb-2 font-heading font-bold">{p.title}</h3>
                 <p className="text-sm mb-3" style={{ color: 'rgba(255,255,255,0.6)' }}>{p.desc}</p>
                 <p className="text-xs font-mono mb-4 flex-1" style={{ color: 'rgba(255,255,255,0.35)', lineHeight: 1.5 }}>{p.preview}</p>
                 <div>
@@ -214,8 +214,8 @@ const PromptShop = () => {
                 transition={{ delay: i * 0.1 }}
                 className="text-center"
               >
-                <div className="text-3xl font-bold mb-2" style={{ fontFamily: "'Barlow Condensed', sans-serif", color: 'rgba(255,255,255,0.15)' }}>{step.num}</div>
-                <h3 className="text-lg mb-1" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>{step.title}</h3>
+                <div className="text-3xl font-bold mb-2 font-heading" style={{ color: 'rgba(255,255,255,0.15)' }}>{step.num}</div>
+                <h3 className="text-lg mb-1 font-heading font-bold">{step.title}</h3>
                 <p className="text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>{step.desc}</p>
               </motion.div>
             ))}

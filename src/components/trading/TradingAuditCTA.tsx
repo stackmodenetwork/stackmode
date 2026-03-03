@@ -73,7 +73,7 @@ export const TradingAuditCTA = () => {
         </motion.p>
 
         {/* Main Card */}
-        <a href="https://calendly.com/stackmodechris/architecture" target="_blank" rel="noopener noreferrer" className="block group">
+        <a href="https://calendly.com/stackmodechris/turboboost" target="_blank" rel="noopener noreferrer" className="block group">
           <div className="relative bg-gradient-to-br from-emerald-500/10 via-card/95 to-primary/10 border-2 border-emerald-500/40 rounded-2xl sm:rounded-3xl p-6 sm:p-8 overflow-hidden transition-all duration-300 group-hover:border-primary group-hover:shadow-[0_0_60px_rgba(34,197,94,0.5)] group-hover:scale-[1.02]">
             {/* Background glow */}
             <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-bl from-emerald-500/15 to-transparent rounded-full blur-3xl opacity-60" />
