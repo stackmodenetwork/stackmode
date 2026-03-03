@@ -196,32 +196,32 @@ const PromptShop = () => {
       </section>
 
       {/* How It Works */}
-      <section className="section section--glass">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-header__title">How It Works</h2>
-          </div>
-          <div className="grid-3" style={{ maxWidth: 800, margin: '0 auto' }}>
-            {[
-            { num: '01', title: 'Pick', desc: 'Browse and pick the prompt you need.' },
-            { num: '02', title: 'Copy', desc: 'Copy the full prompt — variables included.' },
-            { num: '03', title: 'Paste & Create', desc: 'Paste into ChatGPT, Claude, or Midjourney and get results.' }].
-            map((step, i) =>
-            <motion.div key={step.num}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.1 }}
-            className="text-center">
-              
-                <div className="text-3xl font-bold mb-2" style={{ fontFamily: "'Barlow Condensed', sans-serif", color: 'rgba(255,255,255,0.15)' }}>{step.num}</div>
-                <h3 className="text-lg mb-1" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>{step.title}</h3>
-                <p className="text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>{step.desc}</p>
-              </motion.div>
-            )}
-          </div>
-        </div>
-      </section>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
 
       {/* Student Success */}
       
