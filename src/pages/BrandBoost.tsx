@@ -5,7 +5,7 @@ import SiteFooter from '@/components/SiteFooter';
 
 const CALENDLY_URL = 'https://calendly.com/stackmode';
 
-const tickerItems = ['340% Traffic Increase', '12x More Booked Calls', '$100K+ Revenue Generated', 'Limited Spots Available', '500+ Organic Views in 72 Hours', 'Professional Brand Authority'];
+const tickerItems = ['Custom Websites', 'AI Automation', 'SEO Strategy', 'Content Monetization', 'Brand Identity', 'Limited Spots Available'];
 
 const services = [
   { num: '01', title: 'Custom Website', desc: 'No more Linktree. A fully designed, professional website built for your brand — mobile-first, fast, SEO-ready, and built to convert visitors into clients.' },
