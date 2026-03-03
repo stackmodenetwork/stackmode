@@ -25,10 +25,10 @@ const Typewriter = memo(() => {
     const phrase = phrases[phraseIdx];
     const timeout = deleting ? 30 : 60;
     const timer = setTimeout(() => {
-      if (!deleting && charIdx < phrase.length) { setText(phrase.slice(0, charIdx + 1)); setCharIdx(c => c + 1); }
-      else if (!deleting && charIdx === phrase.length) { setTimeout(() => setDeleting(true), 2000); }
-      else if (deleting && charIdx > 0) { setText(phrase.slice(0, charIdx - 1)); setCharIdx(c => c - 1); }
-      else { setDeleting(false); setPhraseIdx(p => (p + 1) % phrases.length); }
+      if (!deleting && charIdx < phrase.length) {setText(phrase.slice(0, charIdx + 1));setCharIdx((c) => c + 1);} else
+      if (!deleting && charIdx === phrase.length) {setTimeout(() => setDeleting(true), 2000);} else
+      if (deleting && charIdx > 0) {setText(phrase.slice(0, charIdx - 1));setCharIdx((c) => c - 1);} else
+      {setDeleting(false);setPhraseIdx((p) => (p + 1) % phrases.length);}
     }, timeout);
     return () => clearTimeout(timer);
   }, [charIdx, deleting, phraseIdx]);
@@ -37,17 +37,17 @@ const Typewriter = memo(() => {
     <div className="h-8 flex items-center justify-center">
       <span className="text-sm font-mono" style={{ color: 'rgba(255,255,255,0.5)' }}>{text}</span>
       <span className="inline-block w-0.5 h-5 ml-0.5 animate-pulse bg-white" />
-    </div>
-  );
+    </div>);
+
 });
 Typewriter.displayName = 'Typewriter';
 
 /* ═══ PROMPT PREVIEW ═══ */
 const promptTabs = [
-  { label: 'Algo Trading', text: 'Act as a Quant Analyst. Build a high-frequency Python algo using ccxt. Combine VWAP mean-reversion with RSI divergence filters. Enforce Kelly Criterion sizing and sub-millisecond PostgreSQL logging. Provide backtested R:R optimizations securely.' },
-  { label: 'System Architecture', text: 'Act as a Principal Cloud Architect. Design a zero-trust microservices SaaS platform. Write Kubernetes manifests mapping Node.js gRPC services to a Redis/Postgres datastore. Guarantee 99.999% uptime for 1M+ concurrent TCP connections.' },
-  { label: 'Quant Modeling', text: 'Act as an M&A Financial Modeler. Construct an institutional DCF & LBO Excel model. Integrate Python Monte Carlo simulations to run 10,000 WACC scenarios, outputting automated sensitivity tables and 10-year dynamic waterfall cohort projections.' },
-];
+{ label: 'Algo Trading', text: 'Act as a Quant Analyst. Build a high-frequency Python algo using ccxt. Combine VWAP mean-reversion with RSI divergence filters. Enforce Kelly Criterion sizing and sub-millisecond PostgreSQL logging. Provide backtested R:R optimizations securely.' },
+{ label: 'System Architecture', text: 'Act as a Principal Cloud Architect. Design a zero-trust microservices SaaS platform. Write Kubernetes manifests mapping Node.js gRPC services to a Redis/Postgres datastore. Guarantee 99.999% uptime for 1M+ concurrent TCP connections.' },
+{ label: 'Quant Modeling', text: 'Act as an M&A Financial Modeler. Construct an institutional DCF & LBO Excel model. Integrate Python Monte Carlo simulations to run 10,000 WACC scenarios, outputting automated sensitivity tables and 10-year dynamic waterfall cohort projections.' }];
+
 
 const PromptPreview = memo(() => {
   const [active, setActive] = useState(0);
@@ -58,8 +58,8 @@ const PromptPreview = memo(() => {
     let i = 0;
     const text = promptTabs[active].text;
     const interval = setInterval(() => {
-      if (i < text.length) { setDisplayed(text.slice(0, i + 1)); i++; }
-      else clearInterval(interval);
+      if (i < text.length) {setDisplayed(text.slice(0, i + 1));i++;} else
+      clearInterval(interval);
     }, 15);
     return () => clearInterval(interval);
   }, [active]);
@@ -67,13 +67,13 @@ const PromptPreview = memo(() => {
   return (
     <div className="max-w-2xl mx-auto mt-8">
       <div className="flex gap-2 mb-0 overflow-x-auto scrollbar-hide">
-        {promptTabs.map((tab, i) => (
-          <button key={i} onClick={() => setActive(i)}
-            className="px-4 py-2 text-xs font-medium tracking-wider whitespace-nowrap rounded-t-lg transition-colors"
-            style={{ background: i === active ? '#111' : 'transparent', color: i === active ? '#fff' : 'rgba(255,255,255,0.4)', borderTop: i === active ? '1px solid rgba(255,255,255,0.1)' : '1px solid transparent', borderLeft: i === active ? '1px solid rgba(255,255,255,0.1)' : '1px solid transparent', borderRight: i === active ? '1px solid rgba(255,255,255,0.1)' : '1px solid transparent', borderBottom: 'none' }}>
+        {promptTabs.map((tab, i) =>
+        <button key={i} onClick={() => setActive(i)}
+        className="px-4 py-2 text-xs font-medium tracking-wider whitespace-nowrap rounded-t-lg transition-colors"
+        style={{ background: i === active ? '#111' : 'transparent', color: i === active ? '#fff' : 'rgba(255,255,255,0.4)', borderTop: i === active ? '1px solid rgba(255,255,255,0.1)' : '1px solid transparent', borderLeft: i === active ? '1px solid rgba(255,255,255,0.1)' : '1px solid transparent', borderRight: i === active ? '1px solid rgba(255,255,255,0.1)' : '1px solid transparent', borderBottom: 'none' }}>
             {tab.label}
           </button>
-        ))}
+        )}
       </div>
       <div className="rounded-b-xl rounded-tr-xl p-4 sm:p-6" style={{ background: '#111', border: '1px solid rgba(255,255,255,0.1)' }}>
         <div className="flex items-center gap-2 mb-3">
@@ -90,45 +90,45 @@ const PromptPreview = memo(() => {
           <Link to="/shop" className="text-xs font-semibold text-white hover:underline">Get This Prompt →</Link>
         </div>
       </div>
-    </div>
-  );
+    </div>);
+
 });
 PromptPreview.displayName = 'PromptPreview';
 
 /* ═══ SHOWCASE CARD ═══ */
-const ShowcaseCard = ({ img, badge, title, sub }: { img: string; badge: string; title: string; sub: string }) => (
-  <div className="glass-card overflow-hidden p-0">
+const ShowcaseCard = ({ img, badge, title, sub }: {img: string;badge: string;title: string;sub: string;}) =>
+<div className="glass-card overflow-hidden p-0">
     <img src={img} alt={title} className="w-full h-48 object-cover" loading="lazy" />
     <div className="p-4">
       <span className="text-[10px] tracking-wider mb-2 inline-block" style={{ color: 'rgba(255,255,255,0.5)' }}>{badge}</span>
       <h3 className="text-lg mb-1" style={{ fontWeight: 600 }}>{title}</h3>
       <p className="text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>{sub}</p>
     </div>
-  </div>
-);
+  </div>;
+
 
 /* ═══ BUILD YOUR BRAND CARDS ═══ */
 const brandCards = [
-  { title: 'Logo & Brand Identity', desc: 'Generate full brand kits — logo concepts, color palettes, typography systems.', tools: 'Midjourney · DALL-E · Ideogram' },
-  { title: 'Full Websites', desc: 'Build complete landing pages, SaaS sites, and portfolio pages.', tools: 'Lovable · Claude · Cursor' },
-  { title: 'Pitch Decks & Presentations', desc: 'Investor-ready decks that look designed, not generated.', tools: 'ChatGPT · Claude · Gamma' },
-  { title: 'Video Scripts & Content', desc: 'YouTube hooks, Reel scripts, and TikTok formats that match your voice.', tools: 'ChatGPT · Claude' },
-  { title: 'Product Photography', desc: 'Studio-quality product images with one prompt.', tools: 'Midjourney · Firefly · DALL-E 3' },
-  { title: 'Business Cards', desc: 'Design ultra-premium, print-ready business cards.', tools: 'Midjourney · Print · Brand Identity' },
-];
+{ title: 'Logo & Brand Identity', desc: 'Generate full brand kits — logo concepts, color palettes, typography systems.', tools: 'Midjourney · DALL-E · Ideogram' },
+{ title: 'Full Websites', desc: 'Build complete landing pages, SaaS sites, and portfolio pages.', tools: 'Lovable · Claude · Cursor' },
+{ title: 'Pitch Decks & Presentations', desc: 'Investor-ready decks that look designed, not generated.', tools: 'ChatGPT · Claude · Gamma' },
+{ title: 'Video Scripts & Content', desc: 'YouTube hooks, Reel scripts, and TikTok formats that match your voice.', tools: 'ChatGPT · Claude' },
+{ title: 'Product Photography', desc: 'Studio-quality product images with one prompt.', tools: 'Midjourney · Firefly · DALL-E 3' },
+{ title: 'Business Cards', desc: 'Design ultra-premium, print-ready business cards.', tools: 'Midjourney · Print · Brand Identity' }];
+
 
 /* ═══ TESTIMONIALS ═══ */
 const testimonials = [
-  { name: 'Marcus T.', text: 'The AI Trading prompt showed me how to analyze SPY charts in ChatGPT. Made my first profitable swing trade the same week.' },
-  { name: 'Destiny W.', text: 'The asset stacking course broke down exactly how to stack income streams. I now have 4 running simultaneously.' },
-  { name: 'Jaylon B.', text: 'The Midjourney image prompts are insane. My product photos look like a $10K shoot. Clients can\'t believe it.' },
-  { name: 'Priya M.', text: 'Stackfinder spotted NVDA before it ran 8%. The AI scanner is the real deal.' },
-  { name: 'Kevin L.', text: "Christopher's Academy teaches AI tools I actually use every day. ROI in the first week." },
-  { name: 'Alexis R.', text: 'Used the SaaS landing page prompt to build my entire site in Lovable. Saved me $3,000 in designer fees.' },
-];
+{ name: 'Marcus T.', text: 'The AI Trading prompt showed me how to analyze SPY charts in ChatGPT. Made my first profitable swing trade the same week.' },
+{ name: 'Destiny W.', text: 'The asset stacking course broke down exactly how to stack income streams. I now have 4 running simultaneously.' },
+{ name: 'Jaylon B.', text: 'The Midjourney image prompts are insane. My product photos look like a $10K shoot. Clients can\'t believe it.' },
+{ name: 'Priya M.', text: 'Stackfinder spotted NVDA before it ran 8%. The AI scanner is the real deal.' },
+{ name: 'Kevin L.', text: "Christopher's Academy teaches AI tools I actually use every day. ROI in the first week." },
+{ name: 'Alexis R.', text: 'Used the SaaS landing page prompt to build my entire site in Lovable. Saved me $3,000 in designer fees.' }];
 
-const Landing = () => (
-  <div style={{ background: '#000', minHeight: '100vh' }}>
+
+const Landing = () =>
+<div style={{ background: '#000', minHeight: '100vh' }}>
     <Helmet>
       <title>Stackmode — Master AI. Stack Assets. Build Wealth. | Christopher Robinson CEO</title>
       <meta name="description" content="AI software, trading strategies, investing, and digital asset stacking by Christopher Robinson CEO." />
@@ -141,15 +141,15 @@ const Landing = () => (
     {/* HERO */}
     <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 pt-20 pb-12">
       <motion.img initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6 }}
-        src="/images/sm-logo-new.png" alt="Stackmode Logo" className="w-16 h-16 sm:w-20 sm:h-20 rounded-full mb-6" />
+    src="/images/sm-logo-new.png" alt="Stackmode Logo" className="w-16 h-16 sm:w-20 sm:h-20 rounded-full mb-6" />
       <motion.h2 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-        className="text-4xl sm:text-6xl md:text-7xl mb-4" style={{ fontWeight: 600, lineHeight: 1.1, letterSpacing: '-0.02em' }}>
+    className="text-4xl sm:text-6xl md:text-7xl mb-4" style={{ fontWeight: 600, lineHeight: 1.1, letterSpacing: '-0.02em' }}>
         Master{' '}
         <AnimatedTextRotator words={['AI Software', 'Trading Systems', 'Digital Assets', 'Brand Building']} interval={2800} />
         .<br />Build Wealth.
       </motion.h2>
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}
-        className="text-base sm:text-lg max-w-xl mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>
+    className="text-base sm:text-lg max-w-xl mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>
         AI software, trading strategies, investing, and digital asset stacking — by Christopher Robinson, CEO
       </motion.p>
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}><Typewriter /></motion.div>
@@ -165,16 +165,16 @@ const Landing = () => (
       <div className="container">
         <div className="proof-bar__inner">
           {[
-            { icon: 'M22 10v6M2 10l10-5 10 5-10 5zM6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5', label: 'Active Community' },
-            { icon: 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z', label: '50+ countries' },
-            { icon: 'M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6', label: '$100K+ revenue' },
-            { icon: 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z', label: '5-star rated' },
-          ].map(item => (
-            <span key={item.label} className="proof-bar__item">
+        { icon: 'M22 10v6M2 10l10-5 10 5-10 5zM6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5', label: 'Active Community' },
+        { icon: 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z', label: '50+ countries' },
+        { icon: 'M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6', label: '$100K+ revenue' },
+        { icon: 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z', label: '5-star rated' }].
+        map((item) =>
+        <span key={item.label} className="proof-bar__item">
               <svg viewBox="0 0 24 24"><path d={item.icon} /></svg>
               {item.label}
             </span>
-          ))}
+        )}
         </div>
       </div>
     </div>
@@ -182,7 +182,7 @@ const Landing = () => (
 
     <BusinessProofBento />
 
-    <PillarsBentoGrid />
+    
 
     <ToolsLogoGrid />
 
@@ -198,14 +198,14 @@ const Landing = () => (
         </div>
       </div>
       <ImageAutoSlider
-        speed={20}
-        images={[
-          { title: "Swole JD — Fitness & Coaching", src: "/images/showcase/client-jd.png" },
-          { title: "True Legacy — Global Business", src: "/images/showcase/client-legacy.png" },
-          { title: "7uvhavin — Music & Entertainment", src: "/images/showcase/client-7uvhavin.png" },
-          { title: "CEO Turbo — Growth Platform", src: "/images/showcase/client-ceoturbo.png" },
-        ]}
-      />
+      speed={20}
+      images={[
+      { title: "Swole JD — Fitness & Coaching", src: "/images/showcase/client-jd.png" },
+      { title: "True Legacy — Global Business", src: "/images/showcase/client-legacy.png" },
+      { title: "7uvhavin — Music & Entertainment", src: "/images/showcase/client-7uvhavin.png" },
+      { title: "CEO Turbo — Growth Platform", src: "/images/showcase/client-ceoturbo.png" }]
+      } />
+    
     </section>
 
     {/* DONE FOR YOU BRIDGE */}
@@ -279,7 +279,7 @@ const Landing = () => (
     </section>
 
     <SiteFooter />
-  </div>
-);
+  </div>;
+
 
 export default Landing;
