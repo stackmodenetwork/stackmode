@@ -43,12 +43,12 @@ const testimonials = [
 
 /* Terminal prompt preview */
 const promptTabs = [
-{ label: 'Algo Trading', text: 'Act as a Quant Analyst. Build a high-frequency Python algo using ccxt. Combine VWAP mean-reversion with RSI divergence filters. Enforce Kelly Criterion sizing and sub-millisecond PostgreSQL logging.' },
-{ label: 'System Architecture', text: 'Act as a Principal Cloud Architect. Design a zero-trust microservices SaaS platform. Write Kubernetes manifests mapping Node.js gRPC services to a Redis/Postgres datastore.' },
-{ label: 'Quant Modeling', text: 'Act as an M&A Financial Modeler. Construct an institutional DCF & LBO Excel model. Integrate Python Monte Carlo simulations to run 10,000 WACC scenarios.' }];
+{ label: 'Algo Trading', text: 'Act as a Quant Analyst. Build a high-frequency Python algo using ccxt. Combine VWAP mean-reversion with RSI divergence filters. Enforce Kelly Criterion sizing and sub-millisecond PostgreSQL logging.', promptTitle: 'Institutional Algo Strategy' },
+{ label: 'System Architecture', text: 'Act as a Principal Cloud Architect. Design a zero-trust microservices SaaS platform. Write Kubernetes manifests mapping Node.js gRPC services to a Redis/Postgres datastore.', promptTitle: 'SaaS Landing Page Builder' },
+{ label: 'Quant Modeling', text: 'Act as an M&A Financial Modeler. Construct an institutional DCF & LBO Excel model. Integrate Python Monte Carlo simulations to run 10,000 WACC scenarios.', promptTitle: 'DCF + LBO Financial Model' }];
 
 
-const TerminalWidget = memo(() => {
+const TerminalWidget = memo(({ onSelectPrompt }: { onSelectPrompt?: (title: string) => void }) => {
   const [active, setActive] = useState(0);
   const [displayed, setDisplayed] = useState('');
 
@@ -86,7 +86,7 @@ const TerminalWidget = memo(() => {
         </p>
         <div className="flex items-center justify-between mt-3 pt-2" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
           <span className="text-[9px] uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.3)' }}>AI Generated Output</span>
-          <button onClick={() => document.getElementById('prompt-vault')?.scrollIntoView({ behavior: 'smooth' })} className="text-[10px] font-semibold text-white hover:underline cursor-pointer bg-transparent border-none p-0">Get This Prompt →</button>
+          <button onClick={() => onSelectPrompt?.(promptTabs[active].promptTitle)} className="text-[10px] font-semibold text-white hover:underline cursor-pointer bg-transparent border-none p-0">Get This Prompt →</button>
         </div>
       </div>
     </div>);
@@ -106,6 +106,11 @@ const PromptShop = () => {
   useEffect(() => {
     const f = (searchParams.get('filter') as Filter) || 'all';
     setActiveFilter(f);
+    const openTitle = searchParams.get('open');
+    if (openTitle) {
+      const match = prompts.find(p => p.title === openTitle);
+      if (match) setSelectedPrompt(match);
+    }
   }, [searchParams]);
 
   const handleCopy = () => {
@@ -151,7 +156,10 @@ const PromptShop = () => {
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }} className="flex justify-center lg:justify-end">
-              <TerminalWidget />
+              <TerminalWidget onSelectPrompt={(title) => {
+                const match = prompts.find(p => p.title === title);
+                if (match) setSelectedPrompt(match);
+              }} />
             </motion.div>
           </div>
         </div>
