@@ -1,33 +1,36 @@
 
 
-# Mobile Optimization & UI Fixes
+# Hero Heading Redesign + Mobile Scroll Arrow
 
-## 1. Make "Get This Prompt →" clickable in TerminalWidget
-- In `PromptShop.tsx` (line 89): Change the `<span>` to a `<Link to="/shop">` or make it scroll to the prompts section
-- In `Landing.tsx` (line 91): Already a `<Link>` — confirmed working
+## Problem
+1. "Master" sits alone on one line with the rotating text on the next, creating an awkward gap on mobile. The layout feels disconnected.
+2. The Prompt Shop category filters on mobile have a gradient fade hint but no visible arrow indicator to signal scrollability.
 
-## 2. Fix terminal tab labels too big on mobile (home page + prompt shop)
-- `Landing.tsx` promptTabs labels ("Algo Trading", "System Architecture", "Quant Modeling") — add `text-[10px] sm:text-xs` and reduce padding on mobile
-- `PromptShop.tsx` TerminalWidget (line 71) — same fix, reduce tab text size and padding on mobile
+## Changes
 
-## 3. Swap Academy & Prompt Shop nav positions + colors
-- In `SiteNav.tsx` navLinks array: Move Academy before Prompt Shop
-- Swap visual treatment: Academy gets glass/outline style, Prompt Shop gets primary/highlighted style (or vice versa based on intent — user said "swap colors and places")
+### 1. Smarter Hero Heading Layout (`src/pages/Landing.tsx`)
 
-## 4. Remove free emoji from Prompt Shop
-- `PromptShop.tsx` line 21: Change `'🆓 Free'` to `'Free'`
-- `SiteNav.tsx` line 16: Change `'🆓 Free Prompts'` to `'Free Prompts'`
+Restructure the heading so "Master" and the rotating text flow together on one line, with "Build Wealth." on a second line. This keeps the smooth animated rotator but eliminates the visual gap.
 
-## 5. Add horizontal scroll arrow on mobile for category filters
-- In `PromptShop.tsx` filter section (line 170): Wrap filters in a horizontally scrollable container with left/right arrow indicators on mobile, hide on desktop
+**New structure:**
+```
+Master [AI Software].
+Build Wealth.
+```
 
-## 6. Mobile optimization scan across pages
-- Ensure all terminal/prompt preview widgets use responsive text sizing
-- Check touch targets are 44px+ on all buttons
-- Verify prompt card grid doesn't overflow on small screens
+- Remove the `<br />` between the rotator and "Build Wealth"
+- Instead, place "Build Wealth." on its own line using a `<span className="block">` or a second `<br />` after the period
+- The key fix: ensure "Master" + rotator stay on the same line by keeping them as inline elements with no forced break between them
+- Reduce the heading size slightly on mobile (`text-2xl sm:text-5xl md:text-7xl`) so "Master [longest word]" fits on one line
+
+### 2. Add Scroll Arrow to Prompt Shop Filters (`src/pages/PromptShop.tsx`)
+
+Replace the gradient-only hint with a small right-pointing chevron arrow (`ChevronRight` from lucide-react) that:
+- Sits on the right edge of the filter bar, visible only on mobile (`lg:hidden`)
+- Uses a subtle pulse animation to draw attention
+- Disappears once the user has scrolled the filter container (optional: keep it simple and always show)
 
 ### Files to modify:
-1. **`src/pages/PromptShop.tsx`** — Clickable "Get This Prompt", remove free emoji, mobile tab sizing, scrollable filter arrows
-2. **`src/pages/Landing.tsx`** — Mobile tab sizing for prompt preview
-3. **`src/components/SiteNav.tsx`** — Swap Academy/Prompt Shop order, remove free emoji from dropdown
+1. **`src/pages/Landing.tsx`** — Restructure h2 so "Master" + rotator stay inline, "Build Wealth." below
+2. **`src/pages/PromptShop.tsx`** — Add chevron arrow icon to filter scroll area on mobile
 
