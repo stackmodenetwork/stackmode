@@ -45,9 +45,9 @@ Typewriter.displayName = 'Typewriter';
 
 /* ═══ PROMPT PREVIEW ═══ */
 const promptTabs = [
-{ label: 'Algo Trading', text: 'Act as a Quant Analyst. Build a high-frequency Python algo using ccxt. Combine VWAP mean-reversion with RSI divergence filters. Enforce Kelly Criterion sizing and sub-millisecond PostgreSQL logging. Provide backtested R:R optimizations securely.' },
-{ label: 'System Architecture', text: 'Act as a Principal Cloud Architect. Design a zero-trust microservices SaaS platform. Write Kubernetes manifests mapping Node.js gRPC services to a Redis/Postgres datastore. Guarantee 99.999% uptime for 1M+ concurrent TCP connections.' },
-{ label: 'Quant Modeling', text: 'Act as an M&A Financial Modeler. Construct an institutional DCF & LBO Excel model. Integrate Python Monte Carlo simulations to run 10,000 WACC scenarios, outputting automated sensitivity tables and 10-year dynamic waterfall cohort projections.' }];
+{ label: 'Algo Trading', text: 'Act as a Quant Analyst. Build a high-frequency Python algo using ccxt. Combine VWAP mean-reversion with RSI divergence filters. Enforce Kelly Criterion sizing and sub-millisecond PostgreSQL logging. Provide backtested R:R optimizations securely.', promptTitle: 'Institutional Algo Strategy' },
+{ label: 'System Architecture', text: 'Act as a Principal Cloud Architect. Design a zero-trust microservices SaaS platform. Write Kubernetes manifests mapping Node.js gRPC services to a Redis/Postgres datastore. Guarantee 99.999% uptime for 1M+ concurrent TCP connections.', promptTitle: 'SaaS Landing Page Builder' },
+{ label: 'Quant Modeling', text: 'Act as an M&A Financial Modeler. Construct an institutional DCF & LBO Excel model. Integrate Python Monte Carlo simulations to run 10,000 WACC scenarios, outputting automated sensitivity tables and 10-year dynamic waterfall cohort projections.', promptTitle: 'DCF + LBO Financial Model' }];
 
 
 const PromptPreview = memo(() => {
@@ -88,7 +88,7 @@ const PromptPreview = memo(() => {
         </p>
         <div className="flex items-center justify-between mt-4 pt-3" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
           <span className="text-[10px] tracking-wider" style={{ color: 'rgba(255,255,255,0.3)' }}>AI Generated Output</span>
-          <Link to="/shop" className="text-xs font-semibold text-white hover:underline">Get This Prompt →</Link>
+          <Link to={`/shop?open=${encodeURIComponent(promptTabs[active].promptTitle)}`} className="text-xs font-semibold text-white hover:underline">Get This Prompt →</Link>
         </div>
       </div>
     </div>);
