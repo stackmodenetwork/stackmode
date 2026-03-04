@@ -1,29 +1,33 @@
 
 
-# Plan: Update Premium Pricing to $7.99/mo with New Stripe Payment Link
+# Mobile Optimization & UI Fixes
 
-## Problem
-The current flow uses the old `create-checkout` edge function with a $20/mo price. The user wants to switch to a new Stripe payment link at `https://buy.stripe.com/aFa4gBdw3dd92ZK3nR43S0C` for $7.99/mo, with discount styling showing the old $20 price crossed out.
+## 1. Make "Get This Prompt →" clickable in TerminalWidget
+- In `PromptShop.tsx` (line 89): Change the `<span>` to a `<Link to="/shop">` or make it scroll to the prompts section
+- In `Landing.tsx` (line 91): Already a `<Link>` — confirmed working
 
-## Changes
+## 2. Fix terminal tab labels too big on mobile (home page + prompt shop)
+- `Landing.tsx` promptTabs labels ("Algo Trading", "System Architecture", "Quant Modeling") — add `text-[10px] sm:text-xs` and reduce padding on mobile
+- `PromptShop.tsx` TerminalWidget (line 71) — same fix, reduce tab text size and padding on mobile
 
-### 1. Update `handleCheckout` in AuthContext
-Replace the edge function call with a direct redirect to the new Stripe payment link. The `handleCheckout` function will open `https://buy.stripe.com/aFa4gBdw3dd92ZK3nR43S0C` instead of invoking `create-checkout`.
+## 3. Swap Academy & Prompt Shop nav positions + colors
+- In `SiteNav.tsx` navLinks array: Move Academy before Prompt Shop
+- Swap visual treatment: Academy gets glass/outline style, Prompt Shop gets primary/highlighted style (or vice versa based on intent — user said "swap colors and places")
 
-### 2. Update Pricing Page (`src/pages/Pricing.tsx`)
-- Change Premium tier price from `$20` to `$7.99`
-- Add strikethrough `$20` next to $7.99 and a discount badge (e.g., "60% OFF")
-- Update comparison table header from "Stackmode $20" to "Stackmode $7.99"
-- Change the subscribe button to use the direct Stripe link instead of `handleCheckout`
+## 4. Remove free emoji from Prompt Shop
+- `PromptShop.tsx` line 21: Change `'🆓 Free'` to `'Free'`
+- `SiteNav.tsx` line 16: Change `'🆓 Free Prompts'` to `'Free Prompts'`
 
-### 3. Update PromptShop Subscribe CTA (`src/pages/PromptShop.tsx`)
-- The "Subscribe to Unlock" link in the premium modal should point to the Stripe payment link (or `/auth` if not logged in, then redirect to payment)
+## 5. Add horizontal scroll arrow on mobile for category filters
+- In `PromptShop.tsx` filter section (line 170): Wrap filters in a horizontally scrollable container with left/right arrow indicators on mobile, hide on desktop
 
-### 4. Update SiteNav Subscribe Buttons (`src/components/SiteNav.tsx`)
-- Both desktop and mobile "Subscribe to Premium" buttons already use `handleCheckout` -- they will automatically use the new link once AuthContext is updated
+## 6. Mobile optimization scan across pages
+- Ensure all terminal/prompt preview widgets use responsive text sizing
+- Check touch targets are 44px+ on all buttons
+- Verify prompt card grid doesn't overflow on small screens
 
 ### Files to modify:
-1. **`src/contexts/AuthContext.tsx`** -- `handleCheckout` redirects to new Stripe link
-2. **`src/pages/Pricing.tsx`** -- Update price display to $7.99 with $20 strikethrough + discount badge
-3. **`src/pages/PromptShop.tsx`** -- Update subscribe CTA link in premium modal
+1. **`src/pages/PromptShop.tsx`** — Clickable "Get This Prompt", remove free emoji, mobile tab sizing, scrollable filter arrows
+2. **`src/pages/Landing.tsx`** — Mobile tab sizing for prompt preview
+3. **`src/components/SiteNav.tsx`** — Swap Academy/Prompt Shop order, remove free emoji from dropdown
 
