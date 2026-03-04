@@ -1,39 +1,29 @@
 
 
-## Plan: Revamp BusinessProofBento with All Proof Images + New Uploads
+## Plan: Replace Text Testimonials with Review Image Marquee
 
-### What's happening now
-- The proof section uses a marquee with only 7 images, all forced into `w-[340px] h-[220px]` boxes with `object-cover object-top` — this crops/zooms images badly, especially tall screenshots.
-- The user has uploaded 10 new proof images (ad stats, YouTube views, trading P&L, portfolio screenshots) that need to be added.
-- There are also existing `business-proof-*.png` (20 files) and `review-*.png` (65 files) in lovable-uploads that should be included.
+The TestimonialsMarquee currently shows text-based cards. The user wants the actual review screenshot images (review-1.png through review-45.png) to scroll in vertical marquee columns instead.
 
-### Plan
+### Changes
 
-**1. Copy new uploaded images to `public/images/proof/`**
-- Copy all 10 new uploads as: `ad-stats.png`, `youtube-shorts.png`, `youtube-lifetime.png`, `yt-revenue.png`, `watch-page-ads.png`, `intel-trade.png`, `account-value.png`, `portfolio-growth.png`, `trading-positions.png`, `amzn-trade.png`
+**1. Rewrite `src/components/TestimonialsMarquee.tsx`**
+- Remove the text-based testimonial cards and data array
+- Import the 45 review images list (same as ReviewsWall)
+- Render review images inside the vertical `<Marquee>` columns instead of text cards
+- Split the 45 images across 4 columns (~11 each) with varying speeds and directions
+- Each image: rounded corners, border styling, `loading="lazy"`, click to open lightbox
+- Add a lightbox (reuse the same pattern from ReviewsWall) with prev/next navigation
+- Keep gradient overlays top/bottom
+- Increase container height to `h-[600px]` for better visual impact
+- Responsive: 2 columns on mobile, 3 on tablet, 4 on desktop (hide extra columns with `hidden sm:flex` / `hidden lg:flex`)
 
-**2. Rewrite `BusinessProofBento.tsx` as a masonry grid**
-- Replace the marquee layout with an animated masonry grid using CSS `column-count` (responsive: 1 col mobile, 2 tablet, 3-4 desktop)
-- Each image card: `object-contain` on a dark bg so full image is always visible (no cropping)
-- Add category labels/badges (Trading, YouTube, Revenue, Ads) with colored indicators
-- Click to enlarge via the existing lightbox
-- Staggered entrance animations with framer-motion
-- Include ALL proof sources:
-  - 10 existing `/images/proof/` images
-  - 10 new uploaded images
-  - Select `business-proof-*.png` images (20)
-- Total ~40 images in the masonry grid, naturally varying heights
+**2. Remove `ReviewsWall` from Landing page**
+- Remove the `<ReviewsWall />` component and its import from `src/pages/Landing.tsx` since the images now live in the marquee
+- Keep `TestimonialsMarquee` at the bottom before `SiteFooter`
 
-**3. Styling details**
-- Cards: rounded-xl, border-white/8, bg-[#0a0a0a], hover:scale-[1.02] transition
-- Labels: small pill badge top-left with category + description bottom
-- Images use `object-contain` with `aspect-auto` so nothing gets cropped
-- Responsive columns: 1 (mobile) → 2 (sm) → 3 (md) → 4 (lg)
+**3. Optionally clean up `src/components/ReviewsWall.tsx`**
+- Can be kept for use on other pages, or removed if unused elsewhere
 
-**4. Keep Landing.tsx integration unchanged** — it already renders `<BusinessProofBento />`
-
-### Technical approach
-- No new dependencies needed (framer-motion already installed)
-- No marquee component needed — switch to static masonry with scroll reveal
-- Lightbox stays the same (AnimatePresence + motion)
+### Result
+The bottom of the landing page will have a visually dynamic, auto-scrolling wall of real review screenshots in vertical marquee columns with lightbox support.
 
