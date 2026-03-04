@@ -4,6 +4,7 @@ import { useAuth } from '@/contexts/AuthContext';
 
 const navLinks = [
   { label: 'Home', path: '/' },
+  { label: 'Academy', path: '/academy' },
   {
     label: 'Prompt Shop',
     path: '/shop',
@@ -13,12 +14,11 @@ const navLinks = [
       { label: 'Image Prompts', path: '/shop?filter=image' },
       { label: 'Video Prompts', path: '/shop?filter=video' },
       { label: 'Trading Prompts', path: '/shop?filter=trading' },
-      { label: '🆓 Free Prompts', path: '/shop?filter=free' },
+      { label: 'Free Prompts', path: '/shop?filter=free' },
     ],
   },
   { label: 'Stackfinder', path: '/stackfinder' },
   { label: 'Brand Boost', path: '/brand-boost' },
-  { label: 'Academy', path: '/academy' },
   { label: 'Library', path: '/library' },
   { label: 'Pricing', path: '/pricing' },
 ];

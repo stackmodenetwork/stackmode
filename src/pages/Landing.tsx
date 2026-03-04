@@ -70,7 +70,7 @@ const PromptPreview = memo(() => {
       <div className="flex gap-2 mb-0 overflow-x-auto scrollbar-hide">
         {promptTabs.map((tab, i) =>
         <button key={i} onClick={() => setActive(i)}
-        className="px-4 py-2 text-xs font-medium tracking-wider whitespace-nowrap rounded-t-lg transition-colors"
+        className="px-2 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-medium tracking-wider whitespace-nowrap rounded-t-lg transition-colors"
         style={{ background: i === active ? '#111' : 'transparent', color: i === active ? '#fff' : 'rgba(255,255,255,0.4)', borderTop: i === active ? '1px solid rgba(255,255,255,0.1)' : '1px solid transparent', borderLeft: i === active ? '1px solid rgba(255,255,255,0.1)' : '1px solid transparent', borderRight: i === active ? '1px solid rgba(255,255,255,0.1)' : '1px solid transparent', borderBottom: 'none' }}>
             {tab.label}
           </button>
@@ -155,8 +155,8 @@ const Landing = () =>
       </motion.p>
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}><Typewriter /></motion.div>
       <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9 }} className="flex flex-col sm:flex-row gap-3 mt-6">
-        <Link to="/academy" className="btn-primary btn-lg">Join the Academy →</Link>
-        <Link to="/shop" className="btn-glass btn-lg">Browse Prompts →</Link>
+        <Link to="/shop" className="btn-primary btn-lg">Browse Prompts →</Link>
+        <Link to="/academy" className="btn-glass btn-lg">Join the Academy →</Link>
       </motion.div>
       <PromptPreview />
     </section>
