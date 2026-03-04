@@ -210,7 +210,7 @@ const Landing = () =>
     </section>
 
     {/* DONE FOR YOU BRIDGE */}
-    <section className="section text-center section--glass">
+    <section className="section text-center section--glass bg-primary-foreground">
       <div className="container" style={{ maxWidth: 700 }}>
         <p className="text-xs tracking-widest mb-3" style={{ color: 'rgba(255,255,255,0.4)' }}>Done For You</p>
         <h2 className="section-header__title">Want us to build it for you?</h2>
