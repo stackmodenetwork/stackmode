@@ -9,49 +9,49 @@ const FREE_LINK = 'https://stackmodechris.systeme.io/free-education';
 const WHOP_URL = 'https://whop.com/stackmode-academy/educationalservice/';
 
 const quotes = [
-  { text: "The difference between the 10% who win and the 90% who lose isn't just strategy — it's Emotional Discipline. You must detach from the outcome to execute flawlessly.", source: 'from Neuro Trading' },
-  { text: "Don't wait for the mainstream to validate an opportunity. By the time everyone is talking about it, the asymmetrical upside is already mathematically gone.", source: 'from Before The Hype' },
-  { text: "True wealth isn't a high salary. It's having multiple, disconnected income streams operating 24/7 without your direct physical input.", source: 'from Freedom Money' },
-];
+{ text: "The difference between the 10% who win and the 90% who lose isn't just strategy — it's Emotional Discipline. You must detach from the outcome to execute flawlessly.", source: 'from Neuro Trading' },
+{ text: "Don't wait for the mainstream to validate an opportunity. By the time everyone is talking about it, the asymmetrical upside is already mathematically gone.", source: 'from Before The Hype' },
+{ text: "True wealth isn't a high salary. It's having multiple, disconnected income streams operating 24/7 without your direct physical input.", source: 'from Freedom Money' }];
+
 
 const books = [
-  {
-    title: 'Neuro Trading',
-    image: '/images/books/neuro-trading.jpg',
-    tagline: 'Master the psychology of trading.',
-    bullets: ['Why 90% of traders lose — and how to be in the 10%', 'Emotional discipline techniques used by pros', 'Build a trading mindset that prints long-term'],
-    amazonLink: 'https://a.co/d/0bz50oF',
-    audiobookLink: 'https://play.google.com/store/audiobooks/details?id=AQAAAEAaGWdZbM',
-  },
-  {
-    title: 'Before The Hype',
-    image: '/images/books/before-the-hype-2026.jpg',
-    tagline: 'How to spot opportunities before they go viral.',
-    bullets: ['Learn the "Asset Stacking" strategy for long-term wealth', 'Identifying high-signal trends in a noisy market'],
-    amazonLink: 'https://a.co/d/eSgONXa',
-    audiobookLink: 'https://play.google.com/store/audiobooks/details?id=AQAAAEAaaVspUM',
-  },
-  {
-    title: 'Freedom Money',
-    image: '/images/books/freedom-money.jpg',
-    tagline: 'How to build multiple income streams.',
-    bullets: ['Protect & grow your money like the wealthy do', 'Stack income streams for financial freedom'],
-    amazonLink: 'https://a.co/d/91RUksI',
-    audiobookLink: 'https://play.google.com/store/audiobooks/details?id=AQAAAEAaqV_pVM',
-  },
-];
+{
+  title: 'Neuro Trading',
+  image: '/images/books/neuro-trading.jpg',
+  tagline: 'Master the psychology of trading.',
+  bullets: ['Why 90% of traders lose — and how to be in the 10%', 'Emotional discipline techniques used by pros', 'Build a trading mindset that prints long-term'],
+  amazonLink: 'https://a.co/d/0bz50oF',
+  audiobookLink: 'https://play.google.com/store/audiobooks/details?id=AQAAAEAaGWdZbM'
+},
+{
+  title: 'Before The Hype',
+  image: '/images/books/before-the-hype-2026.jpg',
+  tagline: 'How to spot opportunities before they go viral.',
+  bullets: ['Learn the "Asset Stacking" strategy for long-term wealth', 'Identifying high-signal trends in a noisy market'],
+  amazonLink: 'https://a.co/d/eSgONXa',
+  audiobookLink: 'https://play.google.com/store/audiobooks/details?id=AQAAAEAaaVspUM'
+},
+{
+  title: 'Freedom Money',
+  image: '/images/books/freedom-money.jpg',
+  tagline: 'How to build multiple income streams.',
+  bullets: ['Protect & grow your money like the wealthy do', 'Stack income streams for financial freedom'],
+  amazonLink: 'https://a.co/d/91RUksI',
+  audiobookLink: 'https://play.google.com/store/audiobooks/details?id=AQAAAEAaqV_pVM'
+}];
+
 
 const resources = [
-  { title: 'The Stackmode Podcast', desc: 'Weekly episodes on AI, trading, and building wealth.', cta: 'Listen Now', href: 'https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true', icon: '🎙️' },
-  { title: 'Discord Community', desc: 'Join thousands of traders, builders, and creators.', cta: 'Join Discord', href: 'https://discord.gg/5zYWSWGMYm', icon: '💬' },
-  { title: 'YouTube Channel', desc: '1.2M+ views. Free tutorials, market breakdowns, and builds.', cta: 'Watch Now', href: 'https://youtube.com/@ChristopherRobinson-CEO', icon: '▶️' },
-];
+{ title: 'The Stackmode Podcast', desc: 'Weekly episodes on AI, trading, and building wealth.', cta: 'Listen Now', href: 'https://rss.com/podcasts/the-stackmode-network-with-stackmodechris-stackmodenet/?listen-on=true', icon: '🎙️' },
+{ title: 'Discord Community', desc: 'Join thousands of traders, builders, and creators.', cta: 'Join Discord', href: 'https://discord.gg/5zYWSWGMYm', icon: '💬' },
+{ title: 'YouTube Channel', desc: '1.2M+ views. Free tutorials, market breakdowns, and builds.', cta: 'Watch Now', href: 'https://youtube.com/@ChristopherRobinson-CEO', icon: '▶️' }];
+
 
 const Library = () => {
   const [quoteIdx, setQuoteIdx] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => setQuoteIdx(i => (i + 1) % quotes.length), 6000);
+    const timer = setInterval(() => setQuoteIdx((i) => (i + 1) % quotes.length), 6000);
     return () => clearInterval(timer);
   }, []);
 
@@ -66,42 +66,42 @@ const Library = () => {
       <SiteNav />
 
       {/* Core Philosophy Carousel */}
-      <section className="section text-center" style={{ paddingTop: 120 }}>
-        <div className="container" style={{ maxWidth: 700 }}>
-          <p className="section-header__eyebrow mb-4">The Core Philosophy</p>
-          <p className="text-sm mb-8" style={{ color: 'rgba(255,255,255,0.5)' }}>Swipe through the foundational concepts of Stackmode.</p>
-          
-          <div className="relative" style={{ minHeight: 160 }}>
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={quoteIdx}
-                initial={{ opacity: 0, x: 40 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -40 }}
-                transition={{ duration: 0.4 }}
-                className="glass-card text-left"
-              >
-                <p className="text-base sm:text-lg leading-relaxed mb-4" style={{ color: 'rgba(255,255,255,0.85)', fontStyle: 'italic' }}>
-                  "{quotes[quoteIdx].text}"
-                </p>
-                <div className="flex items-center gap-2">
-                  <span className="text-sm font-bold text-white">Christopher Robinson</span>
-                  <span className="text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>CEO, {quotes[quoteIdx].source}</span>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
+      
 
-          {/* Dots */}
-          <div className="flex justify-center gap-2 mt-6">
-            {quotes.map((_, i) => (
-              <button key={i} onClick={() => setQuoteIdx(i)}
-                className="w-2 h-2 rounded-full transition-all"
-                style={{ background: i === quoteIdx ? '#fff' : 'rgba(255,255,255,0.2)' }} />
-            ))}
-          </div>
-        </div>
-      </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
 
       {/* Library Heading */}
       <section className="section" style={{ paddingTop: 0 }}>
@@ -118,14 +118,14 @@ const Library = () => {
 
           {/* Book Cards */}
           <div className="flex flex-col gap-6 max-w-3xl mx-auto">
-            {books.map((book, i) => (
-              <motion.div key={book.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="glass-card flex flex-col sm:flex-row gap-6 items-center sm:items-start"
-              >
+            {books.map((book, i) =>
+            <motion.div key={book.title}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1 }}
+            className="glass-card flex flex-col sm:flex-row gap-6 items-center sm:items-start">
+              
                 <a href={book.amazonLink} target="_blank" rel="noopener noreferrer" className="flex-shrink-0 group">
                   <img src={book.image} alt={book.title} className="w-32 sm:w-36 rounded-xl border border-white/10 group-hover:border-white/30 transition-all group-hover:scale-105" loading="lazy" />
                 </a>
@@ -133,11 +133,11 @@ const Library = () => {
                   <p className="text-xs uppercase tracking-widest mb-1" style={{ color: 'rgba(255,255,255,0.4)' }}>{book.title}</p>
                   <h3 className="text-xl mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>{book.tagline}</h3>
                   <div className="flex flex-col gap-2 mb-5">
-                    {book.bullets.map(b => (
-                      <span key={b} className="flex items-center gap-2 text-sm" style={{ color: 'rgba(255,255,255,0.7)' }}>
+                    {book.bullets.map((b) =>
+                  <span key={b} className="flex items-center gap-2 text-sm" style={{ color: 'rgba(255,255,255,0.7)' }}>
                         <span className="text-white font-bold">✓</span> {b}
                       </span>
-                    ))}
+                  )}
                   </div>
                   <div className="flex flex-col sm:flex-row gap-3">
                     <a href={book.amazonLink} target="_blank" rel="noopener noreferrer" className="btn-primary btn-sm">Amazon →</a>
@@ -145,7 +145,7 @@ const Library = () => {
                   </div>
                 </div>
               </motion.div>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -172,20 +172,20 @@ const Library = () => {
             <h2 className="section-header__title">More Resources</h2>
           </div>
           <div className="grid-3">
-            {resources.map((r, i) => (
-              <motion.div key={r.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="glass-card text-center"
-              >
+            {resources.map((r, i) =>
+            <motion.div key={r.title}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1 }}
+            className="glass-card text-center">
+              
                 <div className="text-4xl mb-4">{r.icon}</div>
                 <h3 className="text-lg mb-2" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>{r.title}</h3>
                 <p className="text-sm mb-6" style={{ color: 'rgba(255,255,255,0.6)' }}>{r.desc}</p>
                 <a href={r.href} target="_blank" rel="noopener noreferrer" className="btn-glass btn-sm">{r.cta} →</a>
               </motion.div>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -200,8 +200,8 @@ const Library = () => {
       </section>
 
       <SiteFooter />
-    </div>
-  );
+    </div>);
+
 };
 
 export default Library;
