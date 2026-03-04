@@ -8,7 +8,7 @@ const reviewImages = Array.from({ length: 75 }, (_, i) => `review-${i + 1}.png`)
 // Images that should appear zoomed out (smaller scale) for visual variety
 const zoomedOutSet = new Set([
   'review-66.png', 'review-68.png', 'review-69.png', 'review-71.png',
-  'review-72.png', 'review-74.png', 'review-79.png', 'review-80.png',
+  'review-72.png', 'review-74.png',
 ]);
 
 // Split into 4 columns
@@ -66,25 +66,25 @@ const TestimonialsMarquee = memo(() => {
 
       <div className="relative flex h-[600px] w-full items-start justify-center overflow-hidden gap-3 px-4 max-w-6xl mx-auto">
         {/* Column 1 - down */}
-        <Marquee vertical pauseOnHover className="[--duration:45s] [--gap:0.75rem] flex-1">
+        <Marquee vertical pauseOnHover repeat={2} className="[--duration:45s] [--gap:0.75rem] flex-1">
           {col1.map((img) => (
             <ReviewImg key={img} src={img} onClick={() => openImage(img)} />
           ))}
         </Marquee>
         {/* Column 2 - up */}
-        <Marquee vertical reverse pauseOnHover className="[--duration:38s] [--gap:0.75rem] flex-1">
+        <Marquee vertical reverse pauseOnHover repeat={2} className="[--duration:38s] [--gap:0.75rem] flex-1">
           {col2.map((img) => (
             <ReviewImg key={img} src={img} onClick={() => openImage(img)} />
           ))}
         </Marquee>
         {/* Column 3 - down */}
-        <Marquee vertical pauseOnHover className="[--duration:50s] [--gap:0.75rem] flex-1 hidden sm:flex">
+        <Marquee vertical pauseOnHover repeat={2} className="[--duration:50s] [--gap:0.75rem] flex-1 hidden sm:flex">
           {col3.map((img) => (
             <ReviewImg key={img} src={img} onClick={() => openImage(img)} />
           ))}
         </Marquee>
         {/* Column 4 - up */}
-        <Marquee vertical reverse pauseOnHover className="[--duration:42s] [--gap:0.75rem] flex-1 hidden lg:flex">
+        <Marquee vertical reverse pauseOnHover repeat={2} className="[--duration:42s] [--gap:0.75rem] flex-1 hidden lg:flex">
           {col4.map((img) => (
             <ReviewImg key={img} src={img} onClick={() => openImage(img)} />
           ))}
