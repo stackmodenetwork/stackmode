@@ -11,20 +11,20 @@ const anim = (i: number) => ({
   initial: { opacity: 0, y: 16 } as const,
   whileInView: { opacity: 1, y: 0 } as const,
   viewport: { once: true } as const,
-  transition: { delay: i * 0.06 },
+  transition: { delay: i * 0.06 }
 });
 
 const services = [
-  { icon: Globe, title: 'Custom Website', desc: 'Mobile-first, fast, SEO-ready — built to convert visitors into clients.', span: 'md:col-span-2' },
-  { icon: TrendingUp, title: 'Content Monetization', desc: 'Digital products, offers, funnels, and pricing strategy for your audience.', span: 'md:col-span-1' },
-  { icon: Code, title: 'AI Systems & Automation', desc: 'Automated lead nurturing, content pipelines, booking flows that run 24/7.', span: 'md:col-span-1' },
-  { icon: Palette, title: 'Custom Dashboards', desc: 'Analytics dashboards, client portals, membership platforms — anything you need.', span: 'md:col-span-1' },
-  { icon: Search, title: 'SEO & Traffic Strategy', desc: 'Keyword research, schema markup, and content calendars that drive organic traffic.', span: 'md:col-span-1' },
-  { icon: Users, title: '1-on-1 Strategy', desc: 'Direct access to Christopher for business strategy and execution support.', span: 'md:col-span-2' },
-];
+{ icon: Globe, title: 'Custom Website', desc: 'Mobile-first, fast, SEO-ready — built to convert visitors into clients.', span: 'md:col-span-2' },
+{ icon: TrendingUp, title: 'Content Monetization', desc: 'Digital products, offers, funnels, and pricing strategy for your audience.', span: 'md:col-span-1' },
+{ icon: Code, title: 'AI Systems & Automation', desc: 'Automated lead nurturing, content pipelines, booking flows that run 24/7.', span: 'md:col-span-1' },
+{ icon: Palette, title: 'Custom Dashboards', desc: 'Analytics dashboards, client portals, membership platforms — anything you need.', span: 'md:col-span-1' },
+{ icon: Search, title: 'SEO & Traffic Strategy', desc: 'Keyword research, schema markup, and content calendars that drive organic traffic.', span: 'md:col-span-1' },
+{ icon: Users, title: '1-on-1 Strategy', desc: 'Direct access to Christopher for business strategy and execution support.', span: 'md:col-span-2' }];
 
-const BrandBoost = () => (
-  <div style={{ background: '#000', minHeight: '100vh' }}>
+
+const BrandBoost = () =>
+<div style={{ background: '#000', minHeight: '100vh' }}>
     <Helmet>
       <title>Brand Boost — Done-For-You Website & AI Systems | Stackmode</title>
       <meta name="description" content="Delete the Linktree. Get a real brand. Christopher Robinson builds your complete digital presence." />
@@ -37,7 +37,7 @@ const BrandBoost = () => (
     <section className="relative min-h-[80vh] flex flex-col items-center justify-center text-center px-4 pt-20 pb-12">
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-2xl">
         <span className="inline-block px-4 py-1.5 rounded-full text-xs font-medium tracking-wider mb-6"
-          style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.6)' }}>
+      style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.6)' }}>
           Limited Availability
         </span>
         <h1 className="text-4xl sm:text-6xl mb-4" style={{ fontWeight: 600, lineHeight: 1.1, letterSpacing: '-0.02em' }}>
@@ -61,13 +61,13 @@ const BrandBoost = () => (
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           {services.map((s, i) => {
-            const Icon = s.icon;
-            return (
-              <motion.div
-                key={s.title}
-                {...anim(i)}
-                className={`relative overflow-hidden rounded-xl border border-white/[0.08] bg-[#0a0a0a] p-6 sm:p-8 group hover:border-white/20 transition-colors ${s.span}`}
-              >
+          const Icon = s.icon;
+          return (
+            <motion.div
+              key={s.title}
+              {...anim(i)}
+              className={`relative overflow-hidden rounded-xl border border-white/[0.08] bg-[#0a0a0a] p-6 sm:p-8 group hover:border-white/20 transition-colors ${s.span}`}>
+              
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-lg bg-white/[0.06] flex items-center justify-center">
                     <Icon className="w-5 h-5 text-white/60" />
@@ -75,37 +75,37 @@ const BrandBoost = () => (
                 </div>
                 <h3 className="text-xl mb-2" style={{ fontWeight: 600 }}>{s.title}</h3>
                 <p className="text-sm" style={{ color: 'rgba(255,255,255,0.55)', lineHeight: 1.6 }}>{s.desc}</p>
-              </motion.div>
-            );
-          })}
+              </motion.div>);
+
+        })}
         </div>
       </div>
     </section>
 
     {/* Client Showcase Proof */}
-    <section className="section section--glass">
-      <div className="container">
-        <div className="section-header">
-          <p className="section-header__eyebrow">Recent Builds</p>
-          <h2 className="section-header__title">Built by Christopher</h2>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {[
-            { img: '/images/showcase/client-jd.png', name: 'Swole JD — Fitness' },
-            { img: '/images/showcase/client-legacy.png', name: 'True Legacy — Business' },
-            { img: '/images/showcase/client-7uvhavin.png', name: '7uvhavin — Music' },
-            { img: '/images/showcase/client-ceoturbo.png', name: 'CEO Turbo — Growth' },
-          ].map((item, i) => (
-            <motion.div key={item.name} {...anim(i)} className="relative group overflow-hidden rounded-xl border border-white/[0.08]">
-              <img src={item.img} alt={item.name} className="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                <span className="text-sm font-medium">{item.name}</span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
     {/* CTA */}
     <section className="section text-center">
@@ -120,7 +120,7 @@ const BrandBoost = () => (
     </section>
 
     <SiteFooter />
-  </div>
-);
+  </div>;
+
 
 export default BrandBoost;
