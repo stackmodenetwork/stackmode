@@ -176,7 +176,7 @@ const PromptShop = () => {
 
           {/* Filters */}
           <div className="relative mb-10">
-            <div className="flex gap-2 overflow-x-auto scrollbar-hide px-1 py-1 pr-10 lg:pr-1 lg:flex-wrap lg:justify-center">
+            <div className="flex gap-3 overflow-x-auto scrollbar-hide px-1 py-1 pr-10 lg:pr-1 lg:flex-wrap lg:justify-center">
               {filters.map((f) =>
               <button key={f.id} onClick={() => setActiveFilter(f.id)}
               className="px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded-lg transition-all whitespace-nowrap flex-shrink-0"
