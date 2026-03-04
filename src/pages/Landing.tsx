@@ -6,7 +6,7 @@ import SiteFooter from '@/components/SiteFooter';
 import TrustBar from '@/components/TrustBar';
 import { ImageAutoSlider } from '@/components/ui/image-auto-slider';
 import { useState, useEffect, memo } from 'react';
-import { AnimatedTextRotator } from '@/components/ui/animated-text-rotator';
+import { Typewriter } from '@/components/ui/typewriter';
 import BusinessProofBento from '@/components/BusinessProofBento';
 import PillarsBentoGrid from '@/components/PillarsBentoGrid';
 import BrandShowcaseBento from '@/components/BrandShowcaseBento';
@@ -16,7 +16,7 @@ import TestimonialsMarquee from '@/components/TestimonialsMarquee';
 /* ═══ TYPEWRITER ═══ */
 const phrases = ['Building SaaS with AI...', 'Stacking digital assets...', 'Scanning markets with Stackfinder...', 'Generating revenue with prompts...', 'Optimizing trading algorithms...'];
 
-const Typewriter = memo(() => {
+const TerminalTypewriter = memo(() => {
   const [text, setText] = useState('');
   const [phraseIdx, setPhraseIdx] = useState(0);
   const [charIdx, setCharIdx] = useState(0);
@@ -41,7 +41,7 @@ const Typewriter = memo(() => {
     </div>);
 
 });
-Typewriter.displayName = 'Typewriter';
+TerminalTypewriter.displayName = 'TerminalTypewriter';
 
 /* ═══ PROMPT PREVIEW ═══ */
 const promptTabs = [
@@ -145,14 +145,14 @@ const Landing = () =>
     src="/images/sm-logo-new.png" alt="Stackmode Logo" className="w-16 h-16 sm:w-20 sm:h-20 rounded-full mb-6" />
       <motion.h2 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
     className="text-2xl sm:text-5xl md:text-7xl mb-4" style={{ fontWeight: 600, lineHeight: 1.15, letterSpacing: '-0.02em' }}>
-        <span className="inline">Master{' '}<AnimatedTextRotator words={['AI Software', 'Trading Systems', 'Digital Assets', 'Brand Building']} interval={2800} />.</span>
+        <span className="inline">Master{' '}<Typewriter text={['AI Software', 'Trading Systems', 'Digital Assets', 'Brand Building']} speed={60} deleteSpeed={35} waitTime={2500} cursorChar="▌" className="inline-block" cursorClassName="ml-0.5 text-white/50" /></span>
         <span className="block">Build Wealth.</span>
       </motion.h2>
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}
     className="text-base sm:text-lg max-w-xl mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>
         AI software, trading strategies, investing, and digital asset stacking — by Christopher Robinson, CEO
       </motion.p>
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}><Typewriter /></motion.div>
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}><TerminalTypewriter /></motion.div>
       <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9 }} className="flex flex-col sm:flex-row gap-3 mt-6">
         <Link to="/shop" className="btn-primary btn-lg">Browse Prompts →</Link>
         <Link to="/academy" className="btn-glass btn-lg">Join the Academy →</Link>
