@@ -3,7 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Marquee } from '@/components/ui/3d-testimonials';
 
-const reviewImages = Array.from({ length: 65 }, (_, i) => `review-${i + 1}.png`);
+const reviewImages = Array.from({ length: 75 }, (_, i) => `review-${i + 1}.png`);
+
+// Images that should appear zoomed out (smaller scale) for visual variety
+const zoomedOutSet = new Set([
+  'review-66.png', 'review-68.png', 'review-69.png', 'review-71.png',
+  'review-72.png', 'review-74.png', 'review-79.png', 'review-80.png',
+]);
 
 // Split into 4 columns
 const col1 = reviewImages.filter((_, i) => i % 4 === 0);
@@ -11,20 +17,23 @@ const col2 = reviewImages.filter((_, i) => i % 4 === 1);
 const col3 = reviewImages.filter((_, i) => i % 4 === 2);
 const col4 = reviewImages.filter((_, i) => i % 4 === 3);
 
-const ReviewImg = memo(({ src, onClick }: { src: string; onClick: () => void }) => (
-  <button
-    className="w-full rounded-xl overflow-hidden border border-border/30 hover:border-border/60 cursor-pointer transition-all duration-200 block"
-    onClick={onClick}
-  >
-    <img
-      src={`/lovable-uploads/${src}`}
-      alt="Stackmode Academy member review"
-      className="w-full h-auto block"
-      loading="lazy"
-      decoding="async"
-    />
-  </button>
-));
+const ReviewImg = memo(({ src, onClick }: { src: string; onClick: () => void }) => {
+  const isZoomedOut = zoomedOutSet.has(src);
+  return (
+    <button
+      className="w-full rounded-xl overflow-hidden border border-border/30 hover:border-border/60 cursor-pointer transition-all duration-200 block"
+      onClick={onClick}
+    >
+      <img
+        src={`/lovable-uploads/${src}`}
+        alt="Stackmode Academy member review"
+        className={`w-full h-auto block ${isZoomedOut ? 'scale-[0.85] my-1' : ''}`}
+        loading="lazy"
+        decoding="async"
+      />
+    </button>
+  );
+});
 ReviewImg.displayName = 'ReviewImg';
 
 const TestimonialsMarquee = memo(() => {
