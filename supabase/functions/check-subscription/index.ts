@@ -39,6 +39,24 @@ serve(async (req) => {
     if (!user?.email) throw new Error("User not authenticated or email not available");
     logStep("User authenticated", { userId: user.id, email: user.email });
 
+    // Testing override for admin account
+    const PREMIUM_OVERRIDE_EMAILS = ["officialbeatsbykinco@gmail.com"];
+    if (PREMIUM_OVERRIDE_EMAILS.includes(user.email.toLowerCase())) {
+      logStep("Premium override granted", { email: user.email });
+      const overrideEnd = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString();
+      await supabaseClient.from("profiles").update({
+        subscription_status: "active",
+        subscription_end_date: overrideEnd,
+      }).eq("id", user.id);
+      return new Response(JSON.stringify({
+        subscribed: true,
+        subscription_end: overrideEnd,
+      }), {
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+        status: 200,
+      });
+    }
+
     const stripe = new Stripe(stripeKey, { apiVersion: "2025-08-27.basil" });
     const customers = await stripe.customers.list({ email: user.email, limit: 1 });
 

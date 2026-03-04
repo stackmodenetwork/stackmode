@@ -1,11 +1,12 @@
 import { Helmet } from 'react-helmet-async';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams, useLocation } from 'react-router-dom';
 import { useState, memo, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import SiteNav from '@/components/SiteNav';
 import SiteFooter from '@/components/SiteFooter';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Copy, Check } from 'lucide-react';
+import { useAuth } from '@/contexts/AuthContext';
 
 const WHOP_URL = 'https://whop.com/stackmode-academy/educationalservice/';
 
@@ -23,11 +24,12 @@ const filters: {id: Filter;label: string;}[] = [
 
 const prompts = [
 { cat: 'website', tier: 'free', title: 'Portfolio Website Starter', desc: 'Build a clean, modern portfolio in 60 seconds. Full prompt included.', preview: '"Create a dark-mode portfolio website for [YOUR NAME], a [ROLE]. Include: animated hero with particle background, project showcase grid with hover animations, skills section with progress bars, testimonials carousel, and contact form. Use [COLOR_1] and [COLOR_2] as accent colors..."', fullPrompt: 'Create a dark-mode portfolio website for [YOUR NAME], a [ROLE]. Include the following sections:\n\n1. Hero Section: Animated particle background with your name, title, and a brief tagline. Add a smooth scroll-down indicator.\n\n2. About Section: A two-column layout with your photo on the left and a short bio on the right. Include social media icons.\n\n3. Project Showcase: A responsive grid of project cards with hover animations that reveal project details. Each card should have a thumbnail, title, tech stack tags, and links to live demo / GitHub.\n\n4. Skills Section: Categorized skill bars with percentage indicators. Categories: Frontend, Backend, Tools & Platforms.\n\n5. Testimonials: A carousel of client/colleague quotes with name, role, and avatar.\n\n6. Contact Form: Name, email, subject, and message fields with validation. Include a subtle send animation on submit.\n\nUse [COLOR_1] as the primary accent and [COLOR_2] as the secondary accent. Typography: Use a modern sans-serif for headings and a clean monospace for code snippets. Make it fully responsive for mobile, tablet, and desktop.' },
-{ cat: 'trading', tier: 'premium', title: 'Institutional Algo Strategy', desc: 'Complete algorithmic trading system with VWAP, RSI divergence, Kelly Criterion sizing, and auto backtesting.', preview: '"Act as a quantitative hedge fund analyst. Build a Python trading algo with VWAP deviation at ±2σ Bollinger confluence... [PREMIUM — 847 words]"' },
-{ cat: 'image', tier: 'premium', title: 'Brand Identity Suite', desc: 'Complete Midjourney prompt system for logos, brand kits, product photography, and social media assets.', preview: '"You are a world-class brand identity designer. Create a complete brand system for [COMPANY NAME] in the [INDUSTRY] space... [PREMIUM — 634 words]"' },
+{ cat: 'trading', tier: 'premium', title: 'Institutional Algo Strategy', desc: 'Complete algorithmic trading system with VWAP, RSI divergence, Kelly Criterion sizing, and auto backtesting.', preview: '"Act as a quantitative hedge fund analyst. Build a Python trading algo with VWAP deviation at ±2σ Bollinger confluence... [PREMIUM — 847 words]"', fullPrompt: 'Act as a quantitative hedge fund analyst with 15+ years experience at a top-tier fund. Build a complete Python algorithmic trading system with the following specifications:\n\n1. SIGNAL ENGINE:\n- VWAP deviation detector at ±2σ with Bollinger Band confluence\n- RSI divergence filter (bullish/bearish) with momentum confirmation\n- Volume profile analysis with POC (Point of Control) identification\n- Multi-timeframe alignment check (1m, 5m, 15m, 1H)\n\n2. RISK MANAGEMENT:\n- Kelly Criterion position sizing with half-Kelly conservative mode\n- Maximum drawdown circuit breaker at -2% daily, -5% weekly\n- Correlation-adjusted portfolio heat mapping\n- Dynamic stop-loss using ATR(14) × 1.5 multiplier\n\n3. EXECUTION:\n- Sub-millisecond order routing via ccxt unified API\n- Smart order routing across 3+ exchanges\n- Slippage estimation and limit order optimization\n- PostgreSQL logging for every tick, signal, and execution\n\n4. BACKTESTING:\n- Walk-forward optimization with 70/30 train/test split\n- Monte Carlo simulation (10,000 iterations) for robustness\n- Sharpe ratio, Sortino ratio, and max drawdown reporting\n- Transaction cost modeling (commission + spread + slippage)\n\nOutput clean, production-ready Python code with type hints, docstrings, and unit tests.' },
+{ cat: 'image', tier: 'premium', title: 'Brand Identity Suite', desc: 'Complete Midjourney prompt system for logos, brand kits, product photography, and social media assets.', preview: '"You are a world-class brand identity designer. Create a complete brand system for [COMPANY NAME] in the [INDUSTRY] space... [PREMIUM — 634 words]"', fullPrompt: 'You are a world-class brand identity designer with 20 years of experience at agencies like Pentagram, Collins, and Wolff Olins. Create a complete brand identity system for [COMPANY NAME] in the [INDUSTRY] space.\n\nDELIVERABLE 1 — PRIMARY LOGO:\nMidjourney prompt: "Minimalist logo design for [COMPANY NAME], [INDUSTRY] company. Clean geometric lettermark, modern sans-serif typography, [COLOR_PALETTE] color scheme. Professional corporate identity, vector-ready, white background --ar 1:1 --v 6 --style raw"\n\nDELIVERABLE 2 — ICON/FAVICON:\n"Simplified icon version of [COMPANY NAME] logo, single letter or abstract mark, works at 16x16px, [PRIMARY_COLOR] on white, minimal detail --ar 1:1 --v 6"\n\nDELIVERABLE 3 — SOCIAL MEDIA KIT:\n"Professional social media banner for [COMPANY NAME], [INDUSTRY] brand, featuring logo placement, tagline area, gradient background using [COLOR_1] to [COLOR_2], modern corporate aesthetic --ar 16:9 --v 6"\n\nDELIVERABLE 4 — PRODUCT PHOTOGRAPHY:\n"Premium product photography style for [PRODUCT], studio lighting, [MATERIAL] texture, [COLOR] background, commercial advertising quality, 8K detail --ar 4:5 --v 6"\n\nDELIVERABLE 5 — BRAND GUIDELINES:\nProvide a written brand guide covering: typography pairing, color codes (HEX, RGB, CMYK), spacing rules, do/don\'t usage examples, and tone of voice guidelines.' },
 { cat: 'video', tier: 'free', title: 'YouTube Hook Generator', desc: '5 proven hook formulas that stop the scroll. Free to use right now.', preview: '"Generate 5 YouTube video hooks for a video about [TOPIC]. Each hook must: open with a bold claim or shocking stat..."', fullPrompt: 'Generate 5 YouTube video hooks for a video about [TOPIC]. Each hook must follow one of these proven formulas:\n\nHook 1 — The Bold Claim: Open with a controversial or surprising statement that challenges conventional wisdom. Example structure: "Everything you know about [TOPIC] is wrong, and here\'s why..."\n\nHook 2 — The Shocking Stat: Lead with a jaw-dropping statistic that creates urgency. Example: "97% of people who try [TOPIC] fail because of this one mistake..."\n\nHook 3 — The Story Loop: Start mid-story to create an open loop the viewer needs to close. Example: "I was about to quit [TOPIC] forever — until I discovered this..."\n\nHook 4 — The Direct Challenge: Address the viewer personally and challenge them. Example: "If you\'re still doing [COMMON MISTAKE], you\'re literally leaving money on the table..."\n\nHook 5 — The Curiosity Gap: Tease a secret or insider knowledge. Example: "The top 1% of [TOPIC] experts all do this one thing that nobody talks about..."\n\nFor each hook, also provide:\n- A suggested thumbnail text (max 4 words)\n- The first 15 seconds of script after the hook\n- Why this hook works psychologically' },
-{ cat: 'website', tier: 'premium', title: 'SaaS Landing Page Builder', desc: 'Complete SaaS landing page with hero, features, pricing table, testimonials, FAQ, and animated CTA.', preview: '"You are a senior full-stack developer and conversion-rate optimizer. Build a complete SaaS landing page... [PREMIUM — 1,100+ words]"' },
-{ cat: 'trading', tier: 'premium', title: 'DCF + LBO Financial Model', desc: 'Institutional-grade DCF and LBO model with Monte Carlo simulation for 10,000 scenarios.', preview: '"Build a complete institutional DCF and LBO model in Python/Excel... [PREMIUM — 920 words]"' }];
+{ cat: 'website', tier: 'premium', title: 'SaaS Landing Page Builder', desc: 'Complete SaaS landing page with hero, features, pricing table, testimonials, FAQ, and animated CTA.', preview: '"You are a senior full-stack developer and conversion-rate optimizer. Build a complete SaaS landing page... [PREMIUM — 1,100+ words]"', fullPrompt: 'You are a senior full-stack developer and conversion-rate optimization specialist. Build a complete, high-converting SaaS landing page with the following sections:\n\n1. HERO SECTION:\n- Headline: Bold, benefit-driven (max 8 words)\n- Subheadline: Clarify the value proposition in one sentence\n- CTA button: High-contrast, action-oriented text\n- Social proof bar: "Trusted by 10,000+ teams" with logo strip\n- Hero image/video: Product screenshot or demo animation\n\n2. PROBLEM → SOLUTION:\n- 3 pain points your target audience faces\n- How your product solves each one\n- Before/after comparison visual\n\n3. FEATURES GRID:\n- 6 features in a 3×2 bento grid layout\n- Each: icon, title (3 words), description (1 sentence)\n- Hover animations with subtle scale transform\n\n4. PRICING TABLE:\n- 3 tiers: Starter, Pro, Enterprise\n- Highlight "Most Popular" tier\n- Annual/Monthly toggle\n- Feature comparison checkmarks\n\n5. TESTIMONIALS:\n- 3 customer quotes with photo, name, company, role\n- Star ratings\n- Carousel on mobile, grid on desktop\n\n6. FAQ ACCORDION:\n- 5 common questions with expandable answers\n- Schema markup for SEO\n\n7. FINAL CTA:\n- Urgency-driven headline\n- Email capture + CTA button\n- Trust badges (SSL, money-back guarantee)\n\nUse React + Tailwind CSS. Make it fully responsive. Dark mode by default.' },
+{ cat: 'trading', tier: 'premium', title: 'DCF + LBO Financial Model', desc: 'Institutional-grade DCF and LBO model with Monte Carlo simulation for 10,000 scenarios.', preview: '"Build a complete institutional DCF and LBO model in Python/Excel... [PREMIUM — 920 words]"', fullPrompt: 'Build a complete institutional-grade DCF (Discounted Cash Flow) and LBO (Leveraged Buyout) financial model with the following specifications:\n\n1. DCF MODEL:\n- 10-year explicit forecast period with terminal value (Gordon Growth + Exit Multiple)\n- Revenue build-up: bottom-up by segment with growth assumptions\n- EBITDA bridge: gross margin → SG&A → R&D → EBITDA\n- Working capital modeling: DSO, DIO, DPO with seasonal adjustments\n- CapEx split: maintenance vs growth\n- WACC calculation: CAPM for cost of equity, after-tax cost of debt\n- Sensitivity tables: WACC vs terminal growth rate matrix\n\n2. LBO MODEL:\n- Sources & Uses table with debt tranches (Senior, Mezzanine, PIK)\n- Debt schedule with mandatory amortization and cash sweep\n- Management equity rollover and option pool\n- 5-year hold period with multiple exit scenarios\n- IRR and MOIC calculations at various exit multiples\n- Credit metrics: Debt/EBITDA, Interest Coverage, Fixed Charge Coverage\n\n3. MONTE CARLO SIMULATION:\n- 10,000 scenario iterations\n- Variable inputs: revenue growth (±3σ), margins (±2σ), exit multiple (±1σ)\n- Output: IRR distribution histogram, probability of achieving target returns\n- VaR (Value at Risk) at 95% and 99% confidence levels\n\n4. OUTPUT:\n- Executive summary dashboard\n- Automated sensitivity tables\n- Chart package: waterfall, tornado, distribution plots\n\nProvide in Python with pandas, numpy, scipy, and matplotlib. Include Excel template formulas as comments.' },
+];
 
 
 const testimonials = [
@@ -94,10 +96,12 @@ TerminalWidget.displayName = 'TerminalWidget';
 
 const PromptShop = () => {
   const [searchParams] = useSearchParams();
+  const location = useLocation();
   const initialFilter = (searchParams.get('filter') as Filter) || 'all';
   const [activeFilter, setActiveFilter] = useState<Filter>(initialFilter);
   const [selectedPrompt, setSelectedPrompt] = useState<typeof prompts[0] | null>(null);
   const [copied, setCopied] = useState(false);
+  const { isSubscribed } = useAuth();
 
   useEffect(() => {
     const f = (searchParams.get('filter') as Filter) || 'all';
@@ -273,13 +277,13 @@ const PromptShop = () => {
               {selectedPrompt?.title}
             </DialogTitle>
             <DialogDescription className="text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>
-              {selectedPrompt?.tier === 'free'
+              {selectedPrompt?.tier === 'free' || isSubscribed
                 ? 'Copy the prompt below and paste it into any AI tool.'
                 : 'This is a premium prompt. Subscribe to unlock the full version.'}
             </DialogDescription>
           </DialogHeader>
           <div className="relative mt-3">
-            {selectedPrompt?.tier === 'free' ? (
+            {selectedPrompt?.tier === 'free' || isSubscribed ? (
               <>
                 <pre className="text-xs sm:text-sm font-mono whitespace-pre-wrap rounded-lg p-4 max-h-[50vh] overflow-y-auto" style={{ background: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.8)', border: '1px solid rgba(255,255,255,0.08)', lineHeight: 1.6 }}>
                   {selectedPrompt?.fullPrompt}
@@ -304,12 +308,12 @@ const PromptShop = () => {
                   <p className="text-sm sm:text-base text-center leading-relaxed" style={{ color: 'rgba(255,255,255,0.8)', maxWidth: 320 }}>
                     Unlock all 150+ premium prompts with a Stackmode subscription.
                   </p>
-                  <a href="/auth" className="btn-primary px-6 py-2.5 text-sm font-bold mt-1">Subscribe to Unlock →</a>
+                  <a href={`/auth?redirect=${encodeURIComponent(location.pathname + location.search)}`} className="btn-primary px-6 py-2.5 text-sm font-bold mt-1">Subscribe to Unlock →</a>
                 </div>
               </div>
             )}
           </div>
-          {selectedPrompt?.tier === 'free' && (
+          {(selectedPrompt?.tier === 'free' || isSubscribed) && (
             <p className="text-[10px] uppercase tracking-wider mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>
               {copied ? '✓ Copied to clipboard' : 'Click the icon to copy'}
             </p>

@@ -60,10 +60,14 @@ export const SiteNav = memo(() => {
           <button onClick={() => setUserMenuOpen(v => !v)}
             className="flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-bold"
             style={{ background: 'linear-gradient(135deg, #FFD700, #FFA500)', color: '#000' }}>
-            ★ Premium
+            ★ Manage
           </button>
           {userMenuOpen && (
-            <div className="absolute top-full right-0 mt-2 py-2 rounded-lg min-w-[180px]" style={{ background: 'rgba(17,17,17,0.98)', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(20px)' }}>
+            <div className="absolute top-full right-0 mt-2 py-2 rounded-lg min-w-[200px]" style={{ background: 'rgba(17,17,17,0.98)', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(20px)' }}>
+              <div className="px-4 py-2 mb-1" style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+                <p className="text-[10px] uppercase tracking-wider mb-1" style={{ color: 'rgba(255,215,0,0.7)' }}>Premium Member</p>
+                <p className="text-xs truncate" style={{ color: 'rgba(255,255,255,0.5)' }}>{user?.email}</p>
+              </div>
               <button onClick={handlePortal}
                 className="block w-full text-left px-4 py-2 text-sm transition-colors hover:bg-white/5"
                 style={{ color: 'rgba(255,255,255,0.7)' }}>
@@ -113,7 +117,8 @@ export const SiteNav = memo(() => {
     if (isSubscribed) {
       return (
         <div className="flex flex-col items-center gap-3 mt-6">
-          <span className="px-4 py-1.5 rounded-full text-sm font-bold" style={{ background: 'linear-gradient(135deg, #FFD700, #FFA500)', color: '#000' }}>★ Premium</span>
+          <span className="px-4 py-1.5 rounded-full text-sm font-bold" style={{ background: 'linear-gradient(135deg, #FFD700, #FFA500)', color: '#000' }}>★ Premium Member</span>
+          <p className="text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>{user?.email}</p>
           <button onClick={() => { handlePortal(); setOpen(false); }} className="text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>Manage Subscription</button>
           <button onClick={() => { signOut(); setOpen(false); }} className="text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>Logout</button>
         </div>

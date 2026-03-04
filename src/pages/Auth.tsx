@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { supabase } from '@/integrations/supabase/client';
 import { lovable } from '@/integrations/lovable/index';
@@ -18,6 +18,8 @@ const GoogleIcon = () => (
 
 const Auth = () => {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const redirectTo = searchParams.get('redirect') || '/';
   const [tab, setTab] = useState<'login' | 'signup'>('login');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -35,11 +37,11 @@ const Auth = () => {
       if (tab === 'signup') {
         const { error } = await supabase.auth.signUp({ email, password });
         if (error) throw error;
-        navigate('/');
+        navigate(redirectTo);
       } else {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
-        navigate('/');
+        navigate(redirectTo);
       }
     } catch (err: any) {
       setError(err.message || 'Something went wrong');
@@ -50,11 +52,26 @@ const Auth = () => {
 
   const handleGoogle = async () => {
     setError('');
+    // Store redirect path so we can navigate there after OAuth callback
+    if (redirectTo !== '/') sessionStorage.setItem('auth_redirect', redirectTo);
     const { error } = await lovable.auth.signInWithOAuth('google', {
       redirect_uri: window.location.origin,
     });
     if (error) setError(error.message || 'Google sign-in failed');
   };
+
+  // Handle OAuth callback redirect
+  useEffect(() => {
+    const stored = sessionStorage.getItem('auth_redirect');
+    if (stored) {
+      sessionStorage.removeItem('auth_redirect');
+      const checkAuth = async () => {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (session) navigate(stored);
+      };
+      checkAuth();
+    }
+  }, [navigate]);
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4 bg-background">
