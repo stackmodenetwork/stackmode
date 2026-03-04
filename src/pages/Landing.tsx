@@ -11,7 +11,6 @@ import BusinessProofBento from '@/components/BusinessProofBento';
 import PillarsBentoGrid from '@/components/PillarsBentoGrid';
 import BrandShowcaseBento from '@/components/BrandShowcaseBento';
 import ToolsLogoGrid from '@/components/ToolsLogoGrid';
-import ReviewsWall from '@/components/ReviewsWall';
 import TestimonialsMarquee from '@/components/TestimonialsMarquee';
 
 /* ═══ TYPEWRITER ═══ */
@@ -272,8 +271,6 @@ const Landing = () =>
     
 
     <TestimonialsMarquee />
-
-    <ReviewsWall />
 
     <SiteFooter />
   </div>;
