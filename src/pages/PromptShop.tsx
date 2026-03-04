@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import SiteNav from '@/components/SiteNav';
 import SiteFooter from '@/components/SiteFooter';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
-import { Copy, Check, ChevronRight } from 'lucide-react';
+import { Copy, Check } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 
 const WHOP_URL = 'https://whop.com/stackmode-academy/educationalservice/';
@@ -64,7 +64,7 @@ const TerminalWidget = memo(({ onSelectPrompt }: { onSelectPrompt?: (title: stri
   }, [active]);
 
   return (
-    <div className="max-w-lg w-full">
+    <div className="max-w-lg w-full overflow-hidden">
         <div className="flex gap-1 mb-0 overflow-x-auto scrollbar-hide">
         {promptTabs.map((t, i) =>
         <button key={i} onClick={() => setActive(i)}
@@ -81,7 +81,7 @@ const TerminalWidget = memo(({ onSelectPrompt }: { onSelectPrompt?: (title: stri
           <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#27c93f' }} />
           <span className="text-[10px] ml-2" style={{ color: 'rgba(255,255,255,0.3)' }}>Terminal</span>
         </div>
-        <p className="text-xs font-mono leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)', minHeight: 60 }}>
+        <p className="text-xs font-mono leading-relaxed break-words" style={{ color: 'rgba(255,255,255,0.7)', minHeight: 60 }}>
           {displayed}<span className="inline-block w-0.5 h-3 ml-0.5 animate-pulse bg-white" />
         </p>
         <div className="flex items-center justify-between mt-3 pt-2" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
@@ -139,7 +139,7 @@ const PromptShop = () => {
       <SiteNav />
 
       {/* Hero — Split */}
-      <section className="section" style={{ paddingTop: 120 }}>
+      <section className="section pt-20 sm:pt-28 lg:pt-32 px-4 sm:px-8">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
@@ -175,11 +175,11 @@ const PromptShop = () => {
           </div>
 
           {/* Filters */}
-          <div className="relative mb-10">
-            <div className="flex gap-3 overflow-x-auto scrollbar-hide px-1 py-1 pr-10 lg:pr-1 lg:flex-wrap lg:justify-center">
+          <div className="mb-10">
+            <div className="flex flex-wrap gap-2 justify-center px-1 py-1">
               {filters.map((f) =>
               <button key={f.id} onClick={() => setActiveFilter(f.id)}
-              className="px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded-lg transition-all whitespace-nowrap flex-shrink-0"
+              className="px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold uppercase tracking-wider rounded-lg transition-all whitespace-nowrap"
               style={{
                 background: activeFilter === f.id ? '#fff' : 'transparent',
                 color: activeFilter === f.id ? '#000' : 'rgba(255,255,255,0.5)',
@@ -188,10 +188,6 @@ const PromptShop = () => {
                   {f.label}
                 </button>
               )}
-            </div>
-            {/* Mobile scroll hint with arrow */}
-            <div className="absolute right-0 top-0 bottom-0 w-10 flex items-center justify-end pr-1 pointer-events-none lg:hidden" style={{ background: 'linear-gradient(to right, transparent, #000 60%)' }}>
-              <ChevronRight size={18} className="animate-pulse" style={{ color: 'rgba(255,255,255,0.5)' }} />
             </div>
           </div>
 
