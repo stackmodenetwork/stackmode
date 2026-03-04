@@ -200,8 +200,7 @@ const PromptShop = () => {
                 <div>
                   {p.tier === 'free' ?
                 <button onClick={() => { setSelectedPrompt(p); setCopied(false); }} className="btn-primary btn-sm w-full">Get Free Prompt →</button> :
-
-                <a href="/auth" className="btn-glass btn-sm w-full text-center block">Unlock Premium →</a>
+                <button onClick={() => { setSelectedPrompt(p); setCopied(false); }} className="btn-glass btn-sm w-full">View Prompt →</button>
                 }
                 </div>
               </motion.div>
@@ -274,24 +273,47 @@ const PromptShop = () => {
               {selectedPrompt?.title}
             </DialogTitle>
             <DialogDescription style={{ color: 'rgba(255,255,255,0.5)' }}>
-              Copy the prompt below and paste it into any AI tool.
+              {selectedPrompt?.tier === 'free'
+                ? 'Copy the prompt below and paste it into any AI tool.'
+                : 'This is a premium prompt. Subscribe to unlock the full version.'}
             </DialogDescription>
           </DialogHeader>
           <div className="relative mt-2">
-            <pre className="text-xs font-mono whitespace-pre-wrap rounded-lg p-4 max-h-[300px] overflow-y-auto" style={{ background: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.8)', border: '1px solid rgba(255,255,255,0.08)', lineHeight: 1.6 }}>
-              {selectedPrompt?.fullPrompt}
-            </pre>
-            <button
-              onClick={handleCopy}
-              className="absolute top-2 right-2 p-2 rounded-lg transition-all"
-              style={{ background: copied ? 'rgba(39,201,63,0.15)' : 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.1)' }}
-            >
-              {copied ? <Check className="w-4 h-4" style={{ color: '#27c93f' }} /> : <Copy className="w-4 h-4" style={{ color: 'rgba(255,255,255,0.6)' }} />}
-            </button>
+            {selectedPrompt?.tier === 'free' ? (
+              <>
+                <pre className="text-xs font-mono whitespace-pre-wrap rounded-lg p-4 max-h-[300px] overflow-y-auto" style={{ background: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.8)', border: '1px solid rgba(255,255,255,0.08)', lineHeight: 1.6 }}>
+                  {selectedPrompt?.fullPrompt}
+                </pre>
+                <button
+                  onClick={handleCopy}
+                  className="absolute top-2 right-2 p-2 rounded-lg transition-all"
+                  style={{ background: copied ? 'rgba(39,201,63,0.15)' : 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.1)' }}
+                >
+                  {copied ? <Check className="w-4 h-4" style={{ color: '#27c93f' }} /> : <Copy className="w-4 h-4" style={{ color: 'rgba(255,255,255,0.6)' }} />}
+                </button>
+              </>
+            ) : (
+              <div className="relative rounded-lg overflow-hidden" style={{ border: '1px solid rgba(255,255,255,0.08)' }}>
+                <pre className="text-xs font-mono whitespace-pre-wrap p-4" style={{ background: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.8)', lineHeight: 1.6, filter: 'blur(5px)', userSelect: 'none' }}>
+                  {selectedPrompt?.preview}
+                </pre>
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3" style={{ background: 'rgba(0,0,0,0.6)' }}>
+                  <span className="text-[10px] uppercase tracking-wider px-3 py-1 rounded-full font-bold" style={{ background: 'rgba(255,215,0,0.15)', color: '#ffd700', border: '1px solid rgba(255,215,0,0.25)' }}>
+                    ⭐ Premium Content
+                  </span>
+                  <p className="text-sm text-center px-6" style={{ color: 'rgba(255,255,255,0.7)' }}>
+                    Unlock all 150+ premium prompts with a Stackmode subscription.
+                  </p>
+                  <a href="/auth" className="btn-primary btn-sm mt-1">Subscribe to Unlock →</a>
+                </div>
+              </div>
+            )}
           </div>
-          <p className="text-[10px] uppercase tracking-wider mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>
-            {copied ? '✓ Copied to clipboard' : 'Click the icon to copy'}
-          </p>
+          {selectedPrompt?.tier === 'free' && (
+            <p className="text-[10px] uppercase tracking-wider mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>
+              {copied ? '✓ Copied to clipboard' : 'Click the icon to copy'}
+            </p>
+          )}
         </DialogContent>
       </Dialog>
 
