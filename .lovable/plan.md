@@ -1,30 +1,28 @@
 
 
-# Replace AnimatedTextRotator with Typewriter Component
+# Fix Mobile Overlaps on Prompt Shop Page
 
-## What's changing
-Replace the current `AnimatedTextRotator` in the hero heading with the `danielpetho/typewriter` component from 21st.dev. The heading will read "Master " followed by a typewriter effect cycling through "AI Software", "Brand Building", "Trading Systems", with "Build Wealth." on the second line.
+## Problems Identified
+1. **Terminal widget** (hero section): Tabs and content area are cramped on mobile — text overflows and the terminal box overlaps with surrounding elements.
+2. **Filter tabs**: Currently use horizontal scroll with an arrow indicator. User wants all filters visible without scrolling or arrows on mobile.
+3. **Featured prompt cards**: The `grid-3` class may cause cards to overlap or clip on small screens.
 
-## Steps
+## Changes
 
-### 1. Create `src/components/ui/typewriter.tsx`
-Install the Typewriter component from the fetched source. It uses framer-motion (already installed) and provides a clean typing/deleting animation with a blinking cursor.
+### 1. Remove scroll arrow, make filters wrap on mobile (`src/pages/PromptShop.tsx`)
+- Remove `overflow-x-auto scrollbar-hide` and `pr-10` from the filter container on mobile
+- Change to `flex-wrap` so all filter buttons are visible without scrolling
+- Remove the `ChevronRight` arrow overlay div entirely
+- Reduce button padding slightly on mobile so they fit when wrapped
 
-### 2. Update `src/pages/Landing.tsx`
-- Remove the `AnimatedTextRotator` import
-- Import the new `Typewriter` component
-- Replace the hero `h2` content:
-  ```
-  Master <Typewriter text={["AI Software", "Brand Building", "Trading Systems"]} />
-  Build Wealth.
-  ```
-- Style the Typewriter output with the same gradient text effect currently on the rotator
-- Keep the existing `Typewriter` (the terminal one lower in the file) — rename it to avoid conflict (e.g., `TerminalTypewriter`)
+### 2. Fix terminal widget mobile sizing (`src/pages/PromptShop.tsx`)
+- Add `overflow-hidden` to the terminal container
+- Ensure the terminal text area has proper `break-words` styling
+- Reduce hero section top padding on mobile (120px is too much)
 
-### 3. Rename collision
-The file already has a local `Typewriter` component (the terminal phrases one at line 22). Rename it to `TerminalTypewriter` to avoid a naming conflict with the new UI component.
+### 3. Ensure prompt cards don't overlap on mobile
+- The `grid-3` CSS class already goes to 1 column on mobile — verify the `glass-card` padding and text sizing don't cause overflow
 
 ### Files to modify:
-1. **`src/components/ui/typewriter.tsx`** — Create new file with the 21st.dev component
-2. **`src/pages/Landing.tsx`** — Swap AnimatedTextRotator for new Typewriter, rename local Typewriter
+1. **`src/pages/PromptShop.tsx`** — Wrap filters instead of scroll, remove arrow, fix terminal and hero spacing for mobile
 
