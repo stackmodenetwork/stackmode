@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import SiteNav from '@/components/SiteNav';
 import SiteFooter from '@/components/SiteFooter';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
-import { Copy, Check } from 'lucide-react';
+import { Copy, Check, ChevronRight } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 
 const WHOP_URL = 'https://whop.com/stackmode-academy/educationalservice/';
@@ -176,7 +176,7 @@ const PromptShop = () => {
 
           {/* Filters */}
           <div className="relative mb-10">
-            <div className="flex gap-2 overflow-x-auto scrollbar-hide px-1 py-1 lg:flex-wrap lg:justify-center">
+            <div className="flex gap-2 overflow-x-auto scrollbar-hide px-1 py-1 pr-10 lg:pr-1 lg:flex-wrap lg:justify-center">
               {filters.map((f) =>
               <button key={f.id} onClick={() => setActiveFilter(f.id)}
               className="px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded-lg transition-all whitespace-nowrap flex-shrink-0"
@@ -189,8 +189,10 @@ const PromptShop = () => {
                 </button>
               )}
             </div>
-            {/* Mobile scroll hint */}
-            <div className="absolute right-0 top-0 bottom-0 w-8 pointer-events-none lg:hidden" style={{ background: 'linear-gradient(to right, transparent, #000)' }} />
+            {/* Mobile scroll hint with arrow */}
+            <div className="absolute right-0 top-0 bottom-0 w-10 flex items-center justify-end pr-1 pointer-events-none lg:hidden" style={{ background: 'linear-gradient(to right, transparent, #000 60%)' }}>
+              <ChevronRight size={18} className="animate-pulse" style={{ color: 'rgba(255,255,255,0.5)' }} />
+            </div>
           </div>
 
           {/* Prompt Cards */}
