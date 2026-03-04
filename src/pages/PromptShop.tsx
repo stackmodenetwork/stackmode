@@ -267,21 +267,21 @@ const PromptShop = () => {
 
       {/* Prompt Copy Dialog */}
       <Dialog open={!!selectedPrompt} onOpenChange={(open) => !open && setSelectedPrompt(null)}>
-        <DialogContent className="sm:max-w-xl" style={{ background: '#111', border: '1px solid rgba(255,255,255,0.1)', color: '#fff' }}>
+        <DialogContent className="w-[95vw] max-w-xl mx-auto" style={{ background: '#111', border: '1px solid rgba(255,255,255,0.1)', color: '#fff' }}>
           <DialogHeader>
-            <DialogTitle style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: '1.25rem' }}>
+            <DialogTitle style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: '1.5rem' }}>
               {selectedPrompt?.title}
             </DialogTitle>
-            <DialogDescription style={{ color: 'rgba(255,255,255,0.5)' }}>
+            <DialogDescription className="text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>
               {selectedPrompt?.tier === 'free'
                 ? 'Copy the prompt below and paste it into any AI tool.'
                 : 'This is a premium prompt. Subscribe to unlock the full version.'}
             </DialogDescription>
           </DialogHeader>
-          <div className="relative mt-2">
+          <div className="relative mt-3">
             {selectedPrompt?.tier === 'free' ? (
               <>
-                <pre className="text-xs font-mono whitespace-pre-wrap rounded-lg p-4 max-h-[300px] overflow-y-auto" style={{ background: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.8)', border: '1px solid rgba(255,255,255,0.08)', lineHeight: 1.6 }}>
+                <pre className="text-xs sm:text-sm font-mono whitespace-pre-wrap rounded-lg p-4 max-h-[50vh] overflow-y-auto" style={{ background: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.8)', border: '1px solid rgba(255,255,255,0.08)', lineHeight: 1.6 }}>
                   {selectedPrompt?.fullPrompt}
                 </pre>
                 <button
@@ -293,18 +293,18 @@ const PromptShop = () => {
                 </button>
               </>
             ) : (
-              <div className="relative rounded-lg overflow-hidden" style={{ border: '1px solid rgba(255,255,255,0.08)' }}>
-                <pre className="text-xs font-mono whitespace-pre-wrap p-4" style={{ background: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.8)', lineHeight: 1.6, filter: 'blur(5px)', userSelect: 'none' }}>
-                  {selectedPrompt?.preview}
+              <div className="relative rounded-lg overflow-hidden min-h-[240px] sm:min-h-[280px]" style={{ border: '1px solid rgba(255,255,255,0.08)' }}>
+                <pre className="text-xs font-mono whitespace-pre-wrap p-4 sm:p-6" style={{ background: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.8)', lineHeight: 1.6, filter: 'blur(6px)', userSelect: 'none' }}>
+                  {selectedPrompt?.preview}{'\n\n'}{selectedPrompt?.preview}
                 </pre>
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3" style={{ background: 'rgba(0,0,0,0.6)' }}>
-                  <span className="text-[10px] uppercase tracking-wider px-3 py-1 rounded-full font-bold" style={{ background: 'rgba(255,215,0,0.15)', color: '#ffd700', border: '1px solid rgba(255,215,0,0.25)' }}>
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-6 py-8" style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.85) 50%, rgba(0,0,0,0.4) 100%)' }}>
+                  <span className="text-xs uppercase tracking-wider px-4 py-1.5 rounded-full font-bold" style={{ background: 'rgba(255,215,0,0.15)', color: '#ffd700', border: '1px solid rgba(255,215,0,0.25)' }}>
                     ⭐ Premium Content
                   </span>
-                  <p className="text-sm text-center px-6" style={{ color: 'rgba(255,255,255,0.7)' }}>
+                  <p className="text-sm sm:text-base text-center leading-relaxed" style={{ color: 'rgba(255,255,255,0.8)', maxWidth: 320 }}>
                     Unlock all 150+ premium prompts with a Stackmode subscription.
                   </p>
-                  <a href="/auth" className="btn-primary btn-sm mt-1">Subscribe to Unlock →</a>
+                  <a href="/auth" className="btn-primary px-6 py-2.5 text-sm font-bold mt-1">Subscribe to Unlock →</a>
                 </div>
               </div>
             )}
