@@ -144,7 +144,7 @@ const Landing = () =>
       <motion.img initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6 }}
     src="/images/sm-logo-new.png" alt="Stackmode Logo" className="w-16 h-16 sm:w-20 sm:h-20 rounded-full mb-6" />
       <motion.h2 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-    className="text-4xl sm:text-6xl md:text-7xl mb-4" style={{ fontWeight: 600, lineHeight: 1.1, letterSpacing: '-0.02em' }}>
+    className="text-3xl sm:text-5xl md:text-7xl mb-4" style={{ fontWeight: 600, lineHeight: 1.15, letterSpacing: '-0.02em' }}>
         Master{' '}
         <AnimatedTextRotator words={['AI Software', 'Trading Systems', 'Digital Assets', 'Brand Building']} interval={2800} />
         .<br />Build Wealth.
