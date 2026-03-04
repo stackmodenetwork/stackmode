@@ -1,36 +1,30 @@
 
 
-# Hero Heading Redesign + Mobile Scroll Arrow
+# Replace AnimatedTextRotator with Typewriter Component
 
-## Problem
-1. "Master" sits alone on one line with the rotating text on the next, creating an awkward gap on mobile. The layout feels disconnected.
-2. The Prompt Shop category filters on mobile have a gradient fade hint but no visible arrow indicator to signal scrollability.
+## What's changing
+Replace the current `AnimatedTextRotator` in the hero heading with the `danielpetho/typewriter` component from 21st.dev. The heading will read "Master " followed by a typewriter effect cycling through "AI Software", "Brand Building", "Trading Systems", with "Build Wealth." on the second line.
 
-## Changes
+## Steps
 
-### 1. Smarter Hero Heading Layout (`src/pages/Landing.tsx`)
+### 1. Create `src/components/ui/typewriter.tsx`
+Install the Typewriter component from the fetched source. It uses framer-motion (already installed) and provides a clean typing/deleting animation with a blinking cursor.
 
-Restructure the heading so "Master" and the rotating text flow together on one line, with "Build Wealth." on a second line. This keeps the smooth animated rotator but eliminates the visual gap.
+### 2. Update `src/pages/Landing.tsx`
+- Remove the `AnimatedTextRotator` import
+- Import the new `Typewriter` component
+- Replace the hero `h2` content:
+  ```
+  Master <Typewriter text={["AI Software", "Brand Building", "Trading Systems"]} />
+  Build Wealth.
+  ```
+- Style the Typewriter output with the same gradient text effect currently on the rotator
+- Keep the existing `Typewriter` (the terminal one lower in the file) — rename it to avoid conflict (e.g., `TerminalTypewriter`)
 
-**New structure:**
-```
-Master [AI Software].
-Build Wealth.
-```
-
-- Remove the `<br />` between the rotator and "Build Wealth"
-- Instead, place "Build Wealth." on its own line using a `<span className="block">` or a second `<br />` after the period
-- The key fix: ensure "Master" + rotator stay on the same line by keeping them as inline elements with no forced break between them
-- Reduce the heading size slightly on mobile (`text-2xl sm:text-5xl md:text-7xl`) so "Master [longest word]" fits on one line
-
-### 2. Add Scroll Arrow to Prompt Shop Filters (`src/pages/PromptShop.tsx`)
-
-Replace the gradient-only hint with a small right-pointing chevron arrow (`ChevronRight` from lucide-react) that:
-- Sits on the right edge of the filter bar, visible only on mobile (`lg:hidden`)
-- Uses a subtle pulse animation to draw attention
-- Disappears once the user has scrolled the filter container (optional: keep it simple and always show)
+### 3. Rename collision
+The file already has a local `Typewriter` component (the terminal phrases one at line 22). Rename it to `TerminalTypewriter` to avoid a naming conflict with the new UI component.
 
 ### Files to modify:
-1. **`src/pages/Landing.tsx`** — Restructure h2 so "Master" + rotator stay inline, "Build Wealth." below
-2. **`src/pages/PromptShop.tsx`** — Add chevron arrow icon to filter scroll area on mobile
+1. **`src/components/ui/typewriter.tsx`** — Create new file with the 21st.dev component
+2. **`src/pages/Landing.tsx`** — Swap AnimatedTextRotator for new Typewriter, rename local Typewriter
 
