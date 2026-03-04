@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { useState, memo, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import SiteNav from '@/components/SiteNav';
@@ -93,9 +93,16 @@ const TerminalWidget = memo(() => {
 TerminalWidget.displayName = 'TerminalWidget';
 
 const PromptShop = () => {
-  const [activeFilter, setActiveFilter] = useState<Filter>('all');
+  const [searchParams] = useSearchParams();
+  const initialFilter = (searchParams.get('filter') as Filter) || 'all';
+  const [activeFilter, setActiveFilter] = useState<Filter>(initialFilter);
   const [selectedPrompt, setSelectedPrompt] = useState<typeof prompts[0] | null>(null);
   const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    const f = (searchParams.get('filter') as Filter) || 'all';
+    setActiveFilter(f);
+  }, [searchParams]);
 
   const handleCopy = () => {
     if (selectedPrompt?.fullPrompt) {
