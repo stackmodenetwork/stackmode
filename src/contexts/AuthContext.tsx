@@ -55,15 +55,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       window.location.href = '/auth';
       return;
     }
-    try {
-      const { data, error } = await supabase.functions.invoke('create-checkout', {
-        headers: { Authorization: `Bearer ${s.access_token}` },
-      });
-      if (error) throw error;
-      if (data?.url) window.location.href = data.url;
-    } catch (e) {
-      console.error('create-checkout error', e);
-    }
+    window.location.href = 'https://buy.stripe.com/aFa4gBdw3dd92ZK3nR43S0C';
   }, []);
 
   const handlePortal = useCallback(async () => {

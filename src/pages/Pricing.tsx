@@ -31,10 +31,10 @@ const Pricing = () => {
       cta: 'Browse Shop', href: '/shop', external: false, featured: false, useStripe: false,
     },
     {
-      label: 'Stackmode', name: 'Premium', price: '$20', cadence: '/mo',
+      label: 'Stackmode', name: 'Premium', price: '$7.99', oldPrice: '$20', cadence: '/mo',
       tagline: 'Everything you need to build with AI and trade smarter.',
       benefits: ['Full AI Prompt Library', 'Stackfinder AI Scanner', 'All Academy courses', 'Weekly live coaching', 'Discord (All channels)'],
-      cta: isSubscribed ? '★ Active' : 'Get Started', href: '#', external: false, featured: true, badge: 'Most Popular', useStripe: true,
+      cta: isSubscribed ? '★ Active' : 'Get Started', href: 'https://buy.stripe.com/aFa4gBdw3dd92ZK3nR43S0C', external: true, featured: true, badge: '60% OFF', useStripe: true,
     },
     {
       label: 'CEO', name: 'Brand Boost', price: 'Custom', cadence: '',
@@ -73,8 +73,9 @@ const Pricing = () => {
                   )}
                   
                   <h3 className="text-xl mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>{tier.name}</h3>
-                  <div className="flex items-baseline gap-1 mb-2">
+                  <div className="flex items-baseline gap-2 mb-2">
                     <span className="text-4xl font-bold" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>{tier.price}</span>
+                    {(tier as any).oldPrice && <span className="text-lg line-through" style={{ color: 'rgba(255,255,255,0.3)' }}>{(tier as any).oldPrice}</span>}
                     {tier.cadence && <span className="text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>{tier.cadence}</span>}
                   </div>
                   <p className="text-sm mb-6" style={{ color: 'rgba(255,255,255,0.5)' }}>{tier.tagline}</p>
@@ -88,11 +89,19 @@ const Pricing = () => {
                     ))}
                   </div>
                   {tier.useStripe ? (
-                    <button onClick={onSubscribeClick} disabled={isSubscribed}
-                      className={isSubscribed ? 'btn-glass btn-lg w-full' : 'btn-primary btn-lg w-full'}
-                      style={isSubscribed ? { background: 'linear-gradient(135deg, #FFD700, #FFA500)', color: '#000', fontWeight: 700, border: 'none' } : {}}>
-                      {tier.cta}
-                    </button>
+                    isSubscribed ? (
+                      <span className="btn-glass btn-lg w-full inline-block text-center" style={{ background: 'linear-gradient(135deg, #FFD700, #FFA500)', color: '#000', fontWeight: 700, border: 'none' }}>
+                        ★ Active
+                      </span>
+                    ) : user ? (
+                      <a href="https://buy.stripe.com/aFa4gBdw3dd92ZK3nR43S0C" className="btn-primary btn-lg w-full text-center inline-block">
+                        {tier.cta}
+                      </a>
+                    ) : (
+                      <Link to="/auth?redirect=/pricing" className="btn-primary btn-lg w-full text-center">
+                        {tier.cta}
+                      </Link>
+                    )
                   ) : tier.external ? (
                     <a href={tier.href} target="_blank" rel="noopener noreferrer" className={tier.featured ? 'btn-primary btn-lg w-full' : 'btn-glass btn-lg w-full'}>{tier.cta}</a>
                   ) : (
@@ -112,7 +121,7 @@ const Pricing = () => {
                   <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
                     <th className="px-4 sm:px-6 py-3 text-xs font-semibold uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.4)' }}>Feature</th>
                     <th className="px-4 py-3 text-xs font-bold uppercase tracking-widest text-white">Free</th>
-                    <th className="px-4 py-3 text-xs font-bold uppercase tracking-widest text-white" style={{ background: 'rgba(255,255,255,0.03)' }}>Stackmode $20</th>
+                    <th className="px-4 py-3 text-xs font-bold uppercase tracking-widest text-white" style={{ background: 'rgba(255,255,255,0.03)' }}>Stackmode $7.99</th>
                     <th className="px-4 py-3 text-xs font-bold uppercase tracking-widest text-white">CEO</th>
                   </tr>
                 </thead>
