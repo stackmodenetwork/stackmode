@@ -4,6 +4,8 @@ import { useState, memo, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import SiteNav from '@/components/SiteNav';
 import SiteFooter from '@/components/SiteFooter';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { Copy, Check } from 'lucide-react';
 
 const WHOP_URL = 'https://whop.com/stackmode-academy/educationalservice/';
 
@@ -20,10 +22,10 @@ const filters: {id: Filter;label: string;}[] = [
 
 
 const prompts = [
-{ cat: 'website', tier: 'free', title: 'Portfolio Website Starter', desc: 'Build a clean, modern portfolio in 60 seconds. Full prompt included.', preview: '"Create a dark-mode portfolio website for [YOUR NAME], a [ROLE]. Include: animated hero with particle background, project showcase grid with hover animations, skills section with progress bars, testimonials carousel, and contact form. Use [COLOR_1] and [COLOR_2] as accent colors..."' },
+{ cat: 'website', tier: 'free', title: 'Portfolio Website Starter', desc: 'Build a clean, modern portfolio in 60 seconds. Full prompt included.', preview: '"Create a dark-mode portfolio website for [YOUR NAME], a [ROLE]. Include: animated hero with particle background, project showcase grid with hover animations, skills section with progress bars, testimonials carousel, and contact form. Use [COLOR_1] and [COLOR_2] as accent colors..."', fullPrompt: 'Create a dark-mode portfolio website for [YOUR NAME], a [ROLE]. Include the following sections:\n\n1. Hero Section: Animated particle background with your name, title, and a brief tagline. Add a smooth scroll-down indicator.\n\n2. About Section: A two-column layout with your photo on the left and a short bio on the right. Include social media icons.\n\n3. Project Showcase: A responsive grid of project cards with hover animations that reveal project details. Each card should have a thumbnail, title, tech stack tags, and links to live demo / GitHub.\n\n4. Skills Section: Categorized skill bars with percentage indicators. Categories: Frontend, Backend, Tools & Platforms.\n\n5. Testimonials: A carousel of client/colleague quotes with name, role, and avatar.\n\n6. Contact Form: Name, email, subject, and message fields with validation. Include a subtle send animation on submit.\n\nUse [COLOR_1] as the primary accent and [COLOR_2] as the secondary accent. Typography: Use a modern sans-serif for headings and a clean monospace for code snippets. Make it fully responsive for mobile, tablet, and desktop.' },
 { cat: 'trading', tier: 'premium', title: 'Institutional Algo Strategy', desc: 'Complete algorithmic trading system with VWAP, RSI divergence, Kelly Criterion sizing, and auto backtesting.', preview: '"Act as a quantitative hedge fund analyst. Build a Python trading algo with VWAP deviation at ±2σ Bollinger confluence... [PREMIUM — 847 words]"' },
 { cat: 'image', tier: 'premium', title: 'Brand Identity Suite', desc: 'Complete Midjourney prompt system for logos, brand kits, product photography, and social media assets.', preview: '"You are a world-class brand identity designer. Create a complete brand system for [COMPANY NAME] in the [INDUSTRY] space... [PREMIUM — 634 words]"' },
-{ cat: 'video', tier: 'free', title: 'YouTube Hook Generator', desc: '5 proven hook formulas that stop the scroll. Free to use right now.', preview: '"Generate 5 YouTube video hooks for a video about [TOPIC]. Each hook must: open with a bold claim or shocking stat..."' },
+{ cat: 'video', tier: 'free', title: 'YouTube Hook Generator', desc: '5 proven hook formulas that stop the scroll. Free to use right now.', preview: '"Generate 5 YouTube video hooks for a video about [TOPIC]. Each hook must: open with a bold claim or shocking stat..."', fullPrompt: 'Generate 5 YouTube video hooks for a video about [TOPIC]. Each hook must follow one of these proven formulas:\n\nHook 1 — The Bold Claim: Open with a controversial or surprising statement that challenges conventional wisdom. Example structure: "Everything you know about [TOPIC] is wrong, and here\'s why..."\n\nHook 2 — The Shocking Stat: Lead with a jaw-dropping statistic that creates urgency. Example: "97% of people who try [TOPIC] fail because of this one mistake..."\n\nHook 3 — The Story Loop: Start mid-story to create an open loop the viewer needs to close. Example: "I was about to quit [TOPIC] forever — until I discovered this..."\n\nHook 4 — The Direct Challenge: Address the viewer personally and challenge them. Example: "If you\'re still doing [COMMON MISTAKE], you\'re literally leaving money on the table..."\n\nHook 5 — The Curiosity Gap: Tease a secret or insider knowledge. Example: "The top 1% of [TOPIC] experts all do this one thing that nobody talks about..."\n\nFor each hook, also provide:\n- A suggested thumbnail text (max 4 words)\n- The first 15 seconds of script after the hook\n- Why this hook works psychologically' },
 { cat: 'website', tier: 'premium', title: 'SaaS Landing Page Builder', desc: 'Complete SaaS landing page with hero, features, pricing table, testimonials, FAQ, and animated CTA.', preview: '"You are a senior full-stack developer and conversion-rate optimizer. Build a complete SaaS landing page... [PREMIUM — 1,100+ words]"' },
 { cat: 'trading', tier: 'premium', title: 'DCF + LBO Financial Model', desc: 'Institutional-grade DCF and LBO model with Monte Carlo simulation for 10,000 scenarios.', preview: '"Build a complete institutional DCF and LBO model in Python/Excel... [PREMIUM — 920 words]"' }];
 
@@ -92,6 +94,16 @@ TerminalWidget.displayName = 'TerminalWidget';
 
 const PromptShop = () => {
   const [activeFilter, setActiveFilter] = useState<Filter>('all');
+  const [selectedPrompt, setSelectedPrompt] = useState<typeof prompts[0] | null>(null);
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    if (selectedPrompt?.fullPrompt) {
+      navigator.clipboard.writeText(selectedPrompt.fullPrompt);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
 
   const filtered = prompts.filter((p) => {
     if (activeFilter === 'all') return true;
@@ -180,7 +192,7 @@ const PromptShop = () => {
                 <p className="text-xs font-mono mb-4 flex-1" style={{ color: 'rgba(255,255,255,0.35)', lineHeight: 1.5 }}>{p.preview}</p>
                 <div>
                   {p.tier === 'free' ?
-                <button className="btn-primary btn-sm w-full">Get Free Prompt →</button> :
+                <button onClick={() => { setSelectedPrompt(p); setCopied(false); }} className="btn-primary btn-sm w-full">Get Free Prompt →</button> :
 
                 <a href="/auth" className="btn-glass btn-sm w-full text-center block">Unlock Premium →</a>
                 }
@@ -249,6 +261,35 @@ const PromptShop = () => {
 
 
       
+
+      {/* Prompt Copy Dialog */}
+      <Dialog open={!!selectedPrompt} onOpenChange={(open) => !open && setSelectedPrompt(null)}>
+        <DialogContent className="sm:max-w-xl" style={{ background: '#111', border: '1px solid rgba(255,255,255,0.1)', color: '#fff' }}>
+          <DialogHeader>
+            <DialogTitle style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: '1.25rem' }}>
+              {selectedPrompt?.title}
+            </DialogTitle>
+            <DialogDescription style={{ color: 'rgba(255,255,255,0.5)' }}>
+              Copy the prompt below and paste it into any AI tool.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="relative mt-2">
+            <pre className="text-xs font-mono whitespace-pre-wrap rounded-lg p-4 max-h-[300px] overflow-y-auto" style={{ background: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.8)', border: '1px solid rgba(255,255,255,0.08)', lineHeight: 1.6 }}>
+              {selectedPrompt?.fullPrompt}
+            </pre>
+            <button
+              onClick={handleCopy}
+              className="absolute top-2 right-2 p-2 rounded-lg transition-all"
+              style={{ background: copied ? 'rgba(39,201,63,0.15)' : 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.1)' }}
+            >
+              {copied ? <Check className="w-4 h-4" style={{ color: '#27c93f' }} /> : <Copy className="w-4 h-4" style={{ color: 'rgba(255,255,255,0.6)' }} />}
+            </button>
+          </div>
+          <p className="text-[10px] uppercase tracking-wider mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>
+            {copied ? '✓ Copied to clipboard' : 'Click the icon to copy'}
+          </p>
+        </DialogContent>
+      </Dialog>
 
       <SiteFooter />
     </div>);
