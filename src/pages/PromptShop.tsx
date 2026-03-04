@@ -101,7 +101,7 @@ const PromptShop = () => {
   const [activeFilter, setActiveFilter] = useState<Filter>(initialFilter);
   const [selectedPrompt, setSelectedPrompt] = useState<typeof prompts[0] | null>(null);
   const [copied, setCopied] = useState(false);
-  const { isSubscribed } = useAuth();
+  const { isSubscribed, user } = useAuth();
 
   useEffect(() => {
     const f = (searchParams.get('filter') as Filter) || 'all';
@@ -308,7 +308,11 @@ const PromptShop = () => {
                   <p className="text-sm sm:text-base text-center leading-relaxed" style={{ color: 'rgba(255,255,255,0.8)', maxWidth: 320 }}>
                     Unlock all 150+ premium prompts with a Stackmode subscription.
                   </p>
-                  <a href={`/auth?redirect=${encodeURIComponent(location.pathname + location.search)}`} className="btn-primary px-6 py-2.5 text-sm font-bold mt-1">Subscribe to Unlock →</a>
+                  {user ? (
+                    <a href="https://buy.stripe.com/aFa4gBdw3dd92ZK3nR43S0C" className="btn-primary px-6 py-2.5 text-sm font-bold mt-1">Subscribe — $7.99/mo →</a>
+                  ) : (
+                    <a href={`/auth?redirect=${encodeURIComponent(location.pathname + location.search)}`} className="btn-primary px-6 py-2.5 text-sm font-bold mt-1">Login to Subscribe — $7.99/mo →</a>
+                  )}
                 </div>
               </div>
             )}
