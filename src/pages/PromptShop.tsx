@@ -18,7 +18,7 @@ const filters: {id: Filter;label: string;}[] = [
 { id: 'image', label: 'Image' },
 { id: 'video', label: 'Video' },
 { id: 'trading', label: 'Trading' },
-{ id: 'free', label: '🆓 Free' },
+{ id: 'free', label: 'Free' },
 { id: 'premium', label: '⭐ Premium' }];
 
 
@@ -65,10 +65,10 @@ const TerminalWidget = memo(() => {
 
   return (
     <div className="max-w-lg w-full">
-      <div className="flex gap-1 mb-0">
+        <div className="flex gap-1 mb-0 overflow-x-auto scrollbar-hide">
         {promptTabs.map((t, i) =>
         <button key={i} onClick={() => setActive(i)}
-        className="px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider rounded-t-lg transition-colors"
+        className="px-2 sm:px-3 py-1 sm:py-1.5 text-[8px] sm:text-[10px] font-semibold uppercase tracking-wider rounded-t-lg transition-colors whitespace-nowrap"
         style={{ background: i === active ? '#111' : 'transparent', color: i === active ? '#fff' : 'rgba(255,255,255,0.3)', border: i === active ? '1px solid rgba(255,255,255,0.1)' : '1px solid transparent', borderBottom: 'none' }}>
             {t.label}
           </button>
@@ -86,7 +86,7 @@ const TerminalWidget = memo(() => {
         </p>
         <div className="flex items-center justify-between mt-3 pt-2" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
           <span className="text-[9px] uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.3)' }}>AI Generated Output</span>
-          <span className="text-[10px] font-semibold text-white">Get This Prompt →</span>
+          <button onClick={() => document.getElementById('prompt-vault')?.scrollIntoView({ behavior: 'smooth' })} className="text-[10px] font-semibold text-white hover:underline cursor-pointer bg-transparent border-none p-0">Get This Prompt →</button>
         </div>
       </div>
     </div>);
@@ -158,7 +158,7 @@ const PromptShop = () => {
       </section>
 
       {/* The Vault */}
-      <section className="section">
+      <section className="section" id="prompt-vault">
         <div className="container">
           <div className="section-header">
             <p className="section-header__eyebrow">The Vault</p>
@@ -167,18 +167,22 @@ const PromptShop = () => {
           </div>
 
           {/* Filters */}
-          <div className="flex flex-wrap justify-center gap-2 mb-10">
-            {filters.map((f) =>
-            <button key={f.id} onClick={() => setActiveFilter(f.id)}
-            className="px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded-lg transition-all"
-            style={{
-              background: activeFilter === f.id ? '#fff' : 'transparent',
-              color: activeFilter === f.id ? '#000' : 'rgba(255,255,255,0.5)',
-              border: `1px solid ${activeFilter === f.id ? '#fff' : 'rgba(255,255,255,0.1)'}`
-            }}>
-                {f.label}
-              </button>
-            )}
+          <div className="relative mb-10">
+            <div className="flex gap-2 overflow-x-auto scrollbar-hide px-1 py-1 lg:flex-wrap lg:justify-center">
+              {filters.map((f) =>
+              <button key={f.id} onClick={() => setActiveFilter(f.id)}
+              className="px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded-lg transition-all whitespace-nowrap flex-shrink-0"
+              style={{
+                background: activeFilter === f.id ? '#fff' : 'transparent',
+                color: activeFilter === f.id ? '#000' : 'rgba(255,255,255,0.5)',
+                border: `1px solid ${activeFilter === f.id ? '#fff' : 'rgba(255,255,255,0.1)'}`
+              }}>
+                  {f.label}
+                </button>
+              )}
+            </div>
+            {/* Mobile scroll hint */}
+            <div className="absolute right-0 top-0 bottom-0 w-8 pointer-events-none lg:hidden" style={{ background: 'linear-gradient(to right, transparent, #000)' }} />
           </div>
 
           {/* Prompt Cards */}
