@@ -1,4 +1,4 @@
-import { useState, useEffect, useId } from "react";
+import { useState, useEffect, useId, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface AnimatedTextRotatorProps {
@@ -22,26 +22,36 @@ export function AnimatedTextRotator({
     return () => clearInterval(timer);
   }, [words, interval]);
 
+  // Render all words invisibly to reserve space for the longest one
+  const hiddenWords = useMemo(() => words, [words]);
+
   return (
-    <span className={`inline-block relative ${className || ''}`}>
-      <AnimatePresence mode="wait">
-        <motion.span
-          key={`${id}-${currentIndex}`}
-          initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
-          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          exit={{ opacity: 0, y: -20, filter: 'blur(4px)' }}
-          transition={{ duration: 0.4, ease: 'easeInOut' }}
-          className="inline-block"
-          style={{
-            background: 'linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-          }}
-        >
-          {words[currentIndex]}
-        </motion.span>
-      </AnimatePresence>
+    <span className={`inline-block relative align-bottom ${className || ''}`}>
+      {/* Invisible words to reserve max width */}
+      <span className="relative inline-grid" style={{ gridTemplateAreas: '"text"' }}>
+        {hiddenWords.map((w, i) => (
+          <span key={w} className="invisible" style={{ gridArea: 'text' }} aria-hidden="true">{w}</span>
+        ))}
+        <AnimatePresence mode="wait">
+          <motion.span
+            key={`${id}-${currentIndex}`}
+            initial={{ opacity: 0, y: 14, filter: 'blur(4px)' }}
+            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+            exit={{ opacity: 0, y: -14, filter: 'blur(4px)' }}
+            transition={{ duration: 0.35, ease: 'easeInOut' }}
+            className="inline-block"
+            style={{
+              gridArea: 'text',
+              background: 'linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
+            {words[currentIndex]}
+          </motion.span>
+        </AnimatePresence>
+      </span>
     </span>
   );
 }

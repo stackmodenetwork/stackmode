@@ -4,7 +4,6 @@ import { useAuth } from '@/contexts/AuthContext';
 
 const navLinks = [
   { label: 'Home', path: '/' },
-  { label: 'Academy', path: '/academy' },
   {
     label: 'Prompt Shop',
     path: '/shop',
@@ -17,6 +16,7 @@ const navLinks = [
       { label: 'Free Prompts', path: '/shop?filter=free' },
     ],
   },
+  { label: 'Academy', path: '/academy' },
   { label: 'Stackfinder', path: '/stackfinder' },
   { label: 'Brand Boost', path: '/brand-boost' },
   { label: 'Library', path: '/library' },

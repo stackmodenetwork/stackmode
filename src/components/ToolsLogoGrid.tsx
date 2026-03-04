@@ -25,42 +25,39 @@ export default function ToolsLogoGrid() {
   return (
     <section className="section">
       <div className="container">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
-          {/* Left — text */}
-          <div className="lg:w-2/5 flex-shrink-0">
-            <p className="section-header__eyebrow mb-2">Powered by</p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl mb-4" style={{ fontWeight: 600, lineHeight: 1.1, letterSpacing: '-0.02em' }}>
-              Tools we build&nbsp;with
-            </h2>
-            <p className="text-sm sm:text-base mb-6" style={{ color: 'rgba(255,255,255,0.55)', lineHeight: 1.6, maxWidth: 380 }}>
-              We use industry-leading AI, design, and development tools to ship professional products for every client.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Link to="/shop" className="btn-primary btn-sm" onClick={() => window.scrollTo(0, 0)}>Browse Prompts</Link>
-              <Link to="/brand-boost" className="btn-glass btn-sm">View Services →</Link>
-            </div>
+        <div className="text-center mb-8 lg:mb-0 lg:text-left">
+          <p className="section-header__eyebrow mb-2">Powered by</p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl mb-4" style={{ fontWeight: 600, lineHeight: 1.1, letterSpacing: '-0.02em' }}>
+            Tools we build&nbsp;with
+          </h2>
+          <p className="text-sm sm:text-base mb-6 mx-auto lg:mx-0" style={{ color: 'rgba(255,255,255,0.55)', lineHeight: 1.6, maxWidth: 480 }}>
+            We use industry-leading AI, design, and development tools to ship professional products for every client.
+          </p>
+          <div className="flex flex-wrap gap-3 justify-center lg:justify-start mb-10 lg:mb-0">
+            <Link to="/shop" className="btn-primary btn-sm" onClick={() => window.scrollTo(0, 0)}>Browse Prompts</Link>
+            <Link to="/brand-boost" className="btn-glass btn-sm">View Services →</Link>
           </div>
+        </div>
 
-          {/* Right — logo grid */}
-          <div className="lg:w-3/5 grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-3">
-            {tools.map((tool, i) => (
-              <motion.div
-                key={tool.name}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.03 }}
-                className="aspect-square rounded-xl border border-white/[0.08] bg-white/[0.04] flex items-center justify-center p-3 hover:border-white/20 hover:bg-white/[0.08] transition-colors group"
-              >
-                <img
-                  src={tool.src}
-                  alt={tool.name}
-                  className="w-8 h-8 sm:w-10 sm:h-10 object-contain opacity-60 group-hover:opacity-100 transition-opacity"
-                  loading="lazy"
-                />
-              </motion.div>
-            ))}
-          </div>
+        {/* Logo grid — stacks below on mobile, side-by-side on desktop */}
+        <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-3 mt-8 lg:mt-10">
+          {tools.map((tool, i) => (
+            <motion.div
+              key={tool.name}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.03 }}
+              className="aspect-square rounded-xl border border-white/[0.08] bg-white/[0.04] flex items-center justify-center p-3 hover:border-white/20 hover:bg-white/[0.08] transition-colors group"
+            >
+              <img
+                src={tool.src}
+                alt={tool.name}
+                className="w-8 h-8 sm:w-10 sm:h-10 object-contain opacity-60 group-hover:opacity-100 transition-opacity"
+                loading="lazy"
+              />
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
