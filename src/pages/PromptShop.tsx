@@ -201,9 +201,6 @@ const PromptShop = () => {
             )}
           </div>
 
-          <div className="text-center mt-10">
-            <Link to="/shop/image-prompts" className="btn-glass btn-lg">View All 150+ Prompts →</Link>
-          </div>
         </div>
       </section>
 
