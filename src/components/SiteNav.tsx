@@ -13,6 +13,7 @@ const navLinks = [
       { label: 'Image Prompts', path: '/shop?filter=image' },
       { label: 'Video Prompts', path: '/shop?filter=video' },
       { label: 'Trading Prompts', path: '/shop?filter=trading' },
+      { label: '🆓 Free Prompts', path: '/shop?filter=free' },
     ],
   },
   { label: 'Stackfinder', path: '/stackfinder' },
