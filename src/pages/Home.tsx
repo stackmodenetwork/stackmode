@@ -131,13 +131,7 @@ const Academy = () =>
     </section>
 
     {/* Verified Results */}
-    <section className="section section--glass">
-      <div className="container">
-        <div className="section-header">
-          <h2 className="section-header__title">Don't take our word for it. Look at the numbers.</h2>
-          <p className="section-header__subtitle">Real, verified results from builders scaling their income with Stackmode systems.</p>
-        </div>
-        
+    
 
 
 
@@ -155,9 +149,15 @@ const Academy = () =>
 
 
 
-      
-      </div>
-    </section>
+
+
+
+
+
+
+
+
+  
 
     {/* Final CTA */}
     <section className="section text-center">
