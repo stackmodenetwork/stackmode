@@ -34,7 +34,7 @@ const BrandBoost = () =>
     <SiteNav />
 
     {/* Hero */}
-    <section className="relative min-h-[80vh] flex flex-col items-center justify-center text-center px-4 pt-20 pb-12">
+    <section className="relative min-h-[80vh] flex-col text-center px-4 pt-20 pb-12 flex items-center justify-center">
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-2xl">
         <span className="inline-block px-4 py-1.5 rounded-full text-xs font-medium tracking-wider mb-6"
       style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.6)' }}>
