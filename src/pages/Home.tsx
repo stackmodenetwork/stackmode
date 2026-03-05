@@ -68,32 +68,32 @@ const Academy = () =>
     </section>
 
     {/* Grow Faster */}
-    <section className="section section--glass">
-      <div className="container">
-        <div className="section-header">
-          <p className="section-header__eyebrow">Grow Faster With Our All-In-One Solution</p>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {features.map((f, i) =>
-        <motion.div key={f.title}
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: i * 0.1 }}
-        className="glass-card text-center">
-          
-              <div className="text-3xl mb-3">{f.icon}</div>
-              <h3 className="text-lg mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>{f.title}</h3>
-              <div className="flex flex-col gap-1">
-                {f.items.map((item) =>
-            <span key={item} className="text-sm" style={{ color: 'rgba(255,255,255,0.6)' }}>{item}</span>
-            )}
-              </div>
-            </motion.div>
-        )}
-        </div>
-      </div>
-    </section>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
     {/* Two Tracks */}
     <section id="tracks" className="section">
