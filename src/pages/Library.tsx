@@ -105,7 +105,7 @@ const Library = () => {
 
       {/* Library Heading */}
       <section className="section" style={{ paddingTop: 0 }}>
-        <div className="container">
+        <div className="container my-[100px]">
           <div className="section-header">
             <div className="flex justify-center mb-4">
               <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10">
