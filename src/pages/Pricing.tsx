@@ -7,7 +7,7 @@ import { useAuth } from '@/contexts/AuthContext';
 const comparisonRows = [
   { feature: 'Buy individual prompts', free: true, stack: true, ceo: true },
   { feature: 'Full Prompt Library', free: false, stack: true, ceo: true },
-  { feature: 'Stackfinder AI Scanner', free: false, stack: true, ceo: true },
+  
   { feature: 'All courses + live coaching', free: false, stack: true, ceo: true },
   { feature: 'Done-for-you brand build', free: false, stack: false, ceo: true },
 ];
