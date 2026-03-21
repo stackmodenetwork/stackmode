@@ -151,18 +151,18 @@ export const SiteNav = memo(() => {
           <span className="text-sm font-semibold tracking-wide text-white">Stackmode</span>
         </Link>
 
-        <div className="hidden lg:flex items-center gap-0.5">
+        <div className="hidden lg:flex items-center gap-0.5" ref={navRef}>
           {navLinks.map(link => {
             const active = isActive(link.path);
             if (link.dropdown) {
               return (
-                <div key={link.label} className="relative" ref={dropdownRef}>
-                  <button onClick={() => setDropdownOpen(v => !v)}
+                <div key={link.label} className="relative">
+                  <button onClick={() => setOpenDropdown(v => v === link.label ? null : link.label)}
                     className="px-3 py-1.5 text-sm transition-colors"
                     style={{ fontWeight: 500, color: active ? '#fff' : 'rgba(255,255,255,0.6)' }}>
                     {link.label} ▾
                   </button>
-                  {dropdownOpen && (
+                  {openDropdown === link.label && (
                     <div className="absolute top-full left-0 mt-1 py-2 rounded-lg min-w-[200px]" style={{ background: 'rgba(17,17,17,0.98)', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(20px)' }}>
                       {link.dropdown.map(item => (
                         <Link key={item.label} to={item.path}
