@@ -16,8 +16,14 @@ const navLinks = [
       { label: 'Free Prompts', path: '/shop?filter=free' },
     ],
   },
-  { label: 'Academy', path: '/academy' },
-  { label: 'Stackfinder', path: '/stackfinder' },
+  {
+    label: 'Academy',
+    path: '/academy',
+    dropdown: [
+      { label: 'Academy Home', path: '/academy' },
+      { label: 'StackFinder', path: '/stackfinder' },
+    ],
+  },
   { label: 'Brand Boost', path: '/brand-boost' },
   { label: 'Library', path: '/library' },
   { label: 'Pricing', path: '/pricing' },
@@ -25,18 +31,18 @@ const navLinks = [
 
 export const SiteNav = memo(() => {
   const [open, setOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLDivElement>(null);
   const userMenuRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const { user, isSubscribed, loading, signOut, handleCheckout, handlePortal } = useAuth();
 
-  useEffect(() => { setOpen(false); setDropdownOpen(false); setUserMenuOpen(false); }, [location.pathname]);
+  useEffect(() => { setOpen(false); setOpenDropdown(null); setUserMenuOpen(false); }, [location.pathname]);
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) setDropdownOpen(false);
+      if (navRef.current && !navRef.current.contains(e.target as Node)) setOpenDropdown(null);
       if (userMenuRef.current && !userMenuRef.current.contains(e.target as Node)) setUserMenuOpen(false);
     };
     document.addEventListener('click', handleClick);
@@ -145,18 +151,18 @@ export const SiteNav = memo(() => {
           <span className="text-sm font-semibold tracking-wide text-white">Stackmode</span>
         </Link>
 
-        <div className="hidden lg:flex items-center gap-0.5">
+        <div className="hidden lg:flex items-center gap-0.5" ref={navRef}>
           {navLinks.map(link => {
             const active = isActive(link.path);
             if (link.dropdown) {
               return (
-                <div key={link.label} className="relative" ref={dropdownRef}>
-                  <button onClick={() => setDropdownOpen(v => !v)}
+                <div key={link.label} className="relative">
+                  <button onClick={() => setOpenDropdown(v => v === link.label ? null : link.label)}
                     className="px-3 py-1.5 text-sm transition-colors"
                     style={{ fontWeight: 500, color: active ? '#fff' : 'rgba(255,255,255,0.6)' }}>
                     {link.label} ▾
                   </button>
-                  {dropdownOpen && (
+                  {openDropdown === link.label && (
                     <div className="absolute top-full left-0 mt-1 py-2 rounded-lg min-w-[200px]" style={{ background: 'rgba(17,17,17,0.98)', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(20px)' }}>
                       {link.dropdown.map(item => (
                         <Link key={item.label} to={item.path}

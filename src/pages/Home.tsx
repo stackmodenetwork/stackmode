@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import SiteNav from '@/components/SiteNav';
 import SiteFooter from '@/components/SiteFooter';
 
@@ -127,6 +128,25 @@ const Academy = () =>
             </motion.div>
         )}
         </div>
+      </div>
+    </section>
+
+    {/* StackFinder Tool */}
+    <section className="section">
+      <div className="container" style={{ maxWidth: 700 }}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="glass-card text-center"
+        >
+          <span className="text-4xl mb-4 block">🔍</span>
+          <h3 className="text-2xl mb-3" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700 }}>StackFinder AI Scanner</h3>
+          <p className="text-sm mb-6" style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>
+            Our proprietary AI-powered tool scans markets in real-time, identifies high-probability setups, and delivers actionable trade signals — included with your Academy enrollment.
+          </p>
+          <Link to="/stackfinder" className="btn-primary btn-sm">Explore StackFinder →</Link>
+        </motion.div>
       </div>
     </section>
 
