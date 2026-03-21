@@ -16,8 +16,14 @@ const navLinks = [
       { label: 'Free Prompts', path: '/shop?filter=free' },
     ],
   },
-  { label: 'Academy', path: '/academy' },
-  { label: 'Stackfinder', path: '/stackfinder' },
+  {
+    label: 'Academy',
+    path: '/academy',
+    dropdown: [
+      { label: 'Academy Home', path: '/academy' },
+      { label: 'StackFinder', path: '/stackfinder' },
+    ],
+  },
   { label: 'Brand Boost', path: '/brand-boost' },
   { label: 'Library', path: '/library' },
   { label: 'Pricing', path: '/pricing' },
