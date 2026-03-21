@@ -38,11 +38,11 @@ export const SiteNav = memo(() => {
   const location = useLocation();
   const { user, isSubscribed, loading, signOut, handleCheckout, handlePortal } = useAuth();
 
-  useEffect(() => { setOpen(false); setDropdownOpen(false); setUserMenuOpen(false); }, [location.pathname]);
+  useEffect(() => { setOpen(false); setOpenDropdown(null); setUserMenuOpen(false); }, [location.pathname]);
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) setDropdownOpen(false);
+      if (navRef.current && !navRef.current.contains(e.target as Node)) setOpenDropdown(null);
       if (userMenuRef.current && !userMenuRef.current.contains(e.target as Node)) setUserMenuOpen(false);
     };
     document.addEventListener('click', handleClick);
