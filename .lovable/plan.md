@@ -1,28 +1,22 @@
 
 
-# Fix Mobile Overlaps on Prompt Shop Page
+# Remove Stackfinder from Nav, Integrate into Academy + Fix Build Error
 
-## Problems Identified
-1. **Terminal widget** (hero section): Tabs and content area are cramped on mobile — text overflows and the terminal box overlaps with surrounding elements.
-2. **Filter tabs**: Currently use horizontal scroll with an arrow indicator. User wants all filters visible without scrolling or arrows on mobile.
-3. **Featured prompt cards**: The `grid-3` class may cause cards to overlap or clip on small screens.
+## 1. Fix TypeScript build error (`src/components/ui/typewriter.tsx`)
+Change `NodeJS.Timeout` to `ReturnType<typeof setTimeout>` on line 57 to resolve the `TS2503: Cannot find namespace 'NodeJS'` error.
 
-## Changes
+## 2. Remove Stackfinder from navigation (`src/components/SiteNav.tsx`)
+- Remove `{ label: 'Stackfinder', path: '/stackfinder' }` from the `navLinks` array
+- Add "Academy" as a dropdown with sub-items:
+  - "Academy Home" → `/academy`
+  - "StackFinder" → `/stackfinder`
 
-### 1. Remove scroll arrow, make filters wrap on mobile (`src/pages/PromptShop.tsx`)
-- Remove `overflow-x-auto scrollbar-hide` and `pr-10` from the filter container on mobile
-- Change to `flex-wrap` so all filter buttons are visible without scrolling
-- Remove the `ChevronRight` arrow overlay div entirely
-- Reduce button padding slightly on mobile so they fit when wrapped
+## 3. Update Academy page to include StackFinder promo (`src/pages/Home.tsx`)
+- Add a StackFinder section within the Academy page content — a prominent card/link that directs users to `/stackfinder`, positioned after the tracks section
+- Use the existing `StackFinderPromo` component (variant `'coding'`) which is already designed for this context
 
-### 2. Fix terminal widget mobile sizing (`src/pages/PromptShop.tsx`)
-- Add `overflow-hidden` to the terminal container
-- Ensure the terminal text area has proper `break-words` styling
-- Reduce hero section top padding on mobile (120px is too much)
-
-### 3. Ensure prompt cards don't overlap on mobile
-- The `grid-3` CSS class already goes to 1 column on mobile — verify the `glass-card` padding and text sizing don't cause overflow
-
-### Files to modify:
-1. **`src/pages/PromptShop.tsx`** — Wrap filters instead of scroll, remove arrow, fix terminal and hero spacing for mobile
+## Files to modify:
+1. **`src/components/ui/typewriter.tsx`** — Fix `NodeJS.Timeout` type error
+2. **`src/components/SiteNav.tsx`** — Remove Stackfinder nav item, make Academy a dropdown with Academy Home + StackFinder
+3. **`src/pages/Home.tsx`** — Add StackFinderPromo section to the Academy page
 
