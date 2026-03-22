@@ -118,7 +118,9 @@
     height: auto;
   }
 
-  #lovable-badge {
+  /* Hide any injected platform badges */
+  #lovable-badge,
+  [data-platform-badge] {
     display: none !important;
   }
 
