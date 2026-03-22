@@ -1,11 +1,14 @@
-import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
+import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { HelmetProvider } from "react-helmet-async";
-import { lazy, Suspense } from "react";
 import { AuthProvider } from "@/contexts/AuthContext";
+import { supabase } from "@/utils/supabase";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { lazy, Suspense, useEffect, useState } from "react";
+import { HelmetProvider } from "react-helmet-async";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+
+type Todo = { id: number; name: string };
 
 const Landing = lazy(() => import("./pages/Landing"));
 const Home = lazy(() => import("./pages/Home"));
@@ -34,7 +37,18 @@ const queryClient = new QueryClient({
   defaultOptions: { queries: { staleTime: 5 * 60 * 1000, refetchOnWindowFocus: false } },
 });
 
-const App = () => (
+const App = () => {
+  const [todos, setTodos] = useState<Todo[]>([]);
+
+  useEffect(() => {
+    async function getTodos() {
+      const { data } = await supabase.from("todos").select();
+      if (data) setTodos(data as Todo[]);
+    }
+    getTodos();
+  }, []);
+
+  return (
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
@@ -73,7 +87,15 @@ const App = () => (
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
-  </HelmetProvider>
-);
+    {todos.length > 0 && (
+      <ul className="hidden">
+        {todos.map((todo) => (
+          <li key={todo.id}>{todo.name}</li>
+        ))}
+      </ul>
+    )}
+    </HelmetProvider>
+  );
+};
 
 export default App;
