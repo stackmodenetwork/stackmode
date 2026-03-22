@@ -34,7 +34,9 @@ serve(async (req) => {
       customerId = customers.data[0].id;
     }
 
-    const origin = req.headers.get("origin") || "https://stackmode.lovable.app";
+    const ALLOWED_ORIGINS = ['https://stackmode.net', 'https://www.stackmode.net', 'http://localhost:8080'];
+    const requestOrigin = req.headers.get("origin") || '';
+    const origin = ALLOWED_ORIGINS.includes(requestOrigin) ? requestOrigin : 'https://stackmode.net';
 
     const session = await stripe.checkout.sessions.create({
       customer: customerId,

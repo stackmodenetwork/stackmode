@@ -1,14 +1,13 @@
-import { useState, useEffect } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
-import { supabase } from '@/integrations/supabase/client';
-import { lovable } from '@/integrations/lovable/index';
-import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
+import { Input } from '@/components/ui/input';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { supabase } from '@/integrations/supabase/client';
+import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 const GoogleIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24">
+  <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
     <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
     <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
     <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
@@ -16,35 +15,72 @@ const GoogleIcon = () => (
   </svg>
 );
 
+// Sanitize redirect to prevent open-redirect attacks (only allow same-origin relative paths)
+const getSafeRedirect = (redirect: string | null): string => {
+  if (!redirect) return '/';
+  if (redirect.startsWith('/') && !redirect.startsWith('//')) return redirect;
+  return '/';
+};
+
+const isValidEmail = (email: string) =>
+  /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+
 const Auth = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const redirectTo = searchParams.get('redirect') || '/';
+  const redirectTo = getSafeRedirect(searchParams.get('redirect'));
   const [tab, setTab] = useState<'login' | 'signup'>('login');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [googleLoading, setGoogleLoading] = useState(false);
   const [message, setMessage] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     setMessage('');
-    setLoading(true);
 
+    if (!isValidEmail(email)) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+    if (password.length < 6) {
+      setError('Password must be at least 6 characters.');
+      return;
+    }
+
+    setLoading(true);
     try {
       if (tab === 'signup') {
-        const { error } = await supabase.auth.signUp({ email, password });
+        const { error } = await supabase.auth.signUp({
+          email: email.trim().toLowerCase(),
+          password,
+          options: { emailRedirectTo: `${window.location.origin}/auth` },
+        });
         if (error) throw error;
-        navigate(redirectTo);
+        setMessage('Check your email to confirm your account before signing in.');
       } else {
-        const { error } = await supabase.auth.signInWithPassword({ email, password });
+        const { error } = await supabase.auth.signInWithPassword({
+          email: email.trim().toLowerCase(),
+          password,
+        });
         if (error) throw error;
         navigate(redirectTo);
       }
-    } catch (err: any) {
-      setError(err.message || 'Something went wrong');
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : '';
+      // Generic messages to prevent user enumeration attacks
+      if (msg.toLowerCase().includes('invalid login credentials')) {
+        setError('Invalid email or password.');
+      } else if (msg.toLowerCase().includes('email not confirmed')) {
+        setError('Please confirm your email before signing in.');
+      } else if (msg.toLowerCase().includes('user already registered')) {
+        setError('An account with this email already exists. Try logging in.');
+      } else {
+        setError('Something went wrong. Please try again.');
+      }
     } finally {
       setLoading(false);
     }
@@ -52,12 +88,21 @@ const Auth = () => {
 
   const handleGoogle = async () => {
     setError('');
-    // Store redirect path so we can navigate there after OAuth callback
+    setGoogleLoading(true);
     if (redirectTo !== '/') sessionStorage.setItem('auth_redirect', redirectTo);
-    const { error } = await lovable.auth.signInWithOAuth('google', {
-      redirect_uri: window.location.origin,
-    });
-    if (error) setError(error.message || 'Google sign-in failed');
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: `${window.location.origin}/auth`,
+          queryParams: { access_type: 'offline', prompt: 'consent' },
+        },
+      });
+      if (error) throw error;
+    } catch {
+      setGoogleLoading(false);
+      setError('Google sign-in failed. Please try again.');
+    }
   };
 
   // Handle OAuth callback redirect
@@ -65,11 +110,9 @@ const Auth = () => {
     const stored = sessionStorage.getItem('auth_redirect');
     if (stored) {
       sessionStorage.removeItem('auth_redirect');
-      const checkAuth = async () => {
-        const { data: { session } } = await supabase.auth.getSession();
+      supabase.auth.getSession().then(({ data: { session } }) => {
         if (session) navigate(stored);
-      };
-      checkAuth();
+      });
     }
   }, [navigate]);
 
@@ -88,16 +131,32 @@ const Auth = () => {
         </div>
 
         <div className="rounded-2xl p-6 sm:p-8" style={{ background: '#111', border: '1px solid rgba(255,255,255,0.1)' }}>
-          <Tabs value={tab} onValueChange={(v) => setTab(v as 'login' | 'signup')}>
+          <Tabs value={tab} onValueChange={(v) => { setTab(v as 'login' | 'signup'); setError(''); setMessage(''); }}>
             <TabsList className="w-full mb-6" style={{ background: 'rgba(255,255,255,0.05)' }}>
               <TabsTrigger value="login" className="flex-1 data-[state=active]:bg-white data-[state=active]:text-black text-white/60">Login</TabsTrigger>
               <TabsTrigger value="signup" className="flex-1 data-[state=active]:bg-white data-[state=active]:text-black text-white/60">Sign Up</TabsTrigger>
             </TabsList>
 
             <TabsContent value="login">
-              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                <Input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} required className="bg-black/50 border-white/10 text-white placeholder:text-white/30" />
-                <Input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} required className="bg-black/50 border-white/10 text-white placeholder:text-white/30" />
+              <form onSubmit={handleSubmit} className="flex flex-col gap-4" noValidate>
+                <Input
+                  type="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                  required
+                  autoComplete="email"
+                  className="bg-black/50 border-white/10 text-white placeholder:text-white/30"
+                />
+                <Input
+                  type="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={e => setPassword(e.target.value)}
+                  required
+                  autoComplete="current-password"
+                  className="bg-black/50 border-white/10 text-white placeholder:text-white/30"
+                />
                 <Button type="submit" disabled={loading} className="w-full bg-white text-black hover:bg-white/90 font-semibold">
                   {loading ? 'Signing in…' : 'Sign In'}
                 </Button>
@@ -105,9 +164,26 @@ const Auth = () => {
             </TabsContent>
 
             <TabsContent value="signup">
-              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                <Input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} required className="bg-black/50 border-white/10 text-white placeholder:text-white/30" />
-                <Input type="password" placeholder="Password (min 6 chars)" value={password} onChange={e => setPassword(e.target.value)} required minLength={6} className="bg-black/50 border-white/10 text-white placeholder:text-white/30" />
+              <form onSubmit={handleSubmit} className="flex flex-col gap-4" noValidate>
+                <Input
+                  type="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                  required
+                  autoComplete="email"
+                  className="bg-black/50 border-white/10 text-white placeholder:text-white/30"
+                />
+                <Input
+                  type="password"
+                  placeholder="Password (min 6 chars)"
+                  value={password}
+                  onChange={e => setPassword(e.target.value)}
+                  required
+                  minLength={6}
+                  autoComplete="new-password"
+                  className="bg-black/50 border-white/10 text-white placeholder:text-white/30"
+                />
                 <Button type="submit" disabled={loading} className="w-full bg-white text-black hover:bg-white/90 font-semibold">
                   {loading ? 'Creating account…' : 'Create Account'}
                 </Button>
@@ -121,12 +197,17 @@ const Auth = () => {
             <div className="flex-1 h-px" style={{ background: 'rgba(255,255,255,0.1)' }} />
           </div>
 
-          <Button onClick={handleGoogle} variant="outline" className="w-full gap-2 border-white/10 text-white hover:bg-white/5">
-            <GoogleIcon /> Continue with Google
+          <Button
+            onClick={handleGoogle}
+            disabled={googleLoading}
+            variant="outline"
+            className="w-full gap-2 border-white/10 text-white hover:bg-white/5"
+          >
+            <GoogleIcon />{googleLoading ? ' Redirecting…' : ' Continue with Google'}
           </Button>
 
-          {error && <p className="text-red-400 text-sm mt-4 text-center">{error}</p>}
-          {message && <p className="text-green-400 text-sm mt-4 text-center">{message}</p>}
+          {error && <p className="text-red-400 text-sm mt-4 text-center" role="alert">{error}</p>}
+          {message && <p className="text-green-400 text-sm mt-4 text-center" role="status">{message}</p>}
         </div>
 
         <p className="text-center mt-6 text-xs text-muted-foreground">Christopher Robinson — CEO, Stackmode</p>

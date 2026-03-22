@@ -35,7 +35,9 @@ serve(async (req) => {
     const customers = await stripe.customers.list({ email: user.email, limit: 1 });
     if (customers.data.length === 0) throw new Error("No Stripe customer found");
 
-    const origin = req.headers.get("origin") || "https://stackmode.lovable.app";
+    const ALLOWED_ORIGINS = ['https://stackmode.net', 'https://www.stackmode.net', 'http://localhost:8080'];
+    const requestOrigin = req.headers.get("origin") || '';
+    const origin = ALLOWED_ORIGINS.includes(requestOrigin) ? requestOrigin : 'https://stackmode.net';
     const portalSession = await stripe.billingPortal.sessions.create({
       customer: customers.data[0].id,
       return_url: `${origin}/`,
