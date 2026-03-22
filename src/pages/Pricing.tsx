@@ -1,8 +1,8 @@
+import SiteFooter from '@/components/SiteFooter';
+import SiteNav from '@/components/SiteNav';
+import { useAuth } from '@/contexts/AuthContext';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import SiteNav from '@/components/SiteNav';
-import SiteFooter from '@/components/SiteFooter';
-import { useAuth } from '@/contexts/AuthContext';
 
 const comparisonRows = [
   { feature: 'Buy individual prompts', free: true, stack: true, ceo: true },
@@ -31,7 +31,7 @@ const Pricing = () => {
       cta: 'Browse Shop', href: '/shop', external: false, featured: false, useStripe: false,
     },
     {
-      label: 'Stackmode', name: 'Premium', price: '$7.99', oldPrice: '$20', cadence: '/mo',
+      label: 'Stackmode', name: 'Architecht', price: '$7.99', oldPrice: '$20', cadence: '/mo',
       tagline: 'Everything you need to build with AI and trade smarter.',
       benefits: ['Full AI Prompt Library', 'Stackfinder AI Scanner', 'All Academy courses', 'Weekly live coaching', 'Discord (All channels)'],
       cta: isSubscribed ? '★ Active' : 'Get Started', href: 'https://buy.stripe.com/aFa4gBdw3dd92ZK3nR43S0C', external: true, featured: true, badge: '60% OFF', useStripe: true,
